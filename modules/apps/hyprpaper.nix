@@ -1,6 +1,6 @@
 { pkgs, inputs, config, ... }:
 let
-  wallpaper = (import ../wallpaper.nix {}).wallpaper ;
+  wallpaper = (import ../wallpaper.nix { inherit pkgs; inherit config; }).wallpaper;
 in
 {
   services.hyprpaper = {
