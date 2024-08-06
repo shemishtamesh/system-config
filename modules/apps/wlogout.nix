@@ -6,32 +6,32 @@ in
 {
   programs.wlogout = {
     enable = true;
-    layout = [
-      {
-        label = "lock";
-        action = "hyprlock";
-        text = "lock";
-        keybind = "l";
-      }
-      {
-        label = "hibernate";
-        action = "systemctl hibernate";
-        text = "hibernate";
-        keybind = "h";
-      }
-      {
-        label = "sleep";
-        action = "systemctl sleep";
-        text = "sleep";
-        keybind = "s";
-      }
-      {
-        label = "shutdown";
-        action = "systemctl poweroff";
-        text = "shutdown";
-        keybind = "p";
-      }
-    ];
+    layout = [];
+      # {
+      #   label = "lock";
+      #   action = "hyprlock";
+      #   text = "lock";
+      #   keybind = "l";
+      # }
+      # {
+      #   label = "hibernate";
+      #   action = "systemctl hibernate";
+      #   text = "hibernate";
+      #   keybind = "h";
+      # }
+      # {
+      #   label = "sleep";
+      #   action = "systemctl sleep";
+      #   text = "sleep";
+      #   keybind = "s";
+      # }
+      # {
+      #   label = "shutdown";
+      #   action = "systemctl poweroff";
+      #   text = "shutdown";
+      #   keybind = "p";
+      # }
+    # ];
     style = /* css */ ''
       * {
           background-image: none;
