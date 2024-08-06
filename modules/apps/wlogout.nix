@@ -8,10 +8,28 @@ in
     enable = true;
     layout = [
       {
+        label = "lock";
+        action = "hyprlock";
+        text = "Shutdown";
+        keybind = "l";
+      }
+      {
+        label = "hibernate";
+        action = "systemctl hibernate";
+        text = "Shutdown";
+        keybind = "h";
+      }
+      {
+        label = "sleep";
+        action = "systemctl sleep";
+        text = "Shutdown";
+        keybind = "s";
+      }
+      {
         label = "shutdown";
         action = "systemctl poweroff";
         text = "Shutdown";
-        keybind = "s";
+        keybind = "p";
       }
     ];
     style = /* css */ ''
