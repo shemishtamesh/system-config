@@ -6,5 +6,8 @@
         general = {
             grace = 60;
         };
+        background {
+            path = ${}
+        };
     };
 }

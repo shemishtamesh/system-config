@@ -7,7 +7,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     ./modules/hyprland.nix
     ./modules/hyprpaper.nix
-    # ./modules/hyprlock.nix
+    ./modules/hyprlock.nix
     ./modules/zsh.nix
     ./modules/waybar.nix
     ./modules/wlogout.nix

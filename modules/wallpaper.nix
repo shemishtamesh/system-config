@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }:
+{ ... }:
 let
   nixWallpaperFromScheme =
     { scheme
@@ -89,6 +89,8 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
+in
+{
   wallpaper = nixWallpaperFromScheme {
     scheme = config.colorScheme;
     width = 1920;
@@ -100,14 +102,5 @@ let
     logoColor4 = config.colorScheme.palette.base0B;
     logoColor5 = config.colorScheme.palette.base0C;
     logoColor6 = config.colorScheme.palette.base0D;
-  };
-in
-{
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [ "${wallpaper}" ];
-      wallpaper = [ "eDP-1,${wallpaper}" ];
-    };
   };
 }
