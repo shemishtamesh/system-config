@@ -1,6 +1,8 @@
 { pkgs, inputs, config, ... }:
+let
+  wallpaper = (import ../wallpaper.nix {}).wallpaper ;
+in
 {
-  imports = [ ../wallpaper.nix ];
   services.hyprpaper = {
     enable = true;
     settings = {
