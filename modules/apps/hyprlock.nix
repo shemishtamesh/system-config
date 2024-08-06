@@ -8,8 +8,8 @@ in
         general = {
             grace = 60;
         };
-        #  background = {
-        #      path = wallpaper;
-        #  };
+        # background = {
+        #     path = wallpaper;
+        # };
     };
 }
