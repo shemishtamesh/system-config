@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  colorScheme = inputs.nix-colors.colorSchemes.isotope;
+  colorScheme = inputs.nix-colors.colorSchemes.pop;
 in
 {
   imports = [
