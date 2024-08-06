@@ -51,7 +51,7 @@ in
           position = "0, 200";
           halign = "center";
           valign = "center";
-        }
+        };
 
         # image {
         #     path = /home/justin/Pictures/profile_pictures/justin_square.png
