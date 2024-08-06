@@ -32,9 +32,9 @@ in
         keybind = "h";
       }
       {
-        label = "sleep";
-        action = "systemctl sleep";
-        text = "sleep";
+        label = "suspend";
+        action = "systemctl suspend";
+        text = "suspend";
         keybind = "s";
       }
       {
