@@ -10,7 +10,11 @@ in
         };
         background = {
             path = toString wallpaper;
-            # blur_passes = 2;
+            blur_passes = 2;
+            contrast = 1;
+            brightness = 0.5;
+            vibrancy = 0.2;
+            vibrancy_darkness = 0.2;
         };
     };
 }
