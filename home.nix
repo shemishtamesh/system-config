@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }:
 let
-  colorScheme = inputs.nix-colors.colorSchemes.irblack;
+  # colorScheme = inputs.nix-colors.colorSchemes.irblack;
+  colorScheme = inputs.nix-colors.colorSchemes.black-metal;
 in
 {
   imports = [
