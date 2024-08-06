@@ -10,25 +10,25 @@ in
       {
         label = "lock";
         action = "hyprlock";
-        text = "Shutdown";
+        text = "lock";
         keybind = "l";
       }
       {
         label = "hibernate";
         action = "systemctl hibernate";
-        text = "Shutdown";
+        text = "hibernate";
         keybind = "h";
       }
       {
         label = "sleep";
         action = "systemctl sleep";
-        text = "Shutdown";
+        text = "sleep";
         keybind = "s";
       }
       {
         label = "shutdown";
         action = "systemctl poweroff";
-        text = "Shutdown";
+        text = "shutdown";
         keybind = "p";
       }
     ];
