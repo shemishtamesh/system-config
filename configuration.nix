@@ -165,7 +165,9 @@
     wlogout
   ];
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   stylix.enable = true;
 
   fonts.packages = with pkgs; [
