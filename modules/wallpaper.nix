@@ -3,7 +3,7 @@ let
   importYaml =
     file: builtins.fromJSON (
       builtins.readFile (
-        pkgs.runCommandasdfNoCC "converted-yaml.json" ''
+        throw pkgs.runCommandNoCC "converted-yaml.json" ''
           ${pkgs.yj}/bin/yj < "${file}" > "$out"
         ''
       )
