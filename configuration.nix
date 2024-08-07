@@ -3,12 +3,16 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  wallpaper = (import ../wallpaper.nix { inherit pkgs; inherit config; }).wallpaper;
+in
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      ./modules/wallpaper.nix
     ];
 
   # Bootloader.
@@ -168,7 +172,8 @@
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal.yaml";
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  # stylix.enable = true;
+  stylix.enable = true;
+  stylix.image = wallpaper;
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
