@@ -165,7 +165,7 @@
     wlogout
   ];
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/pop.yaml";
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
