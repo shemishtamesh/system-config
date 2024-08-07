@@ -4,8 +4,7 @@
 
 { config, pkgs, ... }:
 let
-  scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
-  wallpaper = (import ../wallpaper.nix { inherit pkgs; inherit scheme; }).wallpaper;
+  wallpaper = (import ./modules/wallpaper.nix { inherit pkgs; }).wallpaper;
 in
 {
   imports =
