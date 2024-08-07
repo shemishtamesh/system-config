@@ -4,15 +4,14 @@
 
 { config, pkgs, ... }:
 let
-  wallpaper = (import ../wallpaper.nix { inherit pkgs; inherit config; }).wallpaper;
+  scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
+  wallpaper = (import ../wallpaper.nix { inherit pkgs; inherit scheme; }).wallpaper;
 in
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-
-      ./modules/wallpaper.nix
     ];
 
   # Bootloader.

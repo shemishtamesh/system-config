@@ -1,20 +1,25 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
+  importYaml =
+    file: builtins.fromJSON (
+      builtins.readFile (
+        pkgs.runCommandNoCC "converted-yaml.json" ''${pkgs.yj}/bin/yj < "${file}" > "$out"''
+      )
+    );
   nixWallpaperFromScheme =
-    { scheme
-    , width
+    { width
     , height
     , logoScale
-    , backgroundColor ? scheme.palette.base00
-    , logoColor1 ? scheme.palette.base01
-    , logoColor2 ? scheme.palette.base02
-    , logoColor3 ? scheme.palette.base03
-    , logoColor4 ? scheme.palette.base04
-    , logoColor5 ? scheme.palette.base05
-    , logoColor6 ? scheme.palette.base06
+    , backgroundColor
+    , logoColor1
+    , logoColor2
+    , logoColor3
+    , logoColor4
+    , logoColor5
+    , logoColor6
     }:
     pkgs.stdenv.mkDerivation {
-      name = "generated-nix-wallpaper-${scheme.slug}.png";
+      name = "generated-nix-wallpaper.png";
       src = pkgs.writeTextFile {
         name = "template.svg";
         text = /* svg */ ''
@@ -89,18 +94,19 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
+  scheme = importYaml "${pkgs.base16-schemes}/share/themes/isotope.yaml";
 in
 {
   wallpaper = nixWallpaperFromScheme {
-    scheme = config.colorScheme;
     width = 1920;
     height = 1080;
     logoScale = 8;
-    logoColor1 = config.colorScheme.palette.base08;
-    logoColor2 = config.colorScheme.palette.base09;
-    logoColor3 = config.colorScheme.palette.base0A;
-    logoColor4 = config.colorScheme.palette.base0B;
-    logoColor5 = config.colorScheme.palette.base0C;
-    logoColor6 = config.colorScheme.palette.base0D;
+    backgroundColor = scheme.palette.base00;
+    logoColor1 = scheme.palette.base08;
+    logoColor2 = scheme.palette.base09;
+    logoColor3 = scheme.palette.base0A;
+    logoColor4 = scheme.palette.base0B;
+    logoColor5 = scheme.palette.base0C;
+    logoColor6 = scheme.palette.base0D;
   };
 }
