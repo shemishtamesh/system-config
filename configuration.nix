@@ -165,9 +165,8 @@
     wlogout
   ];
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/pop.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/isotope.yaml";
   stylix.enable = true;
-  stylix.autoEnable = true;
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
