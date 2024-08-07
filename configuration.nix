@@ -166,6 +166,7 @@
   ];
 
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/pop.yaml";
+  stylix.enable = true;
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
