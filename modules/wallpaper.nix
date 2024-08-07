@@ -94,6 +94,7 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
+
   scheme = importYaml pkgs.base16-schemes/share/themes/isotope.yaml;
 in
 {
