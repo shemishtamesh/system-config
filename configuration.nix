@@ -148,7 +148,6 @@
     zoxide
     killall
     pkgs.waybar
-    swww
     rofi-wayland
     pkgs.dunst
     libnotify
@@ -165,6 +164,8 @@
     copyq
     wlogout
   ];
+
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })

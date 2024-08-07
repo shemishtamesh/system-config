@@ -11,6 +11,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -23,6 +24,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          inputs.stylix.nixosModules.stylix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
