@@ -3,11 +3,9 @@ let
   importYaml =
     # file: builtins.fromJSON (
     file:
-      builtins.readFile (
         pkgs.runCommandNoCC "converted-yaml.json" ''
           ${pkgs.yj}/bin/yj < "${file}" > "$out"
-        ''
-    );
+        '';
   nixWallpaperFromScheme =
     { width
     , height
