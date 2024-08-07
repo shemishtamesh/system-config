@@ -10,7 +10,7 @@ in
     };
     background = {
       path = toString wallpaper;
-      blur_passes = 1;
+      blur_passes = 10;
       contrast = 1;
       brightness = 0.5;
       vibrancy = 0.2;
