@@ -6,7 +6,7 @@ in
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
     general = {
-      grace = 3;
+      grace = 0;
     };
     background = {
       path = toString wallpaper;
