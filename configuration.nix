@@ -160,7 +160,6 @@ in
     cargo
     python3
     nodejs
-    firefox
     discord
     webcord
     spotify

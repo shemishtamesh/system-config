@@ -45,7 +45,7 @@ in
   #   color14 = "#${palette.base0F}";
   #   color15 = "#${palette.base07}";
 
-  #   open_url_with = "firefox";
+  #   open_url_with = "librewolf";
   #   detect_urls = "yes";
 
   #   enable_audio_bell = "no";

@@ -39,8 +39,8 @@ in
       "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, SPACE, exec, rofi -show drun"
       "$mod, RETURN, exec, kitty"
-      "$mod, i, exec, firefox"
-      "$mod SHIFT, i, exec, firefox --private-window"
+      "$mod, i, exec, librewolf"
+      "$mod SHIFT, i, exec, librewolf --private-window"
 
       "$mod, b, exec, ${lib.getExe toggle-bar}"
 
