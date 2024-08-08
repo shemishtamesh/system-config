@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
   # scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  scheme = importYaml "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
+  # scheme = importYaml "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
+  scheme = importYaml "${pkgs.base16-schemes}/share/themes/pop.yaml";
   importYaml =
     file: builtins.fromJSON (
       builtins.readFile (
