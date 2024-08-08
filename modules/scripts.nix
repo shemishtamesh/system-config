@@ -2,10 +2,12 @@
 
 let
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
-    git -C $HOME/.config/nixos add .
-    git commit -m 'update'
-    sudo nixos-rebuild switch --flake . --show-trace \
-        && home-manager switch --flake . --show-trace
+    flake_path="$HOME/.config/nixos"
+    git -C $flake_path add .
+    git -C $flake_path add .
+    git -C $flake_path commit -m 'update'
+    sudo nixos-rebuild switch --flake $flake_path --show-trace \
+        && home-manager switch --flake $flake_path --show-trace
     systemctl --user restart hyprpaper.service
     notify-send 'done rebuilding'
   '';
