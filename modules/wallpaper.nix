@@ -96,7 +96,7 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
-  scheme = importYaml "${pkgs.base16-schemes}/share/themes/apathy.yaml";
+  scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
 in
 {
   wallpaper = nixWallpaperFromScheme {
@@ -110,12 +110,5 @@ in
     logoColor4 = scheme.palette.base0B;
     logoColor5 = scheme.palette.base0C;
     logoColor6 = scheme.palette.base0D;
-    # backgroundColor = "000000";
-    # logoColor1 = "D5D6DB";
-    # logoColor2 = "CBCCD1";
-    # logoColor3 = "DFE0E5";
-    # logoColor4 = "9699A3";
-    # logoColor5 = "4C505E";
-    # logoColor6 = "4C505E";
   };
 }
