@@ -186,7 +186,7 @@ in
       "playerctld"
     ];
   };
-  plugins = [
-    pkgs.hyprlandPlugins.hyprexpo
-  ];
+  # plugins = [
+  #   pkgs.hyprlandPlugins.hyprexpo
+  # ];
 }
