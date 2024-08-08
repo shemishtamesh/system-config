@@ -5,8 +5,8 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    # ./modules/apps/hyprland.nix
-    # ./modules/apps/hyprpaper.nix
+    ./modules/apps/hyprland.nix
+    ./modules/apps/hyprpaper.nix
     ./modules/apps/hyprlock.nix
     ./modules/apps/zsh.nix
     ./modules/apps/waybar.nix
