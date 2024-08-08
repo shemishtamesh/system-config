@@ -11,13 +11,15 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    stylix = {
-      url = "github:donovanglover/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
+
+    stylix.url = "github:donovanglover/stylix";
+    # stylix = {
+    #   url = "github:donovanglover/stylix";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     home-manager.follows = "home-manager";
+    #   };
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
