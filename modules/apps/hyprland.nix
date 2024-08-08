@@ -19,9 +19,10 @@ let
 in
 {
   wayland.windowManager.hyprland.enable = true;
-  # wayland.windowManager.hyprland.settings = {
-  #   "$mod" = "SUPER";
-  #   monitor = "eDP-1,1920x1080@60,0x0,1";
+  wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    monitor = "eDP-1,1920x1080@60,0x0,1";
+  }
   #   bind = [
   #     "$mod CTRL SHIFT, q, exit"
 
