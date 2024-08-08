@@ -167,7 +167,7 @@ in
     wlogout
   ];
 
-  stylix.enable = true;
+  # stylix.enable = true;
   stylix.base16Scheme = theme.scheme;
   stylix.image = theme.wallpaper;
   # stylix.image = pkgs.fetchurl {
