@@ -4,7 +4,7 @@
 
 { config, pkgs, ... }:
 let
-  wallpaper = (import ./modules/wallpaper.nix { inherit pkgs; }).wallpaper;
+  theme = (import ./modules/wallpaper.nix { inherit pkgs; });
 in
 {
   imports =
@@ -171,7 +171,7 @@ in
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal.yaml";
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   stylix.enable = true;
-  stylix.image = wallpaper;
+  stylix.image = theme.wallpaper;
   stylix.polarity = "dark";
 
   fonts.packages = with pkgs; [
