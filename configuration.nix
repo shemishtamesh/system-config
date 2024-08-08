@@ -4,7 +4,7 @@
 
 { config, pkgs, ... }:
 let
-  theme = (import ./modules/wallpaper.nix { inherit pkgs; });
+  theme = (import ./modules/theming.nix { inherit pkgs; });
 in
 {
   imports =
