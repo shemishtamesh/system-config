@@ -172,6 +172,7 @@ in
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   stylix.enable = true;
   stylix.image = wallpaper;
+  stylix.polarity = "dark";
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
