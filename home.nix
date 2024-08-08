@@ -3,7 +3,6 @@ let
   colorScheme = inputs.nix-colors.colorSchemes.irblack;
 in
 {
-    asdfasdfwa
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./modules/apps/hyprland.nix
