@@ -4,8 +4,9 @@ let
 in
 {
   services.hyprpaper.enable = true;
-  # services.hyprpaper.settings = {
-  #   preload = [ "${wallpaper}" ];
+  services.hyprpaper.settings = {
+    preload = [ "${wallpaper}" ];
+  };
   #   wallpaper = [ "eDP-1,${wallpaper}" ];
   # };
 }
