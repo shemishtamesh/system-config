@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }: 
+{ pkgs, inputs, config, ... }:
 let
   wallpaper = (import ../theming.nix { inherit pkgs; inherit config; }).wallpaper;
 in
