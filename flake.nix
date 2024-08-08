@@ -24,7 +24,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          inputs.stylix.nixosModules.stylix
+          # inputs.stylix.nixosModules.stylix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
