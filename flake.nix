@@ -29,8 +29,8 @@
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
           inputs.stylix.nixosModules.stylix
+          ./configuration.nix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
