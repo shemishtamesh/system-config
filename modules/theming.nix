@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  # scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+  scheme = importYaml "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
   importYaml =
     file: builtins.fromJSON (
       builtins.readFile (
@@ -96,7 +98,6 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
-  scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
 in
 {
   inherit scheme;
