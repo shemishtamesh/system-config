@@ -14,7 +14,6 @@ in
     ./modules/apps/kitty.nix
     ./modules/apps/git.nix
   ];
-  programs.wezterm.enable = true;
 
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
