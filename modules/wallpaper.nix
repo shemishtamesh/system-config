@@ -99,6 +99,7 @@ let
   scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
 in
 {
+  inherit scheme;
   wallpaper = nixWallpaperFromScheme {
     width = 1920;
     height = 1080;
