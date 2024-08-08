@@ -150,9 +150,9 @@ in
     git
     zoxide
     killall
-    pkgs.waybar
+    waybar
     rofi-wayland
-    pkgs.dunst
+    dunst
     libnotify
     gcc
     cargo
