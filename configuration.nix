@@ -173,6 +173,7 @@ in
   stylix.enable = true;
   stylix.image = theme.wallpaper;
   stylix.polarity = "dark";
+  stylix.targets.kitty.enable = true;
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
