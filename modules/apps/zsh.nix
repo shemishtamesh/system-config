@@ -2,7 +2,7 @@
 
 {
     programs.zsh.enable = true;
-    programs.shellAliases = {
+    programs.zsh.shellAliases = {
         n = "nvim";
     };
 }
