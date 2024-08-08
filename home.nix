@@ -11,7 +11,7 @@ in
     ./modules/apps/zsh.nix
     ./modules/apps/waybar.nix
     ./modules/apps/wlogout.nix
-    ./modules/apps/kitty.nix
+    ./modules/apps/ksditty.nix
     ./modules/apps/git.nix
   ];
 
