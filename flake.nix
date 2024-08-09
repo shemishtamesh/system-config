@@ -32,13 +32,13 @@
         specialArgs = { inherit inputs; };
         modules = [
           stylix.nixosModules.stylix
-          ./configuration.nix
+          ./modules/nixos/configuration.nix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs; };
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ ./modules/home-manager/home.nix ];
       };
     };
 }
