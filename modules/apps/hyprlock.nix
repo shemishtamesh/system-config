@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  wallpaper = (import ../theming.nix { inherit pkgs; inherit config; }).wallpaper;
+  wallpaper = (import ../utils/theming.nix { inherit pkgs; inherit config; }).wallpaper;
 in
 {
   programs.hyprlock.enable = true;
