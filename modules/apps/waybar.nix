@@ -180,7 +180,7 @@ in
       #workspaces button,
       #battery {
           background: #${palette.base02};
-          color: #${palette.base07};
+          color: #${palette.base05};
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
@@ -218,6 +218,7 @@ in
       #workspaces button.active {
           padding: 1px 15px 1px 10px;
           background: #${palette.base0B};
+          color: #${palette.base00};
       }
 
       window#waybar.empty #window {
