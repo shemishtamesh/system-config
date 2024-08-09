@@ -21,14 +21,14 @@
     in
     {
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; inherit theme; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit inputs; inherit theme; };
+        extraSpecialArgs = { inherit inputs; };
         inherit pkgs;
         modules = [
           ./modules/home-manager/home.nix
