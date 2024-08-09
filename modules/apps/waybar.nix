@@ -145,7 +145,6 @@ in
     };
     style = /* css */ ''
       * {
-          font-family: FiraCode Nerd Font;
           border: none;
           border-radius: 0;
           min-height: 0;
@@ -220,12 +219,12 @@ in
 
       window#waybar.empty #window {
           padding: 1px 50px;
-          background: ${palette.base03};
+          background: ${palette.base02};
       }
 
       #mpris.paused {
-          background: ${palette.base03};
-          color: ${palette.base06};
+          background: ${palette.base02};
+          color: ${palette.base05};
       }
       #mpris.playing {
           padding: 1px 3px;

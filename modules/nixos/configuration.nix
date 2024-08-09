@@ -169,10 +169,6 @@
       fonts = theme.fonts;
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
-
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
