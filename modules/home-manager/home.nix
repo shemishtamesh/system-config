@@ -25,6 +25,7 @@ in
 
   stylix.base16Scheme = theme.scheme;
   stylix.image = theme.wallpaper;
+  stylix.autoEnable = true;
   # stylix.
   # stylix.targets.kitty.enable = true;
   # stylix.targets.kitty.enable = false;
