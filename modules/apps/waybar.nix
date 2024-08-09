@@ -178,7 +178,7 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: ${palette.base0D}00;
+          background: ${palette.base0D};
           color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
