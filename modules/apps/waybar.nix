@@ -153,7 +153,7 @@ in
       }
 
       window#waybar {
-          background: ${palette.asRgbaDec.base00};
+          background: ${palette.base00};
           color: ${palette.base00};
       }
 
@@ -203,7 +203,7 @@ in
       }
 
       #workspaces {
-          background: ${palette.asRgbaDec.base00};
+          background: ${palette.base00};
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;
