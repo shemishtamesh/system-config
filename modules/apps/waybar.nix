@@ -179,8 +179,8 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: #${palette.base02};
-          color: #${palette.base05};
+          background: #${palette.base0D};
+          color: #${palette.base00};
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
@@ -218,18 +218,17 @@ in
       #workspaces button.active {
           padding: 1px 15px 1px 10px;
           background: #${palette.base0B};
-          color: #${palette.base00};
       }
 
       window#waybar.empty #window {
           padding: 1px 50px;
-          background: #${palette.base01};
+          background: #${palette.base03};
           color: #${palette.base07};
       }
 
       #mpris.paused {
-          background: #${palette.base01};
-          color: #${palette.base04};
+          background: #${palette.base03};
+          color: #${palette.base07};
       }
       #mpris.playing {
           padding: 1px 3px;
