@@ -12,7 +12,7 @@ in
     ../apps/zsh.nix
     ../apps/waybar.nix
     ../apps/wlogout.nix
-    ../apps/kitty.nix
+    # ../apps/kitty.nix
     ../apps/git.nix
   ];
 
@@ -25,6 +25,7 @@ in
 
   stylix.base16Scheme = theme.scheme;
   stylix.image = theme.wallpaper;
+  # stylix.
   # stylix.targets.kitty.enable = true;
   # stylix.targets.kitty.enable = false;
   # stylix.image = pkgs.fetchurl {
