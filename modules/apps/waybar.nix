@@ -153,8 +153,8 @@ in
       }
 
       window#waybar {
-          background: ${palette.base00}00;
-          color: ${palette.base00};
+          background: ${palette.base00}05;
+          color: ${palette.base00}05;
       }
 
       #disk,
@@ -177,8 +177,8 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: ${palette.base0D}00;
-          color: ${palette.base00};
+          background: ${palette.base0D}05;
+          color: ${palette.base00}05;
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
@@ -192,8 +192,8 @@ in
       #pulseaudio.output.muted,
       #network.disconnected,
       #privacy {
-          background: ${palette.base08};
-          color: ${palette.base07};
+          background: ${palette.base08}05;
+          color: ${palette.base07}05;
           padding: 1px 12px 1px 11px;
       }
 
@@ -203,34 +203,34 @@ in
       }
 
       #workspaces {
-          background: ${palette.base00};
+          background: ${palette.base00}05;
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;
       }
       #workspaces button:hover {
           padding: 1px 12px 1px 7px;
-          background: ${palette.base0C};
+          background: ${palette.base0C}05;
           margin-bottom: 0;
       }
       #workspaces button.active {
           padding: 1px 15px 1px 10px;
-          background: ${palette.base0B};
+          background: ${palette.base0B}05;
       }
 
       window#waybar.empty #window {
           padding: 1px 50px;
-          background: ${palette.base02};
+          background: ${palette.base02}05;
       }
 
       #mpris.paused {
-          background: ${palette.base02};
-          color: ${palette.base05};
+          background: ${palette.base02}05;
+          color: ${palette.base05}05;
       }
       #mpris.playing {
           padding: 1px 3px;
       }
     '';
-  };
+  }05;
 }
 
