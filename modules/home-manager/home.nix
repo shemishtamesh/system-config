@@ -16,12 +16,17 @@ in
     ../apps/git.nix
   ];
 
-  programs.kitty.enable = true;
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
   inherit colorScheme;
 
+  programs.kitty.enable = true;
+  programs.waybar.enable = true;
+  programs.wlogout.enable = true;
+  programs.hyprland.enable = true;
+  programs.hyprpaper.enable = true;
+  programs.hyprlock.enable = true;
 
   stylix.enable = true;
   stylix.base16Scheme = theme.scheme;
