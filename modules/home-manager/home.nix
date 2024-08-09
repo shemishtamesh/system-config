@@ -1,6 +1,5 @@
 { inputs, pkgs, ... }:
 let
-  colorScheme = inputs.nix-colors.colorSchemes.irblack;
   theme = (import ../utils/theming.nix { inherit pkgs; });
 in
 {
@@ -18,6 +17,8 @@ in
 
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
+
+  inherit theme;
 
   nixpkgs.config.allowUnfree = true;
 
