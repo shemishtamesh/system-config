@@ -223,12 +223,11 @@ in
       window#waybar.empty #window {
           padding: 1px 50px;
           background: #${palette.base03};
-          color: #${palette.base07};
       }
 
       #mpris.paused {
           background: #${palette.base03};
-          color: #${palette.base07};
+          color: #${palette.base06};
       }
       #mpris.playing {
           padding: 1px 3px;
