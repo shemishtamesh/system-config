@@ -154,7 +154,7 @@
     python3
     nodejs
     discord
-    veskord
+    vesktop
     webcord
     spotify
     obs-studio
