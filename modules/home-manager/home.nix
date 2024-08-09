@@ -6,13 +6,13 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    # ../apps/hyprland.nix
-    # ../apps/hyprpaper.nix
-    # ../apps/hyprlock.nix
+    ../apps/hyprland.nix
+    ../apps/hyprpaper.nix
+    ../apps/hyprlock.nix
     ../apps/zsh.nix
-    # ../apps/waybar.nix
-    # ../apps/wlogout.nix
-    # ../apps/kitty.nix
+    ../apps/waybar.nix
+    ../apps/wlogout.nix
+    ../apps/kitty.nix
     ../apps/git.nix
   ];
 
@@ -21,12 +21,12 @@ in
 
   inherit colorScheme;
 
-  programs.kitty.enable = true;
-  programs.waybar.enable = true;
-  programs.wlogout.enable = true;
-  wayland.windowManager.hyprland.enable = true;
-  services.hyprpaper.enable = true;
-  programs.hyprlock.enable = true;
+  # programs.kitty.enable = true;
+  # programs.waybar.enable = true;
+  # programs.wlogout.enable = true;
+  # wayland.windowManager.hyprland.enable = true;
+  # services.hyprpaper.enable = true;
+  # programs.hyprlock.enable = true;
 
   stylix.enable = true;
   stylix.base16Scheme = theme.scheme;
