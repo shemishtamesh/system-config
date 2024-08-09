@@ -6,12 +6,12 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../apps/hyprland.nix
-    ../apps/hyprpaper.nix
-    ../apps/hyprlock.nix
+    # ../apps/hyprland.nix
+    # ../apps/hyprpaper.nix
+    # ../apps/hyprlock.nix
     ../apps/zsh.nix
-    ../apps/waybar.nix
-    ../apps/wlogout.nix
+    # ../apps/waybar.nix
+    # ../apps/wlogout.nix
     # ../apps/kitty.nix
     ../apps/git.nix
   ];
