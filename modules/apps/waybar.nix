@@ -153,7 +153,7 @@ in
       }
 
       window#waybar {
-          background: ${palette.base00};
+          background: ${palette.base00}00;
           color: ${palette.base00};
       }
 
@@ -215,7 +215,7 @@ in
       }
       #workspaces button.active {
           padding: 1px 15px 1px 10px;
-          background: ${palette.base0B};
+          background: ${palette.base0B}00;
       }
 
       window#waybar.empty #window {
