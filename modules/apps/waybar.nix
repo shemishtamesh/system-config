@@ -1,13 +1,14 @@
 { config, inputs, ... }:
 let
+  no_hashtag_palette = config.lib.stylix.colors;
   palette = config.lib.stylix.colors.withHashtag;
   window_icon = "";
   firefox_icon = "󰈹";
   rgba = color: opacity:
   let
-    r = config.lib.stylix.colors."${color}-rgb-r";
-    g = config.lib.stylix.colors."${color}-rgb-g";
-    b = config.lib.stylix.colors."${color}-rgb-b";
+    r = no_hashtag_palette."${color}-rgb-r";
+    g = no_hashtag_palette."${color}-rgb-g";
+    b = no_hashtag_palette."${color}-rgb-b";
   in "rgba(${r}, ${g}, ${b}, ${opacity})";
 in
 {
