@@ -150,7 +150,7 @@ in
           border: none;
           border-radius: 0;
           min-height: 0;
-          font-size: 15px;
+          font-size: 12px;
       }
 
       window#waybar {
