@@ -98,7 +98,7 @@ let
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
   wallpaper = pkgs.runCommand "image.png" {} ''
-        COLOR=$(${pkgs.yq}/bin/yq -r .base00 ${theme})
+        COLOR=$(${pkgs.yq}/bin/yq -r .base00 ${scheme})
         COLOR="#"$COLOR
         ${pkgs.imagemagick}/bin/magick convert -size 1920x1080 xc:$COLOR $out
   '';
