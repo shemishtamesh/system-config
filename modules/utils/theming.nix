@@ -114,7 +114,23 @@ in
   inherit scheme;
   inherit wallpaper;
   fonts = {
+    serif = {
+      package = pkgs.fira-code-symbols;
+      name = "FiraCode Nerd Font";
+    };
+
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "FiraCode Nerd Font";
+    };
+
     monospace = {
+      package = pkgs.dejavu_fonts;
+      name = "FiraCode Nerd Font";
+    };
+
+    emoji = {
+      package = pkgs.noto-fonts-emoji;
       name = "FiraCode Nerd Font";
     };
   };
