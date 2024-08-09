@@ -114,6 +114,8 @@ in
   inherit scheme;
   inherit wallpaper;
   fonts = {
-    monospace = "FiraCode Nerd Font";
+    monospace = {
+      name = "FiraCode Nerd Font";
+    };
   };
 }
