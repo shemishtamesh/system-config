@@ -178,8 +178,8 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: ${palette.base0D};
-          color: ${palette.base00};
+          background: ${palette.base0D}00;
+          color: ${palette.base00}00;
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
@@ -216,7 +216,7 @@ in
       }
       #workspaces button.active {
           padding: 1px 15px 1px 10px;
-          background: ${palette.base0B}00;
+          background: ${palette.base0B};
       }
 
       window#waybar.empty #window {
