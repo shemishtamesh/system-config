@@ -5,9 +5,9 @@ let
   firefox_icon = "󰈹";
   rgba = color: opacity:
   let
-    r = palette."${color}-rgb-r";
-    g = palette."${color}-rgb-g";
-    b = palette."${color}-rgb-b";
+    r = config.lib.stylix.colors."${color}-rgb-r";
+    g = config.lib.stylix.colors."${color}-rgb-g";
+    b = config.lib.stylix.colors."${color}-rgb-b";
   in "rgba(${r}, ${g}, ${b}, ${opacity})";
 in
 {
