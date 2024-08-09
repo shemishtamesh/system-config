@@ -97,25 +97,19 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
-  wallpaper = pkgs.runCommand "image.png" {} ''
-        COLOR=$(${pkgs.yq}/bin/yq -r .base00 ${scheme})
-        COLOR="#"$COLOR
-        ${pkgs.imagemagick}/bin/magick convert -size 1920x1080 xc:$COLOR $out
-  '';
 in
 {
   inherit scheme;
-  inherit wallpaper;
-  # wallpaper = nixWallpaperFromScheme {
-  #   width = 1920;
-  #   height = 1080;
-  #   logoScale = 8;
-  #   backgroundColor = scheme.palette.base00;
-  #   logoColor1 = scheme.palette.base08;
-  #   logoColor2 = scheme.palette.base09;
-  #   logoColor3 = scheme.palette.base0A;
-  #   logoColor4 = scheme.palette.base0B;
-  #   logoColor5 = scheme.palette.base0C;
-  #   logoColor6 = scheme.palette.base0D;
-  # };
+  wallpaper = nixWallpaperFromScheme {
+    width = 1920;
+    height = 1080;
+    logoScale = 8;
+    backgroundColor = scheme.palette.base00;
+    logoColor1 = scheme.palette.base08;
+    logoColor2 = scheme.palette.base09;
+    logoColor3 = scheme.palette.base0A;
+    logoColor4 = scheme.palette.base0B;
+    logoColor5 = scheme.palette.base0C;
+    logoColor6 = scheme.palette.base0D;
+  };
 }
