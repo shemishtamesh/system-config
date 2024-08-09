@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs }:
 let
   scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   importYaml =

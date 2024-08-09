@@ -1,6 +1,6 @@
 { pkgs, inputs, config, ... }:
 let
-  wallpaper = config.lib.stylix.image;
+  wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
 {
   services.hyprpaper.enable = true;
