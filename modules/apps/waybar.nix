@@ -153,7 +153,7 @@ in
       }
 
       window#waybar {
-          background: ${palette.base00};
+          background: ${palette.base00}00;
           color: ${palette.base00};
       }
 
