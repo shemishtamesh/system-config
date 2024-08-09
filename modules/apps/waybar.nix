@@ -185,7 +185,7 @@ in
       #workspaces button,
       #battery {
           /* background: ${palette.base0D}; */
-          background: ${rgba palette.base0D 0.5}
+          background: ${rgba palette.base0D "0.5"}
           color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
