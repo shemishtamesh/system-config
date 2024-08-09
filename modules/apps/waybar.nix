@@ -203,7 +203,7 @@ in
       }
 
       #workspaces {
-          background: ${palette.base00};
+          background: ${palette.base00}00;
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;
