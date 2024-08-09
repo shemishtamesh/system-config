@@ -15,7 +15,7 @@
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
-  theme = config.theme;
+  inherit theme;
 
   nixpkgs.config.allowUnfree = true;
 
