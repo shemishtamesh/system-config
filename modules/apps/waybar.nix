@@ -223,7 +223,7 @@ in
 
       window#waybar.empty #window {
           padding: 1px 50px;
-          background: #${palette.base03};
+          background: #${palette.base01};
           color: #${palette.base07};
       }
 
