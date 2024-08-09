@@ -154,7 +154,7 @@ in
       }
 
       window#waybar {
-          background: ${palette.base00}00;
+          background: ${palette.base00};
           color: ${palette.base00};
       }
 
@@ -178,8 +178,8 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: ${palette.base0D}00;
-          color: ${palette.base00}00;
+          background: ${palette.base0D};
+          color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
@@ -204,7 +204,7 @@ in
       }
 
       #workspaces {
-          background: ${palette.base00}00;
+          background: ${palette.base00};
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;
