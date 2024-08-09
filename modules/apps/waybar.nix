@@ -229,7 +229,7 @@ in
 
       #mpris.paused {
           background: #${palette.base01};
-          color: #${palette.base07};
+          color: #${palette.base04};
       }
       #mpris.playing {
           padding: 1px 3px;
