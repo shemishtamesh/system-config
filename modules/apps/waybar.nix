@@ -1,6 +1,6 @@
 { config, inputs, ... }:
 let
-  palette = config.lib.stylix.colors;
+  palette = config.lib.stylix.colors.withHashtag;
   window_icon = "";
   firefox_icon = "󰈹";
 in
@@ -83,11 +83,11 @@ in
             weeks-pos = "right";
             on-scroll = 1;
             format = {
-              months = "<span color='#${palette.base0A}'><b>{}</b></span>";
-              days = "<span color='#${palette.base0C}'><b>{}</b></span>";
-              weeks = "<span color='#${palette.base0B}'><b>{}</b></span>";
-              weekdays = "<span color='#${palette.base09}'><b>{}</b></span>";
-              today = "<span color='#${palette.base08}'><b>{}</b></span>";
+              months = "<span color='${palette.base0A}'><b>{}</b></span>";
+              days = "<span color='${palette.base0C}'><b>{}</b></span>";
+              weeks = "<span color='${palette.base0B}'><b>{}</b></span>";
+              weekdays = "<span color='${palette.base09}'><b>{}</b></span>";
+              today = "<span color='${palette.base08}'><b>{}</b></span>";
             };
           };
           actions = {
@@ -153,8 +153,8 @@ in
       }
 
       window#waybar {
-          background: #${palette.asRgbaDec.base00};
-          color: #${palette.base00};
+          background: ${palette.asRgbaDec.base00};
+          color: ${palette.base00};
       }
 
       #disk,
@@ -177,8 +177,8 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: #${palette.base0D};
-          color: #${palette.base00};
+          background: ${palette.base0D};
+          color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
@@ -192,8 +192,8 @@ in
       #pulseaudio.output.muted,
       #network.disconnected,
       #privacy {
-          background: #${palette.base08};
-          color: #${palette.base07};
+          background: ${palette.base08};
+          color: ${palette.base07};
           padding: 1px 12px 1px 11px;
       }
 
@@ -203,29 +203,29 @@ in
       }
 
       #workspaces {
-          background: #${palette.asRgbaDec.base00};
+          background: ${palette.asRgbaDec.base00};
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;
       }
       #workspaces button:hover {
           padding: 1px 12px 1px 7px;
-          background: #${palette.base0C};
+          background: ${palette.base0C};
           margin-bottom: 0;
       }
       #workspaces button.active {
           padding: 1px 15px 1px 10px;
-          background: #${palette.base0B};
+          background: ${palette.base0B};
       }
 
       window#waybar.empty #window {
           padding: 1px 50px;
-          background: #${palette.base03};
+          background: ${palette.base03};
       }
 
       #mpris.paused {
-          background: #${palette.base03};
-          color: #${palette.base06};
+          background: ${palette.base03};
+          color: ${palette.base06};
       }
       #mpris.playing {
           padding: 1px 3px;
