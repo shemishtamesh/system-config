@@ -8,7 +8,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     ../apps/hyprland.nix
     ../apps/hyprpaper.nix
-    ../apps/hyprlock.nix
+    # ../apps/hyprlock.nix
     ../apps/zsh.nix
     ../apps/waybar.nix
     ../apps/wlogout.nix
@@ -26,7 +26,7 @@ in
   # programs.wlogout.enable = true;
   # wayland.windowManager.hyprland.enable = true;
   # services.hyprpaper.enable = true;
-  # programs.hyprlock.enable = true;
+  programs.hyprlock.enable = true;
 
   # stylix.enable = true;
   stylix.base16Scheme = theme.scheme;

@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, ... }:
 let
   gaps = "2";
   rounding = "10";
@@ -143,8 +143,6 @@ in
       allow_tearing = false;
 
       resize_on_border = true;
-
-      "col.active_border" = "rgb(${config.colorScheme.palette.base07}) rgb(${config.colorScheme.palette.base0A}) 180deg";
     };
     decoration = {
       dim_special = 0.8;

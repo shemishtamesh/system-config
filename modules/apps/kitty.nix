@@ -4,10 +4,10 @@ let
 in
 {
   programs.kitty.enable = true;
-  programs.kitty.font = {
-    name = "FiraCode Nerd Font Mono";
-    size = 12.0;
-  };
+  # programs.kitty.font = {
+  #   name = "FiraCode Nerd Font Mono";
+  #   size = 12.0;
+  # };
   programs.kitty.settings = {
     # # https://github.com/kdrag0n/base16-kitty/blob/master/templates/default.mustache
     # background = "#${palette.base00}";
