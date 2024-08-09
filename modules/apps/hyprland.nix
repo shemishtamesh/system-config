@@ -58,6 +58,10 @@ in
       "$mod, 0, togglespecialworkspace, special"
       "$mod SHIFT, 0, movetoworkspace, special:special"
       "$mod, n, workspace, empty"
+      "$mod, mouse_up, workspace, e-1"
+      "$mod, mouse_down, workspace, e+1"
+      "$mod, bracketleft, workspace, e-1"
+      "$mod, bracketright, workspace, e+1"
     ] ++ (
       builtins.concatLists (builtins.genList
         (
@@ -80,15 +84,7 @@ in
           ]
         ) 9)
     );
-    bindr = [
-      ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-    ];
     binde = [
-      "$mod, mouse_up, workspace, e-1"
-      "$mod, mouse_down, workspace, e+1"
-      "$mod, bracketleft, workspace, e-1"
-      "$mod, bracketright, workspace, e+1"
-
       "$mod, h, movefocus, l"
       "$mod, j, movefocus, d"
       "$mod, k, movefocus, u"
@@ -109,6 +105,9 @@ in
       "$mod ALT SHIFT, j, resizeactive, 0 1"
       "$mod ALT SHIFT, k, resizeactive, 0 -1"
       "$mod ALT SHIFT, l, resizeactive, 1 0"
+    ];
+    bindr = [
+      ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
     bindm = [
       "$mod, mouse:272, movewindow"

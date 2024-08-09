@@ -162,9 +162,12 @@
     wlogout
   ];
 
-  stylix.enable = true;
-  stylix.base16Scheme = theme.scheme;
-  stylix.image = theme.wallpaper;
+  stylix = {
+      enable = true;
+      base16Scheme = theme.scheme;
+      image = theme.wallpaper;
+      fonts = theme.fonts;
+  };
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })

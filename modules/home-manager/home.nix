@@ -5,20 +5,22 @@
     ../apps/hyprpaper.nix
     ../apps/hyprlock.nix
     ../apps/hyprland.nix
-    ../apps/zsh.nix
     ../apps/waybar.nix
     ../apps/wlogout.nix
     ../apps/kitty.nix
+    ../apps/zsh.nix
     ../apps/git.nix
   ];
 
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
-  stylix.enable = true;
-  stylix.targets.waybar.enable = false;
-  stylix.base16Scheme = theme.scheme;
-  stylix.image = theme.wallpaper;
+  stylix = {
+      enable = true;
+      base16Scheme = theme.scheme;
+      image = theme.wallpaper;
+      fonts = theme.fonts;
+  };
 
   nixpkgs.config.allowUnfree = true;
 
