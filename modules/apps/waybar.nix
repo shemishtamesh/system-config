@@ -180,7 +180,7 @@ in
       #workspaces button,
       #battery {
           /* background: #${palette.base0D}; */
-          background: #${palette.base01};
+          background: #${palette.base02};
           color: #${palette.base00};
           opacity: 1;
           padding: 1px 2px;
