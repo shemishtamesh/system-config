@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs }:
 let
   scheme = importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   importYaml =
@@ -112,7 +112,5 @@ let
 in
 {
   inherit scheme;
-  stylix.enable = true;
-  stylix.base16Scheme = scheme;
-  stylix.image = wallpaper;
+  inherit wallpaper;
 }

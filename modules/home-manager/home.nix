@@ -15,6 +15,10 @@
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
+  stylix.enable = true;
+  stylix.base16Scheme = theme.scheme;
+  stylix.image = theme.wallpaper;
+
   nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.
