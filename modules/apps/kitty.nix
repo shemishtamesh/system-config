@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
-let
-  palette = config.colorScheme.palette;
-in
+# let
+#   palette = config.theme.palette;
+# in
 {
   programs.kitty.enable = true;
   # programs.kitty.font = {

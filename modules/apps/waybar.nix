@@ -1,6 +1,6 @@
-{ config, inputs, theme, ... }:
+{ config, inputs, ... }:
 let
-  palette = theme.scheme.palette;
+  palette = config.theme.scheme.palette;
   window_icon = "";
   firefox_icon = "󰈹";
 in

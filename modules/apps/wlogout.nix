@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  palette = config.colorScheme.palette;
+  palette = config.theme.palette;
 in
 {
   programs.wlogout = {
