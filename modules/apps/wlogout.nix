@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  palette = config.theme.palette;
+  palette = config.lib.stylix.colors;
 in
 {
   programs.wlogout = {

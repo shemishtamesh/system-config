@@ -1,6 +1,6 @@
 { config, inputs, ... }:
 let
-  palette = config.theme.scheme.palette;
+  palette = config.lib.stylix.colors;
   window_icon = "";
   firefox_icon = "󰈹";
 in
