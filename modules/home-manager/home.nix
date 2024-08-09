@@ -25,7 +25,7 @@ in
   programs.waybar.enable = true;
   programs.wlogout.enable = true;
   wayland.windowManager.hyprland.enable = true;
-  programs.hyprpaper.enable = true;
+  services.hyprpaper.enable = true;
   programs.hyprlock.enable = true;
 
   stylix.enable = true;
