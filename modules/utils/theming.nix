@@ -97,9 +97,6 @@ let
       '';
       installPhase = "install -Dm0644 wallpaper.png $out";
     };
-in
-{
-  inherit scheme;
   wallpaper = nixWallpaperFromScheme {
     width = 1920;
     height = 1080;
@@ -112,4 +109,10 @@ in
     logoColor5 = scheme.palette.base0C;
     logoColor6 = scheme.palette.base0D;
   };
+in
+{
+  inherit scheme;
+  stylix.enable = true;
+  stylix.base16Scheme = scheme;
+  stylix.image = wallpaper;
 }
