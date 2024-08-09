@@ -28,7 +28,7 @@ in
   # services.hyprpaper.enable = true;
   programs.hyprlock.enable = true;
 
-  # stylix.enable = true;
+  stylix.enable = true;
   stylix.base16Scheme = theme.scheme;
   stylix.image = theme.wallpaper;
   # stylix.targets.kitty.enable = true;
