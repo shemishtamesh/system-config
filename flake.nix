@@ -10,36 +10,28 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    nix-colors.url = "github:misterio77/nix-colors";
-
     stylix.url = "github:donovanglover/stylix";
-    # stylix = {
-    #   url = "github:donovanglover/stylix";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     home-manager.follows = "home-manager";
-    #   };
-    # };
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      theme = (import modules/utils/theming.nix { inherit pkgs; });
     in
     {
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; inherit theme; };
         modules = [
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs; inherit theme; };
         inherit pkgs;
         modules = [
-          ./modules/home-manager/home.nix 
+          ./modules/home-manager/home.nix
           stylix.homeManagerModules.stylix
         ];
       };

@@ -1,6 +1,5 @@
 { config, pkgs, inputs, ... }:
 let
-  rgb = hex: (inputs.nix-colors.lib.conversions.hexToRGBString "," hex);
   palette = config.colorScheme.palette;
 in
 {

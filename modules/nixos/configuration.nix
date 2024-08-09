@@ -3,9 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let
-  theme = (import ../utils/theming.nix { inherit pkgs; });
-in
+
 {
   imports =
     [

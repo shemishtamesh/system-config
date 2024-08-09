@@ -1,10 +1,7 @@
-{ inputs, pkgs, ... }:
-let
-  theme = (import ../utils/theming.nix { inherit pkgs; });
-in
+{ inputs, pkgs, theme, ... }:
+
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     ../apps/hyprland.nix
     ../apps/hyprpaper.nix
     ../apps/hyprlock.nix
