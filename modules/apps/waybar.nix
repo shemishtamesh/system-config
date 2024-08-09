@@ -3,6 +3,12 @@ let
   palette = config.lib.stylix.colors.withHashtag;
   window_icon = "";
   firefox_icon = "󰈹";
+  rgba = color: opacity:
+  let
+    r = "${palette}.${color}-r";
+    g = "${palette}.${color}-g";
+    b = "${palette}.${color}-b";
+  in "rgba(${r}, ${g}, ${b}, ${opacity})";
 in
 {
   stylix.targets.waybar.enable = false;
@@ -179,7 +185,7 @@ in
       #workspaces button,
       #battery {
           /* background: ${palette.base0D}; */
-          background: ${palette.base05}00;
+          background: ${rgba palette.base0D 0.5}
           color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
