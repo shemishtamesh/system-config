@@ -1,7 +1,7 @@
 { config, inputs, ... }:
 let
   rgb = hex: (inputs.nix-colors.lib.conversions.hexToRGBString "," hex);
-  palette = theme.scheme.palette;
+  palette = config.theme.scheme.palette;
   window_icon = "";
   firefox_icon = "󰈹";
 in
