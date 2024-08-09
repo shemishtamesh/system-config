@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  wallpaper = config.lib.stylix.image;
+  wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
 {
   programs.hyprlock.enable = true;
