@@ -160,7 +160,7 @@ in
       }
 
       window#waybar {
-          background: rgba "base00" "0";
+          background: ${rgba "base00" "0"};
           color: ${palette.base00};
       }
 
