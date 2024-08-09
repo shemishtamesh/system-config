@@ -5,14 +5,14 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./modules/apps/hyprland.nix
-    ./modules/apps/hyprpaper.nix
-    ./modules/apps/hyprlock.nix
-    ./modules/apps/zsh.nix
-    ./modules/apps/waybar.nix
-    ./modules/apps/wlogout.nix
-    ./modules/apps/kitty.nix
-    ./modules/apps/git.nix
+    ../apps/hyprland.nix
+    ../apps/hyprpaper.nix
+    ../apps/hyprlock.nix
+    ../apps/zsh.nix
+    ../apps/waybar.nix
+    ../apps/wlogout.nix
+    ../apps/kitty.nix
+    ../apps/git.nix
   ];
 
   home.username = "shemishtamesh";

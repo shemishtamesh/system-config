@@ -2,7 +2,7 @@
 
 let
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
-    flake_path="$HOME/.config/nixos"
+    flake_path="$HOME/.config/flake"
     git -C $flake_path add .
     git -C $flake_path add .
     git -C $flake_path commit -m 'update'

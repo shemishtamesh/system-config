@@ -4,7 +4,7 @@
 
 { config, pkgs, ... }:
 let
-  theme = (import ./modules/theming.nix { inherit pkgs; });
+  theme = (import ../utils/theming.nix { inherit pkgs; });
 in
 {
   imports =
@@ -12,7 +12,7 @@ in
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ./modules/scripts.nix
+      ../utils/scripts.nix
     ];
 
   # Bootloader.
@@ -171,7 +171,7 @@ in
   stylix.base16Scheme = theme.scheme;
   stylix.image = theme.wallpaper;
   # stylix.targets.kitty.enable = true;
-  stylix.targets.kitty.enable = false;
+  # stylix.targets.kitty.enable = false;
   # stylix.image = pkgs.fetchurl {
   #   url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
   #   sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
