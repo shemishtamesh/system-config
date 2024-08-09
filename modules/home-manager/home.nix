@@ -24,7 +24,7 @@ in
   programs.kitty.enable = true;
   programs.waybar.enable = true;
   programs.wlogout.enable = true;
-  programs.hyprland.enable = true;
+  wayland.windowManager.hyprland.enable = true;
   programs.hyprpaper.enable = true;
   programs.hyprlock.enable = true;
 
