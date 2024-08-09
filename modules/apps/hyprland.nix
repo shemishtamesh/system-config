@@ -56,7 +56,7 @@ in
       "$mod, XF86AudioPlay, togglespecialworkspace, music"
       "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
       "$mod, 0, togglespecialworkspace, special"
-      "$mod SHIFT, 0, movetoworkspace, special"
+      "$mod SHIFT, 0, movetoworkspace, special:special"
       "$mod, n, workspace, empty"
     ] ++ (
       builtins.concatLists (builtins.genList
