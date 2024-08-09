@@ -5,7 +5,7 @@ let
   firefox_icon = "󰈹";
 in
 {
-  stylix.targets.waybar.enable = false;
+  # stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
     settings = {
