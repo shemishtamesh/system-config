@@ -160,7 +160,7 @@ in
       }
 
       window#waybar {
-          background: ${palette.base00};
+          background: rgba "base00" "0";
           color: ${palette.base00};
       }
 
@@ -184,8 +184,7 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          /* background: ${palette.base0D}; */
-          background: ${rgba "base0D" "0.5"};
+          background: ${palette.base0D};
           color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
