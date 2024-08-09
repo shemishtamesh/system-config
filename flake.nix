@@ -28,7 +28,7 @@
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs; inherit theme; };
         inherit pkgs;
         modules = [
           ./modules/home-manager/home.nix

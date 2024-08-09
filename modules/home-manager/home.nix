@@ -1,4 +1,4 @@
-{ inputs, pkgs, theme, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
-  inherit theme;
+  theme = config.theme;
 
   nixpkgs.config.allowUnfree = true;
 

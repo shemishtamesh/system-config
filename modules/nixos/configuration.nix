@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, theme, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -166,8 +166,8 @@
   ];
 
   stylix.enable = true;
-  stylix.base16Scheme = theme.scheme;
-  stylix.image = theme.wallpaper;
+  stylix.base16Scheme = config.theme.scheme;
+  stylix.image = config.theme.wallpaper;
   # stylix.targets.kitty.enable = true;
   # stylix.targets.kitty.enable = false;
   # stylix.image = pkgs.fetchurl {
