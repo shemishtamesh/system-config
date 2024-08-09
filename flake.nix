@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "nixos and home-manager config flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -31,14 +31,17 @@
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          stylix.nixosModules.stylix
           ./modules/nixos/configuration.nix
+          stylix.nixosModules.stylix
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs; };
         inherit pkgs;
-        modules = [ ./modules/home-manager/home.nix ];
+        modules = [
+          ./modules/home-manager/home.nix 
+          stylix.homeManagerModules.stylix
+        ];
       };
     };
 }
