@@ -26,12 +26,12 @@ in
       outer_color = "${palette.base00}00";
       # inner_color = "rgba(0, 0, 0, 0.2)";
       # font_color = "rgba(255, 255, 255, 255)";
-      fade_on_empty = false;
+      fade_on_empty = true;
       rounding = -1;
       # check_color = "rgb(204, 136, 34)";
       # placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
-      hide_input = false;
-      position = "0, -200";
+      hide_input = true;
+      position = "0, -100";
       halign = "center";
       valign = "center";
     };
