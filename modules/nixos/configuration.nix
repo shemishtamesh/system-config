@@ -168,8 +168,8 @@ in
   ];
 
   stylix.enable = true;
-  stylix.base16Scheme = theme.scheme;
-  stylix.image = theme.wallpaper;
+  # stylix.base16Scheme = theme.scheme;
+  # stylix.image = theme.wallpaper;
   # stylix.targets.kitty.enable = true;
   # stylix.targets.kitty.enable = false;
   # stylix.image = pkgs.fetchurl {
