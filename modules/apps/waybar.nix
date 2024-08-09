@@ -179,7 +179,7 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: #${palette.base03};
+          background: #${palette.base02};
           color: #${palette.base07};
           opacity: 1;
           padding: 1px 2px;
@@ -227,7 +227,7 @@ in
       }
 
       #mpris.paused {
-          background: #${palette.base02};
+          background: #${palette.base01};
           color: #${palette.base07};
       }
       #mpris.playing {
