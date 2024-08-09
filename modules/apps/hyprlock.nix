@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 let
+  palette = config.lib.stylix.colors;
   wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
 {
@@ -22,7 +23,7 @@ in
       dots_size = 0.2;
       dots_spacing = 0.35;
       dots_center = true;
-      # outer_color = "rgba(0, 0, 0, 0)";
+      outer_color = "${palette}00";
       # inner_color = "rgba(0, 0, 0, 0.2)";
       # font_color = "rgba(255, 255, 255, 255)";
       fade_on_empty = false;
