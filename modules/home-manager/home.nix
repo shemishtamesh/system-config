@@ -16,6 +16,7 @@ in
     ../apps/git.nix
   ];
 
+  programs.kitty.enable = true;
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
