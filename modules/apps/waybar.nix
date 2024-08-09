@@ -115,7 +115,7 @@ in
           format = "{icon} {volume}%";
           format-muted = " ";
           format-icons = {
-            default = [ "" "" "" ];
+            default = [ "" " " " " ];
           };
           scroll-step = 2;
           smooth-scrolling-threshold = 1;
@@ -150,7 +150,7 @@ in
           border: none;
           border-radius: 0;
           min-height: 0;
-          font-size: 12px;
+          font-size: 13px;
       }
 
       window#waybar {
