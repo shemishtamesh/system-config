@@ -5,9 +5,9 @@ let
   firefox_icon = "󰈹";
   rgba = color: opacity:
   let
-    r = palette."${color}-r";
-    g = palette."${color}-g";
-    b = palette."${color}-b";
+    r = palette."${color}-rgb-r";
+    g = palette."${color}-rgb-g";
+    b = palette."${color}-rgb-b";
   in "rgba(${r}, ${g}, ${b}, ${opacity})";
 in
 {
