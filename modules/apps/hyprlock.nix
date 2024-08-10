@@ -22,7 +22,7 @@ in
       inner_color = "${rgba "base07" "0.2"}";
       font_color = "${rgba "base07" "0"}"; # no typing indication
       fade_on_empty = true;
-      fade_timeout = 10;
+      fade_timeout = 100;
       rounding = -1;
       placeholder_text = "";
       fail_text = "    ";
