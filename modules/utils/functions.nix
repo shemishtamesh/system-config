@@ -55,7 +55,7 @@ in
       palette = scheme.palette;
     in
     {
-      lockIcon = imageFromScheme {
+      rebootIcon = imageFromScheme {
         width = screenHeight;
         height = screenHeight;
         svgText = builtins.replaceStrings [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ] (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
