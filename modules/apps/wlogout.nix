@@ -94,8 +94,8 @@ in
       }
       #reboot {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/reboot.svg")); */
-          background-image: url("/home/shemishtamesh/testicons/reboot.svg");
+          background-image: image(url("/home/shemishtamesh/testicons/reboot.svg"));
+          /* background-image: url("/home/shemishtamesh/testicons/reboot.svg"); */
           /* background-image: url("${icons.reboot}"); */
       }
     '';
