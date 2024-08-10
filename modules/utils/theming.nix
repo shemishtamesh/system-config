@@ -6,8 +6,8 @@ in
 {
   inherit scheme;
   wallpaper = (functions.imagesFromScheme {
-    width = 1920;
-    height = 1080;
+    screenWidth = 1920;
+    screenHeight = 1080;
     inherit scheme;
   }).wallpaper;
   fonts = {
