@@ -1,21 +1,5 @@
 { pkgs, lib }:
-
-{
-  importYaml =
-    file: builtins.fromJSON (
-      builtins.readFile (
-        pkgs.runCommandNoCC "converted-yaml.json" { } ''
-          ${pkgs.yj}/bin/yj < "${file}" > "$out"
-        ''
-      )
-    );
-  rgba = palette: color: opacity:
-    let
-      r = palette."${color}-rgb-r";
-      g = palette."${color}-rgb-g";
-      b = palette."${color}-rgb-b";
-    in
-    "rgba(${r}, ${g}, ${b}, ${opacity})";
+let
   imageFromScheme = { width, heigh, svgText, name }:
     pkgs.stdenv.mkDerivation {
       name = "generated-${name}.png";
@@ -32,6 +16,39 @@
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
+in
+{
+  importYaml =
+    file: builtins.fromJSON (
+      builtins.readFile (
+        pkgs.runCommandNoCC "converted-yaml.json" { } ''
+          ${pkgs.yj}/bin/yj < "${file}" > "$out"
+        ''
+      )
+    );
+  rgba = palette: color: opacity:
+    let
+      r = palette."${color}-rgb-r";
+      g = palette."${color}-rgb-g";
+      b = palette."${color}-rgb-b";
+    in
+    "rgba(${r}, ${g}, ${b}, ${opacity})";
+  # imageFromScheme = { width, heigh, svgText, name }:
+  #   pkgs.stdenv.mkDerivation {
+  #     name = "generated-${name}.png";
+  #     src = pkgs.writeTextFile {
+  #       name = "template.svg";
+  #       text = svgText;
+  #     };
+  #     buildInputs = with pkgs; [ inkscape ];
+  #     unpackPhase = "true";
+  #     buildPhase = ''
+  #       inkscape --export-type="png" $src -w ${toString width} -h ${
+  #         toString height
+  #       } -o rebootIcon.png
+  #     '';
+  #     installPhase = "install -Dm0644 ${name}.png $out";
+  #   };
   imagesFromScheme =
     { screenWidth, screenHeight, scheme }:
     let
@@ -39,10 +56,10 @@
     in
     {
       lockIcon = imageFromScheme {
-          width = screenHeight;
-          height = screenHeight;
-          svgText = builtins.replaceStrings [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ] (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
-          name = "reload";
+        width = screenHeight;
+        height = screenHeight;
+        svgText = builtins.replaceStrings [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ] (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
+        name = "reload";
       };
       # rebootIcon =
       #   pkgs.stdenv.mkDerivation {
