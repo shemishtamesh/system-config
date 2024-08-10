@@ -88,10 +88,10 @@ in
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/hibernate.svg")); */
           background-image: image(url("/home/shemishtamesh/testicons/hibernate.svg"));
       }
-      #shutdown {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg"));
-          /* background-image: image(url("/home/shemishtamesh/testicons/shutdown.svg")); */
-      }
+      /* #shutdown { */
+      /*     background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg")); */
+      /*     /* background-image: image(url("/home/shemishtamesh/testicons/shutdown.svg")); */ */
+      /* } */
       #reboot {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
           background-image: image(url("/home/shemishtamesh/testicons/reboot.svg"));
