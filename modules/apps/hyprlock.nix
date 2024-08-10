@@ -16,7 +16,7 @@ in
       brightness = 0.5;
     };
     input-field = {
-      # size = "250, 60";
+      size = "50, 50";
       outline_thickness = 0;
       # outer_color = palette.base03;
       inner_color = "${rgba "base07" "0.2"}";
