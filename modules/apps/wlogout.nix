@@ -5,37 +5,37 @@ let
   imageFromScheme = (import ../utils/functions.nix { inherit pkgs; }).imageFromScheme { width = 500; height = 500; };
   rebootIcon = imageFromScheme {
     svgText = builtins.replaceStrings
-      [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ]
+      [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
       (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
     name = "rebootIcon";
   };
   lockIcon = imageFromScheme {
     svgText = builtins.replaceStrings
-      [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ]
+      [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
       (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/lock.svg");
     name = "lockIcon";
   };
   suspendIcon = imageFromScheme {
     svgText = builtins.replaceStrings
-      [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ]
+      [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
       (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/suspend.svg");
     name = "suspendIcon";
   };
   logoutIcon = imageFromScheme {
     svgText = builtins.replaceStrings
-      [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ]
+      [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
       (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/logout.svg");
     name = "logoutIcon";
   };
   hibernateIcon = imageFromScheme {
     svgText = builtins.replaceStrings
-      [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ]
+      [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
       (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/hibernate.svg");
     name = "hibernateIcon";
   };
   shutdownIcon = imageFromScheme {
     svgText = builtins.replaceStrings
-      [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ]
+      [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
       (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/shutdown.svg");
     name = "shutdownIcon";
   };
