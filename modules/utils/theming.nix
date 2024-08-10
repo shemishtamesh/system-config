@@ -2,7 +2,7 @@
 let
   functions = import ./functions.nix { inherit pkgs; };
   # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/snow.yaml";
+  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/emil.yaml";
 in
 {
   inherit scheme;
