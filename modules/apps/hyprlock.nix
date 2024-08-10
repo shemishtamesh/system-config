@@ -18,7 +18,8 @@ in
     input-field = {
       size = "50, 50";
       outline_thickness = 0;
-      inner_color = rgba "base0B" "0.1";
+      # inner_color = rgba "base03" "255";
+      inner_color = palette.base03;
       font_color = rgba "base07" "0"; # no typing indication
       fade_on_empty = true;
       fade_timeout = 1000;
@@ -34,7 +35,7 @@ in
     label = [
       {
         text = "cmd[update:1000] echo \"$(date)\"";
-        color = palette.base05;
+        color = palette.base03;
         font_size = 22;
         position = "0, 70";
         halign = "center";
