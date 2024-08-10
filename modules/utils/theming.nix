@@ -5,11 +5,6 @@ let
   scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   functions = import ./functions.nix { inherit pkgs; };
   imageFromScheme = functions.imageFromScheme { width = screenWidth; height = screenHeight; };
-  images = functions.imagesFromScheme {
-    screenWidth = 1920;
-    screenHeight = 1080;
-    inherit scheme;
-  };
 in
 {
   inherit scheme;
@@ -18,23 +13,19 @@ in
       package = pkgs.fira-code-symbols;
       name = "FiraCode Nerd Font";
     };
-
     sansSerif = {
       package = pkgs.dejavu_fonts;
       name = "FiraCode Nerd Font";
     };
-
     monospace = {
-      package = pkgs.dejavu_fonts;
-      name = "FiraCode Nerd Font";
+      package = pkgs.fira-code-symbols;
+      name = "FiraCode Nerd Font Mono";
     };
-
     emoji = {
       package = pkgs.noto-fonts-emoji;
       name = "FiraCode Nerd Font";
     };
   };
-  # wallpaper = images.wallpaper;
   wallpaper =
     let
       logoScale = 8;

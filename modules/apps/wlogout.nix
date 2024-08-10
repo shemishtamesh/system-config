@@ -47,7 +47,7 @@ in
     layout = [
       {
         label = "lock";
-        action = "swaylock";
+        action = "hyprlock";
         text = "Lock";
         keybind = "l";
       }
@@ -67,7 +67,7 @@ in
         label = "shutdown";
         action = "shutdown now";
         text = "Shutdown";
-        keybind = "s";
+        keybind = "d";
       }
       {
         label = "suspend";
