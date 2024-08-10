@@ -18,7 +18,7 @@ in
     input-field = {
       size = "50, 50";
       outline_thickness = 0;
-      inner_color = palette.base01;
+      inner_color = rgba "base01" "1";
       font_color = rgba "base07" "0"; # no typing indication
       fade_on_empty = true;
       fade_timeout = 1000;
