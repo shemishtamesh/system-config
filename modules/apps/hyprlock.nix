@@ -27,27 +27,27 @@ in
       # fail_text = "";
       check_color = rgba "base09" "1";
       fail_color = rgba "base08" "1";
-      # halign = "center";
-      # valign = "top";
-      # position = "0, 70";
+      halign = "center";
+      valign = "top";
+      position = "0, -70";
     };
-    # label = [
-    #   {
-    #     text = "cmd[update:1000] date";
-    #     color = rgba "base02" "1";
-    #     font_size = 22;
-    #     position = "0, -70";
-    #     halign = "center";
-    #     valign = "bottom";
-    #   }
-    #   # {
-    #   #   text = "cmd[update:10000] acpi";
-    #   #   color = rgba "base02" "1";
-    #   #   font_size = 14;
-    #   #   position = "0, -40";
-    #   #   halign = "center";
-    #   #   valign = "bottom";
-    #   # }
-    # ];
+    label = [
+      {
+        text = "cmd[update:1000] date";
+        color = rgba "base02" "1";
+        font_size = 22;
+        position = "0, 70";
+        halign = "center";
+        valign = "bottom";
+      }
+      {
+        text = "cmd[update:10000] acpi";
+        color = rgba "base02" "1";
+        font_size = 14;
+        position = "0, 40";
+        halign = "center";
+        valign = "bottom";
+      }
+    ];
   };
 }
