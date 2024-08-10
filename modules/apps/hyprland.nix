@@ -58,7 +58,7 @@ in
       ", XF86AudioNext, exec, playerctl next"
 
       "$mod CTRL, Tab, hyprexpo:expo, toggle"
-      "$mod, Tab, workspace, previous"
+      "$mod, Tab, workspace, movetoworkspace,e+0"
       "$mod, XF86Reload, togglespecialworkspace, chat"
       "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
       "$mod, XF86AudioPlay, togglespecialworkspace, music"
