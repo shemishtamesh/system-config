@@ -24,7 +24,7 @@
     {
       rebootIcon =
         pkgs.stdenv.mkDerivation {
-          name = "generated-nix-wallpaper.png";
+          name = "generated-nix-rebootIcon.png";
           src = pkgs.writeTextFile {
             name = "template.svg";
             text = /* svg */ ''
