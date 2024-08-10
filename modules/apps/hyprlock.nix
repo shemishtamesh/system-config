@@ -17,7 +17,7 @@ in
     };
     input-field = {
       size = "250, 60";
-      uoutline_thickness = 0;
+      outline_thickness = 0;
       # outer_color = palette.base03;
       inner_color = "${rgba "base07" "0.2"}";
       font_color = "${rgba "base07" "0"}"; # no typing indication
