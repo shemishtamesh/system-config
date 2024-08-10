@@ -1,9 +1,10 @@
 { pkgs }:
 let
   functions = import ./functions.nix { inherit pkgs; };
+  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
 in
 {
-  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+  inherit scheme;
   wallpaper = functions.nixWallpaperFromScheme {
     width = 1920;
     height = 1080;
