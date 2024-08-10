@@ -23,20 +23,20 @@ in
       fade_timeout = 1000;
       rounding = -1;
       placeholder_text = "";
-      fail_text = " ";
+      fail_text = "X";
       # fail_text = "";
       check_color = rgba "base09" "1";
       fail_color = rgba "base08" "1";
       halign = "center";
-      valign = "top";
-      position = "0, -70";
+      valign = "bottom";
+      position = "0, 70";
     };
     label = [
       {
         text = "cmd[update:1000] date";
         color = rgba "base02" "1";
         font_size = 22;
-        position = "0, 70";
+        position = "0, 50";
         halign = "center";
         valign = "bottom";
       }
@@ -44,7 +44,7 @@ in
         text = "cmd[update:10000] acpi | awk '{print substr($0, index($0, $3))}'";
         color = rgba "base02" "1";
         font_size = 14;
-        position = "0, 40";
+        position = "0, 30";
         halign = "center";
         valign = "bottom";
       }
