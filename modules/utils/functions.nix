@@ -78,8 +78,22 @@
                      d="M 3,-3 0,0 3,3"
                      transform="rotate(180,0.125,0)"
                      id="path28" /></marker></defs>
+
+              <style
+                 type="text/css"
+                 id="style1">
+              g.prefab path {
+                vector-effect:non-scaling-stroke;
+                -inkscape-stroke:hairline;
+                fill: none;
+                fill-opacity: 1;
+                stroke-opacity: 1;
+                stroke: #00349c;
+              }
+              </style>
+
               <path
-                 style="fill:#${palette.base0C};fill-opacity:0;stroke:${palette.base0C};stroke-width:40;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker1)"
+                 style="fill:#${palette.base0D};fill-opacity:0;stroke:#${palette.base0D};stroke-width:40;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker1)"
                  id="path25"
                  d="M 1031.9945,749.96635 A 281.99771,281.99771 0 0 1 804.63652,1026.6199 281.99771,281.99771 0 0 1 489.17302,857.1748 281.99771,281.99771 0 0 1 594.28303,514.85803 a 281.99771,281.99771 0 0 1 356.1956,36.79101" /></svg>
             '';
