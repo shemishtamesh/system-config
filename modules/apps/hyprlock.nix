@@ -29,24 +29,15 @@ in
       fail_color = palette.base08;
       halign = "center";
       valign = "center";
-      position = "0, 10";
+      position = "0, 7";
     };
     label = [
       {
-        text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
-        # color = "rgba(242, 243, 244, 0.75)";
+        text = "cmd[update:1000] echo \"$(date)\"";
         font_size = 22;
-        position = "0, 300";
+        # position = "0, 300";
         halign = "center";
-        valign = "center";
-      }
-      {
-        text = "cmd[update:1000] echo \"$(date + \"%-I:%M\")\"";
-        # color = "rgba(242, 243, 244, 0.75)";
-        font_size = 95;
-        position = "0, 200";
-        halign = "center";
-        valign = "center";
+        valign = "top";
       }
     ];
 
