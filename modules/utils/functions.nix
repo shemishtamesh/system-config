@@ -27,7 +27,7 @@
           name = "generated-nix-rebootIcon.png";
           src = pkgs.writeTextFile {
             name = "template.svg";
-            text = lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg";
+            text = builtins.replaceStrings "<path d=" "<path fill=\"${palette.base0C}\" d=" lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg";
               # text = /* svg */ ''
               #   <?xml version="1.0" encoding="utf-8"?>
               #   <!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
