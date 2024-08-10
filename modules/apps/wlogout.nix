@@ -73,19 +73,19 @@ in
       }
 
       #lock {
-          background-image: url("${pkgs.wlogout}/share/wlogout/assets/lock.png");
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/lock.svg");
       }
       #logout {
-          background-image: url("${pkgs.wlogout}/share/wlogout/assets/logout.png");
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/logout.svg");
       }
       #suspend {
-          background-image: url("${pkgs.wlogout}/share/wlogout/assets/suspend.png");
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/suspend.svg");
       }
       #hibernate {
-          background-image: url("${pkgs.wlogout}/share/wlogout/assets/hibernate.png");
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/hibernate.svg");
       }
       #shutdown {
-          background-image: url("${pkgs.wlogout}/share/wlogout/assets/shutdown.png");
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg");
       }
       #reboot {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
