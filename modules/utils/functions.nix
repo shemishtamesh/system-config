@@ -22,7 +22,7 @@
       wallpaper =
         let
           logoScale = 8;
-          palette = scheme.withHashtag;
+          palette = scheme.palette;
         in
         pkgs.stdenv.mkDerivation {
           name = "generated-nix-wallpaper.png";
