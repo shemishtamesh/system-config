@@ -87,8 +87,8 @@ in
           background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
       }
       #reboot {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
-          /* background-image: "󰑓"; */
+          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); */
+          background-image: "󰑓";
       }
     '';
   };
