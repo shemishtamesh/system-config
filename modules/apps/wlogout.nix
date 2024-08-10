@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
-  icons = (import ../utils/theming.nix { inherit pkgs; }).icons;
+  rgba = (import ../utils/functions.nix { inherit pkgs; inherit lib; }).rgba config.lib.stylix.colors;
+  icons = (import ../utils/theming.nix { inherit pkgs; inherit lib; }).icons;
 in
 {
   programs.wlogout = {
