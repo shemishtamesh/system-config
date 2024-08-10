@@ -9,40 +9,40 @@ in
     enable = true;
     layout = [
       {
-        label = "reboot";
-        action = "reboot";
-        text = "reboot";
-        keybind = "r";
-      }
-      {
-        label = "logout";
-        action = "logout";
-        text = "logout";
-        keybind = "o";
-      }
-      {
         label = "lock";
-        action = "hyprlock";
-        text = "lock";
+        action = "swaylock";
+        text = "Lock";
         keybind = "l";
       }
       {
         label = "hibernate";
         action = "systemctl hibernate";
-        text = "hibernate";
+        text = "Hibernate";
         keybind = "h";
       }
       {
-        label = "suspend";
-        action = "systemctl suspend";
-        text = "suspend";
-        keybind = "s";
+        label = "logout";
+        action = "hyprctl dispatch exit";
+        text = "Logout";
+        keybind = "o";
       }
       {
         label = "shutdown";
-        action = "systemctl poweroff";
-        text = "shutdown";
-        keybind = "p";
+        action = "shutdown now";
+        text = "Shutdown";
+        keybind = "s";
+      }
+      {
+        label = "suspend";
+        action = "loginctl suspend";
+        text = "Suspend";
+        keybind = "s";
+      }
+      {
+        label = "reboot";
+        action = "reboot";
+        text = "Reboot";
+        keybind = "r";
       }
     ];
     style = /* css */ ''
@@ -94,7 +94,8 @@ in
       }
       #reboot {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
-          background-image: image(url("/home/shemishtamesh/testicons/reboot.svg"));
+          /* background-image: image(url("/home/shemishtamesh/testicons/reboot.svg")); */
+          background-image: image(url("/home/shemishtamesh/Downloads/hibernate.svg"));
           /* background-image: url("/home/shemishtamesh/testicons/reboot.svg"); */
           /* background-image: url("${icons.reboot}"); */
       }
