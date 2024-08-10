@@ -36,7 +36,7 @@ in
         mpris = {
           format = "{player_icon}{status_icon}: {dynamic}";
           dynamic-separator = " | ";
-          tooltip-format = "{player} {status} <big>{artist}</big>'s <big>{title}</big> from <big>{album}</big> at {position} out of {length}";
+          tooltip-format = "{player} {status} {artist}'s {title} from {album} at {position} out of {length}";
           title-len = 25;
           artist-len = 20;
           album-len = 20;
