@@ -72,34 +72,34 @@ in
       /*     outline-style: none; */
       /* } */
 
-      #lock {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/lock.svg")); */
-          background-image: image(url("/home/shemishtamesh/testicons/lock.svg"));
-      }
-      #logout {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/logout.svg")); */
-          background-image: image(url("/home/shemishtamesh/testicons/logout.svg"));
-      }
-      #suspend {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/suspend.svg")); */
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"));
-          /* background-image: image(url("/home/shemishtamesh/testicons/suspend.svg")); */
-      }
-      #hibernate {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/hibernate.svg")); */
-          background-image: image(url("/home/shemishtamesh/testicons/hibernate.svg"));
-      }
-      /* #shutdown { */
-      /*     background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg")); */
-      /*     /* background-image: image(url("/home/shemishtamesh/testicons/shutdown.svg")); */ */
+      /* #lock { */
+      /*     /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/lock.svg")); */ */
+      /*     background-image: image(url("/home/shemishtamesh/testicons/lock.svg")); */
       /* } */
-      #reboot {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
-          background-image: image(url("/home/shemishtamesh/testicons/reboot.svg"));
-          /* background-image: image(url("/home/shemishtamesh/Downloads/hibernate.svg")); */
-          /* background-image: url("/home/shemishtamesh/testicons/reboot.svg"); */
-          /* background-image: url("${icons.reboot}"); */
-      }
+      /* #logout { */
+      /*     /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/logout.svg")); */ */
+      /*     background-image: image(url("/home/shemishtamesh/testicons/logout.svg")); */
+      /* } */
+      /* #suspend { */
+      /*     /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/suspend.svg")); */ */
+      /*     background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png")); */
+      /*     /* background-image: image(url("/home/shemishtamesh/testicons/suspend.svg")); */ */
+      /* } */
+      /* #hibernate { */
+      /*     /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/hibernate.svg")); */ */
+      /*     background-image: image(url("/home/shemishtamesh/testicons/hibernate.svg")); */
+      /* } */
+      /* /* #shutdown { */ */
+      /* /*     background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg")); */ */
+      /* /*     /* background-image: image(url("/home/shemishtamesh/testicons/shutdown.svg")); */ */ */
+      /* /* } */ */
+      /* #reboot { */
+      /*     /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */ */
+      /*     background-image: image(url("/home/shemishtamesh/testicons/reboot.svg")); */
+      /*     /* background-image: image(url("/home/shemishtamesh/Downloads/hibernate.svg")); */ */
+      /*     /* background-image: url("/home/shemishtamesh/testicons/reboot.svg"); */ */
+      /*     /* background-image: url("${icons.reboot}"); */ */
+      /* } */
     '';
   };
 }
