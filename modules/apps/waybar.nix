@@ -4,18 +4,20 @@ let
   window_icon = "";
   firefox_icon = "󰈹";
   rgba = color: opacity:
-  let
-    r = config.lib.stylix.colors."${color}-rgb-r";
-    g = config.lib.stylix.colors."${color}-rgb-g";
-    b = config.lib.stylix.colors."${color}-rgb-b";
-  in "rgba(${r}, ${g}, ${b}, ${opacity})";
+    let
+      r = config.lib.stylix.colors."${color}-rgb-r";
+      g = config.lib.stylix.colors."${color}-rgb-g";
+      b = config.lib.stylix.colors."${color}-rgb-b";
+    in
+    "rgba(${r}, ${g}, ${b}, ${opacity})";
 in
 {
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
     settings = {
-      top_bar = { position = "top";
+      top_bar = {
+        position = "top";
         output = [ "eDP-1" ];
         modules-left = [ "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
@@ -210,7 +212,7 @@ in
       }
 
       #workspaces {
-          background: ${palette.base00};
+          background: ${rgba "base00" "0"};
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;
