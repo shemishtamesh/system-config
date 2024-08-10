@@ -23,6 +23,7 @@ in
       font_color = "${rgba "base07" "0"}"; # no typing indication
       fade_on_empty = true;
       rounding = -1;
+      placeholder_text = "";
       fail_text = "";
       halign = "center";
       valign = "bottom";
