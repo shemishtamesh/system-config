@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 let
-  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
-  wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
+  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
+  wallpaper = (import ../general/theming.nix { inherit pkgs; }).wallpaper;
 in
 {
   programs.hyprlock.enable = true;

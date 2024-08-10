@@ -6,7 +6,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../utils/scripts.nix
+      ../general/scripts.nix
     ];
 
   # Bootloader.

@@ -17,7 +17,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      theme = (import modules/utils/theming.nix { inherit pkgs; });
+      theme = (import modules/general/theming.nix { inherit pkgs; });
     in
     {
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {

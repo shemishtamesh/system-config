@@ -1,7 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  functions = (import ../utils/functions.nix { inherit pkgs; });
+  functions = (import ../general/functions.nix { inherit pkgs; });
   rgba = functions.rgba config.lib.stylix.colors;
   imageFromScheme = functions.imageFromScheme { width = 500; height = 500; };
   rebootIcon = imageFromScheme {
