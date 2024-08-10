@@ -1,15 +1,9 @@
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 let
   palette = config.lib.stylix.colors.withHashtag;
   window_icon = "";
   firefox_icon = "󰈹";
-  rgba = color: opacity:
-    let
-      r = config.lib.stylix.colors."${color}-rgb-r";
-      g = config.lib.stylix.colors."${color}-rgb-g";
-      b = config.lib.stylix.colors."${color}-rgb-b";
-    in
-    "rgba(${r}, ${g}, ${b}, ${opacity})";
+  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.styylix.colors;
 in
 {
   stylix.targets.waybar.enable = false;

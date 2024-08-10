@@ -9,13 +9,7 @@
         ''
       )
     );
-  rgba = palette: color: opacity:
-    let
-      r = palette."${color}-rgb-r";
-      g = palette."${color}-rgb-g";
-      b = palette."${color}-rgb-b";
-    in
-    "rgba(${r}, ${g}, ${b}, ${opacity})";
+  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.styylix.colors;
   nixWallpaperFromScheme =
     { width
     , height
