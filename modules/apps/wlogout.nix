@@ -88,8 +88,8 @@ in
           background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg"));
       }
       #reboot {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
-          background-image: url("${icons.reboot}");
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg"));
+          /* background-image: url("${icons.reboot}"); */
       }
     '';
   };
