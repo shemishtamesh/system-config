@@ -94,8 +94,8 @@
           buildInputs = with pkgs; [ inkscape ];
           unpackPhase = "true";
           buildPhase = ''
-            inkscape --export-type="png" $src -w ${toString width} -h ${
-              toString height
+            inkscape --export-type="png" $src -w ${toString screenWidth} -h ${
+              toString screenHeight
             } -o wallpaper.png
           '';
           installPhase = "install -Dm0644 wallpaper.png $out";
