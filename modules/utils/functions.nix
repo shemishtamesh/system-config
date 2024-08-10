@@ -28,80 +28,87 @@
           src = pkgs.writeTextFile {
             name = "template.svg";
             text = /* svg */ ''
-              <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-              <svg
-                 width="1500"
-                 height="1500"
-                 viewBox="0 0 1500 1500"
-                 version="1.1"
-                 xml:space="preserve"
-                 id="SVGRoot"
-                 xmlns="http://www.w3.org/2000/svg"
-                 xmlns:svg="http://www.w3.org/2000/svg"><defs
-                 id="defs2"><marker
-                   style="overflow:visible"
-                   id="marker1"
-                   refX="0"
-                   refY="0"
-                   orient="auto-start-reverse"
-                   markerWidth="1"
-                   markerHeight="1"
-                   viewBox="0 0 1 1"
-                   preserveAspectRatio="xMidYMid"><path
-                     style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
-                     d="M 3,-3 0,0 3,3"
-                     transform="rotate(180,0.125,0)"
-                     id="path2" /></marker><marker
-                   style="overflow:visible"
-                   id="Dot"
-                   refX="0"
-                   refY="0"
-                   orient="auto"
-                   markerWidth="0.2"
-                   markerHeight="0.2"
-                   viewBox="0 0 1 1"
-                   preserveAspectRatio="xMidYMid"><path
-                     transform="scale(0.5)"
-                     style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-                     d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-                     id="path17" /></marker><marker
-                   style="overflow:visible"
-                   id="ArrowWideRounded"
-                   refX="0"
-                   refY="0"
-                   orient="auto-start-reverse"
-                   markerWidth="1"
-                   markerHeight="1"
-                   viewBox="0 0 1 1"
-                   preserveAspectRatio="xMidYMid"><path
-                     style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
-                     d="M 3,-3 0,0 3,3"
-                     transform="rotate(180,0.125,0)"
-                     id="path28" /></marker></defs>
+              <?xml version="1.0" encoding="utf-8"?>
+              <!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+              <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+              <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+              <path d="M500,10C229.4,10,10,229.4,10,500s219.4,490,490,490s490-219.4,490-490S770.6,10,500,10z M500,885.1c-212.7,0-385.1-172.4-385.1-385.1S287.3,114.9,500,114.9S885.1,287.3,885.1,500S712.7,885.1,500,885.1z M576.5,308.7v382.4c0,42.2-34.2,76.5-76.5,76.5c-42.3,0-76.5-34.2-76.5-76.5V308.7c0-42.2,34.2-76.5,76.5-76.5C542.2,232.3,576.5,266.5,576.5,308.7z"/>
+              </svg>
+              <!-- <?xml version="1.0" encoding="UTF-8" standalone="no"?> -->
+              <!-- <svg -->
+              <!--    width="1500" -->
+              <!--    height="1500" -->
+              <!--    viewBox="0 0 1500 1500" -->
+              <!--    version="1.1" -->
+              <!--    xml:space="preserve" -->
+              <!--    id="SVGRoot" -->
+              <!--    xmlns="http://www.w3.org/2000/svg" -->
+              <!--    xmlns:svg="http://www.w3.org/2000/svg"><defs -->
+              <!--    id="defs2"><marker -->
+              <!--      style="overflow:visible" -->
+              <!--      id="marker1" -->
+              <!--      refX="0" -->
+              <!--      refY="0" -->
+              <!--      orient="auto-start-reverse" -->
+              <!--      markerWidth="1" -->
+              <!--      markerHeight="1" -->
+              <!--      viewBox="0 0 1 1" -->
+              <!--      preserveAspectRatio="xMidYMid"><path -->
+              <!--        style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round" -->
+              <!--        d="M 3,-3 0,0 3,3" -->
+              <!--        transform="rotate(180,0.125,0)" -->
+              <!--        id="path2" /></marker><marker -->
+              <!--      style="overflow:visible" -->
+              <!--      id="Dot" -->
+              <!--      refX="0" -->
+              <!--      refY="0" -->
+              <!--      orient="auto" -->
+              <!--      markerWidth="0.2" -->
+              <!--      markerHeight="0.2" -->
+              <!--      viewBox="0 0 1 1" -->
+              <!--      preserveAspectRatio="xMidYMid"><path -->
+              <!--        transform="scale(0.5)" -->
+              <!--        style="fill:context-stroke;fill-rule:evenodd;stroke:none" -->
+              <!--        d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z" -->
+              <!--        id="path17" /></marker><marker -->
+              <!--      style="overflow:visible" -->
+              <!--      id="ArrowWideRounded" -->
+              <!--      refX="0" -->
+              <!--      refY="0" -->
+              <!--      orient="auto-start-reverse" -->
+              <!--      markerWidth="1" -->
+              <!--      markerHeight="1" -->
+              <!--      viewBox="0 0 1 1" -->
+              <!--      preserveAspectRatio="xMidYMid"><path -->
+              <!--        style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round" -->
+              <!--        d="M 3,-3 0,0 3,3" -->
+              <!--        transform="rotate(180,0.125,0)" -->
+              <!--        id="path28" /></marker></defs> -->
 
-              <style
-                 type="text/css"
-                 id="style1">
-              g.prefab path {
-                vector-effect:non-scaling-stroke;
-                -inkscape-stroke:hairline;
-                fill: none;
-                fill-opacity: 1;
-                stroke-opacity: 1;
-                stroke: #00349c;
-              }
-              </style>
+              <!-- <style -->
+              <!--    type="text/css" -->
+              <!--    id="style1"> -->
+              <!-- g.prefab path { -->
+              <!--   vector-effect:non-scaling-stroke; -->
+              <!--   -inkscape-stroke:hairline; -->
+              <!--   fill: none; -->
+              <!--   fill-opacity: 1; -->
+              <!--   stroke-opacity: 1; -->
+              <!--   stroke: #00349c; -->
+              <!-- } -->
+              <!-- </style> -->
 
-              <path
-                 style="fill:#${palette.base0C};fill-opacity:0;stroke:#${palette.base0C};stroke-width:40;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker1)"
-                 id="path25"
-                 d="M 1031.9945,749.96635 A 281.99771,281.99771 0 0 1 804.63652,1026.6199 281.99771,281.99771 0 0 1 489.17302,857.1748 281.99771,281.99771 0 0 1 594.28303,514.85803 a 281.99771,281.99771 0 0 1 356.1956,36.79101" /></svg>
+              <!-- <path -->
+              <!--    style="fill:#${palette.base0C};fill-opacity:0;stroke:#${palette.base0C};stroke-width:40;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker1)" -->
+              <!--    id="path25" -->
+              <!--    d="M 1031.9945,749.96635 A 281.99771,281.99771 0 0 1 804.63652,1026.6199 281.99771,281.99771 0 0 1 489.17302,857.1748 281.99771,281.99771 0 0 1 594.28303,514.85803 a 281.99771,281.99771 0 0 1 356.1956,36.79101" /></svg> -->
             '';
           };
           buildInputs = with pkgs; [ inkscape ];
           unpackPhase = "true";
           buildPhase = ''
-            inkscape --export-type="png" $src -w ${toString (screenHeight)} -h ${
+            inkscape --export-type="png" $src -w 1920 -h ${
               toString (screenHeight)
             } -o rebootIcon.png
           '';
