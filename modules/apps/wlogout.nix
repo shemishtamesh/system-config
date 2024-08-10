@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  palette = config.lib.stylix.colors;
+  palette = config.lib.stylix.colors.withHashtag;
   rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
 in
 {
@@ -56,8 +56,8 @@ in
 
       button {
           border-radius: 10px;
-          color: #${palette.base05};
-          background-color: #${palette.base01};
+          color: ${palette.base05};
+          background-color: ${palette.base01};
           border-style: solid;
           border-width: 0;
           background-repeat: no-repeat;
@@ -67,27 +67,27 @@ in
       }
 
       button:focus, button:active, button:hover {
-          background-color: #${palette.base02};
+          background-color: ${palette.base02};
           outline-style: none;
       }
 
       #lock {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"));
       }
       #logout {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"));
       }
       #suspend {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"));
       }
       #hibernate {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"));
       }
       #shutdown {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
       }
       #reboot {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
       }
     '';
   };
