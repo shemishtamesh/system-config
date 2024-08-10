@@ -1,6 +1,6 @@
 { pkgs }:
 let
-  funtions = import ./functions.nix { inherit pkgs; };
+  functions = import ./functions.nix { inherit pkgs; };
 in
 {
   scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
