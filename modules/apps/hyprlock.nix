@@ -1,6 +1,5 @@
 { pkgs, config, ... }:
 let
-  palette = config.lib.stylix.colors.withHashtag;
   rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
@@ -35,15 +34,15 @@ in
     label = [
       {
         text = "cmd[update:1000] date";
-        color = palette.base02;
+        color = rgba "base02" "1";
         font_size = 22;
         position = "0, 70";
         halign = "center";
         valign = "bottom";
       }
       {
-        text = "cmd[update:10000] acpi";
-        color = palette.base02;
+        text = "cmd[update:10000] acpi | awk '{print substr($0, index($0, $3))}'";
+        color = rgba "base02" "1";
         font_size = 14;
         position = "0, 40";
         halign = "center";
