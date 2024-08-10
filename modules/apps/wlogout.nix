@@ -89,8 +89,8 @@ in
       }
       #reboot {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); */
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
-          background-image: image(url("${icons.reboot}"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg"));
+          /* background-image: image(url("${icons.reboot}")); */
       }
     '';
   };
