@@ -82,7 +82,8 @@ in
       }
       #suspend {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/suspend.svg")); */
-          background-image: image(url("/home/shemishtamesh/testicons/suspend.svg"));
+          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"));
+          /* background-image: image(url("/home/shemishtamesh/testicons/suspend.svg")); */
       }
       #hibernate {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/hibernate.svg")); */
