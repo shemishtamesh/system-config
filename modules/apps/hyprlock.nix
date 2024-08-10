@@ -30,11 +30,9 @@ in
       font_color = "${rgba "base07" "0"}";  # actually hides input, no typing indication
       fade_on_empty = true;
       rounding = -1;
-      # check_color = "rgb(204, 136, 34)";
-      # placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
-      position = "0, 50";
       halign = "center";
       valign = "bottom";
+      position = "0, 50";
     };
     label = [
       {
