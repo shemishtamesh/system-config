@@ -1,6 +1,5 @@
 { pkgs, config, ... }:
 let
-  palette = config.lib.stylix.colors;
   rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
@@ -25,8 +24,8 @@ in
       rounding = -1;
       placeholder_text = "";
       fail_text = "";
-      check_color = palette.base09;
-      fail_color = palette.base08;
+      check_color = rgba "base09" "1";
+      fail_color = rgba "base08" "1";
       halign = "center";
       valign = "top";
       position = "0, 70";
