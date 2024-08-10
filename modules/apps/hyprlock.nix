@@ -16,20 +16,20 @@ in
     };
     input-field = {
       size = "50, 50";
-      # outline_thickness = 0;
-      # inner_color = rgba "base01" "1";
-      # font_color = rgba "base07" "0"; # no typing indication
-      # fade_on_empty = true;
-      # fade_timeout = 1000;
-      # rounding = -1;
-      # placeholder_text = "";
-      # fail_text = "";
-      # # fail_text = "";
-      # check_color = rgba "base09" "1";
-      # fail_color = rgba "base08" "1";
-      # halign = "center";
-      # valign = "top";
-      # position = "0, 70";
+      outline_thickness = 0;
+      inner_color = rgba "base01" "1";
+      font_color = rgba "base07" "0"; # no typing indication
+      fade_on_empty = true;
+      fade_timeout = 1000;
+      rounding = -1;
+      placeholder_text = "";
+      fail_text = "";
+      # fail_text = "";
+      check_color = rgba "base09" "1";
+      fail_color = rgba "base08" "1";
+      halign = "center";
+      valign = "top";
+      position = "0, 70";
     };
     # label = [
     #   {
