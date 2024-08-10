@@ -185,8 +185,7 @@ in
           opacity: 1;
           padding: 1px 2px;
           margin: 0 4px;
-          /* border-radius: 10px; */
-          rounding: -1;
+          border-radius: 10px;
           animation: gradient_f 20s ease-in infinite;
           transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
       }
