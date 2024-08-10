@@ -56,10 +56,8 @@ in
 
       button {
           border-radius: 10px;
-          /* border-color: #${palette.base07}; */
-          /* text-decoration-color: #${palette.base07}; */
-          /* color: #${palette.base07}; */
-          /* background-color: #${palette.base01}; */
+          color: #${palette.base05};
+          background-color: #${palette.base01};
           border-style: solid;
           border-width: 0;
           background-repeat: no-repeat;
@@ -69,7 +67,7 @@ in
       }
 
       button:focus, button:active, button:hover {
-          /* background-color: #${palette.base08}; */
+          background-color: #${palette.base02};
           outline-style: none;
       }
 
