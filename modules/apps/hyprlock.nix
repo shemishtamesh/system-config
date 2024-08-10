@@ -28,17 +28,17 @@ in
       check_color = palette.base09;
       fail_color = palette.base08;
       halign = "center";
-      valign = "center";
-      position = "0, 7";
+      valign = "bottom";
+      position = "0, 20";
     };
     label = [
       {
         text = "cmd[update:1000] echo $(date)";
         color = rgba "base02" "1";
         font_size = 22;
-        position = "0, 70";
+        position = "0, -70";
         halign = "center";
-        valign = "bottom";
+        valign = "top";
       }
     ];
 
