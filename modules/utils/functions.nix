@@ -87,8 +87,8 @@
           buildInputs = with pkgs; [ inkscape ];
           unpackPhase = "true";
           buildPhase = ''
-            inkscape --export-type="png" $src -w ${toString screenWidth / 5} -h ${
-              toString screenHeight / 5
+            inkscape --export-type="png" $src -w ${toString (screenWidth / 5)} -h ${
+              toString (screenHeight / 5)
             } -o rebootIcon.png
           '';
           installPhase = "install -Dm0644 rebootIcon.png $out";
