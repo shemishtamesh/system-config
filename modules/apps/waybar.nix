@@ -31,7 +31,7 @@ in
         };
         "hyprland/window" = {
           icon = true;
-          icon-size = 15;
+          icon-size = 17;
         };
         mpris = {
           format = "{player_icon}{status_icon}: {dynamic}";
