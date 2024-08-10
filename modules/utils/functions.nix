@@ -101,7 +101,7 @@
           buildInputs = with pkgs; [ inkscape ];
           unpackPhase = "true";
           buildPhase = ''
-            inkscape --export-type="png" $src -w ${toString (screenWidth / 5)} -h ${
+            inkscape --export-type="png" $src -w ${toString (screenHeight / 5)} -h ${
               toString (screenHeight / 5)
             } -o rebootIcon.png
           '';
@@ -127,8 +127,8 @@
                 <defs
                    id="defs4" />
                 <rect
-                   width="1920"
-                   height="1080"
+                   width="${toString screenWidth}"
+                   height="${toString screenHeight}"
                    fill="#${palette.base00}"
                    id="rect1" />
                 <svg
