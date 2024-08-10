@@ -25,8 +25,8 @@ in
       placeholder_text = "";
       fail_text = "";
       # fail_text = "";
-      check_color = palette.base09;
-      fail_color = palette.base08;
+      check_color = rgba "base09" "1";
+      fail_color = rgba "base08" "1";
       halign = "center";
       valign = "top";
       position = "0, -70";
