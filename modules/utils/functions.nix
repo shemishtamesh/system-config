@@ -93,7 +93,7 @@
               </style>
 
               <path
-                 style="fill:#${palette.base0D};fill-opacity:0;stroke:#${palette.base0D};stroke-width:40;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker1)"
+                 style="fill:#${palette.base0C};fill-opacity:0;stroke:#${palette.base0C};stroke-width:40;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker1)"
                  id="path25"
                  d="M 1031.9945,749.96635 A 281.99771,281.99771 0 0 1 804.63652,1026.6199 281.99771,281.99771 0 0 1 489.17302,857.1748 281.99771,281.99771 0 0 1 594.28303,514.85803 a 281.99771,281.99771 0 0 1 356.1956,36.79101" /></svg>
             '';
@@ -101,8 +101,8 @@
           buildInputs = with pkgs; [ inkscape ];
           unpackPhase = "true";
           buildPhase = ''
-            inkscape --export-type="png" $src -w ${toString (screenHeight / 5)} -h ${
-              toString (screenHeight / 5)
+            inkscape --export-type="png" $src -w ${toString (screenHeight / 4)} -h ${
+              toString (screenHeight / 4)
             } -o rebootIcon.png
           '';
           installPhase = "install -Dm0644 rebootIcon.png $out";
