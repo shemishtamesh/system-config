@@ -26,8 +26,8 @@ in
       rounding = -1;
       placeholder_text = "";
       fail_text = "    ";
-      check_color = pallete.base09;
-      fail_color = pallete.base08;
+      check_color = palette.base09;
+      fail_color = palette.base08;
       halign = "center";
       valign = "center";
       # position = "0, 50";
