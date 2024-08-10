@@ -1,22 +1,5 @@
-{ pkgs, lib }:
-let
-  imageFromScheme = { width, height, svgText, name }:
-    pkgs.stdenv.mkDerivation {
-      name = "generated-${name}.png";
-      src = pkgs.writeTextFile {
-        name = "template.svg";
-        text = svgText;
-      };
-      buildInputs = with pkgs; [ inkscape ];
-      unpackPhase = "true";
-      buildPhase = ''
-        inkscape --export-type="png" $src -w ${toString width} -h ${
-          toString height
-        } -o ${name}.png
-      '';
-      installPhase = "install -Dm0644 ${name}.png $out";
-    };
-in
+{ pkgs }:
+
 {
   importYaml =
     file: builtins.fromJSON (
@@ -33,50 +16,28 @@ in
       b = palette."${color}-rgb-b";
     in
     "rgba(${r}, ${g}, ${b}, ${opacity})";
-  # imageFromScheme = { width, heigh, svgText, name }:
-  #   pkgs.stdenv.mkDerivation {
-  #     name = "generated-${name}.png";
-  #     src = pkgs.writeTextFile {
-  #       name = "template.svg";
-  #       text = svgText;
-  #     };
-  #     buildInputs = with pkgs; [ inkscape ];
-  #     unpackPhase = "true";
-  #     buildPhase = ''
-  #       inkscape --export-type="png" $src -w ${toString width} -h ${
-  #         toString height
-  #       } -o rebootIcon.png
-  #     '';
-  #     installPhase = "install -Dm0644 ${name}.png $out";
-  #   };
+  imageFromScheme = { width, height }: { svgText, name }:
+    pkgs.stdenv.mkDerivation {
+      name = "generated-${name}.png";
+      src = pkgs.writeTextFile {
+        name = "template.svg";
+        text = svgText;
+      };
+      buildInputs = with pkgs; [ inkscape ];
+      unpackPhase = "true";
+      buildPhase = ''
+        inkscape --export-type="png" $src -w ${toString width} -h ${
+          toString height
+        } -o ${name}.png
+      '';
+      installPhase = "install -Dm0644 ${name}.png $out";
+    };
   imagesFromScheme =
     { screenWidth, screenHeight, scheme }:
     let
       palette = scheme.palette;
     in
     {
-      rebootIcon = imageFromScheme {
-        width = screenHeight;
-        height = screenHeight;
-        svgText = builtins.replaceStrings [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ] (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
-        name = "rebootIcon";
-      };
-      # rebootIcon =
-      #   pkgs.stdenv.mkDerivation {
-      #     name = "generated-rebootIcon.png";
-      #     src = pkgs.writeTextFile {
-      #       name = "template.svg";
-      #       text = builtins.replaceStrings [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ] (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
-      #     };
-      #     buildInputs = with pkgs; [ inkscape ];
-      #     unpackPhase = "true";
-      #     buildPhase = ''
-      #       inkscape --export-type="png" $src -w ${toString screenHeight} -h ${
-      #         toString screenHeight
-      #       } -o rebootIcon.png
-      #     '';
-      #     installPhase = "install -Dm0644 rebootIcon.png $out";
-      #   };
       wallpaper =
         let
           logoScale = 8;

@@ -1,6 +1,6 @@
-{ pkgs, inputs, config, lib, ... }:
+{ pkgs, ... }:
 let
-  wallpaper = (import ../utils/theming.nix { inherit pkgs; inherit lib; }).wallpaper;
+  wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
 {
   services.hyprpaper.enable = true;

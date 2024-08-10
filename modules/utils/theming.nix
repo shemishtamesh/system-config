@@ -1,6 +1,6 @@
-{ pkgs, lib }:
+{ pkgs }:
 let
-  functions = import ./functions.nix { inherit pkgs; inherit lib; };
+  functions = import ./functions.nix { inherit pkgs; };
   scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   images = functions.imagesFromScheme {
     screenWidth = 1920;
