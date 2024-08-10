@@ -18,13 +18,9 @@ in
     input-field = {
       size = "250, 60";
      uoutline_thickness = 0;
-      dots_size = 0.2;
-      dots_spacing = 0.35;
-      dots_center = true;
       outer_color = palette.base00;
       inner_color = palette.base03;
-      hide_input = false;
-      font_color = "${rgba "base07" "0"}";  # actually hides input, no typing indication
+      font_color = "${rgba "base07" "0"}";  # no typing indication
       fade_on_empty = true;
       rounding = -1;
       halign = "center";
