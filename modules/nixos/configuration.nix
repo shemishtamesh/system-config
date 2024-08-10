@@ -119,6 +119,7 @@
     imv
     pulsemixer
     inkscape
+    acpi
     hyprpaper
     hyprpicker
     hyprlock
