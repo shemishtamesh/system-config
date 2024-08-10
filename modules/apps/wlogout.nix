@@ -1,8 +1,9 @@
 { config, pkgs, inputs, lib, ... }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
-  imageFromScheme = (import ../utils/functions.nix { inherit pkgs; }).imageFromScheme { width = 500; height = 500; };
+  functions = (import ../utils/functions.nix { inherit pkgs; });
+  rgba = functions.rgba config.lib.stylix.colors;
+  imageFromScheme = functions.imageFromScheme { width = 500; height = 500; };
   rebootIcon = imageFromScheme {
     svgText = builtins.replaceStrings
       [ "<path d=" ] [ "<path fill=\"${palette.base0C}\" d=" ]
