@@ -35,7 +35,7 @@ in
       {
         text = "cmd[update:1000] echo \"$(date)\"";
         font_size = 22;
-        # position = "0, 300";
+        position = "0, -100";
         halign = "center";
         valign = "top";
       }
