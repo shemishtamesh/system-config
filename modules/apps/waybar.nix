@@ -180,7 +180,7 @@ in
       #keyboard-state,
       #workspaces button,
       #battery {
-          background: ${palette.base0E};
+          background: ${palette.base0C};
           color: ${palette.base00};
           opacity: 1;
           padding: 1px 2px;
@@ -213,7 +213,7 @@ in
       }
       #workspaces button:hover {
           padding: 1px 12px 1px 7px;
-          background: ${palette.base0C};
+          background: ${palette.base0D};
           margin-bottom: 0;
       }
       #workspaces button.active {
