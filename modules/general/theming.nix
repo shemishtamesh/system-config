@@ -10,12 +10,12 @@ in
   inherit scheme;
   fonts = {
     serif = {
-      package = pkgs.fira-code-symbols;
-      name = "FiraCode Nerd Font";
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
     };
     sansSerif = {
       package = pkgs.dejavu_fonts;
-      name = "FiraCode Nerd Font";
+      name = "DejaVu Sans";
     };
     monospace = {
       package = pkgs.fira-code-symbols;
@@ -23,7 +23,7 @@ in
     };
     emoji = {
       package = pkgs.noto-fonts-emoji;
-      name = "FiraCode Nerd Font";
+      name = "Noto Emoji";
     };
   };
   wallpaper =
