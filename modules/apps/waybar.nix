@@ -1,9 +1,9 @@
 { config, inputs, pkgs, ... }:
 let
   palette = config.lib.stylix.colors.withHashtag;
+  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   window_icon = "";
   firefox_icon = "󰈹";
-  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
 in
 {
   stylix.targets.waybar.enable = false;
