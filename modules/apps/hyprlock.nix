@@ -24,7 +24,6 @@ in
       rounding = -1;
       placeholder_text = "";
       fail_text = "X";
-      # fail_text = "";
       check_color = rgba "base09" "1";
       fail_color = rgba "base08" "1";
       halign = "center";
