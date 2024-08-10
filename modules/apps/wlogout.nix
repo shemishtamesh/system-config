@@ -5,7 +5,6 @@ let
   icons = (import ../utils/theming.nix { inherit pkgs; }).icons;
 in
 {
-  stylix.targets.wlogout.enable = false;
   programs.wlogout = {
     enable = true;
     layout = [
@@ -47,31 +46,31 @@ in
       }
     ];
     style = /* css */ ''
-      * {
-          background-image: none;
-          box-shadow: none;
-      }
+      /* * { */
+      /*     background-image: none; */
+      /*     box-shadow: none; */
+      /* } */
 
-      window {
-          background-color: ${rgba "base00" "0.8"};
-      }
+      /* window { */
+      /*     background-color: ${rgba "base00" "0.8"}; */
+      /* } */
 
-      button {
-          border-radius: 10px;
-          color: ${palette.base05};
-          background-color: ${palette.base01};
-          border-style: solid;
-          border-width: 0;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 25%;
-          margin: 2px;
-      }
+      /* button { */
+      /*     border-radius: 10px; */
+      /*     color: ${palette.base05}; */
+      /*     background-color: ${palette.base01}; */
+      /*     border-style: solid; */
+      /*     border-width: 0; */
+      /*     background-repeat: no-repeat; */
+      /*     background-position: center; */
+      /*     background-size: 25%; */
+      /*     margin: 2px; */
+      /* } */
 
-      button:focus, button:active, button:hover {
-          background-color: ${palette.base02};
-          outline-style: none;
-      }
+      /* button:focus, button:active, button:hover { */
+      /*     background-color: ${palette.base02}; */
+      /*     outline-style: none; */
+      /* } */
 
       #lock {
           /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/lock.svg")); */
