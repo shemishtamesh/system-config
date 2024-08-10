@@ -2,6 +2,7 @@
 let
   palette = config.lib.stylix.colors.withHashtag;
   rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
+  icons = (import ../utils/theming.nix { inherit pkgs; }).icons;
 in
 {
   programs.wlogout = {
@@ -87,7 +88,8 @@ in
           background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
       }
       #reboot {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
+          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); */
+          background-image: ${icons.reboot});
       }
     '';
   };
