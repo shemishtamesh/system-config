@@ -26,12 +26,12 @@ in
       dots_center = true;
       outer_color = "${rgba "base00" "0"}";
       inner_color = "${rgba "base02" "0.9"}";
-      font_color = palette.base07;
+      hide_input = false;
+      font_color = "${rgba "base07" "0"}";  # actually hides input, no typing indication
       fade_on_empty = true;
       rounding = -1;
       # check_color = "rgb(204, 136, 34)";
       # placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
-      hide_input = true;
       position = "0, 50";
       halign = "center";
       valign = "bottom";
