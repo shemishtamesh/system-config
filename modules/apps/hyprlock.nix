@@ -25,12 +25,12 @@ in
       fade_timeout = 1000;
       rounding = -1;
       placeholder_text = "";
-      fail_text = "aaaa";
+      fail_text = "<br>";
       check_color = palette.base09;
       fail_color = palette.base08;
       halign = "center";
       valign = "center";
-      # position = "0, 50";
+      position = "0, 25";
     };
     label = [
       {
