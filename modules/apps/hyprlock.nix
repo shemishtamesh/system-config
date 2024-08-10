@@ -40,14 +40,14 @@ in
         halign = "center";
         valign = "bottom";
       }
-      {
-        text = "cmd[update:10000] acpi";
-        color = rgba "base02" "1";
-        font_size = 14;
-        position = "0, -40";
-        halign = "center";
-        valign = "bottom";
-      }
+      # {
+      #   text = "cmd[update:10000] acpi";
+      #   color = rgba "base02" "1";
+      #   font_size = 14;
+      #   position = "0, -40";
+      #   halign = "center";
+      #   valign = "bottom";
+      # }
     ];
   };
 }
