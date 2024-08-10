@@ -42,13 +42,17 @@ in
       "$mod, i, exec, librewolf"
       "$mod SHIFT, i, exec, librewolf --private-window"
 
+      "$mod, Escape, exec, wlogout"
+
       "$mod, b, exec, ${lib.getExe toggle-bar}"
 
       "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
 
-      "$mod, Escape, exec, wlogout"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioNext, exec, playerctl next"
 
       "$mod, Tab, hyprexpo:expo, toggle"
       "$mod, XF86Reload, togglespecialworkspace, chat"
@@ -122,9 +126,6 @@ in
       "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
       "CTRL SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+"
       "CTRL SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-"
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPrev, exec, playerctl previous"
-      ", XF86AudioNext, exec, playerctl next"
       ", XF86MonBrightnessUp, exec, brightnessctl set +1%"
       ", XF86MonBrightnessDown, exec, brightnessctl set 1%-"
       "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set +10%"
