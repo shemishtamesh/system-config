@@ -25,7 +25,7 @@ in
       dots_spacing = 0.35;
       dots_center = true;
       outer_color = palette.base00;
-      inner_color = palette.base02;
+      inner_color = palette.base05;
       hide_input = false;
       font_color = "${rgba "base07" "0"}";  # actually hides input, no typing indication
       fade_on_empty = true;
