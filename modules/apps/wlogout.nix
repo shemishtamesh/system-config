@@ -1,6 +1,7 @@
 { config, pkgs, inputs, ... }:
 let
   palette = config.lib.stylix.colors;
+  rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
 in
 {
   programs.wlogout = {
@@ -50,7 +51,7 @@ in
       }
 
       window {
-          background-color: palette.base00}, 0.8);
+          background-color: ${rgba "base00" "0.8"};
       }
 
       /* button { */
