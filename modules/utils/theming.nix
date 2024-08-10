@@ -11,9 +11,6 @@ in
 {
   inherit scheme;
   wallpaper = images.wallpaper;
-  icons = {
-      reboot = images.rebootIcon;
-  };
   fonts = {
     serif = {
       package = pkgs.fira-code-symbols;
