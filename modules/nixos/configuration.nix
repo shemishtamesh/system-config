@@ -116,6 +116,7 @@
     fastfetch
     librewolf
     gimp
+    swiv
     pulsemixer
     inkscape
     hyprpaper
