@@ -17,7 +17,7 @@
     in
     "rgba(${r}, ${g}, ${b}, ${opacity})";
   imagesFromScheme =
-    { screenWidth, screenHeight }:
+    { screenWidth, screenHeight, scheme }:
     {
       wallpaper =
         let
