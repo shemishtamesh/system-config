@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 let
+  palette = config.lib.stylix.colors.withHashtag;
   rgba = (import ../utils/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   wallpaper = (import ../utils/theming.nix { inherit pkgs; }).wallpaper;
 in
@@ -17,7 +18,7 @@ in
     input-field = {
       size = "50, 50";
       outline_thickness = 0;
-      inner_color = rgba "base01" "1";
+      inner_color = palette.base01;
       font_color = rgba "base07" "0"; # no typing indication
       fade_on_empty = true;
       fade_timeout = 1000;
@@ -25,8 +26,8 @@ in
       placeholder_text = "";
       fail_text = "";
       # fail_text = "";
-      check_color = rgba "base09" "1";
-      fail_color = rgba "base08" "1";
+      check_color = palette.base09;
+      fail_color = palette.base08;
       halign = "center";
       valign = "top";
       position = "0, -70";
@@ -34,7 +35,7 @@ in
     label = [
       {
         text = "cmd[update:1000] date";
-        color = rgba "base02" "1";
+        color = palette.base02;
         font_size = 22;
         position = "0, 70";
         halign = "center";
@@ -42,7 +43,7 @@ in
       }
       {
         text = "cmd[update:10000] acpi";
-        color = rgba "base02" "1";
+        color = palette.base02;
         font_size = 14;
         position = "0, 40";
         halign = "center";
