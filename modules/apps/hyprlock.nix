@@ -27,9 +27,9 @@ in
       # fail_text = "";
       check_color = rgba "base09" "1";
       fail_color = rgba "base08" "1";
-      halign = "center";
-      valign = "top";
-      position = "0, 70";
+      # halign = "center";
+      # valign = "top";
+      # position = "0, 70";
     };
     # label = [
     #   {
