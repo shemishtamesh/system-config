@@ -73,23 +73,23 @@ in
       }
 
       #lock {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/lock.png"));
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/lock.png");
       }
       #logout {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/logout.png"));
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/logout.png");
       }
       #suspend {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/suspend.png"));
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/suspend.png");
       }
       #hibernate {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/hibernate.png"));
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/hibernate.png");
       }
       #shutdown {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.png"));
+          background-image: url("${pkgs.wlogout}/share/wlogout/assets/shutdown.png");
       }
       #reboot {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg"));
-          /* background-image: image(url("${icons.reboot}")); */
+          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
+          background-image: url("${icons.reboot}");
       }
     '';
   };
