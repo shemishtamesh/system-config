@@ -2,7 +2,7 @@
 let
   screenWidth = 1920;
   screenHeight = 1080;
-  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/one-black.yaml";
+  scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   functions = import ./functions.nix { inherit pkgs; };
   imageFromScheme = functions.imageFromScheme { width = screenWidth; height = screenHeight; };
 in
