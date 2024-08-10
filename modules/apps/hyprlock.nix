@@ -13,14 +13,11 @@ in
     background = {
       path = toString wallpaper;
       blur_passes = 3;
-      # contrast = 1;
       brightness = 0.5;
-      # vibrancy = 0.2;
-      # vibrancy_darkness = 0.2;
     };
     input-field = {
       size = "250, 60";
-      outline_thickness = 2;
+     uoutline_thickness = 0;
       dots_size = 0.2;
       dots_spacing = 0.35;
       dots_center = true;
