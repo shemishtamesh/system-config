@@ -5,6 +5,7 @@ let
   icons = (import ../utils/theming.nix { inherit pkgs; }).icons;
 in
 {
+  stylix.targets.wlogout.enable = false;
   programs.wlogout = {
     enable = true;
     layout = [
