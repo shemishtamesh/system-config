@@ -31,8 +31,8 @@
             text = /* svg */ ''
               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
               <svg
-                 width="${toString width}"
-                 height="${toString height}"
+                 width="${toString screenWidth}"
+                 height="${toString screenHeight}"
                  version="1.1"
                  id="svg4"
                  xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +45,8 @@
                    fill="${palette.base00}"
                    id="rect1" />
                 <svg
-                   x="${toString (width / 2 - (logoScale * 50))}"
-                   y="${toString (height / 2 - (logoScale * 50))}"
+                   x="${toString (screenWidth / 2 - (logoScale * 50))}"
+                   y="${toString (screenHeight / 2 - (logoScale * 50))}"
                    version="1.1"
                    id="svg3">
                   <g
