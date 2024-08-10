@@ -5,7 +5,7 @@ let
 in
 {
   inherit scheme;
-  wallpaper = functions.nixWallpaperFromScheme {
+  wallpaper = functions.imagesFromScheme.nixWallpaper {
     width = 1920;
     height = 1080;
     logoScale = 8;
