@@ -33,7 +33,7 @@ in
     };
     label = [
       {
-        text = "cmd[update:1000] date";
+        text = "cmd[update:1000] echo $(date)";
         color = rgba "base02" "1";
         font_size = 22;
         position = "0, -70";
