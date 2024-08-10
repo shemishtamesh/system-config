@@ -24,8 +24,8 @@ in
       dots_size = 0.2;
       dots_spacing = 0.35;
       dots_center = true;
-      outer_color = "${rgba "base00" "255"}";
-      inner_color = "${rgba "base00" "0.2"}";
+      outer_color = "${rgba "base00" "0"}";
+      inner_color = "${rgba "base02" "0.9"}";
       font_color = palette.base07;
       fade_on_empty = true;
       rounding = -1;
