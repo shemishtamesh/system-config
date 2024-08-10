@@ -33,7 +33,7 @@
               <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
               <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-              <path d="M500,10C229.4,10,10,229.4,10,500s219.4,490,490,490s490-219.4,490-490S770.6,10,500,10z M500,885.1c-212.7,0-385.1-172.4-385.1-385.1S287.3,114.9,500,114.9S885.1,287.3,885.1,500S712.7,885.1,500,885.1z M576.5,308.7v382.4c0,42.2-34.2,76.5-76.5,76.5c-42.3,0-76.5-34.2-76.5-76.5V308.7c0-42.2,34.2-76.5,76.5-76.5C542.2,232.3,576.5,266.5,576.5,308.7z"/>
+              <path fill=#${palette.base0C} d="M500,10C229.4,10,10,229.4,10,500s219.4,490,490,490s490-219.4,490-490S770.6,10,500,10z M500,885.1c-212.7,0-385.1-172.4-385.1-385.1S287.3,114.9,500,114.9S885.1,287.3,885.1,500S712.7,885.1,500,885.1z M576.5,308.7v382.4c0,42.2-34.2,76.5-76.5,76.5c-42.3,0-76.5-34.2-76.5-76.5V308.7c0-42.2,34.2-76.5,76.5-76.5C542.2,232.3,576.5,266.5,576.5,308.7z"/>
               </svg>
               <!-- <?xml version="1.0" encoding="UTF-8" standalone="no"?> -->
               <!-- <svg -->
@@ -108,7 +108,7 @@
           buildInputs = with pkgs; [ inkscape ];
           unpackPhase = "true";
           buildPhase = ''
-            inkscape --export-type="png" $src -w 1920 -h ${
+            inkscape --export-type="png" $src -w ${screenHeight} -h ${
               toString (screenHeight)
             } -o rebootIcon.png
           '';
