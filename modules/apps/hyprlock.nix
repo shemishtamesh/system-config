@@ -18,19 +18,18 @@ in
     input-field = {
       size = "50, 50";
       outline_thickness = 0;
-      # outer_color = palette.base03;
       inner_color = "${rgba "base07" "0.2"}";
       font_color = "${rgba "base07" "0"}"; # no typing indication
       fade_on_empty = true;
       fade_timeout = 1000;
       rounding = -1;
       placeholder_text = "";
-      fail_text = "<br>";
+      fail_text = "";
       check_color = palette.base09;
       fail_color = palette.base08;
       halign = "center";
       valign = "center";
-      position = "0, 25";
+      position = "0, 10";
     };
     label = [
       {
