@@ -1,6 +1,6 @@
 { pkgs, lib }:
 let
-  imageFromScheme = { width, heigh, svgText, name }:
+  imageFromScheme = { width, height, svgText, name }:
     pkgs.stdenv.mkDerivation {
       name = "generated-${name}.png";
       src = pkgs.writeTextFile {
