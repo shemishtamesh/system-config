@@ -16,7 +16,7 @@ in
       brightness = 0.5;
     };
     input-field = {
-      size = "50, 50";
+      size = "70, 70";
       outline_thickness = 0;
       inner_color = rgba "base01" "1";
       font_color = rgba "base07" "0"; # no typing indication
@@ -29,7 +29,7 @@ in
       fail_color = palette.base08;
       halign = "center";
       valign = "bottom";
-      position = "0, 20";
+      position = "0, 70";
     };
     label = [
       {
