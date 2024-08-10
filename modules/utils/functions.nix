@@ -12,7 +12,7 @@ let
       buildPhase = ''
         inkscape --export-type="png" $src -w ${toString width} -h ${
           toString height
-        } -o rebootIcon.png
+        } -o ${name}.png
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
@@ -59,7 +59,7 @@ in
         width = screenHeight;
         height = screenHeight;
         svgText = builtins.replaceStrings [ "<path d=" ] [ "<path fill=\"#${palette.base0C}\" d=" ] (lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
-        name = "reload";
+        name = "rebootIcon";
       };
       # rebootIcon =
       #   pkgs.stdenv.mkDerivation {
