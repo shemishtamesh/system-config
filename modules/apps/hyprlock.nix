@@ -22,12 +22,15 @@ in
       inner_color = "${rgba "base07" "0.2"}";
       font_color = "${rgba "base07" "0"}"; # no typing indication
       fade_on_empty = true;
+      fade_timeout = 0;
       rounding = -1;
       placeholder_text = "";
-      fail_text = "";
+      fail_text = "    ";
+      check_color = pallete.base09;
+      fail_color = pallete.base08;
       halign = "center";
-      valign = "bottom";
-      position = "0, 50";
+      valign = "center";
+      # position = "0, 50";
     };
     label = [
       {
