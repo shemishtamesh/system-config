@@ -24,8 +24,8 @@ in
       dots_size = 0.2;
       dots_spacing = 0.35;
       dots_center = true;
-      outer_color = "${rgba "base00" "0"}";
-      inner_color = "${rgba "base07" "0.2"}";
+      inner_color = "${rgba "base00" "0"}";
+      outer_color = palette.base07;
       hide_input = false;
       font_color = "${rgba "base07" "0"}";  # actually hides input, no typing indication
       fade_on_empty = true;
@@ -39,7 +39,6 @@ in
         text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
         # color = "rgba(242, 243, 244, 0.75)";
         font_size = 22;
-        # font_family = "FiraCode";
         position = "0, 300";
         halign = "center";
         valign = "center";
@@ -48,7 +47,6 @@ in
         text = "cmd[update:1000] echo \"$(date + \"%-I:%M\")\"";
         # color = "rgba(242, 243, 244, 0.75)";
         font_size = 95;
-        # font_family = "FiraCode";
         position = "0, 200";
         halign = "center";
         valign = "center";
