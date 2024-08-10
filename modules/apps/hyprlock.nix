@@ -25,7 +25,7 @@ in
       fade_timeout = 1000;
       rounding = -1;
       placeholder_text = "";
-      fail_text = "    ";
+      fail_text = "aaaa";
       check_color = palette.base09;
       fail_color = palette.base08;
       halign = "center";
