@@ -5,18 +5,11 @@ let
 in
 {
   inherit scheme;
-  wallpaper = functions.imagesFromScheme {
+  wallpaper = (functions.imagesFromScheme {
     width = 1920;
     height = 1080;
-    logoScale = 8;
-    backgroundColor = scheme.palette.base00;
-    logoColor1 = scheme.palette.base08;
-    logoColor2 = scheme.palette.base09;
-    logoColor3 = scheme.palette.base0A;
-    logoColor4 = scheme.palette.base0B;
-    logoColor5 = scheme.palette.base0C;
-    logoColor6 = scheme.palette.base0D;
-  }.wallpaper;
+    inherit scheme;
+  }).wallpaper;
   fonts = {
     serif = {
       package = pkgs.fira-code-symbols;
