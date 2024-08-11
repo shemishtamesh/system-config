@@ -6,11 +6,11 @@
     programs.rofi = {
         package = pkgs.rofi-wayland;
         modi = "drun,run,window,emoji,calc";
-        show-icons = true;
     };
-    # programs.rofi.extraConfig = {
-    #     sidebar-mode = true;
-    # };
+    programs.rofi.extraConfig = {
+        show-icons = true;
+        sidebar-mode = true;
+    };
 }
 
 # configuration {
