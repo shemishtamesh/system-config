@@ -39,16 +39,16 @@ in
             /* --align-x: left; */
             /* --align-y: center; */
 
-            .plugin-hint {
-              background: #3e6cce;
-              color: #2c2525;
-              border-color: #ffffff;
-              border-radius: 0%;
-              border-width: 0px;
-              padding: 0;
-              --width: shrink;
-              --height: fill;
-            }
+            /* .plugin-hint { */
+            /*   background: #3e6cce; */
+            /*   color: #2c2525; */
+            /*   border-color: #ffffff; */
+            /*   border-radius: 0%; */
+            /*   border-width: 0px; */
+            /*   padding: 0; */
+            /*   --width: shrink; */
+            /*   --height: fill; */
+            /* } */
 
             .input {
               background: #ffffff;
