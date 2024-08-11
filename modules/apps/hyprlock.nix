@@ -32,7 +32,7 @@ in
     };
     label = [
       {
-        text = "cmd[update:1000] date";
+        text = "cmd[update:1000] date '+%Y-%m-%d %H:%M:%S'";
         color = rgba "base02" "1";
         font_size = 22;
         position = "0, 50";

@@ -189,6 +189,7 @@ in
       "[workspace special:music silent] spotify"
       "[workspace special:music silent] Discord"
       "copyq --start-server"
+      "notification-log $HOME/Documents/logs/notifications.txt"
       "playerctld"
     ];
   };
