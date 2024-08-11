@@ -27,7 +27,7 @@ in
           /* border-color: #ffffff; */
           /* border-radius: 0%; */
           /* border-width: 0px; */
-          /* padding: 10; */
+          padding: 0;
 
           .search {
             background: #f1cd1a;
