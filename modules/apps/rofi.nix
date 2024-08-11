@@ -1,12 +1,12 @@
 { ... }:
 
 {
-    # programs.rofi.enable = true;
-    # programs.rofi.extraConfig = {
-    #     sidebar-mode = true;
-    # };
+    programs.rofi.enable = true;
     # programs.rofi = {
     #     location = "center";
+    # };
+    # programs.rofi.extraConfig = {
+    #     sidebar-mode = true;
     # };
 }
 
