@@ -4,7 +4,7 @@
   services.dunst.enable = true;
   services.dunst.settings = {
     global = {
-      offset = "6x8";
+      offset = "7x8";
       separator_height = 2;
       padding = 10;
       frame_width = 2;
