@@ -30,31 +30,37 @@ in
       inactive_tab_background = palette.base01;
       inactive_tab_foreground = palette.base04;
 
-      # Normal
+      # first is normal second is bright
+      # black
       color0 = palette.base00;
-      color1 = palette.base08;
-      color2 = palette.base0B;
-      color3 = palette.base0A;
-      color4 = palette.base0D;
-      color5 = palette.base0E;
-      color6 = palette.base0C;
-      color7 = palette.base05;
-
-      # (same as Normal except 8/15)
       color8 = palette.base03;
-      color9 = palette.base08;
-      color10 = palette.base0B;
-      color11 = palette.base0A;
-      color12 = palette.base0D;
-      color13 = palette.base0E;
-      color14 = palette.base0C;
+      # red
+      color1 = palette.base08;
+      color9 = palette.base10 or palette.base08;
+      # green
+      color2 = palette.base0B;
+      color10 = palette.base13 or palette.base0B;
+      # yellow
+      color3 = palette.base0A;
+      color11 = palette.base12 or palette.base0A;
+      # blue
+      color4 = palette.base0D;
+      color12 = palette.base15 or palette.base0D;
+      # magenta
+      color5 = palette.base0E;
+      color13 = palette.base16 or palette.base0E;
+      # cyan
+      color6 = palette.base0C;
+      color14 = palette.base14 or palette.base0C;
+      # white
+      color7 = palette.base05;
       color15 = palette.base07;
 
       # Other (like palette.base16-shell)
       color16 = palette.base09;
-      color17 = palette.base0F;
-      color18 = palette.base01;
-      color19 = palette.base02;
+      color17 = palette.base11;
+      color18 = palette.base0F;
+      color19 = palette.base17;
       color20 = palette.base04;
       color21 = palette.base06;
     };
