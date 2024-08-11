@@ -2,7 +2,7 @@
 
 {
   home.file = {
-    "$HOME/.config/onagre/theme.scss" = {
+    "/home/shemishtamesh/.config/onagre/theme.scss" = {
       text = /* scss */ ''
         .onagre {
           --exit-unfocused: false;
