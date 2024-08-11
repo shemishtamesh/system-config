@@ -1,5 +1,7 @@
 { config, ... }:
-
+let
+  palette = config.lib.stylix.colors.withHashtag;
+in
 {
   xdg.enable = true;
   xdg.configFile."onagre/theme.scss" = {
@@ -12,9 +14,9 @@
         --icon-size: 22px;
         --font-family: "Fira Code SemiBold";
         font-size: 24px;
-        background: #e52d2d;
-        color: #2c2525;
-        border-color: #ffffff;
+        background: palette.base01;
+        color: palette.base03;
+        border-color: palette.base00;
         border-radius: 0%;
         border-width: 0px;
         padding: 10px;
