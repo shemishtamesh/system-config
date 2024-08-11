@@ -7,11 +7,12 @@
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "drun,run,window,emoji,calc";
+      modi = "combi,drun,run,window";
+      # modi = "drun,run,window,emoji,calc";
       # modi = "drun,run,window";
       sidebar-mode = true;
     };
-    plugins = with pkgs; [ rofi-calc rofi-calc ];
+    # plugins = with pkgs; [ rofi-calc rofi-calc ];
     # plugins = with pkgs; [
     #   # HACK: temporary fix until ABI update
     #   (rofi-emoji.override {
