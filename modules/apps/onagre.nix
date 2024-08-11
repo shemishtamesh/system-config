@@ -15,7 +15,7 @@ in
         --font-family: "Fira Code SemiBold";
         font-size: 24px;
         background: ${palette.base01};
-        color: ${palette.base03};
+        color: ${palette.base06};
         border-color: ${palette.base00};
         padding: 0px;
 
@@ -69,14 +69,14 @@ in
           }
 
           .rows {
-            background: #ffffff;
-            color: #2c2525;
-            border-color: #ffffff;
-            border-radius: 0%;
-            border-width: 3px;
-            padding: 0;
-            --width: fill;
-            --height: fill-portion 6;
+            /* background: #ffffff; */
+            /* color: #2c2525; */
+            /* border-color: #ffffff; */
+            /* border-radius: 0%; */
+            /* border-width: 3px; */
+            /* padding: 0; */
+            /* --width: fill; */
+            /* --height: fill-portion 6; */
 
             .row {
               background: #de5959;
