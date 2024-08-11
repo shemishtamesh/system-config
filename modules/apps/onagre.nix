@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+    programs.onagre.enable = true;
+}
