@@ -14,9 +14,9 @@ in
         --icon-size: 22px;
         --font-family: "Fira Code SemiBold";
         font-size: 24px;
-        background: palette.base01;
-        color: palette.base03;
-        border-color: palette.base00;
+        background: ${palette.base01};
+        color: ${palette.base03};
+        border-color: ${palette.base00};
         border-radius: 0%;
         border-width: 0px;
         padding: 10px;
