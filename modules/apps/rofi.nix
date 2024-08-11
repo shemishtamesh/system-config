@@ -2,7 +2,9 @@
 
 {
     programs.rofi.enable = true;
-    programs.sidebar-mode = true;
+    programs.extraConfig = {
+        sidebar-mode = true;
+    };
     # programs.rofi = {
     #     location = "center";
     # };
