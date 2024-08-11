@@ -8,7 +8,7 @@
     ../apps/waybar.nix
     ../apps/wlogout.nix
     ../apps/dunst.nix
-    ../apps/onagre.nix
+    # ../apps/onagre.nix
     ../apps/kitty.nix
     ../apps/zsh.nix
     ../apps/git.nix
