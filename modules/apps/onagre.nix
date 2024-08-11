@@ -210,7 +210,7 @@ in
 
           .scrollable {
             .scroller {
-              color: {palette.base02};
+              color: ${palette.base02};
             }
           }
         }
