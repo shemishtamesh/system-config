@@ -22,7 +22,7 @@ in
       selection_background = palette.base05;
       selection_foreground = palette.base00;
       url_color = palette.base0D;
-      cursor = palette.base0D;
+      cursor = palette.base07;
       cursor_text_color = palette.base00;
       active_border_color = palette.base03;
       inactive_border_color = palette.base01;
