@@ -6,7 +6,7 @@
     global = {
       offset = "8x8";
       separator_height = 2;
-      padding = 0;
+      padding = 10;
       # horizontal_padding = 12;
       # text_icon_padding = 12;
       frame_width = 2;
@@ -18,7 +18,7 @@
       alignment = "center";
       icon_position = "off";
       # startup_notification = "false";
-      corner_radius = 12;
+      corner_radius = 10;
 
       timeout = 2;
     };
