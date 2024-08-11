@@ -17,17 +17,17 @@ in
         background: ${palette.base01};
         color: ${palette.base03};
         border-color: ${palette.base00};
-        border-radius: 0%;
+        /* border-radius: 0%; */
         border-width: 0px;
-        padding: 10px;
+        padding: 0px;
 
         .container {
-          background: #4ba417;
-          color: #2c2525;
-          border-color: #ffffff;
-          border-radius: 0%;
-          border-width: 0px;
-          padding: 10;
+          /* background: #4ba417; */
+          /* color: #2c2525; */
+          /* border-color: #ffffff; */
+          /* border-radius: 0%; */
+          /* border-width: 0px; */
+          /* padding: 10; */
 
           .search {
             background: #f1cd1a;
