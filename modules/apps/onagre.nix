@@ -28,16 +28,16 @@ in
           padding: 0;
 
           .search {
-            background: #f1cd1a;
-            color: #2c2525;
-            border-color: #ffffff;
-            border-radius: 0%;
-            border-width: 0px;
-            padding: 0;
-            --width: fill;
-            --height: fill-portion 1;
-            --align-x: left;
-            --align-y: center;
+            /* background: #f1cd1a; */
+            /* color: #2c2525; */
+            /* border-color: #ffffff; */
+            /* border-radius: 0%; */
+            /* border-width: 0px; */
+            /* padding: 0; */
+            /* --width: fill; */
+            /* --height: fill-portion 1; */
+            /* --align-x: left; */
+            /* --align-y: center; */
 
             .plugin-hint {
               background: #3e6cce;
