@@ -117,19 +117,19 @@ in
               /*   --align-y: center; */
               /* } */
 
-              /* .icon { */
-              /*   --icon-size: 22px; */
-              /*   background: #ffffff; */
-              /*   color: #2c2525; */
-              /*   border-color: #ffffff; */
-              /*   border-radius: 0%; */
-              /*   border-width: 0px; */
-              /*   padding: 0; */
-              /*   --width: shrink; */
-              /*   --height: shrink; */
-              /*   --align-x: center; */
-              /*   --align-y: center; */
-              /* } */
+              .icon {
+                --icon-size: 22px;
+                /* background: #ffffff; */
+                /* color: #2c2525; */
+                /* border-color: #ffffff; */
+                /* border-radius: 0%; */
+                /* border-width: 0px; */
+                /* padding: 0; */
+                /* --width: shrink; */
+                /* --height: shrink; */
+                /* --align-x: center; */
+                /* --align-y: center; */
+              }
 
               /* .category-icon { */
               /*   --icon-size: 22px; */
