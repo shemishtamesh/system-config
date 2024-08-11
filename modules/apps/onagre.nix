@@ -2,7 +2,7 @@
 
 {
   xdg.enable = true;
-  xdg.dataFile."onagre/theme.scss" = {
+  xdg.configFile."onagre/theme.scss" = {
     text = /* scss */ ''
       .onagre {
         --exit-unfocused: false;
