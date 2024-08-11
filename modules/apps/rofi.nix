@@ -1,8 +1,8 @@
 { ... }:
 
 {
-    programs.rofi.enable = true;
-    programs.rofi = {
-        location = "center";
-    };
+    # programs.rofi.enable = true;
+    # programs.rofi = {
+    #     location = "center";
+    # };
 }
