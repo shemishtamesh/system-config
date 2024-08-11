@@ -3,6 +3,7 @@ let
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
+  config.lib.stylix.targets.kitty.enable = false;
   programs.kitty.enable = true;
   programs.kitty = {
     settings = {
