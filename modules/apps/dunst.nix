@@ -4,8 +4,7 @@
   services.dunst.enable = true;
   services.dunst.settings = {
     global = {
-      # origin = "top-right";
-      offset = "60x12";
+      offset = "12x12";
       separator_height = 2;
       padding = 12;
       horizontal_padding = 12;
@@ -21,9 +20,6 @@
       # startup_notification = "false";
       corner_radius = 12;
 
-      # frame_color = "#44465c";
-      # background = "#303241";
-      # foreground = "#d9e0ee";
       timeout = 2;
     };
   };
