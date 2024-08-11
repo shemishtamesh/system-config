@@ -103,19 +103,19 @@ in
               /*   --align-y: center; */
               }
 
-              /* .description { */
-              /*   font-size: 10px; */
-              /*   background: #77d541; */
-              /*   color: #2c2525; */
-              /*   border-color: #ffffff; */
-              /*   border-radius: 0%; */
-              /*   border-width: 0px; */
-              /*   padding: 0; */
-              /*   --width: fill; */
-              /*   --height: shrink; */
-              /*   --align-x: left; */
-              /*   --align-y: center; */
-              /* } */
+              .description {
+                font-size: 10px;
+                /* background: #77d541; */
+                /* color: #2c2525; */
+                /* border-color: #ffffff; */
+                /* border-radius: 0%; */
+                /* border-width: 0px; */
+                /* padding: 0; */
+                /* --width: fill; */
+                /* --height: shrink; */
+                /* --align-x: left; */
+                /* --align-y: center; */
+              }
 
               .icon {
                 --icon-size: 22px;
