@@ -20,11 +20,6 @@ in
         padding: 0px;
 
         .container {
-          /* background: #4ba417; */
-          /* color: #2c2525; */
-          /* border-color: #ffffff; */
-          /* border-radius: 0%; */
-          /* border-width: 0px; */
           padding: 0;
 
           .search {
@@ -213,21 +208,21 @@ in
             }
           }
 
-          .scrollable {
-            background: #ffffff;
-            border-color: #ffffff;
-            border-radius: 0%;
-            border-width: 0px;
-            width: 10;
-            margin: 0;
-            .scroller {
-              color: #2c2525;
-              border-color: #ffffff;
-              border-radius: 0%;
-              border-width: 0px;
-              width: 10;
-            }
-          }
+          /* .scrollable { */
+          /*   background: #ffffff; */
+          /*   border-color: #ffffff; */
+          /*   border-radius: 0%; */
+          /*   border-width: 0px; */
+          /*   width: 10; */
+          /*   margin: 0; */
+          /*   .scroller { */
+          /*     color: #2c2525; */
+          /*     border-color: #ffffff; */
+          /*     border-radius: 0%; */
+          /*     border-width: 0px; */
+          /*     width: 10; */
+          /*   } */
+          /* } */
         }
       }
     '';
