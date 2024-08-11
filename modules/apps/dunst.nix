@@ -4,12 +4,12 @@
   services.dunst.enable = true;
   services.dunst.settings = {
     global = {
-      offset = "12x12";
+      offset = "8x8";
       separator_height = 2;
       padding = 12;
       horizontal_padding = 12;
       text_icon_padding = 12;
-      # frame_width = 2;
+      frame_width = 2;
       # separator_color = "frame";
       idle_threshold = 120;
       # font = "JetBrainsMono Nerdfont 12";
