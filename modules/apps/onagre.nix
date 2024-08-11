@@ -10,13 +10,12 @@ in
         --exit-unfocused: false;
         height: 432px;
         width: 768px;
-        --icon-theme: "Adwaita";
+        --icon-theme: "Papirus";
         --icon-size: 22px;
-        /* --font-family: "Fira Code SemiBold"; */
+        --font-family: "Fira Code SemiBold";
         font-size: 24px;
         background: ${palette.base01};
         color: ${palette.base06};
-        /* border-color: ${palette.base00}; */
         padding: 0px;
         .container {
           padding: 0;
