@@ -104,7 +104,7 @@ in
               }
 
               /* .description { */
-              /*   font-size: 10px; */
+                font-size: 10px;
               /*   background: #77d541; */
               /*   color: #2c2525; */
               /*   border-color: #ffffff; */
