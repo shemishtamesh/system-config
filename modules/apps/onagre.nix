@@ -18,59 +18,39 @@ in
         color: ${palette.base06};
         /* border-color: ${palette.base00}; */
         padding: 0px;
-
         .container {
           padding: 0;
-
           .rows {
-            /* background: #ffffff; */
-            /* color: #2c2525; */
-            /* border-color: #ffffff; */
-            /* border-radius: 0%; */
-            /* border-width: 3px; */
-            /* padding: 0; */
-            /* --width: fill; */
-            /* --height: fill-portion 6; */
-
             .row {
-
               .title {
                   font-size: 15px;
               }
-
               .description {
                 font-size: 10px;
               }
-
               .icon {
                 --icon-size: 22px;
               }
-
               .category-icon {
                 --icon-size: 22px;
               }
             }
             .row-selected {
               background: ${palette.base02};
-
               .title {
                 font-size: 15px;
               }
-
               .description {
                 font-size: 10px;
               }
-
               .icon {
                 --icon-size: 22px;
               }
-
               .category-icon {
                 --icon-size: 22px;
               }
             }
           }
-
           .scrollable {
             .scroller {
               color: ${palette.base02};
