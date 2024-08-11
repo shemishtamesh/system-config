@@ -79,7 +79,6 @@ in
             /* --height: fill-portion 6; */
 
             .row {
-              font-size: 15px;
               /* background: #de5959; */
               /* color: #2c2525; */
               /* border-color: #9535c5; */
@@ -89,7 +88,8 @@ in
               /* --width: fill; */
               /* --height: shrink; */
 
-              /* .title { */
+              .title {
+                  font-size: 15px;
               /*   font-size: 10px; */
               /*   background: #eadc1d; */
               /*   color: #2c2525; */
@@ -101,7 +101,7 @@ in
               /*   --height: shrink; */
               /*   --align-x: left; */
               /*   --align-y: center; */
-              /* } */
+              }
 
               /* .description { */
               /*   font-size: 10px; */
