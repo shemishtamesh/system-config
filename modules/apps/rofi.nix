@@ -1,14 +1,15 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
     # stylix.targets.rofi.enable = false;
     programs.rofi.enable = true;
-    # programs.rofi = {
+    programs.rofi = {
+        package = pkgs.rofi-wayland;
     #     location = "center";
     # };
     # programs.rofi.extraConfig = {
     #     sidebar-mode = true;
-    # };
+    };
 }
 
 # configuration {
