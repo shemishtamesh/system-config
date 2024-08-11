@@ -21,8 +21,8 @@
       MSGTIME=
 
       printbuf() {
-        JOINED=$( echo "${MSGBUF[@]}" | sed 's/,$//' )
-        printf "%s\n%s\n\n" "--- ${MSGTIME} ---" "${JOINED}"
+        JOINED=$( echo "''${MSGBUF[@]}" | sed 's/,$//' )
+        printf "%s\n%s\n\n" "--- ''${MSGTIME} ---" "''${JOINED}"
       }
 
       procmsg() {
@@ -34,7 +34,7 @@
           STATE=off
           printbuf
         else
-          if [[ "${STATE}" == "on" ]]; then
+          if [[ "''${STATE}" == "on" ]]; then
             if [[ "${1}" =~ ^string ]]; then
               case "${1}" in
                 "string \"\"") ;;
