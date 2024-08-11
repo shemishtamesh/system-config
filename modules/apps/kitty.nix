@@ -3,8 +3,8 @@ let
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
-  programs.kitty.enable = enable;
-  programs.kitty ={
+  programs.kitty.enable = true;
+  programs.kitty = {
     settings = {
       open_url_with = "librewolf";
       detect_urls = "yes";
