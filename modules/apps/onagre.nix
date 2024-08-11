@@ -7,39 +7,28 @@ in
   xdg.configFile."onagre/theme.scss" = {
     text = /* scss */ ''
       .onagre {
-        --exit-unfocused: false;
+        --exit-unfocused: true;
         height: 432px;
         width: 768px;
-        --icon-theme: "Adwaita";
-        --icon-size: 22px;
-        --font-family: "Fira Code SemiBold";
-        font-size: 24px;
         background: ${palette.base01};
         color: ${palette.base03};
         border-color: ${palette.base00};
-        /* border-radius: 0%; */
-        border-width: 0px;
         padding: 0px;
 
         .container {
-          /* background: #4ba417; */
-          /* color: #2c2525; */
-          /* border-color: #ffffff; */
-          /* border-radius: 0%; */
-          /* border-width: 0px; */
           padding: 0;
 
           .search {
-            background: #f1cd1a;
-            color: #2c2525;
-            border-color: #ffffff;
-            border-radius: 0%;
-            border-width: 0px;
-            padding: 0;
-            --width: fill;
-            --height: fill-portion 1;
-            --align-x: left;
-            --align-y: center;
+            /* background: #f1cd1a; */
+            /* color: #2c2525; */
+            /* border-color: #ffffff; */
+            /* border-radius: 0%; */
+            /* border-width: 0px; */
+            /* padding: 0; */
+            /* --width: fill; */
+            /* --height: fill-portion 1; */
+            /* --align-x: left; */
+            /* --align-y: center; */
 
             .plugin-hint {
               background: #3e6cce;
