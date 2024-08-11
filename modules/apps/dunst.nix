@@ -6,9 +6,9 @@
     global = {
       offset = "8x8";
       separator_height = 2;
-      padding = 12;
-      horizontal_padding = 12;
-      text_icon_padding = 12;
+      padding = 0;
+      # horizontal_padding = 12;
+      # text_icon_padding = 12;
       frame_width = 2;
       # separator_color = "frame";
       idle_threshold = 120;
