@@ -46,10 +46,6 @@ in
 
       "$mod, b, exec, ${lib.getExe toggle-bar}"
 
-      "$mod, semicolon, exec, dunstctl close"
-      "$mod SHIFT, semicolon, exec, dunstctl close-all"
-      "$mod CTRL, semicolon, exec, dunstctl history-pop"
-
       "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
@@ -97,6 +93,10 @@ in
         ) 9)
     );
     binde = [
+      "$mod, semicolon, exec, dunstctl close"
+      "$mod SHIFT, semicolon, exec, dunstctl close-all"
+      "$mod CTRL, semicolon, exec, dunstctl history-pop"
+
       "$mod, h, movefocus, l"
       "$mod, j, movefocus, d"
       "$mod, k, movefocus, u"
