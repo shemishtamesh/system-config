@@ -46,9 +46,9 @@ in
 
       "$mod, b, exec, ${lib.getExe toggle-bar}"
 
-      "$mod, ;, exec, dunstctl close"
-      "$mod SHIFT, ;, exec, dunstctl close-all"
-      "$mod CTRL, ;, exec, dunstctl history-pop"
+      "$mod, semicolon, exec, dunstctl close"
+      "$mod SHIFT, semicolon, exec, dunstctl close-all"
+      "$mod CTRL, semicolon, exec, dunstctl history-pop"
 
       "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
