@@ -12,7 +12,7 @@ in
         width: 768px;
         --icon-theme: "Adwaita";
         --icon-size: 22px;
-        --font-family: "Fira Code SemiBold";
+        /* --font-family: "Fira Code SemiBold"; */
         font-size: 24px;
         background: ${palette.base01};
         color: ${palette.base06};
