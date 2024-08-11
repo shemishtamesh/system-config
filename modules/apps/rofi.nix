@@ -2,7 +2,7 @@
 
 {
     programs.rofi.enable = true;
-    programs.extraConfig = {
+    programs.rofi.extraConfig = {
         sidebar-mode = true;
     };
     # programs.rofi = {
