@@ -150,6 +150,7 @@
     killall
     waybar
     rofi-wayland
+    onagre
     dunst
     libnotify
     gcc
