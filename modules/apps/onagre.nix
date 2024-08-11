@@ -14,9 +14,9 @@ in
         --icon-size: 22px;
         --font-family: "Fira Code SemiBold";
         font-size: 24px;
-        background: ${palette.base00};
+        background: ${palette.base01};
         color: ${palette.base06};
-        border-color: ${palette.base00};
+        /* border-color: ${palette.base00}; */
         padding: 0px;
 
         .container {
@@ -146,70 +146,70 @@ in
               /* } */
             }
             .row-selected {
-              background: #4abe1c;
-              color: #2c2525;
-              border-color: #ffffff;
-              border-radius: 0%;
-              border-width: 0px;
-              padding: 10px;
-              --width: fill;
-              --height: shrink;
+              background: palette.base02;
+              /* color: #2c2525; */
+              /* border-color: #ffffff; */
+              /* border-radius: 0%; */
+              /* border-width: 0px; */
+              /* padding: 10px; */
+              /* --width: fill; */
+              /* --height: shrink; */
 
               .title {
-                font-size: 10px;
-                background: #cc3737;
-                color: #2c2525;
-                border-color: #ffffff;
-                border-radius: 0%;
-                border-width: 0px;
-                padding: 0;
-                --width: fill;
-                --height: shrink;
-                --align-x: left;
-                --align-y: center;
+                font-size: 15px;
+                /* background: #cc3737; */
+                /* color: #2c2525; */
+                /* border-color: #ffffff; */
+                /* border-radius: 0%; */
+                /* border-width: 0px; */
+                /* padding: 0; */
+                /* --width: fill; */
+                /* --height: shrink; */
+                /* --align-x: left; */
+                /* --align-y: center; */
               }
 
-              .description {
-                font-size: 10px;
-                background: #dad23e;
-                color: #2c2525;
-                border-color: #ffffff;
-                border-radius: 0%;
-                border-width: 0px;
-                padding: 0;
-                --width: fill;
-                --height: shrink;
-                --align-x: left;
-                --align-y: center;
-              }
+              /* .description { */
+              /*   font-size: 10px; */
+              /*   background: #dad23e; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: fill; */
+              /*   --height: shrink; */
+              /*   --align-x: left; */
+              /*   --align-y: center; */
+              /* } */
 
-              .icon {
-                --icon-size: 20px;
-                background: #ffffff;
-                color: #2c2525;
-                border-color: #ffffff;
-                border-radius: 0%;
-                border-width: 0px;
-                padding: 0;
-                --width: shrink;
-                --height: shrink;
-                --align-x: left;
-                --align-y: center;
-              }
+              /* .icon { */
+              /*   --icon-size: 20px; */
+              /*   background: #ffffff; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: shrink; */
+              /*   --height: shrink; */
+              /*   --align-x: left; */
+              /*   --align-y: center; */
+              /* } */
 
-              .category-icon {
-                --icon-size: 22px;
-                background: #ffffff;
-                color: #2c2525;
-                border-color: #ffffff;
-                border-radius: 0%;
-                border-width: 0px;
-                padding: 0;
-                --width: shrink;
-                --height: shrink;
-                --align-x: center;
-                --align-y: center;
-              }
+              /* .category-icon { */
+              /*   --icon-size: 22px; */
+              /*   background: #ffffff; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: shrink; */
+              /*   --height: shrink; */
+              /*   --align-x: center; */
+              /*   --align-y: center; */
+              /* } */
             }
           }
 
