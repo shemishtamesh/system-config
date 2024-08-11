@@ -69,7 +69,6 @@ in
           }
 
           .rows {
-            font-size: 15px;
             /* background: #ffffff; */
             /* color: #2c2525; */
             /* border-color: #ffffff; */
@@ -80,6 +79,7 @@ in
             /* --height: fill-portion 6; */
 
             .row {
+              font-size: 15px;
               /* background: #de5959; */
               /* color: #2c2525; */
               /* border-color: #9535c5; */
@@ -89,61 +89,61 @@ in
               /* --width: fill; */
               /* --height: shrink; */
 
-              .title {
-                /* font-size: 10px; */
-                /* background: #eadc1d; */
-                /* color: #2c2525; */
-                /* border-color: #ffffff; */
-                /* border-radius: 0%; */
-                /* border-width: 0px; */
-                /* padding: 0; */
-                /* --width: fill; */
-                /* --height: shrink; */
-                /* --align-x: left; */
-                /* --align-y: center; */
-              }
+              /* .title { */
+              /*   font-size: 10px; */
+              /*   background: #eadc1d; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: fill; */
+              /*   --height: shrink; */
+              /*   --align-x: left; */
+              /*   --align-y: center; */
+              /* } */
 
-              .description {
-                /* font-size: 10px; */
-                /* background: #77d541; */
-                /* color: #2c2525; */
-                /* border-color: #ffffff; */
-                /* border-radius: 0%; */
-                /* border-width: 0px; */
-                /* padding: 0; */
-                /* --width: fill; */
-                /* --height: shrink; */
-                /* --align-x: left; */
-                /* --align-y: center; */
-              }
+              /* .description { */
+              /*   font-size: 10px; */
+              /*   background: #77d541; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: fill; */
+              /*   --height: shrink; */
+              /*   --align-x: left; */
+              /*   --align-y: center; */
+              /* } */
 
-              .icon {
-                /* --icon-size: 22px; */
-                /* background: #ffffff; */
-                /* color: #2c2525; */
-                /* border-color: #ffffff; */
-                /* border-radius: 0%; */
-                /* border-width: 0px; */
-                /* padding: 0; */
-                /* --width: shrink; */
-                /* --height: shrink; */
-                /* --align-x: center; */
-                /* --align-y: center; */
-              }
+              /* .icon { */
+              /*   --icon-size: 22px; */
+              /*   background: #ffffff; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: shrink; */
+              /*   --height: shrink; */
+              /*   --align-x: center; */
+              /*   --align-y: center; */
+              /* } */
 
-              .category-icon {
-                /* --icon-size: 22px; */
-                /* background: #ffffff; */
-                /* color: #2c2525; */
-                /* border-color: #ffffff; */
-                /* border-radius: 0%; */
-                /* border-width: 0px; */
-                /* padding: 0; */
-                /* --width: shrink; */
-                /* --height: shrink; */
-                /* --align-x: center; */
-                /* --align-y: center; */
-              }
+              /* .category-icon { */
+              /*   --icon-size: 22px; */
+              /*   background: #ffffff; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: shrink; */
+              /*   --height: shrink; */
+              /*   --align-x: center; */
+              /*   --align-y: center; */
+              /* } */
             }
             .row-selected {
               background: #4abe1c;
