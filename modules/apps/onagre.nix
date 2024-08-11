@@ -1,8 +1,8 @@
 { config, ... }:
 
 {
-  home.file = {
-    "~/.config/onagre/theme.scss" = {
+  xdg.enable = true;
+  xdg.dataFile."onagre/theme.scss" = {
       text = /* scss */ ''
         .onagre {
           --exit-unfocused: false;
