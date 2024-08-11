@@ -145,6 +145,9 @@ in
 
       resize_on_border = true;
     };
+    master = {
+      no_gaps_when_only = 1;
+    }
     decoration = {
       dim_special = 0.8;
       rounding = rounding;
