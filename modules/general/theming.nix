@@ -4,7 +4,8 @@ let
   screenHeight = 1080;
   # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   scheme = {
-    system = "base24";
+    # system = "base24";
+    system = "base16";
     name = "IR Black";
     slug = "irblack";
     author = "Timothée Poisot (edited)";
@@ -26,14 +27,14 @@ let
       base0D = "76abde";
       base0E = "df53dd";
       base0F = "916a1d";
-      base10 = "ff6c60";
-      base11 = "e9c062";
-      base12 = "ffffb6";
-      base13 = "a8ff60";
-      base14 = "c6c5fe";
-      base15 = "96cbfe";
-      base16 = "ff73fd";
-      base17 = "b18a3d";
+      # base10 = "ff6c60";
+      # base11 = "e9c062";
+      # base12 = "ffffb6";
+      # base13 = "a8ff60";
+      # base14 = "c6c5fe";
+      # base15 = "96cbfe";
+      # base16 = "ff73fd";
+      # base17 = "b18a3d";
     };
   };
   functions = import ./functions.nix { inherit pkgs; };
