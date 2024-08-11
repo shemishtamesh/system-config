@@ -104,7 +104,7 @@ in
               }
 
               /* .description { */
-                font-size: 10px;
+              /*   font-size: 10px; */
               /*   background: #77d541; */
               /*   color: #2c2525; */
               /*   border-color: #ffffff; */
@@ -169,33 +169,33 @@ in
                 /* --align-y: center; */
               }
 
-              .description {
-                font-size: 10px;
-                /* background: #dad23e; */
-                /* color: #2c2525; */
-                /* border-color: #ffffff; */
-                /* border-radius: 0%; */
-                /* border-width: 0px; */
-                /* padding: 0; */
-                /* --width: fill; */
-                /* --height: shrink; */
-                /* --align-x: left; */
-                /* --align-y: center; */
-              }
+              /* .description { */
+              /*   font-size: 10px; */
+              /*   background: #dad23e; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: fill; */
+              /*   --height: shrink; */
+              /*   --align-x: left; */
+              /*   --align-y: center; */
+              /* } */
 
-              .icon {
-                --icon-size: 20px;
-                background: #ffffff;
-                color: #2c2525;
-                border-color: #ffffff;
-                border-radius: 0%;
-                border-width: 0px;
-                padding: 0;
-                --width: shrink;
-                --height: shrink;
-                --align-x: left;
-                --align-y: center;
-              }
+              /* .icon { */
+              /*   --icon-size: 20px; */
+              /*   background: #ffffff; */
+              /*   color: #2c2525; */
+              /*   border-color: #ffffff; */
+              /*   border-radius: 0%; */
+              /*   border-width: 0px; */
+              /*   padding: 0; */
+              /*   --width: shrink; */
+              /*   --height: shrink; */
+              /*   --align-x: left; */
+              /*   --align-y: center; */
+              /* } */
 
               /* .category-icon { */
               /*   --icon-size: 22px; */
