@@ -110,34 +110,21 @@ in
       }
 
       #lock {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/lock.svg")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/lock.svg")); */
           background-image: url("${lockIcon}");
       }
       #logout {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/logout.svg")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/logout.svg")); */
           background-image: url("${logoutIcon}");
       }
       #suspend {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/suspend.svg")); */
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/suspend.svg")); */
           background-image: url("${suspendIcon}");
       }
       #hibernate {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/hibernate.svg")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/hibernate.svg")); */
           background-image: url("${hibernateIcon}");
       }
       #shutdown {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/shutdown.svg")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/shutdown.svg")); */
           background-image: url("${shutdownIcon}");
       }
       #reboot {
-          /* background-image: image(url("${pkgs.wlogout}/share/wlogout/assets/reboot.svg")); */
-          /* background-image: image(url("/home/shemishtamesh/testicons/reboot.svg")); */
           background-image: url("${rebootIcon}");
       }
     '';
