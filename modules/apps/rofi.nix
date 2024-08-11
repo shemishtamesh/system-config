@@ -11,16 +11,16 @@
       modi = "drun,run,window";
       sidebar-mode = true;
     };
-    plugins = with pkgs; [ rofi-calc rofi-calc ];
-    # plugins = with pkgs; [
-    #   # HACK: temporary fix until ABI update
-    #   (rofi-emoji.override {
-    #     rofi-unwrapped = rofi-wayland-unwrapped;
-    #   })
-    #   (rofi-calc.override {
-    #     rofi-unwrapped = rofi-wayland-unwrapped;
-    #   })
-    # ];
+    # plugins = with pkgs; [ rofi-calc rofi-calc ];
+    plugins = with pkgs; [
+      # HACK: temporary fix until ABI update
+      (rofi-emoji.override {
+        rofi-unwrapped = rofi-wayland-unwrapped;
+      })
+      (rofi-calc.override {
+        rofi-unwrapped = rofi-wayland-unwrapped;
+      })
+    ];
   };
 }
 
