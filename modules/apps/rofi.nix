@@ -10,7 +10,7 @@
       modi = "drun,run,window,emoji,calc";
       sidebar-mode = true;
     };
-    plugins = with pkgs; [ rofi-calc rofi-calc ]
+    plugins = with pkgs; [ rofi-calc rofi-calc ];
     # plugins = with pkgs; [
     #   # HACK: temporary fix until ABI update
     #   (rofi-emoji.override {
