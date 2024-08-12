@@ -9,7 +9,7 @@
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser";
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji";
       # modi = "combi,window,drun,recursivebrowser,󰻐:rofimoji -f all";
-      combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f all";
+      combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
       sidebar-mode = true;
     };
