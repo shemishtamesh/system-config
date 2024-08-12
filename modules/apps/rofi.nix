@@ -6,7 +6,7 @@
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "drun,run,window,files,emoji,calc";
+      modi = "combi,drun,run,window,files,emoji,calc";
       sidebar-mode = true;
     };
     # plugins = with pkgs; [ rofi-calc rofi-calc ];
