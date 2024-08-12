@@ -6,11 +6,10 @@
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser";
-      # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji";
-      # modi = "combi,window,drun,recursivebrowser,󰻐:rofimoji -f all";
-      combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
-      # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
+      # modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
+      # combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
+      modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f all";
+      combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f all";
       sidebar-mode = true;
     };
     # plugins = with pkgs; [ rofi-calc rofi-emoji ];
