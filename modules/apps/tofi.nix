@@ -5,7 +5,7 @@
   programs.tofi.settings = {
     # background-color = "#000000";
     border-width = 0;
-    font = "monospace";
+    # font = "monospace";
     height = "100%";
     num-results = 5;
     outline-width = 0;
