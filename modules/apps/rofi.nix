@@ -8,11 +8,12 @@
       show-icons = true;
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser";
       modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji";
+      modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji,nerdfont:rofimoji -f nerd_font.csv";
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
       sidebar-mode = true;
     };
     # plugins = with pkgs; [ rofi-calc rofi-emoji ];
-    plugins = with pkgs; [ rofimoji ];
+    # plugins = with pkgs; [ rofimoji ];
     # plugins = with pkgs; [
     #   # HACK: temporary fix until ABI update
     #   (rofi-emoji.override {
