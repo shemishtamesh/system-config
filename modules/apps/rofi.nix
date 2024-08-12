@@ -7,7 +7,7 @@
     extraConfig = {
       show-icons = true;
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser";
-      modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji";
+      # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji";
       modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji,nerdfont:rofimoji -f nerd_font.csv";
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
       sidebar-mode = true;
