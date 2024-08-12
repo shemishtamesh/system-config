@@ -8,8 +8,8 @@
       show-icons = true;
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser";
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji:rofimoji";
-      modi = "combi,drun,recursivebrowser,󰻐:rofimoji -f all";
-      combi-modi = "drun,recursivebrowser,󰻐:rofimoji -f all";
+      # modi = "combi,window,drun,recursivebrowser,󰻐:rofimoji -f all";
+      combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f all";
       # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
       sidebar-mode = true;
     };
