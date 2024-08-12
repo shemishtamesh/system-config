@@ -6,7 +6,8 @@
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
+      modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser";
+      # modi = "combi,drun,run,ssh,keys,recursivebrowser,filebrowser,emoji,calc";
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc rofi-emoji ];
