@@ -156,6 +156,7 @@
     wofi
     dunst
     libnotify
+    whatsapp-for-linux
     gcc
     cargo
     python3
