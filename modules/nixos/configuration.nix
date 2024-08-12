@@ -151,6 +151,8 @@
     waybar
     rofi-wayland
     onagre
+    tofi
+    wofi
     dunst
     libnotify
     gcc
