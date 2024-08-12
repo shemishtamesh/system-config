@@ -3,7 +3,7 @@
 {
   programs.tofi.enable = true;
   programs.tofi.settings = {
-    background-color = "#000000";
+    # background-color = "#000000";
     border-width = 0;
     font = "monospace";
     height = "100%";
