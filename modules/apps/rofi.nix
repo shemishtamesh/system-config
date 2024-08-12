@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-  # programs.rofi.enable = true;
+  programs.rofi.enable = true;
   programs.rofi = {
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "combi,drun,run,window,files,emoji,calc";
+      modi = "combi,drun,run,ssh,keys,recursivefilebrowser,filebrowser,emoji,calc";
       sidebar-mode = true;
     };
     # plugins = with pkgs; [ rofi-calc rofi-calc ];
