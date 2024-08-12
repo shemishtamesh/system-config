@@ -150,6 +150,7 @@
     killall
     waybar
     rofi-wayland
+    rofimoji
     onagre
     tofi
     wofi
