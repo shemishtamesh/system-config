@@ -29,7 +29,7 @@
   };
   nixpkgs.overlays = [
     (final: prev: {
-      rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
+      rofi-calc = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
     })
   ];
 }
