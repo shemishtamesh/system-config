@@ -37,7 +37,12 @@ in
       "$mod, r, togglesplit"
 
       "$mod CTRL, c, exec, hyprpicker --autocopy"
+      "$mod, SPACE, exec, rofi -show combi"
       "$mod, SPACE, exec, rofi -show drun"
+      "$mod, underscore, exec, rofi -show drun -modi 'drun'"
+      "$mod, Tab, exec, rofi -show window -modi 'window'"
+      "$mod, XF86Favorites, exec, rofimoji -f all"
+      "$mod, , exec, rofi -show drun -modi 'drun'"
       "$mod, RETURN, exec, kitty"
       "$mod, i, exec, librewolf"
       "$mod SHIFT, i, exec, librewolf --private-window"
@@ -58,7 +63,6 @@ in
       ", XF86AudioNext, exec, playerctl next"
 
       "$mod CTRL, Tab, hyprexpo:expo, toggle"
-      "$mod, Tab, workspace, movetoworkspace,e+0"
       "$mod, XF86Reload, togglespecialworkspace, chat"
       "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
       "$mod, XF86AudioPlay, togglespecialworkspace, music"
