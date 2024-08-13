@@ -6,7 +6,7 @@
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "";
+      modi = "drun,window,recursivebrowser,calc,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       # modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       combi-modi = "drun,window,recursivebrowser,calc,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       # modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f all";
