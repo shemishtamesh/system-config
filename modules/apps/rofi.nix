@@ -16,11 +16,6 @@
     plugins = with pkgs; [ rofi-calc ];
     # plugins = with pkgs; [ rofi-calc rofi-emoji ];
     # plugins = with pkgs; [ rofimoji ];
-    nixpkgs.overlays = [
-      (final: prev: {
-        rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
-      })
-    ];
     # plugins = with pkgs; [
     #   # HACK: temporary fix until ABI update
     #   (rofi-emoji.override {
@@ -31,4 +26,9 @@
     #   })
     # ];
   };
+  nixpkgs.overlays = [
+    (final: prev: {
+      rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
+    })
+  ];
 }
