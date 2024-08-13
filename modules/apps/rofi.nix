@@ -8,12 +8,12 @@
       show-icons = true;
       modi = "";
       # modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
-      combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
+      combi-modi = "drun,window,recursivebrowser,calc,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       # modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f all";
       # combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f all";
       sidebar-mode = true;
     };
-    plugins = with pkgs; [ rofi-calc rofi-emoji ];
+    plugins = with pkgs; [ rofi-calc ];
     # plugins = with pkgs; [ rofi-calc rofi-emoji ];
     # plugins = with pkgs; [ rofimoji ];
     nixpkgs.overlays = [
