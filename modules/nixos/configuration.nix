@@ -151,9 +151,7 @@
     waybar
     rofi-wayland
     rofimoji
-    onagre
-    tofi
-    wofi
+    wtype
     dunst
     libnotify
     whatsapp-for-linux

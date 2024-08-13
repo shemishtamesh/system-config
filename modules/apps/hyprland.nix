@@ -40,7 +40,7 @@ in
       "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
       "$mod, Tab, exec, rofi -show window -modi 'window'"
       ", Cancel, exec, rofi -show char -modi 'char:rofimoji -f all' --action copy"
-      ", XF86Favorites, exec, rofi -show calc -modi 'calc'"
+      ", XF86Favorites, exec, rofi -show calc -modi 'calc' -no-show-match -no-sort -calc-command \"echo -n '{result}' | wl-copy\""
       "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, RETURN, exec, kitty"
       "$mod, i, exec, librewolf"
