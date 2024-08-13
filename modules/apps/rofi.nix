@@ -7,7 +7,7 @@
     extraConfig = {
       show-icons = true;
       # modi = "drun,calc";
-      modi = "󱓟:drun,:window,󰈤:recursivebrowser,calc,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
+      modi = "󱓟:rofi -show drun,:rofi -show window,󰈤:rofi -show recursivebrowser,rofi -show calc,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       # combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f emoji*.csv math.csv nerd_font.csv";
       # modi = "combi,drun,window,recursivebrowser,󰻐:rofimoji -f all";
       # combi-modi = "drun,calc";

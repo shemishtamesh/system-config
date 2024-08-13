@@ -31,7 +31,7 @@ in
         };
         "hyprland/window" = {
           icon = true;
-          icon-size = 16;
+          icon-size = 18;
         };
         mpris = {
           format = "{player_icon}{status_icon}: {dynamic}";
@@ -152,7 +152,7 @@ in
           border-radius: 0;
           min-height: 0;
           font-family: FiraCode Nerd Font;
-          font-size: 13px;
+          font-size: 15px;
       }
 
       window#waybar {
