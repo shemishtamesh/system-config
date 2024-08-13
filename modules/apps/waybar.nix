@@ -151,7 +151,7 @@ in
           border: none;
           border-radius: 0;
           min-height: 0;
-          font-family: FiraCode Nerd Font Bold;
+          font-family: FiraCode Nerd Font;
           font-size: 13px;
       }
 
