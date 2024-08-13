@@ -38,7 +38,7 @@ in
 
       "$mod, SPACE, exec, rofi -show combi"
       "$mod SHIFT, SPACE, exec, rofi -show drun"
-      "$mod, _, exec, rofi -show drun -modi 'drun'"
+      "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
       "$mod, Tab, exec, rofi -show window -modi 'window'"
       ", Cancel, exec, rofi -show char -modi 'char'"
       ", XF86Favorites, exec, rofi -show calc -modi 'calc'"
