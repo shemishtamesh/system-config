@@ -36,13 +36,13 @@ in
 
       "$mod, r, togglesplit"
 
-      "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, SPACE, exec, rofi -show combi"
-      "$mod, SPACE, exec, rofi -show drun"
+      "$mod SHIFT, SPACE, exec, rofi -show drun"
       "$mod, underscore, exec, rofi -show drun -modi 'drun'"
       "$mod, Tab, exec, rofi -show window -modi 'window'"
-      "$mod, XF86Favorites, exec, rofimoji -f all"
-      "$mod, , exec, rofi -show drun -modi 'drun'"
+      ", Cancel, exec, rofi -show emoji -modi 'emoji'"
+      ", XF86Favorites, exec, rofi -show calc -modi 'calc'"
+      "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, RETURN, exec, kitty"
       "$mod, i, exec, librewolf"
       "$mod SHIFT, i, exec, librewolf --private-window"
