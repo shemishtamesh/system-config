@@ -37,10 +37,9 @@ in
       "$mod, r, togglesplit"
 
       "$mod, SPACE, exec, rofi -show combi"
-      "$mod SHIFT, SPACE, exec, rofi -show drun"
       "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
       "$mod, Tab, exec, rofi -show window -modi 'window'"
-      ", Cancel, exec, rofi -show char -modi 'char'"
+      ", Cancel, exec, rofi -show char -modi 'char:rofimoji -f all' --action copy"
       ", XF86Favorites, exec, rofi -show calc -modi 'calc'"
       "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, RETURN, exec, kitty"
