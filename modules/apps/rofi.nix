@@ -13,8 +13,14 @@
       # combi-modi = "drun,window,recursivebrowser,󰻐:rofimoji -f all";
       sidebar-mode = true;
     };
+    plugins = with pkgs; [ rofi-calc rofi-emoji ];
     # plugins = with pkgs; [ rofi-calc rofi-emoji ];
     # plugins = with pkgs; [ rofimoji ];
+    nixpkgs.overlays = [
+      (final: prev: {
+        rofimoji = prev.rofi-calc.override { rofi = prev.rofi-wayland; };
+      })
+    ];
     # plugins = with pkgs; [
     #   # HACK: temporary fix until ABI update
     #   (rofi-emoji.override {
