@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  stylix.targets.rofi.enable = false;
+  # stylix.targets.rofi.enable = false;
   programs.rofi.enable = true;
   programs.rofi = {
     package = pkgs.rofi-wayland;
@@ -12,24 +12,35 @@
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];
-    theme = /* css */ ''
-      * {
-          bg0:    #2E3440F2;
-          bg1:    #3B4252;
-          bg2:    #4C566A80;
-          bg3:    #88C0D0F2;
-          fg0:    #D8DEE9;
-          fg1:    #ECEFF4;
-          fg2:    #D8DEE9;
-          fg3:    #4C566A;
-      }
+    theme =
+      let
+        # Use `mkLiteral` for string-like values that should show without
+        # quotes, e.g.:
+        # {
+        #   foo = "abc"; =&gt; foo: "abc";
+        #   bar = mkLiteral "abc"; =&gt; bar: abc;
+        # };
+        inherit (config.lib.formats.rasi) mkLiteral;
+      in
+      {
+        "*" = {
+          background-color = mkLiteral "#000000";
+          foreground-color = mkLiteral "rgba ( 250, 251, 252, 100 % )";
+          border-color = mkLiteral "#FFFFFF";
+          width = 512;
+        };
 
-      @import "rounded-common.rasi"
+        "#inputbar" = {
+          children = map mkLiteral [ "prompt" "entry" ];
+        };
 
-      element selected {
-          text-color: @bg1;
-      }
-    '';
+        "#textbox-prompt-colon" = {
+          expand = false;
+          str = ":";
+          margin = mkLiteral "0px 0.3em 0em 0em";
+          text-color = mkLiteral "@foreground-color";
+        };
+      };
   };
   nixpkgs.overlays = [
     (final: prev: {
