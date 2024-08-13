@@ -11,7 +11,7 @@
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];
-    style = /* css */ ''
+    theme = /* css */ ''
       * {
           bg0:    #2E3440F2;
           bg1:    #3B4252;
