@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  stylix.targets.rofi = false;
   programs.rofi.enable = true;
   programs.rofi = {
     package = pkgs.rofi-wayland;
