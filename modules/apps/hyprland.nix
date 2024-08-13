@@ -37,7 +37,7 @@ in
       "$mod, r, togglesplit"
 
       "$mod CTRL, c, exec, hyprpicker --autocopy"
-      "$mod, SPACE, exec, rofi -show drun"
+      "$mod, SPACE, exec, rofi -show 󱓟"
       "$mod, RETURN, exec, kitty"
       "$mod, i, exec, librewolf"
       "$mod SHIFT, i, exec, librewolf --private-window"
