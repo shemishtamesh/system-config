@@ -66,7 +66,7 @@
         icon-search = {
           expand = false;
           filename = "search";
-          vertical-align = 0.5;
+          vertical-align = mkLiteral "0.5";
         };
 
         entry = {
