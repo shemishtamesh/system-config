@@ -37,7 +37,7 @@ in
         fullscreen = true;
         padding = mkLiteral "1em";
         background-color = mkLiteral "@bg0";
-        backdrop-filter = blur(10px);
+        backdrop-filter = mkLiteral "blur(10px)";
       };
 
       mainbox = {
