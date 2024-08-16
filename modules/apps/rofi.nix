@@ -18,9 +18,9 @@
       in
       {
         "*" = {
-            font = "Montserrat 9";
+            # font = "Montserrat 9";
 
-            # bg0 = mkLiteral "#24242480";
+            bg0 = mkLiteral "#24242480";
             # bg1 = mkLiteral "#363636";
             # bg2 = mkLiteral "#f5f5f520";
             # bg3 = mkLiteral "#f5f5f540";
