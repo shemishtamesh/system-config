@@ -104,13 +104,13 @@ in
       };
 
       mode-switcher = {
-        # background-color = mkLiteral "@bg1";
+        background-color = mkLiteral "@bg1";
         # "button selected" = {
-        button = {
-          padding = mkLiteral "100px";
-          # background-color = mkLiteral "@bg4";
-          # color = mkLiteral "@bg4";
-        };
+        # button = {
+        #   padding = mkLiteral "100px";
+        #   # background-color = mkLiteral "@bg4";
+        #   # color = mkLiteral "@bg4";
+        # };
       };
     };
   };
