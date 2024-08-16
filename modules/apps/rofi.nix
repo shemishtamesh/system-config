@@ -105,8 +105,8 @@ in
 
       mode-switcher = {
         # background-color = mkLiteral "@bg1";
-        # button = {
-        "element selected" = {
+        # "element selected" = {
+        button = {
           background-color = mkLiteral "@bg4";
         };
       };
