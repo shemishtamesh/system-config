@@ -2,7 +2,7 @@
 
 {
   stylix.targets.rofi.enable = false;
-  programs.rofi.enable = true;
+  programs.rofi.enable = false;
   programs.rofi = {
     package = pkgs.rofi-wayland;
     extraConfig = {
