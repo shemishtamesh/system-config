@@ -51,7 +51,7 @@ in
         spacing = mkLiteral "4px";
 
         border = mkLiteral "1px";
-        border-radius = mkLiteral "2px";
+        border-radius = mkLiteral "10px";
         border-color = mkLiteral "@bg3";
 
         children = mkLiteral "[icon-search,entry]";
@@ -87,7 +87,7 @@ in
         spacing = mkLiteral "4px";
 
         orientation = mkLiteral "vertical";
-        border-radius = mkLiteral "16px";
+        border-radius = mkLiteral "10px";
       };
 
       "element selected" = {
@@ -103,13 +103,9 @@ in
         horizontal-align = "0.5";
       };
 
-      # mode-switcher = {
-      #   background-color = mkLiteral "@bg1";
-      # };
       "button selected" = {
-        # padding = mkLiteral "100px";
         background-color = mkLiteral "@bg4";
-        # color = mkLiteral "@bg4";
+        border-radius = mkLiteral "10px";
       };
     };
   };
