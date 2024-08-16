@@ -78,7 +78,7 @@
           margin = mkLiteral "48px calc( 50% - 560px )";
           spacing = mkLiteral "48px";
           columns = 6;
-          fixed-columns = true;
+          # fixed-columns = true;
         };
 
         "element, element-text, element-icon" = {
