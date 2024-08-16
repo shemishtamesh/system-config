@@ -36,7 +36,7 @@
         };
 
         window = {
-          fullscreen = mkLiteral "true";
+          fullscreen = mkLiteral true;
           padding = mkLiteral"1em";
           background-color = mkLiteral "@bg0";
         };
@@ -63,23 +63,23 @@
           enabled = false;
         };
 
-        # icon-search = {
-        #   expand = false;
-        #   filename = "search";
-        #   vertical-align = 0.5;
-        # };
+        icon-search = {
+          expand = false;
+          filename = "search";
+          vertical-align = 0.5;
+        };
 
-        # entry {
-        #   placeholder:        "Search";
-        #   placeholder-color:  @bg2;
-        # }
+        entry = {
+          placeholder = "Search";
+          placeholder-color = mkLiteral "@bg2";
+        };
 
-        # listview {
-        #   margin:   48px calc( 50% - 560px );
-        #   spacing:  48px;
-        #   columns:  6;
-        #   fixed-columns: true;
-        # }
+        listview = {
+          margin = mkLiteral "48px calc( 50% - 560px )";
+          spacing = mkLiteral "48px";
+          columns = 6;
+          fixed-columns = true;
+        };
 
         # element, element-text, element-icon {
         #   cursor: pointer;
