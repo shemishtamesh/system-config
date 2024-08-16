@@ -36,7 +36,7 @@
         };
 
         window = {
-          fullscreen = mkLiteral true;
+          fullscreen = true;
           padding = mkLiteral"1em";
           background-color = mkLiteral "@bg0";
         };
