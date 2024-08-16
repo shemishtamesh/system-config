@@ -81,30 +81,30 @@
           fixed-columns = true;
         };
 
-        # element, element-text, element-icon {
-        #   cursor: pointer;
-        # }
+        "element, element-text, element-icon" = {
+          cursor = "pointer";
+        };
 
-        # element {
-        #   padding:      8px;
-        #   spacing:      4px;
+        element = {
+          padding = mkLiteral "8px";
+          spacing = mkLiteral "4px";
 
-        #   orientation:    vertical;
-        #   border-radius:  16px;
-        # }
+          orientation = mkLiteral "vertical";
+          border-radius = mkLiteral "16px";
+        };
 
-        # element selected {
-        #   background-color: @bg4;
-        # }
+        "element selected" = {
+          background-color = mkLiteral "@bg4";
+        };
 
-        # element-icon {
-        #   size: 4em;
-        #   horizontal-align: 0.5;
-        # }
+        element-icon = {
+          size = mkLiteral "4em";
+          horizontal-align = mkLiteral "0.5";
+        };
 
-        # element-text {
-        #   horizontal-align: 0.5;
-        # }
+        element-text = {
+          horizontal-align = "0.5";
+        };
       };
   };
   nixpkgs.overlays = [
