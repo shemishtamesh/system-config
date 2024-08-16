@@ -6,9 +6,9 @@
   programs.rofi = {
     package = pkgs.rofi-wayland;
     extraConfig = {
-      # show-icons = true;
-      modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv";
-      combi-modi = "drun,window,recursivebrowser,char:rofimoji -f emoji*.csv math.csv nerd_font.csv";
+      show-icons = true;
+      modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons";
+      combi-modi = "drun,window,recursivebrowser,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons";
     };
     plugins = with pkgs; [ rofi-calc ];
     theme =
