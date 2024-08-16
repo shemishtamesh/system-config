@@ -41,23 +41,23 @@
           background-color = mkLiteral "@bg0";
         };
 
-        # mainbox {
-        #   padding:  8px;
-        # }
+        mainbox = {
+          padding = mkLiteral "8px";
+        };
 
-        # inputbar {
-        #   background-color: @bg2;
+        inputbar = {
+          background-color = mkLiteral "@bg2";
 
-        #   margin:   0px calc( 50% - 120px );
-        #   padding:  2px 4px;
-        #   spacing:  4px;
+          margin = mkLiteral "0px calc( 50% - 120px )";
+          padding = mkLiteral "2px 4px";
+          spacing = mkLiteral "4px";
 
-        #   border:         1px;
-        #   border-radius:  2px;
-        #   border-color:   @bg3;
+          border = mkLiteral "1px";
+          border-radius = mkLiteral "2px";
+          border-color = mkLiteral "@bg3";
 
-        #   children: [icon-search,entry];
-        # }
+          children = mkLiteral "[icon-search,entry]";
+        };
 
         # prompt {
         #   enabled:  false;
