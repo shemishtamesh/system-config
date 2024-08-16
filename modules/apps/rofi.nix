@@ -11,8 +11,9 @@ in
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons";
-      combi-modi = "drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons";
+      modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons --action copy";
+      combi-modi = "drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons --action copy";
+      # combi-modi = ":drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons --action copy";
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];

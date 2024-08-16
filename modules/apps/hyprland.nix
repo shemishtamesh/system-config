@@ -39,7 +39,7 @@ in
       "$mod, SPACE, exec, rofi -show combi"
       "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
       "$mod, Tab, exec, rofi -show window -modi 'window'"
-      ", Cancel, exec, rofi -show char -modi 'char:rofimoji -f all --use-icons'"
+      ", Cancel, exec, rofi -show char -modi 'char:rofimoji -f all --use-icons --action copy'"
       ", XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command \"echo -n '{result}' | wl-copy\""
       "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, RETURN, exec, kitty"
