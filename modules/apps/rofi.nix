@@ -110,6 +110,20 @@
     (final: prev: {
       rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
     })
+    (final: prev: {
+      # see https://github.com/svenstaro/rofi-calc/issues/117
+      libqalculate = prev.libqalculate.overrideAttrs (_: rec {
+        pname = "libqalculate";
+        version = "4.8.1";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "qalculate";
+          repo = "libqalculate";
+          rev = "v${version}";
+          sha256 = "sha256-4WqKlwVf4/ixVr98lPFVfNL6EOIfHHfL55xLsYqxkhY=";
+        };
+      });
+    })
   ];
 }
 
