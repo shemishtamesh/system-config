@@ -12,7 +12,7 @@ in
     extraConfig = {
       show-icons = true;
       modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
-      combi-modi = "drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
+      combi-modi = "drun,window,recursivebrowser,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];
@@ -104,11 +104,11 @@ in
       };
 
       mode-switcher = {
-        background-color = mkLiteral "@bg1";
-        # "button selected" = {
+        # background-color = mkLiteral "@bg1";
         # button = {
-        #   background-color = mkLiteral "@bg4";
-        # };
+        "button selected" = {
+          background-color = mkLiteral "@bg4";
+        };
       };
     };
   };
