@@ -103,13 +103,13 @@ in
         horizontal-align = "0.5";
       };
 
-      mode-switcher = {
-        background-color = mkLiteral "@bg1";
-      };
-      button = {
+      # mode-switcher = {
+      #   background-color = mkLiteral "@bg1";
+      # };
+      "button selected" = {
         # padding = mkLiteral "100px";
-        # background-color = mkLiteral "@bg4";
-        color = mkLiteral "@bg4";
+        background-color = mkLiteral "@bg4";
+        # color = mkLiteral "@bg4";
       };
     };
   };
