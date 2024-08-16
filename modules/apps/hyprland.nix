@@ -156,7 +156,7 @@ in
       no_gaps_when_only = 1;
     };
     decoration = {
-      dim_special = 0.8;
+      dim_special = 0.7;
       rounding = rounding;
     };
     dwindle.preserve_split = true;
