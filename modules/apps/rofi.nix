@@ -18,14 +18,14 @@ in
     plugins = with pkgs; [ rofi-calc ];
     theme = {
       "*" = {
-        bg0 = mkLiteral rgba "base00" 0.8;
+        bg0 = mkLiteral (rgba "base00" 0.8);
         bg1 = mkLiteral palette.base01;
-        bg2 = mkLiteral rgba "base06" 0.2;
-        bg3 = mkLiteral rgba "base07" 0.4;
-        bg4 = mkLiteral rgba "base0D" 0.8;
+        bg2 = mkLiteral (rgba "base06" 0.2);
+        bg3 = mkLiteral (rgba "base07" 0.4);
+        bg4 = mkLiteral (rgba "base0D" 0.8);
 
         fg0 = mkLiteral palette.base07;
-        fg1 = mkLiteral rgba "base07" 0.8;
+        fg1 = mkLiteral (rgba "base07" 0.8);
 
         # bg0 = mkLiteral "#242424";
         # bg1 = mkLiteral "#363636";
