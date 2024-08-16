@@ -59,15 +59,15 @@
           children = mkLiteral "[icon-search,entry]";
         };
 
-        # prompt {
-        #   enabled:  false;
-        # }
+        prompt = {
+          enabled = false;
+        };
 
-        # icon-search {
-        #   expand:   false;
-        #   filename: "search";
-        #   vertical-align: 0.5;
-        # }
+        # icon-search = {
+        #   expand = false;
+        #   filename = "search";
+        #   vertical-align = 0.5;
+        # };
 
         # entry {
         #   placeholder:        "Search";
