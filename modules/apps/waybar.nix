@@ -156,7 +156,7 @@ in
       }
 
       window#waybar {
-          background: ${rgba "base00" "0"};
+          background: ${rgba "base00" 0};
           color: ${palette.base00};
       }
 
@@ -206,7 +206,7 @@ in
       }
 
       #workspaces {
-          background: ${rgba "base00" "0"};
+          background: ${rgba "base00" 0};
       }
       #workspaces button {
           padding: 1px 10px 1px 5px;

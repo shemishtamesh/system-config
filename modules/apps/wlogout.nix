@@ -89,7 +89,7 @@ in
       }
 
       window {
-          background-color: ${rgba "base00" "0.8"};
+          background-color: ${rgba "base00" 0.8};
       }
 
       button {

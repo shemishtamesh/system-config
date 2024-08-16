@@ -15,7 +15,7 @@
       g = palette."${color}-rgb-g";
       b = palette."${color}-rgb-b";
     in
-    "rgba(${r}, ${g}, ${b}, ${opacity})";
+    "rgba(${r}, ${g}, ${b}, ${builtins.toString opacity})";
   imageFromScheme = { width, height }: { svgText, name }:
     pkgs.stdenv.mkDerivation {
       name = "generated-${name}.png";
