@@ -12,9 +12,7 @@ in
     extraConfig = {
       show-icons = true;
       modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
-      # combi-modi = "drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
-      combi-modi = "󰌧:drun,window,recursivebrowser,calc,󰻐:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
-      # combi-modi = "🚀:drun,🪟window,📂recursivebrowser,:calc,󰻐:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
+      combi-modi = "drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];
@@ -103,6 +101,13 @@ in
 
       element-text = {
         horizontal-align = "0.5";
+      };
+
+      mode-switcher = {
+        background-color = mkLiteral "@bg1";
+        "element selected" = {
+          background-color = mkLiteral "@bg4";
+        };
       };
     };
   };
