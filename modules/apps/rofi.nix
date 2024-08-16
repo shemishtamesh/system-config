@@ -9,6 +9,7 @@
       show-icons = true;
       modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons";
       combi-modi = "drun,window,recursivebrowser,char:rofimoji -f emoji*.csv math.csv nerd_font.csv --use-icons";
+      sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];
     theme =
