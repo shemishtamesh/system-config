@@ -107,8 +107,9 @@ in
         # background-color = mkLiteral "@bg1";
         # "button selected" = {
         button = {
+          padding = mkLiteral "100px";
           # background-color = mkLiteral "@bg4";
-          color = mkLiteral "@bg4";
+          # color = mkLiteral "@bg4";
         };
       };
     };
