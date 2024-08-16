@@ -17,28 +17,28 @@
         inherit (config.lib.formats.rasi) mkLiteral;
       in
       {
-        # "*" = {
-        #     font = "Montserrat 9";
+        "*" = {
+            # font = "Montserrat 9";
 
-        #     bg0 = mkLiteral "#24242480";
-        #     bg1 = mkLiteral "#363636";
-        #     bg2 = mkLiteral "#f5f5f520";
-        #     bg3 = mkLiteral "#f5f5f540";
-        #     bg4 = mkLiteral "#0860f2E6";
+            bg0 = mkLiteral "#24242480";
+            bg1 = mkLiteral "#363636";
+            bg2 = mkLiteral "#f5f5f520";
+            bg3 = mkLiteral "#f5f5f540";
+            bg4 = mkLiteral "#0860f2E6";
 
-        #     fg0 = mkLiteral "#f5f5f5";
-        #     fg1 = mkLiteral "#f5f5f580";
+            fg0 = mkLiteral "#f5f5f5";
+            fg1 = mkLiteral "#f5f5f580";
 
-        #     background-color = mkLiteral "transparent";
-        #     text-color = mkLiteral "@fg0";
-        #     padding = mkLiteral "0px";
-        #     margin = mkLiteral "0px";
-        # };
+            background-color = mkLiteral "transparent";
+            text-color = mkLiteral "@fg0";
+            padding = mkLiteral "0px";
+            margin = mkLiteral "0px";
+        };
 
         window = {
           fullscreen = mkLiteral "true";
           padding = mkLiteral"1em";
-          background-color = mkLiteral"@bg0";
+          background-color = mkLiteral "@bg0";
         };
 
         # mainbox {
