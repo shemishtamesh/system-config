@@ -10,6 +10,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+
     stylix.url = "github:donovanglover/stylix";
   };
 
@@ -21,7 +23,7 @@
     in
     {
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; inherit theme; };
+        specialArgs = { inherit inputs; inherit theme; inherit system;};
         modules = [
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix

@@ -1,4 +1,4 @@
-{ config, pkgs, theme, ... }:
+{ config, inputs, pkgs, theme, system, ... }:
 
 {
   imports =
@@ -117,6 +117,7 @@
   environment.systemPackages = with pkgs; [
     qalculate-gtk
     fastfetch
+    inputs.zen-browser.packages.${system}.default
     librewolf
     gimp
     imv
