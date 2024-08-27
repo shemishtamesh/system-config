@@ -13,6 +13,7 @@
     ../apps/git.nix
     ../apps/zsh.nix
     ../apps/starship.nix
+    ../apps/zoxide.nix
   ];
 
   home.username = "shemishtamesh";
