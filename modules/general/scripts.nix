@@ -56,17 +56,16 @@
     '')
 
     (pkgs.writeShellScriptBin "bak" ''
-        local filename="$1"
-        if [[ "$filename" =~ .bak$ ]]; then
-            mv "$filename" "''${filename%.bak}";
-            return 0;
-        else
-            mv "$filename" "$filename.bak";
-            return 0;
-        fi
-        echo "Error: $filename is not a valid file or directory.";
-        return 1;
-    }
+      local filename="$1"
+      if [[ "$filename" =~ .bak$ ]]; then
+          mv "$filename" "''${filename%.bak}";
+          return 0;
+      else
+          mv "$filename" "$filename.bak";
+          return 0;
+      fi
+      echo "Error: $filename is not a valid file or directory.";
+      return 1;
     '')
   ];
 }
