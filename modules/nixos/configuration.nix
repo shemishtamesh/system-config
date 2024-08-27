@@ -112,6 +112,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment.sessionVariables = rec {
+    MANROFFOPT = "-c";
+    MANWIDTH = "999";
+    MANPAGER = "nvim +Man!";
+    EDITOR = "nvim";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -233,6 +240,11 @@
       zle -N zle-line-init
       echo -ne '\e[5 q' # Use beam shape cursor on startup.
       preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+
+      # Edit line in vim with ctrl-e:
+      autoload edit-command-line; zle -N edit-command-line
+      bindkey '^e' edit-command-line
     '';
   };
 
