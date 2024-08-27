@@ -507,15 +507,15 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1724635198,
-        "narHash": "sha256-c8TktzNpp4wSkZZ4tePWHYbBmtZoQeXEMXPVIcQ9cHs=",
-        "owner": "donovanglover",
+        "lastModified": 1724702977,
+        "narHash": "sha256-bP1/BHbEigLjTTmqyy1t8w5EVWHuLuABtOd/BBXVLtA=",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "02e5942450fcebd745b9c0c01c9f100f935f3c48",
+        "rev": "6c895c6b42ca205017abe72a7263baf36a197972",
         "type": "github"
       },
       "original": {
-        "owner": "donovanglover",
+        "owner": "danth",
         "repo": "stylix",
         "type": "github"
       }
