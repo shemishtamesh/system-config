@@ -127,13 +127,13 @@
     hyprpaper
     hyprpicker
     hyprlock
-    alacritty
     ripgrep
     bat
     fd
     zoxide
     eza
     fzf
+    rmtrash
     playerctl
     brightnessctl
     vim
