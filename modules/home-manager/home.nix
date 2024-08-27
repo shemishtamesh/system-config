@@ -12,14 +12,14 @@
     ../apps/kitty.nix
     ../apps/zsh.nix
     ../apps/git.nix
-    ../desktop_environments/gnome.nix
+    # ../desktop_environments/gnome.nix
   ];
 
   home.username = "shemishtamesh";
   home.homeDirectory = "/home/shemishtamesh";
 
   stylix = {
-    enable = true;
+    enable = false;
     base16Scheme = theme.scheme;
     image = theme.wallpaper;
     fonts = theme.fonts;
