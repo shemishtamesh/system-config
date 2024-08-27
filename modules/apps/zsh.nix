@@ -9,16 +9,14 @@
     ls = "ls --color=auto";
     l = "exa --color=auto --icons=always --git";
 
-    rm = "rmtrash";
+    rm = "rmtrash --interactive=always";
     rmdir = "rmdirtrash";
     sudo = "sudo ";
 
     cp = "cp --interactive=always";
     mv = "mv --interactive=always";
-    rm = "rm --interactive=always";
     cp-yes = "cp";
     mv-yes = "mv";
-    rm-yes = "rm";
   };
 }
 
