@@ -12,7 +12,7 @@
     ../apps/kitty.nix
     ../apps/zsh.nix
     ../apps/git.nix
-    # ../desktop_environments/gnome.nix
+    ../desktop_environments/gnome.nix
   ];
 
   home.username = "shemishtamesh";
