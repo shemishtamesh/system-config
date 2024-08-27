@@ -21,7 +21,7 @@
   stylix = {
     enable = true;
     base16Scheme = theme.scheme;
-    # image = theme.wallpaper;
+    image = theme.wallpaper;
     fonts = theme.fonts;
   };
 
