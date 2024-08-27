@@ -84,9 +84,4 @@
 
     # };
   };
-
-  # programs.bash.bashrcExtra = ''
-  #   eval "$(starship init bash)" #do nothing
-  # '';
-
 }
