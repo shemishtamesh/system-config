@@ -202,6 +202,17 @@
     ];
     histSize = 100000;
     enableLsColors = true;
+    interactiveShellInit = ''
+      autoload -U compinit && compinit   # load + start completion
+      zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
+
+      autoload -U compinit
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+      zstyle ':completion:*' menu select
+      zmodload zsh/complist
+      compinit
+      _comp_options+=(globdots)
+    '';
   };
 
   programs.hyprland.enable = true;
