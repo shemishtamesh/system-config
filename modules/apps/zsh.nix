@@ -3,7 +3,6 @@
 {
   programs.zsh.enable = true;
   programs.zsh = {
-    histSize = 100000;
     shellAliases = {
       n = "nvim";
 
