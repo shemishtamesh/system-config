@@ -3,7 +3,6 @@
 {
   programs.zsh.enable = true;
   programs.zsh = {
-    enableLsColors = true;
     shellAliases = {
       n = "nvim";
 

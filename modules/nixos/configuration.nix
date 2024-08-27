@@ -201,6 +201,7 @@
       "autocd"
     ];
     histSize = 100000;
+    enableLsColors = true;
   };
 
   programs.hyprland.enable = true;
