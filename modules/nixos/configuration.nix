@@ -196,6 +196,8 @@
     "AUTO_PUSHD"
     "PUSHD_MINUS"
     "CDABLE_VARS"
+    "promptsubst"
+    "autocd"
   ];
 
   programs.hyprland.enable = true;
