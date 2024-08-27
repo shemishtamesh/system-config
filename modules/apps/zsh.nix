@@ -3,16 +3,16 @@
 {
   programs.zsh.enable = true;
   programs.zsh = {
-    setOptions = [
-      "HIST_IGNORE_SPACE"
-      "HIST_IGNORE_DUPS"
-      "SHARE_HISTORY"
-      "HIST_FCNTL_LOCK"
-      "EXTENDED_HISTORY"
-      "AUTO_PUSHD"
-      "PUSHD_MINUS"
-      "CDABLE_VARS"
-    ];
+    # setOptions = [
+    #   "HIST_IGNORE_SPACE"
+    #   "HIST_IGNORE_DUPS"
+    #   "SHARE_HISTORY"
+    #   "HIST_FCNTL_LOCK"
+    #   "EXTENDED_HISTORY"
+    #   "AUTO_PUSHD"
+    #   "PUSHD_MINUS"
+    #   "CDABLE_VARS"
+    # ];
     shellAliases = {
       n = "nvim";
 
@@ -29,12 +29,14 @@
       cp-yes = "cp";
       mv-yes = "mv";
     };
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-      ];
-    };
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    # zplug = {
+    #   enable = true;
+    #   plugins = [
+    #     { name = "zsh-users/zsh-autosuggestions"; }
+    #     { name = "zsh-users/zsh-syntax-highlighting"; }
+    #   ];
+    # };
   };
 }
