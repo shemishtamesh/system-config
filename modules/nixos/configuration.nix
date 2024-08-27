@@ -187,18 +187,21 @@
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-  programs.zsh.setOptions = [
-    "HIST_IGNORE_SPACE"
-    "HIST_IGNORE_DUPS"
-    "SHARE_HISTORY"
-    "HIST_FCNTL_LOCK"
-    "EXTENDED_HISTORY"
-    "AUTO_PUSHD"
-    "PUSHD_MINUS"
-    "CDABLE_VARS"
-    "promptsubst"
-    "autocd"
-  ];
+  programs.zsh = {
+    setOptions = [
+      "HIST_IGNORE_SPACE"
+      "HIST_IGNORE_DUPS"
+      "SHARE_HISTORY"
+      "HIST_FCNTL_LOCK"
+      "EXTENDED_HISTORY"
+      "AUTO_PUSHD"
+      "PUSHD_MINUS"
+      "CDABLE_VARS"
+      "promptsubst"
+      "autocd"
+    ];
+    histSize = 100000;
+  };
 
   programs.hyprland.enable = true;
 
