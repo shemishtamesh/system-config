@@ -31,7 +31,7 @@ in
 
       "$mod, f, fullscreen, 1"
       "$mod SHIFT, f, fullscreen, 0"
-      "$mod CTRL, f, fakefullscreen"
+      "$mod CTRL, f, fullscreenstate, -1 2"
       "$mod, t, togglefloating, 0"
 
       "$mod, r, togglesplit"
