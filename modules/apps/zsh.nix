@@ -3,6 +3,16 @@
 {
   programs.zsh.enable = true;
   programs.zsh = {
+    setOptions = [
+      "HIST_IGNORE_SPACE"
+      "HIST_IGNORE_DUPS"
+      "SHARE_HISTORY"
+      "HIST_FCNTL_LOCK"
+      "EXTENDED_HISTORY"
+      "AUTO_PUSHD"
+      "PUSHD_MINUS"
+      "CDABLE_VARS"
+    ];
     shellAliases = {
       n = "nvim";
 
