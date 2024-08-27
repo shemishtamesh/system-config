@@ -19,6 +19,10 @@
       cp-yes = "cp";
       mv-yes = "mv";
     };
+    bindkey = [
+        "-v"
+        "^e"
+    ];
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
   };
