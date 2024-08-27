@@ -56,7 +56,7 @@
     '')
 
     (pkgs.writeShellScriptBin "bak" ''
-      local filename="$1"
+      filename="$1"
       if [[ "$filename" =~ .bak$ ]]; then
           mv "$filename" "''${filename%.bak}";
           exit 0;
