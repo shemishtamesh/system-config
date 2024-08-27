@@ -29,14 +29,7 @@
       cp-yes = "cp";
       mv-yes = "mv";
     };
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
-    # zplug = {
-    #   enable = true;
-    #   plugins = [
-    #     { name = "zsh-users/zsh-autosuggestions"; }
-    #     { name = "zsh-users/zsh-syntax-highlighting"; }
-    #   ];
-    # };
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
   };
 }
