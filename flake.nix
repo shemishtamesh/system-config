@@ -12,7 +12,7 @@
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
-    stylix.url = "github:donovanglover/stylix";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
