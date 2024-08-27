@@ -202,7 +202,7 @@
     ];
     histSize = 100000;
     enableLsColors = true;
-    interactiveShellInit = ''
+    interactiveShellInit = /* sh */ ''
       autoload -U compinit && compinit   # load + start completion
       zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
