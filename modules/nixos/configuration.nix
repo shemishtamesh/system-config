@@ -174,10 +174,10 @@
   ];
 
   stylix = {
-      enable = true;
-      base16Scheme = theme.scheme;
-      image = theme.wallpaper;
-      fonts = theme.fonts;
+    enable = true;
+    base16Scheme = theme.scheme;
+    image = theme.wallpaper;
+    fonts = theme.fonts;
   };
 
   fonts.packages = with pkgs; [
@@ -187,6 +187,16 @@
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+  programs.zsh.setOptions = [
+    "HIST_IGNORE_SPACE"
+    "HIST_IGNORE_DUPS"
+    "SHARE_HISTORY"
+    "HIST_FCNTL_LOCK"
+    "EXTENDED_HISTORY"
+    "AUTO_PUSHD"
+    "PUSHD_MINUS"
+    "CDABLE_VARS"
+  ];
 
   programs.hyprland.enable = true;
 
