@@ -10,7 +10,7 @@
       ls = "ls --color=auto";
       l = "exa --color=auto --icons=always --git";
 
-      rm = "rmtrash --interactive=always";
+      rm = "rmtrash";
       rmdir = "rmdirtrash";
       sudo = "sudo ";
 

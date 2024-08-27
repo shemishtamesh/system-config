@@ -10,9 +10,9 @@
     ../apps/dunst.nix
     ../apps/rofi.nix
     ../apps/kitty.nix
-    ../apps/zsh.nix
     ../apps/git.nix
-    ../desktop_environments/gnome.nix
+    ../apps/zsh.nix
+    ../apps/starship.nix
   ];
 
   home.username = "shemishtamesh";
