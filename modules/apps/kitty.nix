@@ -17,6 +17,8 @@ in
 
       action_alias = "kitty_scrollback_nvim kitten /home/shemishtamesh/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
 
+      font_size = 14;
+
       background = palette.base00;
       foreground = palette.base05;
       selection_background = palette.base05;
