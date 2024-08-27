@@ -143,9 +143,10 @@
     btop
     wev
     tree
-    kitty
-    tmux
     bitwarden
+    kitty
+    starship
+    tmux
     wget
     curl
     git
