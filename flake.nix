@@ -19,8 +19,8 @@
       inputs.hyprland.follows = "hyprland";
     };
     Hyprspace = {
-        url = "github:KZDKM/Hyprspace";
-        inputs.hyprland.follows = "hyprland";
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
     };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
@@ -36,7 +36,7 @@
     in
     {
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; inherit theme; inherit system;};
+        specialArgs = { inherit inputs; inherit theme; inherit system; };
         modules = [
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix
