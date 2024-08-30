@@ -15,7 +15,7 @@
       sudo = "sudo ";
 
       cp = "cp --interactive=always";
-      mv = "mv --interactive=always";
+      mv = "mv --interactive";
       cp-yes = "cp";
       mv-yes = "mv";
     };
