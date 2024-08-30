@@ -40,6 +40,7 @@
         modules = [
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix
+          hyprland.nixosModules.default
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
@@ -48,7 +49,7 @@
         modules = [
           ./modules/home-manager/home.nix
           stylix.homeManagerModules.stylix
-          hyprland.homeManagerModules.default
+          # hyprland.homeManagerModules.default
         ];
       };
     };
