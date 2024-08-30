@@ -42,6 +42,7 @@ in
       ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
       ", XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command \"echo -n '{result}' | wl-copy\""
       "$mod CTRL, c, exec, hyprpicker --autocopy"
+      # "$mod, s, exec, "
       "$mod, RETURN, exec, kitty"
       "$mod, i, exec, librewolf"
       "$mod SHIFT, i, exec, librewolf --private-window"

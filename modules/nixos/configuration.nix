@@ -133,6 +133,7 @@
     acpi
     hyprpaper
     hyprpicker
+    hyprshot
     hyprlock
     ripgrep
     bat
