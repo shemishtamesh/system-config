@@ -198,6 +198,6 @@ in
     ];
   };
   wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.hyprexpo
+    pkgs.hyprlandPlugins.hypprspace
   ];
 }
