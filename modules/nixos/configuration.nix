@@ -99,6 +99,9 @@
 
   services.ollama.enable = true;
 
+  programs.adb.enable = true;
+  users.users.shemishtamesh.extraGroups = ["adbusers"];
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
