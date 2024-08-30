@@ -181,6 +181,8 @@
     pavucontrol
     copyq
     wlogout
+    mpv
+    vlc
   ];
 
   stylix = {
