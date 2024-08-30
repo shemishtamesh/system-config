@@ -11,7 +11,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     Hyprspace = {
         url = "github:KZDKM/Hyprspace";
-        inputs.hyprland.follows = "hyprland";
+        # inputs.hyprland.follows = "hyprland";
     };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
