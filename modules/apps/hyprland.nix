@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 let
   gaps = "2";
   rounding = "10";
@@ -198,6 +198,6 @@ in
     ];
   };
   wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.hypprspace
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
   ];
 }

@@ -9,6 +9,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    Hyprspace.url = "github:KZDKM/Hyprspace";
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
