@@ -100,7 +100,6 @@
   services.ollama.enable = true;
 
   programs.adb.enable = true;
-  users.users.shemishtamesh.extraGroups = ["adbusers"];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -109,7 +108,7 @@
   users.users.shemishtamesh = {
     isNormalUser = true;
     description = "shemishtamesh";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "adbusers"];
   };
 
   # Allow unfree packages
