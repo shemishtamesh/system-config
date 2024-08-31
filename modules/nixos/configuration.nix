@@ -161,6 +161,8 @@
     curl
     git
     zoxide
+    yazi
+    difftastic
     killall
     waybar
     rofi-wayland
