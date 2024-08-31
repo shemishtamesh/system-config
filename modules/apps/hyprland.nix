@@ -1,7 +1,7 @@
 { lib, pkgs, inputs, ... }:
 let
-  gaps = "1";
-  rounding = "10";
+  gaps = "0";
+  rounding = "0";
   toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
     killall .waybar-wrapped
     if [[ $? -eq 0 ]]; then
