@@ -7,6 +7,8 @@ in
   programs.kitty.enable = true;
   programs.kitty = {
     settings = {
+      mouse_hide_wait = -1;
+
       open_url_with = "librewolf";
       detect_urls = "yes";
 
