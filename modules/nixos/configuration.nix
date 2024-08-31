@@ -172,7 +172,7 @@
     libnotify
     whatsapp-for-linux
     gcc
-    # cargo
+    cargo
     rustc
     python3
     nodejs
