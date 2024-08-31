@@ -49,7 +49,7 @@
         modules = [
           ./modules/home-manager/home.nix
           stylix.homeManagerModules.stylix
-          # hyprland.homeManagerModules.default
+          hyprland.homeManagerModules.default
         ];
       };
     };
