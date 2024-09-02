@@ -9,6 +9,7 @@
       grep = "grep --color=auto";
       ls = "ls --color=auto";
       l = "exa --color=auto --icons=always --git";
+      t = "exa --tree --color=auto --icons=always --git";
 
       rm = "rmtrash";
       rmdir = "rmdirtrash";
