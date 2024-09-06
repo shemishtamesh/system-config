@@ -130,6 +130,7 @@
     librewolf
     gimp
     excalidraw
+    excalidraw
     imv
     pulsemixer
     inkscape
