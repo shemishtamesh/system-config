@@ -129,6 +129,7 @@
     inputs.zen-browser.packages.${system}.default
     librewolf
     gimp
+    milton
     imv
     pulsemixer
     inkscape
