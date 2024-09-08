@@ -4,13 +4,13 @@
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "rebuild" ''
       FLAKE="$HOME/.config/flake"
-      git -C $flake_path add .
-      git -C $flake_path commit -m 'rebuilding nixos'
+      git -C $FLAKE add .
+      git -C $FLAKE commit -m 'rebuilding nixos'
       sudo nh os switch --show-trace \
           || notify-send -u critical 'nixos rebuild failed'
 
-      git -C $flake_path add .
-      git -C $flake_path commit -m 'rebuilding home'
+      git -C $FLAKE add .
+      git -C $FLAKE commit -m 'rebuilding home'
       nh home switch --show-trace \
           || notify-send -u critical 'home rebuild failed'
 
