@@ -155,6 +155,7 @@
     btop
     wev
     tree
+    nh
     bitwarden
     kitty
     starship
