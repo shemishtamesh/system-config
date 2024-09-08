@@ -1,17 +1,22 @@
 { pkgs, ... }:
 
 {
-  envient.systemPackages = [
+  environment.systemPackages = [
     (pkgs.writeShellScriptBin "rebuild" ''
       flake_path="$HOME/.config/flake"
       git -C $flake_path add .
-      git -C $flake_path commit -m 'update'
-      sudo nixos-rebuild switch --flake $flake_path --show-trace
+      git -C $flake_path commit -m 'rebuilding nixos'
+      sudo nixos-rebuild switch --flake $flake_path --show-trace \
+          || notify-send -u critical 'nixos rebuild failed'
+
       git -C $flake_path add .
-      git -C $flake_path commit -m 'update'
-      home-manager switch --flake $flake_path --show-trace
-      systemctl --user restart hyprpaper.service
-      notify-send 'done rebuilding'
+      git -C $flake_path commit -m 'rebuilding home'
+      home-manager switch --flake $flake_path --show-trace \
+          || notify-send -u critical 'home rebuild failed'
+
+      systemctl --user restart hyprpaper.service \
+          || notify-send -u critical 'wallpaper switch failed'
+      notify-send 'rebuild succeed'
     '')
 
     (pkgs.writeShellScriptBin "notification-log" ''
