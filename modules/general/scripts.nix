@@ -6,12 +6,12 @@
       FLAKE="$HOME/.config/flake"
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding nixos'
-      sudo nh os switch --show-trace \
+      sudo nh os switch $FLAKE \
           || notify-send -u critical 'nixos rebuild failed'
 
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding home'
-      nh home switch --show-trace \
+      nh home switch $FLAKE \
           || notify-send -u critical 'home rebuild failed'
 
       systemctl --user restart hyprpaper.service \
