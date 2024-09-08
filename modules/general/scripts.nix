@@ -16,7 +16,7 @@
 
       systemctl --user restart hyprpaper.service \
           || notify-send -u critical 'wallpaper switch failed'
-      notify-send 'rebuild succeed'
+      notify-send low 'rebuild succeed'
     '')
 
     (pkgs.writeShellScriptBin "notification-log" ''
