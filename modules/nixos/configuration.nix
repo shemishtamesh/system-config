@@ -190,6 +190,7 @@
     mpv
     vlc
     obsidian
+    lorien
   ];
 
   stylix = {
