@@ -189,6 +189,7 @@
     wlogout
     mpv
     vlc
+    obsidian
   ];
 
   stylix = {
