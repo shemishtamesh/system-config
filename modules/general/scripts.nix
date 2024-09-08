@@ -3,15 +3,15 @@
 {
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "rebuild" ''
-      flake_path="$HOME/.config/flake"
+      FLAKE="$HOME/.config/flake"
       git -C $flake_path add .
       git -C $flake_path commit -m 'rebuilding nixos'
-      sudo nixos-rebuild switch --flake $flake_path --show-trace \
+      sudo nh os switch --show-trace \
           || notify-send -u critical 'nixos rebuild failed'
 
       git -C $flake_path add .
       git -C $flake_path commit -m 'rebuilding home'
-      home-manager switch --flake $flake_path --show-trace \
+      nh home switch --show-trace \
           || notify-send -u critical 'home rebuild failed'
 
       systemctl --user restart hyprpaper.service \

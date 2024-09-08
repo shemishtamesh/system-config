@@ -154,6 +154,8 @@
     wev
     tree
     nh
+    nix-output-monitor
+    nvd
     bitwarden
     kitty
     starship
