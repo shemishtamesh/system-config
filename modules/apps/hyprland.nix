@@ -62,7 +62,7 @@ in
       ", XF86AudioPrev, exec, playerctl previous"
       ", XF86AudioNext, exec, playerctl next"
 
-      "$mod CTRL, Tab, overview:toggle"
+      # "$mod CTRL, Tab, overview:toggle"
       "$mod, XF86Reload, togglespecialworkspace, chat"
       "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
       "$mod, XF86AudioPlay, togglespecialworkspace, music"
@@ -198,6 +198,6 @@ in
     ];
   };
   wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.hyprspace
+    # pkgs.hyprlandPlugins.hyprspace
   ];
 }
