@@ -129,8 +129,6 @@
     inputs.zen-browser.packages.${system}.default
     librewolf
     gimp
-    excalidraw
-    excalidraw
     imv
     pulsemixer
     inkscape
