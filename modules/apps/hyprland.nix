@@ -145,8 +145,8 @@ in
       kb_options = "grp:alt_space_toggle";
     };
     general = {
-      gaps_in = gaps;
-      gaps_out = gaps;
+      gaps_in = 100;
+      gaps_out = 100;
       border_size = 1;
 
       allow_tearing = false;
