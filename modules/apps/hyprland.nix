@@ -199,6 +199,7 @@ in
     ];
   };
   wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.hyprspace
+    inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+    # pkgs.hyprlandPlugins.hyprspace
   ];
 }
