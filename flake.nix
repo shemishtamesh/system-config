@@ -18,10 +18,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    # Hyprspace = {
-    #   url = "github:KZDKM/Hyprspace";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
