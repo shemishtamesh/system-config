@@ -41,6 +41,7 @@ in
       "$mod, Tab, exec, rofi -show window -modi 'window'"
       ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
       ", XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command \"echo -n '{result}' | wl-copy\""
+      "SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
       "$mod CTRL, c, exec, hyprpicker --autocopy"
       "$mod, s, exec, hyprshot -m window"
       "$mod SHIFT, s, exec, hyprshot -m region"
@@ -193,7 +194,8 @@ in
       "waybar"
       "[workspace special:music silent] spotify"
       "[workspace special:music silent] Discord"
-      "copyq --start-server"
+      # "copyq --start-server"
+      "wl-paste --watch cliphist store"
       "notification-log $HOME/Documents/logs/notifications.txt"
       "playerctld"
     ];
