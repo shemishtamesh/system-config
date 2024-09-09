@@ -195,7 +195,8 @@ in
       "[workspace special:music silent] spotify"
       "[workspace special:music silent] Discord"
       # "copyq --start-server"
-      "wl-paste --watch cliphist store"
+      "wl-paste --type text --watch cliphist store"
+      "wl-paste --type image --watch cliphist store"
       "notification-log $HOME/Documents/logs/notifications.txt"
       "playerctld"
     ];
