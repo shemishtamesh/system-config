@@ -17,7 +17,7 @@ in
       allow_remote_control = "socket-only";
       listen_on = "unix:/tmp/kitty";
 
-      action_alias = "kitty_scrollback_nvim kitten /home/shemishtamesh/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
+      action_alias = "kitty_scrollback_nvim kitten $HOME/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
 
       font_size = 14;
 

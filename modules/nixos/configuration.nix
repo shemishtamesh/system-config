@@ -99,7 +99,16 @@
 
   services.ollama.enable = true;
 
-  programs.adb.enable = true;
+  services = {
+    syncthing = {
+      enable = true;
+      user = "shemishtamesh";
+      dataDir = "/home/shemishtamesh/Documents";
+      configDir = "/home/myusername/.config/syncthing";
+      overrideDevices = true; # overrides any devices added or deleted through the WebUI
+      overrideFolders = true; # overrides any folders added or deleted through the WebUI
+    };
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -108,7 +117,7 @@
   users.users.shemishtamesh = {
     isNormalUser = true;
     description = "shemishtamesh";
-    extraGroups = [ "networkmanager" "wheel" "input" "adbusers"];
+    extraGroups = [ "networkmanager" "wheel" "input" "adbusers" ];
   };
 
   # Allow unfree packages
@@ -262,6 +271,8 @@
   };
 
   programs.hyprland.enable = true;
+
+  programs.adb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
