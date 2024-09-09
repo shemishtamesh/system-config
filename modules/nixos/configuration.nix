@@ -194,7 +194,8 @@
     spotify
     obs-studio
     pavucontrol
-    copyq
+    # copyq
+    cliphist
     wlogout
     mpv
     vlc
