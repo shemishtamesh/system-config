@@ -119,12 +119,13 @@
       settings = {
         devices = {
           "yip7p" = { id = "6TWKX7G-RJDKZXP-42DHW7D-MXASVNN-YCJT2QT-RMGNASM-N4PAWSQ-KMUSPAH"; };
-          "work_pc" = { id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD"; };
+          # "work_pc" = { id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD"; };
         };
         folders = {
           "general_vault" = {
-            path = "/home/shemishtamesh/Documents/general_vault"; # Which folder to add to Syncthing
-            devices = [ "yip7p" "work_pc" ]; # Which devices to share the folder with
+            path = "/home/shemishtamesh/Documents/general_vault";
+            # devices = [ "yip7p" "work_pc" ];
+            devices = [ "yip7p" ];
           };
         };
       };
