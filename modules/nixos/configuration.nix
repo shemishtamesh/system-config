@@ -118,7 +118,7 @@
       overrideFolders = true;
       settings = {
         devices = {
-          "Pixel 7 Pro" = { id = "6TWKX7G-RJDKZXP-42DHW7D-MXASVNN-YCJT2QT-RMGNASM-N4PAWSQ-KMUSPAH"; };
+          "Pixel 7 Pro" = { id = "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH"; };
           "work_pc" = { id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD"; };
         };
         folders = {
@@ -312,9 +312,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals=[
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-kde
+    extraPortals = [
+      pkgs.xdg-desktop-portal-kde # for kdeconnect
     ];
   };
 
