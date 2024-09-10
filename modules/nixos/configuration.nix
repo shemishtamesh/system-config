@@ -123,7 +123,6 @@
         };
         folders = {
           "general_vault" = {
-            # Name of folder in Syncthing, also the folder ID
             path = "/home/shemishtamesh/Documents/general_vault"; # Which folder to add to Syncthing
             devices = [ "yip7p" "work_pc" ]; # Which devices to share the folder with
           };
