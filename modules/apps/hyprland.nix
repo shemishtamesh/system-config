@@ -47,8 +47,8 @@ in
         "$mod, s, exec, hyprshot -m window"
         "$mod SHIFT, s, exec, hyprshot -m region"
         "$mod, RETURN, exec, kitty"
-        "$mod, i, exec, librewolf"
-        "$mod SHIFT, i, exec, librewolf --private-window"
+        "$mod, i, exec, zen"
+        "$mod SHIFT, i, exec, zen --private-window"
 
         "$mod, Escape, exec, wlogout"
 
