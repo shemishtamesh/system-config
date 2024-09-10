@@ -119,12 +119,13 @@
       settings = {
         devices = {
           "yip7p" = { id = "6TWKX7G-RJDKZXP-42DHW7D-MXASVNN-YCJT2QT-RMGNASM-N4PAWSQ-KMUSPAH"; };
+          "work_pc" = { id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD"; };
         };
         folders = {
           "general_vault" = {
             # Name of folder in Syncthing, also the folder ID
             path = "/home/shemishtamesh/Documents/general_vault"; # Which folder to add to Syncthing
-            devices = [ "yip7p" ]; # Which devices to share the folder with
+            devices = [ "yip7p" "work_pc" ]; # Which devices to share the folder with
           };
         };
       };
