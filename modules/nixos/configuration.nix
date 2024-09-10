@@ -82,6 +82,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -107,6 +110,18 @@
       configDir = "/home/shemishtamesh/.config/syncthing";
       overrideDevices = true; # overrides any devices added or deleted through the WebUI
       overrideFolders = true; # overrides any folders added or deleted through the WebUI
+      # settings = {
+      #   devices = {
+      #     "yip7p" = { id = ""; };
+      #   };
+      #   folders = {
+      #     "general_vault" = {
+      #       # Name of folder in Syncthing, also the folder ID
+      #       path = "/home/shemishtamesh/Documents/general_vault"; # Which folder to add to Syncthing
+      #       devices = [ "yip7p" ]; # Which devices to share the folder with
+      #     };
+      #   };
+      # };
     };
   };
 
@@ -201,6 +216,7 @@
     vlc
     obsidian
     lorien
+    kdeconnect
   ];
 
   stylix = {
