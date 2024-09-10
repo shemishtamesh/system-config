@@ -103,10 +103,10 @@
     syncthing = {
       enable = true;
       user = "shemishtamesh";
-      # dataDir = "/home/shemishtamesh/Documents";
-      configDir = "/home/myusername/.config/syncthing";
-      # overrideDevices = true; # overrides any devices added or deleted through the WebUI
-      # overrideFolders = true; # overrides any folders added or deleted through the WebUI
+      dataDir = "/home/shemishtamesh/Documents";
+      configDir = "/home/shemishtamesh/.config/syncthing";
+      overrideDevices = true; # overrides any devices added or deleted through the WebUI
+      overrideFolders = true; # overrides any folders added or deleted through the WebUI
     };
   };
 
