@@ -222,7 +222,6 @@
     vlc
     obsidian
     lorien
-    # kdeconnect
   ];
 
   stylix = {
