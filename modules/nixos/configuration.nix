@@ -129,6 +129,11 @@
         };
       };
     };
+    services.kdeconnect = {
+      enable = true;
+      # package = pkgs.kdePackages.kdeconnect-kde;
+      indicator = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -222,7 +227,7 @@
     vlc
     obsidian
     lorien
-    kdeconnect
+    # kdeconnect
   ];
 
   stylix = {
@@ -310,12 +315,12 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-kde # for kdeconnect
-    ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-kde # for kdeconnect
+  #   ];
+  # };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

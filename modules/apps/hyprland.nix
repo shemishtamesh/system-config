@@ -197,13 +197,13 @@ in
         "[workspace special:music silent] Discord"
         "wl-paste --watch cliphist store"
         "notification-log $HOME/Documents/logs/notifications.txt"
-        "kdeconnect-indicator"
+        # "kdeconnect-indicator"
         "playerctld"
       ];
     };
     plugins = [
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
-    systemd.variables = [ "-all" ]; # fixed kdeconnect clipboard sync
+    systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
 }
