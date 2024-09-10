@@ -189,7 +189,6 @@ in
       "workspace special:music silent, class:(spotify)"
       "workspace special:chat silent, class:(discord)"
     ];
-    systemd.variables = [ "-all" ]; # fixed kdeconnect clipboard sync
     exec-once = [
       "hyprpaper"
       "waybar"
@@ -205,4 +204,5 @@ in
   wayland.windowManager.hyprland.plugins = [
     inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
   ];
+  systemd.variables = [ "-all" ]; # fixed kdeconnect clipboard sync
 }
