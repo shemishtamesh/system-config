@@ -310,11 +310,12 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals=[
-    # pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-kde
-  ];
+  xdg.portal = {
+    enable = true;
+    extraPortals=[
+      pkgs.xdg-desktop-portal-kde
+    ];
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

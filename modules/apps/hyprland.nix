@@ -197,6 +197,7 @@ in
       # "copyq --start-server"
       "wl-paste --watch cliphist store"
       "notification-log $HOME/Documents/logs/notifications.txt"
+      "kdeconnect-indicator"
       "playerctld"
     ];
   };
