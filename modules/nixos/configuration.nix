@@ -125,7 +125,6 @@
           "general_vault" = {
             path = "/home/shemishtamesh/Documents/general_vault";
             devices = [ "yip7p" "work_pc" ];
-            # devices = [ "yip7p" ];
           };
         };
       };
