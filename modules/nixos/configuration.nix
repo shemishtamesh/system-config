@@ -310,6 +310,12 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals=[
+    pkgs.xdg-dekstop-portal-gtk
+    pkgs.xdg-dekstop-portal-kde
+  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # This value determines the NixOS release from which the default
