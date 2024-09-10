@@ -114,8 +114,8 @@
       user = "shemishtamesh";
       dataDir = "/home/shemishtamesh/Documents";
       configDir = "/home/shemishtamesh/.config/syncthing";
-      overrideDevices = true; # overrides any devices added or deleted through the WebUI
-      overrideFolders = true; # overrides any folders added or deleted through the WebUI
+      overrideDevices = true;
+      overrideFolders = true;
       settings = {
         devices = {
           "Pixel 7 Pro" = { id = "6TWKX7G-RJDKZXP-42DHW7D-MXASVNN-YCJT2QT-RMGNASM-N4PAWSQ-KMUSPAH"; };
