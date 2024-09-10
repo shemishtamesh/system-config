@@ -312,8 +312,8 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals=[
-    xdg-dekstop-portal-gtk
-    xdg-dekstop-portal-kde
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-kde
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
