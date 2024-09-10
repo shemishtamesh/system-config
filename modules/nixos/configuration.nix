@@ -42,10 +42,10 @@
     networkmanager.dns = "none";
 
     # Open ports in the firewall.
-    allowedTCPPortRanges = [
+    firewall.allowedTCPPorts = [
       { from = 1714; to = 1764; } # KDE Connect
     ];
-    allowedUDPPortRanges = [
+    firewall.allowedUDPPorts = [
       { from = 1714; to = 1764; } # KDE Connect
     ];
     # Or disable the firewall altogether.
