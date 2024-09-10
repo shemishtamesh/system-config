@@ -27,6 +27,12 @@
     fonts = theme.fonts;
   };
 
+  services.kdeconnect = {
+    enable = true;
+    package = pkgs.kdePackages.kdeconnect-kde;
+    indicator = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.
