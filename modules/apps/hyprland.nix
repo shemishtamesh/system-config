@@ -204,6 +204,6 @@ in
     plugins = [
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
-    systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
+    # systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
 }
