@@ -129,11 +129,6 @@
         };
       };
     };
-    kdeconnect = {
-      enable = true;
-      # package = pkgs.kdePackages.kdeconnect-kde;
-      indicator = true;
-    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
