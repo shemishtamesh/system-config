@@ -178,6 +178,7 @@
     brightnessctl
     vim
     neovim
+    tldr
     tree-sitter
     wl-clipboard
     btop
