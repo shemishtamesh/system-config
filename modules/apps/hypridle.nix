@@ -9,7 +9,7 @@
     };
     listener = [
       {
-        timeout = 500;
+        timeout = 5;
         on-timeout = "notify-send idle";
         on-resume = "notify-send back";
       }
