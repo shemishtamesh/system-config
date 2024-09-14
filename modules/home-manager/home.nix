@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../apps/hypridle.nix
+    # ../apps/hypridle.nix
     ../apps/hyprpaper.nix
     ../apps/hyprlock.nix
     ../apps/hyprland.nix
