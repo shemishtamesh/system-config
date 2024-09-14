@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   run-if-not-playing = pkgs.writeShellScript "run-if-not-playing" ''
     # check if any player has status "Playing"
