@@ -163,6 +163,7 @@
     pulsemixer
     inkscape
     acpi
+    hypridle
     hyprpaper
     hyprpicker
     hyprshot
