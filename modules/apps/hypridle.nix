@@ -1,8 +1,8 @@
 { ... }:
 
 {
-  programs.hypridle.enable = true;
-  programs.hypridle.settings = {
+  services.hypridle.enable = true;
+  services.hypridle.settings = {
     general = {
       lock_cmd = "hyprlock";
       before_sleep_cmd = "hyprlock";

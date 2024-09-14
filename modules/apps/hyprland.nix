@@ -199,7 +199,6 @@ in
         "wl-paste --watch cliphist store"
         "notification-log $HOME/Documents/logs/notifications.txt"
         "playerctld"
-        "hypridle"
       ];
     };
     plugins = [
