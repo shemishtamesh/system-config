@@ -189,7 +189,7 @@ in
       };
       windowrulev2 = [
         "workspace special:music silent, class:(spotify)"
-        "workspace special:chat silent, class:(discord)"
+        "workspace special:chat silent, class:(vesktop)"
       ];
       exec-once = [
         "hyprpaper"
