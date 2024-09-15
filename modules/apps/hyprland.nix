@@ -49,6 +49,7 @@ in
         "$mod, RETURN, exec, kitty"
         "$mod, i, exec, zen"
         "$mod SHIFT, i, exec, zen --private-window"
+        "$mod, d, exec, obsidian"
 
         "$mod, Escape, exec, wlogout"
 
