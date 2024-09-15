@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 let
-  run-if-not-playing = pkgs.writeShellScript "run-if-not-playing" ''
+  run-if-not-playing = pkgs.writeShellScriptBin "run-if-not-playing" ''
     # check if any player has status "Playing"
     ${lib.getExe pkgs.playerctl} -a status | ${lib.getExe pkgs.ripgrep} Playing -q
     # only suspend if nothing is playing
