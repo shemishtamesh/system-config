@@ -211,9 +211,7 @@
     rustc
     python3
     nodejs
-    discord
-    vesktop
-    webcord
+    discord-screenaudio
     spotify
     obs-studio
     pavucontrol

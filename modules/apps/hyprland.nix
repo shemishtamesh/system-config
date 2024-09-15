@@ -189,13 +189,13 @@ in
       };
       windowrulev2 = [
         "workspace special:music silent, class:(spotify)"
-        "workspace special:chat silent, class:(vesktop)"
+        "workspace special:chat silent, class:(discord-screenaudio)"
       ];
       exec-once = [
         "hyprpaper"
         "waybar"
         "[workspace special:music silent] spotify"
-        "[workspace special:music silent] vesktop"
+        "[workspace special:music silent] discord-screenaudio"
         "wl-paste --watch cliphist store"
         "notification-log $HOME/Documents/logs/notifications.txt"
         "playerctld"
