@@ -119,8 +119,6 @@ in
         "$mod ALT SHIFT, k, resizeactive, 0 -1"
         "$mod ALT SHIFT, l, resizeactive, 1 0"
 
-        "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
         "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
         "CTRL SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+"
@@ -143,6 +141,8 @@ in
         "$mod, mouse:273, resizewindow"
       ];
       bindel = [
+        "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
       ];
       input = {
