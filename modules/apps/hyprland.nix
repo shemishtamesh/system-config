@@ -140,7 +140,7 @@ in
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-      bindel = [
+      bindl = [
         "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
