@@ -133,17 +133,17 @@ in
         "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         "SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
-      bindr = [
+      bindlr = [
         ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ];
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
       ];
       bindl = [
         "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+      ];
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
       input = {
         kb_layout = "us,il";
