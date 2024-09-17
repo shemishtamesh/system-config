@@ -188,6 +188,7 @@
     nh
     nix-output-monitor
     nvd
+    smassh
     bitwarden
     kitty
     starship
