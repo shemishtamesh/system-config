@@ -178,7 +178,7 @@
     playerctl
     brightnessctl
     vim
-    neovim
+    # neovim
     tldr
     tree-sitter
     wl-clipboard
