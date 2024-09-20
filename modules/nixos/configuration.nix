@@ -43,17 +43,17 @@
 
     # Open ports in the firewall.
     firewall = {
-      allowedTCPPorts = [ 11434 ]; # ollama
-      allowedUDPPorts = [ 11434 ]; # ollama
-      allowedTCPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
-      allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
-    };
+    #   allowedTCPPorts = [ 11434 ]; # ollama
+    #   allowedUDPPorts = [ 11434 ]; # ollama
+    #   allowedTCPPortRanges = [
+    #     { from = 1714; to = 1764; } # KDE Connect
+    #   ];
+    #   allowedUDPPortRanges = [
+    #     { from = 1714; to = 1764; } # KDE Connect
+    #   ];
+    # };
     # Or disable the firewall altogether.
-    firewall.enable = false;
+    firewall.enable = true;
   };
 
   # Set your time zone.
