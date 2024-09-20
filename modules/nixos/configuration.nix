@@ -116,7 +116,7 @@
   services.open-webui = {
     enable = true;
     environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
-    host.host = "0.0.0.0";
+    host = "0.0.0.0";
   };
 
   services = {
