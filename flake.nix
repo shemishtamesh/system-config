@@ -24,8 +24,8 @@
     };
 
     nixvim = {
-        url = "github:nix-community/nixvim";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
@@ -33,7 +33,7 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, hyprland, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
