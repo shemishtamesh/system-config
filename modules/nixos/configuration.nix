@@ -167,6 +167,7 @@
     qalculate-gtk
     fastfetch
     inputs.zen-browser.packages.${system}.default
+    speech-dispatcher
     gimp
     imv
     pulsemixer
