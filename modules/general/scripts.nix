@@ -7,15 +7,15 @@
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding nixos'
       nh os switch $FLAKE \
-          || notify-send -u critical 'nixos rebuild failed' && exit 1
+          || (notify-send -u critical 'nixos rebuild failed' && exit 1)
 
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding home'
       nh home switch $FLAKE \
-          || notify-send -u critical 'home rebuild failed' && exit 1
+          || (notify-send -u critical 'home rebuild failed' && exit 1)
 
       systemctl --user restart hyprpaper.service \
-          || notify-send -u critical 'wallpaper switch failed'
+          || (notify-send -u critical 'wallpaper switch failed' && exit 1)
       notify-send -u low 'rebuild succeed'
     '')
 
