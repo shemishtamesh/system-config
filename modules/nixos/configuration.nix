@@ -109,7 +109,9 @@
 
   services.ollama = {
     enable = true;
-    OLLAMA_HOST = "0.0.0.0";
+    environmentVariables = {
+      OLLAMA_HOST = "0.0.0.0";
+    };
   };
 
   services = {
