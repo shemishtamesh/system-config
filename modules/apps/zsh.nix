@@ -15,8 +15,8 @@
       rmdir = "rmdirtrash";
       sudo = "sudo ";
 
-      cp = "cp --interactive";
-      mv = "mv --interactive";
+      cp = "cp -i";
+      mv = "mv -i";
       cp-yes = "cp";
       mv-yes = "mv";
     };
