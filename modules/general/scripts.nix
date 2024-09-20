@@ -6,16 +6,26 @@
       FLAKE="$HOME/.config/flake"
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding nixos'
-      nh os switch $FLAKE \
-          || (notify-send -u critical 'nixos rebuild failed' && exit 1)
+      nh os switch $FLAKE
+      if $? -ne 0 ; then
+        notify-send -u critical 'nixos rebuild failed'
+        exit 1
+      fi
 
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding home'
-      nh home switch $FLAKE \
-          || (notify-send -u critical 'home rebuild failed' && exit 1)
+      nh home switch $FLAKE
+      if $? -ne 0 ; then
+        notify-send -u critical 'home rebuild failed'
+        exit 1
+      fi
 
-      systemctl --user restart hyprpaper.service \
-          || (notify-send -u critical 'wallpaper switch failed' && exit 1)
+      systemctl --user restart hyprpaper.service
+      if $? -ne 0 ; then
+        notify-send -u critical 'wallpaper switch failed'
+        exit 1
+      fi
+
       notify-send -u low 'rebuild succeed'
     '')
 
