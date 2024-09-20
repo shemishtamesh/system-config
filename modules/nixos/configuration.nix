@@ -113,6 +113,10 @@
       OLLAMA_HOST = "0.0.0.0";
     };
   };
+  services.open-webui = {
+    enable = true;
+    environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
+  };
 
   services = {
     syncthing = {
@@ -228,7 +232,6 @@
     vlc
     obsidian
     lorien
-    open-webui
   ];
 
   stylix = {
