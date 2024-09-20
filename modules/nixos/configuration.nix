@@ -43,6 +43,7 @@
 
     # Open ports in the firewall.
     firewall = {
+      allowedTCPPorts = [ 11434 ]; # ollama
       allowedTCPPortRanges = [
         { from = 1714; to = 1764; } # KDE Connect
       ];
@@ -106,7 +107,10 @@
     #media-session.enable = true;
   };
 
-  services.ollama.enable = true;
+  services.ollama = {
+    enable = true;
+    OLLAMA_HOST = "0.0.0.0";
+  };
 
   services = {
     syncthing = {
