@@ -7,8 +7,6 @@
       ./hardware-configuration.nix
 
       ../general/scripts.nix
-
-      ../apps/nixvim
     ];
 
   # Bootloader.
