@@ -41,9 +41,7 @@
     in
     {
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs; inherit theme; inherit system; inherit nixvim;
-        };
+        specialArgs = { inherit inputs; inherit theme; inherit system; };
         modules = [
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix
@@ -51,10 +49,8 @@
           nixvim.nixosModules.nixvim
         ];
       };
-      homeConfigurations. shemishtamesh = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = {
-          inherit inputs; inherit theme;
-        };
+      homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs; inherit theme; };
         inherit pkgs;
         modules = [
           ./modules/home-manager/home.nix
