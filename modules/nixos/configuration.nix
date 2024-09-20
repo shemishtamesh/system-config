@@ -43,17 +43,15 @@
 
     # Open ports in the firewall.
     firewall = {
-    #   allowedTCPPorts = [ 11434 ]; # ollama
-    #   allowedUDPPorts = [ 11434 ]; # ollama
-    #   allowedTCPPortRanges = [
-    #     { from = 1714; to = 1764; } # KDE Connect
-    #   ];
-    #   allowedUDPPortRanges = [
-    #     { from = 1714; to = 1764; } # KDE Connect
-    #   ];
-    # };
+      allowedTCPPortRanges = [
+        { from = 1714; to = 1764; } # KDE Connect
+      ];
+      allowedUDPPortRanges = [
+        { from = 1714; to = 1764; } # KDE Connect
+      ];
+    };
     # Or disable the firewall altogether.
-    enable = true;
+    # enable = true;
   };
 
   # Set your time zone.
@@ -110,6 +108,7 @@
 
   services.ollama = {
     enable = true;
+    openFirewall = true;
     environmentVariables = {
       OLLAMA_HOST = "0.0.0.0";
     };
