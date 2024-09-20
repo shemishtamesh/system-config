@@ -23,11 +23,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    nixvim = {
-        url = "github:nix-community/nixvim";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
     stylix.url = "github:danth/stylix";
