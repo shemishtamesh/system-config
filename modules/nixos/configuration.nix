@@ -43,6 +43,8 @@
 
     # Open ports in the firewall.
     firewall = {
+      allowedTCPPorts = [ 7 ]; # ollama
+      allowedUDPPorts = [ 7 ]; # ollama
       allowedTCPPorts = [ 11434 ]; # ollama
       allowedUDPPorts = [ 11434 ]; # ollama
       allowedTCPPortRanges = [
