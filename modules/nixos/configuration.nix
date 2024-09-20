@@ -53,7 +53,7 @@
       ];
     };
     # Or disable the firewall altogether.
-    # firewall.enable = false;
+    firewall.enable = false;
   };
 
   # Set your time zone.
