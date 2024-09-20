@@ -228,6 +228,7 @@
     vlc
     obsidian
     lorien
+    open-webui
   ];
 
   stylix = {
