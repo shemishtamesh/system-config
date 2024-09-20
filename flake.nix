@@ -46,6 +46,7 @@
           ./modules/nixos/configuration.nix
           stylix.nixosModules.stylix
           hyprland.nixosModules.default
+          nixvim.nixosModules.default
         ];
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
