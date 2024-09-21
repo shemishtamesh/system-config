@@ -43,14 +43,15 @@
 
     # Open ports in the firewall.
     firewall = {
-      # allowedTCPPortRanges = [
-      #   { from = 1714; to = 1764; } # KDE Connect
-      # ];
-      # allowedUDPPortRanges = [
-      #   { from = 1714; to = 1764; } # KDE Connect
-      # ];
-    # Or disable the firewall altogether.
-    enable = false;
+      allowedTCPPorts = [ 8080 ];
+      allowedTCPPortRanges = [
+        { from = 1714; to = 1764; } # KDE Connect
+      ];
+      allowedUDPPortRanges = [
+        { from = 1714; to = 1764; } # KDE Connect
+      ];
+      # # Or disable the firewall altogether.
+      # enable = false;
     };
   };
 
