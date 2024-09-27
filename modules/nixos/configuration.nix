@@ -191,6 +191,7 @@
     brightnessctl
     vim
     neovim
+    visidata
     tldr
     tree-sitter
     wl-clipboard
