@@ -71,7 +71,7 @@ in
       }
       {
         label = "suspend";
-        action = "loginctl suspend";
+        action = "systemctl suspend";
         text = "Suspend";
         keybind = "s";
       }
