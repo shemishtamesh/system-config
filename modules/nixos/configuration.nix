@@ -236,6 +236,7 @@
     vlc
     obsidian
     lorien
+    transmission
   ];
 
   stylix = {
