@@ -229,14 +229,13 @@
     spotify
     obs-studio
     pavucontrol
-    # copyq
     cliphist
     wlogout
     mpv
     vlc
     obsidian
     lorien
-    transmission
+    transmission-gtk
   ];
 
   stylix = {
