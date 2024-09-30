@@ -236,6 +236,7 @@
     obsidian
     lorien
     transmission-gtk
+    qpwgraph
   ];
 
   stylix = {
