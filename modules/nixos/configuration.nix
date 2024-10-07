@@ -150,7 +150,7 @@
   users.users.shemishtamesh = {
     isNormalUser = true;
     description = "shemishtamesh";
-    extraGroups = [ "networkmanager" "wheel" "input" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "adbusers" "docker" ];
   };
 
   # Allow unfree packages
@@ -320,6 +320,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  virtualisation.docker.enable = true;
 
   # List services that you want to enable:
 
