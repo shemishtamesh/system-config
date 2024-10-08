@@ -211,6 +211,7 @@
     git
     zoxide
     yazi
+    axel
     difftastic
     killall
     waybar
