@@ -228,6 +228,7 @@
     python3
     nodejs
     discord-screenaudio
+    slack
     spotify
     obs-studio
     pavucontrol
