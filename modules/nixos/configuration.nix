@@ -161,6 +161,8 @@
     MANWIDTH = "999";
     MANPAGER = "nvim +Man!";
     EDITOR = "nvim";
+
+    NIXOS_OZONE_WL = "1";
   };
 
   # List packages installed in system profile. To search, run:
