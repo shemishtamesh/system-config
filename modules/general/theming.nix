@@ -10,7 +10,7 @@ let
     author = "Timothée Poisot (edited)";
     variant = "dark";
     palette = {
-      base00 = "000000";
+      base00 = "FFFFFF";
       base01 = "242422";
       base02 = "484844";
       base03 = "6c6c66";
