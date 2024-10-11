@@ -4,4 +4,9 @@ let
 in
 {
   services.hyprpaper.enable = true;
+  services.hyprpaper.settings = {
+    wallpaper = [
+      "DP-1,${wallpaper}"
+    ];
+  };
 }
