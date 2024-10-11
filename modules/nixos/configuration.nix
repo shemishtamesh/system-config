@@ -171,6 +171,7 @@
     inputs.zen-browser.packages.${system}.default
     speechd
     gimp
+    aseprite
     imv
     pulsemixer
     inkscape
