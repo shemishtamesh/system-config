@@ -3,7 +3,7 @@ let
   screenWidth = 1920;
   screenHeight = 1080;
   # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/3024.yaml";
+  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/classic-light.yaml";
   # scheme = {
   #   system = "base24";
   #   name = "IR Black";

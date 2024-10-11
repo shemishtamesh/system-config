@@ -236,7 +236,7 @@
     vlc
     obsidian
     lorien
-    transmission-gtk
+    transmission_4-gtk
     qpwgraph
   ];
 
