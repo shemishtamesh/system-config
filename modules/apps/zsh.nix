@@ -19,6 +19,8 @@
       mv = "mv -i";
       cp-yes = "cp";
       mv-yes = "mv";
+
+      ns = "nix-shell --command zsh";
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
