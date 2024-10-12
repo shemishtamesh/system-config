@@ -15,6 +15,9 @@
         side-by-side = true;
       };
     };
+    ignores = [
+      ".venv"
+    ];
     extraConfig = {
       merge = {
         tool = "nvimdiff";
