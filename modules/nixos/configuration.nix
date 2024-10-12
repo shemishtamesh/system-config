@@ -211,7 +211,7 @@
     tmux
     wget
     curl
-    git
+    # git
     zoxide
     yazi
     axel
