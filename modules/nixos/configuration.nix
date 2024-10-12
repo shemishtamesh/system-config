@@ -201,7 +201,6 @@
     btop
     wev
     tree
-    direnv
     nh
     nix-output-monitor
     nvd

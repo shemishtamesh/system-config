@@ -25,6 +25,5 @@
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-    direnv.enable = true;
   };
 }

@@ -16,6 +16,7 @@
     ../apps/starship.nix
     ../apps/zoxide.nix
     ../apps/fzf.nix
+    ../apps/direnv.nix
   ];
 
   home.username = "shemishtamesh";
