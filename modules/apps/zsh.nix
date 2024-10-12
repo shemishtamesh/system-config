@@ -21,6 +21,7 @@
       mv-yes = "mv";
 
       ns = "nix-shell --command zsh";
+      nd = "nix develop --command zsh";
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
