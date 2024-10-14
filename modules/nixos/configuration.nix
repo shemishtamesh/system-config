@@ -171,6 +171,7 @@
     qalculate-gtk
     fastfetch
     inputs.zen-browser.packages.${system}.default
+    chromium
     speechd
     gimp
     aseprite
