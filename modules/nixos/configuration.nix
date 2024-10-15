@@ -194,7 +194,7 @@
     playerctl
     brightnessctl
     vim
-    neovim
+    # neovim
     visidata
     tldr
     tree-sitter
