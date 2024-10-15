@@ -5,5 +5,5 @@ in
   programs.nixvim.plugins = {
     undotree.enable = true;
     keymaps = [ (keymap "n" "<leader>u" "<cmd>UndotreeToggle<CR>" { }) ];
-  }
+  };
 }
