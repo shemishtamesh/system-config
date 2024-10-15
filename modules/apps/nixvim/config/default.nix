@@ -5,6 +5,6 @@
     ./options.nix
     ./keymaps.nix
     ./highlights.nix
-    # ./plugins.nix
+    ./plugins.nix
   ];
 }
