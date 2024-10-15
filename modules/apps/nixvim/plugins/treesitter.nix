@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   programs.nixvim.plugins = {
     treesitter-context = {
