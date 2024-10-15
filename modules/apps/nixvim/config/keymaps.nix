@@ -3,10 +3,10 @@ let
   keymap = (import ./nix_functions.nix).keymap;
 in
 {
-  globals = {
-    mapleader = " ";
-    maplocalleader = "\\";
-  };
+#  globals = {
+#    mapleader = " ";
+#    maplocalleader = "\\";
+#  };
   keymaps = [
     # system clipboard
     (keymap "v" "<leader>y" "\"+y:let @*=@+<CR>" { silent = true; })
