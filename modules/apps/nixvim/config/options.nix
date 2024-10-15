@@ -63,5 +63,5 @@
       # enable mouse support
       mouse = "a";
     };
-  }
+  };
 }

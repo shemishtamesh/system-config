@@ -114,5 +114,5 @@ in
       "ak" = { query = "@block.outer"; query_group = "locals"; desc = "Select outer part of a block region"; };
       "as" = { query = "@scope"; query_group = "locals"; desc = "Select language scope"; };
     };
-  }
+  };
 }

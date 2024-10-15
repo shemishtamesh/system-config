@@ -31,5 +31,5 @@
       # vim-dadbod-completion.enable = true;
       # noice.enable =  true;
     };
-  }
+  };
 }
