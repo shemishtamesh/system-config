@@ -1,4 +1,4 @@
-{ inputs, pkgs, theme, ... }:
+{ theme, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
     ../apps/zoxide.nix
     ../apps/fzf.nix
     ../apps/direnv.nix
-    ../apps/nixvim/config/default.nix
+    ../apps/nixvim/nixvim.nix
   ];
 
   home.username = "shemishtamesh";
