@@ -17,6 +17,7 @@
     };
     ignores = [
       ".venv"
+      ".envrc"
     ];
     extraConfig = {
       merge = {
