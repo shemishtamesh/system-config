@@ -2,7 +2,7 @@ let
   keymap = (import ../nix_functions.nix).keymap;
 in
 {
-  plugins.telescope.enable = true;
+  programs.nixvim.plugins.telescope.enable = true;
   keymaps = [
     (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
     (keymap "n" "<leader>ff" "<cmd>Telescope find_files<CR>" { })

@@ -1,13 +1,13 @@
 {
+  imports = [
+    ./plugins/lsp.nix
+    ./plugins/completions.nix
+    ./plugins/telescope.nix
+    ./plugins/undotree.nix
+    ./plugins/treesitter.nix
+    ./plugins/obsidian.nix
+  ];
   programs.nixvim = {
-    imports = [
-      ./plugins/lsp.nix
-      ./plugins/completions.nix
-      ./plugins/telescope.nix
-      ./plugins/undotree.nix
-      ./plugins/treesitter.nix
-      ./plugins/obsidian.nix
-    ];
     plugins = {
       lualine.enable = true;
       zen-mode.enable = true;
