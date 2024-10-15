@@ -19,8 +19,8 @@ in
         };
       };
     };
+    keymaps = [
+      (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<CR>" { })
+    ];
   };
-  keymaps = [
-    (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<CR>" { })
-  ];
 }
