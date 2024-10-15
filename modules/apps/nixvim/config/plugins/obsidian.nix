@@ -1,5 +1,5 @@
 {
-  plugins.obsidian = {
+  programs.nixvim.plugins.obsidian = {
     enable = true;
     settings = {
       disable_frontmatter = true;
