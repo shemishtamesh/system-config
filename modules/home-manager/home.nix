@@ -17,6 +17,7 @@
     ../apps/zoxide.nix
     ../apps/fzf.nix
     ../apps/direnv.nix
+    ../apps/nixvim/config/default.nix
   ];
 
   home.username = "shemishtamesh";
@@ -31,7 +32,6 @@
 
   services.kdeconnect = {
     enable = true;
-    # package = pkgs.kdePackages.kdeconnect-kde;
     indicator = true;
   };
 
