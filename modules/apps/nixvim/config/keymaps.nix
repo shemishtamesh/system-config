@@ -15,37 +15,37 @@ in
       (keymap "n" "<leader>y" "\"+y" { })
       (keymap [ "n" "v" ] "<leader>p" "\"+p" { })
       (keymap [ "n" "v" ] "<leader>P" "\"+P" { })
-  
+
       # moving code segments
       (keymap "n" "<M-j>" "V:m '>+1<CR>gv=" { })
       (keymap "n" "<M-k>" "V:m '>-2<CR>gv=" { })
       (keymap "v" "<M-j>" "<cmd>m '>+1<CR>gv=gv" { })
       (keymap "v" "<M-k>" "<cmd>m '<-2<CR>gv=gv" { })
-  
+
       # quickfix list navigation
       (keymap "n" "<M-o>" "<cmd>cprev<CR>" { })
       (keymap "n" "<M-i>" "<cmd>cnext<CR>" { })
       (keymap "n" "<leader>k" "<cmd>lprev<CR>" { })
       (keymap "n" "<leader>j" "<cmd>lnext<CR>" { })
-  
-  
+
+
       # replace current word
       (keymap "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
-  
+
       # make current file executable
       (keymap "n" "<leader>x" "<cmd>!chmod +x %<CR>" { silent = true; })
       (keymap "n" "<leader>X" "<cmd>!chmod -x %<CR>" { silent = true; })
-  
+
       # toggle spell check
       (keymap "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<CR>" { })
-  
+
       # toggle search highlighting highlighting
       (keymap "n" "<leader>n" "<cmd>set hlsearch!<CR>" { })
-  
+
       # hex mode
       (keymap "n" "<leader>h" "<cmd>%!xxd<CR>" { })
       (keymap "n" "<leader>H" "<cmd>%!xxd -r<CR>" { })
-  
+
       # faster exit
       (keymap "n" "Q" "<cmd>qa<CR>" { })
     ];
