@@ -37,6 +37,6 @@
         };
       };
     };
-    lsp-format = true;
+    lsp-format.enable = true;
   };
 }
