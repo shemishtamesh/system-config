@@ -41,7 +41,6 @@
           "[d" = "goto_prev";
         };
       };
-    };
-    lsp-format.enable = true;
+   };
   };
 }
