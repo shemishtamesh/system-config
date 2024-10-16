@@ -34,15 +34,14 @@ in {
           "<leader>lt" = "type_definition";
           "<leader>lc" = "typehierarchy";
           "<leader>ls" = "workspace_symbol";
+          "gd" = "definition";
+          "gD" = "declaration";
+        };
+        diagnostic = {
+          "]d" = "goto_next";
+          "[d" = "goto_prev";
         };
       };
     };
-    keymaps = [
-      (keymap "n" "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" { })
-      (keymap "n" "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" { })
-
-      (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<CR>" { })
-      (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<CR>" { })
-    ];
   };
 }
