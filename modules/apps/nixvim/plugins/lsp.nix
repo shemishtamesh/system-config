@@ -4,7 +4,6 @@
       enable = true;
       servers = {
         nil-ls.enable = true;
-        # pylsp.enable = true;
         pyright.enable = true;
         rust-analyzer = {
           enable = true;
