@@ -8,7 +8,7 @@ in {
       servers = {
         nil-ls = {
           enable = true;
-          extraOptions.formatting.command = [ "${pkgs.nixfmt-rfc-style}" ];
+          formatting.command = [ "${pkgs.nixfmt-rfc-style}" ];
         };
         pylsp.enable = true;
         rust-analyzer = {
