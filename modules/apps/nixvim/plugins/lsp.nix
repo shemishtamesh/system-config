@@ -3,7 +3,8 @@
     lsp = {
       enable = true;
       servers = {
-        nil-ls.enable = true;
+        # nil-ls.enable = true;
+        nixd.enable = true;
         pyright.enable = true;
         rust-analyzer = {
           enable = true;
