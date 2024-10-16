@@ -6,12 +6,12 @@
     ./plugins/undotree.nix
     ./plugins/treesitter.nix
     ./plugins/obsidian.nix
+    ./plugins/comment.nix
     # ./plugins/alpha.nix
   ];
   programs.nixvim.plugins = {
     lualine.enable = true;
     zen-mode.enable = true;
-    comment.enable = true;
     indent-blankline.enable = true;
     nvim-colorizer.enable = true;
     tmux-navigator.enable = true;
