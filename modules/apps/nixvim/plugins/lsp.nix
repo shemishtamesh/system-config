@@ -21,19 +21,23 @@ in {
           settings.telemetry.enable = false;
         };
       };
+      keymaps = {
+        lspBuf = {
+          "<leader>la" = "code_action";
+          "<leader>lf" = "format";
+          "<leader>ln" = "rename";
+          "<leader>lm" = "implementation";
+          "<leader>li" = "incoming_calls";
+          "<leader>lo" = "outgoing_calls";
+          "<leader>lr" = "references";
+          "<leader>lh" = "signature_help";
+          "<leader>lt" = "type_definition";
+          "<leader>lc" = "typehierarchy";
+          "<leader>ls" = "workspace_symbol";
+        };
+      };
     };
     keymaps = [
-      (keymap "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<CR>" { })
-      (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<CR>" { })
-      (keymap "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<CR>" { })
-      (keymap "n" "<leader>lm" "<cmd>lua vim.lsp.buf.implementation()<CR>" { })
-      (keymap "n" "<leader>li" "<cmd>lua vim.lsp.buf.incoming_calls()<CR>" { })
-      (keymap "n" "<leader>lo" "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>" { })
-      (keymap "n" "<leader>lr" "<cmd>lua vim.lsp.buf.references()<CR>" { })
-      (keymap "n" "<leader>lh" "<cmd>lua vim.lsp.buf.signature_help()<CR>" { })
-      (keymap "n" "<leader>lt" "<cmd>lua vim.lsp.buf.type_definition()<CR>" { })
-      (keymap "n" "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<CR>" { })
-      (keymap "n" "<leader>ls" "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>" { })
       (keymap "n" "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" { })
       (keymap "n" "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" { })
 
