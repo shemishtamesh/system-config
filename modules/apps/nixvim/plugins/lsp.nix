@@ -1,7 +1,6 @@
 { pkgs, ... }:
-let
-    keymap = (import ../nix_functions.nix).keymap;
-in {
+
+{
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
