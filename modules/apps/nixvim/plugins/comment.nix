@@ -10,6 +10,7 @@ in {
     #   toggler = mappings;
     #   opleader = mappings;
     # };
-    inherit mappings;
+    line = "<C-/>";
+    block = "<C-?>";
   };
 }
