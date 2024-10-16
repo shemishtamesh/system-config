@@ -6,9 +6,9 @@ in {
     plugins.lsp = {
       enable = true;
       servers = {
-        nil-ls = {
+        nil_ls = {
           enable = true;
-          extaOptions.formatting.command = [ "${pkgs.nixfmt-rfc-style}" ];
+          formatting.command = [ "${pkgs.nixfmt-rfc-style}" ];
         };
         pylsp.enable = true;
         rust-analyzer = {
