@@ -43,6 +43,6 @@
         };
       };
     };
-    vim-nix.enable = true;
+    nix.enable = true;
   };
 }
