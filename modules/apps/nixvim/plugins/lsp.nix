@@ -18,6 +18,7 @@ in {
       };
     };
     keymaps = [
+      (keymap "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<CR>" { })
       (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<CR>" { })
       (keymap "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<CR>" { })
       (keymap "n" "<leader>lm" "<cmd>lua vim.lsp.buf.implementation()<CR>" { })
@@ -28,10 +29,12 @@ in {
       (keymap "n" "<leader>lt" "<cmd>lua vim.lsp.buf.type_definition()<CR>" { })
       (keymap "n" "<leader>lc" "<cmd>lua vim.lsp.buf.typehierarchy()<CR>" { })
       (keymap "n" "<leader>ls" "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>" { })
-      (keymap "n" "<leader>ld" "<cmd>lua vim.lsp.buf.definition()<CR>" { })
       (keymap "n" "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" { })
+      (keymap "n" "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" { })
+      (keymap "n" "<C-n>" "<cmd>lua vim.lsp.buf.completion()<CR>" { })
 
-      (keymap "n" "<leader>dl" "<cmd>lua vim.lsp.diagnostic.gget_line_diagnostics()<CR>" { })
+      (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()()<CR>" { })
+      (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()()<CR>" { })
     ];
   };
 }
