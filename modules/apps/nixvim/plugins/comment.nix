@@ -3,7 +3,8 @@ let
     line = "<C-/>";
     block = "<C-?>";
   };
-in {
+in
+{
   programs.nixvim.plugins.comment = {
     enable = true;
     # settingsOptions = {
