@@ -1,10 +1,19 @@
-let keymap = (import ../nix_functions.nix).keymap;
+{ pkgs, ... }:
+let
+    keymap = (import ../nix_functions.nix).keymap;
 in {
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
       servers = {
-        nil-ls.enable = true;
+        nil-ls = {
+          enable = true;
+          extraOptions = {
+            formatting = {
+              command = "${pkgs.nixfmt}";
+            };
+          };
+        };
         pylsp.enable = true;
         rust-analyzer = {
           enable = true;
