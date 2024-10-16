@@ -1,11 +1,17 @@
-{ config, inputs, pkgs, lib, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba
-    config.lib.stylix.colors;
+  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   window_icon = "";
   firefox_icon = "󰈹";
-in {
+in
+{
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
@@ -36,8 +42,7 @@ in {
         mpris = {
           format = "{player_icon}{status_icon}: {dynamic}";
           dynamic-separator = " | ";
-          tooltip-format =
-            "{player} {status} {artist}'s {title} from {album} at {position} out of {length}";
+          tooltip-format = "{player} {status} {artist}'s {title} from {album} at {position} out of {length}";
           title-len = 25;
           artist-len = 20;
           album-len = 20;
@@ -75,7 +80,10 @@ in {
           "user"
           "battery"
         ];
-        modules-right = [ "tray" "idle_inhibitor" ];
+        modules-right = [
+          "tray"
+          "idle_inhibitor"
+        ];
 
         clock = {
           format = "{:%A %B %d, %Y, %R}";
@@ -101,8 +109,12 @@ in {
             on-scroll-down = "shift_up";
           };
         };
-        cpu = { format = " {usage}%"; };
-        memory = { format = " {percentage}%"; };
+        cpu = {
+          format = " {usage}%";
+        };
+        memory = {
+          format = " {percentage}%";
+        };
         "pulseaudio#input" = {
           format-source = " {volume}%";
           format-source-muted = " ";
@@ -117,7 +129,13 @@ in {
         "pulseaudio#output" = {
           format = "{icon} {volume}%";
           format-muted = " ";
-          format-icons = { default = [ "" " " " " ]; };
+          format-icons = {
+            default = [
+              ""
+              " "
+              " "
+            ];
+          };
           scroll-step = 2;
           smooth-scrolling-threshold = 1;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
@@ -128,14 +146,22 @@ in {
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
         };
-        battery = { format = " {capacity}%"; };
+        battery = {
+          format = " {capacity}%";
+        };
         network = {
           format = "  {essid} {signalStrength}%";
           format-disconnected = "󰖪";
         };
-        "hyprland/language" = { format = " {short}"; };
-        user = { format = " {work_d} days, {work_H}:{work_M}"; };
-        disk = { format = " {percentage_free}%"; };
+        "hyprland/language" = {
+          format = " {short}";
+        };
+        user = {
+          format = " {work_d} days, {work_H}:{work_M}";
+        };
+        disk = {
+          format = " {percentage_free}%";
+        };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -236,4 +262,3 @@ in {
       '';
   };
 }
-

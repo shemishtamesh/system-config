@@ -1,6 +1,8 @@
 { config, ... }:
-let palette = config.lib.stylix.colors.withHashtag;
-in {
+let
+  palette = config.lib.stylix.colors.withHashtag;
+in
+{
   xdg.enable = true;
   xdg.configFile."onagre/theme.scss" = {
     text = # scss

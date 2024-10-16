@@ -1,4 +1,11 @@
-{ config, inputs, pkgs, theme, system, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  theme,
+  system,
+  ...
+}:
 
 {
   imports = [
@@ -13,7 +20,11 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-    kernelModules = [ "snd-seq" "snd-rawmidi" "v4l2loopback" ];
+    kernelModules = [
+      "snd-seq"
+      "snd-rawmidi"
+      "v4l2loopback"
+    ];
   };
   security.polkit.enable = true;
 
@@ -43,16 +54,20 @@
     # Open ports in the firewall.
     firewall = {
       allowedTCPPorts = [ 8080 ];
-      allowedTCPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-        ];
-      allowedUDPPortRanges = [{
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-        ];
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+        # KDE Connect
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+        # KDE Connect
+      ];
       # # Or disable the firewall altogether.
       # enable = false;
     };
@@ -93,8 +108,7 @@
   services.printing.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot =
-    true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -114,7 +128,9 @@
   services.ollama = {
     enable = true;
     openFirewall = true;
-    environmentVariables = { OLLAMA_HOST = "0.0.0.0"; };
+    environmentVariables = {
+      OLLAMA_HOST = "0.0.0.0";
+    };
   };
   services.open-webui = {
     enable = true;
@@ -133,18 +149,19 @@
       settings = {
         devices = {
           "Pixel 7 Pro" = {
-            id =
-              "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH";
+            id = "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH";
           };
           "work_pc" = {
-            id =
-              "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD";
+            id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD";
           };
         };
         folders = {
           "general_vault" = {
             path = "/home/shemishtamesh/Documents/general_vault";
-            devices = [ "Pixel 7 Pro" "work_pc" ];
+            devices = [
+              "Pixel 7 Pro"
+              "work_pc"
+            ];
           };
         };
       };
@@ -158,7 +175,13 @@
   users.users.shemishtamesh = {
     isNormalUser = true;
     description = "shemishtamesh";
-    extraGroups = [ "networkmanager" "wheel" "input" "adbusers" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "adbusers"
+      "docker"
+    ];
   };
 
   # Allow unfree packages
@@ -261,10 +284,12 @@
     fonts = theme.fonts;
   };
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
-  environment.shells = with pkgs; [ bash zsh ];
+  environment.shells = with pkgs; [
+    bash
+    zsh
+  ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
   programs.zsh = {
@@ -350,7 +375,10 @@
   #   ];
   # };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

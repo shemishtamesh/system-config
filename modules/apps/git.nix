@@ -5,7 +5,9 @@
     enable = true;
     userName = "shemishtamesh";
     userEmail = "shemishtamail@gmail.com";
-    aliases = { plog = "log --all --decorate --oneline --graph"; };
+    aliases = {
+      plog = "log --all --decorate --oneline --graph";
+    };
     delta = {
       enable = true;
       options = {
@@ -13,7 +15,10 @@
         side-by-side = true;
       };
     };
-    ignores = [ ".venv" ".envrc" ];
+    ignores = [
+      ".venv"
+      ".envrc"
+    ];
     extraConfig = {
       merge = {
         tool = "nvimdiff";
@@ -26,7 +31,9 @@
       };
       difftool.prompt = false;
       init.defaultBranch = "main";
-      core = { editor = "nvim"; };
+      core = {
+        editor = "nvim";
+      };
     };
   };
 }

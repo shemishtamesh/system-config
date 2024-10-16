@@ -3,10 +3,12 @@
     enable = true;
     settings = {
       disable_frontmatter = true;
-      workspaces = [{
-        name = "general_vault";
-        path = "~/Documents/general_vault";
-      }];
+      workspaces = [
+        {
+          name = "general_vault";
+          path = "~/Documents/general_vault";
+        }
+      ];
       daily_notes = {
         folder = "journal";
         date_format = "%Y-%m-%d";

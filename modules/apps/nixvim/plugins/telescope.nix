@@ -1,5 +1,7 @@
-let keymap = (import ../nix_functions.nix).keymap;
-in {
+let
+  keymap = (import ../nix_functions.nix).keymap;
+in
+{
   programs.nixvim = {
     plugins.telescope.enable = true;
     keymaps = [

@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 let
   palette = config.lib.stylix.colors.withHashtag;
   functions = (import ../general/functions.nix { inherit pkgs; });
@@ -8,42 +14,43 @@ let
     height = 500;
   };
   rebootIcon = imageFromScheme {
-    svgText = builtins.replaceStrings [ "<path d=" ]
-      [ ''<path fill="${palette.base0C}" d='' ] (lib.strings.fileContents
-        "${pkgs.wlogout}/share/wlogout/assets/reboot.svg");
+    svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
+      lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg"
+    );
     name = "rebootIcon";
   };
   lockIcon = imageFromScheme {
-    svgText = builtins.replaceStrings [ "<path d=" ]
-      [ ''<path fill="${palette.base0C}" d='' ] (lib.strings.fileContents
-        "${pkgs.wlogout}/share/wlogout/assets/lock.svg");
+    svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
+      lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/lock.svg"
+    );
     name = "lockIcon";
   };
   suspendIcon = imageFromScheme {
-    svgText = builtins.replaceStrings [ "<path d=" ]
-      [ ''<path fill="${palette.base0C}" d='' ] (lib.strings.fileContents
-        "${pkgs.wlogout}/share/wlogout/assets/suspend.svg");
+    svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
+      lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/suspend.svg"
+    );
     name = "suspendIcon";
   };
   logoutIcon = imageFromScheme {
-    svgText = builtins.replaceStrings [ "<path d=" ]
-      [ ''<path fill="${palette.base0C}" d='' ] (lib.strings.fileContents
-        "${pkgs.wlogout}/share/wlogout/assets/logout.svg");
+    svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
+      lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/logout.svg"
+    );
     name = "logoutIcon";
   };
   hibernateIcon = imageFromScheme {
-    svgText = builtins.replaceStrings [ "<path d=" ]
-      [ ''<path fill="${palette.base0C}" d='' ] (lib.strings.fileContents
-        "${pkgs.wlogout}/share/wlogout/assets/hibernate.svg");
+    svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
+      lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/hibernate.svg"
+    );
     name = "hibernateIcon";
   };
   shutdownIcon = imageFromScheme {
-    svgText = builtins.replaceStrings [ "<path d=" ]
-      [ ''<path fill="${palette.base0C}" d='' ] (lib.strings.fileContents
-        "${pkgs.wlogout}/share/wlogout/assets/shutdown.svg");
+    svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
+      lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/shutdown.svg"
+    );
     name = "shutdownIcon";
   };
-in {
+in
+{
   programs.wlogout = {
     enable = true;
     layout = [
@@ -133,4 +140,3 @@ in {
       '';
   };
 }
-

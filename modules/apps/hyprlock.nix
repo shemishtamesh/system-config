@@ -1,12 +1,19 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
-  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba
-    config.lib.stylix.colors;
+  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   wallpaper = (import ../general/theming.nix { inherit pkgs; }).wallpaper;
-in {
+in
+{
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
-    general = { hide_cursor = true; };
+    general = {
+      hide_cursor = true;
+    };
     background = {
       path = toString wallpaper;
       blur_passes = 3;
@@ -38,8 +45,7 @@ in {
         valign = "bottom";
       }
       {
-        text =
-          "cmd[update:10000] acpi | awk '{print substr($0, index($0, $3))}'";
+        text = "cmd[update:10000] acpi | awk '{print substr($0, index($0, $3))}'";
         color = rgba "base02" 1;
         font_size = 14;
         position = "0, 30";
