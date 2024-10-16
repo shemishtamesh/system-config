@@ -31,10 +31,9 @@ in {
       (keymap "n" "<leader>ls" "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>" { })
       (keymap "n" "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" { })
       (keymap "n" "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" { })
-      (keymap "n" "<C-n>" "<cmd>lua vim.lsp.buf.completion()<CR>" { })
 
-      (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()()<CR>" { })
-      (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()()<CR>" { })
+      (keymap "n" "]d" "<cmd>lua vim.diagnostic.goto_next()<CR>" { })
+      (keymap "n" "[d" "<cmd>lua vim.diagnostic.goto_prev()<CR>" { })
     ];
   };
 }
