@@ -164,7 +164,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     MANROFFOPT = "-c";
     MANWIDTH = "999";
     MANPAGER = "nvim +Man!";
@@ -236,6 +236,7 @@
     gcc
     cargo
     rustc
+    nixfmt-rfc-style
     python3
     nodejs
     discord-screenaudio
