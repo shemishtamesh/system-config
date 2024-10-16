@@ -1,5 +1,15 @@
 {
   programs.nixvim.plugins = {
+    treesitter = {
+      enable = true;
+      folding = true;
+      settings = {
+        auto_install = true;
+        indent = {
+          enable = true;
+        };
+      };
+    };
     treesitter-context = {
       enable = true;
       settings.max_lines = 1;
@@ -15,16 +25,6 @@
         select = {
           enable = true;
           lookahead = true;
-        };
-      };
-    };
-    treesitter = {
-      enable = true;
-      folding = true;
-      settings = {
-        auto_install = true;
-        indent = {
-          enable = true;
         };
       };
     };
