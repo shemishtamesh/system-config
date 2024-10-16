@@ -5,7 +5,7 @@
     (pkgs.writeShellScriptBin "rebuild" ''
       FLAKE="$HOME/.config/flake"
 
-      ${pkgs.nixfmt-rfc-style} $FLAKE
+      ${pkgs.nixfmt-rfc-style.nixfmt} $FLAKE
 
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding nixos'
