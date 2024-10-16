@@ -6,7 +6,7 @@ in {
     plugins.lsp = {
       enable = true;
       servers = {
-        nil_ls = {
+        nil-ls = {
           enable = true;
           formatting.command = [ "${pkgs.nixfmt-rfc-style}" ];
         };
