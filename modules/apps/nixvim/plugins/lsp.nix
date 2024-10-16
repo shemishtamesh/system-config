@@ -1,14 +1,9 @@
-{ pkgs, ... }:
-
 {
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
       servers = {
-        nil-ls = {
-          enable = true;
-          extraOptions.formatting.command = [ "${pkgs.nixfmt-rfc-style}" ];
-        };
+        nil-ls.enable = true;
         pylsp.enable = true;
         rust-analyzer = {
           enable = true;
@@ -42,5 +37,6 @@
         };
       };
     };
+    lsp-format = true;
   };
 }
