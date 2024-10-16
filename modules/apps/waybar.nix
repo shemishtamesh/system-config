@@ -1,11 +1,11 @@
 { config, inputs, pkgs, lib, ... }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
+  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba
+    config.lib.stylix.colors;
   window_icon = "";
   firefox_icon = "󰈹";
-in
-{
+in {
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
@@ -36,7 +36,8 @@ in
         mpris = {
           format = "{player_icon}{status_icon}: {dynamic}";
           dynamic-separator = " | ";
-          tooltip-format = "{player} {status} {artist}'s {title} from {album} at {position} out of {length}";
+          tooltip-format =
+            "{player} {status} {artist}'s {title} from {album} at {position} out of {length}";
           title-len = 25;
           artist-len = 20;
           album-len = 20;
@@ -116,9 +117,7 @@ in
         "pulseaudio#output" = {
           format = "{icon} {volume}%";
           format-muted = " ";
-          format-icons = {
-            default = [ "" " " " " ];
-          };
+          format-icons = { default = [ "" " " " " ]; };
           scroll-step = 2;
           smooth-scrolling-threshold = 1;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
@@ -146,94 +145,95 @@ in
         };
       };
     };
-    style = /* css */ ''
-      * {
-          border: none;
-          border-radius: 0;
-          min-height: 0;
-          font-family: FiraCode Nerd Font;
-          font-size: 15px;
-      }
+    style = # css
+      ''
+        * {
+            border: none;
+            border-radius: 0;
+            min-height: 0;
+            font-family: FiraCode Nerd Font;
+            font-size: 15px;
+        }
 
-      window#waybar {
-          background: ${rgba "base00" 0};
-          color: ${palette.base00};
-      }
+        window#waybar {
+            background: ${rgba "base00" 0};
+            color: ${palette.base00};
+        }
 
-      #disk,
-      #clock,
-      #cpu,
-      #memory,
-      #tray,
-      #network,
-      #bluetooth,
-      #user,
-      #temperature,
-      #pulseaudio,
-      #pulseaudio.input.source-muted,
-      #backlight,
-      #mpris,
-      #idle_inhibitor,
-      #privacy,
-      #window,
-      #language,
-      #keyboard-state,
-      #workspaces button,
-      #battery {
-          background: ${palette.base0C};
-          color: ${palette.base00};
-          opacity: 1;
-          padding: 1px 2px;
-          margin: 0 4px;
-          border-radius: 10px;
-          animation: gradient_f 20s ease-in infinite;
-          transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-      }
+        #disk,
+        #clock,
+        #cpu,
+        #memory,
+        #tray,
+        #network,
+        #bluetooth,
+        #user,
+        #temperature,
+        #pulseaudio,
+        #pulseaudio.input.source-muted,
+        #backlight,
+        #mpris,
+        #idle_inhibitor,
+        #privacy,
+        #window,
+        #language,
+        #keyboard-state,
+        #workspaces button,
+        #battery {
+            background: ${palette.base0C};
+            color: ${palette.base00};
+            opacity: 1;
+            padding: 1px 2px;
+            margin: 0 4px;
+            border-radius: 10px;
+            animation: gradient_f 20s ease-in infinite;
+            transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+        }
 
-      #idle_inhibitor.activated,
-      #pulseaudio.input,
-      #pulseaudio.output.muted,
-      #network.disconnected,
-      #privacy {
-          background: ${palette.base08};
-          color: ${palette.base07};
-          padding: 1px 12px 1px 11px;
-      }
+        #idle_inhibitor.activated,
+        #pulseaudio.input,
+        #pulseaudio.output.muted,
+        #network.disconnected,
+        #privacy {
+            background: ${palette.base08};
+            color: ${palette.base07};
+            padding: 1px 12px 1px 11px;
+        }
 
-      #network.disconnected,
-      #idle_inhibitor {
-          padding: 1px 8px 1px 5px;
-      }
+        #network.disconnected,
+        #idle_inhibitor {
+            padding: 1px 8px 1px 5px;
+        }
 
-      #workspaces {
-          background: ${rgba "base00" 0};
-      }
-      #workspaces button {
-          padding: 1px 10px 1px 5px;
-      }
-      #workspaces button:hover {
-          padding: 1px 12px 1px 7px;
-          background: ${palette.base0D};
-          margin-bottom: 0;
-      }
-      #workspaces button.active {
-          padding: 1px 15px 1px 10px;
-          background: ${palette.base0B};
-      }
+        #workspaces {
+            background: ${rgba "base00" 0};
+        }
+        #workspaces button {
+            padding: 1px 10px 1px 5px;
+        }
+        #workspaces button:hover {
+            padding: 1px 12px 1px 7px;
+            background: ${palette.base0D};
+            margin-bottom: 0;
+        }
+        #workspaces button.active {
+            padding: 1px 15px 1px 10px;
+            background: ${palette.base0B};
+        }
 
-      window#waybar.empty #window {
-          padding: 1px 50px;
-          background: ${palette.base02};
-      }
+        window#waybar.empty #window {
+            padding: 1px 50px;
+            background: ${palette.base02};
+        }
 
-      #mpris.paused {
-          background: ${palette.base02};
-          color: ${palette.base05};
-      }
-      #mpris.playing {
-          padding: 1px 3px;
-      }
-    '';
+        #mpris.paused {
+            background: ${palette.base02};
+            color: ${palette.base05};
+        }
+        #mpris.playing {
+            padding: 1px 3px;
+        }
+      '';
   };
 }
 

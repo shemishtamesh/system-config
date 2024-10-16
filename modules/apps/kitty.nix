@@ -1,8 +1,6 @@
 { config, inputs, pkgs, ... }:
-let
-  palette = config.lib.stylix.colors.withHashtag;
-in
-{
+let palette = config.lib.stylix.colors.withHashtag;
+in {
   stylix.targets.kitty.enable = false;
   programs.kitty.enable = true;
   programs.kitty = {
@@ -17,7 +15,8 @@ in
       allow_remote_control = "socket-only";
       listen_on = "unix:/tmp/kitty";
 
-      action_alias = "kitty_scrollback_nvim kitten $HOME/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
+      action_alias =
+        "kitty_scrollback_nvim kitten $HOME/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
 
       font_size = 14;
 
@@ -71,7 +70,8 @@ in
     };
     keybindings = {
       "kitty_mod+h" = "kitty_scrollback_nvim --no-nvim-args";
-      "kitty_mod+g" = "kitty_scrollback_nvim --no-nvim-args --config ksb_builtin_last_cmd_output";
+      "kitty_mod+g" =
+        "kitty_scrollback_nvim --no-nvim-args --config ksb_builtin_last_cmd_output";
     };
   };
 }

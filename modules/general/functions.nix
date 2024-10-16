@@ -1,22 +1,19 @@
 { pkgs }:
 
 {
-  importYaml =
-    file: builtins.fromJSON (
-      builtins.readFile (
-        pkgs.runCommandNoCC "converted-yaml.json" { } ''
-          ${pkgs.yj}/bin/yj < "${file}" > "$out"
-        ''
-      )
-    );
+  importYaml = file:
+    builtins.fromJSON (builtins.readFile
+      (pkgs.runCommandNoCC "converted-yaml.json" { } ''
+        ${pkgs.yj}/bin/yj < "${file}" > "$out"
+      ''));
   rgba = palette: color: opacity:
     let
       r = palette."${color}-rgb-r";
       g = palette."${color}-rgb-g";
       b = palette."${color}-rgb-b";
-    in
-    "rgba(${r}, ${g}, ${b}, ${builtins.toString opacity})";
-  imageFromScheme = { width, height }: { svgText, name }:
+    in "rgba(${r}, ${g}, ${b}, ${builtins.toString opacity})";
+  imageFromScheme = { width, height }:
+    { svgText, name }:
     pkgs.stdenv.mkDerivation {
       name = "generated-${name}.png";
       src = pkgs.writeTextFile {

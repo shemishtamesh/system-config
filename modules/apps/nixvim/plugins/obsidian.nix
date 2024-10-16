@@ -3,9 +3,10 @@
     enable = true;
     settings = {
       disable_frontmatter = true;
-      workspaces = [
-        { name = "general_vault"; path = "~/Documents/general_vault"; }
-      ];
+      workspaces = [{
+        name = "general_vault";
+        path = "~/Documents/general_vault";
+      }];
       daily_notes = {
         folder = "journal";
         date_format = "%Y-%m-%d";
@@ -14,9 +15,9 @@
         template = "daily.md";
       };
       templates = {
-          folder = "templates";
-          date_format = "%Y-%m-%d";
-          time_format = "%H:%M";
+        folder = "templates";
+        date_format = "%Y-%m-%d";
+        time_format = "%H:%M";
       };
     };
   };

@@ -16,8 +16,7 @@ let
     hyprctl keyword decoration:rounding ${rounding}
     waybar
   '';
-in
-{
+in {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland = {
     settings = {
@@ -41,7 +40,8 @@ in
         "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
         "$mod, Tab, exec, rofi -show window -modi 'window'"
         ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
-        ", XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command \"echo -n '{result}' | wl-copy\""
+        ''
+          , XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command "echo -n '{result}' | wl-copy"''
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod CTRL, c, exec, hyprpicker --autocopy"
         "$mod, s, exec, hyprshot -m window"
@@ -71,28 +71,18 @@ in
         "$mod, mouse_down, workspace, e+1"
         "$mod, bracketleft, workspace, e-1"
         "$mod, bracketright, workspace, e+1"
-      ] ++ (
-        builtins.concatLists (builtins.genList
-          (
-            i:
-            let num = i + 1;
-            in
-            [
-              "$mod, ${toString num}, workspace, ${toString num}"
-              "$mod SHIFT, ${toString num}, movetoworkspace, ${toString num}"
-            ]
-          ) 9)
-      ) ++ (
-        builtins.concatLists (builtins.genList
-          (
-            i:
-            let num = i + 1;
-            in
-            [
-              "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString (num)}"
-            ]
-          ) 9)
-      );
+      ] ++ (builtins.concatLists (builtins.genList (i:
+        let num = i + 1;
+        in [
+          "$mod, ${toString num}, workspace, ${toString num}"
+          "$mod SHIFT, ${toString num}, movetoworkspace, ${toString num}"
+        ]) 9)) ++ (builtins.concatLists (builtins.genList (i:
+          let num = i + 1;
+          in [
+            "$mod CTRL, ${
+              toString num
+            }, exec, hyprctl keyword cursor:zoom_factor ${toString (num)}"
+          ]) 9));
       binde = [
         "$mod, semicolon, exec, dunstctl close"
         "$mod SHIFT, semicolon, exec, dunstctl close-all"
@@ -133,18 +123,14 @@ in
         "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         "SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
-      bindlr = [
-        ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ];
+      bindlr =
+        [ ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
       bindl = [
         "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
       ];
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
+      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
       input = {
         kb_layout = "us,il";
         kb_options = "grp:alt_space_toggle";
@@ -158,9 +144,7 @@ in
 
         resize_on_border = true;
       };
-      dwindle = {
-        no_gaps_when_only = 1;
-      };
+      dwindle = { no_gaps_when_only = 1; };
       decoration = {
         dim_special = 0.6;
         rounding = rounding;
@@ -203,9 +187,7 @@ in
         "hypridle"
       ];
     };
-    plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-    ];
+    plugins = [ inputs.Hyprspace.packages.${pkgs.system}.Hyprspace ];
     systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
 }

@@ -1,13 +1,12 @@
 { config, inputs, pkgs, theme, system, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      ../general/scripts.nix
-    ];
+    ../general/scripts.nix
+  ];
 
   # Bootloader.
   boot = {
@@ -44,12 +43,16 @@
     # Open ports in the firewall.
     firewall = {
       allowedTCPPorts = [ 8080 ];
-      allowedTCPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
-      allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
+      allowedTCPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
+        ];
+      allowedUDPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
+        ];
       # # Or disable the firewall altogether.
       # enable = false;
     };
@@ -90,7 +93,8 @@
   services.printing.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.powerOnBoot =
+    true; # powers up the default Bluetooth controller on boot
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -110,9 +114,7 @@
   services.ollama = {
     enable = true;
     openFirewall = true;
-    environmentVariables = {
-      OLLAMA_HOST = "0.0.0.0";
-    };
+    environmentVariables = { OLLAMA_HOST = "0.0.0.0"; };
   };
   services.open-webui = {
     enable = true;
@@ -130,8 +132,14 @@
       overrideFolders = true;
       settings = {
         devices = {
-          "Pixel 7 Pro" = { id = "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH"; };
-          "work_pc" = { id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD"; };
+          "Pixel 7 Pro" = {
+            id =
+              "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH";
+          };
+          "work_pc" = {
+            id =
+              "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD";
+          };
         };
         folders = {
           "general_vault" = {
@@ -252,9 +260,8 @@
     fonts = theme.fonts;
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
@@ -274,43 +281,44 @@
     ];
     histSize = 100000;
     enableLsColors = true;
-    interactiveShellInit = /* sh */ ''
-      # completions
-      autoload -U compinit && compinit   # load + start completion
-      zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
-      autoload -U compinit
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-      zstyle ':completion:*' menu select
-      zmodload zsh/complist
-      compinit
-      _comp_options+=(globdots)
+    interactiveShellInit = # sh
+      ''
+        # completions
+        autoload -U compinit && compinit   # load + start completion
+        zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
+        autoload -U compinit
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+        zstyle ':completion:*' menu select
+        zmodload zsh/complist
+        compinit
+        _comp_options+=(globdots)
 
-      # vi mode
-      bindkey -v
-      export KEYTIMEOUT=1
-      # Change cursor shape for different vi modes.
-      function zle-keymap-select {
-        if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-          echo -ne '\e[1 q'
-        elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
-          || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
-          echo -ne '\e[5 q'
-        fi
-      }
-      zle -N zle-keymap-select
-      zle-line-init() {
-        zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-        echo -ne "\e[5 q"
-      }
-      zle -N zle-line-init
-      echo -ne '\e[5 q' # Use beam shape cursor on startup.
-      preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+        # vi mode
+        bindkey -v
+        export KEYTIMEOUT=1
+        # Change cursor shape for different vi modes.
+        function zle-keymap-select {
+          if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+            echo -ne '\e[1 q'
+          elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
+            || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
+            echo -ne '\e[5 q'
+          fi
+        }
+        zle -N zle-keymap-select
+        zle-line-init() {
+          zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+          echo -ne "\e[5 q"
+        }
+        zle -N zle-line-init
+        echo -ne '\e[5 q' # Use beam shape cursor on startup.
+        preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 
-      # Edit line in vim with ctrl-e:
-      autoload edit-command-line; zle -N edit-command-line
-      bindkey '^e' edit-command-line
-    '';
+        # Edit line in vim with ctrl-e:
+        autoload edit-command-line; zle -N edit-command-line
+        bindkey '^e' edit-command-line
+      '';
   };
 
   programs.hyprland.enable = true;

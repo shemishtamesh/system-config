@@ -37,9 +37,11 @@ let
     };
   };
   functions = import ./functions.nix { inherit pkgs; };
-  imageFromScheme = functions.imageFromScheme { width = screenWidth; height = screenHeight; };
-in
-{
+  imageFromScheme = functions.imageFromScheme {
+    width = screenWidth;
+    height = screenHeight;
+  };
+in {
   inherit scheme;
   fonts = {
     serif = {
@@ -59,14 +61,13 @@ in
       name = "Noto Emoji";
     };
   };
-  wallpaper =
-    let
-      logoScale = 8;
-      palette = scheme.palette;
-    in
-    imageFromScheme {
-      name = "wallpaper";
-      svgText = /* svg */ ''
+  wallpaper = let
+    logoScale = 8;
+    palette = scheme.palette;
+  in imageFromScheme {
+    name = "wallpaper";
+    svgText = # svg
+      ''
         <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <svg
            width="${toString screenWidth}"
@@ -128,5 +129,5 @@ in
           </svg>
         </svg>
       '';
-    };
+  };
 }

@@ -2,17 +2,19 @@
 let
   inherit (config.lib.formats.rasi) mkLiteral;
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
-in
-{
+  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba
+    config.lib.stylix.colors;
+in {
   stylix.targets.rofi.enable = false;
   programs.rofi.enable = true;
   programs.rofi = {
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
-      modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
-      combi-modi = "drun,window,recursivebrowser,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
+      modi =
+        "combi,drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
+      combi-modi =
+        "drun,window,recursivebrowser,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
       sidebar-mode = true;
     };
     plugins = with pkgs; [ rofi-calc ];
@@ -39,9 +41,7 @@ in
         background-color = mkLiteral "@bg0";
       };
 
-      mainbox = {
-        padding = mkLiteral "8px";
-      };
+      mainbox = { padding = mkLiteral "8px"; };
 
       inputbar = {
         background-color = mkLiteral "@bg2";
@@ -57,9 +57,7 @@ in
         children = mkLiteral "[icon-search,entry]";
       };
 
-      prompt = {
-        enabled = false;
-      };
+      prompt = { enabled = false; };
 
       icon-search = {
         expand = false;
@@ -78,9 +76,7 @@ in
         columns = 8;
       };
 
-      "element, element-text, element-icon" = {
-        cursor = "pointer";
-      };
+      "element, element-text, element-icon" = { cursor = "pointer"; };
 
       element = {
         padding = mkLiteral "8px";
@@ -90,18 +86,14 @@ in
         border-radius = mkLiteral "10px";
       };
 
-      "element selected" = {
-        background-color = mkLiteral "@bg4";
-      };
+      "element selected" = { background-color = mkLiteral "@bg4"; };
 
       element-icon = {
         size = mkLiteral "4em";
         horizontal-align = mkLiteral "0.5";
       };
 
-      element-text = {
-        horizontal-align = "0.5";
-      };
+      element-text = { horizontal-align = "0.5"; };
 
       "button selected" = {
         background-color = mkLiteral "@bg4";
@@ -111,9 +103,10 @@ in
   };
   nixpkgs.overlays = [
     (final: prev: {
-      rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+      rofi-calc = prev.rofi-calc.override {
+        rofi-unwrapped = prev.rofi-wayland-unwrapped;
+      };
     })
   ];
 }
-
 
