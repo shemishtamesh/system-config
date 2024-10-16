@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  programs.nixvim = {
-    plugins.lsp = {
+  programs.nixvim.plugins = {
+    lsp = {
       enable = true;
       servers = {
         nil-ls = {
