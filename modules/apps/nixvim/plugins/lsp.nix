@@ -42,5 +42,6 @@
         };
       };
     };
+    lsp-format.enable = true;
   };
 }
