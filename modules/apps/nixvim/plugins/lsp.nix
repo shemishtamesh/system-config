@@ -37,6 +37,5 @@
         };
       };
     };
-    lsp-format.enable = true;
   };
 }
