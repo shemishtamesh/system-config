@@ -42,6 +42,7 @@
           "[d" = "goto_prev";
         };
       };
-   };
+    };
+    vim-nix.enable = true;
   };
 }
