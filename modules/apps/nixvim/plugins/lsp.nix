@@ -10,7 +10,7 @@ in {
           enable = true;
           extraOptions = {
             formatting = {
-              command = "${pkgs.nixfmt}";
+              command = [ "${pkgs.nixfmt}" ];
             };
           };
         };
