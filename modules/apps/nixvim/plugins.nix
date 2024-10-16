@@ -6,6 +6,7 @@
     ./plugins/undotree.nix
     ./plugins/treesitter.nix
     ./plugins/obsidian.nix
+    ./plugins/alpha.nix
   ];
   programs.nixvim.plugins = {
     lualine.enable = true;
