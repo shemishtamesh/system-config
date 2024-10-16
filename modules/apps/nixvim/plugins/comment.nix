@@ -1,6 +1,6 @@
 {
-  programs.nixvim.plugins = {
-    comment.enable = true;
+  programs.nixvim.plugins.comment = {
+    enable = true;
     toggler.line = "<C-/>";
   };
 }
