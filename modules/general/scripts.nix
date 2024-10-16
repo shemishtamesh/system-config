@@ -4,6 +4,9 @@
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "rebuild" ''
       FLAKE="$HOME/.config/flake"
+
+      ''${pkgs.nixfmt-rfc-style} $FLAKE
+
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'rebuilding nixos'
       nh os switch $FLAKE
