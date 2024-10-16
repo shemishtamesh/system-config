@@ -6,9 +6,7 @@ let
 in {
   programs.nixvim.plugins.comment = {
     enable = true;
-    settingsOptions = {
-      toggler = mappings;
-      opleader = mappings;
-    };
+    toggler = mappings;
+    # opleader = mappings;
   };
 }
