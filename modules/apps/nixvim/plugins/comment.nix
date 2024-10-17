@@ -7,9 +7,9 @@ in
 {
   programs.nixvim.plugins.comment = {
     enable = true;
-    # settingsOptions = {
-    #   toggler = mappings;
-    #   # opleader = mappings;
-    # };
+    settings = {
+      toggler = mappings;
+      opleader = mappings;
+    };
   };
 }
