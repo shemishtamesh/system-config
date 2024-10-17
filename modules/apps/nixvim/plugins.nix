@@ -17,7 +17,7 @@
     tmux-navigator.enable = true;
     which-key.enable = true;
     otter.enable = true;
-    # numbertoggle.enable = true;
+    numbertoggle.enable = true;
     # rustaceanvim.enable = true;
     # nvim-web-devicons.enable = true;
     # "dressing.nvim".enable = true;
