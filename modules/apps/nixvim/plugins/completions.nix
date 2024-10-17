@@ -2,11 +2,16 @@
   programs.nixvim.plugins.cmp = {
     enable = true;
     autoEnableSources = true;
-    settings.sources = [
-      { name = "nvim_lsp"; }
-      { name = "path"; }
-      { name = "buffer"; }
-      { name = "codeium"; }
-    ];
+    settings = {
+      mappings = {
+        "<C-Space>" = "cmp.mapping.complete()";
+      };
+      sources = [
+        { name = "nvim_lsp"; }
+        { name = "path"; }
+        { name = "buffer"; }
+        { name = "codeium"; }
+      ];
+    };
   };
 }
