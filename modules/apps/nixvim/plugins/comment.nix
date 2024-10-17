@@ -8,7 +8,7 @@
       };
       opleader = {
         line = "<leader>/";
-        block = "<leader><C-/>";
+        block = "<leader>;";
       };
     };
   };
