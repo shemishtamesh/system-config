@@ -18,12 +18,12 @@
     which-key.enable = true;
     otter.enable = true;
     numbertoggle.enable = true;
+    codeium-nvim.enable = true;
     # rustaceanvim.enable = true;
     # nvim-web-devicons.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
     # vim-surround.enable = true;
-    # codeium.enable = true;
     # gen.enable = true
     # vim-asciidoctor.enable = true;
     # beacon.enable = true;
