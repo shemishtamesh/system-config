@@ -16,6 +16,7 @@
         { name = "nvim_lsp"; }
         { name = "path"; }
         { name = "buffer"; }
+        { name = "cmdline"; }
         { name = "codeium"; }
       ];
     };
