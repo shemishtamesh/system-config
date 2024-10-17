@@ -199,10 +199,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    qalculate-gtk
-    fastfetch
     inputs.zen-browser.packages.${system}.default
     chromium
+    qalculate-gtk
+    fastfetch
     speechd
     gimp
     aseprite
@@ -224,8 +224,6 @@
     rmtrash
     playerctl
     brightnessctl
-    vim
-    # neovim
     visidata
     tldr
     tree-sitter

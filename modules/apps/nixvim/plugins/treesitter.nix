@@ -4,10 +4,9 @@
       enable = true;
       folding = true;
       settings = {
+        highlight = true;
         auto_install = true;
-        indent = {
-          enable = true;
-        };
+        indent.enable = true;
       };
     };
     treesitter-context = {
