@@ -3,7 +3,6 @@
     enable = true;
     autoEnableSources = true;
     settings = {
-      enable_chat = true;
       mapping = {
         "<C-Space>" = "cmp.mapping.complete()";
         "<C-y>" = "cmp.mapping.confirm({ select = true })";

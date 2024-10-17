@@ -7,6 +7,7 @@
     ./plugins/treesitter.nix
     ./plugins/obsidian.nix
     ./plugins/comment.nix
+    ./plugins/codeium.nix
     # ./plugins/alpha.nix
   ];
   programs.nixvim.plugins = {
@@ -18,7 +19,6 @@
     which-key.enable = true;
     otter.enable = true;
     numbertoggle.enable = true;
-    codeium-nvim.enable = true;
     # rustaceanvim.enable = true;
     # nvim-web-devicons.enable = true;
     # "dressing.nvim".enable = true;
