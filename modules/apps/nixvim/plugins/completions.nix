@@ -1,4 +1,3 @@
-{ programs, ... }:
 let
   mapping = {
     "<C-Space>" = "cmp.mapping.complete()";
@@ -9,13 +8,13 @@ let
     "<C-b>" = "cmp.mapping.scroll_docs(-4)";
   };
   search_options = {
-    mapping = programs.nixvim.helpers.mkRaw "cmp.mapping.preset.cmdline()";
+    inherit mapping;
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    mapping = programs.nixvim.helpers.mkRaw "cmp.mapping.preset.cmdline()";
+    inherit mapping;
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
