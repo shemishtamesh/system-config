@@ -1,3 +1,4 @@
+{ helpers, ... }:
 let
   mapping = {
     "<C-Space>" = "cmp.mapping.complete()";
@@ -8,13 +9,13 @@ let
     "<C-b>" = "cmp.mapping.scroll_docs(-4)";
   };
   search_options = {
-    mapping = "cmp.mapping.preset.cmdline()";
+    mapping = helpers.mkRaw "cmp.mapping.preset.cmdline()";
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    mapping = "cmp.mapping.preset.cmdline()";
+    mapping = helpers.mkRaw "cmp.mapping.preset.cmdline()";
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
