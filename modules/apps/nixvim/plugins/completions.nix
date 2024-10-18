@@ -1,20 +1,20 @@
 let
-  mapping = {
-    "<C-Space>" = "cmp.mapping.complete()";
+  cmdline_mapping = {
+    # "<C-Space>" = "cmp.mapping.complete()";
     "<C-y>" = "cmp.mapping.confirm({ select = true })";
     "<C-n>" = "cmp.mapping.select_next_item()";
     "<C-p>" = "cmp.mapping.select_prev_item()";
-    "<C-f>" = "cmp.mapping.scroll_docs(4)";
-    "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+    # "<C-f>" = "cmp.mapping.scroll_docs(4)";
+    # "<C-b>" = "cmp.mapping.scroll_docs(-4)";
   };
   search_options = {
-    inherit mapping;
+    mapping = cmdline_mapping;
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    inherit mapping;
+    mapping = cmdline_mapping;
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
@@ -37,7 +37,14 @@ in
         ":" = command_options;
       };
       settings = {
-        inherit mapping;
+        mapping = {
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<C-y>" = "cmp.mapping.confirm({ select = true })";
+          "<C-n>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+        };
         sources = [
           { name = "nvim_lsp"; }
           { name = "async_path"; }
