@@ -13,6 +13,13 @@ let
       { name = "buffer"; }
     ];
   };
+  command_options = {
+    inherit mapping;
+    sources = [
+      { name = "async_path"; }
+      { name = "cmdline"; }
+    ];
+  };
 in
 {
   programs.nixvim = {
@@ -27,15 +34,16 @@ in
       cmdline = {
         "/" = search_options;
         "?" = search_options;
+        ":" = command_options;
       };
       settings = {
         inherit mapping;
         sources = [
           { name = "nvim_lsp"; }
-          { name = "path"; }
+          { name = "async_path"; }
           { name = "buffer"; }
-          { name = "cmdline"; }
           { name = "codeium"; }
+          { name = "calc"; }
         ];
       };
     };
