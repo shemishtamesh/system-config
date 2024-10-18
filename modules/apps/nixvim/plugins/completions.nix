@@ -8,6 +8,9 @@
     plugins.cmp = {
       enable = true;
       autoEnableSources = true;
+      cmdline."/".sources = [
+        { name = "buffer"; }
+      ];
       settings = {
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
@@ -23,9 +26,6 @@
           { name = "buffer"; }
           { name = "cmdline"; }
           { name = "codeium"; }
-        ];
-        cmdline.sources = [
-          { name = "buffer"; }
         ];
       };
     };
