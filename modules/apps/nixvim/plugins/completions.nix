@@ -8,13 +8,13 @@ let
     "<C-b>" = "cmp.mapping.scroll_docs(-4)";
   };
   search_options = {
-    # inherit mapping;
+    inherit mapping;
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    # inherit mapping;
+    inherit mapping;
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
