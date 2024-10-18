@@ -16,7 +16,7 @@ let
   command_options = {
     inherit mapping;
     sources = [
-      { name = "async_path"; }
+      { name = "path"; }
       { name = "cmdline"; }
     ];
   };
@@ -40,7 +40,7 @@ in
         inherit mapping;
         sources = [
           { name = "nvim_lsp"; }
-          { name = "async_path"; }
+          { name = "path"; }
           { name = "buffer"; }
           { name = "codeium"; }
           { name = "calc"; }
