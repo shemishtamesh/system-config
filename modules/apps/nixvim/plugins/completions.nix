@@ -24,7 +24,7 @@
           { name = "cmdline"; }
           { name = "codeium"; }
         ];
-        cmdline."/".sources = [
+        cmdline.sources = [
           { name = "buffer"; }
         ];
       };
