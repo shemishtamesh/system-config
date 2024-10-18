@@ -3,8 +3,8 @@
     enable = true;
     settings = {
       toggler = {
-        line = "<C-/>";
-        block = "<C-;>";
+        line = "<leader>//";
+        block = "<leader>;;";
       };
       opleader = {
         line = "<leader>/";
