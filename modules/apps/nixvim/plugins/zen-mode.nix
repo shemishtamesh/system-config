@@ -24,12 +24,10 @@ in
     };
     plugins.twilight.enable = true;
     keymaps = [
-      (keymap "n" "<leader>z" (lib.concatStrings [
-        "<cmd>ZenMode"
-        " | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())"
-        " | IBLToggle"
-        "<CR>"
-      ]) { silent = true; })
+      (keymap "n" "<leader>z"
+        "<cmd>ZenMode | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled()) | IBLToggle<CR>"
+        { silent = true; }
+      )
     ];
   };
 }
