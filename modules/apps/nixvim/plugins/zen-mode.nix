@@ -29,7 +29,7 @@ in
           };
           kitty = {
             enabled = true;
-            font = "+10";
+            font = "+4";
           };
         };
       };
