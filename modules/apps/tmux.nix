@@ -11,6 +11,7 @@
     plugins = [
       pkgs.tmuxPlugins.resurrect
       pkgs.tmuxPlugins.continuum
+      pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.vim-tmux-navigator
     ];
     /*
