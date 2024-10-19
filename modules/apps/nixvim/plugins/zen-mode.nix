@@ -12,11 +12,12 @@ in
           height = 1;
           options = {
             signcolumn = "no";
-            colorcolumn = false;
+            colorcolumn = "no";
             number = false;
             relativenumber = false;
             foldcolumn = "0";
             list = false;
+            lsp = false;
           };
         };
       };
