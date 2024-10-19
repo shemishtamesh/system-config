@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
     diagnostic.signs.text = {
-      vim.diagnostic.severity.ERROR = "";
+      vim.diagnostics.severity.ERROR = "";
       vim.diagnostic.severity.WARN = "";
       vim.diagnostic.severity.INFO = "";
       vim.diagnostic.severity.HINT = "";
