@@ -51,7 +51,7 @@ in
       (keymap "n" "<leader>n" "<cmd>set hlsearch!<CR>" { })
 
       # make gf create a new file if it doesn't exist yet
-      (keymap "n" "<leader>n" "<cmd>e <cfile><CR>" { })
+      (keymap "n" "gf" "<cmd>e <cfile><CR>" { })
 
       # hex mode
       (keymap "n" "<leader>h" "<cmd>%!xxd<CR>" { })
