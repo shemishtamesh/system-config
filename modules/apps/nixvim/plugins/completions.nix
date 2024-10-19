@@ -1,12 +1,4 @@
 let
-  cmdline_mapping = {
-    "<C-Space>" = "cmp.mapping.complete()";
-    "<C-y>" = "cmp.mapping.confirm({ select = true })";
-    "<C-n>" = "cmp.mapping.select_next_item()";
-    "<C-p>" = "cmp.mapping.select_prev_item()";
-    "<C-f>" = "cmp.mapping.scroll_docs(4)";
-    "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-  };
   search_options = {
     mapping.__raw = ''cmp.mapping.preset.cmdline()'';
     sources = [
@@ -46,11 +38,11 @@ in
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
         };
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "async_path"; }
-          { name = "buffer"; }
-          { name = "codeium"; }
           { name = "calc"; }
+          { name = "codeium"; }
+          { name = "nvim_lsp"; }
+          { name = "buffer"; }
+          { name = "async_path"; }
         ];
       };
     };
