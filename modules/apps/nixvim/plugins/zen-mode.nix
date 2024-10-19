@@ -30,12 +30,12 @@ in
     };
     plugins.twilight.enable = true;
     keymaps = [
-      (keymap "n" "<leader>z" lib.concatStrings [
+      (keymap "n" "<leader>z" (lib.concatStrings [
         "<cmd>ZenMode"
         toggle_diagnostics
         toggle_indent_blankline
         "<CR>"
-      ] { silent = true; })
+      ]) { silent = true; })
     ];
   };
 }
