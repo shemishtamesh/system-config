@@ -17,7 +17,7 @@
     ../apps/zoxide.nix
     ../apps/fzf.nix
     ../apps/direnv.nix
-    # ../apps/tmux.nix
+    ../apps/tmux.nix
     ../apps/nixvim/nixvim.nix
   ];
 
