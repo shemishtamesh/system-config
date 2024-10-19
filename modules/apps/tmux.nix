@@ -6,7 +6,8 @@
     escapeTime = 0;
     keyMode = "vi";
     newSession = true;
-    shortcut = "Space";
+    # shortcut = "Space";
+    shortcut = "a";
     historyLimit = 5000;
     plugins = [
       pkgs.tmuxPlugins.better-mouse-mode
