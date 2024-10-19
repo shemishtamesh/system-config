@@ -1,5 +1,5 @@
 let
-  keymap = (import ./nix_functions.nix).keymap;
+  keymap = (import ../nix_functions.nix).keymap;
 in
 {
   programs.nixvim = {
