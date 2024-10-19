@@ -9,7 +9,7 @@
         options = {
           signcolumn = "no";
           number = false;
-          foldcolumn = false;
+          foldcolumn = "0";
           list = false;
         };
       };
