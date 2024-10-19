@@ -20,6 +20,12 @@ in
             list = false;
           };
           plugins = {
+            options = {
+              enabled = true;
+              ruler = false;
+              showcmd = false;
+              laststatus = 0;
+            };
             kitty = {
               enabled = true;
               font = "+30";
