@@ -1,11 +1,14 @@
 {
   programs.nixvim = {
-    diagnostics.signs.text = {
-      "vim.diagnostic.severity.ERROR" = "";
-      "vim.diagnostic.severity.WARN" = "";
-      "vim.diagnostic.severity.INFO" = "";
-      "vim.diagnostic.severity.HINT" = "";
-    };
+    diagnostics.signs.text.__raw = # lua
+      ''
+        {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.HINT] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.WARN] = "",
+        }
+      '';
     plugins = {
       lsp = {
         enable = true;
