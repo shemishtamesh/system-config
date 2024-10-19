@@ -17,10 +17,10 @@ in
             relativenumber = false;
             foldcolumn = "0";
             list = false;
-            lsp = false;
           };
         };
       };
+      lsp = false;
     };
     plugins.twilight.enable = true;
     keymaps = [
