@@ -43,6 +43,7 @@
             "gD" = "declaration";
           };
           diagnostic = {
+            "<leader>ld" = "get";
             "]d" = "goto_next";
             "[d" = "goto_prev";
           };

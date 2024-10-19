@@ -1,5 +1,12 @@
+{ lib, programs, ... }:
 let
   keymap = (import ../nix_functions.nix).keymap;
+  toggle_diagnostics =
+    if programs.nixvim.plugins.lsp.enable then
+      " | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())"
+    else
+      "";
+  toggle_indent_blankline = if programs.nixvim.plugins.lsp.enable then " | IBLToggle" else "";
 in
 {
   programs.nixvim = {
@@ -23,10 +30,12 @@ in
     };
     plugins.twilight.enable = true;
     keymaps = [
-      (keymap "n" "<leader>z"
-        "<cmd>ZenMode | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>"
-        { silent = true; }
-      )
+      (keymap "n" "<leader>z" lib.concatStrings [
+        "<cmd>ZenMode"
+        toggle_diagnostics
+        toggle_indent_blankline
+        "<CR>"
+      ] { silent = true; })
     ];
   };
 }
