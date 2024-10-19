@@ -24,7 +24,7 @@ in
     plugins.twilight.enable = true;
     keymaps = [
       (keymap "n" "<leader>z"
-        "<cmd>ZenMode | vim.diagnostics.enable(not vim.diagnostics.is_enabled())<CR>"
+        "<cmd>ZenMode | lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>"
         { silent = true; }
       )
     ];
