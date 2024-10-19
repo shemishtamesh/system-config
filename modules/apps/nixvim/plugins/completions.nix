@@ -18,7 +18,6 @@ in
     opts.completeopt = [
       "menu"
       "menuone"
-      # "noselect"
     ];
     plugins.cmp = {
       enable = true;

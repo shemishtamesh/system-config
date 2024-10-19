@@ -2,8 +2,8 @@
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
+      inlayHints = true;
       servers = {
-        # nil-ls.enable = true;
         nixd.enable = true;
         pyright.enable = true;
         rust-analyzer = {
