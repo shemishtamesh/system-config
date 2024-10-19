@@ -164,6 +164,9 @@ in
 
         resize_on_border = true;
       };
+      cursor = {
+        hide_on_key_press = true;
+      };
       dwindle = {
         no_gaps_when_only = 1;
       };
