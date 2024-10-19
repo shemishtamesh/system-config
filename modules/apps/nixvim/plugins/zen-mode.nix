@@ -19,6 +19,12 @@ in
             foldcolumn = "0";
             list = false;
           };
+          plugins = {
+            kitty = {
+              enabled = true;
+              font = "+10";
+            };
+          };
         };
       };
     };
