@@ -1,9 +1,6 @@
 let
   cmdline_mapping = {
     "<C-Space>" = "cmp.mapping.complete()";
-    # "<C-y>" = "cmp.mapping.confirm({ select = true })";
-    # "<Tab>" = "cmp.mapping.select_next_item()";
-    # "<S-Tab>" = "cmp.mapping.select_prev_item()";
     "<C-y>" = "cmp.mapping.confirm({ select = true })";
     "<C-n>" = "cmp.mapping.select_next_item()";
     "<C-p>" = "cmp.mapping.select_prev_item()";
@@ -11,13 +8,13 @@ let
     "<C-b>" = "cmp.mapping.scroll_docs(-4)";
   };
   search_options = {
-    mapping = cmdline_mapping;
+    # mapping = cmdline_mapping;
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    mapping = cmdline_mapping;
+    # mapping = cmdline_mapping;
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
