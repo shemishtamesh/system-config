@@ -22,7 +22,7 @@ in
           plugins = {
             kitty = {
               enabled = true;
-              font = "+10";
+              font = "+30";
             };
           };
         };
