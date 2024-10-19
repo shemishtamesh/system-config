@@ -19,6 +19,8 @@ in
       "menu"
       "menuone"
       # "noselect"
+      "preview"
+      "popup"
     ];
     plugins.cmp = {
       enable = true;
