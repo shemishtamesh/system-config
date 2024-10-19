@@ -21,7 +21,7 @@ in
       };
     };
     keymaps = [
-      (keymap "n" "<leader>z" "ZenMode" { })
+      (keymap "n" "<leader>z" "<cmd>ZenMode<CR>" { })
     ];
   };
 }
