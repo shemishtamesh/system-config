@@ -23,7 +23,9 @@ in
     };
     plugins.twilight.enable = true;
     keymaps = [
-      (keymap "n" "<leader>z" "<cmd>ZenMode<CR>" { })
+      (keymap "n" "<leader>z" "<cmd>ZenMode | vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>"
+        { }
+      )
     ];
   };
 }
