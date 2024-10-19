@@ -43,7 +43,7 @@
             "gD" = "declaration";
           };
           diagnostic = {
-            "<leader>ld" = "get";
+            "<leader>ld" = "setqflist";
             "]d" = "goto_next";
             "[d" = "goto_prev";
           };
