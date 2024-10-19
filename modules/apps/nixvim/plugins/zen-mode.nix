@@ -20,6 +20,7 @@ in
         };
       };
     };
+    plugins.twilight = true;
     keymaps = [
       (keymap "n" "<leader>z" "<cmd>ZenMode<CR>" { })
     ];
