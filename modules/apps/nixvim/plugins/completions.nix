@@ -19,8 +19,6 @@ in
       "menu"
       "menuone"
       # "noselect"
-      "preview"
-      "popup"
     ];
     plugins.cmp = {
       enable = true;
@@ -46,6 +44,7 @@ in
           { name = "buffer"; }
           { name = "async_path"; }
         ];
+        experimental.ghost_text = true;
       };
     };
   };
