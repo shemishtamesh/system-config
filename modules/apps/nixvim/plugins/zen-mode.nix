@@ -9,6 +9,7 @@
         options = {
           signcolumn = "no";
           number = false;
+          relativenumber = false;
           foldcolumn = "0";
           list = false;
         };
