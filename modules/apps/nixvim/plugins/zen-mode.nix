@@ -19,17 +19,17 @@ in
             foldcolumn = "0";
             list = false;
           };
-          plugins = {
-            options = {
-              enabled = true;
-              ruler = false;
-              showcmd = false;
-              laststatus = 0;
-            };
-            kitty = {
-              enabled = true;
-              font = "+30";
-            };
+        };
+        plugins = {
+          options = {
+            enabled = true;
+            ruler = false;
+            showcmd = false;
+            laststatus = 0;
+          };
+          kitty = {
+            enabled = true;
+            font = "+30";
           };
         };
       };
