@@ -6,15 +6,15 @@
     escapeTime = 0;
     keyMode = "vi";
     newSession = true;
-    # shortcut = "Space";
-    shortcut = "a";
+    shortcut = "Space";
+    # shortcut = "a";
     historyLimit = 5000;
-    plugins = [
-      pkgs.tmuxPlugins.better-mouse-mode
-      pkgs.tmuxPlugins.vim-tmux-navigator
-      pkgs.tmuxPlugins.resurrect
-      pkgs.tmuxPlugins.continuum
-    ];
+    # plugins = [
+    #   pkgs.tmuxPlugins.better-mouse-mode
+    #   pkgs.tmuxPlugins.vim-tmux-navigator
+    #   pkgs.tmuxPlugins.resurrect
+    #   pkgs.tmuxPlugins.continuum
+    # ];
     /*
       extraConfig = # tmux
       ''
