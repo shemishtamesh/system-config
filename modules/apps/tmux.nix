@@ -6,8 +6,8 @@
     escapeTime = 0;
     keyMode = "vi";
     newSession = true;
-    shortcut = " ";
-    mouse = "on";
+    shortcut = "Space";
+    historyLimit = 5000;
     plugins = [
       pkgs.tmuxPlugins.resurrect
       pkgs.tmuxPlugins.continuum
