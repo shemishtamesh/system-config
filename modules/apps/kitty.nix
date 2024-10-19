@@ -1,7 +1,5 @@
 {
   config,
-  inputs,
-  pkgs,
   ...
 }:
 let
@@ -14,7 +12,7 @@ in
     settings = {
       mouse_hide_wait = -1;
 
-      open_url_with = "librewolf";
+      open_url_with = "zen";
       detect_urls = "yes";
 
       enable_audio_bell = "no";

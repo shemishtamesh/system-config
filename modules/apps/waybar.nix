@@ -28,9 +28,9 @@ in
           format-window-separator = " ";
           window-rewrite-default = window_icon;
           window-rewrite = {
-            "class<(firefox|librewolf)> title<.*youtube.*>" = "";
-            "class<(firefox|librewolf)> title<.*github.*>" = "";
-            "class<(firefox|librewolf)>" = firefox_icon;
+            "class<(firefox|librewolf|zen)> title<.*youtube.*>" = "";
+            "class<(firefox|librewolf|zen)> title<.*github.*>" = "";
+            "class<(firefox|librewolf|zen)>" = firefox_icon;
             "class<kitty>" = "";
             "code" = "󰨞";
           };
@@ -51,6 +51,7 @@ in
             mpv = " ";
             firefox = "${firefox_icon} ";
             librewolf = "${firefox_icon} ";
+            zen = "${firefox_icon} ";
             spotify = " ";
           };
           status-icons = {
