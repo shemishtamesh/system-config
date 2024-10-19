@@ -18,6 +18,7 @@
     ../apps/fzf.nix
     ../apps/direnv.nix
     ../apps/nixvim/nixvim.nix
+    # ../apps/tmux.nix
   ];
 
   home.username = "shemishtamesh";
