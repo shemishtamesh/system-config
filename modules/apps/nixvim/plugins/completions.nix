@@ -8,13 +8,13 @@ let
     "<C-b>" = "cmp.mapping.scroll_docs(-4)";
   };
   search_options = {
-    # mapping = cmdline_mapping;
+    mapping = cmdline_mapping;
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    # mapping = cmdline_mapping;
+    mapping.__raw = ''cmp.mapping.preset.cmdline()'';
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
