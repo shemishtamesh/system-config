@@ -20,7 +20,6 @@ in
           };
         };
       };
-      lsp = false;
     };
     plugins.twilight.enable = true;
     keymaps = [
