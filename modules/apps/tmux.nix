@@ -9,10 +9,10 @@
     shortcut = "Space";
     historyLimit = 5000;
     plugins = [
-      pkgs.tmuxPlugins.resurrect
-      pkgs.tmuxPlugins.continuum
       pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.vim-tmux-navigator
+      pkgs.tmuxPlugins.resurrect
+      pkgs.tmuxPlugins.continuum
     ];
     /*
       extraConfig = # tmux
