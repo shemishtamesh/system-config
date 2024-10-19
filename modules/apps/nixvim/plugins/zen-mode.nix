@@ -12,7 +12,7 @@ in
           height = 1;
           options = {
             signcolumn = "no";
-            # colorcolumn = "no";
+            colorcolumn = "no";
             number = false;
             relativenumber = false;
             foldcolumn = "0";
