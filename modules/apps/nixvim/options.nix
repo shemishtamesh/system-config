@@ -36,6 +36,7 @@
       # listchars = "eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,";
       # formatoptions = "qrn1";
       conceallevel = 2;
+      foldlevel = 99999; # disable folding by default
 
       # color the 80th color, a hint for when a line is too long
       colorcolumn = "80";
