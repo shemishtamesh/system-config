@@ -12,7 +12,7 @@ in
           height = 1;
           options = {
             signcolumn = "no";
-            colorcolumn = "no";
+            # colorcolumn = "no";
             number = false;
             relativenumber = false;
             foldcolumn = "0";
@@ -23,8 +23,9 @@ in
     };
     plugins.twilight.enable = true;
     keymaps = [
-      (keymap "n" "<leader>z" "<cmd>ZenMode | vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>"
-        { }
+      (keymap "n" "<leader>z"
+        "<cmd>ZenMode | vim.diagnostics.enable(not vim.diagnostics.is_enabled())<CR>"
+        { silent = true; }
       )
     ];
   };
