@@ -18,7 +18,10 @@ in
     settings = {
       top_bar = {
         position = "top";
-        output = [ "eDP-1" ];
+        output = [
+          "eDP-1"
+          "HDMI-A-1"
+        ];
         modules-left = [ "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [ "mpris" ];
