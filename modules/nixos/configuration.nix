@@ -24,6 +24,7 @@
       "snd-seq"
       "snd-rawmidi"
       "v4l2loopback"
+      "i2c-dev"
     ];
   };
   security.polkit.enable = true;

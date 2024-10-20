@@ -139,10 +139,10 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
         "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
         "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set 1%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 1%-"
-        "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 10%+"
-        "SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl/bin/brightnessctl} set 1%+"
+        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl/bin/brightnessctl} set 1%-"
+        "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl/bin/brightnessctl} set 10%+"
+        "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl/bin/brightnessctl} set 10%-"
       ];
       bindlr = [ ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
       bindl = [
