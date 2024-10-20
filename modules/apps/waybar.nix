@@ -1,13 +1,11 @@
 {
   config,
-  inputs,
   pkgs,
-  lib,
   ...
 }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
+  rgba = (import ../general/utils.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   window_icon = "";
   firefox_icon = "󰈹";
 in

@@ -1,3 +1,6 @@
+let
+  sync_external = (import ../general/utils.nix).sync_external_monitor_brightness;
+in
 {
   services.hypridle.enable = true;
   services.hypridle.settings = {
@@ -9,8 +12,8 @@
     listener = [
       {
         timeout = 150; # 2.5min.
-        on-timeout = "brightnessctl -s set 1%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-        on-resume = "brightnessctl -r"; # monitor backlight restore.
+        on-timeout = "brightnessctl -s set 1% && ${sync_external}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+        on-resume = "brightnessctl -r && ${sync_external}"; # monitor backlight restore.
       }
 
       # turn off keyboard backlight

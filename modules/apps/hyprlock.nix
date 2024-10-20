@@ -1,11 +1,10 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }:
 let
-  rgba = (import ../general/functions.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
+  rgba = (import ../general/utils.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   wallpaper = (import ../general/theming.nix { inherit pkgs; }).wallpaper;
 in
 {

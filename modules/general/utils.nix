@@ -1,5 +1,8 @@
 { pkgs }:
-
+let
+  ddcutil = "${pkgs.ddcutil}/bin/ddcutil";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+in
 {
   importYaml =
     file:
@@ -34,4 +37,8 @@
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
+  sync_external_monitor_brightness = # sh
+    ''
+      ${ddcutil} setvcp 10 $(echo \"$(${brightnessctl} g) / $(${brightnessctl} m) * 100\" | bc)
+    '';
 }
