@@ -225,6 +225,7 @@
     rmtrash
     playerctl
     brightnessctl
+    ddcutil
     visidata
     tldr
     tree-sitter
