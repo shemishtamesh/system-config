@@ -208,7 +208,7 @@ in
         "hyprpaper"
         "waybar"
         "[workspace special:music silent] spotify"
-        "[workspace special:music silent] discord-screenaudio"
+        "[workspace special:chat silent] discord-screenaudio"
         "wl-paste --watch cliphist store"
         "notification-log $HOME/Documents/logs/notifications.txt"
         "playerctld"
