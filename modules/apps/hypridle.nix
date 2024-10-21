@@ -1,5 +1,12 @@
+{ pkgs, lib, ... }:
 let
   sync_external = (import ../general/utils.nix).sync_external_monitor_brightness;
+  lower_brightness = pkgs.writeShellScriptBin "lower_brightness" ''
+    brightnessctl -s set 1% && ${sync_external} # monitor backlight restore.
+  '';
+  reset_brightness = pkgs.writeShellScriptBin "reset_brightness" ''
+    brightnessctl -r && ${sync_external} # monitor backlight restore.
+  '';
 in
 {
   services.hypridle.enable = true;
@@ -14,8 +21,8 @@ in
         timeout = 150; # 2.5min.
         # on-timeout = "brightnessctl -s set 1% && ${sync_external}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
         # on-resume = "brightnessctl -r && ${sync_external}"; # monitor backlight restore.
-        on-timeout = "brightnessctl -s set 1%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-        on-resume = "brightnessctl -r; ${sync_external}"; # monitor backlight restore.
+        on-timeout = "${lib.getExe lower_brightness}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+        on-resume = "${lib.getExe reset_brightness}"; # monitor backlight restore.
       }
 
       # turn off keyboard backlight
