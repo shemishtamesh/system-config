@@ -21,9 +21,9 @@ in
         timeout = 150; # 2.5min.
         # on-timeout = "brightnessctl -s set 1% && ${sync_external}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
         # on-resume = "brightnessctl -r && ${sync_external}"; # monitor backlight restore.
-        on-timeout = "brightnessctl -s set 1%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+        # on-timeout = "brightnessctl -s set 1%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
         on-resume = "brightnessctl -r"; # monitor backlight restore.
-        # on-timeout = "${lib.getExe lower_brightness}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+        on-timeout = "${lib.getExe lower_brightness}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
         # on-resume = "${lib.getExe reset_brightness}"; # monitor backlight restore.
       }
 
