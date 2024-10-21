@@ -15,7 +15,7 @@ in
         # on-timeout = "brightnessctl -s set 1% && ${sync_external}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
         # on-resume = "brightnessctl -r && ${sync_external}"; # monitor backlight restore.
         on-timeout = "brightnessctl -s set 1%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-        on-resume = "brightnessctl -r"; # monitor backlight restore.
+        on-resume = "brightnessctl -r && ${sync_external}"; # monitor backlight restore.
       }
 
       # turn off keyboard backlight
