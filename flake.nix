@@ -10,7 +10,8 @@
 
     hyprland = {
       type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
+      # url = "https://github.com/hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland";
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
