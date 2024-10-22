@@ -60,6 +60,7 @@ in
           "$mod, i, exec, zen"
           "$mod SHIFT, i, exec, zen --private-window"
           "$mod, d, exec, obsidian"
+          "$mod SHIFT, d, exec, lorien"
 
           "$mod, Escape, exec, wlogout"
 
