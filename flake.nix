@@ -18,10 +18,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # Hyprspace = {
+    #   url = "github:KZDKM/Hyprspace";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -35,7 +35,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       stylix,
