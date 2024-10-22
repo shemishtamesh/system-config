@@ -5,8 +5,8 @@
   ...
 }:
 let
-  gaps = "0";
-  rounding = "0";
+  gaps = "2";
+  rounding = "10";
   toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
     killall .waybar-wrapped
     if [[ $? -eq 0 ]]; then
@@ -69,7 +69,8 @@ in
           ", XF86AudioPrev, exec, playerctl previous"
           ", XF86AudioNext, exec, playerctl next"
 
-          "$mod CTRL, Tab, overview:toggle"
+          # "$mod CTRL, Tab, overview:toggle"
+          "$mod CTRL, Tab, hyprexpo:expo, toggle"
           "$mod, XF86Reload, togglespecialworkspace, chat"
           "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
           "$mod, XF86AudioPlay, togglespecialworkspace, music"
@@ -211,7 +212,10 @@ in
         "hypridle"
       ];
     };
-    plugins = [ inputs.Hyprspace.packages.${pkgs.system}.Hyprspace ];
+    plugins = [
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    ];
     systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
 }
