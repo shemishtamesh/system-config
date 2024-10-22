@@ -5,7 +5,7 @@
   ...
 }:
 let
-  gaps = "4";
+  gaps = "2";
   rounding = "10";
   toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
     killall .waybar-wrapped
