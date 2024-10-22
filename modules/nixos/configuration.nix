@@ -206,6 +206,7 @@
     fastfetch
     speechd
     gimp
+    krita
     aseprite
     imv
     pulsemixer
