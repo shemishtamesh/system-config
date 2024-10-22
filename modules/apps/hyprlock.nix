@@ -44,7 +44,7 @@ in
         valign = "bottom";
       }
       {
-        text = "cmd[update:10000] acpi | awk '{print substr($0, index($0, $3))}'";
+        text = "cmd[update:10000] ${pkgs.acpi}/bin/acpi | awk '{print substr($0, index($0, $3))}'";
         color = rgba "base02" 1;
         font_size = 14;
         position = "0, 30";

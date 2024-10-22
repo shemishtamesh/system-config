@@ -211,7 +211,6 @@
     imv
     pulsemixer
     inkscape
-    acpi
     hypridle
     hyprpaper
     hyprpicker
@@ -224,9 +223,6 @@
     eza
     fzf
     rmtrash
-    playerctl
-    brightnessctl
-    ddcutil
     visidata
     tldr
     tree-sitter

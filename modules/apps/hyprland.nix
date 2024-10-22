@@ -100,9 +100,7 @@ in
             let
               num = i + 1;
             in
-            [
-              "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString (num)}"
-            ]
+            [ "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString num}" ]
           ) 9
         ));
       binde = [
@@ -144,10 +142,6 @@ in
         ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%- && ${sync_external}"
         "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%+ && ${sync_external}"
         "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%- && ${sync_external}"
-        # ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%+"
-        # ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-"
-        # "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%+"
-        # "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%-"
       ];
       bindlr = [ ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
       bindl = [
@@ -174,9 +168,6 @@ in
       };
       cursor = {
         hide_on_key_press = true;
-      };
-      dwindle = {
-        no_gaps_when_only = 1;
       };
       decoration = {
         dim_special = 0.6;
