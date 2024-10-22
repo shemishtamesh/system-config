@@ -203,6 +203,7 @@
     inputs.zen-browser.packages.${system}.default
     chromium
     qalculate-gtk
+    libqalculate
     fastfetch
     speechd
     gimp
