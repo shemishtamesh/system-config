@@ -253,12 +253,6 @@
     dunst
     libnotify
     whatsapp-for-linux
-    gcc
-    cargo
-    rustc
-    nixfmt-rfc-style
-    python3
-    nodejs
     discord-screenaudio
     slack
     spotify
