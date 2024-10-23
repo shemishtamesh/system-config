@@ -75,7 +75,7 @@ in
       listview = {
         margin = mkLiteral "48px calc( 50% - 800px )";
         spacing = mkLiteral "48px";
-        columns = 8;
+        columns = 6;
       };
 
       "element, element-text, element-icon" = {
