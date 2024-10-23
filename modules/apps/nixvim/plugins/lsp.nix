@@ -26,8 +26,10 @@
             settings = {
               telemetry.enable = false;
               workspace = {
-                library = # lua
-                  "vim.env.VIMRUNTIME";
+                library = [
+                  # lua
+                  "vim.env.VIMRUNTIME"
+                ];
               };
             };
           };
