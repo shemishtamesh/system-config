@@ -32,11 +32,6 @@
     rtkit.enable = true;
   };
 
-  fileSystems."/mnt" = {
-    device = "/mnt";
-    fsType = "ntfs";
-  };
-
   networking = {
     hostName = "shenixtamesh"; # Define your hostname.
 
