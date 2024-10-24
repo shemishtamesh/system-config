@@ -107,6 +107,8 @@
   };
 
   services = {
+    gvfs.enable = true;
+    udisks2.enable = true;
     udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
     ''; # external monitor brightness control
