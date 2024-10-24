@@ -112,11 +112,10 @@
     ''; # external monitor brightness control
     xserver = {
       desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
       xkb = {
         # Enable the X11 windowing system.
         enable = true;
-
-        displayManager.gdm.enable = true;
 
         # Configure keymap in X11
         layout = "us";
