@@ -135,11 +135,7 @@
       OLLAMA_HOST = "0.0.0.0";
     };
   };
-  services.open-webui = {
-    enable = false;
-    environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
-    host = "0.0.0.0";
-  };
+  services.
 
   services = {
     syncthing = {
@@ -169,7 +165,11 @@
         };
       };
     };
-  };
+  open-webui = {
+    enable = false;
+    environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
+    host = "0.0.0.0";
+  };};
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
