@@ -174,7 +174,6 @@ in
         rounding = rounding;
       };
       dwindle = {
-        no_gaps_when_only = 1;
         preserve_split = true;
       };
       animations = {
