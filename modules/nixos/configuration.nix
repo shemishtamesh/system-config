@@ -9,15 +9,11 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
     ../general/scripts.nix
   ];
 
-  # Bootloader.
   boot = {
-    supportedFilesystems = [ "ntfs" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -30,20 +26,20 @@
       "i2c-dev"
     ];
   };
+
   security = {
     polkit.enable = true;
     rtkit.enable = true;
   };
 
+  fileSystems."/mnt" = {
+    device = "/mnt";
+    fstype = "ntfs";
+  };
+
   networking = {
     hostName = "shenixtamesh"; # Define your hostname.
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Enable networking
     networkmanager.enable = true;
 
     nameservers = [
