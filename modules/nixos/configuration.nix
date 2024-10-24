@@ -34,7 +34,7 @@
 
   fileSystems."/mnt" = {
     device = "/mnt";
-    fstype = "ntfs";
+    fsType = "ntfs";
   };
 
   networking = {
