@@ -17,7 +17,7 @@
         servers = {
           nixd = {
             enable = true;
-            settings.formatting.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+            settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
           };
           pyright.enable = true;
           rust_analyzer = {
