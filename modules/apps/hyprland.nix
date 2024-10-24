@@ -173,7 +173,10 @@ in
         dim_special = 0.6;
         rounding = rounding;
       };
-      dwindle.preserve_split = true;
+      dwindle = {
+        no_gaps_when_only = 1;
+        preserve_split = true;
+      };
       animations = {
         bezier = [
           "wind, 0.05, 0.9, 0.1, 1.05"
