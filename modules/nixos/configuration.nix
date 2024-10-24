@@ -110,16 +110,18 @@
     udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
     ''; # external monitor brightness control
-    xserver.xkb = {
-      # Enable the X11 windowing system.
-      enable = true;
-
+    xserver = {
       desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
+      xkb = {
+        # Enable the X11 windowing system.
+        enable = true;
 
-      # Configure keymap in X11
-      layout = "us";
-      variant = "";
+        displayManager.gdm.enable = true;
+
+        # Configure keymap in X11
+        layout = "us";
+        variant = "";
+      };
     };
     printing.enable = true; # Enable CUPS to print documents.
     pipewire = {
