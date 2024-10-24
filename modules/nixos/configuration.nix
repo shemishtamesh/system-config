@@ -111,11 +111,12 @@
       KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
     ''; # external monitor brightness control
     xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
+
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
       xkb = {
-        # Enable the X11 windowing system.
-        enable = true;
 
         # Configure keymap in X11
         layout = "us";
