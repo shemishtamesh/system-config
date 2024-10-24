@@ -117,7 +117,6 @@
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
       xkb = {
-
         # Configure keymap in X11
         layout = "us";
         variant = "";
