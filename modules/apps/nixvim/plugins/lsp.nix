@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.nixvim = {
     diagnostics.signs.text.__raw = # lua
@@ -14,7 +15,10 @@
         enable = true;
         inlayHints = true;
         servers = {
-          nixd.enable = true;
+          nixd = {
+            enable = true;
+            settings.formatting.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+          };
           pyright.enable = true;
           rust_analyzer = {
             enable = true;
