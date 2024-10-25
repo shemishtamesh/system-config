@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -66,9 +65,9 @@ in
 
           "$mod, b, exec, ${lib.getExe toggle-bar}"
 
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioPrev, exec, playerctl previous"
-          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+          ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+          ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
 
           "$mod, XF86Reload, togglespecialworkspace, chat"
           "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
@@ -209,7 +208,7 @@ in
         "[workspace special:chat silent] discord-screenaudio"
         "wl-paste --watch cliphist store"
         "notification-log $HOME/Documents/logs/notifications.txt"
-        "playerctld"
+        "${pkgs.playerctl}/bin/playerctld"
         "hypridle"
       ];
     };
