@@ -180,6 +180,7 @@ in
             border-radius: 0;
             min-height: 0;
             font-family: FiraCode Nerd Font;
+            font-weight: bold;
             font-size: 15px;
         }
 
