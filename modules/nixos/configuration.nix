@@ -244,6 +244,7 @@
     axel
     difftastic
     killall
+    playerctl
     waybar
     rofi-wayland
     rofimoji
