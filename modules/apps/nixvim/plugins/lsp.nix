@@ -32,6 +32,7 @@
               diagnostics.globals = [ "vim" ];
             };
           };
+          cssls.enable = true;
         };
         keymaps = {
           lspBuf = {
