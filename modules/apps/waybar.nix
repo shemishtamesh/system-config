@@ -25,7 +25,7 @@ in
         modules-right = [ "mpris" ];
 
         "hyprland/workspaces" = {
-          format = "{icon}:{windows}";
+          format = "{icon} {windows}";
           format-window-separator = " ";
           window-rewrite-default = window_icon;
           window-rewrite = {
