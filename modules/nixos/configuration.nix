@@ -10,51 +10,13 @@
   imports = [
     ./hardware-configuration.nix
     ./configuration/boot.nix
+    ./configuration/networking.nix
     ../general/scripts.nix
   ];
 
   security = {
     polkit.enable = true;
     rtkit.enable = true;
-  };
-
-  networking = {
-    hostName = "shenixtamesh"; # Define your hostname.
-
-    networkmanager.enable = true;
-
-    nameservers = [
-      "94.140.14.14"
-      "94.140.15.15"
-      "2a10:50c0::ad1:ff"
-      "2a10:50c0::ad2:ff"
-      "1.1.1.1"
-    ];
-    # If using dhcpcd:
-    dhcpcd.extraConfig = "nohook resolv.conf";
-    # If using NetworkManager:
-    networkmanager.dns = "none";
-
-    # Open ports in the firewall.
-    firewall = {
-      allowedTCPPorts = [ 8080 ];
-      allowedTCPPortRanges = [
-        {
-          from = 1714;
-          to = 1764;
-        }
-        # KDE Connect
-      ];
-      allowedUDPPortRanges = [
-        {
-          from = 1714;
-          to = 1764;
-        }
-        # KDE Connect
-      ];
-      # # Or disable the firewall altogether.
-      # enable = false;
-    };
   };
 
   # Set your time zone.
@@ -181,77 +143,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    inputs.zen-browser.packages.${system}.default
-    chromium
-    libqalculate
-    fastfetch
-    speechd
-    gimp
-    krita
-    aseprite
-    imv
-    pulsemixer
-    inkscape
-    hypridle
-    hyprpaper
-    hyprpicker
-    hyprshot
-    hyprlock
-    ripgrep
-    bat
-    fd
-    zoxide
-    eza
-    fzf
-    rmtrash
-    visidata
-    tldr
-    tree-sitter
-    wl-clipboard
-    btop
-    wev
-    tree
-    nh
-    nix-output-monitor
-    nvd
-    smassh
-    bitwarden
-    kitty
-    starship
-    tmux
-    wget
-    curl
-    git
-    zoxide
-    yazi
-    axel
-    difftastic
-    killall
-    waybar
-    rofi-wayland
-    rofimoji
-    wtype
-    dunst
-    libnotify
-    whatsapp-for-linux
-    discord-screenaudio
-    slack
-    spotify
-    obs-studio
-    pavucontrol
-    cliphist
-    wlogout
-    mpv
-    vlc
-    obsidian
-    lorien
-    transmission_4-gtk
-    qpwgraph
-  ];
-
   stylix = {
     enable = true;
     base16Scheme = theme.scheme;
@@ -265,8 +156,8 @@
     zsh
   ];
   users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
   programs.zsh = {
+    enable = true;
     setOptions = [
       "HIST_IGNORE_SPACE"
       "HIST_IGNORE_DUPS"
@@ -336,13 +227,6 @@
   # };
 
   virtualisation.docker.enable = true;
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-kde # for kdeconnect
-  #   ];
-  # };
 
   nix.settings.experimental-features = [
     "nix-command"
