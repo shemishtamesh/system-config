@@ -5,11 +5,11 @@
     ./plugins/telescope.nix
     ./plugins/undotree.nix
     ./plugins/treesitter.nix
-    ./plugins/obsidian.nix
     ./plugins/comment.nix
     ./plugins/codeium.nix
     ./plugins/zen-mode.nix
     ./plugins/indent-blankline.nix
+    # ./plugins/obsidian.nix
     # ./plugins/alpha.nix
   ];
   programs.nixvim.plugins = {
