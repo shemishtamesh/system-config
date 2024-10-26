@@ -73,7 +73,7 @@ in
       };
 
       listview = {
-        margin = mkLiteral "32px calc( 50% - 950px )";
+        margin = mkLiteral "32px calc( 50% - 1000px )";
         spacing = mkLiteral "8px";
         columns = 8;
       };
@@ -83,8 +83,8 @@ in
       };
 
       element = {
-        padding = mkLiteral "8px";
-        spacing = mkLiteral "4px";
+        padding = mkLiteral "2px";
+        spacing = mkLiteral "2px";
 
         orientation = mkLiteral "vertical";
         border-radius = mkLiteral "10px";
