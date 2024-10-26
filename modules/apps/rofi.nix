@@ -40,7 +40,7 @@ in
       };
 
       mainbox = {
-        padding = mkLiteral "4px";
+        padding = mkLiteral "8px";
       };
 
       inputbar = {
@@ -73,7 +73,7 @@ in
       };
 
       listview = {
-        margin = mkLiteral "48px calc( 50% - 800px )";
+        margin = mkLiteral "8px calc( 50% - 800px )";
         spacing = mkLiteral "48px";
         columns = 6;
       };
