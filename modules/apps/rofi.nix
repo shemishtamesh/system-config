@@ -8,7 +8,6 @@ in
   stylix.targets.rofi.enable = false;
   programs.rofi.enable = true;
   programs.rofi = {
-    package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;
       modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
