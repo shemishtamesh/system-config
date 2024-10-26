@@ -40,7 +40,7 @@ in
       };
 
       mainbox = {
-        padding = mkLiteral "8px";
+        padding = mkLiteral "4px";
       };
 
       inputbar = {
