@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./home/packages.nix
     ../apps/hypridle.nix
     ../apps/hyprpaper.nix
     ../apps/hyprlock.nix
