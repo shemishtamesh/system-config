@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   theme,
@@ -10,22 +9,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./configutation/boot.nix
     ../general/scripts.nix
   ];
-
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-    kernelModules = [
-      "snd-seq"
-      "snd-rawmidi"
-      "v4l2loopback"
-      "i2c-dev"
-    ];
-  };
 
   security = {
     polkit.enable = true;
