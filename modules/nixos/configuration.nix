@@ -9,7 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./configutation/boot.nix
+    ./configuration/boot.nix
     ../general/scripts.nix
   ];
 
