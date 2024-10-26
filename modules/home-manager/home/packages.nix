@@ -49,7 +49,7 @@
     difftastic
     killall
     waybar
-    rofi-wayland
+    # rofi-wayland
     rofimoji
     wtype
     dunst
