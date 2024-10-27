@@ -14,7 +14,6 @@
     # ./plugins/alpha.nix
   ];
   programs.nixvim.plugins = {
-    which-key.enable = true;
     lualine.enable = true;
     nvim-colorizer.enable = true;
     tmux-navigator.enable = true;
