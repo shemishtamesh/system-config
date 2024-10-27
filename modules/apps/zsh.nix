@@ -15,10 +15,11 @@
       rmdir = "rmdirtrash";
       sudo = "sudo ";
 
-      cp = "cp -i";
-      mv = "mv -i";
-      cp-yes = "cp";
-      mv-yes = "mv";
+      c = "cp -i";
+      m = "mv -i";
+      li = "ln -i";
+
+      md = "mkdir -p";
 
       ns = "nix-shell --command zsh";
       nd = "nix develop --command zsh";
