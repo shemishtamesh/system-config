@@ -1,8 +1,6 @@
 {
-  inputs,
   pkgs,
   theme,
-  system,
   ...
 }:
 
@@ -11,7 +9,6 @@
     ./hardware-configuration.nix
     ./configuration/boot.nix
     ./configuration/networking.nix
-    ../general/scripts.nix
   ];
 
   security = {

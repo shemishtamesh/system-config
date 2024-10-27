@@ -20,7 +20,9 @@ let
     hyprctl keyword decoration:rounding ${rounding}
     waybar
   '';
-  sync_external = (import ../general/utils.nix { inherit pkgs; }).sync_external_monitor_brightness;
+  utils = (import ../general/utils.nix { inherit pkgs; });
+  sync_external = utils.sync_external_monitor_brightness;
+  notification-log = utils.notification-log;
 in
 {
   wayland.windowManager.hyprland.enable = true;
@@ -207,7 +209,7 @@ in
         "[workspace special:music silent] spotify"
         "[workspace special:chat silent] discord-screenaudio"
         "wl-paste --watch cliphist store"
-        "notification-log $HOME/Documents/logs/notifications.txt"
+        "${notification-log} $HOME/Documents/logs/notifications.txt"
         "${pkgs.playerctl}/bin/playerctld"
         "hypridle"
       ];

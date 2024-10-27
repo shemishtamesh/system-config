@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${system}.default
     chromium
-    # speechd
     gimp
     krita
     aseprite

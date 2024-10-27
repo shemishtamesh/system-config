@@ -3,6 +3,7 @@
 {
   imports = [
     ./home/packages.nix
+    ./home/scripts.nix
     ../apps/hypridle.nix
     ../apps/hyprpaper.nix
     ../apps/hyprlock.nix
