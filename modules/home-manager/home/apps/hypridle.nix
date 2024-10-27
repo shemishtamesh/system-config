@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
-  sync_external = (import ../general/utils.nix { inherit pkgs; }).sync_external_monitor_brightness;
+  sync_external =
+    (import ../../../general/utils.nix { inherit pkgs; }).sync_external_monitor_brightness;
 in
 {
   services.hypridle.enable = true;

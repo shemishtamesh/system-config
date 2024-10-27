@@ -6,7 +6,7 @@
 }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  functions = (import ../general/utils.nix { inherit pkgs; });
+  functions = (import ../../../general/utils.nix { inherit pkgs; });
   rgba = functions.rgba config.lib.stylix.colors;
   imageFromScheme = functions.imageFromScheme {
     width = 500;
