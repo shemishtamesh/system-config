@@ -4,23 +4,23 @@
   imports = [
     ./home/packages.nix
     ./home/scripts.nix
-    ../apps/hypridle.nix
-    ../apps/hyprpaper.nix
-    ../apps/hyprlock.nix
-    ../apps/hyprland.nix
-    ../apps/waybar.nix
-    ../apps/wlogout.nix
-    ../apps/dunst.nix
-    ../apps/rofi.nix
-    ../apps/kitty.nix
-    ../apps/git.nix
-    ../apps/zsh.nix
-    ../apps/starship.nix
-    ../apps/zoxide.nix
-    ../apps/fzf.nix
-    ../apps/direnv.nix
-    ../apps/tmux.nix
-    ../apps/nixvim/nixvim.nix
+    ./home/apps/hypridle.nix
+    ./home/apps/hyprpaper.nix
+    ./home/apps/hyprlock.nix
+    ./home/apps/hyprland.nix
+    ./home/apps/waybar.nix
+    ./home/apps/wlogout.nix
+    ./home/apps/dunst.nix
+    ./home/apps/rofi.nix
+    ./home/apps/kitty.nix
+    ./home/apps/git.nix
+    ./home/apps/zsh.nix
+    ./home/apps/starship.nix
+    ./home/apps/zoxide.nix
+    ./home/apps/fzf.nix
+    ./home/apps/direnv.nix
+    ./home/apps/tmux.nix
+    ./home/apps/nixvim/nixvim.nix
   ];
 
   home.username = "shemishtamesh";
