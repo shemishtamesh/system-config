@@ -9,14 +9,15 @@
     ./plugins/codeium.nix
     ./plugins/zen-mode.nix
     ./plugins/indent-blankline.nix
+    ./plugins/which-key.nix
     # ./plugins/obsidian.nix
     # ./plugins/alpha.nix
   ];
   programs.nixvim.plugins = {
+    which-key.enable = true;
     lualine.enable = true;
     nvim-colorizer.enable = true;
     tmux-navigator.enable = true;
-    which-key.enable = true;
     otter.enable = true;
     numbertoggle.enable = true;
     gitsigns.enable = true;
