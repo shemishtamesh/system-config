@@ -38,8 +38,8 @@
       conceallevel = 2;
       foldlevel = 99999; # disable folding by default
 
-      # color the 80th color, a hint for when a line is too long
-      colorcolumn = "80";
+      # # color the 80th color, a hint for when a line is too long
+      # colorcolumn = "80";
 
       # Case insensitive searching UNLESS /C or capital in search
       ignorecase = true;
