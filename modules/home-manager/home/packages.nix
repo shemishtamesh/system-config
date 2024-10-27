@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${system}.default
     chromium
+    audacity
     gimp
     krita
     aseprite
