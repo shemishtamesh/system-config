@@ -61,22 +61,22 @@ in
       };
     };
     keymaps = [
-      (keymap "n" "<leader>la" "vim.lsp.buf.code_action()" { silent = true; })
-      (keymap "n" "<leader>lf" "vim.lsp.buf.format()" { silent = true; })
-      (keymap "n" "<leader>ln" "vim.lsp.buf.rename()" { silent = true; })
-      (keymap "n" "<leader>lm" "vim.lsp.buf.implementation()" { silent = true; })
-      (keymap "n" "<leader>li" "vim.lsp.buf.incoming_calls()" { silent = true; })
-      (keymap "n" "<leader>lo" "vim.lsp.buf.outgoing_calls()" { silent = true; })
-      (keymap "n" "<leader>lr" "vim.lsp.buf.references()" { silent = true; })
-      (keymap "n" "<leader>lh" "vim.lsp.buf.signature_help()" { silent = true; })
-      (keymap "n" "<leader>lt" "vim.lsp.buf.type_definition()" { silent = true; })
-      (keymap "n" "<leader>lc" "vim.lsp.buf.typehierarchy()" { silent = true; })
-      (keymap "n" "<leader>ls" "vim.lsp.buf.workspace_symbol()" { silent = true; })
-      (keymap "n" "gd" "vim.lsp.buf.definition()" { silent = true; })
-      (keymap "n" "gD" "vim.lsp.buf.declaration()" { silent = true; })
-      (keymap "n" "<leader>ld" "vim.diagnostic.setqflist()" { silent = true; })
-      (keymap "n" "]d" "vim.lsp.buf.goto_next()" { silent = true; })
-      (keymap "n" "[d" "vim.lsp.buf.goto_prev()" { silent = true; })
+      (keymap "n" "<leader>la" "<cmd>vim.lsp.buf.code_action()<CR>" { silent = true; })
+      (keymap "n" "<leader>lf" "<cmd>vim.lsp.buf.format()<CR>" { silent = true; })
+      (keymap "n" "<leader>ln" "<cmd>vim.lsp.buf.rename()<CR>" { silent = true; })
+      (keymap "n" "<leader>lm" "<cmd>vim.lsp.buf.implementation()<CR>" { silent = true; })
+      (keymap "n" "<leader>li" "<cmd>vim.lsp.buf.incoming_calls()<CR>" { silent = true; })
+      (keymap "n" "<leader>lo" "<cmd>vim.lsp.buf.outgoing_calls()<CR>" { silent = true; })
+      (keymap "n" "<leader>lr" "<cmd>vim.lsp.buf.references()<CR>" { silent = true; })
+      (keymap "n" "<leader>lh" "<cmd>vim.lsp.buf.signature_help()<CR>" { silent = true; })
+      (keymap "n" "<leader>lt" "<cmd>vim.lsp.buf.type_definition()<CR>" { silent = true; })
+      (keymap "n" "<leader>lc" "<cmd>vim.lsp.buf.typehierarchy()<CR>" { silent = true; })
+      (keymap "n" "<leader>ls" "<cmd>vim.lsp.buf.workspace_symbol()<CR>" { silent = true; })
+      (keymap "n" "gd" "<cmd>vim.lsp.buf.definition()<CR>" { silent = true; })
+      (keymap "n" "gD" "<cmd>vim.lsp.buf.declaration()<CR>" { silent = true; })
+      (keymap "n" "<leader>ld" "<cmd>vim.diagnostic.setqflist()<CR>" { silent = true; })
+      (keymap "n" "]d" "<cmd>vim.lsp.buf.goto_next()<CR>" { silent = true; })
+      (keymap "n" "[d" "<cmd>vim.lsp.buf.goto_prev()<CR>" { silent = true; })
     ];
   };
 }
