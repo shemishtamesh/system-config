@@ -4,9 +4,7 @@
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${system}.default
     chromium
-    libqalculate
-    fastfetch
-    speechd
+    # speechd
     gimp
     krita
     aseprite
@@ -18,6 +16,7 @@
     hyprpicker
     hyprshot
     hyprlock
+    libqalculate
     ripgrep
     bat
     fd
