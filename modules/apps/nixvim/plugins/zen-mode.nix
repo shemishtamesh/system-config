@@ -8,7 +8,7 @@ in
       enable = true;
       settings = {
         window = {
-          backdrop = 1;
+          backdrop = 0;
           width = 80;
           height = 1;
           options = {
