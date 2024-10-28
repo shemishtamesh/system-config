@@ -149,9 +149,7 @@
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
-  environment.shells = with pkgs; [
-    zsh
-  ];
+  environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs = {
     zsh = {
