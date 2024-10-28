@@ -25,9 +25,8 @@ let
   notification-log = utils.notification-log;
 in
 {
-  programs.hyprland.enable = true;
-  wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland = {
+    enable = true;
     settings = {
       "$mod" = "SUPER";
       monitor = [
