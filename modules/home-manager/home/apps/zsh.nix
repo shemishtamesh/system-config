@@ -36,8 +36,6 @@
     ];
     histSize = 100000;
 
-    enableLsColors = true;
-
     interactiveShellInit = # sh
       ''
         # completions

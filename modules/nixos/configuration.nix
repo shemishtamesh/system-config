@@ -154,7 +154,10 @@
   ];
   users.defaultUserShell = pkgs.zsh;
   programs = {
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      enableLsColors = true;
+    };
     adb.enable = true;
     hyprland.enable = true;
     steam = {
