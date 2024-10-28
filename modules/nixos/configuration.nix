@@ -153,6 +153,7 @@
     zsh
   ];
   users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   virtualisation.docker.enable = true;
 
