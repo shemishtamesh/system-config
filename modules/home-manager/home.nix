@@ -20,7 +20,7 @@
     ./home/apps/fzf.nix
     ./home/apps/direnv.nix
     ./home/apps/tmux.nix
-    ./home/apps/steam.nix
+    ./home/apps/adb.nix
     ./home/apps/nixvim/nixvim.nix
   ];
 
