@@ -21,6 +21,6 @@
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-    zsh-vi-mode.enable = true;
   };
+  programs.zsh-vi-mode.enable = true;
 }
