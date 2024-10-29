@@ -3,13 +3,12 @@
 {
   programs.tmux = {
     enable = true;
-    # clock24 = true;
-    # escapeTime = 0;
-    # keyMode = "vi";
-    # newSession = true;
+    clock24 = true;
+    escapeTime = 0;
+    keyMode = "vi";
+    newSession = true;
     shortcut = "Space";
-    # shortcut = "a";
-    # historyLimit = 5000;
+    historyLimit = 5000;
     # plugins = [
     #   pkgs.tmuxPlugins.better-mouse-mode
     #   pkgs.tmuxPlugins.vim-tmux-navigator
