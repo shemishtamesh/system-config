@@ -16,11 +16,5 @@
     #   pkgs.tmuxPlugins.resurrect
     #   pkgs.tmuxPlugins.continuum
     # ];
-    /*
-      extraConfig = # tmux
-      ''
-        set -g mouse on
-      '';
-    */
   };
 }
