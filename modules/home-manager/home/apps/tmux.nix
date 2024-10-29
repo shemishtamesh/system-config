@@ -9,6 +9,7 @@
     newSession = true;
     shortcut = "Space";
     historyLimit = 5000;
+    mouse = true;
     # plugins = [
     #   pkgs.tmuxPlugins.better-mouse-mode
     #   pkgs.tmuxPlugins.vim-tmux-navigator
