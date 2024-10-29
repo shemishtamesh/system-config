@@ -11,10 +11,10 @@
     historyLimit = 5000;
     mouse = true;
     plugins = [
-      pkgs.tmuxPlugins.better-mouse-mode
+      # pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.vim-tmux-navigator
-      pkgs.tmuxPlugins.resurrect
-      pkgs.tmuxPlugins.continuum
+      # pkgs.tmuxPlugins.resurrect
+      # pkgs.tmuxPlugins.continuum
     ];
   };
 }
