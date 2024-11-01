@@ -3,6 +3,7 @@
 {
   programs.tmux = {
     enable = true;
+    enableSensible = false;
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";
