@@ -2,7 +2,7 @@
 
 {
   programs.tmux = {
-    enable = true;
+    enable = false;
     sensibleOnTop = false;
     # clock24 = true;
     # escapeTime = 0;
