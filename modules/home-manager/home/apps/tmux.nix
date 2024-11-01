@@ -3,7 +3,7 @@
 {
   stylix.targets.tmux.enable = false;
   programs.tmux = {
-    enable = false;
+    enable = true;
     sensibleOnTop = false;
     # clock24 = true;
     # escapeTime = 0;
