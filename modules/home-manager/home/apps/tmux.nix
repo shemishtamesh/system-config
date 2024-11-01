@@ -4,14 +4,13 @@
   stylix.targets.tmux.enable = true;
   programs.tmux = {
     enable = true;
-    sensibleOnTop = false;
+    sensibleOnTop = true;
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";
     shortcut = "Space";
     historyLimit = 5000;
     mouse = true;
-    defaultTerminal = "screen-256color";
     # plugins = [
     #   # pkgs.tmuxPlugins.better-mouse-mode
     #   pkgs.tmuxPlugins.vim-tmux-navigator
@@ -20,6 +19,8 @@
     # ];
     extraConfig = # tmux
       ''
+        # set -g default-terminal "screen-256color"
+
         set-window-option -g mode-keys vi
         bind-key -T copy-mode-vi v send-keys -X begin-selection
         bind-key -T copy-mode-vi y send-keys -X copy-selection
