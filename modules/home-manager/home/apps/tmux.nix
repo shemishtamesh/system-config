@@ -10,7 +10,7 @@ let
   cpu_segment = pkgs.writeShellScriptBin "cpu_segment" ''
     memory_line=$(top -b -n 1 | grep "%Cpu(s)")
     idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
-    echo $(echo "100 - $idle" | bc)% CPU
+    echo $(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% CPU
   '';
 in
 {
