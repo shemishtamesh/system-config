@@ -5,12 +5,13 @@
   programs.tmux = {
     enable = true;
     sensibleOnTop = false;
-    # clock24 = true;
-    # escapeTime = 0;
-    # keyMode = "vi";
-    # shortcut = "Space";
-    # historyLimit = 5000;
-    # mouse = true;
+    clock24 = true;
+    escapeTime = 0;
+    keyMode = "vi";
+    shortcut = "Space";
+    historyLimit = 5000;
+    mouse = true;
+    defaultTerminal = "screen-256color";
     # plugins = [
     #   # pkgs.tmuxPlugins.better-mouse-mode
     #   pkgs.tmuxPlugins.vim-tmux-navigator
