@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  stylix.targets.tmux.enable = false;
   programs.tmux = {
     enable = false;
     sensibleOnTop = false;
