@@ -30,6 +30,12 @@
         bind-key -T copy-mode-vi v send-keys -X begin-selection
         bind-key -T copy-mode-vi y send-keys -X copy-selection
         bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+        # pane resize shortcuts (same as vim)
+        bind -r H resize-pane -L
+        bind -r J resize-pane -D
+        bind -r K resize-pane -U
+        bind -r L resize-pane -R
       '';
   };
 }
