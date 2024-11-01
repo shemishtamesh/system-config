@@ -6,7 +6,6 @@
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";
-    newSession = true;
     shortcut = "Space";
     historyLimit = 5000;
     mouse = true;
