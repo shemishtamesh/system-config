@@ -1,5 +1,18 @@
-{ pkgs, ... }:
-
+{ pkgs, lib, ... }:
+let
+  memory_segment = pkgs.writeShellScriptBin "memory_segment" ''
+    memory_line=$(top -b -n 1 | grep "[KMGTPE]iB Mem")
+    unit=$(echo $memory_line | grep -o "^[KMGTPE]")iB
+    used=$(echo $memory_line | grep -Po '\d*(\.\d*)? used' | awk '{print $1}')
+    total=$(echo $memory_line | grep -Po '\d*(\.\d*)? total' | awk '{print $1}')
+    echo "$used/$total $unit RAM"
+  '';
+  cpu_segment = pkgs.writeShellScriptBin "cpu_segment" ''
+    memory_line=$(top -b -n 1 | grep "%Cpu(s)")
+    idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
+    echo $(echo "100 - $idle" | bc)% CPU
+  '';
+in
 {
   stylix.targets.tmux.enable = true;
   programs.tmux = {
@@ -31,11 +44,25 @@
         bind-key -T copy-mode-vi y send-keys -X copy-selection
         bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
-        # pane resize shortcuts (same as vim)
+        # pane resize shortcuts
         bind -r H resize-pane -L
         bind -r J resize-pane -D
         bind -r K resize-pane -U
         bind -r L resize-pane -R
+
+        # status line
+        set -g status-interval 1
+        set -g status-justify absolute-centre
+        set -g status-left-length 100
+        set -g status-right-length 100
+        set -g status-left "#[bg=#80a0ff,fg=#000000]#{session_name}#[bg=#303030,fg=#80a0ff]"
+        set -ag status-left " #{=|-24|…;s|$HOME|~|:pane_current_path}#[bg=#000000,fg=#303030]"
+        set -g status-right "#[bg=#000000,fg=#303030]#[bg=#303030,fg=#80a0ff]#(${lib.getExe memory_segment})"
+        set -ag status-right " #[bg=#80a0ff,fg=#000000]#(${lib.getExe cpu_segment})"
+        set -g status-bg \#000000
+        set -g status-fg \#FFFFFF
+        set -g status-position top
+        set -g status-keys vi
       '';
   };
 }
