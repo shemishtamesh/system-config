@@ -52,11 +52,9 @@ in
         plugin = resurrect;
         extraConfig = # tmux
           ''
-            set -g @resurrect-capture-pane-contents 'on'
             set -g @resurrect-strategy-nvim 'session'
-            resurrect_dir=~/.local/share/tmux/resurrect
-            set -g @resurrect-dir $resurrect_dir
-            set -g @resurrect-hook-post-save-all "sed -i 's| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g' $(readlink -f $resurrect_dir/last)"
+            set -g @resurrect-processes '~nvim->/home/shemishtamesh/.nix-profile/bin/nvim'
+            set -g @resurrect-capture-pane-contents 'on'
           '';
       }
       {
