@@ -50,6 +50,9 @@ in
         bind -r K resize-pane -U
         bind -r L resize-pane -R
 
+        # switch sessions
+        bind-key C-f run-shell "tmux list-sessions -F \"##S\" | fzf-tmux | xargs tmux switch -t"
+
         # status line
         set -g status-interval 1
         set -g status-justify absolute-centre
