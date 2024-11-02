@@ -51,7 +51,7 @@ in
         bind -r L resize-pane -R
 
         # switch sessions
-        bind-key C-f run-shell "tmux list-sessions -F \"##S\" | fzf-tmux | xargs tmux switch -t"
+        bind -n C-f run-shell "tmux list-windows -F \"##I:##W\" | fzf-tmux | cut -d \":\" -f 1 | xargs tmux select-window -t"
 
         # status line
         set -g status-interval 1
