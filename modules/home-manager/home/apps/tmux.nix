@@ -52,9 +52,9 @@ in
         plugin = resurrect;
         extraConfig = # tmux
           ''
-            set -g @resurrect-processes 'n nvim btop'
             set -g @resurrect-strategy-nvim 'session'
-            set -g @resurrect-capture-pane-contents 'on'
+            # set -g @resurrect-processes 'n nvim btop'
+            # set -g @resurrect-capture-pane-contents 'on'
           '';
       }
       continuum
