@@ -17,9 +17,7 @@
       number = true;
       numberwidth = 1;
       relativenumber = true;
-      # signcolumn = "yes";
-      # cursorline = false;
-      # t.cmdheight = 0;
+      cmdheight = 0;
 
       # Better editing experience
       expandtab = true;
@@ -27,27 +25,19 @@
       cindent = true;
       autoindent = true;
       wrap = false;
-      # textwidth = 300;
       tabstop = 4;
       shiftwidth = 4;
       softtabstop = -1; # If negative, shiftwidth value is used
       list = true;
       listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂";
-      # listchars = "eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,";
-      # formatoptions = "qrn1";
       conceallevel = 2;
       foldlevel = 99999; # disable folding by default
-
-      # # color the 80th color, a hint for when a line is too long
-      # colorcolumn = "80";
 
       # Case insensitive searching UNLESS /C or capital in search
       ignorecase = true;
       smartcase = true;
 
       # Undo and backup options
-      # backup = false;
-      # writebackup = false;
       undofile = true;
       swapfile = false;
       backupdir = "/tmp/";
