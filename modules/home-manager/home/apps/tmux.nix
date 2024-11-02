@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   memory_segment = pkgs.writeShellScriptBin "memory_segment" ''
     memory_line=$(top -b -n 1 | grep "[KMGTPE]iB Mem")
@@ -12,6 +17,7 @@ let
     idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
     echo $(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% CPU
   '';
+  palette = config.lib.stylix.colors.withHashtag;
 in
 {
   stylix.targets.tmux.enable = true;
@@ -40,7 +46,7 @@ in
       }
     ];
     extraConfig = # tmux
-      ''
+      with palette; ''
         # fix colors
         set -g default-terminal "screen-256color"
 
@@ -69,12 +75,12 @@ in
         set -g status-justify absolute-centre
         set -g status-left-length 100
         set -g status-right-length 100
-        set -g status-left "#[bg=#80a0ff,fg=#000000]#{session_name}#[bg=#303030,fg=#80a0ff]"
-        set -ag status-left " #{=|-24|…;s|$HOME|~|:pane_current_path}#[bg=#000000,fg=#303030]"
-        set -g status-right "#[bg=#000000,fg=#303030]#[bg=#303030,fg=#80a0ff]#(${lib.getExe memory_segment})"
-        set -ag status-right " #[bg=#80a0ff,fg=#000000]#(${lib.getExe cpu_segment})"
-        set -g status-bg \#000000
-        set -g status-fg \#FFFFFF
+        set -g status-left "#[bg=${base0D},fg=${base00}]#{session_name}#[bg=${base02},fg=${base0D}]"
+        set -ag status-left " #{=|-24|…;s|$HOME|~|:pane_current_path}#[bg=${base00},fg=${base02}]"
+        set -g status-right "#[bg=${base00},fg=${base02}]#[bg=${base02},fg=${base0D}]#(${lib.getExe memory_segment})"
+        set -ag status-right " #[bg=${base0D},fg=${base00}]#(${lib.getExe cpu_segment})"
+        set -g status-bg \${base00}
+        set -g status-fg \${base07}
         set -g status-position top
         set -g status-keys vi
       '';
