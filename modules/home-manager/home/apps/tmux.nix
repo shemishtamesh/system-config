@@ -32,9 +32,16 @@ in
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
-      vim-tmux-navigator
       resurrect
       continuum
+      {
+        plugin = vim-tmux-navigator;
+        extraConfig = # tmux
+          ''
+            # clear with vim-tmux-navigator
+            bind C-l send-keys 'C-l'
+          '';
+      }
       {
         plugin = tmux-fzf;
         extraConfig = # tmux
@@ -45,8 +52,9 @@ in
 
       }
     ];
-    extraConfig = # tmux
-      with palette; ''
+    extraConfig =
+      with palette; # tmux
+      ''
         # fix colors
         set -g default-terminal "screen-256color"
 
