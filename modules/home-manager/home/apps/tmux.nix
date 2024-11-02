@@ -31,9 +31,6 @@ in
     historyLimit = 5000;
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
-      better-mouse-mode
-      resurrect
-      continuum
       {
         plugin = vim-tmux-navigator;
         extraConfig = # tmux
@@ -51,6 +48,17 @@ in
           '';
 
       }
+      {
+        plugin = resurrect;
+        extraConfig = # tmux
+          ''
+            set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-capture-pane-contents 'on'
+            set -g @resurrect-processes 'btop'
+          '';
+      }
+      continuum
+      better-mouse-mode
     ];
     extraConfig =
       with palette; # tmux
