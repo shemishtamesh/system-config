@@ -30,6 +30,5 @@
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
-    initExtra = "${pkgs.tmux}/bin/tmux";
   };
 }
