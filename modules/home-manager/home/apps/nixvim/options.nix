@@ -17,7 +17,6 @@
       number = true;
       numberwidth = 1;
       relativenumber = true;
-      cmdheight = 0;
 
       # Better editing experience
       expandtab = true;
