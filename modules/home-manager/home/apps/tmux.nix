@@ -53,7 +53,7 @@ in
         extraConfig = # tmux
           ''
             set -g @resurrect-strategy-nvim 'session'
-            set -g @resurrect-processes '~nvim'
+            set -g @resurrect-processes '~nvim->nvim'
             set -g @resurrect-capture-pane-contents 'on'
           '';
       }
