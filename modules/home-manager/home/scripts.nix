@@ -33,6 +33,8 @@
         exit 1
       fi
 
+      git push
+
       notify-send -u low 'successfully rebuilt'
     '')
 
