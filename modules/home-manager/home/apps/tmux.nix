@@ -57,7 +57,11 @@ in
             set -g @resurrect-capture-pane-contents 'on'
           '';
       }
-      continuum
+      {
+        plugin = continuum;
+        extraConfig = # tmux
+          "set -g @continuum-restore 'on'";
+      }
       better-mouse-mode
     ];
     extraConfig =
