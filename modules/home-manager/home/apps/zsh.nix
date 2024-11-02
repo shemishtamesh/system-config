@@ -30,5 +30,6 @@
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
+    shellInit = "${pkgs.tmux}/bin/tmux";
   };
 }
