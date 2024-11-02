@@ -44,7 +44,7 @@ in
         extraConfig = # tmux
           ''
             TMUX_FZF_LAUNCH_KEY="C-f"
-            bind-key "C-a" run-shell -b "${tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh switch"
+            bind-key "a" run-shell -b "${tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh switch"
           '';
 
       }
@@ -52,7 +52,7 @@ in
         plugin = resurrect;
         extraConfig = # tmux
           ''
-            set -g @resurrect-strategy-nvim 'session'
+            # set -g @resurrect-strategy-nvim 'session'
             set -g @resurrect-processes 'btop'
             set -g @resurrect-capture-pane-contents 'on'
           '';
@@ -103,6 +103,9 @@ in
         set -g status-fg \${base07}
         set -g status-position top
         set -g status-keys vi
+
+
+        set -g @resurrect-strategy-nvim 'session'
       '';
   };
 }
