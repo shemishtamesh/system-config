@@ -27,6 +27,7 @@ in
     plugins = [
       pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.vim-tmux-navigator
+      pkgs.tmuxPlugins.tmux-fzf
       pkgs.tmuxPlugins.resurrect
       pkgs.tmuxPlugins.continuum
     ];
