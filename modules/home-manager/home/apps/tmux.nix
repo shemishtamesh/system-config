@@ -24,12 +24,17 @@ in
     shortcut = "Space";
     historyLimit = 5000;
     mouse = true;
-    plugins = [
-      pkgs.tmuxPlugins.better-mouse-mode
-      pkgs.tmuxPlugins.vim-tmux-navigator
-      pkgs.tmuxPlugins.tmux-fzf
-      pkgs.tmuxPlugins.resurrect
-      pkgs.tmuxPlugins.continuum
+    plugins = with pkgs.tmuxPlugins; [
+      better-mouse-mode
+      vim-tmux-navigator
+      resurrect
+      continuum
+      {
+        plugin = tmux-fzf;
+        extraConfig = # tmux
+          ''TMUX_FZF_LAUNCH_KEY="C-f"'';
+
+      }
     ];
     extraConfig = # tmux
       ''
@@ -50,9 +55,6 @@ in
         bind -r J resize-pane -D
         bind -r K resize-pane -U
         bind -r L resize-pane -R
-
-        # switch sessions
-        bind -n C-f run-shell "tmux list-windows -F \"##I:##W\" | fzf-tmux | cut -d \":\" -f 1 | xargs tmux select-window -t"
 
         # status line
         set -g status-interval 1
