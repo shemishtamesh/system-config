@@ -10,12 +10,12 @@ let
     unit=$(echo $memory_line | grep -o "^[KMGTPE]")iB
     used=$(echo $memory_line | grep -Po '\d*(\.\d*)? used' | awk '{print $1}')
     total=$(echo $memory_line | grep -Po '\d*(\.\d*)? total' | awk '{print $1}')
-    echo "$used/$total $unit RAM"
+    echo "$used/$total $unit "
   '';
   cpu_segment = pkgs.writeShellScriptBin "cpu_segment" ''
     memory_line=$(top -b -n 1 | grep "%Cpu(s)")
     idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
-    echo $(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% CPU
+    echo $(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% 
   '';
   palette = config.lib.stylix.colors.withHashtag;
 in
