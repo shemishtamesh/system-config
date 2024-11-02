@@ -57,7 +57,7 @@ in
           "$mod CTRL, c, exec, hyprpicker --autocopy"
           "$mod, s, exec, hyprshot -m window"
           "$mod SHIFT, s, exec, hyprshot -m region"
-          "$mod, RETURN, exec, kitty"
+          "$mod, RETURN, exec, kitty --execute tmux"
           "$mod, i, exec, zen"
           "$mod SHIFT, i, exec, zen --private-window"
           "$mod, d, exec, obsidian"
