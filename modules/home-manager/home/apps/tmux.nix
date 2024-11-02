@@ -32,7 +32,10 @@ in
       {
         plugin = tmux-fzf;
         extraConfig = # tmux
-          ''TMUX_FZF_LAUNCH_KEY="C-f"'';
+          ''
+            TMUX_FZF_LAUNCH_KEY="C-f"
+            bind-key "C-a" run-shell -b "${tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh attach"
+          '';
 
       }
     ];
