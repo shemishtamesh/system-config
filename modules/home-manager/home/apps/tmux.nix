@@ -53,6 +53,11 @@ in
         bind-key -T copy-mode-vi y send-keys -X copy-selection
         bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
+        # start new panes and windows in the same directory
+        bind '"' split-window -c "#{pane_current_path}"
+        bind % split-window -h -c "#{pane_current_path}"
+        bind c new-window -c "#{pane_current_path}"
+
         # pane resize shortcuts
         bind -r H resize-pane -L
         bind -r J resize-pane -D
