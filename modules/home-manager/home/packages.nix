@@ -43,6 +43,7 @@
     curl
     git
     zoxide
+    glow
     # yazi
     axel
     difftastic
