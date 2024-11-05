@@ -43,7 +43,7 @@
     curl
     git
     zoxide
-    yazi
+    # yazi
     axel
     difftastic
     killall
