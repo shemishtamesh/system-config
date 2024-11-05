@@ -61,6 +61,7 @@
     pavucontrol
     cliphist
     wlogout
+    zathura
     mpv
     vlc
     obsidian
