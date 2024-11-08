@@ -54,7 +54,7 @@ in
           ''
             set -g @resurrect-capture-pane-contents 'on'
 
-            set -g @resurrect-strategy-nvim 'session'
+            # set -g @resurrect-strategy-nvim 'session'
             # set -g @resurrect-processes '~nvim->nvim btop'
             set -g @resurrect-processes 'btop'
             resurrect_dir="$HOME/.local/share/tmux/resurrect"
