@@ -15,7 +15,7 @@ let
   cpu_segment = pkgs.writeShellScriptBin "cpu_segment" ''
     memory_line=$(top -b -n 1 | grep "%Cpu(s)")
     idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
-    echo $(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% 
+    echo "$(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% "
   '';
   palette = config.lib.stylix.colors.withHashtag;
 in
@@ -55,8 +55,7 @@ in
             set -g @resurrect-capture-pane-contents 'on'
 
             set -g @resurrect-strategy-nvim 'session'
-            # set -g @resurrect-processes '~nvim->nvim'
-            set -g @resurrect-processes 'btop'
+            set -g @resurrect-processes '~nvim->nvim btop'
             resurrect_dir="$HOME/.local/share/tmux/resurrect"
             set -g @resurrect-dir $resurrect_dir
             # set -g @resurrect-hook-post-save-all 'target=$(readlink -f $resurrect_dir/last); sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/home/$USER/.nix-profile/bin/||g" $target | ${pkgs.moreutils}/bin/sponge $target'
