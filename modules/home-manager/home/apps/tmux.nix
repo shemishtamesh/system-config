@@ -59,7 +59,7 @@ in
             set -g @resurrect-processes 'btop'
             resurrect_dir="$HOME/.local/share/tmux/resurrect"
             set -g @resurrect-dir $resurrect_dir
-            set -g @resurrect-hook-post-save-all 'target=$(readlink -f $resurrect_dir/last); sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/home/$USER/.nix-profile/bin/||g" $target | ${pkgs.moreutils}/bin/sponge $target'
+            # set -g @resurrect-hook-post-save-all 'target=$(readlink -f $resurrect_dir/last); sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/home/$USER/.nix-profile/bin/||g" $target | ${pkgs.moreutils}/bin/sponge $target'
 
           '';
       }
