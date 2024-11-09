@@ -7,7 +7,7 @@ let
   gaps = "2";
   rounding = "10";
   toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
-    killall .waybar-wrapped
+    ${pkgs.killall}/bin/killall .waybar-wrapped
     if [[ $? -eq 0 ]]; then
         hyprctl keyword general:gaps_in 0
         hyprctl keyword general:gaps_out 0
