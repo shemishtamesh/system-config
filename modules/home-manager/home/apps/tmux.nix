@@ -56,7 +56,7 @@ in
 
             # set -g @resurrect-strategy-nvim 'session'
             # set -g @resurrect-processes '~nvim->nvim btop'
-            set -g @resurrect-processes 'n->nvim btop'
+            set -g @resurrect-processes '/nix/store/wkg6wm72k8sza0sbs9803gfgzwv53czn-neovim-unwrapped-0.10.2/bin/nvim->nvim btop'
             # set -g @resurrect-processes 'btop'
             resurrect_dir="$HOME/.local/share/tmux/resurrect"
             set -g @resurrect-dir $resurrect_dir
