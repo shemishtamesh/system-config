@@ -55,6 +55,7 @@ in
             set -g @resurrect-capture-pane-contents 'on'
 
             set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-processes '"~nvim->nvim"'
             resurrect_dir="$HOME/.local/share/tmux/resurrect"
             set -g @resurrect-dir $resurrect_dir
             set -g @resurrect-hook-post-save-all 'target=$(readlink -f $resurrect_dir/last); sed "s|/nix/store/.*nvim|nvim|g" $target | ${pkgs.moreutils}/bin/sponge $target'
