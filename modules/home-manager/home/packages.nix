@@ -44,6 +44,7 @@
     git
     zoxide
     glow
+    slides
     # yazi
     axel
     difftastic
