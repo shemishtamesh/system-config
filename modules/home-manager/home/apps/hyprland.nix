@@ -25,7 +25,7 @@ let
   notification-log = utils.notification-log;
 in
 {
-  stylix.targets.hyprland = false;
+  stylix.targets.hyprland.enable = false;
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
