@@ -171,7 +171,7 @@ in
         hide_on_key_press = true;
       };
       decoration = {
-        # dim_special = 0.6;
+        dim_special = 0.6;
         rounding = rounding;
       };
       dwindle = {
