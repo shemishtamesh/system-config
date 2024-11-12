@@ -171,7 +171,7 @@ in
         hide_on_key_press = true;
       };
       decoration = {
-        shadow.color = "rgba(00000099)";
+        col = "";
         dim_special = 0.6;
         rounding = rounding;
       };
