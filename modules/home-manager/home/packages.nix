@@ -45,7 +45,7 @@
     zoxide
     glow
     slides
-    yazi
+    # yazi
     axel
     difftastic
     killall
