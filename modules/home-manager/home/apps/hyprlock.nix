@@ -17,7 +17,7 @@ in
       brightness = 0.5;
     };
     input-field = {
-      size = "10, 10";
+      size = "50, 50";
       outline_thickness = 0;
       fade_on_empty = true;
       fade_timeout = 1000;
