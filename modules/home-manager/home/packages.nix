@@ -59,6 +59,7 @@
     slack
     spotify
     obs-studio
+    easyeffects
     pavucontrol
     cliphist
     wlogout
