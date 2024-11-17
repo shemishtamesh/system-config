@@ -5,6 +5,7 @@
     inputs.zen-browser.packages.${system}.default
     chromium
     audacity
+    lmms
     gimp
     krita
     aseprite
