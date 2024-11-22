@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${system}.default
-    libreoffice-unwrapped
     chromium
     audacity
     musescore
