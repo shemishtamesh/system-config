@@ -1,5 +1,5 @@
 {
-  home-manager.users.shemishtamesh.xdg = {
+  home.users.shemishtamesh.xdg = {
     enabled = true;
     mimeApps = {
       enabled = true;
