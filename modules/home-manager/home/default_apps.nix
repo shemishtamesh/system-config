@@ -1,5 +1,5 @@
 {
-  xdg = {
+  home.xdg = {
     enabled = true;
     mimeApps = {
       enabled = true;
