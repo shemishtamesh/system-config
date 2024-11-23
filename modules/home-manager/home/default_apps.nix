@@ -1,8 +1,8 @@
 {
   xdg = {
-    enabled = true;
+    enable = true;
     mimeApps = {
-      enabled = true;
+      enable = true;
       defaultApplications = {
         "application/pdf" = "org.pwmt.zathura.desktop";
         "text/html" = "zen.desktop";
