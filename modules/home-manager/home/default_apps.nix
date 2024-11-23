@@ -1,5 +1,5 @@
 {
-  users.shemishtamesh.xdg = {
+  xdg = {
     enabled = true;
     mimeApps = {
       enabled = true;
