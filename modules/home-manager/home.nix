@@ -4,7 +4,6 @@
   imports = [
     ./home/packages.nix
     ./home/scripts.nix
-    ./home/default_apps.nix
     ./home/apps/hypridle.nix
     ./home/apps/hyprpaper.nix
     ./home/apps/hyprlock.nix
