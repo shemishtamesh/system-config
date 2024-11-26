@@ -5,6 +5,7 @@
     inputs.zen-browser.packages.${system}.default
     libreoffice
     blender
+    openscad
     chromium
     audacity
     musescore
