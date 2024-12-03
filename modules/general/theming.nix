@@ -54,7 +54,7 @@ in
       name = "DejaVu Sans";
     };
     monospace = {
-      package = pkgs.fira-code-symbols;
+      package = pkgs.nerdfonts.fira-code-symbols;
       name = "FiraCode Nerd Font Mono";
     };
     emoji = {
