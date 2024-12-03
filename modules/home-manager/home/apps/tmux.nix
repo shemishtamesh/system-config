@@ -52,6 +52,8 @@ in
         plugin = resurrect;
         extraConfig = # tmux
           ''
+            set -g @resurrect-capture-pane-contents 'on'
+
             set -g @resurrect-strategy-nvim 'session'
             set -g @resurrect-processes '"~nvim->nvim"'
             resurrect_dir="$HOME/.local/share/tmux/resurrect"
