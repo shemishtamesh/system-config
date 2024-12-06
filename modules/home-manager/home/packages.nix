@@ -47,6 +47,7 @@
     wget
     curl
     git
+    koji
     zoxide
     glow
     slides
