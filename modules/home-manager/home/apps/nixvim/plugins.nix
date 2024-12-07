@@ -10,6 +10,7 @@
     ./plugins/zen-mode.nix
     ./plugins/indent-blankline.nix
     ./plugins/which-key.nix
+    # ./plugins/dadbod.nix
     # ./plugins/obsidian.nix
     # ./plugins/alpha.nix
   ];
@@ -21,6 +22,7 @@
     numbertoggle.enable = true;
     gitsigns.enable = true;
     web-devicons.enable = true;
+    snacks.enable = true;
     # rustaceanvim.enable = true;
     # "dressing.nvim".enable = true;
     # vimtex.enable = true;
