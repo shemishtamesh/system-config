@@ -42,6 +42,7 @@ in
           { name = "nvim_lsp"; }
           { name = "buffer"; }
           { name = "async_path"; }
+          { name = "vim-dadbod-completion"; }
         ];
         experimental.ghost_text = true;
       };
