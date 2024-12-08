@@ -3,9 +3,7 @@ let
     mapping.__raw = ''
       cmp.mapping.preset.cmdline({ ["<C-y>"] = { c = cmp.mapping.confirm() } })
     '';
-    sources = [
-      { name = "buffer"; }
-    ];
+    sources = [ { name = "buffer"; } ];
   };
   command_options = {
     mapping.__raw = ''
@@ -31,6 +29,11 @@ in
         "?" = search_options;
         ":" = command_options;
       };
+      filetype = {
+        "sql" = {
+          name = "vim-dadbod-completion";
+        };
+      };
       settings = {
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
@@ -51,7 +54,6 @@ in
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           }
           { name = "async_path"; }
-          { name = "vim-dadbod-completion"; }
         ];
         experimental.ghost_text = true;
       };
