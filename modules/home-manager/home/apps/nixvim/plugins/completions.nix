@@ -1,12 +1,16 @@
 let
   search_options = {
-    mapping.__raw = ''cmp.mapping.preset.cmdline()'';
+    mapping.__raw = ''
+      cmp.mapping.preset.cmdline({ ["<C-y>"] = { c = cmp.mapping.confirm() } })
+    '';
     sources = [
       { name = "buffer"; }
     ];
   };
   command_options = {
-    mapping.__raw = ''cmp.mapping.preset.cmdline()'';
+    mapping.__raw = ''
+      cmp.mapping.preset.cmdline({ ["<C-y>"] = { c = cmp.mapping.confirm() } })
+    '';
     sources = [
       { name = "async_path"; }
       { name = "cmdline"; }
@@ -41,6 +45,11 @@ in
           { name = "codeium"; }
           { name = "nvim_lsp"; }
           { name = "buffer"; }
+          {
+            name = "buffer";
+            # Words from other open buffers can also be suggested.
+            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          }
           { name = "async_path"; }
           { name = "vim-dadbod-completion"; }
         ];
