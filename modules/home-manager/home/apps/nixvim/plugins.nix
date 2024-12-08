@@ -10,7 +10,7 @@
     ./plugins/zen-mode.nix
     ./plugins/indent-blankline.nix
     ./plugins/which-key.nix
-    # ./plugins/snacks.nix
+    ./plugins/snacks.nix
     ./plugins/dadbod.nix
     # ./plugins/obsidian.nix
     # ./plugins/alpha.nix
