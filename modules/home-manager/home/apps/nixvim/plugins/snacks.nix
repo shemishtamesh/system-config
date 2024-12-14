@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       bigfile.enabled = true;
-      quickfile.enabled = false;
+      quickfile.enabled = true;
       dashboard.enabled = true;
     };
   };
