@@ -51,13 +51,18 @@ pkgs.stdenv.mkDerivation {
         --set LD_LIBRARY_PATH "${pkgs.lib.makeLibraryPath runtimeLibs}"
     done
 
+    # Install icons
+    mkdir -p $out/share/icons/hicolor/128x128/apps
+    cp ${./icons/ohrrpgce-game.png} $out/share/icons/hicolor/128x128/apps/ohrrpgce-game.png
+    cp ${./icons/ohrrpgce-custom.png} $out/share/icons/hicolor/128x128/apps/ohrrpgce-custom.png
+
     # Install .desktop files
     mkdir -p $out/share/applications
     cat > $out/share/applications/ohrrpgce-game.desktop <<EOF
     [Desktop Entry]
     Name=OHRRPGCE Game
     Exec=$out/bin/ohrrpgce-game
-    Icon=application-x-executable
+    Icon=ohrrpgce-game
     Terminal=false
     Type=Application
     Categories=Game;
@@ -67,7 +72,7 @@ pkgs.stdenv.mkDerivation {
     [Desktop Entry]
     Name=OHRRPGCE Custom
     Exec=$out/bin/ohrrpgce-custom
-    Icon=application-x-executable
+    Icon=ohrrpgce-custom
     Terminal=false
     Type=Application
     Categories=Development;Game;
