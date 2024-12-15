@@ -18,7 +18,7 @@ let
   ];
 in
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "ohrrpgce";
   version = "ichorescent";
 
@@ -50,6 +50,28 @@ pkgs.stdenv.mkDerivation rec {
         --add-flags "$out/opt/ohrrpgce/ohrrpgce/$prog" \
         --set LD_LIBRARY_PATH "${pkgs.lib.makeLibraryPath runtimeLibs}"
     done
+
+    # Install .desktop files
+    mkdir -p $out/share/applications
+    cat > $out/share/applications/ohrrpgce-game.desktop <<EOF
+    [Desktop Entry]
+    Name=OHRRPGCE Game
+    Exec=$out/bin/ohrrpgce-game
+    Icon=application-x-executable
+    Terminal=false
+    Type=Application
+    Categories=Game;
+    EOF
+
+    cat > $out/share/applications/ohrrpgce-custom.desktop <<EOF
+    [Desktop Entry]
+    Name=OHRRPGCE Custom
+    Exec=$out/bin/ohrrpgce-custom
+    Icon=application-x-executable
+    Terminal=false
+    Type=Application
+    Categories=Development;Game;
+    EOF
   '';
 
   meta = with pkgs.lib; {
