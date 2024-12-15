@@ -211,6 +211,7 @@ in
         "wl-paste --watch cliphist store"
         "${notification-log} $HOME/Documents/logs/notifications.txt"
         "${pkgs.playerctl}/bin/playerctld"
+        "kdeconnect-indicator"
         "hypridle"
       ];
     };
