@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    (callPackage ./apps/ohrrpgce/default.nix)
+    (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
     libreoffice
     blender
