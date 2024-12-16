@@ -13,5 +13,6 @@
       "v4l2loopback"
       "i2c-dev"
     ];
+    supportedFilesystems = [ "ntfs" ];
   };
 }
