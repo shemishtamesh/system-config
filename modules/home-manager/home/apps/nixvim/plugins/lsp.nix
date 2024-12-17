@@ -32,7 +32,10 @@ in
             enable = true;
             settings = {
               telemetry.enable = false;
-              diagnostics.globals = [ "vim" ];
+              diagnostics.globals = [
+                "vim"
+                "love"
+              ];
               workspace = {
                 library = [
                   "${pkgs.neovim}/share/nvim/runtime"
