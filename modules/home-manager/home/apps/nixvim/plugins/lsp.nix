@@ -39,7 +39,7 @@ in
               workspace = {
                 library = [
                   "${pkgs.neovim}/share/nvim/runtime"
-                  "${pkgs.love}/share/love"
+                  "\${3rd}/love2d/library"
                 ];
                 checkThirdParty = false;
               };
