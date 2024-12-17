@@ -41,6 +41,7 @@ in
                   "${pkgs.neovim}/share/nvim/runtime"
                   "${pkgs.love}/share/love"
                 ];
+                checkThirdParty = false;
               };
             };
           };
