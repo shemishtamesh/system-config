@@ -33,6 +33,12 @@ in
             settings = {
               telemetry.enable = false;
               diagnostics.globals = [ "vim" ];
+              workspace = {
+                library = [
+                  "${pkgs.neovim}/share/nvim/runtime"
+                  "${pkgs.love}/share/love"
+                ];
+              };
             };
           };
         };
