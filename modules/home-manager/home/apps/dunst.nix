@@ -16,7 +16,7 @@
       icon_position = "right";
 
       idle_threshold = 120;
-      timeout = 4;
+      timeout = 6;
     };
   };
 }
