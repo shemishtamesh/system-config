@@ -1,3 +1,4 @@
+# notifications
 { ... }:
 
 {
@@ -15,7 +16,7 @@
       icon_position = "right";
 
       idle_threshold = 120;
-      timeout = 2;
+      timeout = 4;
     };
   };
 }
