@@ -44,7 +44,7 @@
           owner = "dbeniamine";
           repo = "cheat.sh-vim";
           rev = "main";
-          sha256 = "<calculated-sha256>";
+          sha256 = "";
         };
       })
     ];
