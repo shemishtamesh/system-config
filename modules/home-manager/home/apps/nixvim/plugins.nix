@@ -36,11 +36,11 @@
       # beacon.enable = true;
       # noice.enable =  true;
     };
-    extraPlugins = with pkgs; [
-      (buildVimPluginFrom2Nix {
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPluginFrom2Nix {
         pname = "cheat.sh-vim";
         version = "latest";
-        src = fetchFromGitHub {
+        src = pkgs.fetchFromGitHub {
           owner = "dbeniamine";
           repo = "cheat.sh-vim";
           rev = "main";
