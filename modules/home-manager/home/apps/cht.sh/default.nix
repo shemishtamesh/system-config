@@ -9,7 +9,7 @@ pkgs.stdenv.mkDerivation rec {
 
   src = pkgs.fetchurl {
     url = "https://cht.sh/:cht.sh";
-    sha256 = lib.fakeSha256;
+    sha256 = "sha256-0xNeQrgA/y56rETU3+UA8PTix+sAocIZGw3IsoQx8VU=";
   };
 
   buildPhase = "true"; # No build step is needed
