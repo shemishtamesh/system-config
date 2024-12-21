@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    unzip
     cht-sh
     (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
