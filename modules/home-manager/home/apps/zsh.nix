@@ -32,19 +32,12 @@
     ];
     initExtra = # sh
       ''
-        autoload -Uz compinit && compinit
-
-        # Fetch cht.sh completion script
-        chtsh_completion_path=${
-          builtins.fetchurl {
-            url = "https://cheat.sh/:zsh";
-            sha256 = "sha256:097grmcz7v0v7gqgfljzwvyvr56d9kvc3m2hw5mibq226c54sf5g";
-            name = "cht-sh-zsh-completion";
-          }
-        }
-        if [ -f "$chtsh_completion_path" ]; then
-          source "$chtsh_completion_path"
-        fi
+        fpath=(~/.zsh/completions $fpath)
       '';
+  };
+  home.file = {
+    ".zsh/completions/_cht" = {
+      source = "https://cheat.sh/:zsh";
+    };
   };
 }
