@@ -36,6 +36,7 @@
         builtins.fetchurl {
           url = "https://cheat.sh/:zsh";
           sha256 = "";
+          name = "cht-sh-zsh-completion";
         }
       }>
     '';
