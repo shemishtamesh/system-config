@@ -35,9 +35,11 @@
         fpath=(~/.zsh/completions $fpath)
       '';
   };
-  home.file = {
-    ".zsh/completions/_cht" = {
-      source = "https://cheat.sh/:zsh";
+  home.file.".zsh/completions/_cht" = {
+    source = builtins.fetchurl {
+      url = "https://cheat.sh/:zsh";
+      sha256 = "<calculated-sha256-hash>";
+      name = "cht-sh-zsh-completion";
     };
   };
 }
