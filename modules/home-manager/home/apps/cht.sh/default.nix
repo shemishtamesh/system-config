@@ -12,7 +12,7 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "sha256-0xNeQrgA/y56rETU3+UA8PTix+sAocIZGw3IsoQx8VU=";
   };
 
-  buildPhase = "true"; # No build step is needed
+  unpackPhase = "true"; # No unpacking needed, so we skip it.
   buildPhase = "true"; # No build step needed.
 
   installPhase = ''
