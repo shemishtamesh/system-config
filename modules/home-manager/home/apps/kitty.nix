@@ -12,6 +12,7 @@ in
     keybindings = {
       "kitty_mod+h" = "kitty_scrollback_nvim --no-nvim-args";
       "kitty_mod+g" = "kitty_scrollback_nvim --no-nvim-args --config ksb_builtin_last_cmd_output";
+
       "alt+0" = "disable_ligatures_in all never";
       "alt+1" = "disable_ligatures_in all always";
     };
