@@ -30,5 +30,14 @@
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
+    initExtra = ''
+      # Fetch cht.sh completion script
+      source <${
+        builtins.fetchurl {
+          url = "https://cheat.sh/:zsh";
+          sha256 = "<calculated-sha256-hash>";
+        }
+      }>
+    '';
   };
 }
