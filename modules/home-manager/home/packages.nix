@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    (callPackage ./apps/cht.sh { })
+    cht-sh
     (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
     libreoffice
