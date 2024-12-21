@@ -31,6 +31,8 @@
       }
     ];
     initExtra = ''
+      autoload -Uz compinit && compinit
+
       # Fetch cht.sh completion script
       source ${
         builtins.fetchurl {
