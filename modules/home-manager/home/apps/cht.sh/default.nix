@@ -13,6 +13,7 @@ pkgs.stdenv.mkDerivation rec {
   };
 
   buildPhase = "true"; # No build step is needed
+  buildPhase = "true"; # No build step needed.
 
   installPhase = ''
     mkdir -p $out/bin
