@@ -26,7 +26,7 @@ in
 
       action_alias = "kitty_scrollback_nvim kitten $HOME/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
 
-      cursor_trail = 3;
+      cursor_trail = 1;
 
       font_size = 14;
 
