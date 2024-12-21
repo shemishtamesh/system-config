@@ -9,6 +9,10 @@ in
   stylix.targets.kitty.enable = false;
   programs.kitty.enable = true;
   programs.kitty = {
+    keybindings = {
+      "kitty_mod+h" = "kitty_scrollback_nvim --no-nvim-args";
+      "kitty_mod+g" = "kitty_scrollback_nvim --no-nvim-args --config ksb_builtin_last_cmd_output";
+    };
     settings = {
       mouse_hide_wait = -1;
 
@@ -21,6 +25,8 @@ in
       listen_on = "unix:/tmp/kitty";
 
       action_alias = "kitty_scrollback_nvim kitten $HOME/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
+
+      cursor_trail = 3;
 
       font_size = 14;
 
@@ -72,10 +78,6 @@ in
       color19 = palette.base17;
       color20 = palette.base04;
       color21 = palette.base06;
-    };
-    keybindings = {
-      "kitty_mod+h" = "kitty_scrollback_nvim --no-nvim-args";
-      "kitty_mod+g" = "kitty_scrollback_nvim --no-nvim-args --config ksb_builtin_last_cmd_output";
     };
   };
 }
