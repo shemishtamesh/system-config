@@ -23,6 +23,7 @@
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
+    "cht.sh".enable = true;
     plugins = [
       {
         name = "vi-mode";
