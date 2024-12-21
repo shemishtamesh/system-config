@@ -35,7 +35,7 @@
       source <${
         builtins.fetchurl {
           url = "https://cheat.sh/:zsh";
-          sha256 = "<calculated-sha256-hash>";
+          sha256 = "";
         }
       }>
     '';
