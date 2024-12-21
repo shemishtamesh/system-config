@@ -37,7 +37,7 @@
       # noice.enable =  true;
     };
     extraPlugins = with pkgs; [
-      (vimUtils.buildVimPluginFrom2Nix {
+      (vimUtils.buildVimPlugin {
         pname = "cheat.sh-vim";
         version = "latest";
         src = fetchFromGitHub {
