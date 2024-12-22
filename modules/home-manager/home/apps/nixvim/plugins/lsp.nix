@@ -27,7 +27,7 @@ in
             enable = true;
             installRustc = true;
             installCargo = true;
-            diagnostic.refreshSupport = false;
+            settings.diagnostic.refreshSupport = false;
           };
           lua_ls = {
             enable = true;
