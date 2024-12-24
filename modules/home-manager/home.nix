@@ -1,8 +1,5 @@
 { theme, ... }:
-let
-  nixpkgs_config = # nix
-    "{ allowBroken = true; }";
-in
+
 {
   imports = [
     ./home/packages.nix
@@ -42,8 +39,8 @@ in
     indicator = true;
   };
 
-  nixpkgs.config = nixpkgs_config;
-  xdg.configFile."nixpkgs/config.nix".source = nixpkgs_config;
+  nixpkgs.config = import ./home/nixpkgs.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ./home/nixpkgs.nix;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
