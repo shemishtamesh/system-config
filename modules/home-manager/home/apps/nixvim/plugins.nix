@@ -20,7 +20,7 @@
   programs.nixvim = {
     plugins = {
       lualine.enable = true;
-      # nvim-colorizer.enable = true;
+      colorizer.enable = true;
       tmux-navigator.enable = true;
       otter.enable = true;
       numbertoggle.enable = true;
