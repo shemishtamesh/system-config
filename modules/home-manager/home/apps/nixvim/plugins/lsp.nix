@@ -46,21 +46,22 @@ in
             };
           };
         };
-        luaConfig.post = # lua
+        postConfig = # lua
           ''
             for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
-                local default_diagnostic_handler = vim.lsp.handlers[method]
-                vim.lsp.handlers[method] = function(err, result, context, config)
-                    if err ~= nil and err.code == -32802 then
-                        return
-                    end
-                    return default_diagnostic_handler(err, result, context, config)
+              local default_diagnostic_handler = vim.lsp.handlers[method]
+              vim.lsp.handlers[method] = function(err, result, context, config)
+                if err ~= nil and err.code == -32802 then
+                  return
                 end
+                return default_diagnostic_handler(err, result, context, config)
+              end
             end
           '';
       };
     };
     keymaps = [
+      # defined outside of lsp for whichkey
       (keymap "n" "<leader>la" "<cmd>lua vim.lsp.buf.code_action()<CR>" { silent = true; })
       (keymap "n" "<leader>lf" "<cmd>lua vim.lsp.buf.format()<CR>" { silent = true; })
       (keymap "n" "<leader>ln" "<cmd>lua vim.lsp.buf.rename()<CR>" { silent = true; })
