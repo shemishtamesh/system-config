@@ -16,12 +16,12 @@ in
         (keymap "n" "<leader>fj" "<cmd>Telescope jumplist<CR>" { })
         (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<CR>" { })
       ];
-      luaConfig.post = # lua
-        ''
-          if #vim.fn.argv() == 0 then
-            vim.cmd("Telescope find_files")
-          end
-        '';
+      # luaConfig.post = # lua
+      #   ''
+      #     if #vim.fn.argv() == 0 then
+      #       vim.cmd("Telescope find_files")
+      #     end
+      #   '';
     };
   };
 }
