@@ -4,7 +4,6 @@
     settings = {
       bigfile.enabled = true;
       quickfile.enabled = true;
-      dashboard.enabled = true;
     };
   };
 }

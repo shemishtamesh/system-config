@@ -15,7 +15,7 @@
     ./plugins/snacks.nix
     ./plugins/dadbod.nix
     # ./plugins/obsidian.nix
-    # ./plugins/alpha.nix
+    ./plugins/alpha.nix
   ];
   programs.nixvim = {
     plugins = {
