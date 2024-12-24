@@ -8,7 +8,7 @@ in
       luaConfig.post = # lua
         ''
           if #vim.fn.argv() == 0 then
-            vim.cmd("Telescope find_files")
+            require('telescope.builtin').find_files()
           end
         '';
     };
