@@ -1,8 +1,7 @@
 { theme, ... }:
 let
-  nixpkgs_config = {
-    allowBroken = true;
-  };
+  nixpkgs_config = # nix
+    "{ allowBroken = true; }";
 in
 {
   imports = [
