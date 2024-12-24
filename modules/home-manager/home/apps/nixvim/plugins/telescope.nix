@@ -16,7 +16,7 @@ in
       (keymap "n" "<leader>fk" "<cmd>Telescope keymaps<CR>" { })
     ];
     extraConfigLua = ''
-      if #vim.argv() == 0 then
+      if #vim.fn.argv() == 0 then
         vim.cmd("Telescope find_files")
       end
     '';
