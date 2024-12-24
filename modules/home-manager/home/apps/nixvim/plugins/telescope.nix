@@ -7,9 +7,7 @@ in
       enable = true;
       luaConfig.post = # lua
         ''
-          if #vim.fn.argv() == 0 then
-            require('telescope.builtin').find_files()
-          end
+          if vim.fn.argv(0) == "" then vim.cmd("Telescope") end
         '';
     };
     keymaps = [
