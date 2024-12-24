@@ -23,7 +23,7 @@ in
             settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
           };
           pyright.enable = true;
-          rustaceanvim = {
+          rust_analyzer = {
             enable = true;
             installRustc = true;
             installCargo = true;
