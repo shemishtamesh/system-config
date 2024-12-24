@@ -4,7 +4,7 @@ let
 in
 {
   programs.nixvim = {
-    diagnostics.signs.text.__raw = # lua
+    diagnostics.signs.text.__raw = # make space for git signs # lua
       ''
         {
           [vim.diagnostic.severity.ERROR] = "",
@@ -46,6 +46,18 @@ in
             };
           };
         };
+        luaConfig.post = # lua
+          ''
+            for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+                local default_diagnostic_handler = vim.lsp.handlers[method]
+                vim.lsp.handlers[method] = function(err, result, context, config)
+                    if err ~= nil and err.code == -32802 then
+                        return
+                    end
+                    return default_diagnostic_handler(err, result, context, config)
+                end
+            end
+          '';
       };
     };
     keymaps = [
