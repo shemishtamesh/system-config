@@ -15,7 +15,7 @@
     lmms
     gimp
     krita
-    # aseprite
+    aseprite
     imv
     pulsemixer
     inkscape
