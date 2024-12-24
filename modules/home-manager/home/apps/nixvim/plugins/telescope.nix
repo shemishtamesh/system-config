@@ -5,22 +5,22 @@ in
   programs.nixvim = {
     plugins.telescope = {
       enable = true;
-      # luaConfig.post = # lua
-      #   ''
-      #     vim.api.nvim_create_autocmd("VimEnter", {
-      #       callback = function()
-      #         if (
-      #           vim.bo.filetype ~= ""
-      #           or vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] ~= ""
-      #           or vim.fn.argv(0) ~= ""
-      #         ) then
-      #           return
-      #         else
-      #           require("telescope.builtin").find_files()
-      #         end
-      #       end,
-      #     })
-      #   '';
+      luaConfig.post = # lua
+        ''
+          vim.api.nvim_create_autocmd("VimEnter", {
+            callback = function()
+              if (
+                vim.bo.filetype ~= ""
+                or vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] ~= ""
+                or vim.fn.argv(0) ~= ""
+              ) then
+                return
+              else
+                require("telescope.builtin").find_files()
+              end
+            end,
+          })
+        '';
     };
     keymaps = [
       (keymap "n" "<leader>fo" "<cmd>Telescope oldfiles<CR>" { })
