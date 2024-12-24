@@ -14,8 +14,8 @@
     ./plugins/which-key.nix
     ./plugins/snacks.nix
     ./plugins/dadbod.nix
+    ./plugins/dashboard.nix
     # ./plugins/obsidian.nix
-    # ./plugins/alpha.nix
   ];
   programs.nixvim = {
     plugins = {
@@ -26,7 +26,6 @@
       numbertoggle.enable = true;
       gitsigns.enable = true;
       web-devicons.enable = true;
-      snacks.enable = true;
       # rustaceanvim.enable = true;
       # "dressing.nvim".enable = true;
       # vimtex.enable = true;
@@ -35,7 +34,6 @@
       # vim-asciidoctor.enable = true;
       # beacon.enable = true;
       # noice.enable =  true;
-      dashboard.enable = true;
     };
     extraPlugins = with pkgs; [
       (vimUtils.buildVimPlugin {
