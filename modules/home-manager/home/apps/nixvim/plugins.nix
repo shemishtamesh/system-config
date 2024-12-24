@@ -15,7 +15,7 @@
     ./plugins/snacks.nix
     ./plugins/dadbod.nix
     # ./plugins/obsidian.nix
-    ./plugins/alpha.nix
+    # ./plugins/alpha.nix
   ];
   programs.nixvim = {
     plugins = {
@@ -35,7 +35,7 @@
       # vim-asciidoctor.enable = true;
       # beacon.enable = true;
       # noice.enable =  true;
-      # dashboard.enable = true;
+      dashboard.enable = true;
     };
     extraPlugins = with pkgs; [
       (vimUtils.buildVimPlugin {
