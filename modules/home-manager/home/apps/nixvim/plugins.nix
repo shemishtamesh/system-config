@@ -14,7 +14,7 @@
     ./plugins/which-key.nix
     ./plugins/snacks.nix
     ./plugins/dadbod.nix
-    ./plugins/dashboard.nix
+    # ./plugins/dashboard.nix
     # ./plugins/obsidian.nix
   ];
   programs.nixvim = {
