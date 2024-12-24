@@ -35,6 +35,7 @@
       # vim-asciidoctor.enable = true;
       # beacon.enable = true;
       # noice.enable =  true;
+      # dashboard.enable = true;
     };
     extraPlugins = with pkgs; [
       (vimUtils.buildVimPlugin {
