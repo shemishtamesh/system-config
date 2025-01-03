@@ -4,7 +4,7 @@ let
 in
 {
   programs.nixvim = {
-    diagnostics.signs.text.__raw = # make space for git signs # lua
+    diagnostics.signs.text.__raw = # make space for git signs
       ''
         {
           [vim.diagnostic.severity.ERROR] = "",
