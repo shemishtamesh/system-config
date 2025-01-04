@@ -78,7 +78,8 @@
     vlc
     obsidian
     lorien
-    transmission_4-gtk
     qpwgraph
+    transmission
+    tremc
   ];
 }

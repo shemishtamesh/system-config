@@ -213,6 +213,7 @@ in
         "${pkgs.playerctl}/bin/playerctld"
         "kdeconnect-indicator"
         "hypridle"
+        "transmission-daemon"
       ];
     };
     systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
