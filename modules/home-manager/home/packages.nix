@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    tetrio-desktop
     unzip
     cht-sh
     (callPackage ./apps/ohrrpgce { })
