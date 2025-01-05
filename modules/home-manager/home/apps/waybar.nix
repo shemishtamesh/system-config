@@ -91,16 +91,16 @@ in
         ];
 
         cpu = {
-          format = "\n{usage}%";
+          format = "\n{usage}";
           justify = "center";
         };
         memory = {
-          format = "\n{percentage}%";
+          format = "\n{percentage}";
           justify = "center";
         };
         "pulseaudio#input" = {
-          format-source = " {volume}%";
-          format-source-muted = " ";
+          format-source = "\n{volume}";
+          format-source-muted = "";
           format = "{format_source}";
           scroll-step = 1;
           smooth-scrolling-threshold = 1;
@@ -111,13 +111,13 @@ in
           justify = "center";
         };
         "pulseaudio#output" = {
-          format = "{icon}\n{volume}%";
-          format-muted = " ";
+          format = "{icon}\n{volume}";
+          format-muted = "";
           format-icons = {
             default = [
               ""
-              " "
-              " "
+              ""
+              ""
             ];
           };
           scroll-step = 2;
@@ -127,20 +127,20 @@ in
           justify = "center";
         };
         backlight = {
-          format = "\n{percent}%";
+          format = "\n{percent}";
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
           justify = "center";
         };
         battery = {
-          format = "\n{capacity}%";
+          format = "\n{capacity}";
           justify = "center";
         };
         temperature = {
           thermal-zone = 6;
         };
         network = {
-          format = "\n{signalStrength}%";
+          format = "\n{signalStrength}";
           format-disconnected = "󰖪";
           justify = "center";
         };
