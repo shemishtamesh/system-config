@@ -108,7 +108,7 @@ in
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-";
         };
         "pulseaudio#output" = {
-          format = "{icon} {volume}%";
+          format = "{icon}\n{volume}%";
           format-muted = " ";
           format-icons = {
             default = [
@@ -123,29 +123,29 @@ in
           on-click-middle = "pavucontrol";
         };
         backlight = {
-          format = " {percent}%";
+          format = "\n{percent}%";
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
         };
         battery = {
-          format = " {capacity}%";
+          format = "\n{capacity}%";
         };
         temperature = {
           thermal-zone = 6;
         };
         network = {
-          format = "  {essid} {signalStrength}%";
+          # format = "  {essid} {signalStrength}%";
+          format = "\n{signalStrength}%";
           format-disconnected = "󰖪";
         };
         "hyprland/language" = {
           format = " {short}";
         };
         user = {
-          format = " {work_d} days, {work_H}:{work_M}";
-          transform = "rotate(-90deg)";
+          format = "\n{work_d} days, {work_H}:{work_M}";
         };
         disk = {
-          format = " {percentage_free}%";
+          format = "\n{percentage_free}%";
         };
       };
 
