@@ -8,6 +8,7 @@ let
   rgba = (import ../../../general/utils.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
   window_icon = "";
   firefox_icon = "󰈹";
+  spotify_icon = "";
 in
 {
   stylix.targets.waybar.enable = false;
@@ -32,6 +33,8 @@ in
             "class<(firefox|librewolf|zen-alpha)> title<.*youtube.*>" = "";
             "class<(firefox|librewolf|zen-alpha)> title<.*github.*>" = "";
             "class<(firefox|librewolf|zen-alpha)>" = firefox_icon;
+            "class<spotify>" = spotify_icon;
+            "class<.*discord.*>" = "";
             "class<kitty>" = "";
             "code" = "󰨞";
           };
@@ -55,7 +58,7 @@ in
             firefox = "${firefox_icon} ";
             librewolf = "${firefox_icon} ";
             zen = "${firefox_icon} ";
-            spotify = " ";
+            spotify = "${spotify_icon} ";
           };
           status-icons = {
             default = "";
