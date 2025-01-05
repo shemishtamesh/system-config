@@ -216,10 +216,10 @@ in
           format = "{short_state} {icon} {name}";
           icon-size = 14;
           icon-theme = "Numix-Circle";
-          tooltip-format = "{title}";
+          tooltip-format = "{name}";
           on-click = "activate";
           on-click-middle = "close";
-          on-click-right = "minimize-raize";
+          on-click-right = "minimize-raise";
         };
         idle_inhibitor = {
           format = "{icon}";
