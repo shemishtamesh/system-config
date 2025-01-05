@@ -92,12 +92,12 @@ in
         cpu = {
           format = " {usage}%";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         memory = {
           format = " {percentage}%";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         "pulseaudio#input" = {
           format-source = " {volume}%";
@@ -110,7 +110,7 @@ in
           on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         "pulseaudio#output" = {
           format = "{icon} {volume}%";
@@ -121,41 +121,41 @@ in
               ""
               ""
             ];
-            rotate = 90;
+            rotate = 270;
           };
           scroll-step = 2;
           smooth-scrolling-threshold = 1;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-click-middle = "pavucontrol";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         backlight = {
           format = " {percent}%";
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         battery = {
           format = " {capacity}%";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         temperature = {
           thermal-zone = 6;
-          rotate = 90;
+          rotate = 270;
         };
         network = {
           format = " {essid} {signalStrength}%";
           format-disconnected = "󰖪";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         "hyprland/language" = {
           format = " {language}";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         user = {
           format = " {work_D} days, {work_H}:{work_M}";
