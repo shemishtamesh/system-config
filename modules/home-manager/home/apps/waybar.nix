@@ -142,6 +142,7 @@ in
         };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
+          transform = "rotate(-90deg)";
         };
         disk = {
           format = " {percentage_free}%";
