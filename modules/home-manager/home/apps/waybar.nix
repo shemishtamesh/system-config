@@ -68,7 +68,7 @@ in
         };
       };
 
-      taskbar = {
+      right_bar = {
         position = "right";
         output = [
           "eDP-1"
@@ -213,7 +213,7 @@ in
           };
         };
         "wlr/taskbar" = {
-          format = "{short_state} {icon} {name}";
+          format = "{icon} {title}";
           icon-size = 14;
           icon-theme = "Numix-Circle";
           tooltip-format = "{name}";
@@ -272,6 +272,7 @@ in
 
         #clock,
         #taskbar button,
+        #workspaces button,
         #idle_inhibitor,
         #tray,
         #window,
@@ -310,7 +311,7 @@ in
             padding: 1px 10px 1px 5px;
         }
         #taskbar button.hover,
-        #workspaces button:hover {
+        #workspaces button.hover {
             padding: 1px 12px 1px 7px;
             background: ${palette.base0D};
             margin-bottom: 0;
