@@ -75,8 +75,8 @@ in
           "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
           "$mod, XF86AudioPlay, togglespecialworkspace, music"
           "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
-          "$mod, 0, togglespecialworkspace, special"
-          "$mod SHIFT, 0, movetoworkspace, special:special"
+          "$mod, 0, togglespecialworkspace, scratchpad"
+          "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
           "$mod, n, workspace, empty"
           "$mod, mouse_up, workspace, e-1"
           "$mod, mouse_down, workspace, e+1"
@@ -171,7 +171,6 @@ in
         hide_on_key_press = true;
       };
       decoration = {
-        dim_special = 0.6;
         rounding = rounding;
       };
       dwindle = {
