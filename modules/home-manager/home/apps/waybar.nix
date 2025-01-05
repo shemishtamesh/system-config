@@ -241,10 +241,8 @@ in
         }
 
         #disk,
-        #clock,
         #cpu,
         #memory,
-        #tray,
         #network,
         #bluetooth,
         #user,
@@ -252,10 +250,7 @@ in
         #pulseaudio,
         #pulseaudio.input.source-muted,
         #backlight,
-        #mpris,
-        #idle_inhibitor,
         #privacy,
-        #window,
         #language,
         #keyboard-state,
         #workspaces button,
@@ -263,8 +258,24 @@ in
             background: ${palette.base0C};
             color: ${palette.base00};
             opacity: 1;
-            padding: 1px 2px;
+            padding: 2px 1px;
             margin: 4 0px;
+            border-radius: 10px;
+            animation: gradient_f 20s ease-in infinite;
+            transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+        }
+
+        #clock,
+        #idle_inhibitor,
+        #tray,
+        #window,
+        #workspaces button,
+        #mpris {
+            background: ${palette.base0C};
+            color: ${palette.base00};
+            opacity: 1;
+            padding: 1px 2px;
+            margin: 0 p4x;
             border-radius: 10px;
             animation: gradient_f 20s ease-in infinite;
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
