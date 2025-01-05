@@ -216,7 +216,7 @@ in
           format = "{icon} {title:.15}";
           icon-size = 14;
           icon-theme = "Numix-Circle";
-          tooltip-format = "{name}";
+          tooltip-format = "{app_id} ({state}): {name}";
           on-click = "activate";
           on-click-middle = "close";
           on-click-right = "minimize-raise";
