@@ -212,6 +212,18 @@ in
           format-he = "🇮🇱";
           rotate = 270;
         };
+        keyboard-state = {
+          numlock = true;
+          capslock = true;
+          format = {
+            numlock = "N {icon}";
+            capslock = "C {icon}";
+          };
+          format-icons = {
+            locked = "";
+            unlocked = "";
+          };
+        };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
           rotate = 270;
@@ -250,6 +262,7 @@ in
         #backlight,
         #privacy,
         #language,
+        #keyboard-state,
         #battery {
             background: ${palette.base0C};
             color: ${palette.base00};
