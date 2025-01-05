@@ -134,7 +134,6 @@ in
           thermal-zone = 6;
         };
         network = {
-          # format = "  {essid} {signalStrength}%";
           format = "\n{signalStrength}%";
           format-disconnected = "󰖪";
         };
@@ -209,7 +208,7 @@ in
             font-family: FiraCode Nerd Font;
             font-weight: bold;
             font-size: 15px;
-            text-align: center;
+            align: center;
         }
 
         window#waybar {
