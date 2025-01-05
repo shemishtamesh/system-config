@@ -142,7 +142,7 @@ in
           format = " {short}";
         };
         user = {
-          format = "\n{work_d} days, {work_H}:{work_M}";
+          format = "\n{up_H}:{up_M}";
         };
         disk = {
           format = "\n{percentage_free}%";
@@ -209,6 +209,7 @@ in
             font-family: FiraCode Nerd Font;
             font-weight: bold;
             font-size: 15px;
+            text-align: center;
         }
 
         window#waybar {
