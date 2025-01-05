@@ -156,11 +156,11 @@ in
           justify = "center";
           rotate = 270;
         };
-        # "hyprland/language" = {
-        #   format = " {language}";
-        #   justify = "center";
-        #   rotate = 270;
-        # };
+        "hyprland/language" = {
+          format = " {language}";
+          justify = "center";
+          # rotate = 270;
+        };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
           justify = "center";
