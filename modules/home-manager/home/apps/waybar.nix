@@ -217,15 +217,15 @@ in
           capslock = true;
           scrolllock = true;
           format = {
-            numlock = "N {icon}";
-            capslock = "C {icon}";
-            scrolllock = "S {icon}";
+            numlock = "#{icon}";
+            capslock = "󰪛{icon}";
+            scrolllock = "{icon}";
           };
           format-icons = {
             locked = "";
             unlocked = "";
           };
-          rotate = 270;
+          # rotate = 270;
         };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
