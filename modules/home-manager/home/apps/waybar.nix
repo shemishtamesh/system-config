@@ -91,10 +91,12 @@ in
         ];
 
         cpu = {
-          format = " {usage}%";
+          format = "\n{usage}%";
+          justify = "center";
         };
         memory = {
-          format = " {percentage}%";
+          format = "\n{percentage}%";
+          justify = "center";
         };
         "pulseaudio#input" = {
           format-source = " {volume}%";
@@ -106,6 +108,7 @@ in
           on-click-middle = "pavucontrol";
           on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-";
+          justify = "center";
         };
         "pulseaudio#output" = {
           format = "{icon}\n{volume}%";
@@ -121,14 +124,17 @@ in
           smooth-scrolling-threshold = 1;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-click-middle = "pavucontrol";
+          justify = "center";
         };
         backlight = {
           format = "\n{percent}%";
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
+          justify = "center";
         };
         battery = {
           format = "\n{capacity}%";
+          justify = "center";
         };
         temperature = {
           thermal-zone = 6;
@@ -136,15 +142,19 @@ in
         network = {
           format = "\n{signalStrength}%";
           format-disconnected = "󰖪";
+          justify = "center";
         };
         "hyprland/language" = {
-          format = " {short}";
+          format = "\n{short}";
+          justify = "center";
         };
         user = {
           format = "\n{up_H}\n{up_M}";
+          justify = "center";
         };
         disk = {
           format = "\n{percentage_free}%";
+          justify = "center";
         };
       };
 
@@ -208,7 +218,6 @@ in
             font-family: FiraCode Nerd Font;
             font-weight: bold;
             font-size: 15px;
-            justify: center;
         }
 
         window#waybar {
