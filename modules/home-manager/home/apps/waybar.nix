@@ -145,7 +145,7 @@ in
           justify = "center";
         };
         "hyprland/language" = {
-          format = "\n{short}";
+          format = " \n{short}";
           justify = "center";
         };
         user = {
