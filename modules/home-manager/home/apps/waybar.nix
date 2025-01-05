@@ -157,7 +157,7 @@ in
         disk = {
           format = "\n{percentage_free}%";
           justify = "center";
-          rotate = 90;
+          rotate = -90;
         };
       };
 
