@@ -152,6 +152,10 @@ in
           justify = "center";
           rotate = 270;
         };
+        bluetooth = {
+          justify = "center";
+          rotate = 270;
+        };
         "hyprland/language" = {
           format = " {language}";
           justify = "center";
