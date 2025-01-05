@@ -147,14 +147,17 @@ in
         "hyprland/language" = {
           format = " {short}";
           justify = "center";
+          rotate = 90;
         };
         user = {
           format = "\n{up_H}\n{up_M}";
           justify = "center";
+          rotate = 90;
         };
         disk = {
           format = "\n{percentage_free}%";
           justify = "center";
+          rotate = 90;
         };
       };
 
