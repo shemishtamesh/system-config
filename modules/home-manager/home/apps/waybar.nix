@@ -329,7 +329,7 @@ in
             background: ${palette.base13};
         }
 
-        #taskbar.empty
+        #taskbar.empty,
         window#waybar.empty #window {
             padding: 1px 50px;
             background: ${palette.base02};
