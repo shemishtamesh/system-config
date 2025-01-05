@@ -70,13 +70,16 @@ in
 
       bottom_bar = {
         position = "bottom";
-        output = [ "eDP-1" ];
+        output = [
+          "eDP-1"
+          "HDMI-A-1"
+        ];
         modules-left = [ "clock" ];
         modules-center = [
           "wlr/taskbar"
-          "tray"
         ];
         modules-right = [
+          "tray"
           "idle_inhibitor"
           "disk"
           "backlight"
