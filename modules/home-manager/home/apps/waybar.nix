@@ -69,7 +69,7 @@ in
       };
 
       taskbar = {
-        position = "bottom";
+        position = "left";
         output = [
           "eDP-1"
           "HDMI-A-1"
@@ -149,7 +149,7 @@ in
       };
 
       bottom_bar = {
-        position = "left";
+        position = "bottom";
         output = [
           "eDP-1"
           "HDMI-A-1"
