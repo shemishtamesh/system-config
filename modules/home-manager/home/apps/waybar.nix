@@ -181,7 +181,7 @@ in
         ];
         modules-left = [ "clock" ];
         modules-center = [
-          "wlr/taskbar"
+          # "wlr/taskbar"
         ];
         modules-right = [
           "tray"
