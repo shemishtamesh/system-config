@@ -78,7 +78,7 @@ in
           "backlight"
           "pulseaudio#output"
           "pulseaudio#input"
-          "hyprland/language"
+          # "hyprland/language"
           "memory"
           "cpu"
           "temperature"
@@ -258,7 +258,6 @@ in
         #backlight,
         #privacy,
         #language,
-        #keyboard-state,
         #battery {
             background: ${palette.base0C};
             color: ${palette.base00};
