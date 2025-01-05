@@ -120,6 +120,9 @@ in
             on-scroll-down = "shift_up";
           };
         };
+        "wlr/taskbar" = {
+          icon-size = 15;
+        };
         cpu = {
           format = " {usage}%";
         };
