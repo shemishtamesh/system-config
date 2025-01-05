@@ -142,7 +142,7 @@ in
           format = " {short}";
         };
         user = {
-          format = "\n{up_H}:{up_M}";
+          format = "\n{up_H}\n{up_M}";
         };
         disk = {
           format = "\n{percentage_free}%";
