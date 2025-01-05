@@ -29,9 +29,9 @@ in
           format-window-separator = " ";
           window-rewrite-default = window_icon;
           window-rewrite = {
-            "class<(firefox|librewolf|zen)> title<.*youtube.*>" = "";
-            "class<(firefox|librewolf|zen)> title<.*github.*>" = "";
-            "class<(firefox|librewolf|zen)>" = firefox_icon;
+            "class<(firefox|librewolf|zen-alpha)> title<.*youtube.*>" = "";
+            "class<(firefox|librewolf|zen-alpha)> title<.*github.*>" = "";
+            "class<(firefox|librewolf|zen-alpha)>" = firefox_icon;
             "class<kitty>" = "";
             "code" = "󰨞";
           };
