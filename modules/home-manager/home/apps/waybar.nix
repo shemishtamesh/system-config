@@ -35,6 +35,7 @@ in
             "class<kitty>" = "";
             "code" = "󰨞";
           };
+          show-special = true;
         };
         "hyprland/window" = {
           icon = true;
