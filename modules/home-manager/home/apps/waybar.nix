@@ -181,7 +181,7 @@ in
         ];
         modules-left = [ "clock" ];
         modules-center = [
-          # "wlr/taskbar"
+          "wlr/taskbar"
         ];
         modules-right = [
           "tray"
@@ -259,7 +259,6 @@ in
         #privacy,
         #language,
         #keyboard-state,
-        #workspaces button,
         #battery {
             background: ${palette.base0C};
             color: ${palette.base00};
@@ -272,10 +271,10 @@ in
         }
 
         #clock,
+        #taskbar button,
         #idle_inhibitor,
         #tray,
         #window,
-        #workspaces button,
         #mpris {
             background: ${palette.base0C};
             color: ${palette.base00};
@@ -302,17 +301,21 @@ in
             padding: 1px 8px 1px 5px;
         }
 
+        #taskbar,
         #workspaces {
             background: ${rgba "base00" 0};
         }
+        #taskbar button,
         #workspaces button {
             padding: 1px 10px 1px 5px;
         }
+        #taskbar button.hover,
         #workspaces button:hover {
             padding: 1px 12px 1px 7px;
             background: ${palette.base0D};
             margin-bottom: 0;
         }
+        #taskbar button.active,
         #workspaces button.active {
             padding: 1px 15px 1px 10px;
             background: ${palette.base0B};
