@@ -80,7 +80,7 @@
     lorien
     qpwgraph
     fastfetch
-    transmissiontransmi
+    transmission
     tremc
   ];
 }
