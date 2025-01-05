@@ -121,7 +121,7 @@ in
           };
         };
         "wlr/taskbar" = {
-          icon-size = 15;
+          icon-size = 10;
         };
         cpu = {
           format = " {usage}%";
