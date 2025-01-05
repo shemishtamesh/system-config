@@ -78,7 +78,7 @@ in
           "backlight"
           "pulseaudio#output"
           "pulseaudio#input"
-          # "hyprland/language"
+          "hyprland/language"
           "memory"
           "cpu"
           "temperature"
