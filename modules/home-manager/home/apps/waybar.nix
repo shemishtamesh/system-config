@@ -91,11 +91,6 @@ in
         ];
         modules-left = [ "clock" ];
         modules-center = [
-          "wlr/taskbar"
-        ];
-        modules-right = [
-          "tray"
-          "idle_inhibitor"
           "disk"
           "backlight"
           "pulseaudio#output"
@@ -109,6 +104,10 @@ in
           "bluetooth"
           "user"
           "battery"
+        ];
+        modules-right = [
+          "tray"
+          "idle_inhibitor"
         ];
 
         clock = {
