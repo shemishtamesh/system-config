@@ -219,7 +219,7 @@ in
           tooltip-format = "{app_id} ({state}): {name}";
           on-click = "activate";
           on-click-middle = "close";
-          on-click-right = "minimize-raise";
+          on-click-right = "maximize";
         };
         idle_inhibitor = {
           format = "{icon}";
