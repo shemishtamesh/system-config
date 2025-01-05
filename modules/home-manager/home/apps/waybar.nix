@@ -127,7 +127,7 @@ in
           justify = "center";
         };
         backlight = {
-          format = "\n{percent}      k";
+          format = "\n{percent}";
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
           justify = "center";
