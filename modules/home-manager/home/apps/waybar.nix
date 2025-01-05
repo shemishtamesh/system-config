@@ -69,7 +69,7 @@ in
       };
 
       taskbar = {
-        position = "taskbar";
+        position = "right";
         output = [
           "eDP-1"
           "HDMI-A-1"
@@ -201,6 +201,19 @@ in
         modules-right = [
           "tray"
           "idle_inhibitor"
+          "disk"
+          "backlight"
+          "pulseaudio#output"
+          "pulseaudio#input"
+          "hyprland/language"
+          "memory"
+          "cpu"
+          "temperature"
+          "privacy"
+          "network"
+          "bluetooth"
+          "user"
+          "battery"
         ];
 
         clock = {
