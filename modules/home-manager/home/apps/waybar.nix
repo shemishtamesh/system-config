@@ -326,7 +326,7 @@ in
 
         #taskbar button.maximized {
             padding: 1px 15px 1px 10px;
-            background: ${palette.base0C};
+            background: ${palette.base13};
         }
 
         #taskbar.empty
