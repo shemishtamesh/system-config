@@ -79,7 +79,8 @@
     obsidian
     lorien
     qpwgraph
-    transmission
+    fastfetch
+    transmissiontransmi
     tremc
   ];
 }
