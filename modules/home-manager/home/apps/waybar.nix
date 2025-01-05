@@ -213,12 +213,13 @@ in
           };
         };
         "wlr/taskbar" = {
-          format = "{icon} {name}";
+          format = "{short_state} {icon} {name}";
           icon-size = 14;
           icon-theme = "Numix-Circle";
           tooltip-format = "{title}";
           on-click = "activate";
           on-click-middle = "close";
+          on-click-right = "minimize-raize";
         };
         idle_inhibitor = {
           format = "{icon}";
