@@ -23,7 +23,10 @@ in
         ];
         modules-left = [ "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "mpris" ];
+        modules-right = [
+          "mpris"
+          "wlr/taskbar"
+        ];
 
         "hyprland/workspaces" = {
           format = "{icon} {windows}";
