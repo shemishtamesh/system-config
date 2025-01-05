@@ -264,7 +264,7 @@ in
             color: ${palette.base00};
             opacity: 1;
             padding: 1px 2px;
-            margin: 0 4px;
+            margin: 4 0px;
             border-radius: 10px;
             animation: gradient_f 20s ease-in infinite;
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
@@ -277,7 +277,7 @@ in
         #privacy {
             background: ${palette.base08};
             color: ${palette.base07};
-            padding: 1px 12px 1px 11px;
+            padding: 12px 1px 11px 1px;
         }
 
         #network.disconnected,
