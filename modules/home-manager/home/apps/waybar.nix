@@ -36,6 +36,7 @@ in
             "code" = "󰨞";
           };
           show-special = true;
+          special-visible-only = true;
         };
         "hyprland/window" = {
           icon = true;
