@@ -182,7 +182,6 @@ in
         modules-left = [ "clock" ];
         modules-center = [
           "wlr/taskbar"
-          "hyprland/language"
         ];
         modules-right = [
           "tray"
