@@ -217,9 +217,9 @@ in
           capslock = true;
           scrolllock = true;
           format = {
-            numlock = "#{icon}";
-            capslock = "󰪛{icon}";
-            scrolllock = "{icon}";
+            numlock = "# {icon} ";
+            capslock = "󰪛 {icon} ";
+            scrolllock = " {icon} ";
           };
           format-icons = {
             locked = "";
