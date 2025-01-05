@@ -69,27 +69,11 @@ in
       };
 
       taskbar = {
-        position = "left";
-        output = [
-          "eDP-1"
-          "HDMI-A-1"
-        ];
-        modules-center = [
-          "wlr/taskbar"
-        ];
-
-        "wlr/taskbar" = {
-          icon-size = 14;
-        };
-      };
-
-      bottom_bar = {
         position = "bottom";
         output = [
           "eDP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "clock" ];
         modules-center = [
           "disk"
           "backlight"
@@ -105,38 +89,7 @@ in
           "user"
           "battery"
         ];
-        modules-right = [
-          "tray"
-          "idle_inhibitor"
-        ];
 
-        clock = {
-          format = "{:%A %B %d, %Y, %R}";
-          format-alt = "{:%Y/%m/%d %H:%M}";
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            format = {
-              months = "<span color='${palette.base0A}'><b>{}</b></span>";
-              days = "<span color='${palette.base0C}'><b>{}</b></span>";
-              weeks = "<span color='${palette.base0B}'><b>{}</b></span>";
-              weekdays = "<span color='${palette.base09}'><b>{}</b></span>";
-              today = "<span color='${palette.base08}'><b>{}</b></span>";
-            };
-          };
-          actions = {
-            on-click-right = "mode";
-            on-click-middle = "shift_reset";
-            on-scroll-up = "shift_down";
-            on-scroll-down = "shift_up";
-          };
-        };
-        "wlr/taskbar" = {
-          icon-size = 14;
-        };
         cpu = {
           format = " {usage}%";
         };
@@ -192,6 +145,50 @@ in
         };
         disk = {
           format = " {percentage_free}%";
+        };
+      };
+
+      bottom_bar = {
+        position = "left";
+        output = [
+          "eDP-1"
+          "HDMI-A-1"
+        ];
+        modules-left = [ "clock" ];
+        modules-center = [
+          "wlr/taskbar"
+        ];
+        modules-right = [
+          "tray"
+          "idle_inhibitor"
+        ];
+
+        clock = {
+          format = "{:%A %B %d, %Y, %R}";
+          format-alt = "{:%Y/%m/%d %H:%M}";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            format = {
+              months = "<span color='${palette.base0A}'><b>{}</b></span>";
+              days = "<span color='${palette.base0C}'><b>{}</b></span>";
+              weeks = "<span color='${palette.base0B}'><b>{}</b></span>";
+              weekdays = "<span color='${palette.base09}'><b>{}</b></span>";
+              today = "<span color='${palette.base08}'><b>{}</b></span>";
+            };
+          };
+          actions = {
+            on-click-right = "mode";
+            on-click-middle = "shift_reset";
+            on-scroll-up = "shift_down";
+            on-scroll-down = "shift_up";
+          };
+        };
+        "wlr/taskbar" = {
+          icon-size = 14;
         };
         idle_inhibitor = {
           format = "{icon}";
