@@ -133,7 +133,7 @@ in
           justify = "center";
         };
         battery = {
-          format = "\n{capacity}";
+          format = "\n\r{capacity}";
           justify = "center";
         };
         temperature = {
