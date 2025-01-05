@@ -69,10 +69,9 @@ in
       };
 
       taskbar = {
-        position = "left";
+        position = "right";
         output = [
           "eDP-1"
-          "HDMI-A-1"
         ];
         modules-center = [
           "disk"
@@ -91,15 +90,17 @@ in
         ];
 
         cpu = {
-          format = "\n{usage}";
+          format = " {usage}%";
           justify = "center";
+          rotate = 90;
         };
         memory = {
-          format = "\n{percentage}";
+          format = " {percentage}%";
           justify = "center";
+          rotate = 90;
         };
         "pulseaudio#input" = {
-          format-source = "\n{volume}";
+          format-source = " {volume}%";
           format-source-muted = "";
           format = "{format_source}";
           scroll-step = 1;
@@ -109,9 +110,10 @@ in
           on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-";
           justify = "center";
+          rotate = 90;
         };
         "pulseaudio#output" = {
-          format = "{icon}\n{volume}";
+          format = "{icon} {volume}%";
           format-muted = "";
           format-icons = {
             default = [
@@ -119,45 +121,51 @@ in
               ""
               ""
             ];
+            rotate = 90;
           };
           scroll-step = 2;
           smooth-scrolling-threshold = 1;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-click-middle = "pavucontrol";
           justify = "center";
+          rotate = 90;
         };
         backlight = {
-          format = "\n{percent}";
+          format = " {percent}%";
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
           justify = "center";
+          rotate = 90;
         };
         battery = {
-          format = "\n{capacity}";
+          format = " {capacity}%";
           justify = "center";
+          rotate = 90;
         };
         temperature = {
           thermal-zone = 6;
+          rotate = 90;
         };
         network = {
-          format = "\n{signalStrength}";
+          format = " {essid} {signalStrength}%";
           format-disconnected = "󰖪";
           justify = "center";
+          rotate = 90;
         };
         "hyprland/language" = {
-          format = " {short}";
+          format = " {language}";
           justify = "center";
           rotate = 90;
         };
         user = {
-          format = "\n{up_H}\n{up_M}";
+          format = " {work_D} days, {work_H}:{work_M}";
           justify = "center";
-          rotate = 90;
+          rotate = 270;
         };
         disk = {
           format = "\n{percentage_free}%";
           justify = "center";
-          rotate = -90;
+          rotate = 270;
         };
       };
 
