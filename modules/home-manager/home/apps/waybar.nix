@@ -213,7 +213,7 @@ in
           };
         };
         "wlr/taskbar" = {
-          format = "{icon} {title:.15}";
+          format = "{icon} {title:.30}";
           icon-size = 14;
           icon-theme = "Numix-Circle";
           tooltip-format = "{app_id} ({state}): {name}";
