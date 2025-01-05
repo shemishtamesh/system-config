@@ -157,8 +157,8 @@ in
           rotate = 270;
         };
         "hyprland/language" = {
-          format = " {language}";
-          justify = "center";
+          # format = " {language}";
+          # justify = "center";
           # rotate = 270;
         };
         user = {
