@@ -133,7 +133,7 @@ in
           justify = "center";
         };
         battery = {
-          format = "{capacity}";
+          format = " {capacity}";
           justify = "center";
         };
         temperature = {
@@ -145,7 +145,7 @@ in
           justify = "center";
         };
         "hyprland/language" = {
-          format = " \n{short}";
+          format = " \r\n{short}";
           justify = "center";
         };
         user = {
