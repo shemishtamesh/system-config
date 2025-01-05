@@ -23,10 +23,7 @@ in
         ];
         modules-left = [ "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [
-          "mpris"
-          "wlr/taskbar"
-        ];
+        modules-right = [ "mpris" ];
 
         "hyprland/workspaces" = {
           format = "{icon} {windows}";
@@ -76,6 +73,11 @@ in
         output = [ "eDP-1" ];
         modules-left = [ "clock" ];
         modules-center = [
+          "wlr/taskbar"
+          "tray"
+        ];
+        modules-right = [
+          "idle_inhibitor"
           "disk"
           "backlight"
           "pulseaudio#output"
@@ -89,10 +91,6 @@ in
           "bluetooth"
           "user"
           "battery"
-        ];
-        modules-right = [
-          "tray"
-          "idle_inhibitor"
         ];
 
         clock = {
