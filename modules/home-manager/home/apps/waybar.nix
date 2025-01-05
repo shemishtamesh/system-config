@@ -101,7 +101,7 @@ in
         };
         "pulseaudio#input" = {
           format-source = " {volume}%";
-          format-source-muted = "";
+          format-source-muted = " ";
           format = "{format_source}";
           scroll-step = 1;
           smooth-scrolling-threshold = 1;
@@ -162,7 +162,7 @@ in
           rotate = 270;
         };
         user = {
-          format = " {work_D} days, {work_H}:{work_M}";
+          format = " {work_d} days, {work_H}:{work_M}";
           justify = "center";
           rotate = 270;
         };
