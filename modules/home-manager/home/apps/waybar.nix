@@ -206,7 +206,7 @@ in
           rotate = 270;
         };
         "hyprland/language" = {
-          # format = " {language}";
+          format = " {}";
           rotate = 270;
         };
         user = {
