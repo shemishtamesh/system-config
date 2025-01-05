@@ -159,6 +159,9 @@ in
         battery = {
           format = " {capacity}%";
         };
+        temperature = {
+          thermal-zone = 6;
+        };
         network = {
           format = "  {essid} {signalStrength}%";
           format-disconnected = "󰖪";
