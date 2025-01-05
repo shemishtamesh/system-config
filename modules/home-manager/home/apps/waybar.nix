@@ -208,7 +208,7 @@ in
             font-family: FiraCode Nerd Font;
             font-weight: bold;
             font-size: 15px;
-            horizontal: centered;
+            justify: center;
         }
 
         window#waybar {
