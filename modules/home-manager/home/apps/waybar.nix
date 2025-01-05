@@ -207,6 +207,8 @@ in
         };
         "hyprland/language" = {
           format = " {}";
+          format-en = "🇺🇸";
+          format-he = "🇮🇱";
           rotate = 270;
         };
         user = {
