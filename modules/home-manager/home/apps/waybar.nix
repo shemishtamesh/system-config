@@ -213,7 +213,12 @@ in
           };
         };
         "wlr/taskbar" = {
+          format = "{icon}";
           icon-size = 14;
+          icon-theme = "Numix-Circle";
+          tooltip-format = "{title}";
+          on-click = "activate";
+          on-click-middle = "close";
         };
         idle_inhibitor = {
           format = "{icon}";
