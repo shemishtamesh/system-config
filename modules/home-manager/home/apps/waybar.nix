@@ -296,7 +296,7 @@ in
 
         #idle_inhibitor {
             margin: 4px 0;
-            padding: 1px 8px 1px 5px;
+            /* padding: 1px 8px 1px 5px; */
         }
 
         #pulseaudio.input,
