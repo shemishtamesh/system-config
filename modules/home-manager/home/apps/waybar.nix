@@ -280,10 +280,10 @@ in
         #clock,
         #taskbar button,
         #workspaces button,
-        #idle_inhibitor,
         #tray,
         #window,
-        #mpris {
+        #mpris,
+        #idle_inhibitor {
             background: ${palette.base0C};
             color: ${palette.base00};
             opacity: 1;
@@ -294,7 +294,7 @@ in
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
 
-        idle_inhibitor {
+        #idle_inhibitor {
             margin: 4px 0;
             padding: 1px 8px 1px 5px;
         }
