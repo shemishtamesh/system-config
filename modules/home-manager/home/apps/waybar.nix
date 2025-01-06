@@ -294,7 +294,6 @@ in
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
 
-        #idle_inhibitor.activated,
         #pulseaudio.input,
         #pulseaudio.output.muted,
         #network.disconnected,
@@ -304,7 +303,13 @@ in
             padding: 12px 1px 11px 1px;
         }
 
-        #network.disconnected {
+        #idle_inhibitor.activated {
+            background: ${palette.base08};
+            color: ${palette.base07};
+            padding: 1px 12px 1px 11px;
+        }
+
+        #network.disconnected idle_inhibitor {
             padding: 1px 8px 1px 5px;
         }
 
