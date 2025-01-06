@@ -222,10 +222,12 @@ in
             scrolllock = " {icon} ";
           };
           format-icons = {
-            locked = "";
-            unlocked = "";
+            locked = "L";
+            unlocked = "U";
+            # locked = "";
+            # unlocked = "";
           };
-          rotate = 270;
+          # rotate = 270;
         };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
