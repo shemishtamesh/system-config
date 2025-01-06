@@ -120,7 +120,7 @@ in
           format = "{icon}";
           format-icons = {
             activated = "󰛊";
-            deactivated = "󰾫";
+            deactivated = "󰾫 ";
           };
         };
       };
