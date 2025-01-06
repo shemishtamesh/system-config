@@ -222,10 +222,10 @@ in
             scrolllock = " {icon} ";
           };
           format-icons = {
-            locked = "L";
-            unlocked = "U";
-            # locked = "";
-            # unlocked = "";
+            # locked = "L";
+            # unlocked = "U";
+            locked = "";
+            unlocked = "";
           };
           # rotate = 270;
         };
