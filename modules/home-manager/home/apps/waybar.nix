@@ -136,7 +136,7 @@ in
           "pulseaudio#output"
           "pulseaudio#input"
           "hyprland/language"
-          "keyboard-state"
+          # "keyboard-state"
           "memory"
           "cpu"
           "temperature"
@@ -222,12 +222,10 @@ in
             scrolllock = " {icon} ";
           };
           format-icons = {
-            # locked = "L";
-            # unlocked = "U";
             locked = "";
             unlocked = "";
           };
-          # rotate = 270;
+          rotate = 270;
         };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
