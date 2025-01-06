@@ -304,8 +304,7 @@ in
             padding: 12px 1px 11px 1px;
         }
 
-        #network.disconnected,
-        #idle_inhibitor {
+        #network.disconnected {
             padding: 1px 8px 1px 5px;
         }
 
@@ -325,15 +324,15 @@ in
             margin-bottom: 0;
         }
 
+        #taskbar button.maximized {
+            padding: 1px 15px 1px 10px;
+            background: ${palette.base0D};
+        }
+
         #taskbar button.active,
         #workspaces button.active {
             padding: 1px 15px 1px 10px;
             background: ${palette.base0B};
-        }
-
-        #taskbar button.maximized {
-            padding: 1px 15px 1px 10px;
-            background: ${palette.base0D};
         }
 
         #taskbar.empty,
