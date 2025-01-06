@@ -309,7 +309,11 @@ in
             padding: 1px 12px 1px 11px;
         }
 
-        #network.disconnected, idle_inhibitor {
+        #network.disconnected {
+            padding: 8px 1px 5px 1px;
+        }
+
+        idle_inhibitor {
             padding: 1px 8px 1px 5px;
         }
 
