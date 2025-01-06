@@ -319,11 +319,6 @@ in
             padding: 1px 10px 1px 5px;
         }
 
-        #taskbar button.maximized {
-            padding: 1px 15px 1px 10px;
-            background: ${palette.base14};
-        }
-
         #workspaces button.hover {
             padding: 1px 12px 1px 7px;
             background: ${palette.base0D};
@@ -334,6 +329,11 @@ in
         #workspaces button.active {
             padding: 1px 15px 1px 10px;
             background: ${palette.base0B};
+        }
+
+        #taskbar button.maximized {
+            padding: 1px 15px 1px 10px;
+            background: ${palette.base0D};
         }
 
         #taskbar.empty,
