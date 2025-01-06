@@ -120,7 +120,7 @@ in
           format = "{icon}";
           format-icons = {
             activated = "󰛊";
-            deactivated = "󰾫 ";
+            deactivated = "󰾫";
           };
         };
       };
@@ -294,6 +294,11 @@ in
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
 
+        idle_inhibitor {
+            margin: 4px 0;
+            padding: 1px 8px 1px 5px;
+        }
+
         #pulseaudio.input,
         #pulseaudio.output.muted,
         #network.disconnected,
@@ -311,10 +316,6 @@ in
 
         #network.disconnected {
             padding: 8px 1px 5px 1px;
-        }
-
-        idle_inhibitor {
-            padding: 1px 8px 1px 5px;
         }
 
         #taskbar,
