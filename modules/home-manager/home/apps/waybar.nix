@@ -225,7 +225,7 @@ in
             locked = "";
             unlocked = "";
           };
-          # rotate = 270;
+          rotate = 270;
         };
         user = {
           format = " {work_d} days, {work_H}:{work_M}";
@@ -295,7 +295,6 @@ in
         }
 
         #idle_inhibitor {
-            /* margin: 4px 0; */
             padding: 1px 8px 1px 5px;
         }
 
