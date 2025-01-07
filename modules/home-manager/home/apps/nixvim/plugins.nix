@@ -8,7 +8,7 @@
     ./plugins/undotree.nix
     ./plugins/treesitter.nix
     ./plugins/comment.nix
-    ./plugins/codeium.nix
+    # ./plugins/codeium.nix
     ./plugins/zen-mode.nix
     ./plugins/indent-blankline.nix
     ./plugins/which-key.nix

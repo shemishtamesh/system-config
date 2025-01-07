@@ -45,7 +45,6 @@ in
         };
         sources = [
           { name = "calc"; }
-          { name = "codeium"; }
           { name = "nvim_lsp"; }
           { name = "buffer"; }
           {
