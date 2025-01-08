@@ -344,6 +344,12 @@ in
             background: ${palette.base0B};
         }
 
+        #taskbar button.active.maximized,
+        #workspaces button.active {
+            padding: 1px 15px 1px 10px;
+            background: ${palette.base13};
+        }
+
         #taskbar.empty,
         window#waybar.empty #window {
             padding: 1px 50px;
