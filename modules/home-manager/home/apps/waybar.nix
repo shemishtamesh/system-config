@@ -241,7 +241,7 @@ in
       ''
         * {
             border: none;
-            border-radius: 0;
+            border-radius: 10px;
             min-height: 0;
             font-family: FiraCode Nerd Font;
             font-weight: bold;
@@ -272,7 +272,6 @@ in
             opacity: 1;
             padding: 2px 1px;
             margin: 4 0px;
-            border-radius: 10px;
             animation: gradient_f 20s ease-in infinite;
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
