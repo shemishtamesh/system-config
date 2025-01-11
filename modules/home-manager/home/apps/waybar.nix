@@ -246,6 +246,8 @@ in
             font-family: FiraCode Nerd Font;
             font-weight: bold;
             font-size: 15px;
+            animation: gradient_f 20s ease-in infinite;
+            transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
 
         window#waybar {
@@ -272,8 +274,6 @@ in
             opacity: 1;
             padding: 2px 1px;
             margin: 4 0px;
-            animation: gradient_f 20s ease-in infinite;
-            transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
 
         #clock,
