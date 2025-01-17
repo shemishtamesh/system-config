@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     atool
     tetrio-desktop
+    bottles
     cht-sh
     (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
