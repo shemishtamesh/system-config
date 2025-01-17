@@ -5,7 +5,6 @@
     atool
     tetrio-desktop
     cht-sh
-    protonup
     (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
     libreoffice
