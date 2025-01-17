@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     unp
-    rar
+    unrar-free
     tetrio-desktop
     cht-sh
     (callPackage ./apps/ohrrpgce { })
