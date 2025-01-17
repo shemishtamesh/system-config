@@ -39,11 +39,10 @@
 
     bluetooth.enable = true; # enables support for Bluetooth
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
-    pulseaudio.enable = false;
   };
 
   services = {
+    pulseaudio.enable = false;
     blueman.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
