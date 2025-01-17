@@ -1,6 +1,10 @@
 { inputs, pkgs, ... }:
 
 {
+  imports = [
+    ./apps/protonup.nix
+  ];
+
   home.packages = with pkgs; [
     atool
     tetrio-desktop
