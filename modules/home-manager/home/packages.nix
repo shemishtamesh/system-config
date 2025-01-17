@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     tetrio-desktop
-    unzip
+    unp
     cht-sh
     (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
