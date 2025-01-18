@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     atool
+    unrar
     tetrio-desktop
     bottles
     cht-sh
