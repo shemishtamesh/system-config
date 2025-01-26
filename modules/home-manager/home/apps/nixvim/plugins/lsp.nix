@@ -45,6 +45,7 @@ in
               };
             };
           };
+          ts_ls.enable = true;
         };
         postConfig = # lua
           ''
