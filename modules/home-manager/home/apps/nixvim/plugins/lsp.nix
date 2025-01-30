@@ -14,6 +14,7 @@ in
         }
       '';
     plugins = {
+      typescript-tools.enable = true;
       lsp = {
         enable = true;
         inlayHints = true;
@@ -45,7 +46,7 @@ in
               };
             };
           };
-          volar.enable = true;
+          # ts_ls.enable = true;
         };
         postConfig = # lua
           ''
