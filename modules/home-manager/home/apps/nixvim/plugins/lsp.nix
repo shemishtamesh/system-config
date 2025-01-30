@@ -45,7 +45,7 @@ in
               };
             };
           };
-          ts_ls.enable = true;
+          volar.enable = true;
         };
         postConfig = # lua
           ''
