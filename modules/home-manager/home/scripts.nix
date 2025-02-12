@@ -5,11 +5,13 @@
     (pkgs.writeShellScriptBin "rebuild" ''
       FLAKE="$HOME/.config/flake"
 
+      git -C $FLAKE add .
+      git -C $FLAKE commit -m 'format'
       nix fmt $FLAKE
 
       if [ -z "$1" ] || [ "$1" == "os" ]; then
         git -C $FLAKE add .
-        git -C $FLAKE commit -m 'rebuilding nixos'
+        git -C $FLAKE commit --amend -m 'rebuilding nixos'
         nh os switch $FLAKE
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'nixos rebuild failed'
@@ -21,10 +23,10 @@
 
       if [ -z "$1" ] || [ "$1" == "home" ]; then
         git -C $FLAKE add .
-        git -C $FLAKE commit -m 'rebuilding home'
+        git -C $FLAKE commit --amend -m 'rebuilding home'
         nh home switch $FLAKE
         if [ $? -ne 0 ] ; then
-          git -C $FLAKE commit -m 'home rebuild failed'
+          git -C $FLAKE commit --amend -m 'home rebuild failed'
           git push
           notify-send -u critical 'home rebuild failed'
           exit 1
