@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./configuration/boot.nix
     ./configuration/networking.nix
+    ./configuration/storage_cleaning.nix
   ];
 
   security = {
