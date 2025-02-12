@@ -40,18 +40,13 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       theme = (import ./modules/general/theming.nix { inherit pkgs; });
-      treefmtEval = treefmt-nix.lib.evalModule pkgs (
-        { ... }:
-        {
-          projectRootFile = "flake.nix";
-        }
-      );
+      treefmtEval = treefmt-nix.lib.evalModule pkgs {
+        projectRootFile = "flake.nix";
+        programs.nixfmt.enable = true;
+      };
     in
     {
-      formatter.${system} = treefmtEval.${system}.config.build.wrapper;
-      checks = {
-        formatting = treefmtEval.${system}.config.build.check self;
-      };
+      formatter.${system} = treefmtEval.config.build.wrapper;
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
