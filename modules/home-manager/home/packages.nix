@@ -50,7 +50,7 @@
     nh
     nix-output-monitor
     nvd
-    # smassh
+    smassh
     bitwarden
     kitty
     starship
