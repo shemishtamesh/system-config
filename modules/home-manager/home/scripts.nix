@@ -13,6 +13,7 @@
         nh os switch $FLAKE
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'nixos rebuild failed'
+          git push
           notify-send -u critical 'nixos rebuild failed'
           exit 1
         fi
@@ -24,6 +25,7 @@
         nh home switch $FLAKE
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit -m 'home rebuild failed'
+          git push
           notify-send -u critical 'home rebuild failed'
           exit 1
         fi
