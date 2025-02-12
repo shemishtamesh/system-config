@@ -5,7 +5,7 @@
     (pkgs.writeShellScriptBin "rebuild" ''
       FLAKE="$HOME/.config/flake"
 
-      ${pkgs.nixfmt-rfc-style}/bin/nixfmt $FLAKE
+      nix fmt $FLAKE
 
       if [ -z "$1" ] || [ "$1" == "os" ]; then
         git -C $FLAKE add .

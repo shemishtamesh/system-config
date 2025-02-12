@@ -27,7 +27,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       stylix,
@@ -43,6 +42,7 @@
       treefmtEval = treefmt-nix.lib.evalModule pkgs {
         projectRootFile = "flake.nix";
         programs.nixfmt.enable = true;
+        settings.ignore = [ "*.png" ];
       };
     in
     {
