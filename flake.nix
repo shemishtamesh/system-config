@@ -41,10 +41,8 @@
       theme = (import ./modules/general/theming.nix { inherit pkgs; });
       treefmtEval = treefmt-nix.lib.evalModule pkgs {
         projectRootFile = "flake.nix";
-        programs = {
-          nixfmt.enable = true;
-          exclude = [ "*.png" ];
-        };
+        programs.nixfmt.enable = true;
+        settings.excludes = [ "*.png" ];
       };
     in
     {
