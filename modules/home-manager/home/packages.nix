@@ -40,6 +40,7 @@
     eza
     fzf
     rmtrash
+    trash-cli
     visidata
     tldr
     tree-sitter
