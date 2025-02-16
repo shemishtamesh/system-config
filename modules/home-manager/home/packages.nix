@@ -90,5 +90,6 @@
     fastfetch
     transmission_4-gtk
     tremc
+    steam-cli
   ];
 }
