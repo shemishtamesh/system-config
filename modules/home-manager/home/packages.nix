@@ -11,7 +11,6 @@
     unzip
     tetrio-desktop
     bottles
-    xwayland
     cht-sh
     (callPackage ./apps/ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
