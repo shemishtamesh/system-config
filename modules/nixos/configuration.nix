@@ -35,6 +35,8 @@
     };
   };
 
+  xdg.portal.enable = true;
+
   hardware = {
     keyboard.qmk.enable = true;
 
