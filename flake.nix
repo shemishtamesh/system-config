@@ -13,11 +13,11 @@
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      # url = "github:nix-community/nixvim";
-      url = "github:shemishtamesh/nixvim-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   # url = "github:nix-community/nixvim";
+    #   url = "github:shemishtamesh/nixvim-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +32,7 @@
       home-manager,
       stylix,
       hyprland,
-      nixvim,
+      # nixvim,
       treefmt-nix,
       ...
     }@inputs:
@@ -74,7 +74,7 @@
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
           # nixvim.homeManagerModules.nixvim
-          nixvim.packages.${system}.default
+          # nixvim.packages.${system}.default
         ];
       };
     };
