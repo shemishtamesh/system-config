@@ -15,6 +15,7 @@
     ./plugins/snacks.nix
     ./plugins/dadbod.nix
     ./plugins/flash.nix
+    ./plugins/nvim-surround.nix
     # ./plugins/dashboard.nix
     # ./plugins/obsidian.nix
   ];
