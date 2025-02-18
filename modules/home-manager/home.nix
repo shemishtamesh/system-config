@@ -21,7 +21,7 @@
     ./home/apps/fzf.nix
     ./home/apps/direnv.nix
     ./home/apps/tmux.nix
-    ./home/apps/nixvim/nixvim.nix
+    # ./home/apps/nixvim/nixvim.nix
   ];
 
   home.username = "shemishtamesh";
