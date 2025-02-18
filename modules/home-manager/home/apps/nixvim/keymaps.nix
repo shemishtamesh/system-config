@@ -45,7 +45,7 @@ in
       (keymap "n" "<leader>X" "<cmd>!chmod -x %<CR>" { silent = true; })
 
       # toggle spell check
-      (keymap "n" "<leader>sc" "<cmd>setlocal spell! spelllang=en_us<CR>" { })
+      (keymap "n" "<leader>c" "<cmd>setlocal spell! spelllang=en_us<CR>" { })
 
       # toggle search highlighting highlighting
       (keymap "n" "<leader>n" "<cmd>set hlsearch!<CR>" { })
