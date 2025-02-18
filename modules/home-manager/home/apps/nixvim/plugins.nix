@@ -14,6 +14,7 @@
     ./plugins/which-key.nix
     ./plugins/snacks.nix
     ./plugins/dadbod.nix
+    ./plugins/flash.nix
     # ./plugins/dashboard.nix
     # ./plugins/obsidian.nix
   ];
@@ -26,7 +27,6 @@
       numbertoggle.enable = true;
       gitsigns.enable = true;
       web-devicons.enable = true;
-      flash.enable = true;
       # rustaceanvim.enable = true;
       # "dressing.nvim".enable = true;
       # vimtex.enable = true;
