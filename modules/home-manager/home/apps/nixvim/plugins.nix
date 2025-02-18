@@ -26,6 +26,7 @@
       numbertoggle.enable = true;
       gitsigns.enable = true;
       web-devicons.enable = true;
+      flash.enable = true;
       # rustaceanvim.enable = true;
       # "dressing.nvim".enable = true;
       # vimtex.enable = true;
