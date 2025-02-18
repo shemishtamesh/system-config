@@ -73,7 +73,8 @@
           ./modules/home-manager/home.nix
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
-          nixvim.homeManagerModules.nixvim
+          # nixvim.homeManagerModules.nixvim
+          inputs.nixvim.packages.${pkgs.system}.default
         ];
       };
     };
