@@ -11,7 +11,7 @@
 
       if [ -z "$1" ] || [ "$1" == "os" ]; then
         git -C $FLAKE add .
-        git -C $FLAKE commit --amend -m 'rebuilding nixos'
+        git -C $FLAKE commit -m 'rebuilding nixos'
         nh os switch $FLAKE
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'nixos rebuild failed'
@@ -23,7 +23,7 @@
 
       if [ -z "$1" ] || [ "$1" == "home" ]; then
         git -C $FLAKE add .
-        git -C $FLAKE commit --amend -m 'rebuilding home'
+        git -C $FLAKE commit -m 'rebuilding home'
         nh home switch $FLAKE
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'home rebuild failed'
@@ -33,13 +33,13 @@
         fi
       fi
 
+      git push
+
       systemctl --user restart hyprpaper.service
       if [ $? -ne 0 ] ; then
         notify-send -u critical 'wallpaper switch failed'
         exit 1
       fi
-
-      git push
 
       notify-send -u low 'successfully rebuilt'
     '')
