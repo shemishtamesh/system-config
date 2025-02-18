@@ -6,7 +6,7 @@
   ];
 
   home.packages = with pkgs; [
-    (inputs.nixvim.packages.${pkgs.system}.makeNixvim { })
+    (inputs.nixvim.packages.${pkgs.system}.custom { })
     atool
     unrar
     unzip
