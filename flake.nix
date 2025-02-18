@@ -74,7 +74,7 @@
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
           # nixvim.homeManagerModules.nixvim
-          nixvim.packages.${pkgs.system}.default
+          nixvim.packages.${system}.default
         ];
       };
     };
