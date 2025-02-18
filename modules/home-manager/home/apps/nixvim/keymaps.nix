@@ -38,7 +38,7 @@ in
       (keymap "n" "<leader>j" "<cmd>lnext<CR>" { })
 
       # replace current word
-      (keymap "n" "<leader>rw" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
+      (keymap "n" "<leader>w" ":%s/<C-r><C-w>/t/gI<Left><Left><Left><BackSpace>" { })
 
       # make current file executable
       (keymap "n" "<leader>x" "<cmd>!chmod +x %<CR>" { silent = true; })
