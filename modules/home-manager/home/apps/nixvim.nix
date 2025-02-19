@@ -34,9 +34,8 @@
             inherit base0E;
             inherit base0F;
           };
+        settings.telescope_borders = true;
       };
-
-      settings.telescope_borders = true;
 
       highlight =
         let
