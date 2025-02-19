@@ -56,7 +56,7 @@
           inherit system;
         };
         modules = [
-          ./modules/nixos/configuration.nix
+          ./modules/nixos/configuration
           stylix.nixosModules.stylix
           hyprland.nixosModules.default
         ];
@@ -68,7 +68,7 @@
         };
         inherit pkgs;
         modules = [
-          ./modules/home-manager/home.nix
+          ./modules/home-manager
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
         ];

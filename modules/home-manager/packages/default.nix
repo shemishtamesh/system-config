@@ -6,8 +6,8 @@
 
 {
   imports = [
-    ./apps/protonup.nix
-    ./apps/nixvim.nix
+    ./protonup.nix
+    ./nixvim.nix
   ];
 
   home.packages = with pkgs; [
@@ -17,7 +17,7 @@
     tetrio-desktop
     bottles
     cht-sh
-    (callPackage ./apps/ohrrpgce { })
+    (callPackage ./ohrrpgce { })
     inputs.zen-browser.packages.${system}.default
     libreoffice
     blender
