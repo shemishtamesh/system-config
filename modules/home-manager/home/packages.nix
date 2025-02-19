@@ -37,14 +37,6 @@
             inherit base0D;
             inherit base0E;
             inherit base0F;
-            inherit base10;
-            inherit base11;
-            inherit base12;
-            inherit base13;
-            inherit base14;
-            inherit base15;
-            inherit base16;
-            inherit base17;
           };
       };
 
