@@ -19,23 +19,32 @@
           let
             colors = config.lib.stylix.colors.withHashtag;
           in
+          with colors;
           {
-            base00 = colors.base00;
-            base01 = colors.base01;
-            base02 = colors.base02;
-            base03 = colors.base03;
-            base04 = colors.base04;
-            base05 = colors.base05;
-            base06 = colors.base06;
-            base07 = colors.base07;
-            base08 = colors.base08;
-            base09 = colors.base09;
-            base0A = colors.base0A;
-            base0B = colors.base0B;
-            base0C = colors.base0C;
-            base0D = colors.base0D;
-            base0E = colors.base0E;
-            base0F = colors.base0F;
+            inherit base00;
+            inherit base01;
+            inherit base02;
+            inherit base03;
+            inherit base04;
+            inherit base05;
+            inherit base06;
+            inherit base07;
+            inherit base08;
+            inherit base09;
+            inherit base0A;
+            inherit base0B;
+            inherit base0C;
+            inherit base0D;
+            inherit base0E;
+            inherit base0F;
+            inherit base10;
+            inherit base11;
+            inherit base12;
+            inherit base13;
+            inherit base14;
+            inherit base15;
+            inherit base16;
+            inherit base17;
           };
       };
 
