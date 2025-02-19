@@ -14,7 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      # url = "github:nix-community/nixvim";
       url = "github:shemishtamesh/nixvim-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -32,7 +31,6 @@
       home-manager,
       stylix,
       hyprland,
-      nixvim,
       treefmt-nix,
       ...
     }@inputs:
@@ -73,8 +71,6 @@
           ./modules/home-manager/home.nix
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
-          # nixvim.homeManagerModules.nixvim
-          # nixvim.packages.${system}.default
         ];
       };
     };
