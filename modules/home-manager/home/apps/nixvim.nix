@@ -36,7 +36,7 @@
           };
       };
 
-      telescope_borders = true;
+      settings.telescope_borders = true;
 
       highlight =
         let
