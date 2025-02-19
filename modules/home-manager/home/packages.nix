@@ -49,9 +49,9 @@
           };
         in
         {
-          Normal = lib.mkIf cfg.transparent_bg.main transparent;
-          NonText = lib.mkIf cfg.transparent_bg.main transparent;
-          SignColumn = lib.mkIf cfg.transparent_bg.sign_column transparent;
+          Normal = lib.mkIf cfg.transparentBackground.main transparent;
+          NonText = lib.mkIf cfg.transparentBackground.main transparent;
+          SignColumn = lib.mkIf cfg.transparentBackground.signColumn transparent;
         };
     })
     # inputs.nixvim.packages.${pkgs.system}.default
