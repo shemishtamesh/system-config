@@ -36,6 +36,8 @@
           };
       };
 
+      telescope_borders = true;
+
       highlight =
         let
           cfg = config.stylix.targets.nixvim;
