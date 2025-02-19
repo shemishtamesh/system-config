@@ -12,10 +12,7 @@
         enable = true;
 
         colorscheme =
-          let
-            colors = config.lib.stylix.colors.withHashtag;
-          in
-          with colors;
+          with config.lib.stylix.colors.withHashtag;
           {
             inherit base00;
             inherit base01;
