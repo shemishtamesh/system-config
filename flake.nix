@@ -13,10 +13,10 @@
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:shemishtamesh/nixvim-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:shemishtamesh/nixvim-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
