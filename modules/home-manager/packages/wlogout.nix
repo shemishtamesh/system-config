@@ -90,52 +90,52 @@ in
         keybind = "r";
       }
     ];
-    # style = # css
-    #   ''
-    #     * {
-    #         background-image: none;
-    #         box-shadow: none;
-    #     }
-    #
-    #     window {
-    #         background-color: ${rgba "base00" 0.8};
-    #     }
-    #
-    #     button {
-    #         border-radius: 10px;
-    #         color: ${palette.base05};
-    #         background-color: ${palette.base01};
-    #         border-style: solid;
-    #         border-width: 0;
-    #         background-repeat: no-repeat;
-    #         background-position: center;
-    #         background-size: 25%;
-    #         margin: 2px;
-    #     }
-    #
-    #     button:focus, button:active, button:hover {
-    #         background-color: ${palette.base02};
-    #         outline-style: none;
-    #     }
-    #
-    #     #lock {
-    #         background-image: url("${lockIcon}");
-    #     }
-    #     #logout {
-    #         background-image: url("${logoutIcon}");
-    #     }
-    #     #suspend {
-    #         background-image: url("${suspendIcon}");
-    #     }
-    #     #hibernate {
-    #         background-image: url("${hibernateIcon}");
-    #     }
-    #     #shutdown {
-    #         background-image: url("${shutdownIcon}");
-    #     }
-    #     #reboot {
-    #         background-image: url("${rebootIcon}");
-    #     }
-    #   '';
+    style = # css
+      ''
+        * {
+            background-image: none;
+            box-shadow: none;
+        }
+
+        window {
+            background-color: ${rgba "base00" 0.8};
+        }
+
+        button {
+            border-radius: 10px;
+            color: ${palette.base05};
+            background-color: ${palette.base01};
+            border-style: solid;
+            border-width: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 25%;
+            margin: 2px;
+        }
+
+        button:focus, button:active, button:hover {
+            background-color: ${palette.base02};
+            outline-style: none;
+        }
+
+        #lock {
+            background-image: url("${lockIcon}");
+        }
+        #logout {
+            background-image: url("${logoutIcon}");
+        }
+        #suspend {
+            background-image: url("${suspendIcon}");
+        }
+        #hibernate {
+            background-image: url("${hibernateIcon}");
+        }
+        #shutdown {
+            background-image: url("${shutdownIcon}");
+        }
+        #reboot {
+            background-image: url("${rebootIcon}");
+        }
+      '';
   };
 }
