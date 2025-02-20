@@ -7,9 +7,9 @@
 {
   imports = [
     ../hardware-configuration.nix
-    ./configuration/boot.nix
-    ./configuration/networking.nix
-    ./configuration/storage_cleaning.nix
+    ./boot.nix
+    ./networking.nix
+    ./storage_cleaning.nix
   ];
 
   security = {
