@@ -41,8 +41,8 @@
   # allowing unfree packages
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+  home.useGlobalPkgs = true;
+  home.useUserPackages = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
