@@ -237,130 +237,130 @@ in
         };
       };
     };
-    style = # css
-      ''
-        * {
-            border: none;
-            border-radius: 10px;
-            min-height: 0;
-            font-family: FiraCode Nerd Font;
-            font-weight: bold;
-            font-size: 15px;
-            animation: gradient_f 20s ease-in infinite;
-            transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-        }
-
-        window#waybar {
-            background: ${rgba "base00" 0};
-            color: ${palette.base00};
-        }
-
-        #disk,
-        #cpu,
-        #memory,
-        #network,
-        #bluetooth,
-        #user,
-        #temperature,
-        #pulseaudio,
-        #pulseaudio.input.source-muted,
-        #backlight,
-        #privacy,
-        #language,
-        #keyboard-state,
-        #battery {
-            background: ${palette.base0C};
-            color: ${palette.base00};
-            opacity: 1;
-            padding: 2px 1px;
-            margin: 4 0px;
-        }
-
-        #clock,
-        #taskbar button,
-        #workspaces button,
-        #tray,
-        #window,
-        #mpris,
-        #idle_inhibitor {
-            background: ${palette.base0C};
-            color: ${palette.base00};
-            opacity: 1;
-            padding: 1px 2px;
-            margin: 0 4px;
-            border-radius: 10px;
-            animation: gradient_f 20s ease-in infinite;
-            transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-        }
-
-        #idle_inhibitor {
-            padding: 1px 8px 1px 5px;
-        }
-
-        #pulseaudio.input,
-        #pulseaudio.output.muted,
-        #network.disconnected,
-        #privacy {
-            background: ${palette.base08};
-            color: ${palette.base07};
-            padding: 12px 1px 11px 1px;
-        }
-
-        #idle_inhibitor.activated {
-            background: ${palette.base08};
-            color: ${palette.base07};
-            padding: 1px 12px 1px 11px;
-        }
-
-        #network.disconnected {
-            padding: 8px 1px 5px 1px;
-        }
-
-        #taskbar,
-        #workspaces {
-            background: ${rgba "base00" 0};
-        }
-
-        #taskbar button,
-        #workspaces button {
-            padding: 1px 10px 1px 5px;
-        }
-
-        #workspaces button.hover {
-            padding: 1px 12px 1px 7px;
-            background: ${palette.base0D};
-            margin-bottom: 0;
-        }
-
-        #taskbar button.maximized {
-            padding: 1px 15px 1px 10px;
-            background: ${palette.base0D};
-        }
-
-        #taskbar button.active,
-        #workspaces button.active {
-            padding: 1px 15px 1px 10px;
-            background: ${palette.base0B};
-        }
-
-        #taskbar button.active.maximized {
-            padding: 1px 15px 1px 10px;
-            background: ${palette.base13};
-        }
-
-        #taskbar.empty,
-        window#waybar.empty #window {
-            padding: 1px 50px;
-            background: ${palette.base02};
-        }
-
-        #mpris.paused {
-            background: ${palette.base02};
-            color: ${palette.base05};
-        }
-        #mpris.playing {
-            padding: 1px 3px;
-        }
-      '';
+    # style = # css
+    #   ''
+    #     * {
+    #         border: none;
+    #         border-radius: 10px;
+    #         min-height: 0;
+    #         font-family: FiraCode Nerd Font;
+    #         font-weight: bold;
+    #         font-size: 15px;
+    #         animation: gradient_f 20s ease-in infinite;
+    #         transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    #     }
+    #
+    #     window#waybar {
+    #         background: ${rgba "base00" 0};
+    #         color: ${palette.base00};
+    #     }
+    #
+    #     #disk,
+    #     #cpu,
+    #     #memory,
+    #     #network,
+    #     #bluetooth,
+    #     #user,
+    #     #temperature,
+    #     #pulseaudio,
+    #     #pulseaudio.input.source-muted,
+    #     #backlight,
+    #     #privacy,
+    #     #language,
+    #     #keyboard-state,
+    #     #battery {
+    #         background: ${palette.base0C};
+    #         color: ${palette.base00};
+    #         opacity: 1;
+    #         padding: 2px 1px;
+    #         margin: 4 0px;
+    #     }
+    #
+    #     #clock,
+    #     #taskbar button,
+    #     #workspaces button,
+    #     #tray,
+    #     #window,
+    #     #mpris,
+    #     #idle_inhibitor {
+    #         background: ${palette.base0C};
+    #         color: ${palette.base00};
+    #         opacity: 1;
+    #         padding: 1px 2px;
+    #         margin: 0 4px;
+    #         border-radius: 10px;
+    #         animation: gradient_f 20s ease-in infinite;
+    #         transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    #     }
+    #
+    #     #idle_inhibitor {
+    #         padding: 1px 8px 1px 5px;
+    #     }
+    #
+    #     #pulseaudio.input,
+    #     #pulseaudio.output.muted,
+    #     #network.disconnected,
+    #     #privacy {
+    #         background: ${palette.base08};
+    #         color: ${palette.base07};
+    #         padding: 12px 1px 11px 1px;
+    #     }
+    #
+    #     #idle_inhibitor.activated {
+    #         background: ${palette.base08};
+    #         color: ${palette.base07};
+    #         padding: 1px 12px 1px 11px;
+    #     }
+    #
+    #     #network.disconnected {
+    #         padding: 8px 1px 5px 1px;
+    #     }
+    #
+    #     #taskbar,
+    #     #workspaces {
+    #         background: ${rgba "base00" 0};
+    #     }
+    #
+    #     #taskbar button,
+    #     #workspaces button {
+    #         padding: 1px 10px 1px 5px;
+    #     }
+    #
+    #     #workspaces button.hover {
+    #         padding: 1px 12px 1px 7px;
+    #         background: ${palette.base0D};
+    #         margin-bottom: 0;
+    #     }
+    #
+    #     #taskbar button.maximized {
+    #         padding: 1px 15px 1px 10px;
+    #         background: ${palette.base0D};
+    #     }
+    #
+    #     #taskbar button.active,
+    #     #workspaces button.active {
+    #         padding: 1px 15px 1px 10px;
+    #         background: ${palette.base0B};
+    #     }
+    #
+    #     #taskbar button.active.maximized {
+    #         padding: 1px 15px 1px 10px;
+    #         background: ${palette.base13};
+    #     }
+    #
+    #     #taskbar.empty,
+    #     window#waybar.empty #window {
+    #         padding: 1px 50px;
+    #         background: ${palette.base02};
+    #     }
+    #
+    #     #mpris.paused {
+    #         background: ${palette.base02};
+    #         color: ${palette.base05};
+    #     }
+    #     #mpris.playing {
+    #         padding: 1px 3px;
+    #     }
+    #   '';
   };
 }
