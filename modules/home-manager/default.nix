@@ -27,7 +27,8 @@
   home.homeDirectory = "/home/shemishtamesh";
 
   stylix = {
-    enable = true;
+    # enable = true;
+    enable = false;
     base16Scheme = theme.scheme;
     image = theme.wallpaper;
     fonts = theme.fonts;
