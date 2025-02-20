@@ -7,7 +7,7 @@
 {
   imports = [
     ./protonup.nix
-    ./nixvim.nix
+    # ./nixvim.nix
   ];
 
   home.packages = with pkgs; [
