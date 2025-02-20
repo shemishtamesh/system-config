@@ -20,7 +20,7 @@ let
     hyprctl keyword decoration:rounding ${rounding}
     waybar
   '';
-  utils = (import ../../../general/utils.nix { inherit pkgs; });
+  utils = (import ../../general/utils.nix { inherit pkgs; });
   sync_external = utils.sync_external_monitor_brightness;
   notification-log = utils.notification-log;
 in

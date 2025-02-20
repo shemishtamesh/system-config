@@ -3,7 +3,7 @@
   ...
 }:
 let
-  wallpaper = (import ../../../general/theming.nix { inherit pkgs; }).wallpaper;
+  wallpaper = (import ../../general/theming.nix { inherit pkgs; }).wallpaper;
 in
 {
   programs.hyprlock.enable = true;
