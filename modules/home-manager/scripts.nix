@@ -3,7 +3,7 @@
 {
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''
-      FLAKE="$HOME/.config/flake"
+      export FLAKE="$HOME/.config/flake"
 
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'format'
@@ -24,6 +24,7 @@
       if [ -z "$1" ] || [ "$1" == "home" ]; then
         git -C $FLAKE add .
         git -C $FLAKE commit -m 'rebuilding home'
+        nix flake update nixvim --flake $FLAKE
         nh home switch $FLAKE
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'home rebuild failed'
