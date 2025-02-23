@@ -12,8 +12,8 @@
         enable = true;
 
         colorscheme = with config.lib.stylix.colors.withHashtag; {
-          # inherit base00;
-          base00 = "#0000ff";
+          inherit base00;
+          # base00 = "#0000ff";
           inherit base01;
           inherit base02;
           inherit base03;
