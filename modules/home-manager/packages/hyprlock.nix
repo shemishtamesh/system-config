@@ -8,6 +8,7 @@ in
 {
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
+    fade.fadeIn = 0;
     general = {
       hide_cursor = true;
     };
