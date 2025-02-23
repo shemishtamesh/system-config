@@ -10,7 +10,6 @@ in
   programs.hyprlock.settings = {
     general = {
       hide_cursor = true;
-      no_fade_in = true;
     };
     background = {
       path = toString wallpaper;

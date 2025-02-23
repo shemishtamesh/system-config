@@ -64,6 +64,7 @@ in
           "$mod SHIFT, d, exec, lorien"
 
           "$mod, Escape, exec, wlogout"
+          ", XF86Sleep, exec, hyprlock &; sleep 1 && systemctl suspend"
 
           "$mod, b, exec, ${lib.getExe toggle-bar}"
 
