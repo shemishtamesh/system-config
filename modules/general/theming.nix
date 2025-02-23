@@ -2,7 +2,7 @@
 let
   screenWidth = 1920;
   screenHeight = 1080;
-  scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
   # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
   scheme = {
     system = "base24";
