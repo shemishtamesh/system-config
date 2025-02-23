@@ -38,8 +38,6 @@
     indicator = true;
   };
 
-  services.logind.suspendKey = "ignore";
-
   # allowing unfree packages
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;

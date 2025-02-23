@@ -64,7 +64,7 @@ in
           "$mod SHIFT, d, exec, lorien"
 
           "$mod, Escape, exec, wlogout"
-          ", XF86Sleep, exec, hyprlock &; sleep 1 && systemctl suspend"
+          ", `, exec, hyprlock &; sleep 1 && systemctl suspend"
 
           "$mod, b, exec, ${lib.getExe toggle-bar}"
 
@@ -218,5 +218,4 @@ in
     };
     systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
-  services.logind.suspendKey = "ignore"; # to enable remapping
 }
