@@ -218,4 +218,5 @@ in
     };
     systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
+  services.logind.suspendKey = "ignore"; # to enable remapping
 }
