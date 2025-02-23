@@ -8,9 +8,9 @@ in
 {
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
-    fade.fadeIn = 0;
     general = {
       hide_cursor = true;
+      no_fade_in = true;
     };
     background = {
       path = toString wallpaper;
