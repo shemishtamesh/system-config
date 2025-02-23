@@ -14,7 +14,8 @@
         # colorscheme = with config.lib.stylix.colors.withHashtag; {
         colorscheme = {
           # inherit base00;
-          base00 = "#0000ff";
+          # base00 = "#0000ff";
+          base00 = config.lib.stylix.colors.withHashtag.base01;
           base01 = config.lib.stylix.colors.withHashtag.base01;
           base02 = config.lib.stylix.colors.withHashtag.base02;
           base03 = config.lib.stylix.colors.withHashtag.base03;
