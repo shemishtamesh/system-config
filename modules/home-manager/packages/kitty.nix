@@ -10,9 +10,9 @@ in
   programs.kitty.enable = true;
   programs.kitty = {
     keybindings = {
-      "kitty_mod+h" = "kitty_scrollback_nvim --nvim-args '--cmd lua vim.g.no_initial_picker=true'";
+      "kitty_mod+h" = "kitty_scrollback_nvim --nvim-args --cmd 'lua vim.g.no_initial_picker=true'";
       "kitty_mod+g" =
-        "kitty_scrollback_nvim --nvim-args '--cmd lua vim.g.no_initial_picker=true' --config ksb_builtin_last_cmd_output";
+        "kitty_scrollback_nvim --nvim-args --cmd 'lua vim.g.no_initial_picker=true' --config ksb_builtin_last_cmd_output";
 
       "alt+0" = "disable_ligatures_in all always";
       "alt+1" = "disable_ligatures_in all never";
