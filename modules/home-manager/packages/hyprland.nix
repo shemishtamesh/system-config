@@ -168,7 +168,7 @@ in
 
         resize_on_border = true;
 
-        "col.inactive_border" = "0x00000000";
+        "col.inactive_border" = lib.mkForce "0x00000000";
       };
       cursor = {
         hide_on_key_press = true;
