@@ -170,12 +170,12 @@ in
 
         "col.inactive_border" = lib.mkForce "0x00000000";
       };
-      shadow.enabled = false;
       cursor = {
         hide_on_key_press = true;
       };
       decoration = {
         rounding = rounding;
+        shadow.enabled = false;
       };
       dwindle = {
         preserve_split = true;
