@@ -1,6 +1,6 @@
 {
   networking = {
-    hostName = "shenixtamesh"; # Define your hostname.
+    hostName = "shenixtamesh";
 
     networkmanager.enable = true;
 
@@ -11,9 +11,7 @@
       "2a10:50c0::ad2:ff"
       "1.1.1.1"
     ];
-    # If using dhcpcd:
     dhcpcd.extraConfig = "nohook resolv.conf";
-    # If using NetworkManager:
     networkmanager.dns = "none";
 
     # Open ports in the firewall.
@@ -21,20 +19,18 @@
       allowedTCPPorts = [ 8080 ];
       allowedTCPPortRanges = [
         {
+          # KDE Connect
           from = 1714;
           to = 1764;
         }
-        # KDE Connect
       ];
       allowedUDPPortRanges = [
         {
+          # KDE Connect
           from = 1714;
           to = 1764;
         }
-        # KDE Connect
       ];
-      # # Or disable the firewall altogether.
-      # enable = false;
     };
   };
 }

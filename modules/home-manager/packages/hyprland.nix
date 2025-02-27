@@ -167,6 +167,8 @@ in
         allow_tearing = false;
 
         resize_on_border = true;
+
+        col.inactive_border = "#00000000";
       };
       cursor = {
         hide_on_key_press = true;
