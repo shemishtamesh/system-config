@@ -4,7 +4,7 @@
   ...
 }:
 let
-  gaps = "0";
+  gaps = "2";
   rounding = "10";
   toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
     ${pkgs.killall}/bin/killall .waybar-wrapped
@@ -12,12 +12,15 @@ let
         hyprctl keyword general:gaps_in 0
         hyprctl keyword general:gaps_out 0
         hyprctl keyword decoration:rounding 0
+        hyprctl keyword decoration:shadow:enabled 1
+        hyprctl keyword decoration:shadow:range 50
         exit 0
     fi
 
     hyprctl keyword general:gaps_in ${gaps}
     hyprctl keyword general:gaps_out ${gaps}
     hyprctl keyword decoration:rounding ${rounding}
+    hyprctl keyword decoration:shadow:enabled 0
     waybar
   '';
   utils = (import ../../general/utils.nix { inherit pkgs; });
@@ -162,7 +165,7 @@ in
       general = {
         gaps_in = gaps;
         gaps_out = gaps;
-        border_size = 0;
+        border_size = 1;
 
         allow_tearing = false;
 
@@ -175,7 +178,6 @@ in
       };
       decoration = {
         rounding = rounding;
-        shadow.enabled = true;
         shadow.range = 50;
       };
       dwindle = {
@@ -206,7 +208,6 @@ in
       windowrulev2 = [
         "workspace special:music silent, class:(spotify)"
         "workspace special:chat silent, class:(discord-screenaudio)"
-        "no-shadow, class:waybar"
       ];
       exec-once = [
         "hyprpaper"
