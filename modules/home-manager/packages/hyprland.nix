@@ -18,7 +18,7 @@ let
         exit 0
     fi
 
-    hyprctl keyword general:border_size = 1;
+    hyprctl keyword general:border_size 1;
     hyprctl keyword general:gaps_in ${gaps}
     hyprctl keyword general:gaps_out ${gaps}
     hyprctl keyword decoration:rounding ${rounding}
