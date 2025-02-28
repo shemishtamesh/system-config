@@ -30,6 +30,7 @@ let
   sync_external = utils.sync_external_monitor_brightness;
   notification-log = utils.notification-log;
   palette = config.lib.stylix.colors.withHashtag;
+  rgba = (import ../../general/utils.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
 in
 {
   wayland.windowManager.hyprland = {
@@ -177,8 +178,7 @@ in
 
         "col.inactive_border" = lib.mkForce "#0000";
         "col.active_border" =
-          with palette;
-          lib.mkForce "${base10} ${base11} ${base12} ${base13} ${base14} ${base15} ${base16} ${base17}";
+          lib.mkForce "${rgba "base10" 1} ${rgba "base11" 1} ${rgba "base12" 1} ${rgba "base13" 1} ${rgba "base14" 1} ${rgba "base15" 1} ${rgba "base16" 1} ${rgba "base17" 1}";
       };
       cursor = {
         hide_on_key_press = true;
