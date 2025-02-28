@@ -210,6 +210,17 @@ in
       windowrulev2 = [
         "workspace special:music silent, class:(spotify)"
         "workspace special:chat silent, class:(discord-screenaudio)"
+
+        # no borders when there's only a single window
+        "bordersize 0, floating:0, onworkspace:w[v1]"
+        "rounding 0, floating:0, onworkspace:w[v1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
+      workspace = [
+        # no borders when there's only a single window
+        "w[v1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
       ];
       exec-once = [
         "hyprpaper"
