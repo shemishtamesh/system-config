@@ -176,6 +176,7 @@ in
       decoration = {
         rounding = rounding;
         shadow.enabled = true;
+        shadow.range = 50;
       };
       dwindle = {
         preserve_split = true;
