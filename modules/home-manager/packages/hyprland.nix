@@ -180,6 +180,7 @@ in
       };
       decoration = {
         rounding = rounding;
+        shadow.enabled = false;
       };
       dwindle = {
         preserve_split = true;
