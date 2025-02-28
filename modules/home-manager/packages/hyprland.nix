@@ -206,6 +206,7 @@ in
       windowrulev2 = [
         "workspace special:music silent, class:(spotify)"
         "workspace special:chat silent, class:(discord-screenaudio)"
+        "no-shadow, class:waybar"
       ];
       exec-once = [
         "hyprpaper"
