@@ -199,7 +199,7 @@ in
           "windowsMove, 1, 6, wind, slide"
           "border, 1, 1, liner"
           "borderangle, 1, 30, liner, loop"
-          "fade, 1, 1, default"
+          "fade, 1, 100, default"
           "workspaces, 1, 5, wind"
         ];
       };
