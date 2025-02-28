@@ -327,9 +327,9 @@ in
         }
 
         #workspaces button.hover {
-            padding: 1px 12px 1px 7px;
-            background: ${palette.base0D};
-            margin-bottom: 0;
+            padding: 1px 12px 1px 7px !important;
+            background: ${palette.base0D} !important;
+            margin-bottom: 0 !important;
         }
 
         #taskbar button.active,
