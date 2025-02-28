@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
 let
@@ -28,6 +29,7 @@ let
   utils = (import ../../general/utils.nix { inherit pkgs; });
   sync_external = utils.sync_external_monitor_brightness;
   notification-log = utils.notification-log;
+  palette = config.lib.stylix.colors.withHashtag;
 in
 {
   wayland.windowManager.hyprland = {
@@ -173,7 +175,8 @@ in
 
         resize_on_border = true;
 
-        "col.inactive_border" = lib.mkForce "0x00000000";
+        "col.inactive_border" = lib.mkForce "#0000";
+        "col.active_border" = with palette; lib.mkForce "${base10} ${base11} ${base12} ${base13} ${base14} ${base15} ${base16} ${base17}";
       };
       cursor = {
         hide_on_key_press = true;
