@@ -203,7 +203,7 @@ in
           "windowsMove, 1, 6, wind, slide"
           "border, 1, 1, linear"
           "borderangle, 1, 100, linear, loop"
-          "fade, 1, 10, linear"
+          "fade, 1, 5, linear"
           "workspaces, 1, 5, wind"
         ];
       };
