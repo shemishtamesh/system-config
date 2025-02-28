@@ -204,6 +204,8 @@ in
           "border, 1, 1, linear"
           "borderangle, 1, 100, linear, loop"
           "fade, 1, 5, linear"
+          "fadeIn, 1, 1, linear"
+          "fadeOut, 1, 10, linear"
           "workspaces, 1, 5, wind"
         ];
       };
