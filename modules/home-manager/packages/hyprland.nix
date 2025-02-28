@@ -175,9 +175,9 @@ in
         resize_on_border = true;
 
         "col.inactive_border" = lib.mkForce "0x00000000";
-        "col.active_border" = with config.lib.stylix.colors; lib.mkForce "rgb(${base10}) rgb(${base11})";
-        # "col.active_border" = with config.lib.stylix.colors.withHashtag; lib.mkForce "rgb(${base10-rgb-r})";
-        # lib.mkForce "${rgba "base10" 1} ${rgba "base11" 1} ${rgba "base12" 1} ${rgba "base13" 1} ${rgba "base14" 1} ${rgba "base15" 1} ${rgba "base16" 1} ${rgba "base17" 1}";
+        "col.active_border" =
+          with config.lib.stylix.colors;
+          lib.mkForce "rgb(${base10}) rgb(${base11}) rgb(${base12}) rgb(${base13}) rgb(${base14}) rgb(${base15}) rgb(${base16}) rgb(${base17})";
       };
       cursor = {
         hide_on_key_press = true;
