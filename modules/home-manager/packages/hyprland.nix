@@ -162,7 +162,7 @@ in
       general = {
         gaps_in = gaps;
         gaps_out = gaps;
-        border_size = 1;
+        border_size = 0;
 
         allow_tearing = false;
 
@@ -175,7 +175,7 @@ in
       };
       decoration = {
         rounding = rounding;
-        shadow.enabled = false;
+        shadow.enabled = true;
       };
       dwindle = {
         preserve_split = true;

@@ -14,22 +14,24 @@
         colorscheme =
           with config.lib.stylix.colors.withHashtag;
           lib.mkForce {
-            inherit base00;
-            inherit base01;
-            inherit base02;
-            inherit base03;
-            inherit base04;
-            inherit base05;
-            inherit base06;
-            inherit base07;
-            inherit base08;
-            inherit base09;
-            inherit base0A;
-            inherit base0B;
-            inherit base0C;
-            inherit base0D;
-            inherit base0E;
-            inherit base0F;
+            inherit
+              base00
+              base01
+              base02
+              base03
+              base04
+              base05
+              base06
+              base07
+              base08
+              base09
+              base0A
+              base0B
+              base0C
+              base0D
+              base0E
+              base0F
+              ;
           };
         settings.telescope_borders = true;
       };
