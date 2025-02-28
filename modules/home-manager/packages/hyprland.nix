@@ -195,11 +195,11 @@ in
         animation = [
           "windows, 1, 6, wind, slide"
           "windowsIn, 1, 6, winIn, slide"
-          "windowsOut, 1, 5, winOut, slide"
-          "windowsMove, 1, 5, wind, slide"
+          "windowsOut, 1, 6, winOut, slide"
+          "windowsMove, 1, 6, wind, slide"
           "border, 1, 1, liner"
           "borderangle, 1, 30, liner, loop"
-          "fade, 1, 10, default"
+          "fade, 1, 1, default"
           "workspaces, 1, 5, wind"
         ];
       };
@@ -211,14 +211,14 @@ in
         "workspace special:music silent, class:(spotify)"
         "workspace special:chat silent, class:(discord-screenaudio)"
 
-        # no borders when there's only a single window
+        # no borders when there's only a single visible window
         "bordersize 0, floating:0, onworkspace:w[v1]"
         "rounding 0, floating:0, onworkspace:w[v1]"
         "bordersize 0, floating:0, onworkspace:f[1]"
         "rounding 0, floating:0, onworkspace:f[1]"
       ];
       workspace = [
-        # no borders when there's only a single window
+        # no borders when there's only a single visible window
         "w[v1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
       ];
