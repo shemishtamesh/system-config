@@ -9,6 +9,7 @@ let
   toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
     ${pkgs.killall}/bin/killall .waybar-wrapped
     if [[ $? -eq 0 ]]; then
+        hyprctl keyword general:border_size = 0;
         hyprctl keyword general:gaps_in 0
         hyprctl keyword general:gaps_out 0
         hyprctl keyword decoration:rounding 0
@@ -17,6 +18,7 @@ let
         exit 0
     fi
 
+    hyprctl keyword general:border_size = 1;
     hyprctl keyword general:gaps_in ${gaps}
     hyprctl keyword general:gaps_out ${gaps}
     hyprctl keyword decoration:rounding ${rounding}
