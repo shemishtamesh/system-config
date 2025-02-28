@@ -321,26 +321,26 @@ in
             background: ${rgba "base00" 0};
         }
 
-        #taskbar button,
-        #workspaces button {
-            padding: 1px 10px 1px 5px;
-        }
-
         #workspaces button.hover {
             padding: 1px 12px 1px 7px;
             background: ${palette.base0D};
             margin-bottom: 0;
         }
 
-        #taskbar button.maximized {
-            padding: 1px 15px 1px 10px;
-            background: ${palette.base0D};
+        #taskbar button,
+        #workspaces button {
+            padding: 1px 10px 1px 5px;
         }
 
         #taskbar button.active,
         #workspaces button.active {
             padding: 1px 15px 1px 10px;
             background: ${palette.base0B};
+        }
+
+        #taskbar button.maximized {
+            padding: 1px 15px 1px 10px;
+            background: ${palette.base14};
         }
 
         #taskbar button.active.maximized {
