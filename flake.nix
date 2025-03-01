@@ -48,9 +48,7 @@
       formatter.${system} = treefmtEval.config.build.wrapper;
       nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs;
-          inherit theme;
-          inherit system;
+          inherit inputs theme system;
         };
         modules = [
           ./modules/nixos/configuration
@@ -60,8 +58,7 @@
       };
       homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
-          inherit inputs;
-          inherit theme;
+          inherit inputs theme;
         };
         inherit pkgs;
         modules = [
