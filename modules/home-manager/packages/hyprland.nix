@@ -218,14 +218,14 @@ in
         "workspace special:chat silent, class:(discord-screenaudio)"
 
         # no borders when there's only a single visible window
-        "bordersize 0, floating:0, onworkspace:w[tv1]"
-        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:w[v1]"
+        "rounding 0, floating:0, onworkspace:w[v1]"
         "bordersize 0, floating:0, onworkspace:f[1]"
         "rounding 0, floating:0, onworkspace:f[1]"
       ];
       workspace = [
         # no borders when there's only a single visible window
-        "w[tv1], gapsout:0, gapsin:0"
+        "w[v1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
       ];
       exec-once = [
