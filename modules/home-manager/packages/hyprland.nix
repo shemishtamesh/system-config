@@ -74,10 +74,6 @@ in
 
           "$mod, b, exec, ${lib.getExe toggle-bar}"
 
-          ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-          ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
-          ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
-
           "$mod, XF86Reload, togglespecialworkspace, chat"
           "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
           "$mod, XF86AudioPlay, togglespecialworkspace, music"
@@ -137,11 +133,6 @@ in
         "$mod ALT SHIFT, k, resizeactive, 0 -1"
         "$mod ALT SHIFT, l, resizeactive, 1 0"
 
-        "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
-        "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
-        "CTRL SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+"
-        "CTRL SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-"
-
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
         "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
@@ -156,6 +147,15 @@ in
         "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+
+        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+
+        "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
+        "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
+        "CTRL SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+"
+        "CTRL SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
