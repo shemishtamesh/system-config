@@ -1,4 +1,9 @@
-{ pkgs, config, shared, ... }:
+{
+  pkgs,
+  config,
+  shared,
+  ...
+}:
 let
   inherit (config.lib.formats.rasi) mkLiteral;
   palette = config.lib.stylix.colors.withHashtag;

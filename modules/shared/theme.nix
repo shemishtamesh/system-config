@@ -37,7 +37,7 @@ let
       base17 = "b18a3d";
     };
   };
-  functions = import ./utils.nix  pkgs;
+  functions = import ./utils.nix pkgs;
   imageFromScheme = functions.imageFromScheme {
     width = screenWidth;
     height = screenHeight;
