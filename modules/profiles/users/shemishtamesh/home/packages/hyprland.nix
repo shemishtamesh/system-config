@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  shared,
   ...
 }:
 let
@@ -26,9 +27,8 @@ let
     hyprctl keyword decoration:shadow:enabled 0
     waybar
   '';
-  utils = (import ../../general/utils.nix { inherit pkgs; });
-  sync_external = utils.sync_external_monitor_brightness;
-  notification-log = utils.notification-log;
+  sync_external = shared.utils.sync_external_monitor_brightness;
+  notification-log = shared.utils.notification-log;
 in
 {
   wayland.windowManager.hyprland = {

@@ -1,4 +1,4 @@
-{ theme, ... }:
+{ shared, ... }:
 
 {
   imports = [
@@ -28,9 +28,9 @@
 
   stylix = {
     enable = true;
-    base16Scheme = theme.scheme;
-    image = theme.wallpaper;
-    fonts = theme.fonts;
+    base16Scheme = shared.theme.scheme;
+    image = shared.theme.wallpaper;
+    fonts = shared.theme.fonts;
   };
 
   services.kdeconnect = {

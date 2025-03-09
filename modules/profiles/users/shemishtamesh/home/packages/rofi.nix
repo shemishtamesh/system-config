@@ -1,8 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, config, shared, ... }:
 let
   inherit (config.lib.formats.rasi) mkLiteral;
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = (import ../../general/utils.nix { inherit pkgs; }).rgba config.lib.stylix.colors;
+  rgba = shared.utils.rgba config.lib.stylix.colors;
 in
 {
   stylix.targets.rofi.enable = false;

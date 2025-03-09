@@ -1,40 +1,19 @@
 {
   pkgs,
-  theme,
+  shared,
   ...
 }:
 
 {
   imports = [
-    ../hardware-configuration.nix
+    ./generated_hardware_configuration.nix
     ./boot.nix
     ./networking.nix
     ./storage_cleaning.nix
+    ./localization.nix
+    ./security.nix
+    ./services.nix
   ];
-
-  security = {
-    polkit.enable = true;
-    rtkit.enable = true;
-  };
-
-  # Set your time zone.
-  time.timeZone = "Asia/Jerusalem";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
-    };
-  };
-
   xdg.portal.enable = true;
 
   hardware = {
@@ -42,92 +21,6 @@
 
     bluetooth.enable = true; # enables support for Bluetooth
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  };
-
-  services = {
-    pulseaudio.enable = false;
-    blueman.enable = true;
-    gvfs.enable = true;
-    udisks2.enable = true;
-    udev.extraRules = ''
-      KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
-    ''; # external monitor brightness control
-    xserver = {
-      # Enable the X11 windowing system.
-      enable = true;
-
-      desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
-      xkb = {
-        # Configure keymap in X11
-        layout = "us";
-        variant = "";
-      };
-    };
-    printing.enable = true; # Enable CUPS to print documents.
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
-    };
-    syncthing = {
-      enable = true;
-      user = "shemishtamesh";
-      dataDir = "/home/shemishtamesh/Documents";
-      configDir = "/home/shemishtamesh/.config/syncthing";
-      overrideDevices = true;
-      overrideFolders = true;
-      settings = {
-        devices = {
-          "Pixel 7 Pro" = {
-            id = "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH";
-          };
-          "work_pc" = {
-            id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD";
-          };
-        };
-        folders = {
-          "general_vault" = {
-            path = "/home/shemishtamesh/Documents/general_vault";
-            devices = [
-              "Pixel 7 Pro"
-              "work_pc"
-            ];
-          };
-        };
-      };
-    };
-    ollama = {
-      enable = true;
-      openFirewall = true;
-      environmentVariables = {
-        OLLAMA_HOST = "0.0.0.0";
-      };
-    };
-    open-webui = {
-      enable = true;
-      environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
-      host = "0.0.0.0";
-    };
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.shemishtamesh = {
-    isNormalUser = true;
-    description = "shemishtamesh";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "input"
-      "adbusers"
-      "docker"
-    ];
   };
 
   # Allow unfree packages
@@ -144,9 +37,9 @@
 
   stylix = {
     enable = true;
-    base16Scheme = theme.scheme;
-    image = theme.wallpaper;
-    fonts = theme.fonts;
+    base16Scheme = shared.theme.scheme;
+    image = shared.theme.wallpaper;
+    fonts = shared.theme.fonts;
   };
 
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];

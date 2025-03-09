@@ -1,4 +1,4 @@
-{ pkgs }:
+pkgs:
 let
   screenWidth = 1920;
   screenHeight = 1080;
@@ -37,7 +37,7 @@ let
       base17 = "b18a3d";
     };
   };
-  functions = import ./utils.nix { inherit pkgs; };
+  functions = import ./utils.nix  pkgs;
   imageFromScheme = functions.imageFromScheme {
     width = screenWidth;
     height = screenHeight;

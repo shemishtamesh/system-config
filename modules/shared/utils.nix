@@ -1,10 +1,11 @@
-{ pkgs }:
+pkgs:
 let
   ddcutil = "${pkgs.ddcutil}/bin/ddcutil";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   bc = "${pkgs.bc}/bin/bc";
 in
 {
+  inherit pkgs;
   importYaml =
     file:
     builtins.fromJSON (

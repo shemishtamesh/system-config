@@ -1,10 +1,8 @@
 {
   pkgs,
+  shared,
   ...
 }:
-let
-  wallpaper = (import ../../general/theming.nix { inherit pkgs; }).wallpaper;
-in
 {
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
@@ -12,7 +10,7 @@ in
       hide_cursor = true;
     };
     background = {
-      path = toString wallpaper;
+      path = toString shared.theme.wallpaper;
       blur_passes = 3;
       brightness = 0.5;
     };

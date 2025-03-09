@@ -1,7 +1,5 @@
 {
   networking = {
-    hostName = "shenixtamesh";
-
     networkmanager.enable = true;
 
     nameservers = [

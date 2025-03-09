@@ -2,13 +2,13 @@
   config,
   pkgs,
   lib,
+  shared,
   ...
 }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  functions = (import ../../general/utils.nix { inherit pkgs; });
-  rgba = functions.rgba config.lib.stylix.colors;
-  imageFromScheme = functions.imageFromScheme {
+  rgba = shared.utils.rgba config.lib.stylix.colors;
+  imageFromScheme = shared.utils.imageFromScheme {
     width = 500;
     height = 500;
   };

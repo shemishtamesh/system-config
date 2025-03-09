@@ -25,47 +25,25 @@
   outputs =
     {
       nixpkgs,
-      home-manager,
-      stylix,
-      hyprland,
       treefmt-nix,
       ...
     }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      theme = (import ./modules/general/theming.nix { inherit pkgs; });
-      treefmtEval = treefmt-nix.lib.evalModule pkgs {
-        projectRootFile = "flake.nix";
-        programs.nixfmt.enable = true;
-        settings.excludes = [
-          "*.png"
-          "*.lock"
-        ];
-      };
-    in
     {
-      formatter.${system} = treefmtEval.config.build.wrapper;
-      nixosConfigurations.shenixtamesh = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs theme system;
-        };
-        modules = [
-          ./modules/nixos/configuration
-          stylix.nixosModules.stylix
-          hyprland.nixosModules.default
-        ];
-      };
-      homeConfigurations.shemishtamesh = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = {
-          inherit inputs theme;
-        };
-        inherit pkgs;
-        modules = [
-          ./modules/home-manager
-          stylix.homeManagerModules.stylix
-          hyprland.homeManagerModules.default
-        ];
-      };
+      inherit (import ./modules/profiles inputs) nixosConfigurations homeConfigurations;
+
+      formatter = builtins.listToAttrs (
+        map (system: {
+          name = system;
+          value =
+            (treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} {
+              projectRootFile = "flake.nix";
+              programs.nixfmt.enable = true;
+              settings.excludes = [
+                "*.png"
+                "*.lock"
+              ];
+            }).config.build.wrapper;
+        }) [ "x86_64-linux" ]
+      );
     };
 }
