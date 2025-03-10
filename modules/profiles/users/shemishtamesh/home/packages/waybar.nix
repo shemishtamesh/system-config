@@ -269,7 +269,7 @@ in
         #language,
         #keyboard-state,
         #battery {
-            background: ${palette.base04};
+            background: ${palette.base03};
             color: ${palette.base00};
             opacity: 1;
             padding: 2px 1px;
@@ -283,7 +283,7 @@ in
         #window,
         #mpris,
         #idle_inhibitor {
-            background: ${palette.base04};
+            background: ${palette.base03};
             color: ${palette.base00};
             opacity: 1;
             padding: 1px 2px;
