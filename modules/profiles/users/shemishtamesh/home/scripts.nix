@@ -3,7 +3,7 @@
 {
   home.packages = [
     (pkgs.writeShellScriptBin "rebuild" ''
-      export FLAKE="$HOME/.config/flake"
+      export FLAKE="$HOME/.config/system-flake"
 
       git -C $FLAKE add .
       git -C $FLAKE commit -m 'format'
