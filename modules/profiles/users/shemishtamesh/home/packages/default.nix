@@ -54,6 +54,7 @@
     wev
     tree
     nh
+    nix-diff
     nix-output-monitor
     nvd
     smassh
