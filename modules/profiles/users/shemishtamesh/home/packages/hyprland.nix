@@ -47,7 +47,10 @@ in
             vertical_offset,
             scaling,
           }:
-          "${connection},${width}x${height}@${refresh_rate},${horizontal_offset}x${vertical_offset},${scaling}"
+          "${connection},"
+          + "${toString width}x${toString height}@${toString refresh_rate},"
+          + "${toString horizontal_offset}x${toString vertical_offset},"
+          + "${toString scaling}"
         ) host.monitors
       );
       bind =
