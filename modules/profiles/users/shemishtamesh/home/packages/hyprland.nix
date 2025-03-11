@@ -3,6 +3,7 @@
   pkgs,
   config,
   shared,
+  monitors,
   ...
 }:
 let

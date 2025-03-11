@@ -14,6 +14,7 @@ in
     {
       system,
       hostname,
+      monitors,
       users,
     }:
     {
@@ -24,6 +25,7 @@ in
           inherit
             inputs
             hostname
+            monitors
             ;
         };
         modules = [
