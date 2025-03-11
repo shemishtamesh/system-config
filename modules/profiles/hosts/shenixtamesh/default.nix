@@ -39,6 +39,6 @@ in
     inherit hostname system users;
   };
   homeConfigurations = builtins.foldl' (
-    accumulator: file: accumulator // (import ../../users/${file}) { inherit inputs system; }
+    accumulator: file: accumulator // (import ../../users/${file}) { inherit inputs system monitors; }
   ) { } (builtins.attrNames users);
 }
