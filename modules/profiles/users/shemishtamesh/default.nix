@@ -1,4 +1,8 @@
-{ username, host, inputs }:
+{
+  username,
+  host,
+  inputs,
+}:
 let
   utils = (import ../../utils.nix) inputs;
 in
