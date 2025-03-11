@@ -3,7 +3,7 @@
   pkgs,
   config,
   shared,
-  monitors,
+  host,
   ...
 }:
 let
@@ -48,7 +48,7 @@ in
             scaling,
           }:
           "${connection},${width}x${height}@${refresh_rate},${horizontal_offset}x${vertical_offset},${scaling}"
-        ) monitors
+        ) host.monitors
       );
       bind =
         [

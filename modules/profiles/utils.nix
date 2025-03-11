@@ -40,18 +40,15 @@ in
     };
   mkHomeConfiguration =
     { username, host }:
-    let
-      system = host.system;
-    in
     {
-      shared_test = shared system;
+      shared_test = shared host.system;
       pkgs = pkgs host.system;
       ${username} = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
-          shared = shared system;
-          inherit inputs;
+          shared = shared host.system;
+          inherit inputs host;
         };
-        pkgs = pkgs system;
+        pkgs = pkgs host.system;
         modules = [
           ./users/${username}/home
           stylix.homeManagerModules.stylix
