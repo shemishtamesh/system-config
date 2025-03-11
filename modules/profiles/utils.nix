@@ -14,8 +14,8 @@ in
     {
       system,
       hostname,
-      monitors,
       users,
+      ...
     }:
     {
       ${hostname} = nixpkgs.lib.nixosSystem {
@@ -25,7 +25,6 @@ in
           inherit
             inputs
             hostname
-            monitors
             ;
         };
         modules = [

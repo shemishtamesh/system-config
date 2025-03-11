@@ -1,9 +1,7 @@
-{ inputs, system }:
+{ username, host, inputs }:
 let
-  username = "shemishtamesh";
-
   utils = (import ../../utils.nix) inputs;
 in
 utils.mkHomeConfiguration {
-  inherit system username;
+  inherit username host;
 }
