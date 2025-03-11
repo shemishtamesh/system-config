@@ -36,10 +36,18 @@ in
     enable = true;
     settings = {
       "$mod" = "SUPER";
-      monitor = [
-        "eDP-1,1920x1080@60,1920x0,1"
-        "HDMI-A-1,1920x1080@60,0x0,1"
-      ];
+      monitor = builtins.attrValues map (
+        connection:
+        {
+          width,
+          height,
+          refresh_rate,
+          horizontal_offset,
+          vertical_offset,
+          scaling,
+        }:
+        "${connection},${width}x${height}@${refresh_rate},${horizontal_offset}x${vertical_offset},${scaling}"
+      );
       bind =
         [
           "$mod CTRL SHIFT, q, exit"
