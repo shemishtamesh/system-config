@@ -37,7 +37,7 @@ in
     settings = {
       "$mod" = "SUPER";
       monitor = builtins.attrValues (
-        map (
+        builtins.mapAttrs (
           connection:
           {
             width,
