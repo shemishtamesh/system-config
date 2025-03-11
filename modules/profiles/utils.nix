@@ -39,7 +39,10 @@ in
       };
     };
   mkHomeConfiguration =
-    { username, {system, ...} }:
+    { username, host }:
+    let
+      system = host.system;
+    in
     {
       shared_test = shared system;
       pkgs = pkgs host.system;
