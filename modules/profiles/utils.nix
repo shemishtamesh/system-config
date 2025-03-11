@@ -39,10 +39,10 @@ in
       };
     };
   mkHomeConfiguration =
-    { system, username }:
+    { username, {system, ...} }:
     {
       shared_test = shared system;
-      pkgs = pkgs system;
+      pkgs = pkgs host.system;
       ${username} = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
           shared = shared system;
