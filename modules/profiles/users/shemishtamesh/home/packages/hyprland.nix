@@ -36,7 +36,7 @@ in
     enable = true;
     settings = {
       "$mod" = "SUPER";
-      monitor = builtins.attrValues map (
+      monitor = builtins.attrValues (map (
         connection:
         {
           width,
@@ -47,7 +47,7 @@ in
           scaling,
         }:
         "${connection},${width}x${height}@${refresh_rate},${horizontal_offset}x${vertical_offset},${scaling}"
-      );
+      ));
       bind =
         [
           "$mod CTRL SHIFT, q, exit"
