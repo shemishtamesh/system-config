@@ -15,6 +15,7 @@ in
       system,
       hostname,
       users,
+      ...
     }:
     {
       ${hostname} = nixpkgs.lib.nixosSystem {
