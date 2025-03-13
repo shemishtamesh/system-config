@@ -1,5 +1,5 @@
 {
-  pkgs,
+  host,
   shared,
   ...
 }:
@@ -9,11 +9,22 @@
     general = {
       hide_cursor = true;
     };
-    background = {
-      path = toString shared.theme.wallpaper;
-      blur_passes = 3;
-      brightness = 0.5;
-    };
+    background = builtins.attrValues (
+      builtins.mapAttrs (
+        portname:
+        {
+          width,
+          height,
+          ...
+        }:
+        {
+          monitor = portname;
+          path = toString shared.theme.wallpaper { inherit portname width height; };
+          blur_passes = 3;
+          brightness = 0.5;
+        }
+      ) host.monitors
+    );
     input-field = {
       size = "50, 50";
       outline_thickness = 0;

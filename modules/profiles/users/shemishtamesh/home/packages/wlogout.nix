@@ -8,41 +8,46 @@
 let
   palette = config.lib.stylix.colors.withHashtag;
   rgba = shared.utils.rgba config.lib.stylix.colors;
-  imageFromScheme = shared.utils.imageFromScheme {
-    width = 500;
-    height = 500;
-  };
-  rebootIcon = imageFromScheme {
+  svgToPng =
+    remaining:
+    shared.utils.svgToPng (
+      {
+        width = 500;
+        height = 500;
+      }
+      // remaining
+    );
+  rebootIcon = svgToPng {
     svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
       lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/reboot.svg"
     );
     name = "rebootIcon";
   };
-  lockIcon = imageFromScheme {
+  lockIcon = svgToPng {
     svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
       lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/lock.svg"
     );
     name = "lockIcon";
   };
-  suspendIcon = imageFromScheme {
+  suspendIcon = svgToPng {
     svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
       lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/suspend.svg"
     );
     name = "suspendIcon";
   };
-  logoutIcon = imageFromScheme {
+  logoutIcon = svgToPng {
     svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
       lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/logout.svg"
     );
     name = "logoutIcon";
   };
-  hibernateIcon = imageFromScheme {
+  hibernateIcon = svgToPng {
     svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
       lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/hibernate.svg"
     );
     name = "hibernateIcon";
   };
-  shutdownIcon = imageFromScheme {
+  shutdownIcon = svgToPng {
     svgText = builtins.replaceStrings [ "<path d=" ] [ ''<path fill="${palette.base0C}" d='' ] (
       lib.strings.fileContents "${pkgs.wlogout}/share/wlogout/assets/shutdown.svg"
     );
@@ -56,37 +61,37 @@ in
       {
         label = "lock";
         action = "hyprlock";
-        text = "Lock";
+        text = "lock (l)";
         keybind = "l";
       }
       {
         label = "hibernate";
         action = "systemctl hibernate";
-        text = "Hibernate";
+        text = "hibernate (h)";
         keybind = "h";
       }
       {
         label = "logout";
         action = "hyprctl dispatch exit";
-        text = "Logout";
+        text = "logout (o)";
         keybind = "o";
       }
       {
         label = "shutdown";
         action = "shutdown now";
-        text = "Shutdown";
+        text = "Shutdown (d)";
         keybind = "d";
       }
       {
         label = "suspend";
         action = "systemctl suspend";
-        text = "Suspend";
+        text = "Suspend (s)";
         keybind = "s";
       }
       {
         label = "reboot";
         action = "reboot";
-        text = "Reboot";
+        text = "Reboot (r)";
         keybind = "r";
       }
     ];

@@ -23,13 +23,17 @@ in
       b = palette."${color}-rgb-b";
     in
     "rgba(${r}, ${g}, ${b}, ${builtins.toString opacity})";
-  imageFromScheme =
-    { width, height }:
-    { svgText, name }:
+  svgToPng =
+    {
+      width,
+      height,
+      svgText,
+      name,
+    }:
     pkgs.stdenv.mkDerivation {
-      name = "generated-${name}.png";
+      name = "${name}.png";
       src = pkgs.writeTextFile {
-        name = "template.svg";
+        name = "${name}.svg";
         text = svgText;
       };
       buildInputs = with pkgs; [ inkscape ];

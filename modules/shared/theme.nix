@@ -1,9 +1,7 @@
 pkgs:
 let
-  screenWidth = 1920;
-  screenHeight = 1080;
-  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
+  # scheme = utils.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+  # scheme = utils.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
   scheme = {
     system = "base24";
     name = "IR Black";
@@ -37,11 +35,7 @@ let
       base17 = "b18a3d";
     };
   };
-  functions = import ./utils.nix pkgs;
-  imageFromScheme = functions.imageFromScheme {
-    width = screenWidth;
-    height = screenHeight;
-  };
+  utils = import ./utils.nix pkgs;
 in
 {
   inherit scheme;
@@ -64,18 +58,23 @@ in
     };
   };
   wallpaper =
+    {
+      portname,
+      width,
+      height,
+    }:
+    with scheme.palette;
     let
       logoScale = 8;
-      palette = scheme.palette;
     in
-    imageFromScheme {
-      name = "wallpaper";
+    utils.svgToPng {
+      name = "${portname}_wallpaper";
       svgText = # svg
         ''
           <?xml version="1.0" encoding="UTF-8" standalone="no"?>
           <svg
-             width="${toString screenWidth}"
-             height="${toString screenHeight}"
+             width="${toString width}"
+             height="${toString height}"
              version="1.1"
              id="svg4"
              xmlns="http://www.w3.org/2000/svg"
@@ -83,13 +82,13 @@ in
             <defs
                id="defs4" />
             <rect
-               width="${toString screenWidth}"
-               height="${toString screenHeight}"
+               width="${toString width}"
+               height="${toString height}"
                fill="#${palette.base00}"
                id="rect1" />
             <svg
-               x="${toString (screenWidth / 2 - (logoScale * 50))}"
-               y="${toString (screenHeight / 2 - (logoScale * 50))}"
+               x="${toString (width / 2 - (logoScale * 50))}"
+               y="${toString (height / 2 - (logoScale * 50))}"
                version="1.1"
                id="svg3">
               <g

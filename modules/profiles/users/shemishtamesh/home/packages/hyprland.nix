@@ -38,7 +38,7 @@ in
       "$mod" = "SUPER";
       monitor = builtins.attrValues (
         builtins.mapAttrs (
-          connection:
+          portname:
           {
             width,
             height,
@@ -47,7 +47,7 @@ in
             vertical_offset,
             scaling,
           }:
-          "${connection},"
+          "${portname},"
           + "${toString width}x${toString height}@${toString refresh_rate},"
           + "${toString horizontal_offset}x${toString vertical_offset},"
           + "${toString scaling}"
