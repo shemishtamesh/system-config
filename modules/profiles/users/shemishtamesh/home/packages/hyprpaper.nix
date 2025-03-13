@@ -3,7 +3,7 @@
   stylix.targets.hyprpaper.enable = false;
   services.hyprpaper = {
     enable = true;
-    wallpaper = builtins.attrValues (
+    settings.wallpaper = builtins.attrValues (
       builtins.mapAttrs (
         portname:
         {
