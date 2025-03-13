@@ -1,6 +1,7 @@
 {
   host,
   shared,
+  pkgs,
   ...
 }:
 {
