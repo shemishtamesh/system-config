@@ -11,7 +11,7 @@
           height,
           ...
         }:
-        "${portname}, ${toString shared.theme.wallpaper { inherit portname width height; }}"
+        "${portname}, ${toString (shared.theme.wallpaper { inherit portname width height; })}"
       ) host.monitors
     );
   };
