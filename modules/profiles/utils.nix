@@ -15,7 +15,7 @@ in
       system,
       hostname,
       users,
-    }:
+    }@host:
     {
       ${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
