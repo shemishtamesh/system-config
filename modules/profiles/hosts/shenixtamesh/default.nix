@@ -3,6 +3,18 @@ let
   host = {
     hostname = "shenixtamesh";
     system = "x86_64-linux";
+    users = {
+      shemishtamesh = {
+        isNormalUser = true;
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "input"
+          "adbusers"
+          "docker"
+        ];
+      };
+    };
     monitors = {
       "eDP-1" = {
         width = 1920;
@@ -19,18 +31,6 @@ let
         horizontal_offset = 0;
         vertical_offset = 0;
         scaling = 1;
-      };
-    };
-    users = {
-      shemishtamesh = {
-        isNormalUser = true;
-        extraGroups = [
-          "networkmanager"
-          "wheel"
-          "input"
-          "adbusers"
-          "docker"
-        ];
       };
     };
   };
