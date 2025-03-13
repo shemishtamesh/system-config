@@ -132,5 +132,6 @@ in
             </svg>
           </svg>
         '';
+      inherit width height;
     };
 }
