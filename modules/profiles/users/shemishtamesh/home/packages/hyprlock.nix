@@ -20,7 +20,7 @@
         }:
         {
           monitor = portname;
-          path = toString shared.theme.wallpaper { inherit portname width height; };
+          path = toString (shared.theme.wallpaper { inherit portname width height; });
           blur_passes = 3;
           brightness = 0.5;
         }
