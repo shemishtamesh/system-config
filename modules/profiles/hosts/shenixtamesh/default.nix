@@ -36,9 +36,7 @@ let
   };
 in
 {
-  nixosConfigurations = ((import ../../utils.nix) inputs).mkNixosSystem {
-    inherit host;
-  };
+  nixosConfigurations = ((import ../../utils.nix) inputs).mkNixosSystem host;
   homeConfigurations = builtins.foldl' (
     accumulator: username:
     accumulator // (import ../../users/${username}) { inherit username host inputs; }
