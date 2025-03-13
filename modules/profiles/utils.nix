@@ -11,11 +11,12 @@ let
 in
 {
   mkNixosSystem =
-    {
-      system,
-      hostname,
-      users,
-    }@host:
+    host:
+    let
+      system = host.system;
+      hostname = host.hostname;
+      users = host.users;
+    in
     {
       ${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
