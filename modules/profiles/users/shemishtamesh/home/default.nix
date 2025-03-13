@@ -29,7 +29,6 @@
   stylix = {
     enable = true;
     base16Scheme = shared.theme.scheme;
-    # image = shared.theme.wallpaper;
     fonts = shared.theme.fonts;
   };
 
