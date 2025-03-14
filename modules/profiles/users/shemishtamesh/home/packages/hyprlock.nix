@@ -6,7 +6,7 @@
 }:
 {
   stylix.targets.hyprlock.enable = false;
-  programs.hyprlock = with config.lib.stylix.colors.withHashtag; {
+  programs.hyprlock = with config.lib.stylix.colors; {
     enable = true;
     settings = {
       general = {
@@ -34,6 +34,14 @@
       };
       label = [
         {
+          text = "$FAIL";
+          font_size = 14;
+          position = "0, 100";
+          halign = "center";
+          valign = "bottom";
+          color = "rgb(${base07})";
+        }
+        {
           text = "cmd[update:1000] date '+%Y-%m-%d %H:%M:%S'";
           font_size = 22;
           position = "0, 50";
@@ -45,14 +53,6 @@
           text = "$LAYOUT";
           font_size = 14;
           position = "0, 30";
-          halign = "center";
-          valign = "bottom";
-          color = "rgb(${base07})";
-        }
-        {
-          text = "$ATTEMPTS - $FAIL";
-          font_size = 14;
-          position = "0, 10";
           halign = "center";
           valign = "bottom";
           color = "rgb(${base07})";
