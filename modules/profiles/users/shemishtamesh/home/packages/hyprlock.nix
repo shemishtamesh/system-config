@@ -28,7 +28,7 @@
         inner_color = "rgb(${base02})";
         font_color = "rgb(${base07})";
         check_color = "rgb(${base11})";
-        fail_color = "rgb(${base08}";
+        fail_color = "rgb(${base08})";
         capslock_color = "rgb(${base10})";
         numlock_color = "rgb(${base10})";
         bothlock_color = "rgb(${base10})";
