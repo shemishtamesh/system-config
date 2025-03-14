@@ -33,7 +33,7 @@
           valign = "bottom";
         }
         {
-          text = "cmd[update:1000] $LAYOUT";
+          text = "cmd[update:1000] echo $LAYOUT";
           font_size = 14;
           position = "0, 30";
           halign = "center";

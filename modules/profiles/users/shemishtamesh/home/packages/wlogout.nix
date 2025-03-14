@@ -61,37 +61,37 @@ in
       {
         label = "lock";
         action = "hyprlock";
-        text = "lock (l)";
+        text = "[l]ock";
         keybind = "l";
       }
       {
         label = "hibernate";
         action = "systemctl hibernate";
-        text = "hibernate (h)";
+        text = "[h]ibernate";
         keybind = "h";
       }
       {
         label = "logout";
         action = "hyprctl dispatch exit";
-        text = "logout (o)";
+        text = "l[o]gout";
         keybind = "o";
       }
       {
         label = "shutdown";
         action = "shutdown now";
-        text = "Shutdown (d)";
+        text = "shut[d]own";
         keybind = "d";
       }
       {
         label = "suspend";
         action = "systemctl suspend";
-        text = "Suspend (s)";
+        text = "[s]uspend";
         keybind = "s";
       }
       {
         label = "reboot";
         action = "reboot";
-        text = "Reboot (r)";
+        text = "[r]eboot";
         keybind = "r";
       }
     ];
