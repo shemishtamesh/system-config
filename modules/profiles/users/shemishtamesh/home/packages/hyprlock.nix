@@ -24,13 +24,13 @@
         valign = "bottom";
         position = "0, 90";
         outer_color = "rgba(0, 0, 0, 0.0)";
-        inner_color = base02;
-        font_color = base07;
-        check_color = base11;
-        fail_color = base08;
-        capslock_color = base10;
-        numlock_color = base10;
-        bothlock_color = base10;
+        inner_color = "rgb(${base02})";
+        font_color = "rgb(${base07})";
+        check_color = "rgb(${base11})";
+        fail_color = "rgb(${base08}";
+        capslock_color = "rgb(${base10})";
+        numlock_color = "rgb(${base10})";
+        bothlock_color = "rgb(${base10})";
       };
       label = [
         {
@@ -39,7 +39,7 @@
           position = "0, 50";
           halign = "center";
           valign = "bottom";
-          color = base07;
+          color = "rgb(${base07})";
         }
         {
           text = "$LAYOUT";
@@ -47,7 +47,7 @@
           position = "0, 30";
           halign = "center";
           valign = "bottom";
-          color = base07;
+          color = "rgb(${base07})";
         }
         {
           text = "$ATTEMPTS - $FAIL";
@@ -55,7 +55,7 @@
           position = "0, 10";
           halign = "center";
           valign = "bottom";
-          color = base07;
+          color = "rgb(${base07})";
         }
       ];
       background = builtins.attrValues (
