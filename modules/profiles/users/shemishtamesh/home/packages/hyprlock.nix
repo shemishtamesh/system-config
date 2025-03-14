@@ -42,7 +42,7 @@
           color = base07;
         }
         {
-          text = "$ATTEMPTS $FAIL";
+          text = "$LAYOUT";
           font_size = 14;
           position = "0, 30";
           halign = "center";
@@ -50,9 +50,9 @@
           color = base07;
         }
         {
-          text = "$LAYOUT";
+          text = "$ATTEMPTS - $FAIL";
           font_size = 14;
-          position = "0, 30";
+          position = "0, 10";
           halign = "center";
           valign = "bottom";
           color = base07;
