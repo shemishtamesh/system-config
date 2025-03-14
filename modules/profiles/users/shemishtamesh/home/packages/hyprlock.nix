@@ -1,12 +1,13 @@
 {
   host,
   shared,
-  pkgs,
+config,
   ...
 }:
 {
   stylix.targets.hyprlock.enable = false;
-  programs.hyprlock = {
+  programs.hyprlock = with config.lib.stylix.colors.withHashtag;
+        {
     enable = true;
     settings = {
       general = {
@@ -23,6 +24,11 @@
         halign = "center";
         valign = "bottom";
         position = "0, 90";
+        outer_color = "rgba(0, 0, 0, 0.0)";
+        inner_color = base02;
+        font_color = base02;
+        check_color = base11;
+        fail_color = base08;
       };
       label = [
         {
