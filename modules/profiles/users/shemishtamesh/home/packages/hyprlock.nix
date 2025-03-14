@@ -1,13 +1,12 @@
 {
   host,
   shared,
-config,
+  config,
   ...
 }:
 {
   stylix.targets.hyprlock.enable = false;
-  programs.hyprlock = with config.lib.stylix.colors.withHashtag;
-        {
+  programs.hyprlock = with config.lib.stylix.colors.withHashtag; {
     enable = true;
     settings = {
       general = {
