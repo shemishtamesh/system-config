@@ -48,7 +48,7 @@
           position = "0, 30";
           halign = "center";
           valign = "bottom";
-          color = "rgb(${base07})";
+          color = "rgb(${base06})";
         }
       ];
       background = builtins.attrValues (
