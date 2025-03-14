@@ -17,10 +17,10 @@
         outline_thickness = 0;
         fade_on_empty = true;
         fade_timeout = 1000;
-        fail_timeout = 2000;
+        fail_timeout = 4000;
         rounding = -1;
         placeholder_text = "";
-        fail_text = "X";
+        fail_text = "$ATTEMPTS";
         halign = "center";
         valign = "bottom";
         position = "0, 90";
@@ -46,14 +46,6 @@
           text = "$LAYOUT";
           font_size = 14;
           position = "0, 30";
-          halign = "center";
-          valign = "bottom";
-          color = "rgb(${base07})";
-        }
-        {
-          text = "$FAIL";
-          font_size = 14;
-          position = "0, 10";
           halign = "center";
           valign = "bottom";
           color = "rgb(${base07})";
