@@ -16,7 +16,7 @@
         size = "50, 50";
         outline_thickness = 0;
         fade_on_empty = true;
-        fade_timeout = 250;
+        fade_timeout = 1000;
         rounding = -1;
         placeholder_text = "";
         fail_text = "$ATTEMPTS";
