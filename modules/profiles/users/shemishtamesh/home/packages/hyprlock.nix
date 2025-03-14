@@ -12,22 +12,6 @@
       general = {
         hide_cursor = true;
       };
-      background = builtins.attrValues (
-        builtins.mapAttrs (
-          portname:
-          {
-            width,
-            height,
-            ...
-          }:
-          {
-            monitor = portname;
-            path = toString (shared.theme.wallpaper { inherit portname width height; });
-            blur_passes = 3;
-            brightness = 0.5;
-          }
-        ) host.monitors
-      );
       input-field = {
         size = "50, 50";
         outline_thickness = 0;
@@ -49,13 +33,29 @@
           valign = "bottom";
         }
         {
-          text = "cmd[update:10000] ${pkgs.acpi}/bin/acpi | awk '{print substr($0, index($0, $3))}'";
+          text = "cmd[update:1000] $LAYOUT";
           font_size = 14;
           position = "0, 30";
           halign = "center";
           valign = "bottom";
         }
       ];
+      background = builtins.attrValues (
+        builtins.mapAttrs (
+          portname:
+          {
+            width,
+            height,
+            ...
+          }:
+          {
+            monitor = portname;
+            path = toString (shared.theme.wallpaper { inherit portname width height; });
+            blur_passes = 3;
+            brightness = 0.5;
+          }
+        ) host.monitors
+      );
     };
   };
 }

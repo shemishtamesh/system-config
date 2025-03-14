@@ -257,12 +257,4 @@ in
     };
     systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
   };
-  # nix = {
-  #   # https://github.com/cachix/cachix/issues/259
-  #   package = pkgs.nix;
-  #   settings = {
-  #     substituters = [ "https://hyprland.cachix.org" ];
-  #     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-  #   };
-  # };
 }
