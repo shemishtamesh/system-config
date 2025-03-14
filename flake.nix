@@ -11,7 +11,6 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:shemishtamesh/nixvim-flake";
     zen-browser = {
