@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  nix-darwin,
   home-manager,
   stylix,
   hyprland,
@@ -35,6 +36,26 @@ in
             networking.hostName = hostname;
             users.users = users;
           }
+        ];
+      };
+    };
+  mkDarwinSystem =
+    {
+      system,
+      hostname,
+      ...
+    }:
+    {
+      ${hostname} = nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          shared = shared system;
+          inherit
+            inputs
+            hostname
+            ;
+        };
+        modules = [
+          ./hosts/${hostname}/configuration
         ];
       };
     };
