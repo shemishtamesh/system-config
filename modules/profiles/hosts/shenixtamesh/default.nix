@@ -39,6 +39,6 @@ in
   nixosConfigurations = ((import ../../utils.nix) inputs).mkNixosSystem host;
   homeConfigurations = builtins.foldl' (
     accumulator: username:
-    accumulator // (import ../../users/${username}) { inherit username host inputs; }
+    inputs.nixpkgs.lib.attrsets.recursiveUpdate accumulator ((import ../../users/${username}) { inherit username host inputs; })
   ) { } (builtins.attrNames host.users);
 }

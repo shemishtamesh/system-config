@@ -5,6 +5,7 @@ let
     "shemishtamac"
   ];
 in
-builtins.foldl' (accumulator: module: accumulator // (import module) inputs) { } (
-  map (name: ./hosts/${name}) hosts
-)
+builtins.foldl' (
+  accumulator: module:
+  inputs.nixpkgs.lib.attrsets.recursiveUpdate accumulator ((import module) inputs)
+) { } (map (name: ./hosts/${name}) hosts)
