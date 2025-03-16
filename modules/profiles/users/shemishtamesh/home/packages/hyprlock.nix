@@ -21,8 +21,9 @@
         placeholder_text = "";
         fail_text = "$ATTEMPTS";
         halign = "center";
-        valign = "bottom";
-        position = "0, 90";
+        valign = "center";
+        # valign = "bottom";
+        # position = "0, 90";
         outer_color = "rgba(0, 0, 0, 0.0)";
         inner_color = "rgb(${base02})";
         font_color = "rgb(${base07})";
