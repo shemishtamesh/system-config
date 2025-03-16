@@ -62,9 +62,7 @@ in
   mkHomeConfiguration =
     { username, host }:
     {
-      shared_test = shared host.system;
-      pkgs = pkgs host.system;
-      ${username} = home-manager.lib.homeManagerConfiguration {
+      "${username}@${host.hostname}" = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
           shared = shared host.system;
           inherit inputs host;
