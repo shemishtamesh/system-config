@@ -26,8 +26,7 @@
         # position = "0, 90";
         outer_color = "rgba(0, 0, 0, 0.0)";
         inner_color = "rgba(0, 0, 0, 0.0)";
-        # inner_color = "rgb(${base02})";
-        font_color = "rgb(${base07})";
+        font_color = "rgb(${base06})";
         check_color = "rgb(${base11})";
         fail_color = "rgb(${base08})";
         capslock_color = "rgb(${base10})";
@@ -41,7 +40,7 @@
           position = "0, 50";
           halign = "center";
           valign = "bottom";
-          color = "rgb(${base07})";
+          color = "rgb(${base06})";
         }
         {
           text = "$LAYOUT";
