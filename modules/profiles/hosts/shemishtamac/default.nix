@@ -3,7 +3,11 @@ let
   host = {
     hostname = "shemishtamac";
     system = "aarch64-darwin";
-    users = { };
+    users = {
+      shemishtamesh = {
+        # isNormalUser = true;
+      };
+    };
     monitors = { };
   };
 in

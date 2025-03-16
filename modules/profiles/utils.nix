@@ -65,7 +65,7 @@ in
       "${username}@${host.hostname}" = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
           shared = shared host.system;
-          inherit inputs host;
+          inherit inputs host username;
         };
         pkgs = pkgs host.system;
         modules = [
