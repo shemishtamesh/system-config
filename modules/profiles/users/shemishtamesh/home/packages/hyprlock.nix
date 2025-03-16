@@ -25,7 +25,8 @@
         # valign = "bottom";
         # position = "0, 90";
         outer_color = "rgba(0, 0, 0, 0.0)";
-        inner_color = "rgb(${base02})";
+        inner_color = "rgba(0, 0, 0, 0.0)";
+        # inner_color = "rgb(${base02})";
         font_color = "rgb(${base07})";
         check_color = "rgb(${base11})";
         fail_color = "rgb(${base08})";
