@@ -2,10 +2,12 @@
   host,
   shared,
   config,
+  pkgs,
   ...
 }:
 {
   stylix.targets.hyprlock.enable = false;
+  home.packages = with pkgs; [ hyprlock ];
   programs.hyprlock = with config.lib.stylix.colors; {
     enable = true;
     settings = {

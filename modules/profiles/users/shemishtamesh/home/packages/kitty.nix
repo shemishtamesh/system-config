@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   ...
 }:
 let
@@ -7,8 +8,9 @@ let
 in
 {
   stylix.targets.kitty.enable = false;
-  programs.kitty.enable = true;
+  home.packages = with pkgs; [ kitty ];
   programs.kitty = {
+    enable = true;
     keybindings = {
       "kitty_mod+h" = "kitty_scrollback_nvim --nvim-args --cmd 'lua vim.g.no_initial_picker=true'";
       "kitty_mod+g" =

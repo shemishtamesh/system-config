@@ -11,8 +11,9 @@ let
 in
 {
   stylix.targets.rofi.enable = false;
-  programs.rofi.enable = true;
+  home.packages = with pkgs; [ rofi rofimoji ];
   programs.rofi = {
+    enable = true;
     package = pkgs.rofi-wayland;
     extraConfig = {
       show-icons = true;

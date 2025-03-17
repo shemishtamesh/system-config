@@ -1,1 +1,5 @@
-{ programs.starship.enable = true; }
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [ starship ];
+  programs.starship.enable = true;
+}

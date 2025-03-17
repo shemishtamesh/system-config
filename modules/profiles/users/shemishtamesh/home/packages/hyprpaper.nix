@@ -1,6 +1,12 @@
-{ shared, host, ... }:
+{
+  shared,
+  host,
+  pkgs,
+  ...
+}:
 {
   stylix.targets.hyprpaper.enable = false;
+  home.packages = with pkgs; [ hyprpaper ];
   services.hyprpaper = {
     enable = true;
     settings.wallpaper = builtins.attrValues (

@@ -56,6 +56,7 @@ in
         };
         modules = [
           ./hosts/${hostname}/configuration
+          stylix.darwinModules.stylix
         ];
       };
     };

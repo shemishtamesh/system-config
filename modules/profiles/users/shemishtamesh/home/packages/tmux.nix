@@ -2,28 +2,90 @@
   pkgs,
   lib,
   config,
+  host,
   ...
 }:
 let
-  memory_segment = pkgs.writeShellScriptBin "memory_segment" ''
-    memory_line=$(top -b -n 1 | grep "[KMGTPE]iB Mem")
-    unit=$(echo $memory_line | grep -o "^[KMGTPE]")iB
-    used=$(echo $memory_line | grep -Po '\d*(\.\d*)? used' | awk '{print $1}')
-    total=$(echo $memory_line | grep -Po '\d*(\.\d*)? total' | awk '{print $1}')
-    echo "$used/$total $unit "
-  '';
-  cpu_segment = pkgs.writeShellScriptBin "cpu_segment" ''
-    memory_line=$(top -b -n 1 | grep "%Cpu(s)")
-    idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
-    echo "$(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% "
-  '';
+  memory_segment = pkgs.writeShellScriptBin "memory_segment" (
+    if host.system == "x86_64-linux" then # sh
+      ''
+        memory_line=$(top -b -n 1 | grep "[KMGTPE]iB Mem")
+        unit=$(echo $memory_line | grep -o "^[KMGTPE]")iB
+        used=$(echo $memory_line | grep -Po '\d*(\.\d*)? used' | awk '{print $1}')
+        total=$(echo $memory_line | grep -Po '\d*(\.\d*)? total' | awk '{print $1}')
+        echo "$used/$total $unit "
+      ''
+    # sh
+    else
+      ''
+        UNIT='G'
+
+        memory_line=$(top -l 1 | grep "PhysMem")
+        used=$(echo $memory_line | awk '{print $2}' | sed 's/[A-Za-z]//g')
+        unused=$(echo $memory_line | awk '{print $8}' | sed 's/[A-Za-z]//g')
+
+        used_unit=$(echo $memory_line | awk '{print $2}' | grep -o '[A-Za-z]')
+        unused_unit=$(echo $memory_line | awk '{print $8}' | grep -o '[A-Za-z]')
+
+        convert_memory() {
+            local value=$1
+            local from_unit=$2
+            local to_unit=$3
+            local bytes
+
+            # Convert from the source UNIT to bytes
+            case $from_unit in
+                B) bytes=$value;;
+                K) bytes=$(echo "$value * 1024" | bc);;
+                M) bytes=$(echo "$value * 1024 * 1024" | bc);;
+                G) bytes=$(echo "$value * 1024 * 1024 * 1024" | bc);;
+                T) bytes=$(echo "$value * 1024 * 1024 * 1024 * 1024" | bc);;
+            esac
+
+            # Convert from bytes to the target UNIT
+            case $to_unit in
+                B) echo $bytes;;
+                K) echo $(echo "scale=2; $bytes / 1024" | bc);;
+                M) echo $(echo "scale=2; $bytes / 1024 / 1024" | bc);;
+                G) echo $(echo "scale=2; $bytes / 1024 / 1024 / 1024" | bc);;
+                T) echo $(echo "scale=2; $bytes / 1024 / 1024 / 1024 / 1024" | bc);;
+            esac
+        }
+
+        used=$(convert_memory $used $used_unit $UNIT)
+        unused=$(convert_memory $unused $unused_unit $UNIT)
+
+        # total_mib=$(echo "$used_mib + $unused_mib" | bc | sed "s/0*$//g" | sed 's/\.$//g')
+        used=$(echo $used | sed "s/0*$//g" | sed 's/\.$//g')
+        unused=$(echo $unused | sed "s/0*$//g" | sed 's/\.$//g')
+
+        echo " $used,  $unused ($UNIT) RAM"
+      ''
+  );
+  cpu_segment = pkgs.writeShellScriptBin "cpu_segment" (
+    if host.system == "x86_64-linux" then # sh
+      ''
+        memory_line=$(top -b -n 1 | grep "%Cpu(s)")
+        idle=$("top -b" -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
+        echo "$(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% "
+      ''
+    else
+      #sh
+      ''
+        memory_line=$(top -l 1 | grep "CPU usage")
+        idle=$(echo $memory_line | awk '{print $7}' | sed 's/%//')
+        cpu_usage=$(echo "100 - $idle" | bc)
+        echo "$cpu_usage% CPU"
+      ''
+  );
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
   stylix.targets.tmux.enable = true;
+  home.packages = with pkgs; [ tmux ];
   programs.tmux = {
     enable = true;
-    sensibleOnTop = true;
+    sensibleOnTop = false;
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";

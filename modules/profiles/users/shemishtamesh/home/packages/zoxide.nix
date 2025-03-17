@@ -1,6 +1,8 @@
-{ ... }:
-
+{ pkgs, ... }:
 {
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
+  home.packages = with pkgs; [ zoxide ];
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

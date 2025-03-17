@@ -3,8 +3,9 @@ let
   sync_external = shared.utils.sync_external_monitor_brightness;
 in
 {
-  services.hypridle.enable = true;
+  home.packages = with pkgs; [ hypridle ];
   services.hypridle.settings = {
+    enable = true;
     general = {
       lock_cmd = "pidof hyprlock || hyprlock"; # avoid starting multiple hyprlock instances.
       before_sleep_cmd = "hyprlock; sleep 1 && loginctl lock-session"; # lock before suspend.

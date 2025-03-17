@@ -1,102 +1,118 @@
 {
   inputs,
   pkgs,
+  host,
   ...
 }:
-
 {
-  imports = [
-    ./protonup.nix
-    ./nixvim.nix
-  ];
+  imports =
+    [
+      ./git.nix
+      ./zsh.nix
+      ./starship.nix
+      ./zoxide.nix
+      ./fzf.nix
+      ./direnv.nix
+      ./tmux.nix
+      ./kitty.nix
+      ./nixvim.nix
+    ]
+    ++ (
+      if host.hostname == "shenixtamesh" then
+        [
+          ./protonup.nix
+          ./hypridle.nix
+          ./hyprland.nix
+          ./waybar.nix
+          ./wlogout.nix
+          ./dunst.nix
+          ./rofi.nix
+        ]
+      else
+        [ ]
+    );
 
-  home.packages = with pkgs; [
-    atool
-    unrar
-    unzip
-    tetrio-desktop
-    bottles
-    cht-sh
-    (callPackage ./ohrrpgce { })
-    inputs.zen-browser.packages.${system}.default
-    libreoffice
-    blender
-    openscad
-    chromium
-    audacity
-    musescore
-    lmms
-    gimp
-    krita
-    aseprite
-    imv
-    pulsemixer
-    inkscape
-    hypridle
-    hyprpaper
-    hyprpicker
-    hyprshot
-    hyprlock
-    libqalculate
-    ripgrep
-    bat
-    fd
-    zoxide
-    eza
-    fzf
-    rmtrash
-    trash-cli
-    visidata
-    tldr
-    tree-sitter
-    wl-clipboard
-    btop
-    wev
-    tree
-    nh
-    nix-diff
-    nix-output-monitor
-    nvd
-    smassh
-    bitwarden
-    kitty
-    starship
-    tmux
-    wget
-    curl
-    git
-    koji
-    zoxide
-    glow
-    slides
-    yazi
-    axel
-    difftastic
-    killall
-    waybar
-    rofimoji
-    wtype
-    dunst
-    libnotify
-    whatsapp-for-linux
-    discord-screenaudio
-    slack
-    spotify
-    obs-studio
-    easyeffects
-    pavucontrol
-    cliphist
-    wlogout
-    zathura
-    mpv
-    vlc
-    obsidian
-    lorien
-    qpwgraph
-    fastfetch
-    transmission_4-gtk
-    tremc
-    steam-tui
-    lutris
-  ];
+  home.packages =
+    with pkgs;
+    [
+      libqalculate
+      ripgrep
+      bat
+      fd
+      eza
+      tree
+      tldr
+      btop
+      atool
+      unrar
+      unzip
+      wget
+      curl
+      visidata
+      glow
+      rmtrash
+      trash-cli
+      fastfetch
+      yazi
+      killall
+      slack
+      obsidian
+    ]
+    ++ (
+      if host.hostname == "shenixtamesh" then
+        [
+          cht-sh
+          inputs.zen-browser.packages.${system}.default
+          tetrio-desktop
+          bottles
+          (callPackage ./ohrrpgce { })
+          blender
+          openscad
+          chromium
+          audacity
+          musescore
+          lmms
+          krita
+          aseprite
+          imv
+          pulsemixer
+          inkscape
+          hyprpicker
+          hyprshot
+          tree-sitter
+          wl-clipboard
+          wev
+          gimp
+          obs-studio
+          libreoffice
+          nh
+          nix-diff
+          nix-output-monitor
+          nvd
+          smassh
+          koji
+          bitwarden
+          slides
+          difftastic
+          wtype
+          libnotify
+          whatsapp-for-linux
+          discord-screenaudio
+          spotify
+          easyeffects
+          pavucontrol
+          cliphist
+          zathura
+          mpv
+          vlc
+          lorien
+          qpwgraph
+          transmission_4-gtk
+          tremc
+          steam-tui
+          lutris
+        ]
+      else
+        [ ]
+    );
 }
