@@ -4,6 +4,7 @@
   home-manager,
   stylix,
   hyprland,
+  mac-app-util,
   ...
 }@inputs:
 let
@@ -57,6 +58,7 @@ in
         modules = [
           ./hosts/${hostname}/configuration
           stylix.darwinModules.stylix
+          mac-app-util.darwinModules.default
         ];
       };
     };
@@ -73,6 +75,7 @@ in
           ./users/${username}/home
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
+          mac-app-util.homeManagerModules.default
         ];
       };
     };

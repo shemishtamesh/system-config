@@ -19,6 +19,7 @@ in
       "alt+0" = "disable_ligatures_in all always";
       "alt+1" = "disable_ligatures_in all never";
     };
+    shellIntegration.enableZshIntegration = true;
     settings = {
       mouse_hide_wait = -1;
 

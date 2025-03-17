@@ -1,12 +1,6 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   imports = [ ./services ];
-
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = [
-    pkgs.vim
-  ];
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
@@ -14,9 +8,14 @@
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
 
-  # Set Git commit hash for darwin-version.
-  system.configurationRevision = with inputs; self.rev or self.dirtyRev or null;
+  system.defaults = {
+    dock.autohide = true;
+    finder.FXPreferredViewStyle = "clmv";
+    NSGlobalDomain.AppleICUForce24HourTime = true;
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+  };
 
+  # use touch id auth for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
   # prevent `error: Build user group has mismatching GID, aborting activation`
@@ -25,6 +24,8 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
+  # Set Git commit hash for darwin-version.
+  system.configurationRevision = with inputs; self.rev or self.dirtyRev or null;
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
