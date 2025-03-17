@@ -15,6 +15,8 @@
   # Set Git commit hash for darwin-version.
   system.configurationRevision = with inputs; self.rev or self.dirtyRev or null;
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   # prevent `error: Build user group has mismatching GID, aborting activation`
   ids.gids.nixbld = 30000;
 
