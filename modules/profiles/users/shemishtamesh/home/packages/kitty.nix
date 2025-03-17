@@ -22,6 +22,8 @@ in
     settings = {
       mouse_hide_wait = -1;
 
+      hide_window_decorations = "yes";
+
       open_url_with = "zen";
       detect_urls = "yes";
 
@@ -34,7 +36,7 @@ in
 
       cursor_trail = 1;
 
-      font_size = 14;
+      font_size = 17;
 
       # colors
       background = palette.base00;

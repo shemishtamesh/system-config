@@ -1,7 +1,7 @@
 {
   shared,
   username,
-  host,
+  pkgs,
   ...
 }:
 {
@@ -13,11 +13,7 @@
   ];
 
   home.username = username;
-  home.homeDirectory =
-    if (host.system == "aarch64-darwin") || (host.system == "x86_64-darwin") then
-      "/Users/${username}"
-    else
-      "/home/${username}";
+  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
   stylix = {
     enable = true;
