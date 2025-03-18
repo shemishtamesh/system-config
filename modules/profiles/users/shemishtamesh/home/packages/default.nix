@@ -45,6 +45,7 @@ let
     nvd
     zathura
     mpv
+    bitwarden
   ];
   per_host = {
     shenixtamesh = {
@@ -86,7 +87,6 @@ let
         libreoffice
         smassh
         koji
-        bitwarden
         slides
         difftastic
         wtype
