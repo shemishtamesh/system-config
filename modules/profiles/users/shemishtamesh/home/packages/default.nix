@@ -113,6 +113,10 @@ let
 in
 {
   # sorting to help comparing different builds
-  imports = builtins.sort builtins.lessThan (shared_modules ++ (per_host.${host.hostname}.modules or [ ]));
-  home.packages = builtins.sort (a: b: a.outPath < b.outPath) (shared_packages ++ (per_host.${host.hostname}.packages or [ ]));
+  imports = builtins.sort builtins.lessThan (
+    shared_modules ++ (per_host.${host.hostname}.modules or [ ])
+  );
+  home.packages = builtins.sort (a: b: a.outPath < b.outPath) (
+    shared_packages ++ (per_host.${host.hostname}.packages or [ ])
+  );
 }
