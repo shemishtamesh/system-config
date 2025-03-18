@@ -88,7 +88,6 @@ let
         slides
         difftastic
         wtype
-        libnotify
         whatsapp-for-linux
         discord-screenaudio
         spotify
