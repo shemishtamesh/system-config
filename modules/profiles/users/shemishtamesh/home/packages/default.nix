@@ -12,7 +12,7 @@ let
     ./zoxide.nix
     ./fzf.nix
     ./direnv.nix
-    ./tmux.nix
+    # ./tmux.nix
     ./kitty.nix
     ./nixvim.nix
   ];

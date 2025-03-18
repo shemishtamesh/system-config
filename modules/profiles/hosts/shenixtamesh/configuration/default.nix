@@ -15,6 +15,7 @@
     ./services.nix
   ];
   xdg.portal.enable = true;
+  programs.xwayland.enable = true;
 
   hardware = {
     keyboard.qmk.enable = true;

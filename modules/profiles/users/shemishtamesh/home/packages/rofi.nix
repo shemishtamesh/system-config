@@ -11,7 +11,11 @@ let
 in
 {
   stylix.targets.rofi.enable = false;
-  home.packages = with pkgs; [ rofi rofimoji ];
+  # home.packages = with pkgs; [ rofi rofimoji ];
+  # home.packages = with pkgs; [ rofi-wayland rofimoji ];
+  # home.packages = with pkgs; [ rofi-wayland ];
+  # home.packages = with pkgs; [ rofi ];
+  home.packages = with pkgs; [ rofimoji ];
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
