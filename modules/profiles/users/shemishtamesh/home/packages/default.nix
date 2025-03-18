@@ -14,7 +14,7 @@ let
     ./direnv.nix
     ./tmux.nix
     ./kitty.nix
-    # ./nixvim.nix
+    ./nixvim.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
