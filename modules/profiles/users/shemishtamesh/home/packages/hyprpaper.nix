@@ -24,7 +24,7 @@ in
   services.hyprpaper = {
     enable = true;
     settings = {
-      load = map (wallpaper: wallpaper.path) wallpapers;
+      preload = map (wallpaper: wallpaper.path) wallpapers;
       wallpaper = map (wallpaper: "${wallpaper.portname}, ${wallpaper.path}") wallpapers;
     };
   };
