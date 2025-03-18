@@ -1,7 +1,6 @@
 {
   config,
   shared,
-  pkgs,
   ...
 }:
 let
@@ -13,7 +12,6 @@ let
 in
 {
   stylix.targets.waybar.enable = false;
-  home.packages = with pkgs; [ waybar ];
   programs.waybar = {
     enable = true;
     settings = {

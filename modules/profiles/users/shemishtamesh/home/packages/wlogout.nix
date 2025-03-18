@@ -55,7 +55,6 @@ let
   };
 in
 {
-  home.packages = with pkgs; [ wlogout ];
   programs.wlogout = {
     enable = true;
     layout = [

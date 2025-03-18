@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ zsh ];
+  # home.packages = with pkgs; [ zsh ];
   programs.zsh = {
     enable = true;
     shellAliases = {

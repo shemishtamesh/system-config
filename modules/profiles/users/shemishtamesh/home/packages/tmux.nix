@@ -66,7 +66,7 @@ let
     if host.system == "x86_64-linux" then # sh
       ''
         memory_line=$(top -b -n 1 | grep "%Cpu(s)")
-        idle=$("top -b" -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
+        idle=$(top -b -n 1 | grep "%Cpu(s)" | grep -Po "\d*(\.\d*)? id" | awk '{print $1}')
         echo "$(echo "100 - $idle" | ${pkgs.bc}/bin/bc)% "
       ''
     else
@@ -82,7 +82,6 @@ let
 in
 {
   stylix.targets.tmux.enable = true;
-  home.packages = with pkgs; [ tmux ];
   programs.tmux = {
     enable = true;
     sensibleOnTop = false;

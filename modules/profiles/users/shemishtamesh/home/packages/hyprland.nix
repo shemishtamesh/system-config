@@ -243,7 +243,7 @@ in
         "f[1], gapsout:0, gapsin:0"
       ];
       exec-once = [
-        "hyprpaper"
+        "${pkgs.hyprpaper}"
         "waybar"
         "[workspace special:music silent] spotify"
         "[workspace special:chat silent] discord-screenaudio"
@@ -252,6 +252,7 @@ in
         "${pkgs.playerctl}/bin/playerctld"
         "kdeconnect-indicator"
         "hypridle"
+        "${pkgs.hypridle}"
         "transmission-daemon"
       ];
     };

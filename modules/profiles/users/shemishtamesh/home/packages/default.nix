@@ -12,9 +12,9 @@ let
     ./zoxide.nix
     ./fzf.nix
     ./direnv.nix
-    # ./tmux.nix
+    ./tmux.nix
     ./kitty.nix
-    ./nixvim.nix
+    # ./nixvim.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -49,6 +49,8 @@ let
       modules = [
         ./protonup.nix
         ./hypridle.nix
+        ./hyprlock.nix
+        ./hyprpaper.nix
         ./hyprland.nix
         ./waybar.nix
         ./wlogout.nix
@@ -110,6 +112,7 @@ let
   };
 in
 {
-  imports = shared_modules ++ (per_host.${host.hostname}.modules or [ ]);
-  home.packages = shared_packages ++ (per_host.${host.hostname}.packages or [ ]);
+  # sorting to help comparing different builds
+  imports = builtins.sort builtins.lessThan (shared_modules ++ (per_host.${host.hostname}.modules or [ ]));
+  home.packages = builtins.sort (a: b: a.outPath < b.outPath) (shared_packages ++ (per_host.${host.hostname}.packages or [ ]));
 }

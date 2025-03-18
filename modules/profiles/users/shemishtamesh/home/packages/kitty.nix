@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }:
 let
@@ -8,7 +7,6 @@ let
 in
 {
   stylix.targets.kitty.enable = false;
-  home.packages = with pkgs; [ kitty ];
   programs.kitty = {
     enable = true;
     keybindings = {
@@ -37,7 +35,7 @@ in
 
       cursor_trail = 1;
 
-      font_size = 17;
+      font_size = 14;
 
       # colors
       background = palette.base00;
