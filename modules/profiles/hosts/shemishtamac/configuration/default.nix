@@ -9,10 +9,22 @@
   programs.zsh.enable = true;
 
   system.defaults = {
-    dock.autohide = true;
-    finder.FXPreferredViewStyle = "clmv";
-    NSGlobalDomain.AppleICUForce24HourTime = true;
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    dock = {
+      autohide = true;
+      largesize = 128;
+      tilesize = 16;
+      magnification = true;
+      scroll-to-open = true;
+    };
+    finder = {
+      FXPreferredViewStyle = "clmv";
+      AppleShowAllFiles = true;
+    };
+    NSGlobalDomain = {
+      AppleICUForce24HourTime = true;
+      AppleInterfaceStyle = "Dark";
+    };
+    magicmouse.MouseButtonMode = "TwoButton";
   };
 
   # use touch id auth for sudo

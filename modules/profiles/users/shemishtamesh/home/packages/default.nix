@@ -43,6 +43,8 @@ let
     nix-diff
     nix-output-monitor
     nvd
+    zathura
+    mpv
   ];
   per_host = {
     shenixtamesh = {
@@ -94,8 +96,6 @@ let
         easyeffects
         pavucontrol
         cliphist
-        zathura
-        mpv
         vlc
         lorien
         qpwgraph
