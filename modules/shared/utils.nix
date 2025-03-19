@@ -5,7 +5,6 @@ let
   bc = "${pkgs.bc}/bin/bc";
 in
 {
-  inherit pkgs;
   importYaml =
     file:
     builtins.fromJSON (

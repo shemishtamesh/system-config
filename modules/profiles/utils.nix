@@ -18,7 +18,7 @@ in
       hostname,
       users,
       ...
-    }:
+    }@host:
     {
       ${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -26,7 +26,7 @@ in
           shared = shared system;
           inherit
             inputs
-            hostname
+            host
             ;
         };
         modules = [
@@ -45,14 +45,14 @@ in
       system,
       hostname,
       ...
-    }:
+    }@host:
     {
       ${hostname} = nix-darwin.lib.darwinSystem {
         specialArgs = {
           shared = shared system;
           inherit
             inputs
-            hostname
+            host
             ;
         };
         modules = [
@@ -64,13 +64,14 @@ in
     };
   mkHomeConfiguration =
     { username, host }:
+    with host;
     {
-      "${username}@${host.hostname}" = home-manager.lib.homeManagerConfiguration {
+      "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
-          shared = shared host.system;
+          shared = shared system;
           inherit inputs host username;
         };
-        pkgs = pkgs host.system;
+        pkgs = pkgs system;
         modules = [
           ./users/${username}/home
           stylix.homeManagerModules.stylix

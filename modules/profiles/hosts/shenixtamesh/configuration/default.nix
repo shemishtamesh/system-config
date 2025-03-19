@@ -2,6 +2,7 @@
   pkgs,
   shared,
   inputs,
+  host,
   ...
 }:
 
@@ -105,7 +106,7 @@
     adb.enable = true;
     hyprland =
       let
-        flake_hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+        flake_hyprland = inputs.hyprland.packages.${host.system};
       in
       {
         enable = true;
