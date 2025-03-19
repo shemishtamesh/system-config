@@ -1,6 +1,7 @@
 {
   pkgs,
   shared,
+  inputs,
   ...
 }:
 
@@ -102,7 +103,15 @@
         '';
     };
     adb.enable = true;
-    hyprland.enable = true;
+    hyprland =
+      let
+        flake_hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+      in
+      {
+        enable = true;
+        package = flake_hyprland.hyprland;
+        portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
+      };
     steam = {
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

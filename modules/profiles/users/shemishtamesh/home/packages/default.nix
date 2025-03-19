@@ -106,7 +106,10 @@ let
       ];
     };
     shemishtamac = {
-      modules = [ ./karabiner-elements.nix ];
+      modules = [
+        ./karabiner-elements.nix
+        ./sketchybar.nix
+      ];
     };
   };
 in

@@ -12,11 +12,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
     nixvim.url = "github:shemishtamesh/nixvim-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     stylix.url = "github:danth/stylix";
@@ -48,7 +44,7 @@
                 "*.lock"
               ];
             }).config.build.wrapper;
-        }) [ "x86_64-linux" ]
+        }) nixpkgs.lib.systems.doubles.all
       );
     };
 }
