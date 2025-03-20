@@ -42,6 +42,7 @@
     base16Scheme = shared.theme.scheme;
     fonts = shared.theme.fonts;
     cursor = {
+      name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
       size = 24;
     };
