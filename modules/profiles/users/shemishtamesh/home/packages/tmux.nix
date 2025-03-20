@@ -24,11 +24,10 @@ let
     else if pkgs.stdenv.isDarwin then
       {
         cpu = pkgs.writeShellScriptBin "cpu_segment" ''
-          memory_line=$(top -b -n 1 | grep "[KMGTPE]iB Mem")
-          unit=$(echo $memory_line | grep -o "^[KMGTPE]")iB
-          used=$(echo $memory_line | grep -Po '\d*(\.\d*)? used' | awk '{print $1}')
-          total=$(echo $memory_line | grep -Po '\d*(\.\d*)? total' | awk '{print $1}')
-          echo "$used/$total $unit "
+          memory_line=$(top -l 1 | grep "CPU usage")
+          idle=$(echo $memory_line | awk '{print $7}' | sed 's/%//')
+          cpu_usage=$(echo "100 - $idle" | bc)
+          echo "$cpu_usage% CPU"
         '';
         memory = pkgs.writeShellScriptBin "memory_segment" ''
           UNIT='G'
