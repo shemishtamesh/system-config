@@ -15,7 +15,7 @@
   home.username = username;
   home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
-  stylix = shared.stylix_settings;
+  stylix = shared.theme.stylix_settings;
 
   # allowing unfree packages
   nixpkgs.config = import ./nixpkgs.nix;
