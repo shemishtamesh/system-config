@@ -16,7 +16,7 @@
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'nixos rebuild failed'
           git push
-          notify-send -u critical 'nixos rebuild failed'
+          ${pkgs.libnotify}/bin/notify-send -u critical 'nixos rebuild failed'
           exit 1
         fi
       fi
@@ -29,7 +29,7 @@
         if [ $? -ne 0 ] ; then
           git -C $FLAKE commit --amend -m 'home rebuild failed'
           git push
-          notify-send -u critical 'home rebuild failed'
+          ${pkgs.libnotify}/bin/notify-send -u critical 'home rebuild failed'
           exit 1
         fi
       fi
@@ -38,11 +38,11 @@
 
       systemctl --user restart hyprpaper.service
       if [ $? -ne 0 ] ; then
-        notify-send -u critical 'wallpaper switch failed'
+        ${pkgs.libnotify}/bin/notify-send -u critical 'wallpaper switch failed'
         exit 1
       fi
 
-      notify-send -u low 'successfully rebuilt'
+      ${pkgs.libnotify}/bin/notify-send -u low 'successfully rebuilt'
     '')
 
     (pkgs.writeShellScriptBin "bak" ''
