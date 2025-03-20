@@ -19,6 +19,7 @@
     finder = {
       FXPreferredViewStyle = "clmv";
       AppleShowAllFiles = true;
+      ShowPathbar = true;
     };
     NSGlobalDomain = {
       AppleICUForce24HourTime = true;
