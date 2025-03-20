@@ -37,16 +37,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  stylix = {
-    enable = true;
-    base16Scheme = shared.theme.scheme;
-    fonts = shared.theme.fonts;
-    cursor = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
-  };
+  stylix = shared.stylix_settings;
 
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
 

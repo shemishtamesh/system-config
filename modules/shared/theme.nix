@@ -35,10 +35,6 @@ let
       base17 = "b18a3d";
     };
   };
-  utils = import ./utils.nix pkgs;
-in
-{
-  inherit scheme;
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
@@ -56,6 +52,20 @@ in
       package = pkgs.noto-fonts-emoji;
       name = "Noto Emoji";
     };
+  };
+  cursor = {
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
+  utils = import ./utils.nix pkgs;
+in
+{
+  inherit scheme fonts cursor;
+  stylix_settings = {
+    enable = true;
+    base16Scheme = scheme;
+    inherit fonts cursor;
   };
   wallpaper =
     {
