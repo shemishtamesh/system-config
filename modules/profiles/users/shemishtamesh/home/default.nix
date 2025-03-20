@@ -19,6 +19,10 @@
     enable = true;
     base16Scheme = shared.theme.scheme;
     fonts = shared.theme.fonts;
+    cursor = {
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
   };
 
   # allowing unfree packages

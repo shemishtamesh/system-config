@@ -41,7 +41,10 @@
     enable = true;
     base16Scheme = shared.theme.scheme;
     fonts = shared.theme.fonts;
-    cursor.package = pkgs.bibata-cursors;
+    cursor = {
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
   };
 
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
