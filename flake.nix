@@ -68,7 +68,7 @@
 
                     echo "111111111111111111111111111111111111111111111111111111"
 
-                    if [ $# -gt 0 ] || [ "$1" == "os" ]; then
+                    if [[ -z "''${1-}" || "$1" == "os" ]]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding nixos'
                       if ! nh os switch "$FLAKE"; then
                         git -C "$FLAKE" commit --amend -am 'nixos rebuild failed'
@@ -80,7 +80,7 @@
 
                     echo "222222222222222222222222222222222222222222222222222222"
 
-                    if [ $# -gt 0 ] || [ "$1" == "home" ]; then
+                    if [[ -z "''${1-}" || "$1" == "home" ]]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding home'
                       nix flake update nixvim --flake "$FLAKE"
                       if ! nh home switch "$FLAKE"; then
@@ -91,7 +91,7 @@
                       fi
                     fi
 
-                    if [ $# -gt 0 ]; then
+                    if [[ -z "''${1-}" ]]; then
                       git -C "$FLAKE" commit --amend -m 'system rebuild succeeded'
                     fi
 
