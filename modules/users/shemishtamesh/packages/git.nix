@@ -5,20 +5,6 @@
     userEmail = "shemishtamail@gmail.com";
     aliases = {
       plog = "log --all --decorate --oneline --graph"; # pretty log
-      fpull = # sh
-        ''
-          !f() {
-              git checkout --quiet HEAD &&
-              case "$#" in
-                  0) git fetch origin main:main ;;
-                  1) git fetch origin "$1:$1" ;;
-                  2) git fetch "$1" "$2:$2" ;;
-                  3) git fetch "$1" "$2:$3" ;;
-                  *) echo 'Too many arguments' >&2; exit 1 ;;
-              esac &&
-              git checkout --quiet -;
-          }; f
-        '';
     };
     delta = {
       enable = true;
