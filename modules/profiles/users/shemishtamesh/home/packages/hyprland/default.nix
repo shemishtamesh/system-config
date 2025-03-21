@@ -11,7 +11,7 @@ let
   gaps = "2";
   rounding = "10";
   scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
-  sync_brightness = shared.utils.sync_external_monitors_brightness;
+  sync_brightness = shared.scripts.sync_external_monitors_brightness;
 in
 {
   wayland.windowManager.hyprland =

@@ -7,7 +7,7 @@
 let
   inherit (config.lib.formats.rasi) mkLiteral;
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = shared.utils.rgba config.lib.stylix.colors;
+  rgba = shared.functions.rgba config.lib.stylix.colors;
 in
 {
   stylix.targets.rofi.enable = false;

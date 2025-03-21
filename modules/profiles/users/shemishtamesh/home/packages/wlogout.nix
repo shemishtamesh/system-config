@@ -7,10 +7,10 @@
 }:
 let
   palette = config.lib.stylix.colors.withHashtag;
-  rgba = shared.utils.rgba config.lib.stylix.colors;
+  rgba = shared.functions.rgba config.lib.stylix.colors;
   svgToPng =
     remaining:
-    shared.utils.svgToPng (
+    shared.functions.svgToPng (
       {
         width = 500;
         height = 500;
