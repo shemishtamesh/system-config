@@ -64,7 +64,7 @@
                     git -C "$FLAKE" commit -m 'before formatting'
                     nix fmt "$FLAKE"
 
-                    if [ -z "$1" ] || [ "$1" == "os" ]; then
+                    if [ -n "$1" ] || [ "$1" == "os" ]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding nixos'
                       if ! nh os switch "$FLAKE"; then
                         git -C "$FLAKE" commit --amend -am 'nixos rebuild failed'
@@ -74,7 +74,7 @@
                       fi
                     fi
 
-                    if [ -z "$1" ] || [ "$1" == "home" ]; then
+                    if [ -n "$1" ] || [ "$1" == "home" ]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding home'
                       nix flake update nixvim --flake "$FLAKE"
                       if ! nh home switch "$FLAKE"; then
@@ -85,7 +85,7 @@
                       fi
                     fi
 
-                    if [ -z "$1" ]; then
+                    if [ -n "$1" ]; then
                       git -C "$FLAKE" commit --amend -m 'system rebuild succeeded'
                     fi
 
