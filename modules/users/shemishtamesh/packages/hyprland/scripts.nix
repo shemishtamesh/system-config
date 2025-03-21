@@ -5,30 +5,25 @@
 }:
 {
   toggle-bar = pkgs.lib.getExe (
-    pkgs.writeShellScriptApplication {
-      name = "toggle-bar";
-      runtimeInputs = with pkgs; [ killall ];
-      text = # sh
-        ''
-          killall .waybar-wrapped
-          if [[ $? -eq 0 ]]; then
-              hyprctl keyword general:border_size 0;
-              hyprctl keyword general:gaps_in 0
-              hyprctl keyword general:gaps_out 0
-              hyprctl keyword decoration:rounding 0
-              hyprctl keyword decoration:shadow:enabled 1
-              hyprctl keyword decoration:shadow:range 50
-              exit 0
-          fi
+    pkgs.writeShellScriptBin "toggle-bar" ''
+      ${pkgs.lib.getExe pkgs.killall} .waybar-wrapped
+      if [[ $? -eq 0 ]]; then
+          hyprctl keyword general:border_size 0;
+          hyprctl keyword general:gaps_in 0
+          hyprctl keyword general:gaps_out 0
+          hyprctl keyword decoration:rounding 0
+          hyprctl keyword decoration:shadow:enabled 1
+          hyprctl keyword decoration:shadow:range 50
+          exit 0
+      fi
 
-          hyprctl keyword general:border_size 1;
-          hyprctl keyword general:gaps_in ${gaps}
-          hyprctl keyword general:gaps_out ${gaps}
-          hyprctl keyword decoration:rounding ${rounding}
-          hyprctl keyword decoration:shadow:enabled 0
-          waybar
-        '';
-    }
+      hyprctl keyword general:border_size 1;
+      hyprctl keyword general:gaps_in ${gaps}
+      hyprctl keyword general:gaps_out ${gaps}
+      hyprctl keyword decoration:rounding ${rounding}
+      hyprctl keyword decoration:shadow:enabled 0
+      waybar
+    ''
   );
   notification-log = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "notification-log" ''
