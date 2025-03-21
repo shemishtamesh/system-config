@@ -33,7 +33,8 @@
 
       formatter = (import ./modules/shared/formatter.nix inputs);
 
-      apps = map (system:
+      apps = map (
+        system:
         let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
@@ -42,6 +43,7 @@
           program = pkgs.writeShellScriptBin "switch" ''
             echo test
           '';
-        }) profiles.hosts;
+        }
+      ) profiles.hosts;
     };
 }
