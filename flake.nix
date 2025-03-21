@@ -89,7 +89,7 @@
                       git -C "$FLAKE" commit --amend -m 'system rebuild succeeded'
                     fi
 
-                    echo 'testestest'
+                    echo "######################################################"
 
                     git push
 
