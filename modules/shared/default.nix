@@ -12,4 +12,5 @@ in
 import_modules [
   "theme"
   "utils"
+  "functions"
 ]

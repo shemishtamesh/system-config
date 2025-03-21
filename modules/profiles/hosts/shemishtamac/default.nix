@@ -21,4 +21,5 @@ in
       }
     )
   ) { } (builtins.attrNames host.users);
+  hosts = [ host ];
 }

@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  shared,
   host,
   inputs,
   ...
@@ -10,27 +9,7 @@
 let
   gaps = "2";
   rounding = "10";
-  toggle-bar = pkgs.writeShellScriptBin "toggle-bar" ''
-    ${pkgs.killall}/bin/killall .waybar-wrapped
-    if [[ $? -eq 0 ]]; then
-        hyprctl keyword general:border_size 0;
-        hyprctl keyword general:gaps_in 0
-        hyprctl keyword general:gaps_out 0
-        hyprctl keyword decoration:rounding 0
-        hyprctl keyword decoration:shadow:enabled 1
-        hyprctl keyword decoration:shadow:range 50
-        exit 0
-    fi
-
-    hyprctl keyword general:border_size 1;
-    hyprctl keyword general:gaps_in ${gaps}
-    hyprctl keyword general:gaps_out ${gaps}
-    hyprctl keyword decoration:rounding ${rounding}
-    hyprctl keyword decoration:shadow:enabled 0
-    waybar
-  '';
-  sync_external = shared.utils.sync_external_monitor_brightness;
-  notification-log = shared.utils.notification-log;
+  scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
 in
 {
   wayland.windowManager.hyprland =
@@ -93,7 +72,7 @@ in
             "$mod, Escape, exec, wlogout"
             "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
 
-            "$mod, b, exec, ${lib.getExe toggle-bar}"
+            "$mod, b, exec, ${scripts.toggle-bar}"
 
             "$mod, XF86Reload, togglespecialworkspace, chat"
             "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
@@ -128,7 +107,7 @@ in
               [ "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString num}" ]
             ) 9
           ));
-        binde = [
+        binde = with scripts; [
           "$mod, semicolon, exec, dunstctl close"
           "$mod SHIFT, semicolon, exec, dunstctl close-all"
           "$mod CTRL, semicolon, exec, dunstctl history-pop"
@@ -158,10 +137,10 @@ in
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
           "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
           "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
-          ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%+ && ${sync_external}"
-          ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%- && ${sync_external}"
-          "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%+ && ${sync_external}"
-          "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%- && ${sync_external}"
+          ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%+ && ${sync_external_monitors_brightness}"
+          ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%- && ${sync_external_monitors_brightness}"
+          "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%+ && ${sync_external_monitors_brightness}"
+          "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%- && ${sync_external_monitors_brightness}"
         ];
         bindlr = [ ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
         bindl = [
@@ -255,7 +234,7 @@ in
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] discord-screenaudio"
           "wl-paste --watch cliphist store"
-          "${notification-log} $HOME/Documents/logs/notifications.txt"
+          "${scripts.notification-log} $HOME/Documents/logs/notifications.txt"
           "${pkgs.playerctl}/bin/playerctld"
           "kdeconnect-indicator"
           "hypridle"

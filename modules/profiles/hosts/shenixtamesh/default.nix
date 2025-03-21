@@ -43,4 +43,5 @@ in
       (import ../../users/${username}) { inherit username host inputs; }
     )
   ) { } (builtins.attrNames host.users);
+  hosts = [ host ];
 }

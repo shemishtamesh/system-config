@@ -20,18 +20,28 @@
   };
 
   outputs =
+    inputs:
+    let
+      profiles = import ./modules/profiles inputs;
+    in
     {
-      nixpkgs,
-      treefmt-nix,
-      ...
-    }@inputs:
-    {
-      inherit (import ./modules/profiles inputs)
+      inherit (profiles)
         nixosConfigurations
         darwinConfigurations
         homeConfigurations
         ;
 
       formatter = (import ./modules/shared/formatter.nix inputs);
+
+      apps = map (system:
+        let
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        in
+        {
+          type = "app";
+          program = pkgs.writeShellScriptBin "switch" ''
+            echo test
+          '';
+        }) profiles.hosts;
     };
 }
