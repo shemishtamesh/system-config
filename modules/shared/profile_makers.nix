@@ -49,7 +49,7 @@ let
             stylix_module = stylix.darwinModules.stylix;
           }
         else
-          throw "Unknown system type";
+          throw "unknown system type";
     in
     {
       ${type_specific.attribute_name}.${host.hostname} = type_specific.config_maker {

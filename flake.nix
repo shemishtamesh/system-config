@@ -37,6 +37,7 @@
         system:
         let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
+          lib = inputs.nixpkgs.lib;
         in
         {
           default = inputs.self.apps.${system}.switch;
@@ -55,6 +56,14 @@
                 text =
                   let
                     FLAKE_ROOT = "$HOME/.config/system-flake";
+                    kernel = lib.last (lib.splitString "-" system);
+                    os_switch_command =
+                      if kernel == "linux" then # sh
+                        ''nh os switch "$FLAKE"''
+                      else if kernel == "darwin" then # sh
+                        ''darwin-rebuild switch --flake "$FLAKE"''
+                      else
+                        throw "unknown system type";
                   in
                   # sh
                   ''
@@ -66,7 +75,7 @@
 
                     if [[ -z "''${1-}" || "$1" == "os" ]]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding nixos'
-                      if ! nh os switch "$FLAKE"; then
+                      if ! ${os_switch_command}; then
                         git -C "$FLAKE" commit --amend -am 'nixos rebuild failed'
                         git push
                         notify-send -u critical 'nixos rebuild failed'
