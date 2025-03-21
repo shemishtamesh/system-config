@@ -108,7 +108,6 @@ let
     shemishtamac = {
       modules = [
         ./karabiner-elements.nix
-        ./sketchybar.nix
       ];
     };
   };

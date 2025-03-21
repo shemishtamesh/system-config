@@ -14,16 +14,17 @@
       largesize = 128;
       tilesize = 16;
       magnification = true;
-      scroll-to-open = true;
     };
     finder = {
       FXPreferredViewStyle = "clmv";
       AppleShowAllFiles = true;
+      FXEnableExtensionChangeWarning = false;
       ShowPathbar = true;
     };
     NSGlobalDomain = {
       AppleICUForce24HourTime = true;
       AppleInterfaceStyle = "Dark";
+      AppleShowAllExtensions = true;
     };
     magicmouse.MouseButtonMode = "TwoButton";
   };
