@@ -60,9 +60,13 @@
                   ''
                     export FLAKE="${FLAKE_ROOT}"
 
+                    echo "000000000000000000000000000000000000000000000000000000"
+
                     git -C "$FLAKE" add .
                     git -C "$FLAKE" commit -m 'before formatting'
                     nix fmt "$FLAKE"
+
+                    echo "111111111111111111111111111111111111111111111111111111"
 
                     if [ $# -gt 0 ] || [ "$1" == "os" ]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding nixos'
@@ -73,6 +77,8 @@
                         exit 1
                       fi
                     fi
+
+                    echo "222222222222222222222222222222222222222222222222222222"
 
                     if [ $# -gt 0 ] || [ "$1" == "home" ]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding home'
@@ -89,7 +95,7 @@
                       git -C "$FLAKE" commit --amend -m 'system rebuild succeeded'
                     fi
 
-                    echo "######################################################"
+                    echo "333333333333333333333333333333333333333333333333333333"
 
                     git push
 
