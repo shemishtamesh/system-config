@@ -1,6 +1,6 @@
 { pkgs, shared, ... }:
 let
-  sync_external = shared.scripts.sync_external_monitor_brightness;
+  sync_external = shared.scripts.sync_external_monitors_brightness;
 in
 {
   services.hypridle = {
