@@ -54,7 +54,7 @@ let
         ./hypridle.nix
         ./hyprlock.nix
         ./hyprpaper.nix
-        ./hyprland.nix
+        ./hyprland
         ./waybar.nix
         ./wlogout.nix
         ./dunst.nix
