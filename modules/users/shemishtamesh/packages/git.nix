@@ -5,7 +5,7 @@
     userEmail = "shemishtamail@gmail.com";
     aliases = {
       plog = "log --all --decorate --oneline --graph"; # pretty log
-      syncbranch = # sh
+      fpull = # sh
         ''
           !f() {
               git checkout --quiet HEAD &&
