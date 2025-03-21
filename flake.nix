@@ -77,7 +77,7 @@
                     if [[ -z "''${1-}" || "$1" == "home" ]]; then
                       git -C "$FLAKE" commit --amend -am 'rebuilding home'
                       nix flake update nixvim --flake "$FLAKE"
-                      if ! nh home switch "$FLAKE"; then
+                      if ! nh home switch "$FLAKE" --backup-extension bak; then
                         git -C "$FLAKE" commit --amend -m 'home rebuild failed'
                         git push
                         notify-send -u critical 'home rebuild failed'
