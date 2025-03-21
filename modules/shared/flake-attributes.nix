@@ -1,7 +1,6 @@
 inputs:
 let
-  modules = import ../. inputs;
-  per_system = inputs.nixpkgs.lib.genAttrs (map (host: host.system) modules.hosts);
+  per_system = inputs.nixpkgs.lib.genAttrs (map (host: host.system) (import ../. inputs).hosts);
 in
 {
   formatter = builtins.listToAttrs (
@@ -55,7 +54,7 @@ in
                       notify_home_switch_failure = # sh
                         "notify-send -u critical 'home switch failed'";
                       notify_switch_success = # sh
-                        "notify-send -u critical 'system switch succeeded'";
+                        "notify-send -u low 'system switch succeeded'";
                       update_wallpaper = # sh
                         ''
                           if ! systemctl --user restart hyprpaper.service; then
