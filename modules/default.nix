@@ -28,6 +28,4 @@ builtins.foldl' (
     ((import module) (import ./shared/profile_makers.nix inputs))
   ]
 ) { } (map (name: ./hosts/${name}) hostnames)
-// {
-  formatter = import ./shared/formatter.nix inputs;
-}
+// import ./shared/flake-attributes.nix inputs
