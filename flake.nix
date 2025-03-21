@@ -89,6 +89,8 @@
                       git -C "$FLAKE" commit --amend -m 'system rebuild succeeded'
                     fi
 
+                    echo 'testestest'
+
                     git push
 
                     if ! systemctl --user restart hyprpaper.service; then
