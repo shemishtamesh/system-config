@@ -1,23 +1,4 @@
 pkgs: {
-  recursiveMerge =
-    attrList:
-    with pkgs.lib;
-    let
-      merge =
-        attrPath:
-        zipAttrsWith (
-          name: values:
-          if tail values == [ ] then
-            head values
-          else if all isList values then
-            unique (concatLists values)
-          else if all isAttrs values then
-            merge (attrPath ++ [ name ]) values
-          else
-            last values
-        );
-    in
-    merge [ ] attrList;
   importYaml =
     file:
     builtins.fromJSON (

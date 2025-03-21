@@ -23,27 +23,85 @@
     inputs:
     let
       modules = import ./modules inputs;
+      per_system = inputs.nixpkgs.lib.genAttrs (map (host: host.system) modules.hosts);
     in
     {
       inherit (modules)
         nixosConfigurations
         darwinConfigurations
         homeConfigurations
+        formatter
         ;
 
-      formatter = (import ./modules/shared/formatter.nix inputs);
-
-      apps = map (
+      apps = per_system (
         system:
         let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
         {
-          type = "app";
-          program = pkgs.writeShellScriptBin "switch" ''
-            echo test
-          '';
+          default = inputs.self.apps.${system}.switch;
+          switch = {
+            type = "app";
+            program = inputs.nixpkgs.lib.getExe (
+              pkgs.writeShellApplication {
+                name = "switch";
+                runtimeInputs = with pkgs; [
+                  git
+                  libnotify
+                  nh
+                  nvd
+                  nix-output-monitor
+                ];
+                text =
+                  let
+                    FLAKE_ROOT = "$HOME/.config/system-flake";
+                  in
+                  # sh
+                  ''
+                    export FLAKE="${FLAKE_ROOT}"
+
+                    git -C "$FLAKE" add .
+                    git -C "$FLAKE" commit -m 'before formatting'
+                    nix fmt "$FLAKE"
+
+                    if [ -z "$1" ] || [ "$1" == "os" ]; then
+                      git -C "$FLAKE" commit --amend -am 'rebuilding nixos'
+                      if ! nh os switch "$FLAKE"; then
+                        git -C "$FLAKE" commit --amend -am 'nixos rebuild failed'
+                        git push
+                        notify-send -u critical 'nixos rebuild failed'
+                        exit 1
+                      fi
+                    fi
+
+                    if [ -z "$1" ] || [ "$1" == "home" ]; then
+                      git -C "$FLAKE" commit --amend -am 'rebuilding home'
+                      nix flake update nixvim --flake "$FLAKE"
+                      if ! nh home switch "$FLAKE"; then
+                        git -C "$FLAKE" commit --amend -m 'home rebuild failed'
+                        git push
+                        notify-send -u critical 'home rebuild failed'
+                        exit 1
+                      fi
+                    fi
+
+                    if [ -z "$1" ]; then
+                      git -C "$FLAKE" commit --amend -m 'system rebuild succeeded'
+                    fi
+
+                    git push
+
+                    if ! systemctl --user restart hyprpaper.service; then
+                      notify-send -u critical 'wallpaper switch failed'
+                      exit 1
+                    fi
+
+                    notify-send -u low 'successfully rebuilt'
+                  '';
+              }
+            );
+          };
         }
-      ) modules.hosts;
+      );
     };
 }

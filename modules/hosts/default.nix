@@ -1,0 +1,4 @@
+[
+  "shenixtamesh"
+  "shemishtamac"
+]

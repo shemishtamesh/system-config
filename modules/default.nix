@@ -1,13 +1,33 @@
 inputs:
 let
-  hostnames = [
-    "shenixtamesh"
-    "shemishtamac"
-  ];
+  hostnames = import ./hosts;
+  recursiveMerge =
+    attrList:
+    with inputs.nixpkgs.lib;
+    let
+      merge =
+        attrPath:
+        zipAttrsWith (
+          name: values:
+          if tail values == [ ] then
+            head values
+          else if all isList values then
+            unique (concatLists values)
+          else if all isAttrs values then
+            merge (attrPath ++ [ name ]) values
+          else
+            last values
+        );
+    in
+    merge [ ] attrList;
 in
 builtins.foldl' (
   accumulator: module:
-  inputs.nixpkgs.lib.attrsets.recursiveUpdate accumulator (
-    (import module) (import ./shared/profile_makers.nix inputs)
-  )
+  recursiveMerge [
+    accumulator
+    ((import module) (import ./shared/profile_makers.nix inputs))
+  ]
 ) { } (map (name: ./hosts/${name}) hostnames)
+// {
+  formatter = import ./shared/formatter.nix inputs;
+}
