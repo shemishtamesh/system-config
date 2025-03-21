@@ -22,10 +22,10 @@
   outputs =
     inputs:
     let
-      profiles = import ./modules/profiles inputs;
+      modules = import ./modules inputs;
     in
     {
-      inherit (profiles)
+      inherit (modules)
         nixosConfigurations
         darwinConfigurations
         homeConfigurations
@@ -44,6 +44,6 @@
             echo test
           '';
         }
-      ) profiles.hosts;
+      ) modules.hosts;
     };
 }

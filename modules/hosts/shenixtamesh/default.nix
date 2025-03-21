@@ -1,4 +1,4 @@
-inputs:
+profile_makers:
 let
   host = {
     hostname = "shenixtamesh";
@@ -35,13 +35,4 @@ let
     };
   };
 in
-{
-  nixosConfigurations = ((import ../../utils.nix) inputs).mkNixosSystem host;
-  homeConfigurations = builtins.foldl' (
-    accumulator: username:
-    inputs.nixpkgs.lib.attrsets.recursiveUpdate accumulator (
-      (import ../../users/${username}) { inherit username host inputs; }
-    )
-  ) { } (builtins.attrNames host.users);
-  hosts = [ host ];
-}
+profile_makers.mkNixosSystem host
