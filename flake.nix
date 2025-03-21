@@ -61,7 +61,7 @@
                     export FLAKE="${FLAKE_ROOT}"
 
                     git -C "$FLAKE" add .
-                    git -C "$FLAKE" commit -m 'before formatting'
+                    git -C "$FLAKE" commit -m 'before formatting' || true
                     nix fmt "$FLAKE"
 
                     if [[ -z "''${1-}" || "$1" == "os" ]]; then
