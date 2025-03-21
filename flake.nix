@@ -32,19 +32,6 @@
         homeConfigurations
         ;
 
-      formatter = builtins.listToAttrs (
-        map (system: {
-          name = system;
-          value =
-            (treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} {
-              projectRootFile = "flake.nix";
-              programs.nixfmt.enable = true;
-              settings.excludes = [
-                "*.png"
-                "*.lock"
-              ];
-            }).config.build.wrapper;
-        }) nixpkgs.lib.systems.doubles.all
-      );
+      formatter = (import ./modules/shared/formatter.nix inputs);
     };
 }
