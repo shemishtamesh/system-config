@@ -1,7 +1,7 @@
 pkgs:
 let
-  # scheme = utils.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  # scheme = utils.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
+  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
   scheme = {
     system = "base24";
     name = "IR Black";
@@ -58,7 +58,7 @@ let
     package = pkgs.bibata-cursors;
     size = 24;
   };
-  utils = import ./utils.nix pkgs;
+  functions = import ./functions.nix pkgs;
 in
 {
   inherit scheme fonts cursor;
@@ -77,7 +77,7 @@ in
     let
       logoScale = 8;
     in
-    utils.svgToPng {
+    functions.svgToPng {
       name = "${portname}_wallpaper";
       svgText = # svg
         ''
