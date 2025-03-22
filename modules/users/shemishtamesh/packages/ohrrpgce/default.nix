@@ -20,11 +20,11 @@ in
 
 pkgs.stdenv.mkDerivation {
   pname = "ohrrpgce";
-  version = "ichorescent";
+  version = "jocoserious";
 
   src = pkgs.fetchurl {
-    url = "https://hamsterrepublic.com/dl/ohrrpgce-linux-x86_64.tar.bz2";
-    sha256 = "sha256-iWH8E1yTvfhaSmA0DyRvxbtOIleAn9zufV9aCPLTYu8=";
+    url = "https://hamsterrepublic.com/ohrrpgce/archive/ohrrpgce-linux-2025-02-20-jocoserious-x86_64.tar.bz2";
+    sha256 = "sha256-ssK9f3GLl4jrHnUMBldshvYsMnCAblaZdh8XbUbONPU=";
   };
 
   nativeBuildInputs = [
