@@ -72,7 +72,7 @@ in
                       notify_home_switch_failure = # sh
                         "terminal-notifier -message 'home switch failed'";
                       notify_switch_success = # sh
-                        "notify-send -u critical 'system switch succeeded'";
+                        "terminal-notifier -message 'system switch succeeded'";
                       update_wallpaper = "";
                     }
                   else
@@ -87,9 +87,9 @@ in
                 nix fmt "$FLAKE"
 
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
-                  git -C "$FLAKE" commit --amend -am 'switching nixos'
+                  git -C "$FLAKE" commit --amend -am 'switching os confg'
                   if ! ${os_specific.os_switch_command}; then
-                    git -C "$FLAKE" commit --amend -am 'nixos switch failed'
+                    git -C "$FLAKE" commit --amend -am 'os config switch failed'
                     git push
                     ${os_specific.notify_os_switch_failure}
                     exit 1
@@ -97,10 +97,10 @@ in
                 fi
 
                 if [[ -z "''${1-}" || "$1" == "home" ]]; then
-                  git -C "$FLAKE" commit --amend -am 'switch home'
+                  git -C "$FLAKE" commit --amend -am 'switch home config'
                   nix flake update nixvim --flake "$FLAKE"
                   if ! nh home switch "$FLAKE" --backup-extension bak; then
-                    git -C "$FLAKE" commit --amend -m 'home switch failed'
+                    git -C "$FLAKE" commit --amend -m 'home config switch failed'
                     git push
                     ${os_specific.notify_home_switch_failure}
                     exit 1
