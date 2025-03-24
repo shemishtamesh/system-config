@@ -3,17 +3,15 @@ let
   host = {
     hostname = "shenixtamesh";
     system = "x86_64-linux";
-    users = {
-      shemishtamesh = {
-        isNormalUser = true;
-        extraGroups = [
-          "networkmanager"
-          "wheel"
-          "input"
-          "adbusers"
-          "docker"
-        ];
-      };
+    users.shemishtamesh = {
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "adbusers"
+        "docker"
+      ];
     };
     monitors = {
       "eDP-1" = {

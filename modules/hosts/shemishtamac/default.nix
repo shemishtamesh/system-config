@@ -3,12 +3,8 @@ let
   host = {
     hostname = "shemishtamac";
     system = "aarch64-darwin";
-    users = {
-      shemishtamesh = {
-        # isNormalUser = true;
-      };
-    };
-    monitors = { };
+    users.shemishtamesh = { };
+    # monitors = { };
   };
 in
 profile_makers.mkDarwinSystem host
