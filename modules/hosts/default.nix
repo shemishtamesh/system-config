@@ -1,4 +1,5 @@
 [
   "shenixtamesh"
   "shemishtamac"
+  "shemishtandroid"
 ]

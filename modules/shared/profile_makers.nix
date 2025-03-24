@@ -91,4 +91,21 @@ in
       mac-app-util.darwinModules.default
     ];
   };
+  mkNixOnDroidConfiguration = host: {
+    nixOnDroidConfigurations.default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+      pkgs = pkgs host.system;
+      # specialArgs = {
+      #   shared = shared host.system;
+      #   inherit
+      #     inputs
+      #     host
+      #     ;
+      # };
+      modules = [
+        ../hosts/${host.profile_name}/configuration
+        stylix.nixOnDroidModules.stylix
+      ];
+    };
+    hosts = [ host ];
+  };
 }
