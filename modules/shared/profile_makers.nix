@@ -77,14 +77,15 @@ let
     {
       ${type_specific.attribute_name}.${host.hostname} = type_specific.config_maker (
         {
-          pkgs = pkgs host.system;
           modules = [
             ../hosts/${host.hostname}/configuration
           ] ++ type_specific.modules;
         }
         // (
           if system_type == "nix-on-droid" then
-            { }
+            {
+              pkgs = pkgs host.system;
+            }
           else
             {
               specialArgs = {
