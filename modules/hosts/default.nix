@@ -1,5 +1,5 @@
 [
   "shenixtamesh"
   "shemishtamac"
-  # "shemishtandroid"
+  "shemishtandroid"
 ]
