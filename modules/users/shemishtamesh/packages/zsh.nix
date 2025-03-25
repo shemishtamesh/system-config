@@ -44,8 +44,8 @@
         setopt promptsubst
         setopt autocd
 
-        HISTSIZE = 100000;
-        SAVEHIST = 100000;
+        export HISTSIZE=100000;
+        export SAVEHIST=100000;
 
         fpath=(~/.zsh/completions $fpath)
 
