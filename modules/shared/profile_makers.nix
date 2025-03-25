@@ -33,7 +33,7 @@ let
   mkSystem =
     {
       system_type,
-      modules,
+      modules ? [ ],
     }:
     host:
     let
@@ -75,18 +75,29 @@ let
           throw "unknown system type";
     in
     {
-      ${type_specific.attribute_name}.${host.hostname} = type_specific.config_maker {
-        specialArgs = {
-          shared = shared host.system;
-          inherit
-            inputs
-            host
-            ;
-        };
-        modules = [
-          ../hosts/${host.hostname}/configuration
-        ] ++ type_specific.modules;
-      };
+      ${type_specific.attribute_name}.${host.hostname} = type_specific.config_maker (
+        {
+          pkgs = pkgs host.system;
+          modules = [
+            ../hosts/${host.hostname}/configuration
+          ] ++ type_specific.modules;
+        }
+        // (
+          if system_type == "nix-on-droid" then
+            { }
+          else
+            {
+              specialArgs = {
+                shared = shared host.system;
+                inherit
+                  inputs
+                  host
+                  ;
+              };
+            }
+        )
+      );
+
       homeConfigurations = builtins.foldl' (
         accumulator: username:
         inputs.nixpkgs.lib.attrsets.recursiveUpdate accumulator (mkHomeConfiguration {
@@ -94,6 +105,7 @@ let
           inherit (type_specific) home_modules;
         })
       ) { } (builtins.attrNames host.users);
+
       hosts = [ host ];
     };
 in
@@ -111,9 +123,6 @@ in
     ];
   };
   mkNixOnDroidConfiguration = mkSystem {
-    system_type = "darwin";
-    modules = [
-      mac-app-util.darwinModules.default
-    ];
+    system_type = "nix-on-droid";
   };
 }

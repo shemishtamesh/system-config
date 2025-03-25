@@ -1,10 +1,11 @@
 profile_makers:
 profile_makers.mkNixOnDroidConfiguration {
   hostname = "shemishtandroid"; # hostname isn't realy configurable on nix-on-droid (https://github.com/nix-community/nix-on-droid/issues/51), this is just for the profile maker to find the config
-  system = "x86_64-linux";
+  system = "aarch64-linux";
   users.shemishtamesh = { }; # users can't actually be defined, this is just for home-manager conf
 }
-
+{ hostname = "shemishtandroid"; system = "aarch64-linux"; users.shemishtamesh = { }; }
+profile_makers.mkNixOnDroidConfiguration 
 # {
 #   nixOnDroidConfigurations = {
 #     inherit pkgs;
