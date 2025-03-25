@@ -1,6 +1,7 @@
 {
   nixpkgs,
   nix-darwin,
+  nix-on-droid,
   home-manager,
   stylix,
   hyprland,
@@ -12,16 +13,12 @@ let
   shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
     {
-      username ? "default",
+      username,
       host,
       home_modules,
     }:
-    let
-      home_config_name =
-        if builtins.hasAttr "hostname" host then "${username}@${host.hostname}" else "${username}";
-    in
     {
-      "${home_config_name}" = home-manager.lib.homeManagerConfiguration {
+      "${username}@${host.hostname}" = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
           shared = shared host.system;
           inherit inputs host username;
@@ -45,15 +42,34 @@ let
           {
             attribute_name = "nixosConfigurations";
             config_maker = nixpkgs.lib.nixosSystem;
-            stylix_module = stylix.nixosModules.stylix;
+            modules = modules ++ [
+              stylix.nixosModules.stylix
+              {
+                networking.hostName = host.hostname;
+                users.users = host.users;
+              }
+            ];
             home_modules = [ hyprland.homeManagerModules.default ];
           }
         else if system_type == "darwin" then
           {
             attribute_name = "darwinConfigurations";
             config_maker = nix-darwin.lib.darwinSystem;
-            stylix_module = stylix.darwinModules.stylix;
+            modules = modules ++ [
+              stylix.darwinModules.stylix
+              {
+                networking.hostName = host.hostname;
+                users.users = host.users;
+              }
+            ];
             home_modules = [ mac-app-util.homeManagerModules.default ];
+          }
+        else if system_type == "nix-on-droid" then
+          {
+            attribute_name = "nixOnDroidConfigurations";
+            config_maker = nix-on-droid.lib.nixOnDroidConfiguration;
+            modules = modules ++ [ stylix.nixOnDroidModules.stylix ];
+            home_modules = [ ];
           }
         else
           throw "unknown system type";
@@ -70,10 +86,6 @@ let
         modules = [
           ../hosts/${host.hostname}/configuration
           type_specific.stylix_module
-          {
-            networking.hostName = host.hostname;
-            users.users = host.users;
-          }
         ] ++ modules;
       };
       homeConfigurations = builtins.foldl' (
@@ -99,18 +111,10 @@ in
       mac-app-util.darwinModules.default
     ];
   };
-  mkNixOnDroidConfiguration = host: {
-    nixOnDroidConfigurations.default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-      pkgs = pkgs host.system;
-      extraSpecialArgs = {
-        shared = shared host.system;
-        inherit inputs host;
-      };
-      modules = [
-        ../hosts/${host.hostname}/configuration
-        stylix.nixOnDroidModules.stylix
-      ];
-    };
-    hosts = [ host ];
+  mkNixOnDroidConfiguration = mkSystem {
+    system_type = "darwin";
+    modules = [
+      mac-app-util.darwinModules.default
+    ];
   };
 }

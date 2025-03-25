@@ -5,6 +5,18 @@ profile_makers.mkNixOnDroidConfiguration {
   users.shemishtamesh = { }; # users can't actually be defined, this is just for home-manager conf
 }
 
+# {
+#   nixOnDroidConfigurations = {
+#     inherit pkgs;
+#     default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+#       modules = [ ];
+#     };
+#     extraSpecialArgs = {
+#       inherit inputs;
+#     };
+#   };
+# }
+
 # host:
 # {
 #   environment.packages = with pkgs; [
