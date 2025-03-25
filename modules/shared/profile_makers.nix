@@ -85,7 +85,7 @@ let
         };
         modules = [
           ../hosts/${host.hostname}/configuration
-        ] ++ modules;
+        ] ++ type_specific.modules;
       };
       homeConfigurations = builtins.foldl' (
         accumulator: username:
