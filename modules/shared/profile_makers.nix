@@ -85,7 +85,6 @@ let
         };
         modules = [
           ../hosts/${host.hostname}/configuration
-          type_specific.stylix_module
         ] ++ modules;
       };
       homeConfigurations = builtins.foldl' (
