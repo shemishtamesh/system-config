@@ -5,7 +5,7 @@ profile_makers.mkNixOnDroidConfiguration {
   users.shemishtamesh = { }; # users can't actually be defined, this is just for home-manager conf
 }
 # { hostname = "shemishtandroid"; system = "aarch64-linux"; users.shemishtamesh = { }; }
-# profile_makers.mkNixOnDroidConfiguration 
+# profile_makers.mkNixOnDroidConfiguration
 # {
 #   nixOnDroidConfigurations = {
 #     inherit pkgs;
