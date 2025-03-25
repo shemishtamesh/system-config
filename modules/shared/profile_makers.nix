@@ -11,21 +11,26 @@ let
   pkgs = system: nixpkgs.legacyPackages.${system};
   shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
-    { username, host }:
-    with host;
     {
-      "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+      username ? "default",
+      host,
+      home_modules,
+    }:
+    let
+      home_config_name =
+        if builtins.hasAttr "hostname" host then "${username}@${host.hostname}" else "${username}";
+    in
+    {
+      "${home_config_name}" = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
-          shared = shared system;
+          shared = shared host.system;
           inherit inputs host username;
         };
-        pkgs = pkgs system;
+        pkgs = pkgs host.system;
         modules = [
           ../users/${username}
           stylix.homeManagerModules.stylix
-          hyprland.homeManagerModules.default
-          mac-app-util.homeManagerModules.default
-        ];
+        ] ++ home_modules;
       };
     };
   mkSystem =
@@ -41,12 +46,14 @@ let
             attribute_name = "nixosConfigurations";
             config_maker = nixpkgs.lib.nixosSystem;
             stylix_module = stylix.nixosModules.stylix;
+            home_modules = [ hyprland.homeManagerModules.default ];
           }
         else if system_type == "darwin" then
           {
             attribute_name = "darwinConfigurations";
             config_maker = nix-darwin.lib.darwinSystem;
             stylix_module = stylix.darwinModules.stylix;
+            home_modules = [ mac-app-util.homeManagerModules.default ];
           }
         else
           throw "unknown system type";
@@ -73,6 +80,7 @@ let
         accumulator: username:
         inputs.nixpkgs.lib.attrsets.recursiveUpdate accumulator (mkHomeConfiguration {
           inherit username host;
+          inherit (type_specific) home_modules;
         })
       ) { } (builtins.attrNames host.users);
       hosts = [ host ];
@@ -94,15 +102,12 @@ in
   mkNixOnDroidConfiguration = host: {
     nixOnDroidConfigurations.default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = pkgs host.system;
-      # specialArgs = {
-      #   shared = shared host.system;
-      #   inherit
-      #     inputs
-      #     host
-      #     ;
-      # };
+      extraSpecialArgs = {
+        shared = shared host.system;
+        inherit inputs host;
+      };
       modules = [
-        ../hosts/${host.profile_name}/configuration
+        ../hosts/${host.hostname}/configuration
         stylix.nixOnDroidModules.stylix
       ];
     };

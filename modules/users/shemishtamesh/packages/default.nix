@@ -13,7 +13,6 @@ let
     ./fzf.nix
     ./direnv.nix
     ./tmux.nix
-    ./kitty.nix
     ./nixvim.nix
   ];
   shared_packages = with pkgs; [
@@ -37,19 +36,15 @@ let
     fastfetch
     yazi
     killall
-    slack
-    obsidian
     nh
     nix-diff
     nix-output-monitor
     nvd
-    zathura
-    mpv
-    bitwarden
   ];
   per_host = {
     shenixtamesh = {
       modules = [
+        ./kitty.nix
         ./protonup.nix
         ./hypridle.nix
         ./hyprlock.nix
@@ -63,6 +58,11 @@ let
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
         inputs.zen-browser.packages.${system}.default
+        slack
+        obsidian
+        zathura
+        mpv
+        bitwarden
         cht-sh
         tetrio-desktop
         bottles
@@ -107,7 +107,15 @@ let
     };
     shemishtamac = {
       modules = [
+        ./kitty.nix
         ./karabiner-elements.nix
+      ];
+      packages = with pkgs; [
+        slack
+        obsidian
+        zathura
+        mpv
+        bitwarden
       ];
     };
   };
