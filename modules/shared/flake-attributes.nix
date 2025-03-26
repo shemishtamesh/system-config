@@ -87,7 +87,7 @@ in
                 nix fmt "$FLAKE"
 
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
-                  git -C "$FLAKE" commit --amend -am 'switching os confg'
+                  git -C "$FLAKE" commit -am 'switching os confg' || true
                   if ! ${os_specific.os_switch_command}; then
                     git -C "$FLAKE" commit --amend -am 'os config switch failed'
                     git push
@@ -97,7 +97,7 @@ in
                 fi
 
                 if [[ -z "''${1-}" || "$1" == "home" ]]; then
-                  git -C "$FLAKE" commit --amend -am 'switch home config'
+                  git -C "$FLAKE" commit -am 'switch home config' || true
                   nix flake update nixvim --flake "$FLAKE"
                   if ! nh home switch "$FLAKE" --backup-extension bak; then
                     git -C "$FLAKE" commit --amend -m 'home config switch failed'
