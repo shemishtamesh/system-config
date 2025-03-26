@@ -35,12 +35,11 @@ in
               with pkgs;
               [
                 git
-                libnotify
                 nh
                 nvd
                 nix-output-monitor
               ]
-              ++ (if kernel == "darwin" then [ pkgs.terminal-notifier ] else [ ]);
+              ++ (if kernel == "darwin" then [ pkgs.terminal-notifier ] else [ libnotify ]);
             text =
               let
                 FLAKE_ROOT = "$HOME/.config/system-flake";
