@@ -29,11 +29,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.sessionVariables = {
-    MANROFFOPT = "-c";
-    MANWIDTH = "999";
-    MANPAGER = "nvim +Man!";
-    EDITOR = "nvim";
-
     NIXOS_OZONE_WL = "1";
   };
 
