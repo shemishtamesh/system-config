@@ -92,4 +92,7 @@
       name = "cht-sh-zsh-completion";
     };
   };
+  home.file.".zsh/completions/_databricks" = {
+    text = "eval $(${pkgs.databricks-cli}/bin/databricks completion zsh)";
+  };
 }
