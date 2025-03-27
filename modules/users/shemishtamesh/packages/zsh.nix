@@ -46,9 +46,8 @@
         export HISTSIZE=100000
         export SAVEHIST=100000
 
-        fpath=(~/.zsh/completions $fpath)
-        eval $(${pkgs.databricks-cli}/bin/databricks completion zsh)
         # completions
+        fpath=(~/.zsh/completions $fpath)
         autoload -U compinit && compinit   # load + start completion
         zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
         autoload -U compinit
@@ -85,14 +84,17 @@
         bindkey '^e' edit-command-line
       '';
   };
-  home.file.".zsh/completions/_cht" = {
-    source = builtins.fetchurl {
-      url = "https://cheat.sh/:zsh";
-      sha256 = "sha256:097grmcz7v0v7gqgfljzwvyvr56d9kvc3m2hw5mibq226c54sf5g";
-      name = "cht-sh-zsh-completion";
-    };
+  home.file.".zsh/completions/_cht".source = builtins.fetchurl {
+    url = "https://cheat.sh/:zsh";
+    sha256 = "sha256:097grmcz7v0v7gqgfljzwvyvr56d9kvc3m2hw5mibq226c54sf5g";
+    name = "cht-sh-zsh-completion";
   };
-  # home.file.".zsh/completions/_databricks" = {
-  #   text = "";
-  # };
+  home.file.".zsh/completions/_databricks".source =
+    let
+      databricksZshCompletion = pkgs.runCommand "databricks-zsh-completion" { } ''
+        mkdir -p $out
+        ${pkgs.databricks-cli}/bin/databricks completion zsh > $out/_databricks
+      '';
+    in
+    "${databricksZshCompletion}/_databricks";
 }
