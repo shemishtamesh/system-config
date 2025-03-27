@@ -47,7 +47,7 @@
         export SAVEHIST=100000
 
         fpath=(~/.zsh/completions $fpath)
-
+        eval $(${pkgs.databricks-cli}/bin/databricks completion zsh)
         # completions
         autoload -U compinit && compinit   # load + start completion
         zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
@@ -92,7 +92,7 @@
       name = "cht-sh-zsh-completion";
     };
   };
-  home.file.".zsh/completions/_databricks" = {
-    text = "eval $(${pkgs.databricks-cli}/bin/databricks completion zsh)";
-  };
+  # home.file.".zsh/completions/_databricks" = {
+  #   text = "";
+  # };
 }
