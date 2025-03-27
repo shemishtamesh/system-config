@@ -111,6 +111,7 @@ let
         ./karabiner-elements.nix
       ];
       packages = with pkgs; [
+        databricks-cli
         slack
         obsidian
         zathura
