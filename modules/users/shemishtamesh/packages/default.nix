@@ -112,7 +112,6 @@ let
         ./databricks.nix
       ];
       packages = with pkgs; [
-        databricks-cli
         slack
         obsidian
         zathura
