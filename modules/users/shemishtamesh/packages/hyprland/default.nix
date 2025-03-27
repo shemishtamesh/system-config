@@ -227,8 +227,8 @@ in
         ];
         workspace = [
           # no borders when there's only a single visible window
-          "w[v1], gapsout:0, gapsin:0"
-          "f[1], gapsout:0, gapsin:0"
+          "s[false] w[v1], gapsout:0, gapsin:0"
+          "s[false] f[1], gapsout:0, gapsin:0"
         ];
         exec-once = [
           "${pkgs.hyprpaper}"
