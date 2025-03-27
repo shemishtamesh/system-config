@@ -109,6 +109,7 @@ let
       modules = [
         ./kitty.nix
         ./karabiner-elements.nix
+        ./databricks.nix
       ];
       packages = with pkgs; [
         databricks-cli

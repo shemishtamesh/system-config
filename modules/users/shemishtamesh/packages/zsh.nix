@@ -89,12 +89,4 @@
     sha256 = "sha256:097grmcz7v0v7gqgfljzwvyvr56d9kvc3m2hw5mibq226c54sf5g";
     name = "cht-sh-zsh-completion";
   };
-  home.file.".zsh/completions/_databricks".source =
-    let
-      databricksZshCompletion = pkgs.runCommand "databricks-zsh-completion" { } ''
-        mkdir -p $out
-        ${pkgs.databricks-cli}/bin/databricks completion zsh > $out/_databricks
-      '';
-    in
-    "${databricksZshCompletion}/_databricks";
 }
