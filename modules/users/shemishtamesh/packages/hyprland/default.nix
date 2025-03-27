@@ -215,7 +215,7 @@ in
           force_default_wallpaper = 1;
           disable_hyprland_logo = false;
         };
-        windowrulev2 = [
+        windowrulev = [
           "workspace special:music silent, class:(spotify)"
           "workspace special:chat silent, class:(discord-screenaudio)"
 
