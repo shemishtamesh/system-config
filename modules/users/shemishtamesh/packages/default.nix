@@ -65,6 +65,7 @@ let
         bitwarden
         cht-sh
         tetrio-desktop
+        furnace
         bottles
         blender
         openscad
