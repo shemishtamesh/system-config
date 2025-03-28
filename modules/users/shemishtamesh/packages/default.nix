@@ -64,7 +64,6 @@ let
         mpv
         bitwarden
         cht-sh
-        weechat
         tetrio-desktop
         furnace
         bottles
