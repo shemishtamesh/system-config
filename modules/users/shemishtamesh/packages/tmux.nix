@@ -92,6 +92,7 @@ in
     shortcut = "Space";
     historyLimit = 5000;
     mouse = true;
+    shell = "$SHELL";
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = vim-tmux-navigator;
