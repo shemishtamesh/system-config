@@ -92,7 +92,6 @@ in
     shortcut = "Space";
     historyLimit = 5000;
     mouse = true;
-    shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = vim-tmux-navigator;
