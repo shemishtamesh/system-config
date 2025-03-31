@@ -169,6 +169,9 @@ in
         set -g status-fg \${base07}
         set -g status-position top
         set -g status-keys vi
+
+        # temporary fix until https://github.com/tmux-plugins/tmux-sensible/pull/75
+        set-option -g default-command ${pkgs.zsh}/bin/zsh
       '';
   };
 }
