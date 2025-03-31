@@ -85,7 +85,7 @@ in
   stylix.targets.tmux.enable = true;
   programs.tmux = {
     enable = true;
-    sensibleOnTop = true;
+    # sensibleOnTop = true;
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";
