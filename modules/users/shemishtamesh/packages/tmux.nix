@@ -85,7 +85,7 @@ in
   stylix.targets.tmux.enable = true;
   programs.tmux = {
     enable = true;
-    sensibleOnTop = true;
+    sensibleOnTop = false; # temporary fix until https://github.com/tmux-plugins/tmux-sensible/pull/75
     clock24 = true;
     escapeTime = 0;
     keyMode = "vi";
@@ -169,9 +169,6 @@ in
         set -g status-fg \${base07}
         set -g status-position top
         set -g status-keys vi
-
-        # temporary fix until https://github.com/tmux-plugins/tmux-sensible/pull/75
-        set-option -g default-command ${pkgs.zsh}/bin/zsh
       '';
   };
 }
