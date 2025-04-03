@@ -29,7 +29,9 @@
     magicmouse.MouseButtonMode = "TwoButton";
   };
 
-  stylix = shared.theme.stylix_settings;
+  stylix = with shared.theme.stylix_settings; {
+    inherit enable base12Scheme fonts;
+  };
 
   # use touch id auth for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
