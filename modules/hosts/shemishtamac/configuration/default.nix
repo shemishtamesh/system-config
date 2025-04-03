@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ shared, inputs, ... }:
 {
   imports = [ ./services ];
 
@@ -28,6 +28,8 @@
     };
     magicmouse.MouseButtonMode = "TwoButton";
   };
+
+  stylix = shared.theme.stylix_settings;
 
   # use touch id auth for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
