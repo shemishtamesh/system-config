@@ -30,7 +30,7 @@
   };
 
   stylix = with shared.theme.stylix_settings; {
-    inherit enable base12Scheme fonts;
+    inherit enable fonts;
   };
 
   # use touch id auth for sudo
