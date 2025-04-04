@@ -269,7 +269,7 @@ in
         #language,
         #keyboard-state,
         #battery {
-            background: ${palette.base0C};
+            background: ${palette.base03};
             color: ${palette.base00};
             opacity: 1;
             padding: 2px 1px;
@@ -283,7 +283,7 @@ in
         #window,
         #mpris,
         #idle_inhibitor {
-            background: ${palette.base0C};
+            background: ${palette.base03};
             color: ${palette.base00};
             opacity: 1;
             padding: 1px 2px;
@@ -323,7 +323,7 @@ in
 
         #workspaces button.hover {
             padding: 1px 12px 1px 7px;
-            background: ${palette.base0D};
+            background: ${palette.base04};
             margin-bottom: 0;
         }
 
@@ -340,7 +340,7 @@ in
 
         #taskbar button.maximized {
             padding: 1px 15px 1px 10px;
-            background: ${palette.base14};
+            background: ${palette.base05};
         }
 
         #taskbar button.active.maximized {
