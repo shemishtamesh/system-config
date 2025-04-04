@@ -4,40 +4,35 @@ let
   # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
   scheme = {
     system = "base24";
-    name = "IR Black";
-    slug = "irblack";
-    author = "Timothée Poisot (edited)";
+    name = "moonfly";
+    slug = "moonfly";
+    author = "bluz 71 (and edited by me)";
     variant = "dark";
     palette = {
-      # Base24 version of Moonfly-inspired colors
-      base00 = "000000"; # grey11: very dark background
-      base01 = "262626"; # grey15: slightly lighter bg
-      base02 = "3a3a3a"; # grey23: UI elements (e.g. statusline)
-      base03 = "626262"; # grey39: comments
-      base04 = "808080"; # grey50: dark foreground
-      base05 = "b2b2b2"; # grey70: default foreground
-      base06 = "d4d4d4"; # interpolated (between grey70 and grey89)
-      base07 = "e4e4e4"; # grey89: lightest foreground
-
-      # Syntax Highlighting Colors
-      base08 = "ff5d5d"; # red: errors
-      base09 = "de935f"; # orange: constants
-      base0A = "e3c78a"; # yellow: keywords
-      base0B = "8cc85f"; # green: strings
-      base0C = "79dac8"; # turquoise: functions
-      base0D = "80a0ff"; # blue: types / classes
-      base0E = "ae81ff"; # purple: special / regex / tags
-      base0F = "e9958e"; # cinnamon: deprecated / warnings
-
-      # Extended Colors
-      base10 = "ff5189"; # crimson
-      base11 = "e9c062"; # orange-ish yellow (similar to coral)
-      base12 = "ffffb6"; # bright khaki/yellow (interpolated)
-      base13 = "85dc85"; # lime: bright green
-      base14 = "adadf3"; # lavender: bright purple
-      base15 = "74b2ff"; # sky: lighter blue
-      base16 = "cf87e8"; # violet: pink-purple
-      base17 = "c6c684"; # khaki: alternative yellow-green
+      base00 = "#000000"; # black
+      base01 = "#262626"; # gray 1
+      base02 = "#3a3a3a"; # gray 2
+      base03 = "#626262"; # gray 3
+      base04 = "#808080"; # gray 4
+      base05 = "#b2b2b2"; # gray 5
+      base06 = "#d4d4d4"; # gray 6
+      base07 = "#e4e4e4"; # white
+      base08 = "#ff5d5d"; # red
+      base09 = "#de935f"; # orange
+      base0A = "#e3c78a"; # yellow
+      base0B = "#8cc85f"; # green
+      base0C = "#79dac8"; # violet
+      base0D = "#80a0ff"; # blue
+      base0E = "#ae81ff"; # purple
+      base0F = "#e9958e"; # brown
+      base10 = "#ff5189"; # bright red
+      base11 = "#e9c062"; # bright orange
+      base12 = "#ffffb6"; # bright yellow
+      base13 = "#85dc85"; # bright green
+      base14 = "#adadf3"; # bright violet
+      base15 = "#74b2ff"; # bright blue
+      base16 = "#cf87e8"; # bright purple
+      base17 = "#c6c684"; # bright brown
     };
   };
   fonts = {
