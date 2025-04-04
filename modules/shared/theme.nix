@@ -9,30 +9,35 @@ let
     author = "Timothée Poisot (edited)";
     variant = "dark";
     palette = {
-      base00 = "000000";
-      base01 = "242422";
-      base02 = "484844";
-      base03 = "6c6c66";
-      base04 = "918f88";
-      base05 = "b5b3aa";
-      base06 = "d9d7cc";
-      base07 = "fdfbee";
-      base08 = "df4c40";
-      base09 = "c9a042";
-      base0A = "dfdf96";
-      base0B = "88df40";
-      base0C = "a6a5de";
-      base0D = "76abde";
-      base0E = "df53dd";
-      base0F = "916a1d";
-      base10 = "ff6c60";
-      base11 = "e9c062";
-      base12 = "ffffb6";
-      base13 = "a8ff60";
-      base14 = "c6c5fe";
-      base15 = "96cbfe";
-      base16 = "ff73fd";
-      base17 = "b18a3d";
+      # Base24 version of Moonfly-inspired colors
+      base00 = "#1c1c1c"; # grey11: very dark background
+      base01 = "#262626"; # grey15: slightly lighter bg
+      base02 = "#3a3a3a"; # grey23: UI elements (e.g. statusline)
+      base03 = "#626262"; # grey39: comments
+      base04 = "#808080"; # grey50: dark foreground
+      base05 = "#b2b2b2"; # grey70: default foreground
+      base06 = "#d4d4d4"; # interpolated (between grey70 and grey89)
+      base07 = "#e4e4e4"; # grey89: lightest foreground
+
+      # Syntax Highlighting Colors
+      base08 = "#ff5d5d"; # red: errors
+      base09 = "#de935f"; # orange: constants
+      base0A = "#e3c78a"; # yellow: keywords
+      base0B = "#8cc85f"; # green: strings
+      base0C = "#79dac8"; # turquoise: functions
+      base0D = "#80a0ff"; # blue: types / classes
+      base0E = "#ae81ff"; # purple: special / regex / tags
+      base0F = "#e9958e"; # cinnamon: deprecated / warnings
+
+      # Extended Colors
+      base10 = "#ff5189"; # crimson
+      base11 = "#e9c062"; # orange-ish yellow (similar to coral)
+      base12 = "#ffffb6"; # bright khaki/yellow (interpolated)
+      base13 = "#85dc85"; # lime: bright green
+      base14 = "#adadf3"; # lavender: bright purple
+      base15 = "#74b2ff"; # sky: lighter blue
+      base16 = "#cf87e8"; # violet: pink-purple
+      base17 = "#c6c684"; # khaki: alternative yellow-green
     };
   };
   fonts = {
