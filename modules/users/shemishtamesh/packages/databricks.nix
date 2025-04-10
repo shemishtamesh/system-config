@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   home = {
     packages = with pkgs; [ databricks-cli ];
     file.".zsh/completions/_databricks".source =
