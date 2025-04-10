@@ -32,6 +32,7 @@
       core = {
         editor = "nvim";
       };
+      pull.ff = "only";
     };
   };
 }
