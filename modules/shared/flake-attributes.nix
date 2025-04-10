@@ -80,6 +80,7 @@ in
               # sh
               ''
                 export FLAKE="${FLAKE_ROOT}"
+                starting_commit=$(git rev-parse HEAD)
 
                 git -C "$FLAKE" add .
                 git -C "$FLAKE" commit -m 'before formatting' || true
@@ -106,7 +107,7 @@ in
                   fi
                 fi
 
-                if [[ -z "''${1-}" ]]; then
+                if [[ -z "''${1-}" && "$starting_commit" -ne $(git rev-parse HEAD) ]]; then
                   git -C "$FLAKE" commit --amend -m 'system switch succeeded'
                 fi
 
