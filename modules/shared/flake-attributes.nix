@@ -107,7 +107,7 @@ in
                   fi
                 fi
 
-                if [[ -z "''${1-}" && "$starting_commit" -ne $(git -C "$FLAKE" rev-parse HEAD) ]]; then
+                if [[ -z "''${1-}" && "$starting_commit" != "$(git -C "$FLAKE" rev-parse HEAD)" ]]; then
                   git -C "$FLAKE" commit --amend -m 'system switch succeeded'
                 fi
 

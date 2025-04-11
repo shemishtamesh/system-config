@@ -1,6 +1,7 @@
 {
   config,
   shared,
+  host,
   ...
 }:
 let
@@ -17,9 +18,7 @@ in
     settings = {
       top_bar = {
         position = "top";
-        output = [
-          "HDMI-A-2"
-        ];
+        output = builtins.attrNames host.monitors;
         modules-left = [ "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [ "mpris" ];
@@ -69,12 +68,23 @@ in
 
       bottom_bar = {
         position = "bottom";
-        output = [
-          "HDMI-A-2"
-        ];
+        output = builtins.attrNames host.monitors;
         modules-left = [ "clock" ];
         modules-center = [
-          "wlr/taskbar"
+          "disk"
+          "backlight"
+          "pulseaudio#output"
+          "pulseaudio#input"
+          "hyprland/language"
+          # "keyboard-state"
+          "memory"
+          "cpu"
+          "temperature"
+          "privacy"
+          "network"
+          "bluetooth"
+          "user"
+          "battery"
         ];
         modules-right = [
           "tray"
@@ -121,30 +131,6 @@ in
             deactivated = "󰾫";
           };
         };
-      };
-
-      right_bar = {
-        position = "right";
-        output = [
-          "eDP-1"
-        ];
-        modules-center = [
-          "disk"
-          "backlight"
-          "pulseaudio#output"
-          "pulseaudio#input"
-          "hyprland/language"
-          # "keyboard-state"
-          "memory"
-          "cpu"
-          "temperature"
-          "privacy"
-          "network"
-          "bluetooth"
-          "user"
-          "battery"
-        ];
-
         cpu = {
           format = " {usage}%";
           rotate = 270;

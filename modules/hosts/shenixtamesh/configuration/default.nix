@@ -45,8 +45,10 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    cudaSupport = true;
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
