@@ -3,6 +3,7 @@
   shared,
   inputs,
   host,
+  config,
   ...
 }:
 
@@ -38,6 +39,7 @@
       open = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
   };
 
