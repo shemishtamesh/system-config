@@ -27,15 +27,18 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      driSupport = true;
+      dri32BitSupport = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        nvidia-vaapi-driver
+      ];
     };
 
     nvidia = {
       modesetting.enable = true;
       open = true;
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
+      powerManagement.enable = true;
       nvidiaSettings = true;
     };
   };
