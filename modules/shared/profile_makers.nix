@@ -11,10 +11,10 @@
 let
   pkgs =
     system:
-    (import nixpkgs {
+    import nixpkgs {
       inherit system;
-      cudaSupport = true;
-    });
+      config.cudaSupport = true;
+    };
   shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
     {
