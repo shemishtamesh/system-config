@@ -9,7 +9,7 @@
   ...
 }@inputs:
 let
-  pkgs = system: nixpkgs.legacyPackages.${system};
+  pkgs = system: (import nixpkgs { config.cudaSupport = true; }).legacyPackages.${system};
   shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
     {
