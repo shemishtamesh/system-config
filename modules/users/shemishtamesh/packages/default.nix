@@ -23,7 +23,7 @@ let
     eza
     tree
     tldr
-    btop
+    # btop
     atool
     unrar
     unzip
