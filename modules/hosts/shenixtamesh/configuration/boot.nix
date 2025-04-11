@@ -14,5 +14,6 @@
       "i2c-dev"
     ];
     supportedFilesystems = [ "ntfs" ];
+    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
 }
