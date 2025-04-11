@@ -23,6 +23,21 @@
 
     bluetooth.enable = true; # enables support for Bluetooth
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+      nvidiaSettingsfinegrained = true;
+    };
   };
 
   # Allow unfree packages

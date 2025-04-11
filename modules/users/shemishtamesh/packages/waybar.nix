@@ -18,8 +18,7 @@ in
       top_bar = {
         position = "top";
         output = [
-          "eDP-1"
-          "HDMI-A-1"
+          "HDMI-A-2"
         ];
         modules-left = [ "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
@@ -71,8 +70,7 @@ in
       bottom_bar = {
         position = "bottom";
         output = [
-          "eDP-1"
-          "HDMI-A-1"
+          "HDMI-A-2"
         ];
         modules-left = [ "clock" ];
         modules-center = [
@@ -242,7 +240,7 @@ in
         * {
             border: none;
             border-radius: 10px;
-            min-height: 0;
+            min-height: 0px;
             font-family: FiraCode Nerd Font;
             font-weight: bold;
             font-size: 15px;
@@ -273,7 +271,7 @@ in
             color: ${palette.base05};
             opacity: 1;
             padding: 2px 1px;
-            margin: 4 0px;
+            margin: 4px 0px;
         }
 
         #clock,
@@ -287,7 +285,7 @@ in
             color: ${palette.base05};
             opacity: 1;
             padding: 1px 2px;
-            margin: 0 4px;
+            margin: 0px 4px;
             border-radius: 10px;
             animation: gradient_f 20s ease-in infinite;
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
@@ -324,7 +322,7 @@ in
         #workspaces button.hover {
             padding: 1px 12px 1px 7px;
             background: ${palette.base03};
-            margin-bottom: 0;
+            margin-bottom: 0px;
         }
 
         #taskbar button,

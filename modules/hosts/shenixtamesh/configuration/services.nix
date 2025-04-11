@@ -18,6 +18,8 @@
         layout = "us";
         variant = "";
       };
+
+      videoDrivers = [ "nvidia" ];
     };
     printing.enable = true; # Enable CUPS to print documents.
     pipewire = {
