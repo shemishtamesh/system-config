@@ -13,7 +13,7 @@ let
     system:
     (import nixpkgs {
       inherit system;
-      config.cudaSupport = true;
+      cudaSupport = true;
     });
   shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
