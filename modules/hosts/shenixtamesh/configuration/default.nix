@@ -36,7 +36,7 @@
         enable = true;
         finegrained = true;
       };
-      nvidiaSettingsfinegrained = true;
+      nvidiaSettings = true;
     };
   };
 
