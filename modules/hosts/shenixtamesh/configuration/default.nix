@@ -34,7 +34,7 @@
       open = true;
       powerManagement = {
         enable = true;
-        # finegrained = true;
+        finegrained = true;
       };
       nvidiaSettings = true;
     };
