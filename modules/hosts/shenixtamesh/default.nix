@@ -17,6 +17,14 @@ profile_makers.mkNixosSystem {
       width = 1920;
       height = 1080;
       refresh_rate = 60;
+      horizontal_offset = 0;
+      vertical_offset = 0;
+      scaling = 1;
+    };
+    "HDMI-A-1" = {
+      width = 1920;
+      height = 1080;
+      refresh_rate = 60;
       horizontal_offset = 1920;
       vertical_offset = 0;
       scaling = 1;
