@@ -266,7 +266,7 @@ in
         #privacy {
             background: ${palette.base08};
             color: ${palette.base07};
-            padding: 12px 1px 11px 1px;
+            padding: 1px 12px 1px 11px;
         }
 
         #idle_inhibitor.activated {
