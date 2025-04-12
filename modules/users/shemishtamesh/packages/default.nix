@@ -101,9 +101,6 @@ let
         lorien
         qpwgraph
         transmission_4-gtk
-        tremc
-        steam-tui
-        lutris
       ];
     };
     shemishtamac = {
