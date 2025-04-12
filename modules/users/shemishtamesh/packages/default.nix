@@ -66,7 +66,7 @@ let
         cht-sh
         tetrio-desktop
         furnace
-        bottles
+        (pkgs.bottles.override { removeWarningPopup = true; })
         blender
         openscad
         chromium

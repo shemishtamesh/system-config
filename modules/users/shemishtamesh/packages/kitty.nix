@@ -10,10 +10,6 @@ in
   programs.kitty = {
     enable = true;
     keybindings = {
-      "kitty_mod+h" = "kitty_scrollback_nvim --nvim-args --cmd 'lua vim.g.no_initial_picker=true'";
-      "kitty_mod+g" =
-        "kitty_scrollback_nvim --nvim-args --cmd 'lua vim.g.no_initial_picker=true' --config ksb_builtin_last_cmd_output";
-
       "alt+0" = "disable_ligatures_in all always";
       "alt+1" = "disable_ligatures_in all never";
     };
@@ -30,8 +26,6 @@ in
 
       allow_remote_control = "socket-only";
       listen_on = "unix:/tmp/kitty";
-
-      action_alias = "kitty_scrollback_nvim kitten $HOME/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
 
       cursor_trail = 1;
 
