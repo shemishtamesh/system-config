@@ -247,7 +247,7 @@ in
         #mpris,
         #idle_inhibitor {
             background: ${palette.base02};
-            color: ${palette.base05};
+            color: ${palette.base00};
             opacity: 1;
             padding: 1px 2px;
             margin: 0px 4px;
