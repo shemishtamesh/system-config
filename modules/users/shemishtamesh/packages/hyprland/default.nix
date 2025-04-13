@@ -244,9 +244,8 @@ in
           "transmission-daemon"
           ''KITTY_DISABLE_WAYLAND=1 kitty --class="kitty-wallpaper" "btop"''
         ];
-        plugin.hyprwinwrap.class = "kitty-wallpaper";
-
         plugin = {
+          hyprwinwrap.class = "kitty-wallpaper";
           hyprbars = {
             bar_height = 20;
             hyprbars-button = [
@@ -255,12 +254,21 @@ in
             ];
           };
         };
+        "plugin:borders-plus-plus" = {
+          add_borders = 1;
+          "col.border_1" = "rgb(ffffff)";
+          "col.border_2" = "rgb(2222ff)";
+          border_size_1 = 10;
+          border_size_2 = -1;
+          natural_rounding = "yes";
+        };
 
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
         hyprwinwrap
         hyprbars
+        borders-plus-plus
       ];
     };
 }
