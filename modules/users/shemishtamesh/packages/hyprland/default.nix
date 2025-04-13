@@ -17,6 +17,7 @@ in
   wayland.windowManager.hyprland =
     let
       flake_hyprland = inputs.hyprland.packages.${host.system};
+      winwrap_class = "kitty-wallpaper";
     in
     {
       enable = true;
@@ -240,16 +241,19 @@ in
           "${pkgs.playerctl}/bin/playerctld"
           "kdeconnect-indicator"
           "hypridle"
-          "${pkgs.hypridle}"
+          "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
-          ''KITTY_DISABLE_WAYLAND=1 kitty --class="kitty-wallpaper" "btop"''
+          ''
+            KITTY_DISABLE_WAYLAND=1 kitty \
+            -c "${builtins.toString (pkgs "kitty_wallpaper.conf" "background_opacity 0.0")}" \
+            --class="${winwrap_class}" "${pkgs.cava}/bin/cava"
+          ''
         ];
-        plugin.hyprwinwrap.class = "kitty-wallpaper";
-
+        plugin.hyprwinwrap.class = "${winwrap_class}";
       };
-      systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
+      systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
     };
 }
