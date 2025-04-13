@@ -249,6 +249,7 @@ in
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
       ];
     };
 }
