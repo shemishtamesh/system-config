@@ -243,11 +243,11 @@ in
           "${pkgs.hypridle}"
           "transmission-daemon"
         ];
+        plugin.hyprwinwrap.class = "btop-wallpaper";
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
-      plugin.hyprwinwrap.class = "btop-wallpaper";
     };
 }
