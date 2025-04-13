@@ -245,7 +245,7 @@ in
           "transmission-daemon"
           ''
             KITTY_DISABLE_WAYLAND=1 kitty \
-            -c "${builtins.toString (pkgs "kitty_wallpaper.conf" "background_opacity 0.0")}" \
+            -c "${builtins.toString (pkgs.writeText "kitty_wallpaper.conf" "background_opacity 0.0")}" \
             --class="${winwrap_class}" "${pkgs.cava}/bin/cava"
           ''
         ];
