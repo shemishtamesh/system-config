@@ -248,14 +248,14 @@ in
           "hypridle"
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
-          "[workspace 1] ${winwrap_command}"
-          "[workspace 2] ${winwrap_command}"
+          # "[workspace 1] ${winwrap_command}"
+          # "[workspace 2] ${winwrap_command}"
         ];
         plugin.hyprwinwrap.class = "${winwrap_class}";
       };
-      plugins = [
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
-      ];
+      # plugins = [
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+      # ];
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
     };
 }
