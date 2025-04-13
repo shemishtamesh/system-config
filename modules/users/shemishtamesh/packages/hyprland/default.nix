@@ -242,6 +242,7 @@ in
           "hypridle"
           "${pkgs.hypridle}"
           "transmission-daemon"
+          ''KITTY_DISABLE_WAYLAND=1 kitty --class="kitty-wallpaper" "btop"''
         ];
         plugin.hyprwinwrap.class = "kitty-wallpaper";
       };
