@@ -18,6 +18,11 @@ in
     let
       flake_hyprland = inputs.hyprland.packages.${host.system};
       winwrap_class = "kitty-wallpaper";
+      winwrap_command = ''
+        KITTY_DISABLE_WAYLAND=1 kitty \
+          -c "${builtins.toString (pkgs.writeText "kitty_wallpaper.conf" "background_opacity 0.0")}" \
+          --class="${winwrap_class}" "${pkgs.cava}/bin/cava"
+      '';
     in
     {
       enable = true;
@@ -243,11 +248,8 @@ in
           "hypridle"
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
-          ''
-            KITTY_DISABLE_WAYLAND=1 kitty \
-            -c "${builtins.toString (pkgs.writeText "kitty_wallpaper.conf" "background_opacity 0.0")}" \
-            --class="${winwrap_class}" "${pkgs.cava}/bin/cava"
-          ''
+          "[workspace 1] ${winwrap_command}"
+          "[workspace 2] ${winwrap_command}"
         ];
         plugin.hyprwinwrap.class = "${winwrap_class}";
       };
