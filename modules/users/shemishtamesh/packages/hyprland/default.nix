@@ -244,31 +244,12 @@ in
           "transmission-daemon"
           ''KITTY_DISABLE_WAYLAND=1 kitty --class="kitty-wallpaper" "btop"''
         ];
-        plugin = {
-          hyprwinwrap.class = "kitty-wallpaper";
-          hyprbars = {
-            bar_height = 20;
-            hyprbars-button = [
-              "$rgb(ff4040), 20, 󰖭, hyprctl dispatch killactive"
-              "$rgb(eeee11), 20, , hyprctl dispatch fullscreen 1"
-            ];
-          };
-        };
-        "plugin:borders-plus-plus" = {
-          add_borders = 1;
-          "col.border_1" = "rgb(ffffff)";
-          "col.border_2" = "rgb(2222ff)";
-          border_size_1 = 10;
-          border_size_2 = -1;
-          natural_rounding = "yes";
-        };
+        plugin.hyprwinwrap.class = "kitty-wallpaper";
 
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
-      plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-        hyprwinwrap
-        hyprbars
-        borders-plus-plus
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
     };
 }
