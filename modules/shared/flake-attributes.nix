@@ -38,10 +38,10 @@ in
               "notify-send -u low 'system switch succeeded'";
             update_wallpaper = # sh
               ''
-                # if ! systemctl --user restart hyprpaper.service; then
-                #   notify-send -u critical 'wallpaper switch failed'
-                #   exit 1
-                # fi
+                if ! systemctl --user restart hyprpaper.service; then
+                  notify-send -u critical 'wallpaper switch failed'
+                  exit 1
+                fi
               '';
           }
         else if kernel == "darwin" then

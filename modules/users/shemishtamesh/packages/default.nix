@@ -48,7 +48,7 @@ let
         ./protonup.nix
         ./hypridle.nix
         ./hyprlock.nix
-        # ./hyprpaper.nix
+        ./hyprpaper.nix
         ./hyprland
         ./waybar.nix
         ./wlogout.nix
