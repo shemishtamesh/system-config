@@ -248,18 +248,10 @@ in
 
         plugin = {
           hyprbars = {
-            bar_height = 38;
-            bar_color = "rgb(1e1e1e)";
-            col.text = "rgb(1e1e1e)";
-            bar_text_size = 12;
-            # bar_text_font = Jetbrains Mono Nerd Font Mono Bold;
-            bar_button_padding = 12;
-            bar_padding = 10;
-            bar_precedence_over_border = true;
+            bar_height = 20;
             hyprbars-button = [
-              "$rgb(1e1e1e), 20, , hyprctl dispatch killactive"
-              "$rgb(1e1e1e), 20, , hyprctl dispatch fullscreen 2"
-              "$rgb(1e1e1e), 20, , hyprctl dispatch togglefloating"
+              "$rgb(ff4040), 20, 󰖭, hyprctl dispatch killactive"
+              "$rgb(eeee11), 20, , hyprctl dispatch fullscreen 1"
             ];
           };
         };
