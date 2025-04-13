@@ -231,7 +231,7 @@ in
           "f[1], gapsout:0, gapsin:0"
         ];
         exec-once = [
-          "${pkgs.hyprpaper}"
+          # "${pkgs.hyprpaper}"
           "waybar"
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] discord-screenaudio"
@@ -243,7 +243,7 @@ in
           "${pkgs.hypridle}"
           "transmission-daemon"
         ];
-        plugin.hyprwinwrap.class = "btop-wallpaper";
+        plugin.hyprwinwrap.class = "kitty-wallpaper";
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
