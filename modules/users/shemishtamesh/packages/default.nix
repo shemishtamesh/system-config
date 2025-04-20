@@ -91,7 +91,7 @@ let
         slides
         difftastic
         wtype
-        whatsapp-for-linux
+        altus
         discord-screenaudio
         spotify
         easyeffects

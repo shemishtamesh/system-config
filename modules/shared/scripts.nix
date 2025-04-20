@@ -7,6 +7,8 @@ pkgs: {
     in
     # sh
     pkgs.lib.getExe (
-      pkgs.writeShellScriptBin "sync_external_monitors_brightness" "${ddcutil} setvcp 10 $(echo \"$(echo \"$(${brightnessctl} g) / $(${brightnessctl} m) * 100\" | ${bc} -l | ${bc}) / 1\" | ${bc})"
+      pkgs.writeShellScriptBin "sync_external_monitors_brightness" ''
+        ${ddcutil} setvcp 10 $(echo \"$(echo \"$(${brightnessctl} g) / $(${brightnessctl} m) * 100\" | ${bc} -l | ${bc}) / 1\" | ${bc})
+      ''
     );
 }
