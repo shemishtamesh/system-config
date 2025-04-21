@@ -230,7 +230,10 @@ in
           "w[v1], gapsout:0, gapsin:0"
           "f[1], gapsout:0, gapsin:0"
         ];
-        device.wacom-one-by-wacom-s-pen.output = "HDMI-A-2";
+        device = {
+          name = "wacom-one-by-wacom-s-pen";
+          output = "HDMI-A-2";
+        };
         exec-once = [
           "${pkgs.hyprpaper}"
           "waybar"
