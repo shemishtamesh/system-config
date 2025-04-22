@@ -263,20 +263,11 @@ in
         #pulseaudio.input,
         #pulseaudio.output.muted,
         #network.disconnected,
+        #idle_inhibitor.activated,
         #privacy {
             background: ${palette.base08};
             color: ${palette.base07};
             padding: 1px 12px 1px 11px;
-        }
-
-        #idle_inhibitor.activated {
-            background: ${palette.base08};
-            color: ${palette.base07};
-            padding: 1px 12px 1px 11px;
-        }
-
-        #network.disconnected {
-            padding: 8px 1px 5px 1px;
         }
 
         #taskbar,
