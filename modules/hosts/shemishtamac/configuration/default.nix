@@ -29,7 +29,7 @@
     magicmouse.MouseButtonMode = "TwoButton";
   };
 
-  virtualization.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   stylix = with shared.theme.stylix_settings; {
     inherit enable base16Scheme fonts;
