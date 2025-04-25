@@ -30,7 +30,7 @@
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
-    initExtra = # sh
+    initContent = # sh
       ''
         setopt HIST_IGNORE_SPACE
         setopt HIST_IGNORE_DUPS
