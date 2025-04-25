@@ -20,6 +20,13 @@
   ];
   xdg.portal.enable = true;
 
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 32 * 1024;
+    }
+  ];
+
   hardware = {
     keyboard.qmk.enable = true;
 
