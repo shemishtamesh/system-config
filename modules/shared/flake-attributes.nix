@@ -35,7 +35,7 @@ in
             notify_home_switch_failure = # sh
               "notify-send -u critical 'home switch failed'";
             notify_switch_success = # sh
-              "notify-send -u low 'system switch succeeded'";
+              "notify-send -u low 'switch succeeded'";
             update_wallpaper = # sh
               ''
                 if ! systemctl --user restart hyprpaper.service; then
@@ -53,7 +53,7 @@ in
             notify_home_switch_failure = # sh
               "terminal-notifier -message 'home switch failed'";
             notify_switch_success = # sh
-              "terminal-notifier -message 'system switch succeeded'";
+              "terminal-notifier -message 'switch succeeded'";
             update_wallpaper = "";
           }
         else
