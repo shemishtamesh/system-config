@@ -65,7 +65,7 @@ let
         bitwarden
         cht-sh
         tetrio-desktop
-        # furnace
+        furnace
         (pkgs.bottles.override { removeWarningPopup = true; })
         blender
         openscad
