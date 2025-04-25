@@ -4,7 +4,7 @@
       enable = true;
       enableZshIntegration = true;
     };
-    zsh.initExtra = # sh
+    zsh.initContent = # sh
       ''
         # ensure compatibility tmux <-> direnv
         if [ -n "$TMUX" ] && [ -n "$DIRENV_DIR" ]; then
