@@ -11,6 +11,7 @@ let
     ./starship.nix
     ./zoxide.nix
     ./fzf.nix
+    ./bat.nix
     ./direnv.nix
     ./tmux.nix
     ./nixvim.nix
@@ -18,7 +19,6 @@ let
   shared_packages = with pkgs; [
     libqalculate
     ripgrep
-    bat
     fd
     eza
     tree
