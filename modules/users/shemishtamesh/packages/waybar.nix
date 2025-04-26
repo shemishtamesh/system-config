@@ -172,7 +172,7 @@ in
           format = " {capacity}%";
         };
         temperature = {
-          thermal-zone = 1;
+          thermal-zone = 0;
         };
         network = {
           format = " {essid} {signalStrength}%";
