@@ -17,7 +17,7 @@ let
       base05 = "92abc5"; # #92abc5
       base06 = "b9d3e8"; # #b9d3e8
       base07 = "e3f0f8"; # #e3f0f8
-                                  
+
       base08 = "ff6b6b"; # #ff6b6b
       base09 = "ffab6b"; # #ffab6b
       base0A = "f0fa90"; # #f0fa90
@@ -26,7 +26,7 @@ let
       base0D = "569dff"; # #569dff
       base0E = "c3a1ff"; # #c3a1ff
       base0F = "b48f6a"; # #b48f6a
-                                  
+
       base10 = "ff8f8f"; # #ff8f8f
       base11 = "ffc28f"; # #ffc28f
       base12 = "ffffaf"; # #ffffaf
