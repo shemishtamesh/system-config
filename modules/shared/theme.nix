@@ -1,7 +1,5 @@
 pkgs:
 let
-  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/irblack.yaml";
-  # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
   scheme = {
     system = "base24";
     name = "custom";
