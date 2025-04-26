@@ -1,9 +1,8 @@
 {
-    programs.bat = {
-        enable = true;
-        settings = {
-            
-        };
-    };
-}
+  programs.bat = {
+    enable = true;
+    settings = {
 
+    };
+  };
+}
