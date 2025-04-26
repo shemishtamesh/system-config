@@ -10,31 +10,31 @@ let
     variant = "dark";
     palette = {
       base00 = "000000"; # #000000
-      base01 = "1a1a27"; # #1a1a27
-      base02 = "2a2a40"; # #2a2a40
-      base03 = "44475a"; # #44475a
-      base04 = "cdd6f4"; # #cdd6f4
-      base05 = "ffffff"; # #ffffff
-      base06 = "f5e0dc"; # #f5e0dc
-      base07 = "f8f8f2"; # #f8f8f2
-
-      base08 = "ff6e6e"; # #ff6e6e
-      base09 = "ffb86c"; # #ffb86c
-      base0A = "f1fa8c"; # #f1fa8c
-      base0B = "50fa7b"; # #50fa7b
-      base0C = "8be9fd"; # #8be9fd
-      base0D = "61afef"; # #61afef
-      base0E = "bd93f9"; # #bd93f9
-      base0F = "ff79c6"; # #ff79c6
-
-      base10 = "ff9ac1"; # #ff9ac1
-      base11 = "94d6ff"; # #94d6ff
-      base12 = "a6e3a1"; # #a6e3a1
-      base13 = "fab387"; # #fab387
-      base14 = "b4befe"; # #b4befe
-      base15 = "e5cffe"; # #e5cffe
-      base16 = "f8f8ff"; # #f8f8ff
-      base17 = "282a36"; # #282a36
+      base01 = "0b1520"; # #0b1520
+      base02 = "1a2e42"; # #1a2e42
+      base03 = "27435f"; # #27435f
+      base04 = "62819e"; # #62819e
+      base05 = "92abc5"; # #92abc5
+      base06 = "b9d3e8"; # #b9d3e8
+      base07 = "e3f0f8"; # #e3f0f8
+                                  
+      base08 = "ff6b6b"; # #ff6b6b
+      base09 = "ffab6b"; # #ffab6b
+      base0A = "f0fa90"; # #f0fa90
+      base0B = "6af09e"; # #6af09e
+      base0C = "8f8fff"; # #8f8fff
+      base0D = "569dff"; # #569dff
+      base0E = "c3a1ff"; # #c3a1ff
+      base0F = "b48f6a"; # #b48f6a
+                                  
+      base10 = "ff8f8f"; # #ff8f8f
+      base11 = "ffc28f"; # #ffc28f
+      base12 = "ffffaf"; # #ffffaf
+      base13 = "8dffb9"; # #8dffb9
+      base14 = "afafff"; # #afafff
+      base15 = "a3cfff"; # #a3cfff
+      base16 = "e5cfff"; # #e5cfff
+      base17 = "d7b18f"; # #d7b18f
     };
   };
   fonts = {
