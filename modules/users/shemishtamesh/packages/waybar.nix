@@ -190,9 +190,9 @@ in
           capslock = true;
           scrolllock = true;
           format = {
-            numlock = "# {icon}, ";
-            capslock = "󰪛 {icon}, ";
-            scrolllock = " {icon}";
+            scrolllock = " {icon} , ";
+            capslock = "󰪛 {icon} , ";
+            numlock = "# {icon}";
           };
           format-icons = {
             locked = "";
