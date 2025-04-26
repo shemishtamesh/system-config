@@ -192,7 +192,7 @@ in
           format = {
             scrolllock = " {icon} , ";
             capslock = "󰪛 {icon} , ";
-            numlock = "# {icon}";
+            numlock = "# {icon} ";
           };
           format-icons = {
             locked = "";
