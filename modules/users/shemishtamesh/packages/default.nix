@@ -12,6 +12,7 @@ let
     ./zoxide.nix
     ./fzf.nix
     ./bat.nix
+    ./btop.nix
     ./direnv.nix
     ./tmux.nix
     ./nixvim.nix
@@ -23,7 +24,6 @@ let
     eza
     tree
     tldr
-    btop
     atool
     unrar
     unzip

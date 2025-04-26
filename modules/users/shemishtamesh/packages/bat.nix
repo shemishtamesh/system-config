@@ -1,1 +1,1 @@
-{ programs.bat.enable = true; }
+{ programs.btop.enable = true; }
