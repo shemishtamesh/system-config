@@ -4,9 +4,9 @@ let
   # scheme = functions.importYaml "${pkgs.base16-schemes}/share/themes/atelier-forest-light.yaml";
   scheme = {
     system = "base24";
-    name = "IR Black";
-    slug = "irblack";
-    author = "Timothée Poisot (edited)";
+    name = "custom";
+    slug = "custom";
+    author = "";
     variant = "dark";
     palette = {
       base00 = "000000"; # #000000
