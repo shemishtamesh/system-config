@@ -193,9 +193,9 @@ in
             # numlock = "# {icon} ";
             # capslock = "󰪛 {icon} ";
             # scrolllock = " {icon} ";
-            numlock = "{icon} ";
-            capslock = "{icon} ";
-            scrolllock = "{icon} ";
+            numlock = "#{icon} ";
+            capslock = "󰪛{icon} ";
+            scrolllock = "{icon} ";
           };
           format-icons = {
             locked = "";
