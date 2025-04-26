@@ -86,6 +86,9 @@ in
                 git -C "$FLAKE" commit -m 'before formatting' || true
                 nix fmt "$FLAKE"
 
+                nix flake update nixvim --flake "$FLAKE"
+                git -C "$FLAKE" commit -am 'updating flakes' || true
+
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
                   git -C "$FLAKE" commit -am 'switching os confg' || true
                   if ! ${os_specific.os_switch_command}; then
@@ -98,7 +101,6 @@ in
 
                 if [[ -z "''${1-}" || "$1" == "home" ]]; then
                   git -C "$FLAKE" commit -am 'switch home config' || true
-                  nix flake update nixvim --flake "$FLAKE"
                   if ! nh home switch "$FLAKE" --backup-extension bak; then
                     git -C "$FLAKE" commit --amend -m 'home config switch failed'
                     git push
