@@ -76,7 +76,7 @@ in
           "pulseaudio#output"
           "pulseaudio#input"
           "hyprland/language"
-          # "keyboard-state"
+          "keyboard-state"
           "memory"
           "cpu"
           "temperature"
