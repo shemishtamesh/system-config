@@ -15,6 +15,8 @@
 
         idle_threshold = 120;
         timeout = 6;
+
+        follow = "keyboard";
       };
     };
   };
