@@ -19,6 +19,7 @@
     mac-app-util.url = "github:hraban/mac-app-util";
     nixvim.url = "github:shemishtamesh/nixvim-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    nixcord.url = "github:kaylorben/nixcord";
     stylix.url = "github:danth/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };

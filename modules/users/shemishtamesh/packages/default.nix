@@ -16,6 +16,7 @@ let
     ./direnv.nix
     ./tmux.nix
     ./nixvim.nix
+    ./nixcord.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
