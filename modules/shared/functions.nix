@@ -53,6 +53,8 @@ pkgs: {
       buildInputs = with pkgs; [
         openscad
         xvfb-run
+        xorg.xorgserver
+        mesa_drivers
       ];
       unpackPhase = "true";
       buildPhase = ''
@@ -79,6 +81,9 @@ pkgs: {
         EOF
 
         export XDG_CONFIG_HOME=$TMPDIR/config
+        export LIBGL_ALWAYS_SOFTWARE=1
+        export LIBGL_DRIVERS_PATH="${pkgs.mesa_drivers}/lib/dri"
+        export LD_LIBRARY_PATH="${pkgs.mesa_drivers}/lib${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
 
         xvfb-run -a --server-args="-screen 0 ${toString width}x${toString height}x24" \
           openscad \
@@ -89,7 +94,7 @@ pkgs: {
             --imgsize=${toString width},${toString height} \
             -o ${name}.png \
             $src
-      '';
-      installPhase = "install -Dm0644 ${name}.png $out";
+        '';
+        installPhase = "install -Dm0644 ${name}.png $out";
     };
 }
