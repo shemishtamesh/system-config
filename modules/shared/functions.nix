@@ -84,7 +84,7 @@ pkgs: {
           --preview=test \
           --colorscheme=custom_background \
           -o wallpaper.png \
-          $src/${name}.scad
+          $src
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
