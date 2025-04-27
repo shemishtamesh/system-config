@@ -21,6 +21,19 @@
         messageLogger.enable = true;
         mutualGroupDMs.enable = true;
         noUnblockToJump.enable = true;
+        permissionsViewer.enable = true;
+        pinDMs.enable = true;
+        previewMessage.enable = true;
+        relationshipNotifier.enable = true;
+        revealAllSpoilers.enable = true;
+        serverInfo.enable = true;
+        showHiddenChannels.enable = true;
+        showHiddenThings.enable = true;
+        silentTyping.enable = true;
+        typingIndicator.enable = true;
+        unlockedAvatarZoom.enable = true;
+        userVoiceShow.enable = true;
+        vencordToolbox.enable = true;
         #   hideAttachments.enable = true; # Enable a Vencord plugin
         #   ignoreActivities = {
         #     # Enable a plugin and set some options
