@@ -50,7 +50,10 @@ pkgs: {
         name = "${name}.scad";
         text = scadText;
       };
-      buildInputs = with pkgs; [ openscad xvfb-run ];
+      buildInputs = with pkgs; [
+        openscad
+        xvfb-run
+      ];
       unpackPhase = "true";
       buildPhase = ''
         mkdir -p $TMPDIR/config/OpenSCAD/color-schemes/render
