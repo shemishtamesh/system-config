@@ -50,7 +50,7 @@ pkgs: {
         name = "${name}.scad";
         text = scadText;
       };
-      buildInputs = with pkgs; [ openscad ];
+      buildInputs = with pkgs; [ openscad xvfb-run ];
       unpackPhase = "true";
       buildPhase = ''
         mkdir -p $TMPDIR/config/OpenSCAD/color-schemes/render
@@ -77,13 +77,15 @@ pkgs: {
 
         export XDG_CONFIG_HOME=$TMPDIR/config
 
-        openscad \
-          --camera=0,0,0,0,0,0,${toString width} \
-          --projection ortho \
-          --imgsize=${toString width},${toString height} \
-          --colorscheme=custom_background \
-          -o ${name}.png \
-          $src
+        xvfb-run -a --server-args="-screen 0 ${toString width}x${toString height}x24" \
+          openscad \
+            --preview \
+            --colorscheme=custom_background \
+            --projection=ortho \
+            --camera=0,0,0,0,0,0,${toString width} \
+            --imgsize=${toString width},${toString height} \
+            -o ${name}.png \
+            $src
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
