@@ -8,7 +8,7 @@
     discord.autoscroll.enable = true;
     config = {
       frameless = true;
-      enableReactDevtools = true;
+      disableMinSize = true;
       plugins = {
         callTimer.enable = true;
         copyFileContents.enable = true;
@@ -39,19 +39,7 @@
         voiceMessages.enable = true;
         volumeBooster.enable = true;
         youtubeAdblock.enable = true;
-        #   hideAttachments.enable = true; # Enable a Vencord plugin
-        #   ignoreActivities = {
-        #     # Enable a plugin and set some options
-        #     enable = true;
-        #     ignorePlaying = true;
-        #     ignoreWatching = true;
-        #     ignoredActivities = [ "someActivity" ];
-        #   };
       };
-      # extraConfig = {
-      #   # Some extra JSON config here
-      #   # ...
-      # };
     };
   };
 }
