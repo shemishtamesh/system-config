@@ -81,7 +81,6 @@ pkgs: {
           --camera=0,0,0,0,0,0,${toString width} \
           --projection ortho \
           --imgsize=${toString width},${toString height} \
-          --preview=test \
           --colorscheme=custom_background \
           -o ${name}.png \
           $src
