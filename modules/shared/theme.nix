@@ -170,6 +170,6 @@ in
           wallpaper();
         '';
       inherit width height;
-      background_color = base00;
+      background_color = "#${base00}";
     };
 }
