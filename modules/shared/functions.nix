@@ -82,9 +82,9 @@ pkgs: {
 
         export XDG_CONFIG_HOME=$TMPDIR/config
         export DISPLAY=:99
-        # export LIBGL_ALWAYS_SOFTWARE=1
-        # export LIBGL_DRIVERS_PATH="${pkgs.mesa}/lib/dri"
-        # export LD_LIBRARY_PATH="${pkgs.mesa}/lib''${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
+        export LIBGL_ALWAYS_SOFTWARE=1
+        export LIBGL_DRIVERS_PATH="${pkgs.mesa}/lib/dri"
+        export LD_LIBRARY_PATH="${pkgs.mesa}/lib''${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
 
         xvfb-run -a --server-args="-screen 0 ${toString width}x${toString height}x24" \
           openscad \
