@@ -93,7 +93,6 @@ let
         difftastic
         wtype
         altus
-        discord-screenaudio
         spotify
         easyeffects
         pavucontrol
