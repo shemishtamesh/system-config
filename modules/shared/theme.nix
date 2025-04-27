@@ -170,5 +170,6 @@ in
           wallpaper();
         '';
       inherit width height;
+      background_color = base00;
     };
 }
