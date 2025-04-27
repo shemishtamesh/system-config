@@ -34,6 +34,11 @@
         unlockedAvatarZoom.enable = true;
         userVoiceShow.enable = true;
         vencordToolbox.enable = true;
+        viewRaw.enable = true;
+        voiceDownload.enable = true;
+        voiceMessages.enable = true;
+        volumeBooster.enable = true;
+        youtubeAdblock.enable = true;
         #   hideAttachments.enable = true; # Enable a Vencord plugin
         #   ignoreActivities = {
         #     # Enable a plugin and set some options
