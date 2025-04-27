@@ -78,9 +78,9 @@ pkgs: {
         export XDG_CONFIG_HOME=$TMPDIR/config
 
         openscad \
-          --camera=0,0,0,0,0,0,${width} \
+          --camera=0,0,0,0,0,0,${toString width} \
           --projection ortho \
-          --imgsize=${width},${height} \
+          --imgsize=${toString width},${toString height} \
           --preview=test \
           --colorscheme=custom_background \
           -o wallpaper.png \
