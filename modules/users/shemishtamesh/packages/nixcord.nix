@@ -4,32 +4,37 @@
     inputs.nixcord.homeModules.nixcord
   ];
   programs.nixcord = {
-    enable = true; # enable Nixcord. Also installs discord package
-
-    # quickCss = "some CSS"; # quickCSS file
-    #   config = {
-    #     useQuickCss = true; # use out quickCSS
-    #     themeLinks = [
-    #       # or use an online theme
-    #       "https://raw.githubusercontent.com/link/to/some/theme.css"
-    #     ];
-    #     frameless = true; # set some Vencord options
-    #     plugins = {
-    #       hideAttachments.enable = true; # Enable a Vencord plugin
-    #       ignoreActivities = {
-    #         # Enable a plugin and set some options
-    #         enable = true;
-    #         ignorePlaying = true;
-    #         ignoreWatching = true;
-    #         ignoredActivities = [ "someActivity" ];
-    #       };
-    #     };
-    #   };
-    #   extraConfig = {
-    #     # Some extra JSON config here
-    #     # ...
-    #   };
-    # };
-    # ...
+    enable = true;
+    discord.autoscroll.enable = true;
+    config = {
+      frameless = true;
+      enableReactDevtools = true;
+      plugins = {
+        callTimer.enable = true;
+        copyFileContents.enable = true;
+        fullUserInChatbox.enable = true;
+        iLoveSpam.enable = true;
+        imageZoom.enable = true;
+        implicitRelationships.enable = true;
+        mentionAvatars.enable = true;
+        messageLinkEmbeds.enable = true;
+        messageLogger.enable = true;
+        mutualGroupDMs.enable = true;
+        noUnblockToJump.enable = true;
+        oneko.enable = true;
+        #   hideAttachments.enable = true; # Enable a Vencord plugin
+        #   ignoreActivities = {
+        #     # Enable a plugin and set some options
+        #     enable = true;
+        #     ignorePlaying = true;
+        #     ignoreWatching = true;
+        #     ignoredActivities = [ "someActivity" ];
+        #   };
+      };
+      # extraConfig = {
+      #   # Some extra JSON config here
+      #   # ...
+      # };
+    };
   };
 }
