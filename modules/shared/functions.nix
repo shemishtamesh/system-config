@@ -83,7 +83,7 @@ pkgs: {
           --imgsize=${toString width},${toString height} \
           --preview=test \
           --colorscheme=custom_background \
-          -o wallpaper.png \
+          -o ${name}.png \
           $src
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
