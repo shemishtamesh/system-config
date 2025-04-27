@@ -85,15 +85,14 @@ pkgs: {
         export LIBGL_DRIVERS_PATH="${pkgs.mesa}/lib/dri"
         export LD_LIBRARY_PATH="${pkgs.mesa}/lib''${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
 
-        xvfb-run -a --server-args="-screen 0 ${toString width}x${toString height}x24" \
-          openscad \
-            --preview \
-            --colorscheme=custom_background \
-            --projection=ortho \
-            --camera=0,0,0,0,0,0,${toString width} \
-            --imgsize=${toString width},${toString height} \
-            -o ${name}.png \
-            $src
+        openscad \
+          --render \
+          --colorscheme custom_background \
+          --projection=ortho \
+          --camera=0,0,0,0,0,0,${width} \
+          --imgsize=${width},${height} \
+          -o ${name}.png \
+          $src
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
