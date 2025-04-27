@@ -36,4 +36,56 @@ pkgs: {
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
+  scadToPng =
+    {
+      width,
+      height,
+      scadText,
+      background_color,
+      name,
+    }:
+    pkgs.stdenv.mkDerivation {
+      name = "${name}.png";
+      src = pkgs.writeTextFile {
+        name = "${name}.scad";
+        text = scadText;
+      };
+      buildInputs = with pkgs; [ openscad ];
+      unpackPhase = "true";
+      buildPhase = ''
+        mkdir -p $TMPDIR/config/OpenSCAD/color-schemes/render
+        cat > $TMPDIR/config/OpenSCAD/color-schemes/render/CustomBackground.json <<EOF
+          {
+            "name": "custom_background",
+            "index": 2000,
+            "show-in-gui": false,
+            "colors": {
+              "background": "${background_color}",
+              "axes-color": "${background_color}",
+              "opencsg-face-front": "${background_color}",
+              "opencsg-face-back": "${background_color}",
+              "cgal-face-front": "${background_color}",
+              "cgal-face-back": "${background_color}",
+              "cgal-face-2d": "${background_color}",
+              "cgal-edge-front": "${background_color}",
+              "cgal-edge-back": "${background_color}",
+              "cgal-edge-2d": "${background_color}",
+              "crosshair": "${background_color}"
+            }
+          }
+        EOF
+
+        export XDG_CONFIG_HOME=$TMPDIR/config
+
+        openscad \
+          --camera=0,0,0,0,0,0,${width} \
+          --projection ortho \
+          --imgsize=${width},${height} \
+          --preview=test \
+          --colorscheme=custom_background \
+          -o wallpaper.png \
+          $src/wallpaper.scad
+      '';
+      installPhase = "install -Dm0644 ${name}.png $out";
+    };
 }
