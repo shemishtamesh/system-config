@@ -46,6 +46,7 @@ in
             "$mod CTRL SHIFT, q, exit"
 
             "$mod SHIFT, w, killactive"
+            "$mod SHIFT, q, forcekillactive"
 
             "$mod, c, cyclenext"
 
