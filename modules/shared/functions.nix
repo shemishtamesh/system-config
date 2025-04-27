@@ -94,7 +94,7 @@ pkgs: {
             --imgsize=${toString width},${toString height} \
             -o ${name}.png \
             $src
-        '';
-        installPhase = "install -Dm0644 ${name}.png $out";
+      '';
+      installPhase = "install -Dm0644 ${name}.png $out";
     };
 }
