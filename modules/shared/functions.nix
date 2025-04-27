@@ -81,18 +81,21 @@ pkgs: {
         EOF
 
         export XDG_CONFIG_HOME=$TMPDIR/config
-        export LIBGL_ALWAYS_SOFTWARE=1
-        export LIBGL_DRIVERS_PATH="${pkgs.mesa}/lib/dri"
-        export LD_LIBRARY_PATH="${pkgs.mesa}/lib''${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
+        export DISPLAY=:99
+        # export LIBGL_ALWAYS_SOFTWARE=1
+        # export LIBGL_DRIVERS_PATH="${pkgs.mesa}/lib/dri"
+        # export LD_LIBRARY_PATH="${pkgs.mesa}/lib''${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
 
-        openscad \
-          --render \
-          --colorscheme custom_background \
-          --projection=ortho \
-          --camera=0,0,0,0,0,0,${width} \
-          --imgsize=${width},${height} \
-          -o ${name}.png \
-          $src
+        # xvfb-run -a --server-args="-screen 0 ${toString width}x${toString height}x24" \
+        Xvfb -ac :99 -screen 0 ${toString width}x${toString height}x24 
+          openscad \
+            --preview \
+            --colorscheme=custom_background \
+            --projection=ortho \
+            --camera=0,0,0,0,0,0,${toString width} \
+            --imgsize=${toString width},${toString height} \
+            -o ${name}.png \
+            $src
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
