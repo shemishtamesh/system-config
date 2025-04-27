@@ -107,7 +107,7 @@ in
                   basic_triangle();
           }
 
-          module my_lambda(colors) {
+          module lambda(colors) {
               for (pos = concat(
                   // long
                   [ for (i = [0:7]) [ i - 7,   -i - 1 ] ],
@@ -127,7 +127,7 @@ in
           module nix(color_groups) {
               for (i = [0:5]) {
                   rotate(-60 * i)
-                  my_lambda(color_groups[i % len(color_groups)]);
+                  lambda(color_groups[i % len(color_groups)]);
               }
           }
 
