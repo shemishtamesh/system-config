@@ -21,7 +21,6 @@
         messageLogger.enable = true;
         mutualGroupDMs.enable = true;
         noUnblockToJump.enable = true;
-        oneko.enable = true;
         #   hideAttachments.enable = true; # Enable a Vencord plugin
         #   ignoreActivities = {
         #     # Enable a plugin and set some options
