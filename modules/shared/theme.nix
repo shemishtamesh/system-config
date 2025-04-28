@@ -308,10 +308,10 @@ in
                             if -6 < x < 6 and -6 < y < 6:
                                 continue
                             distance = (x**2 + (y * RADIUS_RATIO) ** 2) ** (1 / 2)
+                            color_index = max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)
+                            if not COLOR_OUTSIDE_NIX:
+                                min(color_index, 8)
                             self.triangles.append(
-                                color_index = max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)
-                                if not COLOR_OUTSIDE_NIX:
-                                    min(color_index, 8)
                                 Triangle(
                                     Point(x, y),
                                     random.choice(
