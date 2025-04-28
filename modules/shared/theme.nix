@@ -111,6 +111,7 @@ in
             EDGE_BUFFER = 1
             RADIUS_RATIO = 3
             DISTANCE_FADE_SCALE = 0.35
+            COLOR_OUTSIDE_NIX = True
             COLORS = [
                 "#${base00}",
                 "#${base01}",
