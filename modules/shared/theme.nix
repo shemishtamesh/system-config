@@ -366,7 +366,7 @@ in
                     (
                         # SCREEN_WIDTH // SCALING_FOR_ANTIALIASING,
                         # SCREEN_HEIGHT // SCALING_FOR_ANTIALIASING,
-                        1080, 1920
+                        1080 / 8, 1920 / 8
                     ),
                     resample=Image.Resampling.LANCZOS,
                 )
