@@ -309,11 +309,11 @@ in
                                 continue
                             distance = (x**2 + (y * RADIUS_RATIO) ** 2) ** (1 / 2)
                             self.triangles.append(
+                                color_index = max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)
+                                if not COLOR_OUTSIDE_NIX:
+                                    min(color_index, 8)
                                 Triangle(
                                     Point(x, y),
-                                    color_index = max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)
-                                    if not COLOR_OUTSIDE_NIX:
-                                        min(color_index, 8)
                                     random.choice(
                                         colors[: color_index]
                                     ),
