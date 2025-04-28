@@ -102,9 +102,9 @@ in
             random.seed(0)
 
             IMAGE_NAME = "${name}"
-            SCALING_FOR_ANTIALIASING = 16
-            SCREEN_WIDTH = ${toString height} * SCALING_FOR_ANTIALIASING
-            SCREEN_HEIGHT = ${toString width} * SCALING_FOR_ANTIALIASING
+            SCALING_FOR_ANTIALIASING = 8
+            SCREEN_WIDTH = ${toString width} * SCALING_FOR_ANTIALIASING
+            SCREEN_HEIGHT = ${toString height} * SCALING_FOR_ANTIALIASING
             TRIANGLE_SIDE_LENGTH = SCREEN_HEIGHT / 35
             TRIANGLE_HEIGHT = TRIANGLE_SIDE_LENGTH * math.sin(math.radians(60))
             GAPS = TRIANGLE_HEIGHT * 4 / 25
