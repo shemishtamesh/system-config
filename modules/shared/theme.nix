@@ -109,7 +109,7 @@ in
             TRIANGLE_HEIGHT = TRIANGLE_SIDE_LENGTH * math.sin(math.radians(60))
             GAPS = TRIANGLE_HEIGHT * 4 / 25
             EDGE_BUFFER = 1
-            RADIUS_RATIO = 2.5
+            RADIUS_RATIO = 2
             DISTANCE_FADE_SCALE = 0.4
             COLORS = [
                 "#${base00}",
