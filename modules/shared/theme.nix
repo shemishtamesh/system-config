@@ -310,8 +310,11 @@ in
                             self.triangles.append(
                                 Triangle(
                                     Point(x, y),
+                                    color_index = max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)
+                                    if not COLOR_OUTSIDE_NIX:
+                                        min(color_index, 8)
                                     random.choice(
-                                        colors[: min(max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1), 8)]
+                                        colors[: color_index]
                                     ),
                                 )
                             )
