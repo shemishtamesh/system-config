@@ -110,7 +110,7 @@ in
             GAPS = TRIANGLE_HEIGHT * 4 / 25
             EDGE_BUFFER = 1
             RADIUS_RATIO = 2.6
-            DISTANCE_FADE_SCALE = 0.5
+            DISTANCE_FADE_SCALE = 0.3
             COLORS = [
                 "#${base00}",
                 "#${base01}",
