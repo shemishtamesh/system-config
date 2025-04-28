@@ -74,102 +74,74 @@ in
       height,
     }:
     with scheme.palette;
-    functions.scadToPng {
+    let
+      logoScale = 8;
+    in
+    functions.svgToPng {
       name = "${portname}_wallpaper";
-      scadText = # openscad
+      svgText = # svg
         ''
-          colors = ["#${base00}", "#${base01}", "#${base02}", "#${base03}", "#${base04}", "#${base05}", "#${base06}", "#${base07}", "#${base08}", "#${base09}", "#${base0A}", "#${base0B}", "#${base0C}", "#${base0D}", "#${base0E}", "#${base0F}", "#${base10}", "#${base11}", "#${base12}", "#${base13}", "#${base14}", "#${base15}", "#${base16}", "#${base17}"];
-
-          $image_height = ${toString height};
-          $number_of_triangles_on_y_axis = 70;
-          $triangle_height = $image_height / $number_of_triangles_on_y_axis;
-          triangle_side = $triangle_height / sin(60);
-          $gaps = $triangle_height * 2 / 25;
-
-          function random_from_position(position, min, max) = floor(rands(min, max, 1, position[0] * 1000 + position[1])[0]);
-
-          module triangle(position) {
-              module basic_triangle(){
-                  translate([-triangle_side / 2, -$triangle_height / 2])
-                  polygon([
-                      [0, 0],
-                      [triangle_side, 0],
-                      [triangle_side / 2, sin(60) * triangle_side]
-                  ]);
-              }
-
-              offset(delta = -$gaps)
-              translate([(position[0] / 2 + 0.5) * triangle_side, (position[1] + 0.5) * $triangle_height])
-              if ((position[0] % 2 == 0) != (position[1] % 2 == 0))
-                  rotate(180)
-                  basic_triangle();
-              else
-                  basic_triangle();
-          }
-
-          module lambda(colors) {
-              for (pos = concat(
-                  // long
-                  [ for (i = [0:7]) [ i - 7,   -i - 1 ] ],
-                  [ for (i = [0:6]) [ i - 7,   -i - 2 ] ],
-                  [ for (i = [0:6]) [ i - 8,   -i - 2 ] ],
-                  [ for (i = [0:5]) [ i - 8,   -i - 3 ] ],
-                  // short
-                  [ for (i = [0:2]) [ i - 9,    i - 7 ] ],
-                  [ for (i = [0:2]) [ i - 9,    i - 8 ] ],
-                  [ for (i = [0:2]) [ i - 8,    i - 8 ] ],
-                  [ for (i = [0:2]) [ i - 7,    i - 8 ] ]
-              ))
-                  color(colors[random_from_position(pos, 0, len(colors))])
-                  triangle(pos);
-          }
-
-          module nix(color_groups) {
-              for (i = [0:5]) {
-                  rotate(-60 * i)
-                  lambda(color_groups[i % len(color_groups)]);
-              }
-          }
-
-          module background()
-              for (i = [-38:44])
-                  for (j = [-13:12]) {
-                      distance = min(max(floor(sqrt(((i - 3) * triangle_side)^2 + (j * 3 * $triangle_height)^2) / 100), 0), 7);
-                      color(colors[random_from_position([i, j], 0, 7 - distance)])
-                      if ((i < -2 || 8 < i) || (j < -3 || 2 < j))
-                          triangle([-4 + i, j]);
-                  }
-
-          module palette() {
-              for (i = [0:6])
-                  for (j = [-1:0])
-                      color(colors[i + 8 * abs(j + 2)])
-                      triangle([-4 + i, j]);
-
-              for (i = [0:6])
-                  color(colors[i])
-                  triangle([i - 4, -2]);
-          }
-
-          module wallpaper() {
-              background();
-              palette();
-
-              nix([
-                  [colors[08], colors[16]],
-                  [colors[09], colors[17]],
-                  [colors[10], colors[18]],
-                  [colors[11], colors[19]],
-                  [colors[12], colors[20]],
-                  [colors[13], colors[21]],
-                  [colors[14], colors[22]],
-                  [colors[15], colors[23]]
-              ]);
-          }
-
-          wallpaper();
+          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <svg
+             width="${toString width}"
+             height="${toString height}"
+             version="1.1"
+             id="svg4"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:svg="http://www.w3.org/2000/svg">
+            <defs
+               id="defs4" />
+            <rect
+               width="${toString width}"
+               height="${toString height}"
+               fill="#${base00}"
+               id="rect1" />
+            <svg
+               x="${toString (width / 2 - (logoScale * 50))}"
+               y="${toString (height / 2 - (logoScale * 50))}"
+               version="1.1"
+               id="svg3">
+              <g
+                 transform="scale(${toString logoScale})"
+                 id="g3">
+                <g
+                   transform="matrix(.19936 0 0 .19936 80.161 27.828)"
+                   id="g2">
+                  <path
+                     d="m -249.0175,116.584 122.2,211.68 -56.157,0.5268 -32.624,-56.869 -32.856,56.565 -27.902,-0.011 -14.291,-24.69 46.81,-80.49 -33.229,-57.826 z"
+                     fill="#${base08}"
+                     style="display:inline;isolation:auto;mix-blend-mode:normal"
+                     id="path1" />
+                  <path
+                     d="m -204.9102,29.388 -122.22,211.67 -28.535,-48.37 32.938,-56.688 -65.415,-0.1717 -13.942,-24.169 14.237,-24.721 93.111,0.2937 33.464,-57.69 z"
+                     fill="#${base09}"
+                     id="path2"
+                     style="display:inline" />
+                  <path
+                     d="m -195.535,198.588 244.42,0.012 -27.622,48.897 -65.562,-0.1813 32.559,56.737 -13.961,24.158 -28.528,0.031 -46.301,-80.784 -66.693,-0.1359 z"
+                     fill="#${base0A}"
+                     id="path3"
+                     style="display:inline" />
+                  <path
+                     d="m -53.275,105.84 -122.2,-211.68 56.157,-0.5268 32.624,56.869 32.856,-56.565 27.902,0.011 14.291,24.69 -46.81,80.49 33.229,57.826 z"
+                     fill="#${base0B}"
+                     id="path4"
+                     style="display:inline" />
+                  <path
+                     d="m -97.659,193.01 122.22,-211.67 28.535,48.37 -32.938,56.688 65.415,0.1716 13.941,24.169 -14.237,24.721 -93.111,-0.2937 -33.464,57.69 z"
+                     fill="#${base0C}"
+                     style="display:inline;isolation:auto;mix-blend-mode:normal"
+                     id="path5" />
+                  <path
+                     d="m -107.2575,23.36 -244.42,-0.012 27.622,-48.897 65.562,0.1813 -32.559,-56.737 13.961,-24.158 28.528,-0.031 46.301,80.784 66.693,0.1359 z"
+                     fill="#${base0D}"
+                     style="display:inline;isolation:auto;mix-blend-mode:normal"
+                     id="path6" />
+                </g>
+              </g>
+            </svg>
+          </svg>
         '';
       inherit width height;
-      background_color = "#${base00}";
     };
 }

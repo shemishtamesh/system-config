@@ -93,7 +93,7 @@ pkgs: {
             --projection=ortho \
             --camera=0,0,0,0,0,0,${toString width} \
             --imgsize=${toString width},${toString height} \
-            -o ${name}.png \
+            -o ${name}.svg \
             $src
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
