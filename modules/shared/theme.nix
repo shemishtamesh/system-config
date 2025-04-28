@@ -87,7 +87,7 @@ in
       buildPhase = "python3 $src";
       installPhase = "install -Dm0644 ${name} $out";
       src = pkgs.writeTextFile {
-        name = "${portname}_wallpaper";
+        name = "${portname}_wallpaper.py";
         text =
           with scheme.palette;
           # python
