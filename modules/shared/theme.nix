@@ -102,8 +102,8 @@ in
 
             IMAGE_NAME = ${name}
             SCALING_FOR_ANTIALIASING = 8
-            SCREEN_WIDTH = ${height} * SCALING_FOR_ANTIALIASING
-            SCREEN_HEIGHT = ${width} * SCALING_FOR_ANTIALIASING
+            SCREEN_WIDTH = ${toString height} * SCALING_FOR_ANTIALIASING
+            SCREEN_HEIGHT = ${toString width} * SCALING_FOR_ANTIALIASING
             TRIANGLE_SIDE_LENGTH = SCREEN_HEIGHT / 35
             TRIANGLE_HEIGHT = TRIANGLE_SIDE_LENGTH * math.sin(math.radians(60))
             GAPS = TRIANGLE_HEIGHT * 4 / 25
