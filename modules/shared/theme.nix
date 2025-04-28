@@ -72,7 +72,6 @@ in
       width,
       height,
     }:
-    with scheme.palette;
     let
       name = "${portname}_wallpaper.png";
     in
@@ -90,6 +89,7 @@ in
       src = pkgs.writeTextFile {
         name = "${portname}_wallpaper";
         text =
+          with scheme.palette;
           # python
           ''
             #!/usr/bin/env python
