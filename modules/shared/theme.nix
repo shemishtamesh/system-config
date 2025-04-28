@@ -364,8 +364,9 @@ in
 
                 image = image.resize(
                     (
-                        SCREEN_WIDTH // SCALING_FOR_ANTIALIASING,
-                        SCREEN_HEIGHT // SCALING_FOR_ANTIALIASING,
+                        # SCREEN_WIDTH // SCALING_FOR_ANTIALIASING,
+                        # SCREEN_HEIGHT // SCALING_FOR_ANTIALIASING,
+                        1080, 1920
                     ),
                     resample=Image.Resampling.LANCZOS,
                 )
