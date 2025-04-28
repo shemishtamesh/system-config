@@ -101,7 +101,7 @@ in
 
             random.seed(0)
 
-            IMAGE_NAME = ${name}
+            IMAGE_NAME = "${name}"
             SCALING_FOR_ANTIALIASING = 8
             SCREEN_WIDTH = ${toString height} * SCALING_FOR_ANTIALIASING
             SCREEN_HEIGHT = ${toString width} * SCALING_FOR_ANTIALIASING
