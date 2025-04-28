@@ -110,7 +110,7 @@ in
             GAPS = TRIANGLE_HEIGHT * 4 / 25
             EDGE_BUFFER = 1
             RADIUS_RATIO = 2.6
-            DISTANCE_FADE_SCALE = 1.5
+            DISTANCE_FADE_SCALE = 0.5
             COLORS = [
                 "#${base00}",
                 "#${base01}",
@@ -311,7 +311,7 @@ in
                                 Triangle(
                                     Point(x, y),
                                     random.choice(
-                                        colors[: max(len(colors) - int(distance / DISTANCE_FADE_SCALE), 1)]
+                                        colors[: max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)]
                                     ),
                                 )
                             )
