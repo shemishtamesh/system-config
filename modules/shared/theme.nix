@@ -84,6 +84,7 @@ in
           ]
         ))
       ];
+      unpackPhase = "true";
       buildPhase = "python3 $src";
       installPhase = "install -Dm0644 ${name} $out";
       src = pkgs.writeTextFile {
