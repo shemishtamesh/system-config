@@ -311,7 +311,7 @@ in
                                 Triangle(
                                     Point(x, y),
                                     random.choice(
-                                        colors[: max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)]
+                                        colors[: min(max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1), 8)]
                                     ),
                                 )
                             )
