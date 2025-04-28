@@ -85,7 +85,7 @@ in
         ))
       ];
       buildPhase = "python3 $src";
-      installPhase = "install -Dm0644 ${name}.png $out";
+      installPhase = "install -Dm0644 ${name} $out";
       src = pkgs.writeTextFile {
         name = "${portname}_wallpaper";
         text =
