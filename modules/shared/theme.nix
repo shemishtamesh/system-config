@@ -102,7 +102,7 @@ in
             random.seed(0)
 
             IMAGE_NAME = "${name}"
-            SCALING_FOR_ANTIALIASING = 8
+            SCALING_FOR_ANTIALIASING = 1
             SCREEN_WIDTH = ${toString height} * SCALING_FOR_ANTIALIASING
             SCREEN_HEIGHT = ${toString width} * SCALING_FOR_ANTIALIASING
             TRIANGLE_SIDE_LENGTH = SCREEN_HEIGHT / 35
@@ -364,9 +364,8 @@ in
 
                 image = image.resize(
                     (
-                        # SCREEN_WIDTH // SCALING_FOR_ANTIALIASING,
-                        # SCREEN_HEIGHT // SCALING_FOR_ANTIALIASING,
-                        1080 // 8, 1920 // 8
+                        SCREEN_WIDTH // SCALING_FOR_ANTIALIASING,
+                        SCREEN_HEIGHT // SCALING_FOR_ANTIALIASING,
                     ),
                     resample=Image.Resampling.LANCZOS,
                 )
