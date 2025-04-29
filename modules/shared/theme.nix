@@ -310,7 +310,7 @@ in
                             distance = (x**2 + (y * RADIUS_RATIO) ** 2) ** (1 / 2)
                             color_index = max(len(colors) - int(distance * DISTANCE_FADE_SCALE), 1)
                             if not COLOR_OUTSIDE_NIX:
-                                min(color_index, 8)
+                                color_index = min(color_index, 8)
                             self.triangles.append(
                                 Triangle(
                                     Point(x, y),
