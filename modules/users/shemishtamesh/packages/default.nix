@@ -17,6 +17,7 @@ let
     ./tmux.nix
     ./nixvim.nix
     ./nixcord.nix
+    ./spotify-player.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -93,7 +94,6 @@ let
         difftastic
         wtype
         altus
-        spotify
         easyeffects
         pavucontrol
         cliphist
