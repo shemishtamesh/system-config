@@ -83,42 +83,49 @@ in
                 starting_commit=$(git -C "$NH_FLAKE" rev-parse HEAD)
 
                 git -C "$NH_FLAKE" add .
-                git -C "$NH_FLAKE" commit -m 'before formatting' || true
+                git -C "$NH_FLAKE" commit -m 'before formatting' > /dev/null || true
                 nix fmt "$NH_FLAKE"
+                echo 'formatted'
 
                 git -C "$NH_FLAKE" add .
                 nix flake update nixvim --flake "$NH_FLAKE"
-                git -C "$NH_FLAKE" commit -am 'updating flakes' || true
+                git -C "$NH_FLAKE" commit -am 'updating flakes' > /dev/null || true
+                echo 'updated flakes'
 
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
-                  git -C "$NH_FLAKE" commit -am 'switching os confg' || true
+                  git -C "$NH_FLAKE" commit -am 'switching os confg' > /dev/null || true
                   if ! ${os_specific.os_switch_command}; then
-                    git -C "$NH_FLAKE" commit --amend -am 'os config switch failed'
-                    git push
+                    git -C "$NH_FLAKE" commit --amend -am 'os config switch failed' > /dev/null
+                    git push > /dev/null
                     ${os_specific.notify_os_switch_failure}
                     exit 1
                   fi
+                  echo 'updated os'
                 fi
 
                 if [[ -z "''${1-}" || "$1" == "home" ]]; then
-                  git -C "$NH_FLAKE" commit -am 'switch home config' || true
+                  git -C "$NH_FLAKE" commit -am 'switch home config' > /dev/null || true
                   if ! nh home switch "$NH_FLAKE" --backup-extension bak; then
-                    git -C "$NH_FLAKE" commit --amend -m 'home config switch failed'
-                    git push
+                    git -C "$NH_FLAKE" commit --amend -m 'home config switch failed' > /dev/null
+                    git push > /dev/null
                     ${os_specific.notify_home_switch_failure}
                     exit 1
                   fi
+                  echo 'updated home'
                 fi
 
                 if [[ -z "''${1-}" && "$starting_commit" != "$(git -C "$NH_FLAKE" rev-parse HEAD)" ]]; then
-                  git -C "$NH_FLAKE" commit --amend -m 'system switch succeeded'
+                  git -C "$NH_FLAKE" commit --amend -m 'system switch succeeded' > /dev/null
                 fi
 
-                git push
+                git push > /dev/null
 
                 ${os_specific.update_wallpaper}
+                echo 'updated wallpaper'
 
                 ${os_specific.notify_switch_success}
+                echo 'switch successful'
+                ${pkgs.fastfetch}/bin/fastfetch
               '';
           }
         );
