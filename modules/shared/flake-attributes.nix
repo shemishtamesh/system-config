@@ -86,6 +86,7 @@ in
                 git -C "$NH_FLAKE" commit -m 'before formatting' || true
                 nix fmt "$NH_FLAKE"
 
+                git -C "$NH_FLAKE" add .
                 nix flake update nixvim --flake "$NH_FLAKE"
                 git -C "$NH_FLAKE" commit -am 'updating flakes' || true
 
