@@ -29,7 +29,7 @@ in
         if kernel == "linux" then
           {
             os_switch_command = # sh
-              ''nh os switch "$FLAKE"'';
+              ''nh os switch "$NH_FLAKE"'';
             notify_os_switch_failure = # sh
               "notify-send -u critical 'nixos switch failed'";
             notify_home_switch_failure = # sh
@@ -47,7 +47,7 @@ in
         else if kernel == "darwin" then
           {
             os_switch_command = # sh
-              ''darwin-rebuild switch --flake "$FLAKE"'';
+              ''darwin-rebuild switch --flake "$NH_FLAKE"'';
             notify_os_switch_failure = # sh
               "terminal-notifier -message 'nix-darwin switch failed'";
             notify_home_switch_failure = # sh
@@ -131,17 +131,17 @@ in
             text =
               # sh
               ''
-                export FLAKE="${FLAKE_ROOT}"
-                git clone ${FLAKE_REPO} $FLAKE
-                starting_commit=$(git -C "$FLAKE" rev-parse HEAD)
+                export NH_FLAKE="${FLAKE_ROOT}"
+                git clone ${FLAKE_REPO} $NH_FLAKE
+                starting_commit=$(git -C "$NH_FLAKE" rev-parse HEAD)
 
                 hostname="$1"
                 username="$2"
 
-                nixos-generate-config --show-hardware-config > $FLAKE/modules/hosts/"$hostname"/configuration/generated_hardware_configuration.nix
+                nixos-generate-config --show-hardware-config > $NH_FLAKE/modules/hosts/"$hostname"/configuration/generated_hardware_configuration.nix
 
                 ${os_specific.os_switch_command}
-                nh home switch "$FLAKE#$username@$hostname" --backup-extension bak
+                nh home switch "$NH_FLAKE#$username@$hostname" --backup-extension bak
 
                 git push
 
