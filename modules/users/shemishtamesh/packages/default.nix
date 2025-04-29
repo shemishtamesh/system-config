@@ -84,7 +84,6 @@ let
         hyprshot
         tree-sitter
         wl-clipboard
-        wev
         gimp
         obs-studio
         libreoffice
@@ -92,7 +91,7 @@ let
         koji
         slides
         difftastic
-        wtype
+        spotify
         altus
         easyeffects
         pavucontrol
