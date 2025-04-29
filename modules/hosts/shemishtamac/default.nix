@@ -2,7 +2,7 @@ profile_makers:
 profile_makers.mkDarwinSystem {
   hostname = "shemishtamac";
   system = "aarch64-darwin";
-  users.shemishtamesh = { 
+  users.shemishtamesh = {
     "Color LCD" = {
       width = 3456;
       height = 2234;
