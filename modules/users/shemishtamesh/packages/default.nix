@@ -67,7 +67,7 @@ let
         bitwarden
         cht-sh
         tetrio-desktop
-        # furnace # TODO: https://nixpk.gs/pr-tracker.html?pr=400902
+        furnace # TODO: https://nixpk.gs/pr-tracker.html?pr=400902
         (pkgs.bottles.override { removeWarningPopup = true; })
         blender
         openscad
