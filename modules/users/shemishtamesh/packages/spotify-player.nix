@@ -1,3 +1,3 @@
 {
-  programs.spotify-player.enable = true;
+  programs.spicetify-cli.enable = true;
 }

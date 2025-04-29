@@ -55,7 +55,7 @@ let
         ./dunst.nix
         ./rofi.nix
         ./nixcord.nix
-        ./spotify-player.nix
+        ./spicetify-cli.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
@@ -67,7 +67,7 @@ let
         bitwarden
         cht-sh
         tetrio-desktop
-        furnace # TODO: https://nixpk.gs/pr-tracker.html?pr=400902
+        furnace
         (pkgs.bottles.override { removeWarningPopup = true; })
         blender
         openscad
