@@ -79,20 +79,20 @@ in
             text =
               # sh
               ''
-                export FLAKE="${FLAKE_ROOT}"
-                starting_commit=$(git -C "$FLAKE" rev-parse HEAD)
+                export NH_FLAKE="${FLAKE_ROOT}"
+                starting_commit=$(git -C "$NH_FLAKE" rev-parse HEAD)
 
-                git -C "$FLAKE" add .
-                git -C "$FLAKE" commit -m 'before formatting' || true
-                nix fmt "$FLAKE"
+                git -C "$NH_FLAKE" add .
+                git -C "$NH_FLAKE" commit -m 'before formatting' || true
+                nix fmt "$NH_FLAKE"
 
-                nix flake update nixvim --flake "$FLAKE"
-                git -C "$FLAKE" commit -am 'updating flakes' || true
+                nix flake update nixvim --flake "$NH_FLAKE"
+                git -C "$NH_FLAKE" commit -am 'updating flakes' || true
 
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
-                  git -C "$FLAKE" commit -am 'switching os confg' || true
+                  git -C "$NH_FLAKE" commit -am 'switching os confg' || true
                   if ! ${os_specific.os_switch_command}; then
-                    git -C "$FLAKE" commit --amend -am 'os config switch failed'
+                    git -C "$NH_FLAKE" commit --amend -am 'os config switch failed'
                     git push
                     ${os_specific.notify_os_switch_failure}
                     exit 1
@@ -100,17 +100,17 @@ in
                 fi
 
                 if [[ -z "''${1-}" || "$1" == "home" ]]; then
-                  git -C "$FLAKE" commit -am 'switch home config' || true
-                  if ! nh home switch "$FLAKE" --backup-extension bak; then
-                    git -C "$FLAKE" commit --amend -m 'home config switch failed'
+                  git -C "$NH_FLAKE" commit -am 'switch home config' || true
+                  if ! nh home switch "$NH_FLAKE" --backup-extension bak; then
+                    git -C "$NH_FLAKE" commit --amend -m 'home config switch failed'
                     git push
                     ${os_specific.notify_home_switch_failure}
                     exit 1
                   fi
                 fi
 
-                if [[ -z "''${1-}" && "$starting_commit" != "$(git -C "$FLAKE" rev-parse HEAD)" ]]; then
-                  git -C "$FLAKE" commit --amend -m 'system switch succeeded'
+                if [[ -z "''${1-}" && "$starting_commit" != "$(git -C "$NH_FLAKE" rev-parse HEAD)" ]]; then
+                  git -C "$NH_FLAKE" commit --amend -m 'system switch succeeded'
                 fi
 
                 git push
