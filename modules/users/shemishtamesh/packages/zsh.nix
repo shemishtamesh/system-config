@@ -1,8 +1,7 @@
 { pkgs, home, ... }:
 
 {
-  home.shell.enableZshIntegration
-
+  home.shell.enableZshIntegration = true;
   programs.zsh = {
     enable = true;
     shellAliases = {
