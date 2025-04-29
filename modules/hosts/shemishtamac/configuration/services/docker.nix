@@ -1,19 +1,17 @@
 # taken from here https://github.com/nix-darwin/nix-darwin/issues/1182#issuecomment-2485401568
-{ pkgs, ... }:
 {
-  launchd.agents."colima.default" = {
-    command = "${pkgs.colima}/bin/colima start --foreground";
-    serviceConfig = {
-      Label = "com.colima.default";
-      RunAtLoad = true;
-      KeepAlive = true;
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    docker
+  ];
 
-      StandardOutPath = "/var/log/colima/default/daemon/launchd.stdout.log";
-      StandardErrorPath = "/var/log/colima/default/daemon/launchd.stderr.log";
-
-      EnvironmentVariables = {
-        PATH = "${pkgs.colima}/bin:${pkgs.docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
-      };
-    };
+  services.colima = {
+    enable = true;
+    createDockerSocket = true;
+    groupMembers = [
+      "my-username"
+    ];
   };
 }
