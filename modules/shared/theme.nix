@@ -41,6 +41,7 @@ in
       palette ? true,
       nix ? true,
       gaps ? true,
+      random ? true,
     }:
     let
       name = "${portname}_wallpaper.png";
