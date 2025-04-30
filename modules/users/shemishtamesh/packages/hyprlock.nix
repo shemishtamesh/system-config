@@ -65,7 +65,7 @@
                 background = false;
                 palette = false;
                 gaps = false;
-                # random = false;
+                random = false;
               }
             );
             blur_passes = 2;
