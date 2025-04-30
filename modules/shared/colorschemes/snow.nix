@@ -1,18 +1,18 @@
 {
   system = "base24";
-  name = "custom";
-  slug = "custom";
+  name = "snow";
+  slug = "snow";
   author = "";
   variant = "dark";
   palette = {
     base00 = "000000"; # #000000
-    base01 = "0b1520"; # #0b1520
-    base02 = "1a2e42"; # #1a2e42
-    base03 = "27435f"; # #27435f
-    base04 = "62819e"; # #62819e
-    base05 = "92abc5"; # #92abc5
-    base06 = "b9d3e8"; # #b9d3e8
-    base07 = "e3f0f8"; # #e3f0f8
+    base01 = "09111a"; # #09111a
+    base02 = "152535"; # #152535
+    base03 = "1f364c"; # #1f364c
+    base04 = "4e677e"; # #4e677e
+    base05 = "75899e"; # #75899e
+    base06 = "94a9ba"; # #94a9ba
+    base07 = "b6c0c6"; # #b6c0c6
 
     base08 = "ff6b6b"; # #ff6b6b
     base09 = "ffab6b"; # #ffab6b
