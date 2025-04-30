@@ -48,9 +48,9 @@
 
   nixpkgs = {
     overlays = [
-      (final: prev: {
+      (_final: prev: {
         pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-          (python-final: python-prev: {
+          (_python-final: python-prev: {
             onnxruntime = python-prev.onnxruntime.overridePythonAttrs (oldAttrs: {
               # https://github.com/NixOS/nixpkgs/issues/388681
               buildInputs = lib.lists.remove pkgs.onnxruntime oldAttrs.buildInputs;

@@ -1,5 +1,5 @@
 # taken from here https://github.com/nix-darwin/nix-darwin/issues/1182#issuecomment-2485401568
-{ pkgs, system, ... }:
+{ pkgs, ... }:
 {
   launchd.agents."colima.default" = {
     command = "${pkgs.colima}/bin/colima start --foreground";
