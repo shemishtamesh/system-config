@@ -63,7 +63,7 @@
               shared.theme.wallpaper {
                 inherit portname width height;
                 background = false;
-                palette = false;
+                # palette = false;
               }
             );
             blur_passes = 3;
