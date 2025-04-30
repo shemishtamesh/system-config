@@ -1,16 +1,16 @@
 pkgs:
 let
   import_modules =
-    module_names:
+    paths:
     builtins.listToAttrs (
       map (name: {
         inherit name;
-        value = import ./${name}.nix pkgs;
-      }) module_names
+        value = import ./${path} pkgs;
+      }) paths
     );
 in
 import_modules [
-  "theme"
-  "functions"
-  "scripts"
+  ./theme.nix
+  ./functions.nix
+  ./scripts.nix
 ]
