@@ -3,8 +3,8 @@
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
+  home.packages = [ pkgs.discord ];
   programs.nixcord = {
-    home.packages = [ pkgs.discord ];
     enable = true;
     discord.autoscroll.enable = true;
     config = {
