@@ -69,7 +69,7 @@ in
           ${if !palette then "--no_palette" else ""} \
           ${if !nix then "--no_nix" else ""} \
           ${if !gaps then "--gaps 0" else ""} \
-          ${if !random then "--no_random" else ""}
+          ${if !random then "--no_random" else ""} \
       '';
       installPhase = "install -Dm0644 ${name} $out";
     };
