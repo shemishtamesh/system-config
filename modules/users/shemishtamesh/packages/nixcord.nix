@@ -1,9 +1,10 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
   programs.nixcord = {
+    home.packages = [ pkgs.discord ];
     enable = true;
     discord.autoscroll.enable = true;
     config = {
