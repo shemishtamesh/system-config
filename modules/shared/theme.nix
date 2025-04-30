@@ -50,10 +50,7 @@ in
           ]
         ))
       ];
-      src = pkgs.textFile {
-        name = "${portname}_wallpaper.py";
-        source = ./wallpaper_generator.py;
-      };
+      src = builtins.readFile ./wallpaper_generator.py;
       unpackPhase = "true";
       buildPhase = "python3 $src";
       installPhase = "install -Dm0644 ${name} $out";
