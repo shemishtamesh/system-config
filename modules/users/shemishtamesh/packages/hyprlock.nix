@@ -70,7 +70,7 @@
             );
             blur_passes = 3;
             # blur_passes = 0;
-            blur_size = 1;
+            # blur_size = 8;
             brightness = 0.5;
           }
         ) host.monitors
