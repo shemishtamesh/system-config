@@ -64,7 +64,7 @@
                 inherit portname width height;
                 background = false;
                 palette = false;
-                gaps = false;
+                # gaps = false;
               }
             );
             blur_passes = 3;
