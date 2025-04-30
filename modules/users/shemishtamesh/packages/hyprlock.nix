@@ -69,7 +69,7 @@
               }
             );
             blur_passes = 2;
-            brightness = 0.5;
+            brightness = 0.2;
           }
         ) host.monitors
       );
