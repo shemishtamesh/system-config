@@ -843,18 +843,23 @@
       }
     },
     "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1745930157,
-        "narHash": "sha256-y3h3NLnzRSiUkYpnfvnS669zWZLoqqI6NprtLQ+5dck=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+        "lastModified": 1746029363,
+        "narHash": "sha256-yBIWj5l5ha0GHmgJRdqq7fBuQIp3vKb1ELPPnLEUKRc=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "4b221d92d4599a1c7a8820a394f3b15c5c354f35",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
       }
     },
     "nix-on-droid": {
