@@ -7,7 +7,7 @@
 
 {
   home.packages = with pkgs; [
-    (inputs.nixvim.wrappedNvim (
+    (inputs.nixvim.lib.wrappedNvim (
       inputs.nixvim.packages.${system}.nvim.extend {
         colorschemes.base16 = {
           enable = true;
