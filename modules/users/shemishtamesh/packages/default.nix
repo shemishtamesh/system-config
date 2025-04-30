@@ -6,6 +6,7 @@
 }:
 let
   shared_modules = [
+    ./kitty.nix
     ./git.nix
     ./zsh.nix
     ./starship.nix
@@ -44,7 +45,6 @@ let
   per_host = {
     shenixtamesh = {
       modules = [
-        ./kitty.nix
         ./protonup.nix
         ./hypridle.nix
         ./hyprlock.nix
@@ -56,11 +56,10 @@ let
         ./rofi.nix
         ./nixcord.nix
         ./spotify.nix
-        # ./spicetify.nix
+        ./zen-browser.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
-        inputs.zen-browser.packages.${system}.default
         slack
         obsidian
         zathura
@@ -104,7 +103,6 @@ let
     };
     shemishtamac = {
       modules = [
-        ./kitty.nix
         ./karabiner-elements.nix
         ./databricks.nix
       ];
