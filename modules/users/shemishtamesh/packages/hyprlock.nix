@@ -65,12 +65,10 @@
                 background = false;
                 palette = false;
                 gaps = false;
-                random = false;
+                # random = false;
               }
             );
             blur_passes = 2;
-            # blur_passes = 0;
-            # blur_size = 8;
             brightness = 0.5;
           }
         ) host.monitors
