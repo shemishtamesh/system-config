@@ -7,7 +7,7 @@
 
 {
   home.packages = with pkgs; [
-    (inputs.nixvim.packages.${system}.nvim.extend {
+    (inputs.nixvim.wrappedNvim (inputs.nixvim.packages.${system}.nvim.extend {
       colorschemes.base16 = {
         enable = true;
 
@@ -49,6 +49,6 @@
           NonText = lib.mkIf cfg.transparentBackground.main transparent;
           SignColumn = lib.mkIf cfg.transparentBackground.signColumn transparent;
         };
-    })
+    }))
   ];
 }
