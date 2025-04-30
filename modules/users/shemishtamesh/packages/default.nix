@@ -99,6 +99,7 @@ let
         lorien
         qpwgraph
         transmission_4-gtk
+        devenv
       ];
     };
     shemishtamac = {
