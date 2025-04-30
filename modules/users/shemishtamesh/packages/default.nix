@@ -55,7 +55,7 @@ let
         ./dunst.nix
         ./rofi.nix
         ./nixcord.nix
-        ./spicetify-cli.nix
+        # ./spicetify.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
