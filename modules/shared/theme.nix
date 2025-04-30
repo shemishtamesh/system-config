@@ -52,7 +52,7 @@ in
       ];
       src = pkgs.writeTextFile {
         name = "${portname}_wallpaper.py";
-        source = ./wallpaper_generator.py
+        source = ./wallpaper_generator.py;
       };
       unpackPhase = "true";
       buildPhase = "python3 $src";
