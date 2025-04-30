@@ -52,7 +52,9 @@ in
       ];
       src = ./wallpaper_generator.py;
       unpackPhase = "true";
-      buildPhase = "python3 $src";
+      buildPhase = "python3 $src ${name} ${
+        builtins.attrValues (builtins.mapAttrs (name: value: "#${value}") scheme.palette)
+      } --resolution ${width}x${height}";
       installPhase = "install -Dm0644 ${name} $out";
     };
 }
