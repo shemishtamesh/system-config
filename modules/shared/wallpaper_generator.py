@@ -401,7 +401,7 @@ def main():
             "the image resolution will be multiplied by this value,"
             + " after that it'll be resized to the original"
         ),
-        default=8,
+        default=16,
         type=int,
     )
     parser.add_argument(
