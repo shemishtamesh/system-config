@@ -71,7 +71,6 @@ let
         (pkgs.bottles.override { removeWarningPopup = true; })
         blender
         openscad
-        chromium
         audacity
         musescore
         lmms
