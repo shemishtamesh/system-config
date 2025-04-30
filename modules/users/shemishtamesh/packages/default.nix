@@ -55,6 +55,7 @@ let
         ./dunst.nix
         ./rofi.nix
         ./nixcord.nix
+        ./spotify.nix
         # ./spicetify.nix
       ];
       packages = with pkgs; [
@@ -91,7 +92,6 @@ let
         koji
         slides
         difftastic
-        spotify
         altus
         easyeffects
         pavucontrol
