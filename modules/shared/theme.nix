@@ -54,7 +54,8 @@ in
       unpackPhase = "true";
       buildPhase = "python3 $src ${name} ${
         toString (builtins.attrValues (builtins.mapAttrs (name: value: "#${value}") scheme.palette))
-      } --resolution ${toString width}x${toString height}";
+      }";
+      # } --resolution ${toString width}x${toString height}";
       installPhase = "install -Dm0644 ${name} $out";
     };
 }
