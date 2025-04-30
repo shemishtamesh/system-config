@@ -53,6 +53,7 @@ in
       src = ./wallpaper_generator.py;
       unpackPhase = "true";
       buildPhase = ''
+        echo ${toString (builtins.attrValues (builtins.mapAttrs (name: value: "#${value}") scheme.palette))}
         python3 $src \
           ${name} \
           ${toString (builtins.attrValues (builtins.mapAttrs (name: value: "#${value}") scheme.palette))}
