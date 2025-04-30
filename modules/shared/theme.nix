@@ -67,7 +67,7 @@ in
           ${if !background then "--no_background" else ""} \
           ${if !palette then "--no_palette" else ""} \
           ${if !nix then "--no_nix" else ""} \
-          ${if !gaps then "--gaps 0" else ""} \
+          ${if !gaps then "--gaps 0" else ""}
       '';
       installPhase = "install -Dm0644 ${name} $out";
     };

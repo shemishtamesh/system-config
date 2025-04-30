@@ -470,8 +470,8 @@ def main():
     ) * args.scaling_for_antialiasing
     gaps = (
         args.gaps
-        if args.gaps
-        else triangle_side_length * math.sin(math.tau / 6) * 4 / 25
+        if args.gaps is not None
+        else (triangle_side_length * math.sin(math.tau / 6) * 4 / 25)
     )
 
     create_wallpaper_image(
