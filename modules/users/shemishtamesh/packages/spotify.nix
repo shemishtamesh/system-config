@@ -8,6 +8,8 @@ in
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
+      keyboardShortcut
+      loopyLoop
       shuffle # shuffle+ (special characters are sanitized out of extension names)
     ];
   };
