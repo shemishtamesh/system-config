@@ -63,9 +63,9 @@ in
           ${name} \
           ${toString (builtins.attrValues scheme.palette)} \
           --resolution ${toString width}x${toString height} \
-          ${if background then "-b" else ""} \
-          ${if palette then "-b" else ""} \
-          ${if nix then "-b" else ""}
+          ${if !background then "--no_background" else ""} \
+          ${if !palette then "--no_palette" else ""} \
+          ${if !nix then "--no_nix" else ""}
       '';
       installPhase = "install -Dm0644 ${name} $out";
     };
