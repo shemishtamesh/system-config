@@ -56,7 +56,6 @@ in
         echo test
         echo ${toString (builtins.attrValues (builtins.mapAttrs (name: value: "#${value}") scheme.palette))}
         echo ${toString (builtins.attrValues scheme.palette)}
-        echo ${"${scheme.palette}"}
         echo test
         python3 $src \
           ${name} \
