@@ -37,6 +37,9 @@ in
       portname,
       width,
       height,
+      background ? true,
+      palette ? true,
+      nix ? true,
     }:
     let
       name = "${portname}_wallpaper.png";
@@ -58,8 +61,11 @@ in
         echo test
         python3 $src \
           ${name} \
-          ${toString (builtins.attrValues scheme.palette)}
-          --resolution ${toString width}x${toString height}
+          ${toString (builtins.attrValues scheme.palette)} \
+          --resolution ${toString width}x${toString height} \
+          ${if background then "-b" else ""}
+          ${if palette then "-b" else ""}
+          ${if nix then "-b" else ""}
       '';
       installPhase = "install -Dm0644 ${name} $out";
     };
