@@ -50,7 +50,7 @@ in
           ]
         ))
       ];
-      src = builtins.readFile ./wallpaper_generator.py;
+      src = ./wallpaper_generator.py;
       unpackPhase = "true";
       buildPhase = "python3 $src";
       installPhase = "install -Dm0644 ${name} $out";
