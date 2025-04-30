@@ -50,7 +50,7 @@ in
           ]
         ))
       ];
-      src = pkgs.writeTextFile {
+      src = pkgs.textFile {
         name = "${portname}_wallpaper.py";
         source = ./wallpaper_generator.py;
       };
