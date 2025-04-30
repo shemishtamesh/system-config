@@ -842,6 +842,21 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "locked": {
+        "lastModified": 1745930157,
+        "narHash": "sha256-y3h3NLnzRSiUkYpnfvnS669zWZLoqqI6NprtLQ+5dck=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
     "nix-on-droid": {
       "inputs": {
         "home-manager": "home-manager_2",
@@ -1141,6 +1156,7 @@
         "hyprland": "hyprland",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
+        "nix-index-database": "nix-index-database",
         "nix-on-droid": "nix-on-droid",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_2",

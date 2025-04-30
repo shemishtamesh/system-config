@@ -3,6 +3,7 @@
   nix-darwin,
   nix-on-droid,
   home-manager,
+  nix-index-database,
   stylix,
   hyprland,
   mac-app-util,
