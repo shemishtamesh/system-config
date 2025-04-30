@@ -59,8 +59,8 @@ in
           toString (
             builtins.attrValues (
               builtins.mapAttrs (name: value: "#${value}") {
-                a = 5;
-                b = 6;
+                a = "5";
+                b = "6";
               }
             )
           )
