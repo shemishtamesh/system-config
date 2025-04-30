@@ -122,7 +122,10 @@ class TriangleFactory:
 
 class NixLambda:
     def __init__(
-        self, position, colors: list[Color], triangle_factory: TriangleFactory
+        self,
+        position,
+        colors: list[Color],
+        triangle_factory: TriangleFactory,
     ) -> None:
         self.triangles = []
         for coordinates in (
@@ -139,7 +142,8 @@ class NixLambda:
         ):
             self.triangles.append(
                 triangle_factory.triangle(
-                    coordinates + position, random.choice(colors)
+                    coordinates + position,
+                    random.choice(colors),
                 )
             )
 
@@ -164,13 +168,16 @@ class Nix:
         self,
         color_groups: list[list[Color]],
         triangle_factory: TriangleFactory,
+        use_random: bool,
     ):
         self.lambdas = []
         for i in range(0, 6):
             self.lambdas.append(
                 NixLambda(
                     Point(-6, 0),
-                    color_groups[i % len(color_groups)],
+                    color_groups[i % len(color_groups)]
+                    if use_random
+                    else [color_groups[i % len(color_groups)][0]],
                     triangle_factory,
                 ).rotate(
                     triangle_factory.offset,
@@ -195,6 +202,7 @@ class Background:
         color_outside_nix: bool,
         colors: list[Color],
         triangle_factory: TriangleFactory,
+        use_random: bool,
     ) -> None:
         triangle_height = triangle_factory.side_length * math.sin(math.tau / 6)
 
@@ -219,7 +227,9 @@ class Background:
                 self.triangles.append(
                     triangle_factory.triangle(
                         Point(x, y),
-                        random.choice(colors[:color_index]),
+                        random.choice(colors[:color_index])
+                        if use_random
+                        else colors[0],
                     )
                 )
 
@@ -270,6 +280,7 @@ class Wallpaper:
         background: bool,
         nix: bool,
         palette: bool,
+        use_random: bool,
         colors: list[Color],
         triangle_side_length: float,
         gaps: float,
@@ -287,6 +298,7 @@ class Wallpaper:
                 color_outside_nix,
                 colors,
                 triangle_factory,
+                use_random,
             )
             if background
             else None
@@ -296,6 +308,7 @@ class Wallpaper:
             Nix(
                 [[colors[i], colors[i + 8]] for i in range(8, 16)],
                 triangle_factory,
+                use_random,
             )
             if nix
             else None
@@ -320,6 +333,7 @@ def create_wallpaper_image(
     background: bool,
     nix: bool,
     palette: bool,
+    use_random: bool,
     colors: list[Color],
     triangle_side_length: float,
     image_name: str,
@@ -347,6 +361,7 @@ def create_wallpaper_image(
         background,
         nix,
         palette,
+        use_random,
         colors,
         triangle_side_length,
         gaps,
@@ -453,6 +468,12 @@ def main():
         action="store_true",
     )
     parser.add_argument(
+        "-m",
+        "--no_random",
+        help="whether or not to use randomness, if set will chose first",
+        action="store_true",
+    )
+    parser.add_argument(
         "-i",
         "--random_seed",
         help="change this to get a new image with the same config",
@@ -465,7 +486,7 @@ def main():
     resolution = [int(size) for size in args.resolution.split("x")]
     triangle_side_length = (
         args.triangle_side_length
-        if args.triangle_side_length
+        if args.triangle_side_length is not None
         else resolution[1] / math.sin(math.tau / 6) / 44
     ) * args.scaling_for_antialiasing
     gaps = (
@@ -484,6 +505,7 @@ def main():
         not args.no_background,
         not args.no_nix,
         not args.no_palette,
+        not args.no_random,
         [Color.from_hex(color) for color in args.colors],
         triangle_side_length,
         args.image_name,
