@@ -66,7 +66,7 @@
                 palette = false;
               }
             );
-            blur_passes = 2;
+            blur_passes = 0;
             blur_size = 3;
             brightness = 0.5;
           }
