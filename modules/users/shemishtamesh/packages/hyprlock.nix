@@ -25,11 +25,11 @@
         outer_color = "rgba(0, 0, 0, 0.0)";
         inner_color = "rgba(0, 0, 0, 0.0)";
         font_color = "rgb(${base04})";
-        check_color = "rgb(${base11})";
+        check_color = "rgb(${base09})";
         fail_color = "rgb(${base08})";
-        capslock_color = "rgb(${base10})";
-        numlock_color = "rgb(${base10})";
-        bothlock_color = "rgb(${base10})";
+        capslock_color = "rgb(${base0A})";
+        numlock_color = "rgb(${base0A})";
+        bothlock_color = "rgb(${base0A})";
       };
       label = [
         {

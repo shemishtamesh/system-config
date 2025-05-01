@@ -185,7 +185,7 @@ in
           "col.inactive_border" = lib.mkForce "0x00000000";
           "col.active_border" =
             with config.lib.stylix.colors;
-            lib.mkForce "rgb(${base10}) rgb(${base11}) rgb(${base12}) rgb(${base13}) rgb(${base14}) rgb(${base15}) rgb(${base16}) rgb(${base17})";
+            lib.mkForce "rgb(${base08}) rgb(${base09}) rgb(${base0A}) rgb(${base0B}) rgb(${base0C}) rgb(${base0D}) rgb(${base0E}) rgb(${base0F})";
         };
         cursor = {
           hide_on_key_press = true;
