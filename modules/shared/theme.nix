@@ -60,7 +60,7 @@ in
       buildPhase = ''
         echo test
         echo ${toString (builtins.attrValues scheme.palette)}
-        echo ${scheme.palette.baase07}
+        echo ${scheme.palette.base07}
         echo test
         python3 $src \
           ${name} \
