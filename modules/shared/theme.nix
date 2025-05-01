@@ -1,7 +1,7 @@
 pkgs:
 let
-  scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/snow.yaml;
-  # scheme = (import ./functions.nix pkgs).importYaml "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  # scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/snow.yaml;
+  scheme = (import ./functions.nix pkgs).importYaml "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
