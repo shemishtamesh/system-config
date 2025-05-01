@@ -168,7 +168,7 @@ in
           "$mod, mouse:273, resizewindow"
         ];
         input = {
-          kb_layout = "us,il,jp";
+          kb_layout = "us,il";
           kb_options = "grp:alt_space_toggle";
         };
         general = {
