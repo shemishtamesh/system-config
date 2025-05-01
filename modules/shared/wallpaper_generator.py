@@ -248,7 +248,8 @@ class Palette:
             for j in range(2):
                 self.triangles.append(
                     triangle_factory.triangle(
-                        Point(i - 3, -j), colors[8 + i + 8 * j]
+                        Point(i - 3, -j),
+                        colors[8 + i + (8 * j * (len(colors) == 24))],
                     )
                 )
         for triangle in [
@@ -306,7 +307,10 @@ class Wallpaper:
         self.palette = Palette(colors, triangle_factory) if palette else None
         self.nix = (
             Nix(
-                [[colors[i], colors[i + 8]] for i in range(8, 16)],
+                [
+                    [colors[i], colors[i + (8 * (len(colors) == 24))]]
+                    for i in range(8, 16)
+                ],
                 triangle_factory,
                 use_random,
             )
