@@ -8,7 +8,7 @@
   ...
 }:
 let
-  gaps = "2";
+  gaps = "1";
   rounding = "10";
   scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
 in
