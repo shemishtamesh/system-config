@@ -12,10 +12,15 @@ in
   );
   set_brightness = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "set_brightness" ''
-      for bus in $(${ddcutil} detect --terse \
-                        | grep -F "I2C bus:" \
-                        | awk -F '-' '{print $2}'); do
-          ${ddcutil} setvcp 10 $1 --bus "$bus"
+      ddcutil getvcp 10 \
+        | awk -F 'current value = ' '{print $2}' \
+        | awk -F',' '{print $1}' > /tmp/previous_brightness
+      for bus in $(${ddcutil} detect --terse | grep -F "I2C bus:" | awk -F '-' '{print $2}'); do
+        ${ddcutil} setvcp 10 $1 \
+          --bus "$bus" \
+          --mccs 2.2 \
+          --sleep-multiplier 3 \
+          --disable-dynamic-sleep
       done
     ''
   );

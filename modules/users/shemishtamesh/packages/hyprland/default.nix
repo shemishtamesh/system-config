@@ -11,7 +11,7 @@ let
   gaps = "2";
   rounding = "10";
   scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
-  sync_brightness = shared.scripts.sync_external_monitors_brightness;
+  sync_brightness = shared.scripts.set_brightness;
 in
 {
   wayland.windowManager.hyprland =
@@ -140,10 +140,12 @@ in
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
           "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
           "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
-          ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%+ && ${sync_brightness}"
-          ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%- && ${sync_brightness}"
-          "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%+ && ${sync_brightness}"
-          "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%- && ${sync_brightness}"
+          '', XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 1"''
+          '', XF86MonBrightnessDown, exec, ${shared.scripts.set_brightness} "- 1"''
+          ''SHIFT, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 10"''
+          ''SHIFT, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "- 10"''
+          ''CTRL, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "100"''
+          ''CTRL, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "0"''
 
           "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
           "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"

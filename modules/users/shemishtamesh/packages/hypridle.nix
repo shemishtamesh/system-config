@@ -1,7 +1,4 @@
 { pkgs, shared, ... }:
-let
-  sync_external = shared.scripts.sync_external_monitors_brightness;
-in
 {
   services.hypridle = {
     enable = true;
@@ -14,8 +11,8 @@ in
       listener = [
         {
           timeout = 150; # 2.5min.
-          on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 1% && ${sync_external}"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r && ${sync_external}"; # monitor backlight restore.
+          on-timeout = "${shared.scripts.set_brightness} 0"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+          on-resume = "${shared.scripts.set_brightness} $(cat /tmp/previous_brightness)"; # monitor backlight restore.
         }
 
         # turn off keyboard backlight
