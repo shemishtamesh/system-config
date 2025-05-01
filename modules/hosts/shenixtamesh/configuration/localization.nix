@@ -1,4 +1,3 @@
-# { pkgs, ... }:
 {
   # Set your time zone.
   time.timeZone = "Asia/Jerusalem";
@@ -15,10 +14,6 @@
       LC_PAPER = "en_US.UTF-8";
       LC_TELEPHONE = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
-    };
-    inputMethod = {
-      enabled = "fcitx";
-      # fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
     };
   };
 }
