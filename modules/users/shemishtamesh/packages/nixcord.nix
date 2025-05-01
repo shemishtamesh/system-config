@@ -19,7 +19,7 @@
         mentionAvatars.enable = true;
         messageLinkEmbeds.enable = true;
         messageLogger.enable = true;
-        mutualGroupDMs.enable = true;
+        # mutualGroupDMs.enable = true;
         noUnblockToJump.enable = true;
         permissionsViewer.enable = true;
         pinDMs.enable = true;
