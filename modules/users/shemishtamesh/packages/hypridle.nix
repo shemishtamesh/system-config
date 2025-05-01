@@ -10,7 +10,7 @@
       };
       listener = [
         {
-          timeout = 150; # 2.5min.
+          timeout = 5; # 2.5min.
           on-timeout = "${shared.scripts.set_brightness} 0"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
           on-resume = "${shared.scripts.set_brightness} $(cat /tmp/previous_brightness)"; # monitor backlight restore.
         }
