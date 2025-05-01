@@ -1,6 +1,6 @@
 pkgs:
 let
-  scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/snow.nix;
+  scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/snow.yaml;
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
