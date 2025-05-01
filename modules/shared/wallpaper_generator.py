@@ -220,7 +220,9 @@ class Background:
                     continue
                 distance = (x**2 + (y * radius_ratio) ** 2) ** (1 / 2)
                 color_index = max(
-                    len(colors) - int(distance * distance_fade_scale), 1
+                    len(colors)
+                    - int(distance * distance_fade_scale * len(colors) / 24),
+                    1,
                 )
                 if not color_outside_nix:
                     color_index = min(color_index, 8)
