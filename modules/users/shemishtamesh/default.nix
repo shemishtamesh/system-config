@@ -12,8 +12,12 @@
     ./scripts.nix
   ];
 
-  home.username = username;
-  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+  home = {
+    inherit username;
+    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+
+    stateVersion = "24.05"; # WARNING: do not change this without reading docs
+  };
 
   stylix = shared.theme.stylix_settings;
 
@@ -23,6 +27,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  home.stateVersion = "24.05"; # WARNING: do not change this without reading docs
 }

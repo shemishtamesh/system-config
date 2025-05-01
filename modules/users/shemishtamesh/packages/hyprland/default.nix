@@ -189,7 +189,7 @@ in
           hide_on_key_press = true;
         };
         decoration = {
-          rounding = rounding;
+          inherit rounding;
           shadow.enabled = false;
         };
         dwindle = {

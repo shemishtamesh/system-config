@@ -23,7 +23,7 @@ in
       FLAKE_ROOT = "$HOME/.config/system-flake";
       FLAKE_REPO = "https://github.com/shemishtamesh/system-flake.git";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
-      lib = inputs.nixpkgs.lib;
+      inherit (inputs.nixpkgs) lib;
       kernel = lib.last (lib.splitString "-" system);
       os_specific =
         if kernel == "linux" then

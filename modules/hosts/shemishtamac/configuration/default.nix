@@ -27,6 +27,13 @@
       AppleShowAllExtensions = true;
     };
     magicmouse.MouseButtonMode = "TwoButton";
+
+    # Used for backwards compatibility, please read the changelog before changing.
+    # $ darwin-rebuild changelog
+    stateVersion = 6;
+
+    # Set Git commit hash for darwin-version.
+    configurationRevision = with inputs; self.rev or self.dirtyRev or null;
   };
 
   stylix = with shared.theme.stylix_settings; {
@@ -38,12 +45,6 @@
 
   # prevent `error: Build user group has mismatching GID, aborting activation`
   ids.gids.nixbld = 30000;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 6;
-  # Set Git commit hash for darwin-version.
-  system.configurationRevision = with inputs; self.rev or self.dirtyRev or null;
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
