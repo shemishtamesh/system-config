@@ -64,7 +64,7 @@ in
         echo test
         python3 $src \
           ${name} \
-          '${toString (builtins.attrValues scheme.palette)}' \
+          $(echo '${toString (builtins.attrValues scheme.palette)}') \
           --resolution ${toString width}x${toString height} \
           ${if !background then "--no_background" else ""} \
           ${if !palette then "--no_palette" else ""} \
