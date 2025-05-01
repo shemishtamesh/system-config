@@ -12,7 +12,6 @@
         {
           timeout = 5; # 2.5min.
           on-timeout = "${shared.scripts.set_brightness} 0"; # set monitor backlight to minimum.
-          # on-resume = "${shared.scripts.set_brightness} $(cat /tmp/previous_brightness)"; # monitor backlight restore.
           on-resume = "${shared.scripts.set_brightness} $(cat /tmp/previous_brightness)"; # monitor backlight restore.
         }
 
