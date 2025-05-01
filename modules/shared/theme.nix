@@ -60,7 +60,7 @@ in
       unpackPhase = "true";
       buildPhase = ''
         echo test
-        echo `${toString (builtins.attrValues scheme.palette)}`
+        echo '${toString (builtins.attrValues scheme.palette)}'
         echo test
         python3 $src \
           ${name} \
