@@ -1,3 +1,8 @@
 
  1432 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start
  2312 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start
+ 5403 ??         0:00.01 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start
+ 6287 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+ 6287 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+ 6287 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+ 6287 ??         0:00.00 (.colima-wrapped)
