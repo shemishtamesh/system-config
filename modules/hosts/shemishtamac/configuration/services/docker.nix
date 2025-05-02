@@ -8,7 +8,7 @@ with pkgs;
 
   launchd.user.agents.ollama = {
     path = [
-      oclima
+      colima
       docker
     ];
     command = "${colima}/bin/colima start";
