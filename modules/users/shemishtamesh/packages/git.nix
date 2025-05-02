@@ -45,6 +45,8 @@
         showUntrackedFiles = "all";
       };
       commit.verbose = true;
+      branch.sort = "-committerdate";
+      tag.sort = "-taggerdate";
     };
   };
 }
