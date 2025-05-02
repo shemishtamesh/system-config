@@ -12,6 +12,10 @@
       a = "add";
       r = "reset";
       p = "pull";
+      d = "diff";
+      dt = "difftool";
+      m = "merge";
+      mt = "mergetool";
     };
     delta = {
       enable = true;
