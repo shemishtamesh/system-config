@@ -9,7 +9,10 @@
       '';
   };
   launchd.agents."colima.default" = with pkgs; {
-    path = [ colima docker ];
+    path = [
+      colima
+      docker
+    ];
     command = "colima start --foreground";
     serviceConfig = {
       Label = "com.colima.default";
