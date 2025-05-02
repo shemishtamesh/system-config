@@ -106,6 +106,9 @@ let
         ./karabiner-elements.nix
         ./databricks.nix
       ];
+      packages = with pkgs; [
+        ollama
+      ];
     };
   };
 in
