@@ -11,7 +11,9 @@
       c = "checkout";
       a = "add";
       r = "reset";
+      ps = "push";
       p = "pull";
+      f = "fetch";
       d = "diff";
       dt = "difftool";
       m = "merge";
