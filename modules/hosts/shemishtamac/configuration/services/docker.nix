@@ -1,26 +1,20 @@
-# taken from here https://github.com/nix-darwin/nix-darwin/issues/1182#issuecomment-2485401568
 { pkgs, ... }:
+with pkgs;
 {
-  system.activationScripts.activate_colima = {
-    enable = true;
-    text = # sh
-      ''
-        launchctl load -w /Library/LaunchAgents/com.colima.default.plist
-      '';
-  };
-  launchd.agents."colima.default" = with pkgs; {
+  environment.systemPackages = [
+    colima
+    docker
+  ];
+
+  launchd.user.agents.ollama = {
     path = [
-      colima
+      oclima
       docker
     ];
-    command = "colima start --foreground";
+    command = "${colima}/bin/colima start";
     serviceConfig = {
-      Label = "com.colima.default";
-      RunAtLoad = true;
       KeepAlive = true;
-
-      StandardOutPath = "/var/log/colima/default/daemon/launchd.stdout.log";
-      StandardErrorPath = "/var/log/colima/default/daemon/launchd.stderr.log";
+      RunAtLoad = true;
     };
   };
 }
