@@ -37,7 +37,7 @@
       };
       pull.ff = "only";
       "url \"git@github.com:/\"".insteadOf = "gh";
-      "url \"git@github.com:shemishtamesh/\"".insteadOf = "i";
+      "url \"git@github.com:shemishtamesh/\"".insteadOf = "me";
     };
   };
 }
