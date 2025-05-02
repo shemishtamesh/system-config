@@ -4,7 +4,7 @@
     userName = "shemishtamesh";
     userEmail = "shemishtamail@gmail.com";
     aliases = {
-      l = "log --all --decorate --oneline --graph --pretty=format:'%C(yellow)%h %C(green)%an %(blue)%ar %C(magenta)%D %C(white)%s'";
+      l = "log --all --decorate --oneline --graph --pretty=format:'%C(yellow)%h %C(green)%an %C(blue)%ar %C(magenta)%D %C(white)%s'";
     };
     delta = {
       enable = true;
