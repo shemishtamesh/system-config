@@ -39,6 +39,7 @@
       "url \"git@github.com:/\"".insteadOf = "gh:";
       "url \"git@github.com:shemishtamesh/\"".insteadOf = "me:";
       status = {
+        short = true;
         branch = true;
         showStash = true;
         showUntrackedFiles = "all";
