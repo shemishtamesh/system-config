@@ -22,7 +22,7 @@ with pkgs;
 
       # not using launchd.agents.<name>.path because colima needs the system ones as well
       EnvironmentVariables = {
-        PATH = "${lima-bin}/bin:${colima}/bin:${docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+        PATH = "${colima}/bin:${docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
       };
     };
   };
