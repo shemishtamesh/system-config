@@ -6,3 +6,14 @@
  6287 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
  6287 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
  6287 ??         0:00.00 (.colima-wrapped)
+ 7699 ??         0:00.04 (.colima-wrapped)
+ 8275 ttys011    0:00.02 /run/current-system/sw/bin/colima status
+ 8275 ttys011    0:00.02 (.colima-wrapped)
+ 8759 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+10551 ttys011    0:00.00 /run/current-system/sw/bin/colima status
+10551 ttys011    0:00.02 (.colima-wrapped)
+13854 ??         0:00.00 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+15617 ??         0:00.02 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+17444 ??         0:00.01 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+19305 ??         0:00.01 /nix/store/xhcgnphdwfg81j79nhspm0876cxglyj3-bash-5.2p37/bin/bash -e /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+20065 ??         0:00.04 (.colima-wrapped)
