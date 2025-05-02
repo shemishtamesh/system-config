@@ -6,6 +6,7 @@
     text = # sh
       ''
         launchctl load -w /Library/LaunchAgents/com.colima.default.plist
+        colima start
       '';
   };
   launchd.agents."colima.default" = {
