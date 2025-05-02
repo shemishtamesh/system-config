@@ -9,7 +9,8 @@
       '';
   };
   launchd.agents."colima.default" = with pkgs; {
-    command = "PATH=${docker}:$PATH ${colima}/bin/colima start --foreground";
+    path = [ colima docker ];
+    command = "colima start --foreground";
     serviceConfig = {
       Label = "com.colima.default";
       RunAtLoad = true;
@@ -17,10 +18,6 @@
 
       StandardOutPath = "/var/log/colima/default/daemon/launchd.stdout.log";
       StandardErrorPath = "/var/log/colima/default/daemon/launchd.stderr.log";
-
-      EnvironmentVariables = {
-        PATH = "${colima}/bin:${docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
-      };
     };
   };
 }
