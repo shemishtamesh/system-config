@@ -1,4 +1,4 @@
-{ pkgs, home, ... }:
+{ pkgs, ... }:
 
 {
   home.shell.enableZshIntegration = true;
@@ -6,6 +6,7 @@
     enable = true;
     shellAliases = {
       n = "nvim";
+      g = "git";
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";

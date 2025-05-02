@@ -5,6 +5,12 @@
     userEmail = "shemishtamail@gmail.com";
     aliases = {
       l = "log --all --decorate --oneline --graph --pretty=format:'%C(yellow)%h %C(green)%an %C(blue)%ar %C(magenta)%D %C(white)%s'";
+      b = "branch";
+      s = "status";
+      sw = "switch";
+      c = "checkout";
+      a = "add";
+      r = "reset";
     };
     delta = {
       enable = true;
