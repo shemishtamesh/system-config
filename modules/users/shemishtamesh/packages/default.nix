@@ -1,6 +1,7 @@
 {
   pkgs,
   host,
+  inputs,
   ...
 }:
 let
