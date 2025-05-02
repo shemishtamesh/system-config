@@ -8,8 +8,8 @@
         launchctl load -w /Library/LaunchAgents/com.colima.default.plist
       '';
   };
-  launchd.agents."colima.default" = {
-    command = "${pkgs.colima}/bin/colima start --foreground";
+  launchd.agents."colima.default" = with pkgs; {
+    command = "PATH=${docker}:$PATH ${colima}/bin/colima start --foreground";
     serviceConfig = {
       Label = "com.colima.default";
       RunAtLoad = true;
@@ -19,7 +19,7 @@
       StandardErrorPath = "/var/log/colima/default/daemon/launchd.stderr.log";
 
       EnvironmentVariables = {
-        PATH = "${pkgs.colima}/bin:${pkgs.docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+        PATH = "${colima}/bin:${docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
       };
     };
   };
