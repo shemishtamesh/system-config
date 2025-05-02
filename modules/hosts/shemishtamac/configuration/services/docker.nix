@@ -10,7 +10,7 @@ with pkgs;
     #   colima
     #   docker
     # ];
-    command = "${colima}/bin/colima start --foreground";
+    command = "${colima}/bin/colima start --foreground &> /tmp/colima_test";
     serviceConfig = {
       Label = "com.colima.default";
       RunAtLoad = true;

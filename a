@@ -25,3 +25,23 @@
 25934 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
 25934 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
 25934 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+26752 ??         0:00.03 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+26752 ??         0:00.03 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+26752 ??         0:00.03 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+27854 ??         0:00.01 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+27854 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+27854 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+27854 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+27854 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+28286 ttys011    0:00.01 /run/current-system/sw/bin/colima status
+28286 ttys011    0:00.02 (.colima-wrapped)
+28441 ttys011    0:00.01 /run/current-system/sw/bin/colima status
+28441 ttys011    0:00.02 /run/current-system/sw/bin/colima status
+28588 ttys011    0:00.01 /run/current-system/sw/bin/colima status
+28588 ttys011    0:00.01 (.colima-wrapped)
+28708 ttys011    0:00.01 /run/current-system/sw/bin/colima status
+28936 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+28936 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+28936 ??         0:00.04 /nix/store/km6wsyxhydv2xcqpig157j2frckpyw4v-colima-0.8.1/bin/colima start --foreground
+28936 ??         0:00.04 (.colima-wrapped)
+29165 ttys011    0:00.01 /run/current-system/sw/bin/colima status
