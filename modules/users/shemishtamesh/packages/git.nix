@@ -43,9 +43,7 @@
         showStash = true;
         showUntrackedFiles = "all";
       };
-      commit = {
-        verbose = true;
-      }
+      commit.verbose = true;
     };
   };
 }
