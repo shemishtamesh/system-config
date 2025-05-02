@@ -36,8 +36,13 @@
         preloadindex = true;
       };
       pull.ff = "only";
-      "url \"git@github.com:/\"".insteadOf = "gh";
-      "url \"git@github.com:shemishtamesh/\"".insteadOf = "me";
+      "url \"git@github.com:/\"".insteadOf = "gh:";
+      "url \"git@github.com:shemishtamesh/\"".insteadOf = "me:";
+      status = {
+        branch = true;
+        showStash = true;
+        showUntrackedFiles = "all";
+      }
     };
   };
 }
