@@ -47,5 +47,5 @@
     };
   };
 
-  outputs = inputs: import ./modules inputs;
+  outputs = inputs: import ./config inputs;
 }

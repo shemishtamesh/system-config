@@ -146,7 +146,7 @@ in
                 hostname="$1"
                 username="$2"
 
-                nixos-generate-config --show-hardware-config > $NH_FLAKE/modules/hosts/"$hostname"/configuration/generated_hardware_configuration.nix
+                nixos-generate-config --show-hardware-config > $NH_FLAKE/config/hosts/"$hostname"/configuration/generated_hardware_configuration.nix
 
                 ${os_specific.os_switch_command}
                 nh home switch "$NH_FLAKE#$username@$hostname" --backup-extension bak
