@@ -8,25 +8,27 @@
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
 
-  system.defaults = {
-    dock = {
-      autohide = true;
-      largesize = 128;
-      tilesize = 16;
-      magnification = true;
+  system = {
+    defaults = {
+      dock = {
+        autohide = true;
+        largesize = 128;
+        tilesize = 16;
+        magnification = true;
+      };
+      finder = {
+        FXPreferredViewStyle = "clmv";
+        AppleShowAllFiles = true;
+        FXEnableExtensionChangeWarning = false;
+        ShowPathbar = true;
+      };
+      NSGlobalDomain = {
+        AppleICUForce24HourTime = true;
+        AppleInterfaceStyle = "Dark";
+        AppleShowAllExtensions = true;
+      };
+      magicmouse.MouseButtonMode = "TwoButton";
     };
-    finder = {
-      FXPreferredViewStyle = "clmv";
-      AppleShowAllFiles = true;
-      FXEnableExtensionChangeWarning = false;
-      ShowPathbar = true;
-    };
-    NSGlobalDomain = {
-      AppleICUForce24HourTime = true;
-      AppleInterfaceStyle = "Dark";
-      AppleShowAllExtensions = true;
-    };
-    magicmouse.MouseButtonMode = "TwoButton";
 
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog
