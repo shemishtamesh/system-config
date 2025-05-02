@@ -11,7 +11,7 @@ with pkgs;
       colima
       docker
     ];
-    command = "${colima}/bin/colima start";
+    command = "${colima}/bin/colima start --foreground";
     serviceConfig = {
       KeepAlive = true;
       RunAtLoad = true;

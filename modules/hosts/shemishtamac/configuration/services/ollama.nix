@@ -9,10 +9,7 @@ with pkgs;
     serviceConfig = {
       KeepAlive = true;
       RunAtLoad = true;
-
-      EnvironmentVariables = {
-        OLLAMA_HOST = "127.0.0.1";
-      };
+      EnvironmentVariables.OLLAMA_HOST = "127.0.0.1";
     };
   };
 }
