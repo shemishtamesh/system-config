@@ -11,6 +11,7 @@
       c = "checkout";
       a = "add";
       r = "reset";
+      p = "pull";
     };
     delta = {
       enable = true;
