@@ -144,6 +144,16 @@ in
         bind-key -T copy-mode-vi v send-keys -X begin-selection
         bind-key -T copy-mode-vi y send-keys -X copy-selection
         bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+        ${
+          if lib.last (lib.splitString "-" pkgs.stdenv.system) == "darwin" then
+            # tmux
+            ''
+              bind -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+              bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+            ''
+          else
+            ""
+        }
 
         # start new panes and windows in the same directory
         bind '"' split-window -c "#{pane_current_path}"
