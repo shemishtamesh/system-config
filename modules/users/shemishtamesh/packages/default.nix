@@ -16,7 +16,7 @@ let
     ./direnv.nix
     ./tmux.nix
     ./nixvim.nix
-    ./zen-browser.nix
+    ./nix-index.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -41,6 +41,11 @@ let
     nix-diff
     nix-output-monitor
     nvd
+    bitwarden
+    mpv
+    zathura
+    obsidian
+    slack
   ];
   per_host = {
     shenixtamesh = {
@@ -56,15 +61,10 @@ let
         ./rofi.nix
         ./nixcord.nix
         ./spotify.nix
-        ./nix-index.nix
+        ./zen-browser.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
-        slack
-        obsidian
-        zathura
-        mpv
-        bitwarden
         cht-sh
         tetrio-desktop
         furnace
@@ -107,11 +107,7 @@ let
         ./databricks.nix
       ];
       packages = with pkgs; [
-        slack
-        obsidian
-        zathura
-        mpv
-        bitwarden
+        inputs.zen-browser.packages.${system}.default
       ];
     };
   };
