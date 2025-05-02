@@ -14,7 +14,10 @@ in
     pkgs.writeShellScriptBin "set_brightness" ''
       ${ddcutil} getvcp 10 \
         | awk -F 'current value = ' '{print $2}' \
-        | awk -F',' '{print $1}' > /tmp/previous_brightness
+        | awk -F',' '{print $1}' \
+        | grep '[0-9]' \
+        | sed 's/[^0-9]//g' \
+        > /tmp/previous_brightness
       for bus in $(${ddcutil} detect --terse | grep -F "I2C bus:" | awk -F '-' '{print $2}'); do
         ${ddcutil} setvcp 10 $1 \
           --bus "$bus" \
