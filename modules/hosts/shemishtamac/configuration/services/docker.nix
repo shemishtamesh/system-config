@@ -6,7 +6,7 @@ with pkgs;
     docker
   ];
 
-  launchd.user.agents.ollama = {
+  launchd.user.agents.colima = {
     path = [
       colima
       docker
