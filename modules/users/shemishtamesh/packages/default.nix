@@ -107,9 +107,6 @@ let
         ./karabiner-elements.nix
         ./databricks.nix
       ];
-      packages = with pkgs; [
-        inputs.zen-browser.packages.${system}.default
-      ];
     };
   };
 in
