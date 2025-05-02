@@ -31,8 +31,13 @@
       init.defaultBranch = "main";
       core = {
         editor = "nvim";
+        compression = 9;
+        whitespace = "error";
+        preloadindex = true;
       };
       pull.ff = "only";
+      "url \"git@github.com:/\"".insteadOf = "gh";
+      "url \"git@github.com:shemishtamesh/\"".insteadOf = "i";
     };
   };
 }
