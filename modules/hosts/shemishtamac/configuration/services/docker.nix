@@ -1,6 +1,13 @@
 # taken from here https://github.com/nix-darwin/nix-darwin/issues/1182#issuecomment-2485401568
 { pkgs, ... }:
 {
+  system.activationScripts.activate_colima = {
+    enable = true;
+    text = # sh
+      ''
+        launchctl load -w /Library/LaunchAgents/com.colima.default.plist
+      '';
+  };
   launchd.agents."colima.default" = {
     command = "${pkgs.colima}/bin/colima start --foreground";
     serviceConfig = {

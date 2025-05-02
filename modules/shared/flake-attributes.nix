@@ -156,6 +156,7 @@ in
                 ${os_specific.update_wallpaper}
 
                 ${os_specific.notify_switch_success}
+                ${pkgs.fastfetch}/bin/fastfetch
               '';
           }
         );
