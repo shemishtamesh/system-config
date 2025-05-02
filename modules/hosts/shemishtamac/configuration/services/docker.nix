@@ -5,7 +5,7 @@ with pkgs;
     colima
     docker
   ];
-  launchd.agents."colima.default" = {
+  launchd.user.agents."colima.default" = {
     # path = [
     #   colima
     #   docker
