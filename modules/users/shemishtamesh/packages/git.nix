@@ -42,7 +42,7 @@
         branch = true;
         showStash = true;
         showUntrackedFiles = "all";
-      }
+      };
     };
   };
 }
