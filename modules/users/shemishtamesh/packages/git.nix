@@ -8,7 +8,8 @@
       b = "branch";
       s = "status";
       sw = "switch";
-      c = "checkout";
+      c = "commit";
+      ch = "checkout";
       a = "add";
       r = "reset";
       ps = "push";
