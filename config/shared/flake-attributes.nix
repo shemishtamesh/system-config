@@ -20,7 +20,7 @@ in
   apps = per_system (
     system:
     let
-      FLAKE_ROOT = "$HOME/.config/system-config";
+      FLAKE_ROOT = "$HOME/.config/system";
       FLAKE_REPO = "https://github.com/shemishtamesh/system-config.git";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       inherit (inputs.nixpkgs) lib;
