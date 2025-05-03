@@ -18,6 +18,7 @@ let
     ./nixvim.nix
     ./nix-index.nix
     ./nixcord.nix
+    ./mpv.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -43,7 +44,6 @@ let
     nix-output-monitor
     nvd
     bitwarden
-    mpv
     zathura
     obsidian
     slack
