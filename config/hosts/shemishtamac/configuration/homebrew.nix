@@ -12,6 +12,6 @@
   };
   homebrew = {
     enable = true;
-    brews = [ "zen-browser" ];
+    casks = [ "zen-browser" ];
   };
 }
