@@ -1,4 +1,4 @@
-{ inputs, username, ... }:
+{ inputs, host, ... }:
 {
   homebrew = {
     enable = true;
@@ -9,7 +9,7 @@
     {
       nix-homebrew = {
         enable = true;
-        user = username;
+        user = builtins.elemAt (builtins.attrNames host.users) 0;
         taps = {
           "homebrew/homebrew-core" = inputs.homebrew-core;
           "homebrew/homebrew-cask" = inputs.homebrew-cask;
