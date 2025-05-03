@@ -12,6 +12,7 @@
       ch = "checkout";
       a = "add";
       r = "reset";
+      rb = "rebase";
       rm = "remote";
       ps = "push";
       p = "pull";
