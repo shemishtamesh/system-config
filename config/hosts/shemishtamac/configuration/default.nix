@@ -18,6 +18,7 @@
         largesize = 128;
         tilesize = 16;
         magnification = true;
+        show-recents = false;
       };
       finder = {
         FXPreferredViewStyle = "clmv";
