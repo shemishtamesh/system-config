@@ -1,0 +1,1 @@
+{ programs.cav.enable = true; }

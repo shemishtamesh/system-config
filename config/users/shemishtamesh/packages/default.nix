@@ -62,6 +62,7 @@ let
         ./nixcord.nix
         ./spotify.nix
         ./zen-browser.nix
+        ./cava.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
