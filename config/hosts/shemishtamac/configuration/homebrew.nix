@@ -15,7 +15,8 @@ in
   };
   homebrew = {
     enable = true;
-    casks = [ "zen-browser" ];
+    # casks = [ "zen-browser" ];
+    brews = [ "zen-browser" ];
     onActivation.cleanup = "uninstall";
     taps = builtins.attrNames taps;
   };
