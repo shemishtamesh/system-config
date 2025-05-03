@@ -63,9 +63,9 @@ in
           $(echo '${toString (builtins.attrValues scheme.palette)}') \
           --resolution ${toString width}x${toString height} \
           ${if !background then "--no_background" else ""} \
-          ${if !palette then "--no_palette" else ""} \
+          ${if !palette then "--no_palette" else "--no_palette"} \
           ${if !nix then "--no_nix" else ""} \
-          ${if !gaps then "--gaps 0" else "--gaps 0"} \
+          ${if !gaps then "--gaps 0" else "--gaps 100"} \
           ${if !random then "--no_random" else ""} \
       '';
       installPhase = "install -Dm0644 ${name} $out";
