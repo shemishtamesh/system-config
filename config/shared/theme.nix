@@ -1,6 +1,6 @@
 pkgs:
 let
-  scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/snow.yaml;
+  scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/dor.yaml;
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
@@ -65,7 +65,7 @@ in
           ${if !background then "--no_background" else ""} \
           ${if !palette then "--no_palette" else "--no_palette"} \
           ${if !nix then "--no_nix" else ""} \
-          ${if !gaps then "--gaps 0" else "--gaps 1"} \
+          ${if !gaps then "--gaps 0" else ""} \
           ${if !random then "--no_random" else ""} \
       '';
       installPhase = "install -Dm0644 ${name} $out";
