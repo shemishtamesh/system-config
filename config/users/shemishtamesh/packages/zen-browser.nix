@@ -27,8 +27,6 @@ if (host.system == "x86_64-linux") || (host.system == "aarch64-linux") then
 else
   {
     home.programs = [
-      (inputs.zen-browser.packages."${host.system}".default.override {
-        nativeMessagingHosts = [ pkgs.firefoxpwa ];
-      })
+      (inputs.zen-browser.packages."${host.system}".default)
     ];
   }
