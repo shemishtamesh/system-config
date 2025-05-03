@@ -12,6 +12,6 @@
   };
   homebrew = {
     enable = true;
-    brews = [ "watch" ];
+    brews = [ "zen-browser" ];
   };
 }
