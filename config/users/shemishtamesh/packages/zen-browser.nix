@@ -24,11 +24,11 @@ if (host.system == "x86_64-linux") || (host.system == "aarch64-linux") then
       nativeMessagingHosts = [ pkgs.firefoxpwa ];
     };
   }
-else
-  {
-    home.programs = [
-      (inputs.zen-browser.packages."${host.system}".default.override {
-        nativeMessagingHosts = [ pkgs.firefoxpwa ];
-      })
-    ];
-  }
+else throw "no zen"
+  # {
+  #   home.programs = [
+  #     (inputs.zen-browser.packages."${host.system}".default.override {
+  #       nativeMessagingHosts = [ pkgs.firefoxpwa ];
+  #     })
+  #   ];
+  # }
