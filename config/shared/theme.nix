@@ -63,7 +63,7 @@ in
           $(echo '${toString (builtins.attrValues scheme.palette)}') \
           --resolution ${toString width}x${toString height} \
           ${if !background then "--no_background" else ""} \
-          ${if !palette then "--no_palette" else "--no_palette"} \
+          ${if !palette then "--no_palette" else ""} \
           ${if !nix then "--no_nix" else ""} \
           ${if !gaps then "--gaps 0" else ""} \
           ${if !random then "--no_random" else ""} \
