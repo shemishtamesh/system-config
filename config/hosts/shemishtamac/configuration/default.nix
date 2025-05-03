@@ -1,6 +1,9 @@
 { shared, inputs, ... }:
 {
-  imports = [ ./services ];
+  imports = [
+    ./services
+    ./homebrew.nix
+  ];
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
