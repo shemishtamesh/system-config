@@ -17,7 +17,6 @@ let
     ./tmux.nix
     ./nixvim.nix
     ./nix-index.nix
-    ./zen-browser.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -62,6 +61,7 @@ let
         ./rofi.nix
         ./nixcord.nix
         ./spotify.nix
+        ./zen-browser.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
