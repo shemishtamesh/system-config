@@ -1,1 +1,1 @@
-{ programs.cav.enable = true; }
+{ programs.cava.enable = true; }
