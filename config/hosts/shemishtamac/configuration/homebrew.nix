@@ -4,7 +4,7 @@
     enable = true;
     brews = [ "zen-browser" ];
   };
-  modules = [
+  imports = [
     inputs.nix-homebrew.darwinModules.nix-homebrew
     {
       nix-homebrew = {
