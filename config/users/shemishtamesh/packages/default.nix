@@ -17,6 +17,7 @@ let
     ./tmux.nix
     ./nixvim.nix
     ./nix-index.nix
+    ./nixcord.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -59,7 +60,6 @@ let
         ./wlogout.nix
         ./dunst.nix
         ./rofi.nix
-        ./nixcord.nix
         ./spotify.nix
         ./zen-browser.nix
       ];
