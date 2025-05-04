@@ -44,6 +44,9 @@ class Color:
     def __str__(self) -> str:
         return "#{:02x}{:02x}{:02x}".format(self.red, self.green, self.blue)
 
+    def __repr__(self) -> str:
+        return str(self)
+
 
 class Triangle:
     def __init__(
