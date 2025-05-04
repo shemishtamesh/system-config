@@ -249,25 +249,20 @@ class Palette:
         self, colors: list[Color], triangle_factory: TriangleFactory
     ) -> None:
         self.triangles = []
-
-        # for i in range(7):
-        #     for j in range(2):
-        #         self.triangles.append(
-        #             triangle_factory.triangle(
-        #                 Point(i - 3, -j),
-        #                 colors[8 + i + (8 * j * (len(colors) == 24))],
-        #             )
-        #         )
-        for triangle in [
-            triangle_factory.triangle(Point(-2, -2), colors[5]),
-            triangle_factory.triangle(Point(0, -2), colors[3]),
-            triangle_factory.triangle(Point(2, -2), colors[7]),
-            triangle_factory.triangle(Point(-2, 1), colors[6]),
-            triangle_factory.triangle(Point(0, 1), colors[2]),
-            triangle_factory.triangle(Point(2, 1), colors[4]),
-            triangle_factory.triangle(Point(0, 2), colors[1]),
+        for coords_and_color in [
+            ((-2, -2), 5),
+            ((0, -2), 3),
+            ((2, -2), 7),
+            ((-2, 1), 6),
+            ((0, 1), 2),
+            ((2, 1), 4),
+            ((0, 2), 1),
         ]:
-            self.triangles.append(triangle)
+            self.triangles.append(
+                triangle_factory.triangle(
+                    Point(*coords_and_color[0]), colors[coords_and_color[1]]
+                )
+            )
 
     def draw(self, image: Image) -> "Palette":
         for triangle in self.triangles:
