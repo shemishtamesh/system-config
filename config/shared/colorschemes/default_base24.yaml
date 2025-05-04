@@ -1,6 +1,5 @@
 system: "base24"
 name: "default base24"
-slug: "default-base24"
 variant: "dark"
 palette:
   base00: "#282C34"
