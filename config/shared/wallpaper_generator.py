@@ -249,14 +249,15 @@ class Palette:
         self, colors: list[Color], triangle_factory: TriangleFactory
     ) -> None:
         self.triangles = []
-        for i in range(7):
-            for j in range(2):
-                self.triangles.append(
-                    triangle_factory.triangle(
-                        Point(i - 3, -j),
-                        colors[8 + i + (8 * j * (len(colors) == 24))],
-                    )
-                )
+
+        # for i in range(7):
+        #     for j in range(2):
+        #         self.triangles.append(
+        #             triangle_factory.triangle(
+        #                 Point(i - 3, -j),
+        #                 colors[8 + i + (8 * j * (len(colors) == 24))],
+        #             )
+        #         )
         for triangle in [
             triangle_factory.triangle(Point(-2, -2), colors[5]),
             triangle_factory.triangle(Point(0, -2), colors[3]),
