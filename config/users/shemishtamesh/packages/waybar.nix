@@ -29,6 +29,7 @@ in
           window-rewrite-default = window_icon;
           window-rewrite = {
             "class<(firefox|librewolf|zen-(alpha|twilight))> title<.*youtube.*>" = "";
+            "class<(firefox|librewolf|zen-(alpha|twilight))> title<.*jira.*>" = "󰌃";
             "class<(firefox|librewolf|zen-(alpha|twilight))> title<.*github.*>" = "";
             "class<(firefox|librewolf|zen-(alpha|twilight))>" = firefox_icon;
             "class<spotify>" = spotify_icon;
