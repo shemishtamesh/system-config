@@ -233,6 +233,7 @@ class Background:
                 )
                 if not color_outside_nix:
                     color_index = min(color_index, 8)
+                print(color_index)
                 self.triangles.append(
                     triangle_factory.triangle(
                         Point(x, y),
