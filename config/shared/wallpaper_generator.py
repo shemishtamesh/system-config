@@ -251,13 +251,13 @@ class Palette:
         self.triangles = []
         for coords_and_color in [
             # grayscale
-            # ((-2, -2), 5),
-            # ((0, -2), 3),
-            # ((2, -2), 7),
-            # ((-2, 1), 6),
-            # ((0, 1), 2),
-            # ((2, 1), 4),
-            # ((0, 2), 1),
+            ((-2, -2), 5),
+            ((0, -2), 3),
+            ((2, -2), 7),
+            ((-2, 1), 6),
+            ((0, 1), 2),
+            ((2, 1), 4),
+            ((0, 2), 1),
             # regular
             ((-3, -1), 18),
             ((-2, -1), 19),
@@ -280,7 +280,6 @@ class Palette:
                     Point(*coords_and_color[0]), colors[coords_and_color[1]]
                 )
             )
-            print(coords_and_color[1], colors[coords_and_color[1]])
 
     def draw(self, image: Image) -> "Palette":
         for triangle in self.triangles:
