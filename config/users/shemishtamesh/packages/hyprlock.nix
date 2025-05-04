@@ -62,8 +62,8 @@
             path = toString (
               shared.theme.wallpaper {
                 inherit portname width height;
-                background = false;
-                palette = false;
+                background = true;
+                palette = true;
                 gaps = false;
                 random = false;
               }
