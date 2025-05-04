@@ -62,13 +62,13 @@
             path = toString (
               shared.theme.wallpaper {
                 inherit portname width height;
-                background = true;
-                palette = true;
+                background = false;
+                palette = false;
                 gaps = false;
                 random = false;
               }
             );
-            blur_passes = 3;
+            blur_passes = 2;
             brightness = 0.5;
           }
         ) host.monitors
