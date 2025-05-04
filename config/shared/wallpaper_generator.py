@@ -250,7 +250,7 @@ class Palette:
     ) -> None:
         self.triangles = []
         hexagon = [
-            # # grayscale
+            # grays
             ((1, -1), 7),
             ((-1, -1), 6),
             ((1, 0), 5),
@@ -260,7 +260,7 @@ class Palette:
             ((2, 0), 1),
             ((-2, 0), 0),
             ((0, -2), 16),
-            ((0, 1), 7),
+            ((0, 1), 17),
             # red
             ((-3, 0), 18),
             ((-2, 1), 8),
@@ -284,7 +284,7 @@ class Palette:
             ((0, -1), 15),
         ]
         lines_hexagon = [
-            # grayscale
+            # gray
             ((0, 1), 7),
             ((1, 1), 6),
             ((-1, 1), 5),
@@ -313,7 +313,7 @@ class Palette:
             ((3, 0), 14),
         ]
         dimonds = [
-            # grayscale
+            # gray
             ((1, -1), 7),
             ((-1, -1), 6),
             ((1, 0), 5),
