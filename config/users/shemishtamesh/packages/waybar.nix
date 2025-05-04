@@ -35,6 +35,8 @@ in
             "class<.*discord.*>" = "";
             "class<kitty>" = "";
             "code" = "󰨞";
+            "whatsapp" = "󰖣";
+            "slack" = "󰒱";
           };
           show-special = true;
           special-visible-only = true;
