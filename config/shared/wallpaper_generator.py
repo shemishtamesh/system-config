@@ -207,7 +207,7 @@ class Background:
         if len(colors) > 17:
             colors = colors[16:18:-1] + colors[:16] + colors[18:]
         print('#' * 100)
-        print(colors)
+        print([str(color) for color in colors])
         print('#' * 100)
 
         triangle_height = triangle_factory.side_length * math.sin(math.tau / 6)
