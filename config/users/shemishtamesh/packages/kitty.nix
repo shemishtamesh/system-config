@@ -32,7 +32,7 @@ in
       font_size = 14;
 
       # colors
-      background = palette.base00;
+      background = palette.basse11 or palette.base00;
       foreground = palette.base05;
       selection_background = palette.base05;
       selection_foreground = palette.base00;
