@@ -209,6 +209,8 @@ class Background:
             colors = colors[16:18:-1] + colors[:16] + colors[18:]
         print('#' * 100)
         print(list(enumerate([str(color) for color in colors[16:18:-1]])))
+        print(str(colors[16]))
+        print(str(colors[17]))
         print('#' * 100)
 
         triangle_height = triangle_factory.side_length * math.sin(math.tau / 6)
