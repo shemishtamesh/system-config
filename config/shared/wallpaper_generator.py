@@ -249,7 +249,7 @@ class Palette:
         self, colors: list[Color], triangle_factory: TriangleFactory
     ) -> None:
         self.triangles = []
-        for coords_and_color in [
+        hexagon = [
             # grayscale
             ((0, 1), 7),
             ((1, 1), 6),
@@ -277,7 +277,37 @@ class Palette:
             ((1, 0), 12),
             ((2, 0), 13),
             ((3, 0), 14),
-        ]:
+        ]
+        dimonds = [
+            # # grayscale
+            # ((0, 1), 7),
+            # ((1, 1), 6),
+            # ((-1, 1), 5),
+            # ((2, 1), 4),
+            # ((-2, 1), 3),
+            # ((0, -2), 17),
+            # ((1, -2), 16),
+            # ((-1, -2), 0),
+            # ((2, -2), 1),
+            # ((-2, -2), 2),
+            # regular
+            ((-3, 0), 18),
+            ((-2, -1), 19),
+            ((-1, -1), 20),
+            ((0, -1), 9),
+            ((1, -1), 21),
+            ((2, -1), 22),
+            ((3, -1), 23),
+            # bright
+            ((-3, 1), 8),
+            ((-2, 0), 10),
+            ((-1, 0), 11),
+            ((0, 0), 15),
+            ((1, 0), 12),
+            ((2, 0), 13),
+            ((3, 0), 14),
+        ]
+        for coords_and_color in dimonds:
             self.triangles.append(
                 triangle_factory.triangle(
                     Point(*coords_and_color[0]), colors[coords_and_color[1]]
