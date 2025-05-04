@@ -251,7 +251,7 @@ class Palette:
         self.triangles = []
         for coords_and_color in [
             # grayscale
-            ((2, -0), 7),
+            ((0, -2), 7),
             # ((-2, -2), 5),
             # ((0, -2), 3),
             # ((2, -2), 7),
