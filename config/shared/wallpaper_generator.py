@@ -208,7 +208,7 @@ class Background:
             print('got here' * 10)
             colors = colors[18:16:-1] + colors[:16] + colors[18:]
         print('#' * 100)
-        print(list(enumerate([str(color) for color in colors[16:18:-1]])))
+        print(list(enumerate([str(color) for color in colors[18:16:-1]])))
         print(str(colors[16]))
         print(str(colors[17]))
         print('#' * 100)
