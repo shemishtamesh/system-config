@@ -79,10 +79,12 @@ in
                 nix fmt "$NH_FLAKE"
                 echo 'formatted'
 
-                # git -C "$NH_FLAKE" add .
-                # nix flake update nixvim --flake "$NH_FLAKE"  # WARN: hitting rate limits
-                # git -C "$NH_FLAKE" commit -am 'updating flakes' > /dev/null || true
-                # echo 'updated flakes'
+                if [ -z "''${2-}" ]; then
+                    git -C "$NH_FLAKE" add .
+                    nix flake update nixvim --flake "$NH_FLAKE"  # WARN: hitting rate limits
+                    git -C "$NH_FLAKE" commit -am 'updating flakes' > /dev/null || true
+                    echo 'updated flakes'
+                fi
 
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
                   git -C "$NH_FLAKE" commit -am 'switching os confg' > /dev/null || true
