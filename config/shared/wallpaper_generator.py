@@ -349,7 +349,7 @@ class Palette:
             ((1, 1), 9),
             ((-1, 1), 15),
         ]
-        for coords_and_color in lines_hexagon:
+        for coords_and_color in hexagon:
             self.triangles.append(
                 triangle_factory.triangle(
                     Point(*coords_and_color[0]), colors[coords_and_color[1]]
