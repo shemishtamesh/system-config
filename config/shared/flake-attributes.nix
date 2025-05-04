@@ -36,13 +36,6 @@ in
               "notify-send -u critical 'home switch failed'";
             notify_switch_success = # sh
               "notify-send -u low 'switch succeeded'";
-            update_wallpaper = # sh
-              ''
-                # if ! systemctl --user restart hyprpaper.service; then
-                #   notify-send -u critical 'wallpaper switch failed'
-                #   exit 1
-                # fi
-              '';
           }
         else if kernel == "darwin" then
           {
@@ -54,7 +47,6 @@ in
               "terminal-notifier -message 'home switch failed'";
             notify_switch_success = # sh
               "terminal-notifier -message 'switch succeeded'";
-            update_wallpaper = "";
           }
         else
           throw "unknown system type";
@@ -120,9 +112,6 @@ in
 
                 git push > /dev/null
 
-                ${os_specific.update_wallpaper}
-                echo 'updated wallpaper'
-
                 ${os_specific.notify_switch_success}
                 echo 'switch successful'
                 ${pkgs.fastfetch}/bin/fastfetch
@@ -152,8 +141,6 @@ in
                 nh home switch "$NH_FLAKE#$username@$hostname" --backup-extension bak
 
                 git push
-
-                ${os_specific.update_wallpaper}
 
                 ${os_specific.notify_switch_success}
                 ${pkgs.fastfetch}/bin/fastfetch
