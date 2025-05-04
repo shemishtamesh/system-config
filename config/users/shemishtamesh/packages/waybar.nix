@@ -248,7 +248,7 @@ in
         #window,
         #mpris,
         #idle_inhibitor {
-            background: ${palette.base03};
+            background: ${palette.base02};
             color: ${palette.base00};
             opacity: 1;
             padding: 1px 2px;
@@ -279,7 +279,7 @@ in
 
         #workspaces button.hover {
             padding: 1px 12px 1px 7px;
-            background: ${palette.base03};
+            background: ${palette.base02};
             margin-bottom: 0px;
         }
 
@@ -314,7 +314,7 @@ in
 
         #mpris.paused {
             background: ${palette.base01};
-            color: ${palette.base03};
+            color: ${palette.base02};
         }
         #mpris.playing {
             padding: 1px 3px;
