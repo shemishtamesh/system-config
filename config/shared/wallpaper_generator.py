@@ -300,8 +300,8 @@ class Palette:
             ((0, 0), 23),
             ((0, 1), 14),
             # orange & brown
-            ((-1, 1), 9),
-            ((1, 1), 15),
+            ((1, 1), 9),
+            ((-1, 1), 15),
         ]
         for coords_and_color in dimonds:
             self.triangles.append(
