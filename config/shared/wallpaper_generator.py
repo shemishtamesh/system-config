@@ -258,6 +258,11 @@ class Palette:
             # ((2, 1), 4),
             # ((0, 2), 1),
             ((0, 0), 8),
+            ((1, 0), 10),
+            ((2, 0), 11),
+            ((3, 0), 12),
+            ((4, 0), 13),
+            ((5, 0), 14),
         ]:
             self.triangles.append(
                 triangle_factory.triangle(
