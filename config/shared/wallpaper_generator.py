@@ -205,6 +205,7 @@ class Background:
         use_random: bool,
     ) -> None:
         if len(colors) > 17:
+            print('got here' * 10)
             colors = colors[16:18:-1] + colors[:16] + colors[18:]
         print('#' * 100)
         print(list(enumerate([str(color) for color in colors])))
