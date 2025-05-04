@@ -209,7 +209,6 @@ class Background:
     ) -> None:
         if len(colors) > 17:
             colors = [colors[17], colors[16]] + colors[:16] + colors[18:]
-        print(colors)
 
         triangle_height = triangle_factory.side_length * math.sin(math.tau / 6)
 
@@ -233,7 +232,6 @@ class Background:
                 )
                 if not color_outside_nix:
                     color_index = min(color_index, 8)
-                print(color_index)
                 self.triangles.append(
                     triangle_factory.triangle(
                         Point(x, y),
@@ -282,8 +280,8 @@ class Palette:
             ((3, 0), 22),
             ((2, 1), 13),
             # purple
-            ((1, 1), 23),
-            ((-1, 1), 14),
+            ((1, 1), 14),
+            ((-1, 1), 23),
             # orange & brown
             ((0, 0), 9),
             ((0, -1), 15),
