@@ -204,10 +204,6 @@ class Background:
         triangle_factory: TriangleFactory,
         use_random: bool,
     ) -> None:
-        print('#' * 100)
-        print(str(colors[16]))
-        print(str(colors[17]))
-        print('#' * 100)
         if len(colors) > 17:
             colors = [colors[17], colors[16]] + colors[:16] + colors[18:]
 
