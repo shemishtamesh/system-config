@@ -52,22 +52,22 @@ in
       color8 = palette.base03;
       # red
       color1 = palette.base08;
-      color9 = palette.base10 or palette.base08;
+      color9 = palette.base12 or palette.base08;
       # green
       color2 = palette.base0B;
-      color10 = palette.base13 or palette.base0B;
+      color10 = palette.base14 or palette.base0B;
       # yellow
       color3 = palette.base0A;
-      color11 = palette.base12 or palette.base0A;
+      color11 = palette.base13 or palette.base0A;
       # blue
       color4 = palette.base0D;
-      color12 = palette.base15 or palette.base0D;
+      color12 = palette.base16 or palette.base0D;
       # magenta
       color5 = palette.base0E;
-      color13 = palette.base16 or palette.base0E;
+      color13 = palette.base17 or palette.base0E;
       # cyan
       color6 = palette.base0C;
-      color14 = palette.base14 or palette.base0C;
+      color14 = palette.base15 or palette.base0C;
       # white
       color7 = palette.base05;
       color15 = palette.base07;

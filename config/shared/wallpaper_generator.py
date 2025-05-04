@@ -310,8 +310,12 @@ class Wallpaper:
         self.nix = (
             Nix(
                 [
-                    [colors[i], colors[i + (8 * (len(colors) == 24))]]
-                    for i in range(8, 16)
+                    [colors[8], colors[18]],
+                    [colors[10], colors[19]],
+                    [colors[11], colors[20]],
+                    [colors[12], colors[21]],
+                    [colors[13], colors[22]],
+                    [colors[14], colors[23]],
                 ],
                 triangle_factory,
                 use_random,
@@ -354,7 +358,7 @@ def create_wallpaper_image(
             scaled_width,
             scaled_height,
         ),
-        str(colors[0]),
+        str(colors[17] if len(colors) > 16 else colors[0]),
     )
 
     Wallpaper(

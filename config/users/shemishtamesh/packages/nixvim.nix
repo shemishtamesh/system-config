@@ -12,10 +12,13 @@
         enable = true;
 
         colorscheme =
-          with config.lib.stylix.colors.withHashtag;
+          # with config.lib.stylix.colors.withHashtag;
+          let
+            palette = config.lib.stylix.colors.withHashtag;
+          in
           lib.mkForce {
-            inherit
-              base00
+            base00 = palette.base11 or palette.base00;
+            inherit (palette)
               base01
               base02
               base03
