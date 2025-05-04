@@ -139,12 +139,6 @@ in
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
           "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
           "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
-          '', XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 1"''
-          '', XF86MonBrightnessDown, exec, ${shared.scripts.set_brightness} "- 1"''
-          ''SHIFT, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 10"''
-          ''SHIFT, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "- 10"''
-          ''CTRL, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "100"''
-          ''CTRL, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "0"''
 
           "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
           "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
@@ -164,6 +158,14 @@ in
           ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
           ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
           ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ];
+        bindle = [
+          '', XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 1"''
+          '', XF86MonBrightnessDown, exec, ${shared.scripts.set_brightness} "- 1"''
+          ''SHIFT, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 10"''
+          ''SHIFT, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "- 10"''
+          ''CTRL, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "100"''
+          ''CTRL, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "0"''
         ];
         bindm = [
           "$mod, mouse:272, movewindow"
