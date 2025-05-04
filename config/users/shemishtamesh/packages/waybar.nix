@@ -34,9 +34,9 @@ in
             "class<spotify>" = spotify_icon;
             "class<.*discord.*>" = "";
             "class<kitty>" = "";
-            "code" = "󰨞";
             "(whatsapp|Altus)" = "󰖣";
             "slack" = "󰒱";
+            "code" = "󰨞";
           };
           show-special = true;
           special-visible-only = true;
