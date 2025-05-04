@@ -1,6 +1,5 @@
 system: "base24"
 name: "snow"
-author: ""
 variant: "dark"
 palette:
   base00: "#000000"
