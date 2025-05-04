@@ -280,9 +280,9 @@ class Palette:
             # purple
             ((1, 1), 23),
             ((-1, 1), 14),
-            # # orange & brown
-            # ((1, 1), 9),
-            # ((-1, 1), 15),
+            # orange & brown
+            ((0, 0), 9),
+            ((0, 1), 15),
         ]
         lines_hexagon = [
             # grayscale
