@@ -2,7 +2,7 @@ system: "base24"
 name: "snow24"
 variant: "dark"
 palette:
-  base00: "#07131c"
+  base00: "#000c0d"
   base01: "#0e1a2f"
   base02: "#3b4e6c"
   base03: "#75899e"
