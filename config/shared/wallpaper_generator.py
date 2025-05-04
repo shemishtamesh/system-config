@@ -204,6 +204,9 @@ class Background:
         triangle_factory: TriangleFactory,
         use_random: bool,
     ) -> None:
+        if len(colors) > 17:
+            colors = colors[16:18:-1] + colors[:16] + colors[18:]
+
         triangle_height = triangle_factory.side_length * math.sin(math.tau / 6)
 
         self.triangles = []
@@ -358,7 +361,7 @@ def create_wallpaper_image(
             scaled_width,
             scaled_height,
         ),
-        str(colors[17] if len(colors) > 16 else colors[0]),
+        str(colors[17] if len(colors) > 17 else colors[0]),
     )
 
     Wallpaper(
