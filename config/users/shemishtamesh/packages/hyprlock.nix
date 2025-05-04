@@ -68,7 +68,7 @@
                 random = false;
               }
             );
-            blur_passes = 0;
+            blur_passes = 3;
             brightness = 0.5;
           }
         ) host.monitors
