@@ -205,12 +205,11 @@ class Background:
         use_random: bool,
     ) -> None:
         print('#' * 100)
-        print(list(enumerate([str(color) for color in colors[18:16:-1]])))
         print(str(colors[16]))
         print(str(colors[17]))
         print('#' * 100)
         if len(colors) > 17:
-            colors = colors[18:16:-1] + colors[:16] + colors[18:]
+            colors = [colors[17], colors[16]] + colors[:16] + colors[18:]
 
         triangle_height = triangle_factory.side_length * math.sin(math.tau / 6)
 
