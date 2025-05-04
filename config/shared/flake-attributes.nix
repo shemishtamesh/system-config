@@ -38,10 +38,10 @@ in
               "notify-send -u low 'switch succeeded'";
             update_wallpaper = # sh
               ''
-                if ! systemctl --user restart hyprpaper.service; then
-                  notify-send -u critical 'wallpaper switch failed'
-                  exit 1
-                fi
+                # if ! systemctl --user restart hyprpaper.service; then
+                #   notify-send -u critical 'wallpaper switch failed'
+                #   exit 1
+                # fi
               '';
           }
         else if kernel == "darwin" then
@@ -153,7 +153,7 @@ in
 
                 git push
 
-                # ${os_specific.update_wallpaper}
+                ${os_specific.update_wallpaper}
 
                 ${os_specific.notify_switch_success}
                 ${pkgs.fastfetch}/bin/fastfetch
