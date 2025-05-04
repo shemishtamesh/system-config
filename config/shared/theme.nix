@@ -67,7 +67,6 @@ in
           ${if !nix then "--no_nix" else ""} \
           ${if !gaps then "--gaps 0" else ""} \
           ${if !random then "--no_random" else ""} \
-          --no_color_outside_nix
       '';
       installPhase = "install -Dm0644 ${name} $out";
     };
