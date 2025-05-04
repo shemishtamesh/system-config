@@ -310,13 +310,14 @@ class Palette:
             ((3, 1), 22),
             ((2, 1), 13),
 
+            # purple
+            ((0, 1), 23),
+            ((0, 2), 14),
+
             # # extra
             # ((3, 1), 9),
             # ((2, 1), 15),
 
-        #     ((3, -1), 23),
-        #     #
-        #     ((3, 0), 14),
         ]
         for coords_and_color in dimonds:
             self.triangles.append(
