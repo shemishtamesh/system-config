@@ -314,9 +314,9 @@ class Palette:
             ((0, 0), 23),
             ((0, 1), 14),
 
-            # # extra
-            # ((3, 1), 9),
-            # ((2, 1), 15),
+            # orange & brown
+            ((-4, 1), 9),
+            ((4, 1), 15),
 
         ]
         for coords_and_color in dimonds:
