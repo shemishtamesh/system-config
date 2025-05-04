@@ -280,6 +280,7 @@ class Palette:
                     Point(*coords_and_color[0]), colors[coords_and_color[1]]
                 )
             )
+            print(coords_and_color[1], colors[coords_and_color[1]])
 
     def draw(self, image: Image) -> "Palette":
         for triangle in self.triangles:
