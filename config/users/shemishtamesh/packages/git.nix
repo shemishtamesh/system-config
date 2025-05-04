@@ -10,6 +10,7 @@
       sw = "switch";
       c = "commit";
       ch = "checkout";
+      cl = "clone";
       a = "add";
       r = "reset";
       rb = "rebase";
