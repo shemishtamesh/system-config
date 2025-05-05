@@ -140,7 +140,7 @@ in
         bind r source-file ~/.config/tmux/tmux.conf \; display ".tmux.conf reloaded"
 
         # disable suspend
-        bind z resize-pane -Z
+        bind C-z resize-pane -Z
 
         # make selection mode more like vim
         set-window-option -g mode-keys vi
