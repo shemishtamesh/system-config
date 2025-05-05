@@ -43,6 +43,7 @@ let
     nix-diff
     nix-output-monitor
     nvd
+    devenv
     bitwarden
     zathura
     obsidian
@@ -98,7 +99,6 @@ let
         lorien
         qpwgraph
         transmission_4-gtk
-        devenv
       ];
     };
     shemishtamac = {
