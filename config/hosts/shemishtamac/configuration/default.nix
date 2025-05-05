@@ -1,4 +1,9 @@
-{ shared, inputs, host, ... }:
+{
+  shared,
+  inputs,
+  host,
+  ...
+}:
 {
   imports = [
     ./services
