@@ -1,12 +1,9 @@
-{ shared, inputs, ... }:
+{ shared, inputs, host, ... }:
 {
   imports = [
     ./services
     ./homebrew.nix
   ];
-
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
 
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
@@ -46,6 +43,20 @@
     inherit enable base16Scheme fonts;
   };
 
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    substituters = [
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+    trusted-users = [ "@wheel" ];
+  };
+
   # use touch id auth for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -53,5 +64,5 @@
   ids.gids.nixbld = 30000;
 
   # The platform the configuration will be used on.
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = host.system;
 }
