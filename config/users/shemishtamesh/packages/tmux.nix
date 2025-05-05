@@ -139,6 +139,9 @@ in
         # reload config file
         bind r source-file ~/.config/tmux/tmux.conf \; display ".tmux.conf reloaded"
 
+        # disable suspend
+        unbind C-z
+
         # make selection mode more like vim
         set-window-option -g mode-keys vi
         bind-key -T copy-mode-vi v send-keys -X begin-selection

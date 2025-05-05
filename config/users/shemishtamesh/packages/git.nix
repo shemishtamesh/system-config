@@ -7,6 +7,7 @@
       l = "log --all --decorate --oneline --graph --pretty=format:'%C(yellow)%h %C(green)%an %C(blue)%ar %C(magenta)%D %C(white)%s'";
       b = "branch";
       s = "status";
+      sh = "stash";
       sw = "switch";
       c = "commit";
       ch = "checkout";
