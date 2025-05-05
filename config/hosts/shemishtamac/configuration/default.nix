@@ -45,7 +45,7 @@
   };
 
   stylix = with shared.theme.stylix_settings; {
-    inherit enable base16Scheme fonts;
+    inherit enable base16Scheme fonts cursor;
   };
 
   nix.settings = {
