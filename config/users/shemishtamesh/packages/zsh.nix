@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 
 {
   home.shell.enableZshIntegration = true;
@@ -85,6 +85,13 @@
         autoload edit-command-line; zle -N edit-command-line
         bindkey '^e' edit-command-line
       '';
+    initExtra =
+      if pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin" then
+        ''
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        ''
+      else
+        "";
   };
   home.file.".zsh/completions/_cht".source = builtins.fetchurl {
     url = "https://cheat.sh/:zsh";
