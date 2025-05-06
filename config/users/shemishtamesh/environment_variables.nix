@@ -1,5 +1,5 @@
 {
-  home.sessionVariables = {
+  home.sesasionVariables = {
     MANROFFOPT = "-c";
     MANWIDTH = "999";
     MANPAGER = "nvim +Man!";
