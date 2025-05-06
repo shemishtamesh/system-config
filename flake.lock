@@ -1084,11 +1084,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1746514896,
-        "narHash": "sha256-FhEMQm/qiKms3ACyXrXD2MTPW4wL16uW+qOAO4jxZ3o=",
+        "lastModified": 1746548648,
+        "narHash": "sha256-Ej9TKl7AI/Ptl2yr+5lkqWst/R+PJCrx2WUQuUZhqzg=",
         "owner": "shemishtamesh",
         "repo": "nixvim-flake",
-        "rev": "0d08e35e367db92dee1629841970dda2a11408f9",
+        "rev": "e3424074858bfb93a020634b0b1196800f7b86b1",
         "type": "github"
       },
       "original": {
