@@ -65,6 +65,7 @@ let
         ./zen-browser.nix
       ];
       packages = with pkgs; [
+        tuxguitar
         (callPackage ./ohrrpgce { })
         cht-sh
         tetrio-desktop
