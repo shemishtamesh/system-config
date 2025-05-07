@@ -40,7 +40,7 @@
     hooks.pre-commit =
       pkgs.writeScript "pre-commit-script" # sh
         ''
-          ${pkgs.gitleaks}/bin/gitleaks git --pre-commit --verbose --redact
+          ${pkgs.gitleaks}/bin/gitleaks git --no-banner --pre-commit --verbose --redact
         '';
     extraConfig = {
       merge = {
