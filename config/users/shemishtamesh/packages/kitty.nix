@@ -15,6 +15,8 @@ in
     };
     shellIntegration.enableZshIntegration = true;
     settings = {
+      disable_ligatures = "never";
+
       mouse_hide_wait = -1;
 
       hide_window_decorations = "yes";
