@@ -1,5 +1,6 @@
 {
   config,
+  shared,
   ...
 }:
 let
@@ -15,7 +16,7 @@ in
     };
     shellIntegration.enableZshIntegration = true;
     settings = {
-      font_family = config.lib.stylix.fonts.monospace.name;
+      font_family = shared.fonts.monospace.name;
 
       mouse_hide_wait = -1;
 
