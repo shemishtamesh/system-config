@@ -1,4 +1,6 @@
+{ pkgs, ... }:
 {
+  home.programs = with pkgs; [ gitleaks ];
   programs.git = {
     enable = true;
     userName = "shemishtamesh";
@@ -35,6 +37,11 @@
       ".venv"
       ".envrc"
     ];
+    hooks.pre-commit =
+      pkgs.writeScript "pre-commit-script" # sh
+        ''
+          ${pkgs.gitleaks}/bin/gitleaks git --pre-commit --verbose --redact
+        '';
     extraConfig = {
       merge = {
         tool = "nvimdiff";
