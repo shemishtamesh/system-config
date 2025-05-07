@@ -15,7 +15,7 @@ in
     };
     shellIntegration.enableZshIntegration = true;
     settings = {
-      disable_ligatures = "never";
+      font_family = config.lib.stylix.fonts.monospace.name;
 
       mouse_hide_wait = -1;
 
