@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.programs = with pkgs; [ gitleaks ];
+  home.packages = with pkgs; [ gitleaks ];
   programs.git = {
     enable = true;
     userName = "shemishtamesh";
