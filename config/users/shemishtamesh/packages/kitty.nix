@@ -16,7 +16,7 @@ in
     };
     shellIntegration.enableZshIntegration = true;
     settings = {
-      font_family = shared.fonts.monospace.name;
+      font_family = shared.theme.fonts.monospace.name;
 
       mouse_hide_wait = -1;
 
