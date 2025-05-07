@@ -23,17 +23,6 @@
       url = "github:zhaofengli/nix-homebrew";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # homebrew-core = {
-    #   url = "github:homebrew/homebrew-core";
-    #   flake = false;
-    # };
-    # TODO: this includes a cask for a `bloodhound` package, which is some metasploit thing.
-    # for that reason the CSO told me to remove it (even though it's just metadata).
-    # should find a way to
-    # homebrew-cask = {
-    #   url = "github:homebrew/homebrew-cask";
-    #   flake = false;
-    # };
     mac-app-util = {
       url = "github:hraban/mac-app-util";
       inputs.nixpkgs.follows = "nixpkgs";
