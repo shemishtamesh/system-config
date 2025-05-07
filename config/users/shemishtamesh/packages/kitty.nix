@@ -16,8 +16,6 @@ in
     };
     shellIntegration.enableZshIntegration = true;
     settings = {
-      font_family = shared.theme.fonts.monospace.name;
-
       mouse_hide_wait = -1;
 
       hide_window_decorations = "yes";
@@ -32,6 +30,7 @@ in
 
       cursor_trail = 1;
 
+      font_family = shared.theme.fonts.monospace.name;
       font_size = 14;
 
       # colors
