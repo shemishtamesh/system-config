@@ -33,6 +33,8 @@ in
       font_family = shared.theme.fonts.monospace.name;
       font_size = 14;
 
+      macos_option_as_alt = "yes";
+
       # colors
       background = palette.base11 or palette.base00;
       foreground = palette.base05;
