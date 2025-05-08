@@ -2,7 +2,7 @@
 import math
 import random
 import argparse
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw  # type: ignore
 
 
 class Point:
@@ -252,7 +252,7 @@ class Palette:
         self, colors: list[Color], triangle_factory: TriangleFactory
     ) -> None:
         self.triangles = []
-        hexagon = [
+        for coords_and_color in [
             # grays
             ((1, -1), 7),
             ((-1, -1), 6),
@@ -285,71 +285,7 @@ class Palette:
             # orange & brown
             ((0, 0), 9),
             ((0, -1), 15),
-        ]
-        lines_hexagon = [
-            # gray
-            ((0, 1), 7),
-            ((1, 1), 6),
-            ((-1, 1), 5),
-            ((2, 1), 4),
-            ((-2, 1), 3),
-            ((0, -2), 17),
-            ((1, -2), 16),
-            ((-1, -2), 0),
-            ((2, -2), 1),
-            ((-2, -2), 2),
-            # regular
-            ((-3, -1), 18),
-            ((-2, -1), 19),
-            ((-1, -1), 20),
-            ((0, -1), 9),
-            ((1, -1), 21),
-            ((2, -1), 22),
-            ((3, -1), 23),
-            # bright
-            ((-3, 0), 8),
-            ((-2, 0), 10),
-            ((-1, 0), 11),
-            ((0, 0), 15),
-            ((1, 0), 12),
-            ((2, 0), 13),
-            ((3, 0), 14),
-        ]
-        dimonds = [
-            # gray
-            ((1, -1), 7),
-            ((-1, -1), 6),
-            ((1, 0), 5),
-            ((-1, 0), 4),
-            ((2, -1), 3),
-            ((-2, -1), 2),
-            ((2, 0), 1),
-            ((-2, 0), 0),
-            ((3, -1), 16),
-            ((-3, -1), 17),
-            # red
-            ((-3, 1), 8),
-            ((-2, 1), 18),
-            # yellow
-            ((-3, -2), 10),
-            ((-2, -2), 19),
-            # green
-            ((0, -2), 11),
-            ((0, -1), 20),
-            # cyan
-            ((3, -2), 21),
-            ((2, -2), 12),
-            # blue
-            ((3, 1), 22),
-            ((2, 1), 13),
-            # purple
-            ((0, 0), 23),
-            ((0, 1), 14),
-            # orange & brown
-            ((1, 1), 9),
-            ((-1, 1), 15),
-        ]
-        for coords_and_color in hexagon:
+        ]:
             self.triangles.append(
                 triangle_factory.triangle(
                     Point(*coords_and_color[0]), colors[coords_and_color[1]]
