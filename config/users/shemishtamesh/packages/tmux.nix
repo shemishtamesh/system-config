@@ -183,6 +183,8 @@ in
         set -g status-fg \${base07}
         set -g status-position top
         set -g status-keys vi
+
+        set -ga update-environment 'KITTY_LISTEN_ON'
       '';
   };
 }
