@@ -14,17 +14,22 @@ palette:
   base07: "#ffffff"
 
   base08: "#ff6b6b"
-  base0A: "#f0fa90"
-  base0B: "#6af09e"
-  base0C: "#80dfdf"
-  base0D: "#569dff"
-  base0E: "#c3a1ff"
-  base0F: "#b48f6a"
-
   base12: "#ff8f8f"
+
+  base0A: "#f0fa90"
   base13: "#ffffaf"
+
+  base0B: "#6af09e"
   base14: "#8dffb9"
+
+  base0C: "#80dfdf"
   base15: "#80efef"
+
+  base0D: "#569dff"
   base16: "#a3cfff"
+
+  base0E: "#c3a1ff"
   base17: "#e5cfff"
+
+  base0F: "#b48f6a"
   base09: "#ffab6b"
