@@ -19,6 +19,7 @@ let
     ./nix-index.nix
     ./nixcord.nix
     ./mpv.nix
+    ./zathura.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -45,7 +46,6 @@ let
     nvd
     devenv
     bitwarden
-    zathura
     obsidian
     slack
   ];
