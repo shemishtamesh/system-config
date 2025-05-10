@@ -25,6 +25,7 @@
       dt = "difftool";
       m = "merge";
       mt = "mergetool";
+      i = "init";
     };
     delta = {
       enable = true;
