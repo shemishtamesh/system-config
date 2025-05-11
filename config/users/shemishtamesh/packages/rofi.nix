@@ -19,7 +19,7 @@ in
     ++ [
       # this list is just rofi-rbw and it's dependencies
       rofi-rbw-wayland
-      wl-copy
+      wl-clipboard
       wtype
       pinentry-all
     ];
