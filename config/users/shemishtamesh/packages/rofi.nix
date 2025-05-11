@@ -21,7 +21,7 @@ in
       rofi-rbw-wayland
       wl-clipboard
       wtype
-      pinentry-all
+      pinentry-qt
     ];
   programs.rofi = {
     enable = true;
