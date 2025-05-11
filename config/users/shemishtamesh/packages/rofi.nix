@@ -11,11 +11,10 @@ let
 in
 {
   stylix.targets.rofi.enable = false;
-  # home.packages = with pkgs; [ rofi rofimoji ];
-  # home.packages = with pkgs; [ rofi-wayland rofimoji ];
-  # home.packages = with pkgs; [ rofi-wayland ];
-  # home.packages = with pkgs; [ rofi ];
-  home.packages = with pkgs; [ rofimoji ];
+  home.packages =
+    with pkgs;
+    [ rofimoji ]
+    ++ (if builtins.elem bitwarden config.home.packages then [ rofi-rbw-wayland ] else [ ]);
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
