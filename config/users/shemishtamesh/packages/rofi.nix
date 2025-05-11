@@ -11,10 +11,18 @@ let
 in
 {
   stylix.targets.rofi.enable = false;
-  home.packages = with pkgs; [
-    rofimoji
-    rofi-rbw-wayland
-  ];
+  home.packages =
+    with pkgs;
+    [
+      rofimoji
+    ]
+    ++ [
+      # this list is just rofi-rbw and it's dependencies
+      rofi-rbw-wayland
+      wl-copy
+      wtype
+      pinentry-all
+    ];
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
