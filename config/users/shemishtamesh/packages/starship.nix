@@ -5,7 +5,7 @@
       nix_shell.heuristic = true; # https://github.com/starship/starship/pull/4724#pullrequestreview-1222025226
       shlvl = {
         disabled = false;
-        threshold = 3;
+        threshold = 2;
       };
     };
   };
