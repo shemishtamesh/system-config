@@ -21,7 +21,7 @@ in
       rofi-rbw-wayland
       wl-clipboard
       wtype
-      pinentry-qt
+      pinentry-gnome3
     ];
   programs.rofi = {
     enable = true;
