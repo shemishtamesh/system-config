@@ -48,19 +48,6 @@
         export HISTSIZE=100000
         export SAVEHIST=100000
 
-        s() {
-          # function to easily enter a nix shell with specified packages
-          if [[ $# -eq 0 ]]; then
-            echo "Usage: nix_shell_flakes <arg1> <arg2> ..."
-            return 1
-          fi
-          local command="nix --extra-experimental-features nix-command --extra-experimental-features nix-flakes shell"
-          for arg in "$@"; do
-            command="$command nixpkgs#$arg"
-          done
-          eval "$command --command zsh"
-        }
-
         # completions
         fpath=(~/.zsh/completions $fpath)
         autoload -U compinit && compinit   # load + start completion
