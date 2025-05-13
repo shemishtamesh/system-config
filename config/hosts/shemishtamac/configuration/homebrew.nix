@@ -7,12 +7,7 @@
   };
   homebrew = {
     enable = true;
-    casks = [
-      {
-        name = "zen-browser";
-        link = true;
-      }
-    ];
+    casks = [ "zen-browser" ];
     onActivation = {
       cleanup = "uninstall";
       autoUpdate = true;
