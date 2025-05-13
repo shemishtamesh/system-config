@@ -8,7 +8,9 @@
   homebrew = {
     enable = true;
     casks = [ "zen-browser" ];
-    onActivation.cleanup = "uninstall";
-    autoUpdate = true;
+    onActivation = {
+      cleanup = "uninstall";
+      autoUpdate = true;
+    };
   };
 }
