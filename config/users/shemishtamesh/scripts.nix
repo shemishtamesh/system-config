@@ -2,6 +2,11 @@
 {
   home.packages = [
     (pkgs.writeShellScriptBin "bak" ''
+      if [[ $# -eq 0 ]]; then
+        echo 'Adds or removes `.bak` from the names of files and directories'
+        echo 'bak <arg1>'
+        exit 1
+      fi
       filename="$1"
       if [[ "$filename" =~ .bak$ ]]; then
           mv -i "$filename" "''${filename%.bak}";
@@ -15,7 +20,7 @@
     '')
     (pkgs.writeShellScriptBin "s" ''
       if [[ $# -eq 0 ]]; then
-        echo 'Enters a nix shell with the specified packages, and starting $SHELL.'
+        echo 'Enters an impure nix shell with the specified packages, and starting $SHELL.'
         echo 'Usage: s <arg1> <arg2> ...'
         exit 1
       fi
