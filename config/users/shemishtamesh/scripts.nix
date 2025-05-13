@@ -18,7 +18,7 @@
         echo 'Enters a nix shell with the specified packages, and starting $SHELL. with Usage: s <arg1> <arg2> ...'
         return 1
       fi
-      local command="nix --extra-experimental-features nix-command --extra-experimental-features nix-flakes shell"
+      local command="nix --extra-experimental-features nix-command --extra-experimental-features flakes shell"
       for arg in "$@"; do
         command="$command nixpkgs#$arg"
       done
