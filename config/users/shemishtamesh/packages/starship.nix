@@ -5,6 +5,7 @@
       nix_shell.heuristic = true; # https://github.com/starship/starship/pull/4724#pullrequestreview-1222025226
       shlvl = {
         disabled = false;
+        format = ''[$symbol$(echo "$shlvl - 2" | bc)]\n($style)'';
         threshold = 3;
       };
     };
