@@ -3,3 +3,4 @@ UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadabl
 [Parent 13232, IPC I/O Parent] WARNING: Failed to launch tab subprocess @posix_spawnp (Error:0): file /Users/runner/work/desktop/desktop/engine/ipc/glue/GeckoChildProcessHost.cpp:804
 [Parent 13232, IPC I/O Parent] WARNING: Failed to launch tab subprocess @posix_spawnp (Error:0): file /Users/runner/work/desktop/desktop/engine/ipc/glue/GeckoChildProcessHost.cpp:804
 UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+2025-05-14 09:46:11.077 zen[78554:184665] Warning: Window move completed without beginning
