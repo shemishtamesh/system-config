@@ -7,12 +7,10 @@
   };
   homebrew = {
     enable = true;
-    # casks = [ "zen-browser" ];
-    brews = [ "zen-browser" ];
+    casks = [ "zen-browser" ];
     onActivation = {
       # cleanup = "uninstall"; # WARNING: would be preferable, but seems to cause brew to uninstall everything (even if listed here), and then install it in the next rebuild
       autoUpdate = true;
     };
-    taps = [ "homebrew/cask" ];
   };
 }
