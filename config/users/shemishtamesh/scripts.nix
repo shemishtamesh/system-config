@@ -29,7 +29,7 @@
         command="$command nixpkgs#$arg"
       done
       export NIXPKGS_ALLOW_UNFREE=1
-      exec "$command --impure"
+      exec $command --impure
     '')
   ];
 }
