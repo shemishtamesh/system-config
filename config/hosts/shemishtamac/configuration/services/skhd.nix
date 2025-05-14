@@ -47,8 +47,8 @@
 
       # launch apps
       fn - t : kitty --execute tmux new-session -c $HOME
-      # fn - t : kitty --execute tmux new-session -c $HOME
-      # fn - t : kitty --execute tmux new-session -c $HOME
+      fn - z : /Applications/Zen.app/Contents/MacOS/zen
+      fn + shift - z : /Applications/Zen.app/Contents/MacOS/zen --private-window
     '';
   };
 }
