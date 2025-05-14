@@ -104,7 +104,9 @@ let
         ./karabiner-elements.nix
         ./databricks.nix
       ];
-      packages = with pkgs; [ google-cloud-sdk ];
+      packages = with pkgs; [
+        google-cloud-sdk
+      ];
     };
   };
 in
