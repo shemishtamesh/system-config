@@ -26,7 +26,6 @@ let
     ripgrep
     fd
     eza
-    tree
     tldr
     atool
     unrar
@@ -82,7 +81,6 @@ let
         inkscape
         hyprpicker
         hyprshot
-        tree-sitter
         wl-clipboard
         gimp
         obs-studio
