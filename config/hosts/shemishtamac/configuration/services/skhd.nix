@@ -46,7 +46,9 @@
       fn - b : yabai -m space --balance
 
       # launch apps
-      fn - 0x24 : kitty --execute tmux new-session -c $HOME
+      fn - t : kitty --execute tmux new-session -c $HOME
+      # fn - t : kitty --execute tmux new-session -c $HOME
+      # fn - t : kitty --execute tmux new-session -c $HOME
     '';
   };
 }
