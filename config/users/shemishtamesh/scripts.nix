@@ -20,7 +20,7 @@
     '')
     (pkgs.writeShellScriptBin "s" ''
       if [[ $# -eq 0 ]]; then
-        echo 'Enters an impure nix shell with the specified packages, and starting $SHELL.'
+        echo 'Enters an impure nix shell with the specified packages.'
         echo 'Usage: s <arg1> <arg2> ...'
         exit 1
       fi
@@ -29,7 +29,7 @@
         command="$command nixpkgs#$arg"
       done
       export NIXPKGS_ALLOW_UNFREE=1
-      eval "$command --impure --command $SHELL"
+      eval "$command --impure"
     '')
   ];
 }
