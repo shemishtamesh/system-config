@@ -8,5 +8,5 @@ in
     MANWIDTH = "999";
     MANPAGER = "nvim +Man!";
     EDITOR = "nvim";
-  } // (if system_type == "darwin" then host.system { HOMEBREW_NO_ANALYTICS = 1; } else { });
+  } // (if system_type == "darwin" then { HOMEBREW_NO_ANALYTICS = 1; } else { });
 }
