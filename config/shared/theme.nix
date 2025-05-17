@@ -28,7 +28,8 @@ in
 {
   inherit scheme fonts cursor;
   stylix_settings = {
-    enable = true;
+    # enable = true;
+    enable = false;
     base16Scheme = scheme;
     inherit fonts cursor;
   };
