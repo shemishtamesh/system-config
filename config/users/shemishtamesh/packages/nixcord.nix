@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
-  programs.discord.enable = true;
+  home.packages = with pkgs; [ discord ];
   # imports = [
   #   inputs.nixcord.homeModules.nixcord
   # ];
