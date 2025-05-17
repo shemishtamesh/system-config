@@ -7,12 +7,16 @@
     udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
     ''; # external monitor brightness control
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
 
-      desktopManager.gnome.enable = true;
+      # desktopManager.gnome.enable = true;
+      desktopManager.plasma6.enable = true;
       # displayManager.gdm.enable = true;
       xkb = {
         # Configure keymap in X11
