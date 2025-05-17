@@ -11,7 +11,7 @@
       # Enable the X11 windowing system.
       enable = true;
 
-      desktopManager.gnome.enable = true;
+      # desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
       xkb = {
         # Configure keymap in X11
