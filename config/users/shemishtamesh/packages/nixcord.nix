@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  inputs.stylix.targets.nixcord.enable = false;
+  stylix.targets.nixcord.enable = false;
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
