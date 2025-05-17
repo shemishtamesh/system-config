@@ -11,12 +11,12 @@
       enable = true;
       wayland.enable = true;
     };
+    desktopManager.plasma6.enable = true;
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
 
       # desktopManager.gnome.enable = true;
-      desktopManager.plasma6.enable = true;
       # displayManager.gdm.enable = true;
       xkb = {
         # Configure keymap in X11
