@@ -7,9 +7,8 @@
     udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
     ''; # external monitor brightness control
-    displayManager.sddm = {
+    displayManager.ly = {
       enable = true;
-      wayland.enable = true;
     };
     xserver = {
       # Enable the X11 windowing system.
