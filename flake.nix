@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05"; # TODO: return to unstable
+      url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager/release-25.05"; # TODO: return to unstable
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
