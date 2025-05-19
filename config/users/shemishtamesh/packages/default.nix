@@ -105,7 +105,6 @@ let
         ./databricks.nix
       ];
       packages = with pkgs; [
-        brave
         google-cloud-sdk
       ];
     };
