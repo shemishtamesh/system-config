@@ -11,18 +11,17 @@ let
 in
 {
   stylix.targets.rofi.enable = false;
-  home.packages =
-    with pkgs;
-    [
-      rofimoji
-    ]
-    # ++ [
-    #   # this list is just rofi-rbw and it's dependencies
-    #   rofi-rbw-wayland
-    #   wl-clipboard
-    #   wtype
-    #   pinentry-gnome3
-    # ];
+  home.packages = with pkgs; [
+    rofimoji
+  ]
+  # ++ [
+  #   # this list is just rofi-rbw and it's dependencies
+  #   rofi-rbw-wayland
+  #   wl-clipboard
+  #   wtype
+  #   pinentry-gnome3
+  # ]
+  ;
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
