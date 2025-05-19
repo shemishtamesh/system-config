@@ -10,6 +10,8 @@
     ./homebrew.nix
   ];
 
+  system.primaryUser = builtins.elemAt (builtins.attrNames host.users) 0;
+
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
 
