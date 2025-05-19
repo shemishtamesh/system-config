@@ -40,7 +40,7 @@ in
         else if kernel == "darwin" then
           {
             os_switch_command = # sh
-              ''darwin-rebuild switch --flake "$NH_FLAKE"'';
+              ''sudo darwin-rebuild switch --flake "$NH_FLAKE"'';
             notify_os_switch_failure = # sh
               "terminal-notifier -message 'nix-darwin switch failed'";
             notify_home_switch_failure = # sh
