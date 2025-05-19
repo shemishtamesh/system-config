@@ -56,7 +56,7 @@ let
             attribute_name = "darwinConfigurations";
             config_maker = nix-darwin.lib.darwinSystem;
             modules = modules ++ [
-              stylix.darwinModules.stylix
+              # stylix.darwinModules.stylix # TODO: uncomment this
               {
                 networking.hostName = host.hostname;
                 users.users = host.users;

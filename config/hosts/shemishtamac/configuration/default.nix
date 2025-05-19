@@ -46,10 +46,9 @@
     configurationRevision = with inputs; self.rev or self.dirtyRev or null;
   };
 
-  stylix = with shared.theme.stylix_settings; {
-    # inherit enable fonts;  # TODO: uncomment this
-    inherit base16Scheme;
-  };
+  # stylix = with shared.theme.stylix_settings; {
+  #   inherit enable base16Scheme fonts; # TODO: uncomment this
+  # };
 
   nix.settings = {
     experimental-features = [
