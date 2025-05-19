@@ -47,9 +47,8 @@
   };
 
   stylix = with shared.theme.stylix_settings; {
-    # inherit enable;  # TODO: uncomment this
-    enable = false;
-    inherit base16Scheme fonts;
+    # inherit enable fonts;  # TODO: uncomment this
+    inherit base16Scheme;
   };
 
   nix.settings = {
