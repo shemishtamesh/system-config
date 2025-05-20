@@ -170,6 +170,7 @@ in
         bind -r L resize-pane -R
 
         # status line
+        set status off
         bind -r F set-option status
         set -g status-interval 1
         set -g status-justify absolute-centre
