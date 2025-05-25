@@ -1,11 +1,5 @@
 { inputs, pkgs, ... }:
 {
-
-  # home.packages = with pkgs; [
-  #   discord
-  #   vencord
-  # ];
-
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
@@ -48,5 +42,4 @@
       };
     };
   };
-
 }
