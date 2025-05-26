@@ -26,7 +26,7 @@
     else
       with shared.theme.stylix_settings;
       {
-        enable = false;
+        enable = true;
         inherit base16Scheme fonts;
       };
 
