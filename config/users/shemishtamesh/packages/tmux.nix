@@ -110,6 +110,7 @@ in
           '';
 
       }
+      better-mouse-mode
       {
         plugin = resurrect;
         extraConfig = # tmux
@@ -128,7 +129,6 @@ in
         extraConfig = # tmux
           "set -g @continuum-restore 'on'";
       }
-      better-mouse-mode
     ];
     extraConfig =
       with palette; # tmux
