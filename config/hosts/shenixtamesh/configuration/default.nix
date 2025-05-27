@@ -45,7 +45,10 @@
       package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
-    openrazer.users = builtins.attrNames host.users;
+    openrazer = {
+      enable = true;
+      users = builtins.attrNames host.users;
+    };
   };
 
   nixpkgs = {
