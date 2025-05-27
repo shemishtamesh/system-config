@@ -8,8 +8,8 @@ profile_makers.mkNixosSystem {
       "networkmanager"
       "wheel"
       "input"
-      "adbusers"
-      # "docker"
+      # "adbusers"
+      "docker"
       "openrazer"
     ];
   };
