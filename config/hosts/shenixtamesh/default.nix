@@ -10,6 +10,7 @@ profile_makers.mkNixosSystem {
       "input"
       "adbusers"
       "docker"
+      "openrazer"
     ];
   };
   monitors = {
