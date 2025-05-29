@@ -4,8 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      # url = "github:nix-community/home-manager";
-      url = "github:nix-community/home-manager/release-25.05"; # TODO: return to unstable
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
@@ -22,7 +21,6 @@
     };
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
