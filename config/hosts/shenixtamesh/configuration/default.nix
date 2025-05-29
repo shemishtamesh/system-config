@@ -18,7 +18,12 @@
     ./security.nix
     ./services.nix
   ];
-  xdg.portal.enable = true;
+  xdg = {
+    portal.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   hardware = {
     keyboard.qmk.enable = true;
