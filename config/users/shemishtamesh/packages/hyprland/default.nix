@@ -257,7 +257,9 @@ in
           );
         device = {
           name = "wacom-one-by-wacom-s-pen";
-          output = "HDMI-A-2";
+          output = builtins.elemAt (builtins.attrNames host.monitors) (
+            builtins.length (builtins.attrNames host.monitors) / 2
+          );
         };
         exec-once = [
           "${pkgs.hyprpaper}"
