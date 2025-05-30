@@ -14,7 +14,7 @@ let
 
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
-  ) builtins.attrNames host.monitors;
+  ) (builtins.attrNames host.monitors);
   # sorted_monitors = lib.lists.sort (a: b: a.horizontal_offset < b.horizontal_offset) (
   #   lib.attrsets.mapAttrsToList (name: value: {
   #     inherit name;
