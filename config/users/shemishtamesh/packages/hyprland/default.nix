@@ -245,11 +245,11 @@ in
               monitor_portnames: workspace_numbers:
               lib.lists.imap0 (
                 i: key:
-                ''${toString key},monitor:"${
+                ''${toString key}, monitor:${
                   lib.lists.elemAt monitor_portnames (
                     i * lib.lists.length monitor_portnames / lib.lists.length workspace_numbers
                   )
-                }"''
+                }''
               ) workspace_numbers
             )
             (builtins.attrNames host.monitors)
