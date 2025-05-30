@@ -234,11 +234,27 @@ in
           "bordersize 0, floating:0, onworkspace:f[1]"
           "rounding 0, floating:0, onworkspace:f[1]"
         ];
-        workspace = [
-          # no borders when there's only a single visible window
-          "w[v1], gapsout:0, gapsin:0"
-          "f[1], gapsout:0, gapsin:0"
-        ];
+        workspace =
+          [
+            # no borders when there's only a single visible window
+            "w[v1], gapsout:0, gapsin:0"
+            "f[1], gapsout:0, gapsin:0"
+          ]
+          ++ (
+            (
+              monitor_portnames: workspace_numbers:
+              lib.lists.imap0 (
+                i: key:
+                ''${toString key},monitor:"${
+                  lib.lists.elemAt monitor_portnames (
+                    i * lib.lists.length monitor_portnames / lib.lists.length workspace_numbers
+                  )
+                }"''
+              ) workspace_numbers
+            )
+            (builtins.attrNames host.monitors)
+            (lib.range 1 9)
+          );
         device = {
           name = "wacom-one-by-wacom-s-pen";
           output = "HDMI-A-2";
