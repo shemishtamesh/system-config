@@ -5,6 +5,23 @@
   ...
 }:
 let
+  kill_current_and_select_session = pkgs.writeShellScriptBin "kill_current_and_select_session" ''
+    CURRENT_SESSION=$(tmux display-message -p '#S')
+    # Get list of all sessions except current
+    OTHER_SESSIONS=$(tmux list-sessions -F '#S' | grep -v "^''${CURRENT_SESSION}$")
+
+    if [ -n "$OTHER_SESSIONS" ]; then
+        # Switch to the first other session
+        NEXT_SESSION=$(echo "$OTHER_SESSIONS" | head -n1)
+        tmux switch-client -t "$NEXT_SESSION"
+        tmux kill-session -t "$CURRENT_SESSION"
+        # Now open session chooser
+        tmux choose-session
+    else
+        # No other sessions exist, just kill and exit
+        tmux kill-session -t "$CURRENT_SESSION"
+    fi
+  '';
   segments =
     if pkgs.stdenv.isLinux then
       {
@@ -171,6 +188,9 @@ in
         bind -r J resize-pane -D
         bind -r K resize-pane -U
         bind -r L resize-pane -R
+
+        # this is to make it easier to open an existing session without opening a new one when there are no terminals open
+        bind-key X run-shell $kill_current_and_select_session
 
         # status line
         set -g status off
