@@ -11,18 +11,16 @@ let
   gaps = "0";
   rounding = "10";
   scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
+
+  sorted_monitors = builtins.sort (
+    a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
+  ) builtins.attrNames host.monitors;
   # sorted_monitors = lib.lists.sort (a: b: a.horizontal_offset < b.horizontal_offset) (
   #   lib.attrsets.mapAttrsToList (name: value: {
   #     inherit name;
-  #     horizontal_offset = value.horizontal_offset;
+  #     inherit (value) horizontal_offset;
   #   }) host.monitors
   # );
-  sorted_monitors = lib.lists.sort (a: b: a.horizontal_offset < b.horizontal_offset) (
-    lib.attrsets.mapAttrsToList (name: value: {
-      inherit name;
-      inherit (value) horizontal_offset;
-    }) host.monitors
-  );
 in
 {
   wayland.windowManager.hyprland =
