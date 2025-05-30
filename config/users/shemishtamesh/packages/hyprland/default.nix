@@ -15,7 +15,7 @@ let
     lib.attrsets.mapAttrsToList (name: value: {
       inherit name;
       horizontal_offset = value.horizontal_offset;
-    }) host.monitors
+    }) lib.attrsets.attrValues host.monitors
   );
 in
 {
