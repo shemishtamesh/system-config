@@ -11,6 +11,12 @@ let
   gaps = "0";
   rounding = "10";
   scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
+  sorted_monitors = lib.lists.sort (a: b: a.horizontal_offset < b.horizontal_offset) (
+    lib.attrsets.mapAttrsToList (name: value: {
+      inherit name;
+      horizontal_offset = value.horizontal_offset;
+    }) host.monitors
+  );
 in
 {
   wayland.windowManager.hyprland =
@@ -252,14 +258,12 @@ in
                 }''
               ) workspace_numbers
             )
-            (builtins.attrNames host.monitors)
+            sorted_monitors
             (lib.range 1 9)
           );
         device = {
           name = "wacom-one-by-wacom-s-pen";
-          output = builtins.elemAt (builtins.attrNames host.monitors) (
-            builtins.length (builtins.attrNames host.monitors) / 2
-          );
+          output = builtins.elemAt sorted_monitors (builtins.length host.monitors / 2);
         };
         exec-once = [
           "${pkgs.hyprpaper}"
