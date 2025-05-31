@@ -88,10 +88,11 @@ in
             "$mod, 0, togglespecialworkspace, scratchpad"
             "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
             "$mod, n, workspace, emptynm"
-            "$mod, mouse_up, workspace, e-1"
-            "$mod, mouse_down, workspace, e+1"
+            "$mod, mouse_up, workspace, m-1"
+            "$mod, mouse_down, workspace, m+1"
             "$mod, bracketleft, workspace, m-1"
             "$mod, bracketright, workspace, m+1"
+            "$mod, o, workspace, previous"
           ]
           ++ (builtins.concatLists (
             builtins.genList (
