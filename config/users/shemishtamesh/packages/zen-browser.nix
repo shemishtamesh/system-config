@@ -20,17 +20,16 @@
       OfferToSaveLogins = false;
     };
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
-    profiles = [
-      {
-        name = "Default Profile";
-        isDefault = true;
-        userChrome = # css
-          ''
-            #tabbrowser-tabpanels > hbox {
-              margin: 0px!important;
-            }
-          '';
-      }
-    ];
+    profiles.default = {
+      # id = 0;
+      # name = "default";
+      # isDefault = true;
+      userChrome = # css
+        ''
+          #tabbrowser-tabpanels > hbox {
+            margin: 0px!important;
+          }
+        '';
+    };
   };
 }
