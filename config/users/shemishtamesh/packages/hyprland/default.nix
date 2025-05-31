@@ -261,7 +261,7 @@ in
         device = {
           name = "wacom-one-by-wacom-s-pen";
           output = builtins.elemAt sorted_monitors (builtins.length sorted_monitors / 2);
-          tablet.left_handed = true;
+          input.tablet.left_handed = true;
         };
         exec-once = [
           "${pkgs.hyprpaper}"
