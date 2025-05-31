@@ -20,5 +20,11 @@
       OfferToSaveLogins = false;
     };
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
+    profiles.userChrome = # css
+      ''
+        #tabbrowser-tabpanels > hbox {
+          margin: 0px!important;
+        }
+      '';
   };
 }
