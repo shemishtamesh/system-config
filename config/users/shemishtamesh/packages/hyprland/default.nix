@@ -51,6 +51,7 @@ in
             "$mod SHIFT, q, forcekillactive"
 
             "$mod, c, cyclenext"
+            "$mod SHIFT, c, cyclenext, prev"
 
             "$mod, f, fullscreen, 1"
             "$mod SHIFT, f, fullscreen, 0"
@@ -89,8 +90,8 @@ in
             "$mod, n, workspace, emptynm"
             "$mod, mouse_up, workspace, e-1"
             "$mod, mouse_down, workspace, e+1"
-            "$mod, bracketleft, workspace, em-1"
-            "$mod, bracketright, workspace, em+1"
+            "$mod, bracketleft, workspace, m-1"
+            "$mod, bracketright, workspace, m+1"
           ]
           ++ (builtins.concatLists (
             builtins.genList (
