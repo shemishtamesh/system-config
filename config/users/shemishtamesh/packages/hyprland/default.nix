@@ -89,8 +89,8 @@ in
             "$mod, n, workspace, emptynm"
             "$mod, mouse_up, workspace, e-1"
             "$mod, mouse_down, workspace, e+1"
-            "$mod, bracketleft, workspace, e-1"
-            "$mod, bracketright, workspace, e+1"
+            "$mod, bracketleft, workspace, em-1"
+            "$mod, bracketright, workspace, em+1"
           ]
           ++ (builtins.concatLists (
             builtins.genList (
