@@ -45,6 +45,7 @@ in
         "hyprland/window" = {
           icon = true;
           icon-size = 18;
+          separate-outputs = true;
         };
         mpris = {
           format = "{player_icon}{status_icon}: {dynamic}";
