@@ -44,8 +44,10 @@
             main = {
               # BTN_SIDE = "super";
               # BTN_EXTRA = "shift";
-              mouse1 = "a";
-              mouse2 = "b";
+              # mouse1 = "a";
+              # mouse2 = "b";
+              "275" = "a";
+              "276" = "b";
               # a = "b";
               # b = "a";
             };
