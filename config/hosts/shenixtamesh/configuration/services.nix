@@ -42,8 +42,10 @@
           ids = [ "*" ];
           settings = {
             main = {
-              BTN_SIDE = "super";
-              BTN_EXTRA = "shift";
+              # BTN_SIDE = "super";
+              # BTN_EXTRA = "shift";
+              BTN_SIDE = "a";
+              BTN_EXTRA = "b";
               # a = "b";
               # b = "a";
             };
