@@ -92,8 +92,8 @@ in
             "$mod, mouse_down, workspace, m+1"
             "$mod, bracketleft, workspace, m-1"
             "$mod, bracketright, workspace, m+1"
-            "$mod, p, monitor, -1"
-            "$mod, n, monitor, +1"
+            "$mod, p, focusmonitor, -1"
+            "$mod, n, focusmonitor, +1"
             "$mod, o, workspace, previous"
           ]
           ++ (builtins.concatLists (
