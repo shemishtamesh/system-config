@@ -42,8 +42,8 @@
           ids = [ "*" ];
           settings = {
             main = {
-              "code:276" = "super";
-              "code:275" = "shift";
+              BTN_SIDE = "super";
+              BTN_EXTRA = "shift";
               # a = "b";
               # b = "a";
             };
