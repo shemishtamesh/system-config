@@ -20,6 +20,12 @@
       OfferToSaveLogins = false;
       Preferences = {
         "zen.theme.content-element-separation" = 0;
+        "zen.view.use-single-toolbar" = false;
+        "zen.view.compact.hide-toolbar" = true;
+        "zen.view.compact.toolbar-flash-popup" = true;
+        "zen.urlbar.behavior" = "float";
+        "zen.welcome-screen.seen" = true;
+        "zen.workspaces.container-specific-essentials-enabled" = true;
       };
     };
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
@@ -27,12 +33,6 @@
       id = 0;
       name = "default";
       isDefault = true;
-      userChrome = # css
-        ''
-          #tabbrowser-tabpanels > hbox {
-            margin: 0px!important;
-          }
-        '';
     };
   };
 }
