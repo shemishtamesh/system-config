@@ -97,7 +97,7 @@ in
             "$mod, p, focusmonitor, +1"
             "$mod SHIFT, n, movewindow, mon:-1"
             "$mod SHIFT, p, movewindow, mon:+1"
-            "$mod ALT, n, movecurrentworALTkspacetomonitor, -1"
+            "$mod ALT, n, movecurrentworkspacetomonitor, -1"
             "$mod ALT, p, movecurrentworkspacetomonitor, +1"
           ]
           ++ (builtins.concatLists (
