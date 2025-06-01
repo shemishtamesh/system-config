@@ -37,6 +37,18 @@
     };
     keyd = {
       enable = true;
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              XButton1 = "super";
+              XButton2 = "shift";
+            };
+          };
+        };
+      }
+      ;
     };
     syncthing = {
       enable = true;
