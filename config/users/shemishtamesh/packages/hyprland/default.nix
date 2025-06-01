@@ -88,13 +88,17 @@ in
             "$mod, 0, togglespecialworkspace, scratchpad"
             "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
             "$mod, e, workspace, emptym"
+            "$mod, o, workspace, previous"
             "$mod, mouse_up, workspace, m-1"
             "$mod, mouse_down, workspace, m+1"
             "$mod, bracketleft, workspace, m-1"
             "$mod, bracketright, workspace, m+1"
             "$mod, n, focusmonitor, -1"
             "$mod, p, focusmonitor, +1"
-            "$mod, o, workspace, previous"
+            "$mod SHIFT, n, movewindow, mon:-1"
+            "$mod SHIFT, p, movewindow, mon:+1"
+            "$mod ALT, n, movecurrentworALTkspacetomonitor, -1"
+            "$mod ALT, p, movecurrentworkspacetomonitor, +1"
           ]
           ++ (builtins.concatLists (
             builtins.genList (
