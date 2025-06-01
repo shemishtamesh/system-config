@@ -42,10 +42,10 @@
           ids = [ "*" ];
           settings = {
             main = {
-              XButton1 = "super";
-              XButton2 = "shift";
-              a = "b";
-              b = "a";
+              "code:276" = "super";
+              "code:275" = "shift";
+              # a = "b";
+              # b = "a";
             };
           };
         };
