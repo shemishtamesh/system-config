@@ -87,7 +87,7 @@ in
             "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
             "$mod, 0, togglespecialworkspace, scratchpad"
             "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
-            "$mod, n, workspace, emptynm"
+            "$mod, n, workspace, emptym"
             "$mod, mouse_up, workspace, m-1"
             "$mod, mouse_down, workspace, m+1"
             "$mod, bracketleft, workspace, m-1"
