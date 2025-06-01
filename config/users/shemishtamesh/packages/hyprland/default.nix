@@ -66,7 +66,7 @@ in
             ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
             '', XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command "echo -n '{result}' | wl-copy"''
             "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-            "$mod, p, exec, rofi-rbw"
+            "$mod, g, exec, rofi-rbw"
             "$mod CTRL, c, exec, hyprpicker --autocopy"
             "$mod, s, exec, hyprshot -m window"
             "$mod SHIFT, s, exec, hyprshot -m region"
@@ -87,11 +87,13 @@ in
             "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
             "$mod, 0, togglespecialworkspace, scratchpad"
             "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
-            "$mod, n, workspace, emptym"
+            "$mod, e, workspace, emptym"
             "$mod, mouse_up, workspace, m-1"
             "$mod, mouse_down, workspace, m+1"
             "$mod, bracketleft, workspace, m-1"
             "$mod, bracketright, workspace, m+1"
+            "$mod, p, monitor, -1"
+            "$mod, n, monitor, +1"
             "$mod, o, workspace, previous"
           ]
           ++ (builtins.concatLists (
