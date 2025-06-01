@@ -44,6 +44,8 @@
             main = {
               XButton1 = "super";
               XButton2 = "shift";
+              a = "b";
+              b = "a";
             };
           };
         };
