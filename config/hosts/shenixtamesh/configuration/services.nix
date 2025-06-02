@@ -35,29 +35,6 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
-    keyd = {
-      enable = true;
-      keyboards = {
-        default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              # BTN_SIDE = "super";
-              # BTN_EXTRA = "shift";
-              mouse1 = "rightmouse";
-              mouse2 = "rightmouse";
-              "_" = "rightmouse";
-              # mouse1 = "x";
-              # mouse2 = "y";
-              # "275" = "x";
-              # "276" = "y";
-              # a = "b";
-              # b = "a";
-            };
-          };
-        };
-      };
-    };
     syncthing = {
       enable = true;
       user = "shemishtamesh";
