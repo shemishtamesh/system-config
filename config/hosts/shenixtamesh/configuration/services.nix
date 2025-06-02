@@ -46,6 +46,7 @@
               # BTN_EXTRA = "shift";
               mouse1 = "rightmouse";
               mouse2 = "rightmouse";
+              "_" = "mouse1";
               # mouse1 = "x";
               # mouse2 = "y";
               # "275" = "x";
