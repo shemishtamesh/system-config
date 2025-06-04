@@ -244,6 +244,9 @@ in
           "rounding 0, floating:0, onworkspace:w[v1]"
           "bordersize 0, floating:0, onworkspace:f[1]"
           "rounding 0, floating:0, onworkspace:f[1]"
+
+          # open aseprite in tiled mode by default
+          "tile, class:(Aseprite)"
         ];
         workspace =
           [
