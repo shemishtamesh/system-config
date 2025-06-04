@@ -58,7 +58,7 @@
             script="space.sh"
             click_script="yabai -m space --focus $sid"
           )
-          sketchybar --add space space."$sid" left --set space."$sid" "''${space[@]}"
+          sketchybar --add space space."$sid" center --set space."$sid" "''${space[@]}"
         done
 
         ##### Adding Left Items #####
