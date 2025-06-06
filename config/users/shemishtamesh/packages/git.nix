@@ -12,6 +12,7 @@
       ch = "checkout";
       cl = "clone";
       d = "diff";
+      ds = "diff --compact-summary";
       dt = "difftool";
       f = "fetch";
       i = "init";
