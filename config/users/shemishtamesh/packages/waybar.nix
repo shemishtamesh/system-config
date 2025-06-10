@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   shared,
   host,
@@ -92,6 +93,7 @@ in
         ];
         modules-right = [
           "tray"
+          "dunst"
           "idle_inhibitor"
         ];
 
@@ -127,6 +129,14 @@ in
           on-click = "activate";
           on-click-middle = "close";
           on-click-right = "maximize";
+        };
+        dunst = {
+          exec = # sh
+            ''
+              echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"
+            '';
+          return-type = "json";
+          format = "󰍥";
         };
         idle_inhibitor = {
           format = "{icon}";
