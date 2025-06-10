@@ -93,7 +93,7 @@ in
         ];
         modules-right = [
           "tray"
-          "custom/dunst"
+          "custom/dunst_disabled"
           "idle_inhibitor"
         ];
 
@@ -130,14 +130,11 @@ in
           on-click-middle = "close";
           on-click-right = "maximize";
         };
-        "custom/dunst" = {
+        "custom/dunst_disabled" = {
           exec = # sh
-            ''
-              echo "test"
-            '';
-          # echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"
-          # return-type = "json";
-          # format = "󰍥";
+            ''echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"'';
+          return-type = "json";
+          format = "󰍥";
         };
         idle_inhibitor = {
           format = "{icon}";
@@ -260,6 +257,7 @@ in
         #tray,
         #window,
         #mpris,
+        #custom-dunst_disabled,
         #idle_inhibitor {
             background: ${palette.base02};
             color: ${palette.base00};
@@ -279,6 +277,7 @@ in
         #pulseaudio.output.muted,
         #network.disconnected,
         #idle_inhibitor.activated,
+        #custom-dunst_disabled.true,
         #privacy {
             background: ${palette.base08};
             color: ${palette.base07};
