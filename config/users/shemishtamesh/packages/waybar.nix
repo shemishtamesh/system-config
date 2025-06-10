@@ -134,7 +134,7 @@ in
           exec = # sh
             ''echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"'';
           return-type = "json";
-          format = "󰍥";
+          # format = "󰍥";
         };
         idle_inhibitor = {
           format = "{icon}";
