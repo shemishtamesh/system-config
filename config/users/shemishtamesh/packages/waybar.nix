@@ -260,7 +260,7 @@ in
         #tray,
         #window,
         #mpris,
-        #custom-dunst_disabled.false,
+        #custom-dunst_disabled,
         #idle_inhibitor {
             background: ${palette.base02};
             color: ${palette.base00};
@@ -272,6 +272,7 @@ in
             transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
         }
 
+        #custom-dunst_disabled,
         #idle_inhibitor {
             padding: 1px 8px 1px 5px;
         }
