@@ -134,6 +134,8 @@ in
           exec = # sh
             ''echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"'';
           return-type = "json";
+          run-on-event = true;
+          on-click = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
           format = "󰍥";
           interval = 1;
         };
