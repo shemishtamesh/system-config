@@ -67,7 +67,7 @@ in
             default = "";
             paused = "";
           };
-          interval = 1;
+          interval = 0.5;
         };
       };
 
@@ -137,7 +137,7 @@ in
           run-on-event = true;
           on-click = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
           format = "󰍥";
-          interval = 1;
+          interval = 0.5;
         };
         idle_inhibitor = {
           format = "{icon}";
