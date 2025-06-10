@@ -93,7 +93,7 @@ in
         ];
         modules-right = [
           "tray"
-          "dunst"
+          "custom/dunst"
           "idle_inhibitor"
         ];
 
