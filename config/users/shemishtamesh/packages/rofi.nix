@@ -92,7 +92,7 @@ in
       listview = {
         margin = mkLiteral "32px calc( 50% - 950px )";
         spacing = mkLiteral "2px";
-        columns = 8;
+        columns = 6;
       };
 
       "element, element-text, element-icon" = {
