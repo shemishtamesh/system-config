@@ -94,7 +94,6 @@ in
         modules-right = [
           "tray"
           "custom/dunst"
-          "custom/dasdfunst"
           "idle_inhibitor"
         ];
 
