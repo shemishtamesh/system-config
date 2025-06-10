@@ -257,7 +257,7 @@ in
         #tray,
         #window,
         #mpris,
-        #custom-dunst_disabled,
+        #custom-dunst_disabled.false,
         #idle_inhibitor {
             background: ${palette.base02};
             color: ${palette.base00};
