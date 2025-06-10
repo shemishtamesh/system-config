@@ -130,7 +130,7 @@ in
           on-click-middle = "close";
           on-click-right = "maximize";
         };
-        dunst = {
+        "custom/dunst" = {
           exec = # sh
             ''
               echo "test"
