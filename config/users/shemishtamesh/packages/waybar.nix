@@ -133,9 +133,9 @@ in
         dunst = {
           exec = # sh
             ''
-              # echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"
               echo "test"
             '';
+          # echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"
           # return-type = "json";
           # format = "󰍥";
         };
