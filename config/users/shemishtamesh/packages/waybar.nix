@@ -133,10 +133,11 @@ in
         dunst = {
           exec = # sh
             ''
-              echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"
+              # echo "{\"class\":\"$(${pkgs.dunst}/bin/dunstctl is-paused)\"}"
+              echo "test"
             '';
-          return-type = "json";
-          format = "󰍥";
+          # return-type = "json";
+          # format = "󰍥";
         };
         idle_inhibitor = {
           format = "{icon}";
