@@ -125,6 +125,7 @@ in
           "$mod, semicolon, exec, dunstctl close"
           "$mod SHIFT, semicolon, exec, dunstctl close-all"
           "$mod CTRL, semicolon, exec, dunstctl history-pop"
+          "$mod ALT, semicolon, exec, dunstctl set-paused toggle"
 
           "$mod, h, movefocus, l"
           "$mod, j, movefocus, d"
