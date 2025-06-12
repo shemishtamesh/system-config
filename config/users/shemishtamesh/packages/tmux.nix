@@ -191,7 +191,7 @@ in
 
         # session navigarion
         bind-key "C-x" run-shell ${lib.getExe kill_current_and_select_session}
-        bind-key -n O switch-client -l
+        bind-key O switch-client -l
 
         # status line
         set -g status off
