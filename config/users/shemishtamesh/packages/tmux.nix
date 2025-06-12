@@ -189,8 +189,9 @@ in
         bind -r K resize-pane -U
         bind -r L resize-pane -R
 
-        # this is to make it easier to open an existing session without opening a new one when there are no terminals open
+        # session navigarion
         bind-key "C-x" run-shell ${lib.getExe kill_current_and_select_session}
+        bind-key -n O switch-client -l
 
         # status line
         set -g status off
