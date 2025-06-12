@@ -150,6 +150,16 @@ in
           }
         );
       };
+      offline_switch = {
+        type = "app";
+        program = inputs.nixpkgs.lib.getExe (
+          pkgs.writeShellApplication {
+            name = "offline_switch";
+            text = # sh
+              "sudo nixos-rebuild switch --flake . --option substitute false";
+          }
+        );
+      };
     }
   );
 }
