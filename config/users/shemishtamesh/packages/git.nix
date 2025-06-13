@@ -9,6 +9,7 @@
       a = "add";
       b = "branch";
       c = "commit";
+      ca = "commit --all";
       ch = "checkout";
       cl = "clone";
       d = "diff";
