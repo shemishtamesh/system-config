@@ -238,7 +238,7 @@ in
         };
         windowrulev2 = [
           "workspace special:music silent, class:(spotify)"
-          "workspace special:chat silent, class:(discord)"
+          "workspace special:chat silent, class:(discord|Altus|Slack)"
 
           # no borders when there's only a single visible window
           "bordersize 0, floating:0, onworkspace:w[v1]"
@@ -278,8 +278,12 @@ in
         exec-once = [
           "${pkgs.hyprpaper}"
           "waybar"
+          "zen"
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] discord"
+          "[workspace special:chat silent] altus"
+          "[workspace special:chat silent] slack"
+          "[workspace special:scratchpad silent] kitty --execute tmux"
           "wl-paste --watch cliphist store"
           "${scripts.notification-log} $HOME/Documents/logs/notifications.txt"
           "${pkgs.playerctl}/bin/playerctld"
