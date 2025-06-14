@@ -4,7 +4,7 @@
     enableZshIntegration = true;
     flags = [ "--disable-up-arrow" ];
     settings = {
-      keymap_mode = "vim-normal";
+      keymap_mode = "vim-insert";
       keymap_cursor = {
         vim_insert = "blink-bar";
         vim_normal = "steady-block";
