@@ -16,7 +16,7 @@ let
         tmux switch-client -t "$NEXT_SESSION"
         tmux kill-session -t "$CURRENT_SESSION"
         # Now open session chooser
-        tmux choose-session
+        tmux choose-tree -Zs
     else
         # No other sessions exist, just kill and exit
         tmux kill-session -t "$CURRENT_SESSION"
