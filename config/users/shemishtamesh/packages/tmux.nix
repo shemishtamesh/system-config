@@ -190,7 +190,7 @@ in
         bind -r L resize-pane -R
 
         # session navigarion
-        bind-key "C-x" run-shell ${lib.getExe kill_current_and_select_session}
+        bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
         bind-key "C-p" switch-client -l
 
         # status line
