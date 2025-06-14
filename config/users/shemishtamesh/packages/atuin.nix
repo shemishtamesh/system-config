@@ -9,6 +9,7 @@
         vim_insert = "blink-bar";
         vim_normal = "steady-block";
       };
+      enter_accept = true;
     };
   };
 }
