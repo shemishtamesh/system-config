@@ -88,6 +88,7 @@ in
             "$mod, 0, togglespecialworkspace, scratchpad"
             "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
             "$mod, e, workspace, emptym"
+            "$mod SHIFT, e, movetoworkspace, emptym"
             "$mod, o, workspace, previous"
             "$mod, mouse_up, workspace, m-1"
             "$mod, mouse_down, workspace, m+1"
