@@ -11,6 +11,7 @@ let
     ./starship.nix
     ./zoxide.nix
     ./fzf.nix
+    ./atuin.nix
     ./bat.nix
     ./btop.nix
     ./direnv.nix
