@@ -11,5 +11,6 @@
       };
       enter_accept = true;
     };
+    daemon.enable = true;
   };
 }
