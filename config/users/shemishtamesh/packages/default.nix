@@ -106,6 +106,7 @@ let
         ./databricks.nix
       ];
       packages = with pkgs; [
+        maccy
         google-cloud-sdk
       ];
     };
