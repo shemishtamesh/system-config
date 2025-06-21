@@ -63,6 +63,7 @@ let
         ./rofi.nix
         ./spotify.nix
         ./zen-browser.nix
+        ./anyrun.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
