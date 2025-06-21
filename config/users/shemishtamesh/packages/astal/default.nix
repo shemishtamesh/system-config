@@ -7,7 +7,7 @@
 {
   imports = [ inputs.ags.homeManagerModules.default ];
   programs.ags = {
-    enable = true;
+    enable = false;
     configDir = ./source;
     extraPackages = with inputs.ags.packages.${host.system}; [
       hyprland
