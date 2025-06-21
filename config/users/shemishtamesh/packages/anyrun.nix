@@ -16,7 +16,7 @@
       ignoreExclusiveZones = false;
       layer = "overlay";
       hidePluginInfo = false;
-      closeOnClick = false;
+      closeOnClick = true;
       showResultsImmediately = true;
       maxEntries = null;
 
@@ -41,4 +41,13 @@
         }
       '';
   };
+
+  extraConfigFiles."some-plugin.ron".text = # ron
+    ''
+      Config(
+        prefix: ":",
+        language_delimiter: ">",
+        max_entries: 3,
+      )
+    '';
 }
