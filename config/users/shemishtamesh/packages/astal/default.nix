@@ -11,11 +11,10 @@
     enable = true;
     configDir = ./source;
     extraPackages =
-      (with inputs.ags.packages.${host.system}.astal; [
+      (with inputs.ags.packages.${host.system}; [
         io
         astal4
-      ])
-      ++ (with inputs.ags.packages.${host.system}; [
+
         tray
         bluetooth
         network
