@@ -70,8 +70,9 @@
 
       width.fraction = 0.25;
       y.fraction = 0.3;
-      hidePluginInfo = false;
+      hidePluginInfo = true;
       closeOnClick = true;
+      showResultsImmediately = true;
     };
 
     extraCss = # css
