@@ -1,13 +1,12 @@
 {
   inputs,
-  pkgs,
   host,
   ...
 }:
 {
   imports = [ inputs.ags.homeManagerModules.default ];
   programs.ags = {
-    enable = false;
+    enable = true;
     configDir = ./source;
     extraPackages = with inputs.ags.packages.${host.system}; [
       hyprland
