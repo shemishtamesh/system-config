@@ -30,6 +30,10 @@
       url = "github:nix-community/nix-on-droid/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixcord = {
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
