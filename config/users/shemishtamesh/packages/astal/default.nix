@@ -20,7 +20,6 @@
         battery
         bluetooth
         notifd
-        source
         astal4
         astal3
         mpris
