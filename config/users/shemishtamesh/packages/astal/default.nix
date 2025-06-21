@@ -1,7 +1,6 @@
 {
   inputs,
   host,
-  pkgs,
   ...
 }:
 {
@@ -12,7 +11,7 @@
     enable = true;
     configDir = ./source;
     extraPackages =
-      (with pkgs.astal; [
+      (with inputs.ags.packages.${host.system}.astal; [
         io
         astal4
       ])
