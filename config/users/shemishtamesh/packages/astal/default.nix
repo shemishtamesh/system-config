@@ -13,19 +13,25 @@
     extraPackages = (
       with inputs.ags.packages.${host.system};
       [
-        io
-        astal4
-
-        tray
-        bluetooth
-        network
-        battery
-        wireplumber
         hyprland
-        notifd
-        mpris
+        network
         powerprofiles
+        wireplumber
+        battery
+        bluetooth
+        notifd
+        source
+        astal4
+        astal3
+        mpris
+        greet
+        river
+        auth
+        tray
         apps
+        cava
+        gjs
+        io
       ]
     );
   };
