@@ -123,7 +123,13 @@ in
             ) 9
           ));
         binde = [
-          "$mod, y, exec, ${pkgs.callPackage ../astal { }}/bin/simple-bar" # TODO: remove this
+          "$mod, y, exec, ${
+            (import ../astal {
+              inherit pkgs;
+              astal = inputs.astal;
+              system = host.system;
+            }).packages.${host.system}.default
+          }/bin/simple-bar" # TODO: remove this
 
           "$mod, semicolon, exec, dunstctl close"
           "$mod SHIFT, semicolon, exec, dunstctl close-all"
