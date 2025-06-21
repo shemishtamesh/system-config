@@ -6,9 +6,9 @@
   programs.ags = {
     enable = true;
     configDir = ./source;
+    extraPackages = [
+      inputs.ags.packages.${host.system}.battery
+      # pkgs.fzf
+    ];
   };
-  extraPackages = [
-    inputs.ags.packages.${host.system}.battery
-    # pkgs.fzf
-  ];
 }
