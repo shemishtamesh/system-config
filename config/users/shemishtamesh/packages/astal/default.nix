@@ -3,6 +3,9 @@
   astal,
   system,
 }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 let
   nativeBuildInputs = with pkgs; [
     meson
