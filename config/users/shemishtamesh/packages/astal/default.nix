@@ -1,12 +1,14 @@
-{
-  pkgs,
-  astal,
-  system,
-}:
+# {
+#   pkgs,
+#   astal,
+#   system,
+# }:
 {
   pkgs ? import <nixpkgs> { },
 }:
 let
+  system = "x86_64-linux";
+  astal = pkgs.astal;
   nativeBuildInputs = with pkgs; [
     meson
     ninja
