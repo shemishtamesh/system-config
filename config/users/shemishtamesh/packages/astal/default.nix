@@ -1,32 +1,41 @@
 {
-  inputs,
+  pkgs,
+  astal,
   host,
-  ...
 }:
+let
+  nativeBuildInputs = with pkgs; [
+    meson
+    ninja
+    pkg-config
+    gobject-introspection
+    wrapGAppsHook4
+    blueprint-compiler
+    dart-sass
+    esbuild
+  ];
+
+  astalPackages = with astal.packages.${host.system}; [
+    io
+    astal4
+    battery
+    wireplumber
+    network
+    mpris
+    powerprofiles
+    tray
+    bluetooth
+  ];
+in
 {
-  imports = [ inputs.ags.homeManagerModules.default ];
-  programs.ags = {
-    enable = true;
-    configDir = ./source;
-    extraPackages = with inputs.ags.packages.${host.system}; [
-      hyprland
-      network
-      powerprofiles
-      wireplumber
-      battery
-      bluetooth
-      notifd
-      astal4
-      astal3
-      mpris
-      greet
-      river
-      auth
-      tray
-      apps
-      cava
-      gjs
-      io
-    ];
+  packages.${host.system}.default = pkgs.stdenv.mkDerivation {
+    name = "simple-bar";
+    src = ./.;
+    inherit nativeBuildInputs;
+    buildInputs = astalPackages ++ [ pkgs.gjs ];
+  };
+
+  devShells.${host.system}.default = pkgs.mkShell {
+    packages = nativeBuildInputs ++ astalPackages ++ [ pkgs.gjs ];
   };
 }
