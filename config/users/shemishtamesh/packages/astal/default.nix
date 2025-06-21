@@ -1,7 +1,7 @@
 {
   pkgs,
   astal,
-  host,
+  system,
 }:
 let
   nativeBuildInputs = with pkgs; [
@@ -15,7 +15,7 @@ let
     esbuild
   ];
 
-  astalPackages = with astal.packages.${host.system}; [
+  astalPackages = with astal.packages.${system}; [
     io
     astal4
     battery
@@ -28,14 +28,14 @@ let
   ];
 in
 {
-  packages.${host.system}.default = pkgs.stdenv.mkDerivation {
+  packages.${system}.default = pkgs.stdenv.mkDerivation {
     name = "simple-bar";
     src = ./.;
     inherit nativeBuildInputs;
     buildInputs = astalPackages ++ [ pkgs.gjs ];
   };
 
-  devShells.${host.system}.default = pkgs.mkShell {
+  devShells.${system}.default = pkgs.mkShell {
     packages = nativeBuildInputs ++ astalPackages ++ [ pkgs.gjs ];
   };
 }
