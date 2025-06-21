@@ -70,7 +70,7 @@
 
       width.fraction = 0.25;
       y.fraction = 0.3;
-      hidePluginInfo = true;
+      hidePluginInfo = false;
       closeOnClick = true;
     };
 
@@ -134,7 +134,7 @@
         Config(
           desktop_actions: false,
           max_entries: 5,
-          terminal: Some("ghostty"),
+          terminal: Some("kitty"),
         )
       '';
 
