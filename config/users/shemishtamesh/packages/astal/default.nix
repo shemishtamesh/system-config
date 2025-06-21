@@ -10,8 +10,9 @@
   programs.ags = {
     enable = true;
     configDir = ./source;
-    extraPackages =
-      (with inputs.ags.packages.${host.system}; [
+    extraPackages = (
+      with inputs.ags.packages.${host.system};
+      [
         io
         astal4
 
@@ -25,6 +26,7 @@
         mpris
         powerprofiles
         apps
-      ]);
+      ]
+    );
   };
 }
