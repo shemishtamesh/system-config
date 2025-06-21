@@ -40,14 +40,14 @@
           background: red;
         }
       '';
-  };
 
-  extraConfigFiles."some-plugin.ron".text = # ron
-    ''
-      Config(
-        prefix: ":",
-        language_delimiter: ">",
-        max_entries: 3,
-      )
-    '';
+    extraConfigFiles."some-plugin.ron".text = # ron
+      ''
+        Config(
+          prefix: ":",
+          language_delimiter: ">",
+          max_entries: 3,
+        )
+      '';
+  };
 }
