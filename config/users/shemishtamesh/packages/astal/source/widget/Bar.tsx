@@ -1,6 +1,6 @@
-import { App } from "astal/gtk3"
+import { App } from "astal/gtk4"
 import { Variable, GLib, bind } from "astal"
-import { Astal, Gtk, Gdk } from "astal/gtk3"
+import { Astal, Gtk, Gdk } from "astal/gtk4"
 import Hyprland from "gi://AstalHyprland"
 import Mpris from "gi://AstalMpris"
 import Battery from "gi://AstalBattery"
