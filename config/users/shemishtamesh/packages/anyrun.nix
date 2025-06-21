@@ -17,7 +17,7 @@
       layer = "overlay";
       hidePluginInfo = false;
       closeOnClick = false;
-      showResultsImmediately = false;
+      showResultsImmediately = true;
       maxEntries = null;
 
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
@@ -34,8 +34,6 @@
       ];
     };
 
-    # Inline comments are supported for language injection into
-    # multi-line strings with Treesitter! (Depends on your editor)
     extraCss = # css
       ''
         .some_class {
