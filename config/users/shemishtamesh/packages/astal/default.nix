@@ -6,7 +6,7 @@
   programs.ags = {
     enable = true;
     configDir = ./source;
-    extraPackages = inputs.ags.packages.${host.system} [
+    extraPackages = with inputs.ags.packages.${host.system}; [
       tray
       bluetooth
       network
