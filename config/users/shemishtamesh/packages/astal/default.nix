@@ -10,28 +10,45 @@
   programs.ags = {
     enable = true;
     configDir = ./source;
-    extraPackages = (
-      with inputs.ags.packages.${host.system};
-      [
-        hyprland
-        network
-        powerprofiles
-        wireplumber
-        battery
-        bluetooth
-        notifd
-        astal4
-        astal3
-        mpris
-        greet
-        river
-        auth
-        tray
-        apps
-        cava
-        gjs
-        io
-      ]
-    );
+    extraPackages = with inputs.ags.packages.${host.system}; [
+      hyprland
+      network
+      powerprofiles
+      wireplumber
+      battery
+      bluetooth
+      notifd
+      astal4
+      astal3
+      mpris
+      greet
+      river
+      auth
+      tray
+      apps
+      cava
+      gjs
+      io
+    ];
   };
+  packages = with inputs.ags.packages.${host.system}; [
+    hyprland
+    network
+    powerprofiles
+    wireplumber
+    battery
+    bluetooth
+    notifd
+    astal4
+    astal3
+    mpris
+    greet
+    river
+    auth
+    tray
+    apps
+    cava
+    gjs
+    io
+  ];
 }
