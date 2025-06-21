@@ -1,0 +1,3 @@
+{
+  programs.anyrun.enable = true;
+}
