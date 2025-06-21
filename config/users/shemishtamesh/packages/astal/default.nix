@@ -7,7 +7,7 @@
     enable = true;
     configDir = ./source;
     extraPackages = [
-      inputs.ags.packages.${host.system}.battery
+      inputs.ags.packages.${host.system}.hyprland
       # pkgs.fzf
     ];
   };
