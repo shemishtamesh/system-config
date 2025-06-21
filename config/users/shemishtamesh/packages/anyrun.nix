@@ -2,7 +2,6 @@
 {
   programs.anyrun = {
     enable = true;
-    package = inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins;
     config = {
       x = {
         fraction = 0.5;
@@ -21,12 +20,12 @@
       showResultsImmediately = false;
       maxEntries = null;
 
-      # plugins = [
-      #   # An array of all the plugins you want, which either can be paths to the .so files, or their packages
-      #   inputs.anyrun.packages.${pkgs.system}.applications
-      #   # ./some_plugin.so
-      #   # "${inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins}/lib/kidex"
-      # ];
+      plugins = [
+        # An array of all the plugins you want, which either can be paths to the .so files, or their packages
+        inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins
+        # ./some_plugin.so
+        # "${inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins}/lib/kidex"
+      ];
     };
 
     # Inline comments are supported for language injection into
