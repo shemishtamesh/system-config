@@ -12,9 +12,8 @@
     enable = true;
     configDir = ./source;
     extraPackages =
-      (with pkgs; [
-        glib
-        astal-io
+      (with pkgs.astal; [
+        io
         astal4
       ])
       ++ (with inputs.ags.packages.${host.system}; [
