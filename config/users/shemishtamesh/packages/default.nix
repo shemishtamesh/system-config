@@ -64,7 +64,7 @@ let
         ./spotify.nix
         ./zen-browser.nix
         # ./anyrun.nix
-        ./astal
+        # ./astal
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
