@@ -124,11 +124,11 @@ in
           ));
         binde = [
           "$mod, y, exec, ${
-            pkgs.callPackage ../astal {
+            pkgs.callPackage (import ../astal {
               inherit pkgs;
               astal = inputs.astal;
               system = host.system;
-            }
+            }) { }
           }/bin/simple-bar" # TODO: remove this
 
           "$mod, semicolon, exec, dunstctl close"
