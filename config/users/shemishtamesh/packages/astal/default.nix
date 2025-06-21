@@ -6,17 +6,23 @@
   programs.ags = {
     enable = true;
     configDir = ./source;
-    extraPackages = with inputs.ags.packages.${host.system}; [
-      tray
-      bluetooth
-      network
-      battery
-      wireplumber
-      hyprland
-      notifd
-      mpris
-      powerprofiles
-      apps
-    ];
+    extraPackages =
+      (with inputs.ags.packages.${host.system}; [
+        glib
+        astal-io
+        astal4
+      ])
+      ++ (with inputs.ags.packages.${host.system}; [
+        tray
+        bluetooth
+        network
+        battery
+        wireplumber
+        hyprland
+        notifd
+        mpris
+        powerprofiles
+        apps
+      ]);
   };
 }
