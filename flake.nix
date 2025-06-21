@@ -34,8 +34,8 @@
     #   url = "github:anyrun-org/anyrun";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    ags = {
-      url = "github:aylur/ags";
+    astal = {
+      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
