@@ -85,15 +85,7 @@
     extraConfigFiles = {
       "applications.ron".text = ''
         Config(
-          desktop_actions: false,
-          max_entries: 5,
           terminal: Some("kitty"),
-        )
-      '';
-
-      "shell.ron".text = ''
-        Config(
-          prefix: ">"
         )
       '';
     };
