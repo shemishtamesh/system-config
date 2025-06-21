@@ -1,4 +1,9 @@
-{ inputs, host, ... }:
+{
+  inputs,
+  host,
+  pkgs,
+  ...
+}:
 {
   # add the home manager module
   imports = [ inputs.ags.homeManagerModules.default ];
@@ -7,7 +12,7 @@
     enable = true;
     configDir = ./source;
     extraPackages =
-      (with inputs.ags.packages.${host.system}; [
+      (with pkgs; [
         glib
         astal-io
         astal4
