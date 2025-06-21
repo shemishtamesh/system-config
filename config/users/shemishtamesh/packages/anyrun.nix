@@ -22,16 +22,15 @@
 
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
-        pplications
-        ictionary
-        idex
-        andr
-        ink
-        hell
-        tdin
-        ymbols
-        ranslate
-        ebsearch
+        dictionary
+        kidex
+        randr
+        rink
+        shell
+        stdin
+        symbols
+        translate
+        websearch
       ];
     };
 
