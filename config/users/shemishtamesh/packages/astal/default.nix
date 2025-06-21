@@ -31,7 +31,7 @@
       io
     ];
   };
-  packages = with inputs.ags.packages.${host.system}; [
+  home.packages = with inputs.ags.packages.${host.system}; [
     hyprland
     network
     powerprofiles
