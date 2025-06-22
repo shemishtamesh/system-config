@@ -65,7 +65,7 @@ let
         ./zen-browser.nix
         # ./anyrun.nix
         # ./astal
-        ./quickshell
+        # ./quickshell
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
