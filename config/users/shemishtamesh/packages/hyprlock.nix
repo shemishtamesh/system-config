@@ -9,7 +9,7 @@
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = with config.lib.stylix.colors; {
     enable = true;
-    package = inputs.nixpkgs-stable.legacyPackages.${system}.hyprlock; # TODO: https://github.com/hyprwm/hyprlock/issues/793
+    package = inputs.nixpkgs-stable.legacyPackages.${host.system}.hyprlock; # TODO: https://github.com/hyprwm/hyprlock/issues/793
     settings = {
       general = {
         hide_cursor = true;
