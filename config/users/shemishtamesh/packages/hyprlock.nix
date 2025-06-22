@@ -7,7 +7,7 @@
 {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = with config.lib.stylix.colors; {
-    enable = true;
+    enable = false;
     settings = {
       general = {
         hide_cursor = true;
