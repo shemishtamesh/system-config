@@ -2,12 +2,14 @@
   host,
   shared,
   config,
+  nixpkgs-stable,
   ...
 }:
 {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = with config.lib.stylix.colors; {
     enable = true;
+    package = nixpkgs-stable.legacyPackages.${system}.hyprlock;
     settings = {
       general = {
         hide_cursor = true;
