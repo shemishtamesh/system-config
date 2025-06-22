@@ -2,14 +2,14 @@
   host,
   shared,
   config,
-  nixpkgs-stable,
+  inputs,
   ...
 }:
 {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = with config.lib.stylix.colors; {
     enable = true;
-    package = nixpkgs-stable.legacyPackages.${system}.hyprlock;
+    package = inputs.nixpkgs-stable.legacyPackages.${system}.hyprlock; # TODO: https://github.com/hyprwm/hyprlock/issues/793
     settings = {
       general = {
         hide_cursor = true;
