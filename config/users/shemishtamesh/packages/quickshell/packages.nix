@@ -16,7 +16,7 @@ let
       owner = "caelestia-dots";
       repo = "scripts";
       rev = "main";
-      sha256 = "";
+      sha256 = "sha256-G0qLC2dzBY0/0IV/VlQgciSUt+xbgRGIGvbr4uq65PY=";
       # sha256 = "196z5hgd8d3vpa4bkxizgxnc3fj4aakais3i6a30ankanya4df5j";
     };
 
