@@ -15,6 +15,8 @@ let
     blueprint-compiler
     dart-sass
     esbuild
+
+    bun # TODO: DELETE THIS
   ];
 
   astalPackages = with astal.packages.${system}; [
@@ -31,8 +33,9 @@ let
 in
 {
   packages.${system}.default = pkgs.stdenv.mkDerivation {
-    name = "simple-bar";
-    src = ./.;
+    name = "widgets";
+    # src = ./.;
+    src = ./src;
     inherit nativeBuildInputs;
     buildInputs = astalPackages ++ [ pkgs.gjs ];
   };
