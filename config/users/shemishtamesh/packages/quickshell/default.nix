@@ -33,7 +33,7 @@
     grim
     wayfreeze
     wl-screenrec
-    # inputs.astal.packages.${pkgs.system}.default
+    inputs.astal.packages.${pkgs.system}.default
 
     # Additional dependencies
     lm_sensors
