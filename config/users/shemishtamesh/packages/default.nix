@@ -68,6 +68,7 @@ let
         # ./quickshell
       ];
       packages = with pkgs; [
+        quickshell
         (callPackage ./ohrrpgce { })
         cht-sh
         tetrio-desktop
