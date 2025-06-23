@@ -29,7 +29,10 @@
           fonts
           cursor
           ;
-        targets.kde.enable = true;
+        targets = {
+          kde.enable = true;
+          qt.enable = true;
+        };
       }
     else
       with shared.theme.stylix_settings;
