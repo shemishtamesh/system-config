@@ -65,10 +65,9 @@ let
         ./zen-browser.nix
         # ./anyrun.nix
         # ./astal
-        # ./quickshell
+        ./quickshell
       ];
       packages = with pkgs; [
-        quickshell
         (callPackage ./ohrrpgce { })
         cht-sh
         tetrio-desktop
