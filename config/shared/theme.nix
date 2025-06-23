@@ -31,6 +31,7 @@ in
     enable = true;
     base16Scheme = scheme;
     inherit fonts cursor;
+    targets.kde.enable = true;
   };
   wallpaper =
     {
