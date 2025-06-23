@@ -22,7 +22,15 @@
 
   stylix = # TODO: remove the conditinal
     if host.hostname != "shemishtamac" then
-      shared.theme.stylix_settings
+      {
+        inherit (shared.theme.stylix_settings)
+          enable
+          base16Scheme
+          fonts
+          cursor
+          ;
+        targets.kde.enable = true;
+      }
     else
       with shared.theme.stylix_settings;
       {
