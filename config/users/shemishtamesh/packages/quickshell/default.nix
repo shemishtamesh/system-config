@@ -4,5 +4,5 @@
     quickshell
   ];
   qt.enable = true;
-  xdg.configFile.quickshell = ./quickshell;
+  xdg.configFile.quickshell.source = ./quickshell;
 }
