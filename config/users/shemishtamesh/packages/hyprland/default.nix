@@ -93,6 +93,8 @@ in
             "$mod, mouse_up, workspace, m-1"
             "$mod, mouse_down, workspace, m+1"
             "$mod, bracketleft, workspace, m-1"
+            "$mod SHIFT, bracketright, movetoworkspace, m+1"
+            "$mod SHIFT, bracketleft, movetoworkspace, m-1"
             "$mod, bracketright, workspace, m+1"
             "$mod, n, focusmonitor, -1"
             "$mod, p, focusmonitor, +1"
