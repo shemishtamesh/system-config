@@ -12,7 +12,7 @@
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
-              "gemma3:12b": {}
+              "llama2": {}
             }
           }
         }
