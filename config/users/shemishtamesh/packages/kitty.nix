@@ -28,7 +28,7 @@ in
       allow_remote_control = "socket-only";
       listen_on = "unix:/tmp/kitty";
 
-      cursor_trail = 1;
+      cursor_trail = 0;
 
       font_family = shared.theme.fonts.monospace.name;
       font_size = 14;
