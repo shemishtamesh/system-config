@@ -30,7 +30,7 @@ in
   stylix_settings = {
     enable = true;
     base16Scheme = scheme;
-    polarity = scheme.variant;
+    # polarity = scheme.variant;
     inherit fonts cursor;
   };
   wallpaper =
