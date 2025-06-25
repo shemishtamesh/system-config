@@ -21,6 +21,7 @@ let
     ./nixcord.nix
     ./mpv.nix
     ./zathura.nix
+    ./opencode.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
