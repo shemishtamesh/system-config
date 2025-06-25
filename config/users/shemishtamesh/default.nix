@@ -32,8 +32,8 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
+    # platformTheme = "gtk2";
+    # style = "gtk2";
   };
 
   # allowing unfree packages
