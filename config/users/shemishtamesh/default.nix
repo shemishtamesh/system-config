@@ -32,7 +32,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "gnome";
+    # platformTheme = "gnome";
     # style = "gtk2";
   };
 
