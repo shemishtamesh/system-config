@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [ opencode ];
-  xdg.configFile."opencode/config.json".source = # json
+  xdg.configFile."opencode/config.json".text = # json
     ''
       {
         "$schema": "https://opencode.ai/config.json",
