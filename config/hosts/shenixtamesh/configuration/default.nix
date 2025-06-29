@@ -83,8 +83,31 @@
 
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
 
-  environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
+  environment = {
+    shells = with pkgs; [ zsh ];
+    excludePackages = with pkgs; [
+      totem
+      gnome-music
+      gnome-usage
+      gnome-system-monitor
+      gnome-calculator
+      gnome-disk-utility
+      geary
+      epiphany
+      gnome-weather
+      gnome-color-manager
+      gnome-console
+      gnome-contacts
+      file-roller
+      loupe
+      snapshot
+      simple-scan
+      gnome-maps
+      gnome-logs
+      gnome-calendar
+    ];
+  };
   programs = {
     zsh.enable = true;
     adb.enable = true;
