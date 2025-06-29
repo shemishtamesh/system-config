@@ -106,6 +106,9 @@
       gnome-maps
       gnome-logs
       gnome-calendar
+      decibels
+      evince
+      baobab
     ];
   };
   programs = {
