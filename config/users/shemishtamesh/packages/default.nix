@@ -12,6 +12,7 @@ let
     ./zoxide.nix
     ./fzf.nix
     ./atuin.nix
+    ./carapace.nix
     ./bat.nix
     ./btop.nix
     ./direnv.nix
