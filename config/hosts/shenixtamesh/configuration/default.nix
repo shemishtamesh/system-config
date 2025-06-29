@@ -86,7 +86,7 @@
   users.defaultUserShell = pkgs.zsh;
   environment = {
     shells = with pkgs; [ zsh ];
-    excludePackages = with pkgs; [
+    gnome.excludePackages = with pkgs; [
       totem
       gnome-music
       gnome-usage
