@@ -102,6 +102,7 @@ let
         lorien
         qpwgraph
         transmission_4-gtk
+        airshipper
       ];
     };
     shemishtamac = {
