@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services = {
     pulseaudio.enable = false;
@@ -8,8 +9,31 @@
       KERNEL=="i2c-[0-9]*", GROUP="wheel", MODE="0660"
     ''; # external monitor brightness control
 
-    desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
+    desktopManager.gnome = {
+      enable = true;
+      excludePackages = with pkgs; [
+        totem
+        gnome-music
+        gnome-usage
+        gnome-system-monitor
+        gnome-calculator
+        gnome-disk-utility
+        geary
+        epiphany
+        gnome-weather
+        gnome-color-manager
+        gnome-console
+        gnome-contacts
+        file-roller
+        loupe
+        snapshot
+        simple-scan
+        gnome-maps
+        gnome-logs
+        gnome-calendar
+      ];
+    };
 
     xserver = {
       # Enable the X11 windowing system.
