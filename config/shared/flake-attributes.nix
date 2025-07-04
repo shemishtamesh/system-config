@@ -117,7 +117,7 @@ in
                 ${os_specific.notify_switch_success}
                 echo 'switch successful'
                 ${pkgs.fastfetch}/bin/fastfetch --logo none \
-                  | ${pkgs.terminaltexteffects}/bin/tte --existing-color-handling dynamic unstable
+                  | ${pkgs.terminaltexteffects}/bin/tte --no-color overflow
               '';
           }
         );
