@@ -116,7 +116,8 @@ in
 
                 ${os_specific.notify_switch_success}
                 echo 'switch successful'
-                ${pkgs.fastfetch}/bin/fastfetch
+                ${pkgs.fastfetch} --logo none \
+                  | ${pkgs.terminaltexteffects}/bin/tte --existing-color-handling dynamic unstable
               '';
           }
         );
