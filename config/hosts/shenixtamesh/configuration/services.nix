@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  inputs,
+  host,
+  ...
+}:
 {
   services = {
     pulseaudio.enable = false;
@@ -74,6 +79,7 @@
     };
     open-webui = {
       enable = true;
+      package = inputs.nixpkgs-stable.legacyPackages.${host.system}.open-webui;
       environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
       host = "0.0.0.0";
     };
