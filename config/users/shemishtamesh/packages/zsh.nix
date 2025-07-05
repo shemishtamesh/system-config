@@ -15,13 +15,15 @@
 
       rm = "rmtrash";
       rmdir = "rmdirtrash";
-      sudo = "sudo ";
 
       c = "cp -i";
       m = "mv -i";
       li = "ln -i";
 
       md = "mkdir -p";
+
+      sudo = "sudo "; # allow aliases in sudo
+      sd = "sudo --login --user=$USER";
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
