@@ -16,7 +16,7 @@
               "llama2": {}
             }
           }
-        }
+        },
         "mcp": {
           "localmcp": {
             "enabled": true,
