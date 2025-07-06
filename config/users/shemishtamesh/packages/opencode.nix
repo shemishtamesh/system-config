@@ -13,7 +13,7 @@
             },
             "models": {
               "devstral": {},
-              "deepcoder": {},
+              "deepcoder:14b": {},
               "llama2": {}
             }
           }
