@@ -13,6 +13,7 @@
             },
             "models": {
               "llama2": {}
+              "devstral": {}
             }
           }
         }
