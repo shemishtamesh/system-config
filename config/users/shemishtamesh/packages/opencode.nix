@@ -12,8 +12,8 @@
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
+              "devstral": {},
               "llama2": {}
-              "devstral": {}
             }
           }
         }
