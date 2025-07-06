@@ -17,6 +17,13 @@
             }
           }
         }
+        "mcp": {
+          "localmcp": {
+            "enabled": true,
+            "type": "local",
+            "command": ["echo" "mcp command used 123 321 123 321 abc cbabc"],
+          }
+        }
       }
     '';
 }
