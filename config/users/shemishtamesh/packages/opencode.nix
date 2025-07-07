@@ -12,6 +12,9 @@
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
+              "devstral-65k": {
+                "tools": true
+              },
               "devstral": {
                 "tools": true
               }
