@@ -13,14 +13,6 @@ profile_makers.mkNixosSystem {
     ];
   };
   monitors = {
-    "HDMI-A-2" = {
-      width = 1920;
-      height = 1080;
-      refresh_rate = 60;
-      horizontal_offset = 1920;
-      vertical_offset = 0;
-      scaling = 1;
-    };
     "DP-6" = {
       width = 1920;
       height = 1080;
@@ -34,6 +26,14 @@ profile_makers.mkNixosSystem {
       height = 1080;
       refresh_rate = 60;
       horizontal_offset = 0;
+      vertical_offset = 0;
+      scaling = 1;
+    };
+    "HDMI-A-2" = {
+      width = 1920;
+      height = 1080;
+      refresh_rate = 60;
+      horizontal_offset = 1920;
       vertical_offset = 0;
       scaling = 1;
     };
