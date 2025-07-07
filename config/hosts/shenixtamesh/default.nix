@@ -13,7 +13,7 @@ profile_makers.mkNixosSystem {
     ];
   };
   monitors = {
-    "DP-3" = {
+    "DP-6" = {
       width = 1920;
       height = 1080;
       refresh_rate = 60;
