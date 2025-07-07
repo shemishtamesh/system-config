@@ -19,7 +19,6 @@ let
     ./tmux.nix
     ./nixvim.nix
     ./nix-index.nix
-    ./nixcord.nix
     ./mpv.nix
     ./zathura.nix
     ./opencode.nix
@@ -65,6 +64,7 @@ let
         ./rofi.nix
         ./spotify.nix
         ./zen-browser.nix
+        ./nixcord.nix
         # ./anyrun.nix
         # ./astal
         ./quickshell
