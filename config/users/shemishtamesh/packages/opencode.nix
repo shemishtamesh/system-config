@@ -17,6 +17,9 @@
               },
               "devstral": {
                 "tools": true
+              },
+              "qwen3:8b-16k": {
+                "tools": true
               }
             }
           }
