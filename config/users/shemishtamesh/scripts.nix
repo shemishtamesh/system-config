@@ -37,7 +37,7 @@
       if pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin" then
         [
           (pkgs.writeShellScriptBin "toggle_sleep" ''
-            if [[ $# -gq 1 ]]; then
+            if [[ $# -gt 0 ]]; then
               echo 'Toggles enablement of sleep'
               exit 1
             fi
