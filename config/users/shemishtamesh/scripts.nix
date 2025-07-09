@@ -42,7 +42,7 @@
               exit 1
             fi
             current_status=$(echo "1 - $(pmset -g | grep SleepDisabled | awk '{ print $2 }')" | bc)
-            sudo pmset -a disablesleep $current_status in
+            sudo pmset -a disablesleep $current_status
             case $current_status in
               0) echo 'Sleep enabled';;
               1) echo 'Sleep disabled';;
