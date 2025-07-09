@@ -20,15 +20,15 @@
     stateVersion = "24.05"; # WARNING: do not change this without reading docs
   };
 
-  stylix = # TODO: remove the conditinal
-    if host.hostname != "shemishtamac" then
-      shared.theme.stylix_settings
-    else
-      with shared.theme.stylix_settings;
-      {
-        enable = false;
-        inherit base16Scheme fonts;
-      };
+  stylix = shared.theme.stylix_settings;
+  # if host.hostname != "shemishtamac" then
+  #   shared.theme.stylix_settings
+  # else
+  #   with shared.theme.stylix_settings;
+  #   {
+  #     enable = false;
+  #     inherit base16Scheme fonts;
+  #   };
 
   # allowing unfree packages
   nixpkgs.config = import ./nixpkgs.nix;
