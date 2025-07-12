@@ -41,6 +41,8 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
+    playerctld.enable = true;
+
     syncthing = {
       enable = true;
       user = "shemishtamesh";
