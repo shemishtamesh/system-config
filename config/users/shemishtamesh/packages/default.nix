@@ -5,6 +5,7 @@
 }:
 let
   shared_modules = [
+    ./documentation.nix
     ./kitty.nix
     ./git.nix
     ./zsh.nix
