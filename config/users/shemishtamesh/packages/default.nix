@@ -82,7 +82,7 @@ let
         # lmms
         krita
         aseprite
-        # imv
+        imv
         pulsemixer
         inkscape
         hyprpicker
