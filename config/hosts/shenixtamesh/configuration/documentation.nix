@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = [ pkgs.man-pages ];
+  # environment.systemPackages = [ pkgs.man-pages ];
 
   documentation = {
     dev.enable = true;
