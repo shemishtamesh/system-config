@@ -79,10 +79,10 @@ let
         openscad
         audacity
         musescore
-        lmms
+        # lmms
         krita
         aseprite
-        imv
+        # imv
         pulsemixer
         inkscape
         hyprpicker
