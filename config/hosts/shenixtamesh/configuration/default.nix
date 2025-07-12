@@ -17,6 +17,7 @@
     ./localization.nix
     ./security.nix
     ./services.nix
+    ./documentation.nix
   ];
   xdg.portal = {
     enable = true;
