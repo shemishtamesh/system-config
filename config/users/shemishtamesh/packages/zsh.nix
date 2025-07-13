@@ -7,7 +7,7 @@
     shellAliases = {
       g = "git";
       n = "nvim";
-      nm = ''n -c "Telescope man_pages sections=['ALL']"'';
+      nm = ''n -c "set filetype=man | Telescope man_pages sections=['ALL']"'';
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
