@@ -5,8 +5,9 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      n = "nvim";
       g = "git";
+      n = "nvim";
+      nm = ''n -c "Telescope man_pages sections=['ALL']"'';
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
