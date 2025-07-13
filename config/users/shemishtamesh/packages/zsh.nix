@@ -21,7 +21,7 @@
       li = "ln -i";
 
       md = "mkdir -p";
-      mkd = "(){mkdir -p $1 && cd $1}";
+      mdz = "(){mkdir -p $1 && z $1}";
 
       sudo = "sudo "; # allow aliases in sudo
       sd = "sudo --login --user=$USER";
