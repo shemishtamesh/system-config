@@ -10,6 +10,8 @@
       b = "branch";
       c = "commit";
       ca = "commit --all";
+      cp = "!sh -c '(git commit --message \"$1\" || git commit) && git push'";
+      cap = "!sh -c '(git commit --all --message \"$1\" || git commit) && git push'";
       ch = "checkout";
       cl = "clone";
       d = "diff";
