@@ -10,8 +10,11 @@
       b = "branch";
       c = "commit";
       ca = "commit --all";
-      cp = "!sh -c '(git commit --message \"$1\" || git commit) && git push'";
-      cap = "!sh -c '(git commit --all --message \"$1\" || git commit) && git push'";
+      # !f() { if [ -n "$1" ]; then git commit -m "$1"; else git commit; fi; }; f
+      cp = "!f() { if [ -n \"$1\" ]; then git commit --message \"$1\"; else git commit; fi; git push; }; f";
+      cap = "!f() { if [ -n \"$1\" ]; then git commit --all --message \"$1\"; else git commit --all; fi; git push; }; f";
+      # cp = "!sh -c '(git commit --message \"$1\" || git commit) && git push'";
+      # cap = "!sh -c '(git commit --all --message \"$1\" || git --all commit) && git push'";
       ch = "checkout";
       cl = "clone";
       d = "diff";
