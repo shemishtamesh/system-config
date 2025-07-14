@@ -8,6 +8,7 @@
       # "2a10:50c0::ad1:ff"
       # "2a10:50c0::ad2:ff"
       "1.1.1.1"
+      "8.8.8.8"
     ];
     dhcpcd.extraConfig = "nohook resolv.conf";
     networkmanager.dns = "none";
