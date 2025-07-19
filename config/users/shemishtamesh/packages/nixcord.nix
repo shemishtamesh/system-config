@@ -43,5 +43,5 @@
       };
     };
   };
-  stylix.targets.nixcord.enable = false;
+  # stylix.targets.nixcord.enable = false;
 }
