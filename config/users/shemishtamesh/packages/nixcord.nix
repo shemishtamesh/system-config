@@ -43,5 +43,4 @@
       };
     };
   };
-  # stylix.targets.nixcord.enable = false;
 }
