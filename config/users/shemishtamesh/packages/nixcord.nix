@@ -5,6 +5,7 @@
   ];
   programs.nixcord = {
     enable = true;
+    vesktop.enable = true;
     discord.autoscroll.enable = true;
     config = {
       frameless = true;
