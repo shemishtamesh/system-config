@@ -4,7 +4,7 @@
     inputs.nixcord.homeModules.nixcord
   ];
   programs.nixcord = {
-    # enable = true;
+    enable = true;
     vesktop.enable = true;
     discord.autoscroll.enable = true;
     config = {
