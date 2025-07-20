@@ -111,7 +111,6 @@
       evince
       baobab
     ];
-    plasma6.excludePackages = builtins.filter (x: x ? pname) (builtins.attrValues pkgs.kdePackages);
   };
   programs = {
     zsh.enable = true;
