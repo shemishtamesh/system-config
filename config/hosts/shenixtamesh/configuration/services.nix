@@ -15,6 +15,7 @@
 
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    desktopManager.plasma6.enable = true;
 
     xserver = {
       # Enable the X11 windowing system.
