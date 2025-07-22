@@ -1,6 +1,21 @@
 pkgs:
 let
-  scheme = (import ./functions.nix pkgs).importYaml ./colorschemes/snow24.yaml;
+  scheme_yaml =
+    let
+      name = "base24_color_palette";
+    in
+    pkgs.stdenv.mkDerivation {
+      inherit name;
+      buildInputs = with pkgs; [
+        pastel
+        bc
+      ];
+      src = ./theming/base24_palette_generator.sh;
+      unpackPhase = "true";
+      buildPhase = "$src > ${name}.yaml";
+      installPhase = "install -Dm0644 ${name} $out";
+    };
+  scheme = (import ./functions.nix pkgs).importYaml scheme_yaml;
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
