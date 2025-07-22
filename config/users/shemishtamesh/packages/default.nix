@@ -92,7 +92,7 @@ let
         gimp
         obs-studio
         libreoffice
-        # smassh
+        smassh
         slides
         difftastic
         altus
