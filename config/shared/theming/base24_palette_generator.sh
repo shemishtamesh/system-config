@@ -11,6 +11,8 @@ LIGHTENING=0.15
 DARKENING=0.0
 BRIGHTNESS_DIFFERENCE=0.05
 
+colorspace=OkLab
+
 if [[ "$VARIANT" == "bright" ]]; then
     gradient_start="white"
     gradient_end="black"
@@ -20,7 +22,7 @@ else
 fi
 
 mapfile -t gradient_colors < <(
-    pastel gradient "$gradient_start" "$MIX_COLOR" "$gradient_end" -n 8  --colorspace OkLab \
+    pastel gradient "$gradient_start" "$MIX_COLOR" "$gradient_end" -n 8  --colorspace "$colorspace" \
     | pastel desaturate "$(echo "$MIX_FACTOR * $GRADIENT_DESATURATION" | bc -l)" \
     | pastel format hex
 )
@@ -29,7 +31,7 @@ non_gradient_colors=()
 non_gradient_color() {
     base_color=$(
         pastel color "$1" \
-        | pastel mix "$MIX_COLOR" --fraction $MIX_FACTOR --colorspace OkLab \
+        | pastel mix "$MIX_COLOR" --fraction $MIX_FACTOR --colorspace "$colorspace" \
         | pastel saturate $SATURATION \
         | pastel desaturate $DESATURATION \
         | pastel lighten $LIGHTENING \
