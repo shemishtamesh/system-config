@@ -8,7 +8,7 @@ let
 in
 {
   imports = [ inputs.zen-browser.homeModules.twilight ];
-  inputs.stylix.targets.zen-browser.profileNames = [ profile_name ];
+  stylix.targets.zen-browser.profileNames = [ profile_name ];
   programs.zen-browser = {
     enable = true;
     policies = {
