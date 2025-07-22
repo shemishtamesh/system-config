@@ -3,8 +3,12 @@
   inputs,
   ...
 }:
+let
+  profile_name = "default";
+in
 {
   imports = [ inputs.zen-browser.homeModules.twilight ];
+  inputs.stylix.targets.zen-browser.profileNames = [ profile_name ];
   programs.zen-browser = {
     enable = true;
     policies = {
@@ -31,7 +35,7 @@
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
     profiles.default = {
       id = 0;
-      name = "default";
+      name = profile_name;
       isDefault = true;
     };
   };
