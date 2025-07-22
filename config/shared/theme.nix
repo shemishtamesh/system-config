@@ -13,8 +13,7 @@ let
       src = ./theming/base24_palette_generator.sh;
       unpackPhase = "true";
       buildPhase = ''
-        chmod +x $src
-        $src > ${name}.yaml
+        bash $src > ${name}.yaml
       '';
       installPhase = "install -Dm0644 ${name} $out";
     };
