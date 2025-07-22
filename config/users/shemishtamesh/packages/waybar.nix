@@ -196,7 +196,7 @@ in
         bluetooth = {
         };
         "hyprland/language" = {
-          format = " {flag}";
+          format = " {long}";
           # format = " {flag} {long}";
         };
         keyboard-state = {
