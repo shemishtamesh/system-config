@@ -20,7 +20,7 @@ else
 fi
 
 mapfile -t gradient_colors < <(
-    pastel gradient "$gradient_start" "$MIX_COLOR" "$gradient_end" -n 8 \
+    pastel gradient "$gradient_start" "$MIX_COLOR" "$gradient_end" -n 8  --colorspace OkLab \
     | pastel desaturate "$(echo "$MIX_FACTOR * $GRADIENT_DESATURATION" | bc -l)" \
     | pastel format hex
 )
@@ -29,7 +29,7 @@ non_gradient_colors=()
 non_gradient_color() {
     base_color=$(
         pastel color "$1" \
-        | pastel mix "$MIX_COLOR" --fraction $MIX_FACTOR \
+        | pastel mix "$MIX_COLOR" --fraction $MIX_FACTOR --colorspace OkLab \
         | pastel saturate $SATURATION \
         | pastel desaturate $DESATURATION \
         | pastel lighten $LIGHTENING \
