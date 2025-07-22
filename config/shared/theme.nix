@@ -15,7 +15,7 @@ let
       buildPhase = ''
         bash $src > ${name}.yaml
       '';
-      installPhase = "install -Dm0644 ${name} $out";
+      installPhase = "install -Dm0644 ${name}.yaml $out";
     };
   scheme = (import ./functions.nix pkgs).importYaml scheme_yaml;
   fonts = {
