@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ opencode ];
+  # home.packages = with pkgs; [ opencode ];
   xdg.configFile."opencode/config.json".text = # json
     ''
       {
