@@ -80,7 +80,7 @@ let
         openscad
         audacity
         musescore
-        # lmms
+        lmms
         krita
         aseprite
         imv
@@ -93,7 +93,6 @@ let
         obs-studio
         libreoffice
         # smassh
-        koji
         slides
         difftastic
         altus
