@@ -27,7 +27,8 @@ let
         modules = [
           ../users/${username}
           stylix.homeModules.stylix
-        ] ++ home_modules;
+        ]
+        ++ home_modules;
       };
     };
   mkSystem =
@@ -79,7 +80,8 @@ let
         {
           modules = [
             ../hosts/${host.hostname}/configuration
-          ] ++ type_specific.modules;
+          ]
+          ++ type_specific.modules;
         }
         // (
           if system_type == "nix-on-droid" then
