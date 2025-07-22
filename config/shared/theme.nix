@@ -1,6 +1,6 @@
 pkgs:
 let
-  scheme_yaml =
+  scheme = (import ./functions.nix pkgs).importYaml (
     let
       name = "base24_color_palette";
     in
@@ -12,12 +12,10 @@ let
       ];
       src = ./theming/base24_palette_generator.sh;
       unpackPhase = "true";
-      buildPhase = ''
-        bash $src > ${name}.yaml
-      '';
+      buildPhase = "bash $src > ${name}.yaml";
       installPhase = "install -Dm0644 ${name}.yaml $out";
-    };
-  scheme = (import ./functions.nix pkgs).importYaml scheme_yaml;
+    }
+  );
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
@@ -73,7 +71,7 @@ in
           ]
         ))
       ];
-      src = ./wallpaper_generator.py;
+      src = ./theming/wallpaper_generator.py;
       unpackPhase = "true";
       buildPhase = ''
         python3 $src \
