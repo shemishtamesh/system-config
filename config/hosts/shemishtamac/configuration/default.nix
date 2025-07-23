@@ -26,9 +26,12 @@
       };
       finder = {
         FXPreferredViewStyle = "clmv";
+        AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
         FXEnableExtensionChangeWarning = false;
+        FXDefaultSearchScope = "SCcf";
         ShowPathbar = true;
+        ShowStatusBar = true;
       };
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;
