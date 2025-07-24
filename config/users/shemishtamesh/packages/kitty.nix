@@ -24,6 +24,7 @@ in
       detect_urls = "yes";
 
       enable_audio_bell = "no";
+      window_alert_oon_bell = "yes";
 
       allow_remote_control = "socket-only";
       listen_on = "unix:/tmp/kitty";
