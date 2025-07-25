@@ -23,7 +23,6 @@ let
     ./mpv.nix
     ./zathura.nix
     ./opencode.nix
-    ./nixcord.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -66,6 +65,7 @@ let
         ./rofi.nix
         ./spotify.nix
         ./zen-browser.nix
+        ./nixcord.nix
         # ./anyrun.nix
         # ./astal
         ./quickshell
