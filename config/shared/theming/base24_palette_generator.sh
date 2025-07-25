@@ -2,7 +2,7 @@
 
 NAME=colorpalette
 VARIANT=dark
-MIX_COLOR=lightblue
+MIX_COLOR=lightgreen
 MIX_FACTOR=0.6
 SATURATION=0.3
 DESATURATION=0.0
