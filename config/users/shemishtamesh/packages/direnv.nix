@@ -1,9 +1,6 @@
 {
   programs = {
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    direnv.enable = true;
     zsh.initContent = # sh
       ''
         # ensure compatibility tmux <-> direnv
