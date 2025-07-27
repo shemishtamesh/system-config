@@ -4,13 +4,11 @@
   config,
   ...
 }:
-
 {
   home.packages = with pkgs; [
     (inputs.nixvim.packages.${system}.default.extend {
       colorschemes.base16 = {
         enable = true;
-
         colorscheme =
           # with config.lib.stylix.colors.withHashtag;
           let
@@ -38,7 +36,6 @@
           };
         settings.telescope_borders = true;
       };
-
       highlight =
         let
           cfg = config.stylix.targets.nixvim;
