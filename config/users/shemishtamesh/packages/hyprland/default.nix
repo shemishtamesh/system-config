@@ -218,7 +218,7 @@ in
         ecosystem = {
           no_update_news = true;
           no_donation_nag = true;
-          enforce_permissions = false;
+          enforce_permissions = true;
         };
         decoration = {
           inherit rounding;
