@@ -43,86 +43,89 @@ in
             + "${toString scaling}"
           ) host.monitors
         );
-        bind = [
-          "$mod CTRL SHIFT, q, exit"
+        bind =
+          [
+            "$mod CTRL SHIFT, q, exit"
 
-          "$mod SHIFT, w, killactive"
-          "$mod SHIFT, q, forcekillactive"
+            "$mod SHIFT, w, killactive"
+            "$mod SHIFT, q, forcekillactive"
 
-          "$mod, c, cyclenext"
-          "$mod SHIFT, c, cyclenext, prev"
+            "$mod, c, cyclenext"
+            "$mod SHIFT, c, cyclenext, prev"
 
-          "$mod, f, fullscreen, 1"
-          "$mod SHIFT, f, fullscreen, 0"
-          "$mod CTRL, f, fullscreenstate, -1 2"
-          "$mod, t, togglefloating, 0"
+            "$mod, f, fullscreen, 1"
+            "$mod SHIFT, f, fullscreen, 0"
+            "$mod CTRL, f, fullscreenstate, -1 2"
+            "$mod, t, togglefloating, 0"
 
-          "$mod, r, togglesplit"
+            "$mod, r, togglesplit"
 
-          "$mod, SPACE, exec, rofi -show combi"
-          "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
-          "$mod, Tab, exec, rofi -show window -modi 'window'"
-          ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
-          '', XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command "echo -n '{result}' | wl-copy"''
-          "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          "$mod, g, exec, rofi-rbw"
-          "$mod CTRL, c, exec, hyprpicker --autocopy"
-          "$mod, s, exec, hyprshot -m window"
-          "$mod SHIFT, s, exec, hyprshot -m region"
-          "$mod, RETURN, exec, kitty --execute tmux"
-          "$mod, i, exec, zen"
-          "$mod SHIFT, i, exec, zen --private-window"
-          "$mod, d, exec, obsidian"
-          "$mod SHIFT, d, exec, lorien"
+            "$mod, SPACE, exec, rofi -show combi"
+            "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
+            "$mod, Tab, exec, rofi -show window -modi 'window'"
+            ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
+            '', XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command "echo -n '{result}' | wl-copy"''
+            "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+            "$mod, g, exec, rofi-rbw"
+            "$mod CTRL, c, exec, hyprpicker --autocopy"
+            "$mod, s, exec, hyprshot -m window"
+            "$mod SHIFT, s, exec, hyprshot -m region"
+            "$mod, RETURN, exec, kitty --execute tmux"
+            "$mod, i, exec, zen"
+            "$mod SHIFT, i, exec, zen --private-window"
+            "$mod, d, exec, obsidian"
+            "$mod SHIFT, d, exec, lorien"
 
-          "$mod, Escape, exec, wlogout"
-          "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
+            "$mod, Escape, exec, wlogout"
+            "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
 
-          "$mod, b, exec, ${scripts.toggle-bar}"
+            "$mod, b, exec, ${scripts.toggle-bar}"
 
-          "$mod, XF86Reload, togglespecialworkspace, chat"
-          "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
-          "$mod, XF86AudioPlay, togglespecialworkspace, music"
-          "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
-          "$mod, 0, togglespecialworkspace, scratchpad"
-          "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
-          "$mod, e, workspace, emptym"
-          "$mod SHIFT, e, movetoworkspace, emptym"
-          "$mod, o, workspace, previous"
-          "$mod, mouse_up, workspace, m-1"
-          "$mod, mouse_down, workspace, m+1"
-          "$mod, bracketleft, workspace, m-1"
-          "$mod SHIFT, bracketright, movetoworkspace, m+1"
-          "$mod SHIFT, bracketleft, movetoworkspace, m-1"
-          "$mod, bracketright, workspace, m+1"
-          "$mod, n, focusmonitor, -1"
-          "$mod, p, focusmonitor, +1"
-          "$mod SHIFT, n, movewindow, mon:-1"
-          "$mod SHIFT, p, movewindow, mon:+1"
-          "$mod ALT, n, movecurrentworkspacetomonitor, -1"
-          "$mod ALT, p, movecurrentworkspacetomonitor, +1"
-        ]
-        ++ (builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              num = i + 1;
-            in
-            [
-              "$mod, ${toString num}, workspace, ${toString num}"
-              "$mod SHIFT, ${toString num}, movetoworkspace, ${toString num}"
-            ]
-          ) 9
-        ))
-        ++ (builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              num = i + 1;
-            in
-            [ "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString num}" ]
-          ) 9
-        ));
+            "$mod, XF86Reload, togglespecialworkspace, chat"
+            "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
+            "$mod, XF86AudioPlay, togglespecialworkspace, music"
+            "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
+            "$mod, 0, togglespecialworkspace, scratchpad"
+            "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
+            "$mod, e, workspace, emptym"
+            "$mod SHIFT, e, movetoworkspace, emptym"
+            "$mod, o, workspace, previous"
+            "$mod, mouse_down, workspace, m+1"
+            "$mod, mouse_up, workspace, m-1"
+            "$mod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')"
+            "$mod, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {new = $2 * 0.9; if (new < 1) new = 1; print new}')"
+            "$mod, bracketleft, workspace, m-1"
+            "$mod SHIFT, bracketright, movetoworkspace, m+1"
+            "$mod SHIFT, bracketleft, movetoworkspace, m-1"
+            "$mod, bracketright, workspace, m+1"
+            "$mod, n, focusmonitor, -1"
+            "$mod, p, focusmonitor, +1"
+            "$mod SHIFT, n, movewindow, mon:-1"
+            "$mod SHIFT, p, movewindow, mon:+1"
+            "$mod ALT, n, movecurrentworkspacetomonitor, -1"
+            "$mod ALT, p, movecurrentworkspacetomonitor, +1"
+          ]
+          ++ (builtins.concatLists (
+            builtins.genList (
+              i:
+              let
+                num = i + 1;
+              in
+              [
+                "$mod, ${toString num}, workspace, ${toString num}"
+                "$mod SHIFT, ${toString num}, movetoworkspace, ${toString num}"
+              ]
+            ) 9
+          ))
+          ++ (builtins.concatLists (
+            builtins.genList (
+              i:
+              let
+                num = i + 1;
+              in
+              [ "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString num}" ]
+            ) 9
+          ));
         binde = [
           "$mod, semicolon, exec, dunstctl close"
           "$mod SHIFT, semicolon, exec, dunstctl close-all"
@@ -252,26 +255,27 @@ in
           # open aseprite in tiled mode by default
           "tile, class:(Aseprite)"
         ];
-        workspace = [
-          # no borders when there's only a single visible window
-          "w[v1], gapsout:0, gapsin:0"
-          "f[1], gapsout:0, gapsin:0"
-        ]
-        ++ (
-          (
-            monitor_portnames: workspace_numbers:
-            lib.lists.imap0 (
-              i: key:
-              ''${toString key}, monitor:${
-                lib.lists.elemAt monitor_portnames (
-                  i * lib.lists.length monitor_portnames / lib.lists.length workspace_numbers
-                )
-              }''
-            ) workspace_numbers
-          )
-          sorted_monitors
-          (lib.range 1 9)
-        );
+        workspace =
+          [
+            # no borders when there's only a single visible window
+            "w[v1], gapsout:0, gapsin:0"
+            "f[1], gapsout:0, gapsin:0"
+          ]
+          ++ (
+            (
+              monitor_portnames: workspace_numbers:
+              lib.lists.imap0 (
+                i: key:
+                ''${toString key}, monitor:${
+                  lib.lists.elemAt monitor_portnames (
+                    i * lib.lists.length monitor_portnames / lib.lists.length workspace_numbers
+                  )
+                }''
+              ) workspace_numbers
+            )
+            sorted_monitors
+            (lib.range 1 9)
+          );
         device = {
           name = "wacom-one-by-wacom-s-pen";
           output = builtins.elemAt sorted_monitors (builtins.length sorted_monitors / 2);
