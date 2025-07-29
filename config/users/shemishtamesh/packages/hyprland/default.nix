@@ -220,6 +220,9 @@ in
           no_donation_nag = true;
           enforce_permissions = true;
         };
+        permission = [
+          "${pkgs.hyprlock}, screencopy, allow"
+        ];
         decoration = {
           inherit rounding;
           shadow.enabled = false;
