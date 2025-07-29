@@ -34,7 +34,7 @@ in
             "class<(firefox|librewolf|zen-(alpha|twilight))> title<.*github.*>" = "";
             "class<(firefox|librewolf|zen-(alpha|twilight))>" = firefox_icon;
             "class<spotify>" = spotify_icon;
-            "class<.*discord.*>" = "";
+            "class<(.*discord.*|.*vesktop.*)>" = "";
             "class<kitty>" = "";
             "(whatsapp|Altus)" = "󰖣";
             "slack" = "󰒱";

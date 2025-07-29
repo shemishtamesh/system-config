@@ -298,7 +298,7 @@ in
           "waybar"
           "zen"
           "[workspace special:music silent] spotify"
-          "[workspace special:chat silent] discord"
+          "[workspace special:chat silent] vesktop"
           "[workspace special:chat silent] altus"
           "[workspace special:chat silent] slack"
           "[workspace special:scratchpad silent] kitty --execute tmux"
