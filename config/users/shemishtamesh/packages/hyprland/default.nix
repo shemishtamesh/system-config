@@ -221,8 +221,8 @@ in
           enforce_permissions = true;
         };
         permission = [
-          "${pkgs.hyprlock}, screencopy, allow"
-          "${pkgs.grim}, screencopy, allow"
+          "${pkgs.hyprlock}/bin/hyprlock, screencopy, allow"
+          "${pkgs.grim}/bin/grim, screencopy, allow"
         ];
         decoration = {
           inherit rounding;
