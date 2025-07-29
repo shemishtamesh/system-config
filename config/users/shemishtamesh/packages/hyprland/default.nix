@@ -222,6 +222,7 @@ in
         };
         permission = [
           "${pkgs.hyprlock}, screencopy, allow"
+          "${pkgs.grim}, screencopy, allow"
         ];
         decoration = {
           inherit rounding;
