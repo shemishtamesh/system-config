@@ -6,6 +6,8 @@
 }:
 {
   home.packages = with pkgs; [
+    ethersync
+
     (inputs.nixvim.packages.${system}.default.extend {
       colorschemes.base16 = {
         enable = true;
