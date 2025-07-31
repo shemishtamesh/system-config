@@ -74,6 +74,8 @@ in
                 export NH_FLAKE="${FLAKE_ROOT}"
                 starting_commit=$(git -C "$NH_FLAKE" rev-parse HEAD)
 
+                git -C "$NH_FLAKE" pull
+
                 git -C "$NH_FLAKE" add .
                 git -C "$NH_FLAKE" commit -m 'before formatting' > /dev/null || true
                 nix fmt "$NH_FLAKE"
