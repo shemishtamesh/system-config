@@ -69,6 +69,7 @@ let
         # ./anyrun.nix
         # ./astal
         ./quickshell
+        ./anki
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
