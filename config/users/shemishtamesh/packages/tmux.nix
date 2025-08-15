@@ -191,7 +191,11 @@ in
 
         # session navigarion
         bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
+
+        # go to last session/window/pane
         bind-key "C-p" switch-client -l
+        bind-key "C-w" last-window
+        bind-key "C-e" last-pane
 
         # status line
         set -g status off
