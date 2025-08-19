@@ -12,5 +12,6 @@ in
 import_modules [
   "theme"
   "functions"
+  "constants"
   "scripts"
 ]

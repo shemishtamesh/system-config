@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  shared,
   ...
 }:
 let
@@ -236,7 +237,15 @@ in
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
       [default_session]
-      startup_command = "nvim -c ':Telescope frecency workspace=CWD path_display={\"smart\"}'"
+      # startup_command = "nvim -c ':Telescope frecency workspace=CWD path_display={\"smart\"}'" # https://github.com/nvim-telescope/telescope.nvim/issues/3480
+      startup_command = "nvim"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
+
+      [[session]]
+      name = "configuration"
+      path = "${shared.constants.FLAKE_ROOT}"
+      startup_command = "nvim flake.nix"
+      preview_command = "bat --color=always ${shared.constants.FLAKE_ROOT}/flake.nix"
+      windows = [ "system" ]
     '';
 }

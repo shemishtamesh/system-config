@@ -20,8 +20,8 @@ in
   apps = per_system (
     system:
     let
-      FLAKE_ROOT = "$HOME/.config/system";
-      FLAKE_REPO = "https://github.com/shemishtamesh/system-config.git";
+      FLAKE_ROOT = (import ./constants.nix).FLAKE_ROOT;
+      FLAKE_REPO = (import ./constants.nix).FLAKE_REPO;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       inherit (inputs.nixpkgs) lib;
       kernel = lib.last (lib.splitString "-" system);
