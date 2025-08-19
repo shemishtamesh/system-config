@@ -243,13 +243,17 @@ in
 
       [[session]]
       name = "configuration"
+      preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
+      windows = [ "system", "nixvim" ]
+
+      [[window]]
+      name = "system"
+      startup_script = "git pull && nvim flake.nix"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
-      startup_command = "nvim flake.nix"
-      preview_command = "bat --color=always ${shared.constants.FLAKE_ROOT_TILDE}/flake.nix"
-      # windows = [ "system", "nixvim" ]
-      #
-      # [[window]]
-      # name = "nixvim"
-      # path = "~/.config/nixvim"
+
+      [[window]]
+      name = "nixvim"
+      startup_script = "git pull && nvim flake.nix"
+      path = "~/.config/nixvim"
     '';
 }
