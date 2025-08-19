@@ -242,13 +242,10 @@ in
 
       [[session]]
       name = "configuration"
-      preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
-      windows = [ "system", "nixvim" ]
-
-      [[window]]
-      name = "system"
       startup_script = "git pull && nvim flake.nix"
+      preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
+      windows = [ "system", "nixvim" ]
 
       [[window]]
       name = "nixvim"
