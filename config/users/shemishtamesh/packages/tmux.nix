@@ -233,4 +233,10 @@ in
         set -ga update-environment 'KITTY_LISTEN_ON'
       '';
   };
+  xdg.configFile."sesh/sesh.toml".text = # toml
+    ''
+      [default_session]
+      startup_command = "nvim -c ':Telescope frecency workspace=CWD path_display={\"smart\"}'"
+      preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
+    '';
 }
