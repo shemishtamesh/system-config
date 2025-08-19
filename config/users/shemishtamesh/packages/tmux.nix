@@ -193,8 +193,8 @@ in
         bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
 
         # add/switch sessions
-        bind-key "a" run-shell "sesh connect \"$(
-          ${pkgs.sesh} list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 80%,70% \
+        bind-key "a" run-shell "${pkgs.sesh}/bin/sesh connect \"$(
+          ${pkgs.sesh}/bin/sesh list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 80%,70% \
             --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
             --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
             --bind 'tab:down,btab:up' \
