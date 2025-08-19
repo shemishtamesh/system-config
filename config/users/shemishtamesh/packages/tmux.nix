@@ -238,7 +238,6 @@ in
     ''
       [default_session]
       # startup_command = "nvim -c ':Telescope frecency workspace=CWD path_display={\"smart\"}'" # https://github.com/nvim-telescope/telescope.nvim/issues/3480
-      startup_command = "nvim"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       [[session]]
