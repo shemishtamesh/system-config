@@ -123,7 +123,7 @@ in
         extraConfig = # tmux
           ''
             TMUX_FZF_LAUNCH_KEY="C-f"
-            bind-key "a" run-shell -b "${tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh switch"
+            # bind-key "a" run-shell -b "${tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/session.sh switch"
           '';
 
       }
@@ -191,6 +191,22 @@ in
 
         # session navigarion
         bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
+
+        # add/switch sessions
+        bind-key "a" run-shell "sesh connect \"$(
+          ${pkgs.sesh} list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 80%,70% \
+            --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+            --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+            --bind 'tab:down,btab:up' \
+            --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+            --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+            --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+            --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+            --preview-window 'right:55%' \
+            --preview 'sesh preview {}'
+        )\""
 
         # go to last session/window/pane
         bind-key "C-p" switch-client -l
