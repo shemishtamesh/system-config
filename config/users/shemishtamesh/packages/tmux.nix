@@ -97,6 +97,7 @@ let
         cpu = pkgs.writeShellScriptBin "cpu_segment" "echo 'unsupported system'";
       };
   palette = config.lib.stylix.colors.withHashtag;
+  sesh = "${pkgs.sesh}/bin/sesh";
 in
 {
   stylix.targets.tmux.enable = true;
@@ -193,19 +194,19 @@ in
         bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
 
         # add/switch sessions
-        bind-key "a" run-shell "${pkgs.sesh}/bin/sesh connect \"$(
-          ${pkgs.sesh}/bin/sesh list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 80%,70% \
+        bind-key "a" run-shell "${sesh} connect \"$(
+          ${sesh} list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 80%,70% \
             --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
             --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
             --bind 'tab:down,btab:up' \
-            --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-            --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
-            --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
-            --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+            --bind 'ctrl-a:change-prompt(⚡  )+reload(${sesh} list --icons)' \
+            --bind 'ctrl-t:change-prompt(🪟  )+reload(${sesh} list -t --icons)' \
+            --bind 'ctrl-g:change-prompt(⚙️  )+reload(${sesh} list -c --icons)' \
+            --bind 'ctrl-x:change-prompt(📁  )+reload(${sesh} list -z --icons)' \
             --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
             --preview-window 'right:55%' \
-            --preview 'sesh preview {}'
+            --preview '${sesh} preview {}'
         )\""
 
         # go to last session/window/pane
