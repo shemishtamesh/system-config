@@ -205,7 +205,7 @@ in
             --bind 'ctrl-x:change-prompt(📁  )+reload(${sesh} list -z --icons)' \
             --bind 'ctrl-f:change-prompt(🔎  )+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh} list --icons)' \
-            --preview-window 'right:75%' \
+            --preview-window 'right:65%' \
             --preview '${sesh} preview {}'
         )\""
 
