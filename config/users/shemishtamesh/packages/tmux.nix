@@ -246,6 +246,10 @@ in
       path = "${shared.constants.FLAKE_ROOT}"
       startup_command = "nvim flake.nix"
       preview_command = "bat --color=always ${shared.constants.FLAKE_ROOT}/flake.nix"
-      windows = [ "system" ]
+      windows = [ "system", "nixvim" ]
+
+      [[window]]
+      name = "nixvim"
+      path = "$HOME/.config/nixvim/"
     '';
 }
