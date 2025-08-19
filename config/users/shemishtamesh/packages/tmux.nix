@@ -195,7 +195,7 @@ in
 
         # add/switch sessions
         bind-key "a" run-shell "${sesh} connect \"$(
-          ${sesh} list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 80%,70% \
+          ${sesh} list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
             --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
             --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
             --bind 'tab:down,btab:up' \
@@ -205,7 +205,7 @@ in
             --bind 'ctrl-x:change-prompt(📁  )+reload(${sesh} list -z --icons)' \
             --bind 'ctrl-f:change-prompt(🔎  )+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh} list --icons)' \
-            --preview-window 'right:55%' \
+            --preview-window 'bottom:55%' \
             --preview '${sesh} preview {}'
         )\""
 
