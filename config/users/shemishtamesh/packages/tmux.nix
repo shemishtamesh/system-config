@@ -245,7 +245,7 @@ in
       startup_script = "git pull && nvim flake.nix"
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
-      windows = [ "system", "nixvim" ]
+      windows = [ "nixvim" ]
 
       [[window]]
       name = "nixvim"
