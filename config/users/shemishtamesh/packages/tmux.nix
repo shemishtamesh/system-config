@@ -218,7 +218,7 @@ in
         bind -r L resize-pane -R
 
         # add/switch sessions
-        bind-key "a" run-shell "${sesh_switch}"
+        bind-key "a" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
 
         # go to last session/window/pane
         bind-key "C-p" switch-client -l
