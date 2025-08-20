@@ -243,7 +243,7 @@ in
 
       [[session]]
       name = "home"
-      startup_command = ""
+      startup_command = "tmux set-option status on"
       path = "~"
       preview_command = "${pkgs.fastfetch}/bin/fastfetch --logo none"
 
