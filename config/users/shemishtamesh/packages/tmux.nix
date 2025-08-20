@@ -7,31 +7,50 @@
 }:
 let
   sesh = "${pkgs.sesh}/bin/sesh";
-  sesh_switch = ''
-    ${sesh} connect \"$(
-      ${sesh} list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
-        --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-        --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-        --bind 'tab:down,btab:up' \
-        --bind 'ctrl-a:change-prompt(⚡  )+reload(${sesh} list --icons)' \
-        --bind 'ctrl-t:change-prompt(🪟  )+reload(${sesh} list -t --icons)' \
-        --bind 'ctrl-g:change-prompt(⚙️  )+reload(${sesh} list -c --icons)' \
-        --bind 'ctrl-x:change-prompt(📁  )+reload(${sesh} list -z --icons)' \
-        --bind 'ctrl-f:change-prompt(🔎  )+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)' \
-        --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh} list --icons)' \
-        --preview-window 'right:55%' \
-        --preview '${sesh} preview {}'
-    )\"
-  '';
-  kill_current_and_select_session = pkgs.writeShellScriptBin "kill_current_and_select_session" ''
-    LAST_SESSION=$(tmux display-message -p '#S')
+  sesh_switch = # sh
+    ''
+      RECYCLE_FLAG=/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary
+      prompr_helper() {
+        BASE=/tmp/sesh_switch_fzf_prompt_base_temporary
+        RECYCLE_SUFFIX=' ♻️ '
 
-    ${sesh_switch}
+        case "$1" in
+          set)    echo "$2" > "$BASE" ;;
+          toggle) if [ -f "$RECYCLE_FLAG" ]; then rm -f "$RECYCLE_FLAG"; else : > "$RECYCLE_FLAG"; fi ;;
+        esac
 
-    if [ $? -eq 0 ]; then
-      tmux kill-session -t "$LAST_SESSION"
-    fi
-  '';
+        bp=$(cat "$BASE" 2>/dev/null || printf '⚡  ')
+
+        if [ -f "$RECYCLE_FLAG" ]; then
+          printf 'change-prompt(%s%s)' "$bp" "$RECYCLE_SUFFIX" > /dev/tty
+        else
+          printf 'change-prompt(%s)' "$bp" > /dev/tty
+        fi
+      }
+
+      LAST_SESSION=$(tmux display-message -p '#S')
+
+      ${sesh} connect \"$(
+        sesh list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
+          --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+          --header '^a all ^t tmux ^g configs ^z zoxide ^d tmux kill ^f find ^x recycle' \
+          --bind 'tab:down,btab:up' \
+          --bind "start:execute-silent(prompr_helper set '⚡  ')" \
+          --bind "ctrl-a:execute-silent(prompr_helper set '⚡  ')+reload(${sesh} list --icons)" \
+          --bind "ctrl-t:execute-silent(prompr_helper set '🪟  ')+reload(${sesh} list -t --icons)" \
+          --bind "ctrl-g:execute-silent(prompr_helper set '⚙️  ')+reload(${sesh} list -c --icons)" \
+          --bind "ctrl-z:execute-silent(prompr_helper set '📁  ')+reload(${sesh} list -z --icons)" \
+          --bind "ctrl-f:execute-silent(prompr_helper set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
+          --bind "ctrl-x:execute-silent(prompr_helper toggle)" \
+          --bind "ctrl-d:execute-silent(tmux kill-session -t {2..}; prompr_helper set '❌  ')+reload(${sesh} list --icons)" \
+          --preview-window 'right:55%' \
+          --preview '${sesh} preview {}'
+      )\"
+
+      if [ -f $RECYCLE_FLAG ]; then
+        tmux kill-session -t "$LAST_SESSION"
+      fi
+    '';
   segments =
     if pkgs.stdenv.isLinux then
       {
@@ -198,9 +217,6 @@ in
         bind -r J resize-pane -D
         bind -r K resize-pane -U
         bind -r L resize-pane -R
-
-        # session navigarion
-        bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
 
         # add/switch sessions
         bind-key "a" run-shell "${sesh_switch}"
