@@ -22,12 +22,12 @@ let
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
         --header '^a ^t ^g ^z ^f ^x ^d' \
         --bind 'tab:down,btab:up' \
-        --bind "start:change-prompt(⚡  )+${recycle_suffix}" \
-        --bind "ctrl-a:change-prompt(⚡ (all) )+${recycle_suffix}+reload(${sesh_list})" \
-        --bind "ctrl-t:change-prompt(🪟 (tmux) )+${recycle_suffix}+reload(${sesh_list} -t)" \
-        --bind "ctrl-g:change-prompt(⚙️ (preconfigured) )+${recycle_suffix}+reload(${sesh_list} -c)" \
-        --bind "ctrl-z:change-prompt(📁 (zoxide) )+${recycle_suffix}+reload(${sesh_list} -z)" \
-        --bind "ctrl-f:change-prompt(🔎 (find) )+${recycle_suffix}+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
+        --bind "start:change-prompt[⚡  ]+${recycle_suffix}" \
+        --bind "ctrl-a:change-prompt[⚡ (all) ]+${recycle_suffix}+reload(${sesh_list})" \
+        --bind "ctrl-t:change-prompt[🪟 (tmux) ]+${recycle_suffix}+reload(${sesh_list} -t)" \
+        --bind "ctrl-g:change-prompt[⚙️ (preconfigured) ]+${recycle_suffix}+reload(${sesh_list} -c)" \
+        --bind "ctrl-z:change-prompt[📁 (zoxide) ]+${recycle_suffix}+reload(${sesh_list} -z)" \
+        --bind "ctrl-f:change-prompt[🔎 (find) ]+${recycle_suffix}+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
         --bind "ctrl-x:execute-silent(sh -c 'if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi')+${recycle_suffix}" \
         --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(❌  )+${recycle_suffix}+reload(${sesh_list})" \
         --preview-window 'right:55%' \
