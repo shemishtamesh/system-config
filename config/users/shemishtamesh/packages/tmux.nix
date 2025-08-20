@@ -32,11 +32,12 @@ let
         --preview '${sesh} preview {}'
     )
 
-    ${sesh} connect "$selection"
+    ${sesh} connect "$selection" || rm ${sesh_fzf_recycle_flag} || return
 
     if [ "$selection" != "" && -f ${sesh_fzf_recycle_flag} ]; then
       tmux kill-session -t "$LAST_SESSION"
     fi
+
     rm ${sesh_fzf_recycle_flag} || true
   '';
   segments =
