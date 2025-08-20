@@ -11,7 +11,7 @@ let
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
 
   # Append ♻️ to whatever the current prompt is if the flag file exists
-  recycle_suffix = "transform-prompt:sh -c '[ -f ${sesh_fzf_recycle_flag} ] && printf \"%s ♻️ \" \"$FZF_PROMPT\" || printf \"%s\" \"$FZF_PROMPT\"'";
+  recycle_suffix = "transform-prompt:sh -c '[ -f ${sesh_fzf_recycle_flag} ] && printf \\\"%s ♻️ \\\" \\\"$FZF_PROMPT\\\" || printf \\\"%s\\\" \\\"$FZF_PROMPT\\\"'";
 
   sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux" ''
     LAST_SESSION=$(tmux display-message -p '#S')
