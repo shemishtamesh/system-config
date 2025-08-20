@@ -26,7 +26,7 @@ let
       printf 'change-prompt(%s)' "$bp" > /dev/tty
     fi
   '';
-  sesh_switch = # sh
+  sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux"
     ''
       LAST_SESSION=$(tmux display-message -p '#S')
 
