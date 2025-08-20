@@ -11,9 +11,7 @@ let
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
 
   # Append ♻️ to whatever the current prompt is if the flag file exists
-  recycle_suffix =
-    "transform-prompt:sh -c '[ -f ${sesh_fzf_recycle_flag} ] && "
-    + "printf \"%s ♻️ \" \"$FZF_PROMPT\" || printf \"%s\" \"$FZF_PROMPT\"'";
+  recycle_suffix = "transform-prompt:sh -c '[ -f ${sesh_fzf_recycle_flag} ] && printf \"%s ♻️ \" \"$FZF_PROMPT\" || printf \"%s\" \"$FZF_PROMPT\"'";
 
   sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux" ''
     LAST_SESSION=$(tmux display-message -p '#S')
@@ -30,7 +28,7 @@ let
         --bind "ctrl-g:change-prompt(⚙️ (preconfigured) )+${recycle_suffix}+reload(${sesh_list} -c)" \
         --bind "ctrl-z:change-prompt(📁 (zoxide) )+${recycle_suffix}+reload(${sesh_list} -z)" \
         --bind "ctrl-f:change-prompt(🔎 (find) )+${recycle_suffix}+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
-        --bind "ctrl-x:execute-silent(sh -c 'if [ -f ${sesh_fzf_recycle_flag} ]; then rm -f ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi')+${recycle_suffix}" \
+        --bind "ctrl-x:execute-silent(sh -c 'if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi')+${recycle_suffix}" \
         --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(❌  )+${recycle_suffix}+reload(${sesh_list})" \
         --preview-window 'right:55%' \
         --preview '${sesh} preview {}'
@@ -38,7 +36,7 @@ let
 
     if [ -f ${sesh_fzf_recycle_flag} ]; then
       tmux kill-session -t "$LAST_SESSION"
-      rm -f ${sesh_fzf_recycle_flag}
+      rm ${sesh_fzf_recycle_flag}
     fi
   '';
   segments =
