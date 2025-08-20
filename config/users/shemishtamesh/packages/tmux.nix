@@ -9,7 +9,7 @@ let
   sesh = "${pkgs.sesh}/bin/sesh";
   sesh_list = "${sesh} list --icons --hide-attached --hide-duplicates";
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
-  recycle_prefix = ''transform-prompt[sh -c '[ -f ${sesh_fzf_recycle_flag} ] && printf \"♻️%s\" \"$FZF_PROMPT\" || printf \"%s\" \"$FZF_PROMPT\"']'';
+  recycle_prefix = ''transform-prompt[sh -c '[ -f ${sesh_fzf_recycle_flag} ] && printf "♻️%s" "$FZF_PROMPT" || printf "%s" "$FZF_PROMPT"']'';
   sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux" ''
     LAST_SESSION=$(tmux display-message -p '#S')
 
@@ -17,15 +17,15 @@ let
       ${sesh} list --icons --hide-attached --hide-duplicates |
       ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-        --header '^a ^t ^g ^o ^f ^x ^d' \
+        --header '^a ^t ^g ^x ^f ^r ^d' \
         --bind 'tab:down,btab:up' \
-        --bind "start:change-prompt[⚡  ]+${recycle_prefix}" \
+        --bind "start:change-prompt[⚡ ]+${recycle_prefix}" \
         --bind "ctrl-a:change-prompt[⚡ ]+${recycle_prefix}+reload(${sesh_list})" \
         --bind "ctrl-t:change-prompt[🪟 ]+${recycle_prefix}+reload(${sesh_list} -t)" \
         --bind "ctrl-g:change-prompt[⚙️ ]+${recycle_prefix}+reload(${sesh_list} -c)" \
-        --bind "ctrl-o:change-prompt[📁 ]+${recycle_prefix}+reload(${sesh_list} -z)" \
+        --bind "ctrl-x:change-prompt[📁 ]+${recycle_prefix}+reload(${sesh_list} -z)" \
         --bind "ctrl-f:change-prompt[🔎 ]+${recycle_prefix}+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
-        --bind "ctrl-x:execute-silent(sh -c 'if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi')+${recycle_prefix}" \
+        --bind "ctrl-r:execute-silent(sh -c 'if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi')+${recycle_prefix}" \
         --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(❌  )+${recycle_prefix}+reload(${sesh_list})" \
         --preview-window 'right:55%' \
         --preview '${sesh} preview {}'
