@@ -235,12 +235,12 @@ in
     ''
       [default_session]
       # startup_command = "nvim -c ':Telescope frecency workspace=CWD path_display={\"smart\"}'" # https://github.com/nvim-telescope/telescope.nvim/issues/3480
-      startup_command = "nvim ."
+      startup_command = "tmux set-option status on && nvim ."
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       [[session]]
       name = "configuration"
-      startup_command = "git pull && nvim ."
+      startup_command = "tmux set-option status on && git pull && nvim ."
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
       windows = [ "nixvim" ]
