@@ -19,7 +19,7 @@ let
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
         --header '^a ^t ^g ^x ^f ^r ^d' \
         --bind 'tab:down,btab:up' \
-        --bind "start:change-prompt[⚡ ]+${recycle_prefix}" \
+        --bind "start:change-prompt[⚡ ]" \
         --bind "ctrl-a:change-prompt[⚡ ]+${recycle_prefix}+reload(${sesh_list})" \
         --bind "ctrl-t:change-prompt[🪟 ]+${recycle_prefix}+reload(${sesh_list} -t)" \
         --bind "ctrl-g:change-prompt[⚙️ ]+${recycle_prefix}+reload(${sesh_list} -c)" \
