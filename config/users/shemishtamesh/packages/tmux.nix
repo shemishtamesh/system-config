@@ -30,7 +30,7 @@ let
     LAST_SESSION=$(tmux display-message -p '#S')
 
     ${sesh} connect "$(
-      sesh list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
+      ${sesh} list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
         --header '^a ^t ^g ^z ^f ^x ^d' \
         --bind 'tab:down,btab:up' \
