@@ -26,31 +26,30 @@ let
       printf 'change-prompt(%s)' "$bp" > /dev/tty
     fi
   '';
-  sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux"
-    ''
-      LAST_SESSION=$(tmux display-message -p '#S')
+  sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux" ''
+    LAST_SESSION=$(tmux display-message -p '#S')
 
-      ${sesh} connect "$(
-        sesh list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
-          --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-          --header '^a all ^t tmux ^g configs ^z zoxide ^d tmux kill ^f find ^x recycle' \
-          --bind 'tab:down,btab:up' \
-          --bind "start:execute-silent(${prompt_helper} set '⚡  ')" \
-          --bind "ctrl-a:execute-silent(${prompt_helper} set '⚡  ')+reload(${sesh} list --icons)" \
-          --bind "ctrl-t:execute-silent(${prompt_helper} set '🪟  ')+reload(${sesh} list -t --icons)" \
-          --bind "ctrl-g:execute-silent(${prompt_helper} set '⚙️  ')+reload(${sesh} list -c --icons)" \
-          --bind "ctrl-z:execute-silent(${prompt_helper} set '📁  ')+reload(${sesh} list -z --icons)" \
-          --bind "ctrl-f:execute-silent(${prompt_helper} set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
-          --bind "ctrl-x:execute-silent(${prompt_helper} toggle)" \
-          --bind "ctrl-d:execute-silent(tmux kill-session -t {2..}; prompt_helper set '❌  ')+reload(${sesh} list --icons)" \
-          --preview-window 'right:55%' \
-          --preview '${sesh} preview {}'
-      )"
+    ${sesh} connect "$(
+      sesh list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
+        --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+        --header '^a all ^t tmux ^g configs ^z zoxide ^d tmux kill ^f find ^x recycle' \
+        --bind 'tab:down,btab:up' \
+        --bind "start:execute-silent(${prompt_helper} set '⚡  ')" \
+        --bind "ctrl-a:execute-silent(${prompt_helper} set '⚡  ')+reload(${sesh} list --icons)" \
+        --bind "ctrl-t:execute-silent(${prompt_helper} set '🪟  ')+reload(${sesh} list -t --icons)" \
+        --bind "ctrl-g:execute-silent(${prompt_helper} set '⚙️  ')+reload(${sesh} list -c --icons)" \
+        --bind "ctrl-z:execute-silent(${prompt_helper} set '📁  ')+reload(${sesh} list -z --icons)" \
+        --bind "ctrl-f:execute-silent(${prompt_helper} set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
+        --bind "ctrl-x:execute-silent(${prompt_helper} toggle)" \
+        --bind "ctrl-d:execute-silent(tmux kill-session -t {2..}; prompt_helper set '❌  ')+reload(${sesh} list --icons)" \
+        --preview-window 'right:55%' \
+        --preview '${sesh} preview {}'
+    )"
 
-      if [ -f ${sesh_fzf_recycle_flag} ]; then
-        tmux kill-session -t "$LAST_SESSION"
-      fi
-    '';
+    if [ -f ${sesh_fzf_recycle_flag} ]; then
+      tmux kill-session -t "$LAST_SESSION"
+    fi
+  '';
   segments =
     if pkgs.stdenv.isLinux then
       {
