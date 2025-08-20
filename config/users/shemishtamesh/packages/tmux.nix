@@ -7,7 +7,7 @@
 }:
 let
   sesh = "${pkgs.sesh}/bin/sesh";
-  sesh_list = "${sesh} list --icons --hide-attached --hide-duplicates"
+  sesh_list = "${sesh} list --icons --hide-attached --hide-duplicates";
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
   prompt_helper = pkgs.writeShellScriptBin "tmux_fzf_sesh_prompt_helper" ''
     RECYCLE_FLAG=/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary
