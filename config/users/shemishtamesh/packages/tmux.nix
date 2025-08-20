@@ -35,14 +35,14 @@ let
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
           --header '^a all ^t tmux ^g configs ^z zoxide ^d tmux kill ^f find ^x recycle' \
           --bind 'tab:down,btab:up' \
-          --bind "start:execute-silent(${prompr_helper} set '⚡  ')" \
-          --bind "ctrl-a:execute-silent(${prompr_helper} set '⚡  ')+reload(${sesh} list --icons)" \
-          --bind "ctrl-t:execute-silent(${prompr_helper} set '🪟  ')+reload(${sesh} list -t --icons)" \
-          --bind "ctrl-g:execute-silent(${prompr_helper} set '⚙️  ')+reload(${sesh} list -c --icons)" \
-          --bind "ctrl-z:execute-silent(${prompr_helper} set '📁  ')+reload(${sesh} list -z --icons)" \
-          --bind "ctrl-f:execute-silent(${prompr_helper} set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
-          --bind "ctrl-x:execute-silent(${prompr_helper} toggle)" \
-          --bind "ctrl-d:execute-silent(tmux kill-session -t {2..}; prompr_helper set '❌  ')+reload(${sesh} list --icons)" \
+          --bind "start:execute-silent(${prompt_helper} set '⚡  ')" \
+          --bind "ctrl-a:execute-silent(${prompt_helper} set '⚡  ')+reload(${sesh} list --icons)" \
+          --bind "ctrl-t:execute-silent(${prompt_helper} set '🪟  ')+reload(${sesh} list -t --icons)" \
+          --bind "ctrl-g:execute-silent(${prompt_helper} set '⚙️  ')+reload(${sesh} list -c --icons)" \
+          --bind "ctrl-z:execute-silent(${prompt_helper} set '📁  ')+reload(${sesh} list -z --icons)" \
+          --bind "ctrl-f:execute-silent(${prompt_helper} set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
+          --bind "ctrl-x:execute-silent(${prompt_helper} toggle)" \
+          --bind "ctrl-d:execute-silent(tmux kill-session -t {2..}; prompt_helper set '❌  ')+reload(${sesh} list --icons)" \
           --preview-window 'right:55%' \
           --preview '${sesh} preview {}'
       )\"
