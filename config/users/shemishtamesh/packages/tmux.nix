@@ -209,8 +209,8 @@ in
 
         # add/switch sessions
         bind-key "a" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
-        bind-key "C-c" display-popup -E 'echo "repository to clone:" && ${sesh} clone --cmdDir "$HOME/projects" $(head -n 1) || echo "already exists"'
-        bind-key "M-c" display-popup -E 'echo "repository to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || echo "already exists"'
+        bind-key "C-c" display-popup -E 'echo "repository to clone:" && ${sesh} clone --cmdDir "$HOME/projects" $(head -n 1) || tmux display-message "already exists"'
+        bind-key "M-c" display-popup -E 'echo "repository to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "already exists"'
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
