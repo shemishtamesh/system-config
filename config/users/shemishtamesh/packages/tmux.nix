@@ -32,7 +32,7 @@ let
     ${sesh} connect "$(
       sesh list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-        --header '^a all ^t tmux ^g configs ^z zoxide ^d tmux kill ^f find ^x recycle' \
+        --header '^a all ^t tmux ^g configs ^z zoxide\n^d tmux kill ^f find ^x recycle' \
         --bind 'tab:down,btab:up' \
         --bind "start:execute-silent(${prompt_helper} set '⚡  ')" \
         --bind "ctrl-a:execute-silent(${prompt_helper} set '⚡  ')+reload(${sesh} list --icons)" \
