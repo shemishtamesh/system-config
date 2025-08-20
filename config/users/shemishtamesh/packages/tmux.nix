@@ -6,21 +6,30 @@
   ...
 }:
 let
+  sesh = "${pkgs.sesh}/bin/sesh";
+  sesh_switch = ''
+    ${sesh} connect \"$(
+      ${sesh} list --icons --hide-attached --hide-duplicates | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
+        --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+        --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+        --bind 'tab:down,btab:up' \
+        --bind 'ctrl-a:change-prompt(⚡  )+reload(${sesh} list --icons)' \
+        --bind 'ctrl-t:change-prompt(🪟  )+reload(${sesh} list -t --icons)' \
+        --bind 'ctrl-g:change-prompt(⚙️  )+reload(${sesh} list -c --icons)' \
+        --bind 'ctrl-x:change-prompt(📁  )+reload(${sesh} list -z --icons)' \
+        --bind 'ctrl-f:change-prompt(🔎  )+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)' \
+        --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh} list --icons)' \
+        --preview-window 'right:55%' \
+        --preview '${sesh} preview {}'
+    )\"
+  '';
   kill_current_and_select_session = pkgs.writeShellScriptBin "kill_current_and_select_session" ''
-    CURRENT_SESSION=$(tmux display-message -p '#S')
-    # Get list of all sessions except current
-    OTHER_SESSIONS=$(tmux list-sessions -F '#S' | grep -v "^''${CURRENT_SESSION}$")
+    LAST_SESSION=$(tmux display-message -p '#S')
 
-    if [ -n "$OTHER_SESSIONS" ]; then
-        # Switch to the first other session
-        NEXT_SESSION=$(echo "$OTHER_SESSIONS" | head -n1)
-        tmux switch-client -t "$NEXT_SESSION"
-        tmux kill-session -t "$CURRENT_SESSION"
-        # Now open session chooser
-        tmux choose-tree -Zs
-    else
-        # No other sessions exist, just kill and exit
-        tmux kill-session -t "$CURRENT_SESSION"
+    ${sesh_switch} || return
+
+    if [ "$out" != "" ]; then
+      tmux kill-session -t "$LAST_SESSION"
     fi
   '';
   segments =
@@ -98,7 +107,6 @@ let
         cpu = pkgs.writeShellScriptBin "cpu_segment" "echo 'unsupported system'";
       };
   palette = config.lib.stylix.colors.withHashtag;
-  sesh = "${pkgs.sesh}/bin/sesh";
 in
 {
   stylix.targets.tmux.enable = true;
@@ -195,20 +203,7 @@ in
         bind-key "C-S-x" run-shell ${lib.getExe kill_current_and_select_session}
 
         # add/switch sessions
-        bind-key "a" run-shell "${sesh} connect \"$(
-          ${sesh} list --icons | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
-            --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-            --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-            --bind 'tab:down,btab:up' \
-            --bind 'ctrl-a:change-prompt(⚡  )+reload(${sesh} list --icons)' \
-            --bind 'ctrl-t:change-prompt(🪟  )+reload(${sesh} list -t --icons)' \
-            --bind 'ctrl-g:change-prompt(⚙️  )+reload(${sesh} list -c --icons)' \
-            --bind 'ctrl-x:change-prompt(📁  )+reload(${sesh} list -z --icons)' \
-            --bind 'ctrl-f:change-prompt(🔎  )+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)' \
-            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh} list --icons)' \
-            --preview-window 'right:55%' \
-            --preview '${sesh} preview {}'
-        )\""
+        bind-key "a" run-shell "${sesh_switch}"
 
         # go to last session/window/pane
         bind-key "C-p" switch-client -l
