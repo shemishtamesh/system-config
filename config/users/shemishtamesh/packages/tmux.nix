@@ -15,8 +15,7 @@ let
     LAST_SESSION=$(tmux display-message -p '#S')
 
     selection=$(
-      ${sesh} list --icons --hide-attached --hide-duplicates |
-      ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
+      ${sesh_list} | ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡ ' \
         --header '^a ^t ^g ^x ^f ^r ^d' \
         --bind 'tab:down,btab:up' \
