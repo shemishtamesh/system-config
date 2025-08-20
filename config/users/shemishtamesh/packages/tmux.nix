@@ -26,9 +26,9 @@ let
   kill_current_and_select_session = pkgs.writeShellScriptBin "kill_current_and_select_session" ''
     LAST_SESSION=$(tmux display-message -p '#S')
 
-    ${sesh_switch} || return
+    ${sesh_switch}
 
-    if [ "$out" != "" ]; then
+    if [ $? -eq 0 ]; then
       tmux kill-session -t "$LAST_SESSION"
     fi
   '';
