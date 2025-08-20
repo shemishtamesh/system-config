@@ -21,11 +21,11 @@ let
         --header '^a ^t ^g ^x ^f ^r ^d' \
         --bind 'tab:down,btab:up' \
         --bind "start:change-prompt[⚡ ]" \
-        --bind "ctrl-a:change-prompt[⚡ ]+reload(${sesh_list})" \
-        --bind "ctrl-t:change-prompt[🪟 ]+reload(${sesh_list} -t)" \
-        --bind "ctrl-g:change-prompt[⚙️ ]+reload(${sesh_list} -c)" \
-        --bind "ctrl-x:change-prompt[📁 ]+reload(${sesh_list} -z)" \
-        --bind "ctrl-f:change-prompt[🔎 ]+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
+        --bind "ctrl-a:change-prompt[⚡ ]+reload(${sesh_list})+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
+        --bind "ctrl-t:change-prompt[🪟 ]+reload(${sesh_list} -t)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
+        --bind "ctrl-g:change-prompt[⚙️ ]+reload(${sesh_list} -c)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
+        --bind "ctrl-x:change-prompt[📁 ]+reload(${sesh_list} -z)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
+        --bind "ctrl-f:change-prompt[🔎 ]+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind 'ctrl-r:execute-silent(sh -c ${recycle_toggle})+${recycle_prefix}' \
         --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh_list})" \
         --preview-window 'right:55%' \
@@ -34,8 +34,8 @@ let
 
     if [ -f ${sesh_fzf_recycle_flag} ]; then
       tmux kill-session -t "$LAST_SESSION"
-      rm ${sesh_fzf_recycle_flag}
     fi
+    rm ${sesh_fzf_recycle_flag} || true
   '';
   segments =
     if pkgs.stdenv.isLinux then
