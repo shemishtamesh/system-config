@@ -9,6 +9,7 @@ let
   sesh = "${pkgs.sesh}/bin/sesh";
   sesh_list = "${sesh} list --icons --hide-attached --hide-duplicates";
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
+  recycle_toggle = "\"if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi\"";
   recycle_prefix = ''transform-prompt[sh -c '[ -f ${sesh_fzf_recycle_flag} ] && printf "♻️%s" "$FZF_PROMPT" || printf "%s" "$FZF_PROMPT"']'';
   sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux" ''
     LAST_SESSION=$(tmux display-message -p '#S')
@@ -25,7 +26,7 @@ let
         --bind "ctrl-g:change-prompt[⚙️ ]+reload(${sesh_list} -c)" \
         --bind "ctrl-x:change-prompt[📁 ]+reload(${sesh_list} -z)" \
         --bind "ctrl-f:change-prompt[🔎 ]+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
-        --bind 'ctrl-r:execute-silent(sh -c \'if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi\')+${recycle_prefix}' \
+        --bind 'ctrl-r:execute-silent(sh -c ${recycle_toggle})+${recycle_prefix}' \
         --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(❌  )+reload(${sesh_list})" \
         --preview-window 'right:55%' \
         --preview '${sesh} preview {}'
