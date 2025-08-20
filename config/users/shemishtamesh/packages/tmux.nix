@@ -7,27 +7,27 @@
 }:
 let
   sesh = "${pkgs.sesh}/bin/sesh";
+  sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
+  prompt_helper = pkgs.writeShellScriptBin "tmux_fzf_sesh_prompt_helper" ''
+    RECYCLE_FLAG=/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary
+    BASE=/tmp/sesh_switch_fzf_prompt_base_temporary
+    RECYCLE_SUFFIX=' ♻️ '
+
+    case "$1" in
+      set)    echo "$2" > "$BASE" ;;
+      toggle) if [ -f "$RECYCLE_FLAG" ]; then rm -f "$RECYCLE_FLAG"; else : > "$RECYCLE_FLAG"; fi ;;
+    esac
+
+    bp=$(cat "$BASE" 2>/dev/null || printf '⚡  ')
+
+    if [ -f "$RECYCLE_FLAG" ]; then
+      printf 'change-prompt(%s%s)' "$bp" "$RECYCLE_SUFFIX" > /dev/tty
+    else
+      printf 'change-prompt(%s)' "$bp" > /dev/tty
+    fi
+  '';
   sesh_switch = # sh
     ''
-      RECYCLE_FLAG=/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary
-      prompr_helper() {
-        BASE=/tmp/sesh_switch_fzf_prompt_base_temporary
-        RECYCLE_SUFFIX=' ♻️ '
-
-        case "$1" in
-          set)    echo "$2" > "$BASE" ;;
-          toggle) if [ -f "$RECYCLE_FLAG" ]; then rm -f "$RECYCLE_FLAG"; else : > "$RECYCLE_FLAG"; fi ;;
-        esac
-
-        bp=$(cat "$BASE" 2>/dev/null || printf '⚡  ')
-
-        if [ -f "$RECYCLE_FLAG" ]; then
-          printf 'change-prompt(%s%s)' "$bp" "$RECYCLE_SUFFIX" > /dev/tty
-        else
-          printf 'change-prompt(%s)' "$bp" > /dev/tty
-        fi
-      }
-
       LAST_SESSION=$(tmux display-message -p '#S')
 
       ${sesh} connect \"$(
@@ -35,19 +35,19 @@ let
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
           --header '^a all ^t tmux ^g configs ^z zoxide ^d tmux kill ^f find ^x recycle' \
           --bind 'tab:down,btab:up' \
-          --bind "start:execute-silent(prompr_helper set '⚡  ')" \
-          --bind "ctrl-a:execute-silent(prompr_helper set '⚡  ')+reload(${sesh} list --icons)" \
-          --bind "ctrl-t:execute-silent(prompr_helper set '🪟  ')+reload(${sesh} list -t --icons)" \
-          --bind "ctrl-g:execute-silent(prompr_helper set '⚙️  ')+reload(${sesh} list -c --icons)" \
-          --bind "ctrl-z:execute-silent(prompr_helper set '📁  ')+reload(${sesh} list -z --icons)" \
-          --bind "ctrl-f:execute-silent(prompr_helper set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
-          --bind "ctrl-x:execute-silent(prompr_helper toggle)" \
+          --bind "start:execute-silent(${prompr_helper} set '⚡  ')" \
+          --bind "ctrl-a:execute-silent(${prompr_helper} set '⚡  ')+reload(${sesh} list --icons)" \
+          --bind "ctrl-t:execute-silent(${prompr_helper} set '🪟  ')+reload(${sesh} list -t --icons)" \
+          --bind "ctrl-g:execute-silent(${prompr_helper} set '⚙️  ')+reload(${sesh} list -c --icons)" \
+          --bind "ctrl-z:execute-silent(${prompr_helper} set '📁  ')+reload(${sesh} list -z --icons)" \
+          --bind "ctrl-f:execute-silent(${prompr_helper} set '🔎  ')+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)" \
+          --bind "ctrl-x:execute-silent(${prompr_helper} toggle)" \
           --bind "ctrl-d:execute-silent(tmux kill-session -t {2..}; prompr_helper set '❌  ')+reload(${sesh} list --icons)" \
           --preview-window 'right:55%' \
           --preview '${sesh} preview {}'
       )\"
 
-      if [ -f $RECYCLE_FLAG ]; then
+      if [ -f ${sesh_fzf_recycle_flag} ]; then
         tmux kill-session -t "$LAST_SESSION"
       fi
     '';
