@@ -17,7 +17,7 @@ let
     selection=$(
       ${sesh} list --icons --hide-attached --hide-duplicates |
       ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
-        --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+        --no-sort --ansi --border-label ' sesh ' --prompt '⚡ ' \
         --header '^a ^t ^g ^x ^f ^r ^d' \
         --bind 'tab:down,btab:up' \
         --bind "start:change-prompt[⚡ ]" \
@@ -26,7 +26,7 @@ let
         --bind "ctrl-g:change-prompt[⚙️ ]+reload(${sesh_list} -c)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind "ctrl-x:change-prompt[📁 ]+reload(${sesh_list} -z)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind "ctrl-f:change-prompt[🔎 ]+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
-        --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh_list})+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
+        --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(⚡ )+reload(${sesh_list})+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind 'ctrl-r:execute-silent(sh -c ${recycle_toggle})+${recycle_prefix}' \
         --preview-window 'right:66%' \
         --preview '${sesh} preview {}'
@@ -34,7 +34,7 @@ let
 
     ${sesh} connect "$selection"
 
-    if [ -n "$selection" && -f ${sesh_fzf_recycle_flag} ]; then
+    if [ -n "$selection" ] && [ -f ${sesh_fzf_recycle_flag} ]; then
       tmux kill-session -t "$LAST_SESSION"
     fi
 
