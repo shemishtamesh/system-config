@@ -14,7 +14,7 @@ let
   sesh_switch = pkgs.writeShellScriptBin "sesh_switch_fzf_tmux" ''
     LAST_SESSION=$(tmux display-message -p '#S')
 
-    ${sesh} connect "$(
+    selection=$(
       ${sesh} list --icons --hide-attached --hide-duplicates |
       ${pkgs.fzf}/bin/fzf-tmux -p 90%,90% \
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
@@ -30,9 +30,11 @@ let
         --bind 'ctrl-r:execute-silent(sh -c ${recycle_toggle})+${recycle_prefix}' \
         --preview-window 'right:66%' \
         --preview '${sesh} preview {}'
-    )"
+    )
 
-    if [ -f ${sesh_fzf_recycle_flag} ]; then
+    ${sesh} connect "$selection"
+
+    if [ "$selection" != "" && -f ${sesh_fzf_recycle_flag} ]; then
       tmux kill-session -t "$LAST_SESSION"
     fi
     rm ${sesh_fzf_recycle_flag} || true
