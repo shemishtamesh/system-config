@@ -242,6 +242,11 @@ in
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       [[session]]
+      name = "home"
+      startup_command = ""
+      path = "~"
+
+      [[session]]
       name = "configuration"
       startup_command = "tmux rename-window system && tmux set-option status on && git pull && nvim ."
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
