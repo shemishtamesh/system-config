@@ -32,9 +32,9 @@ let
         --preview '${sesh} preview {}'
     )
 
-    ${sesh} connect "$selection" || rm ${sesh_fzf_recycle_flag} || return
+    ${sesh} connect "$selection"
 
-    if [ "$selection" != "" && -f ${sesh_fzf_recycle_flag} ]; then
+    if [ -n "$selection" && -f ${sesh_fzf_recycle_flag} ]; then
       tmux kill-session -t "$LAST_SESSION"
     fi
 
