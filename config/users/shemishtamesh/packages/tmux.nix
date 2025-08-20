@@ -26,9 +26,9 @@ let
         --bind "ctrl-g:change-prompt[⚙️ ]+reload(${sesh_list} -c)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind "ctrl-x:change-prompt[📁 ]+reload(${sesh_list} -z)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind "ctrl-f:change-prompt[🔎 ]+reload(${pkgs.fd}/bin/fd -H -d 2 -t d -E .Trash . ~)+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
+        --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh_list})+execute-silent(rm ${sesh_fzf_recycle_flag} || true)" \
         --bind 'ctrl-r:execute-silent(sh -c ${recycle_toggle})+${recycle_prefix}' \
-        --bind "ctrl-d:execute-silent(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(${sesh_list})" \
-        --preview-window 'right:55%' \
+        --preview-window 'right:66%' \
         --preview '${sesh} preview {}'
     )"
 
