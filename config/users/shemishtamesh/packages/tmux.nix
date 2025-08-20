@@ -240,7 +240,7 @@ in
 
       [[session]]
       name = "configuration"
-      startup_command = "tmux set-option status on && git pull && nvim ."
+      startup_command = "tmux rename-window system && tmux set-option status on && git pull && nvim ."
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
       windows = [ "nixvim" ]
