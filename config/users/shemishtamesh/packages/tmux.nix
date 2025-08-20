@@ -209,6 +209,8 @@ in
 
         # add/switch sessions
         bind-key "a" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
+        bind-key "C-c" display-popup -E 'echo "repository to clone:" && ${sesh} clone $(head -n 1) --cmdDir "$HOME/projects"'
+        bind-key "M-c" display-popup -E 'echo "repository to clone:" && ${sesh} clone $(head -n 1) --cmdDir "$HOME/tests"'
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
