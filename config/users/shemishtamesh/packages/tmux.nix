@@ -207,10 +207,11 @@ in
         bind -r K resize-pane -U
         bind -r L resize-pane -R
 
-        # add/switch sessions
+        # add/switch/kill sessions
         bind-key "a" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
         bind-key "C-c" display-popup -E 'echo "project to clone:" && ${sesh} clone --cmdDir "$HOME/projects" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
+        bind-key "C-S-x" kill-session
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
