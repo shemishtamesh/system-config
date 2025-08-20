@@ -211,7 +211,7 @@ in
         bind-key "a" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
 
         # go to last session/window/pane
-        bind-key "C-p" run-shell "${sesh} last"
+        bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
         bind-key "C-w" last-window
         bind-key "C-e" last-pane
 
