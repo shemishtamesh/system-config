@@ -245,7 +245,7 @@ in
       name = "home"
       startup_command = ""
       path = "~"
-      preview_command = "${pkgs.fastfetch}"
+      preview_command = "${pkgs.fastfetch}/bin/fastfetch"
 
       [[session]]
       name = "configuration"
