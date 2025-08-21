@@ -17,6 +17,7 @@
       cap = "!f() { if [ -n \"$1\" ]; then git commit --all --message \"$1\"; else git commit --all; fi; git push; }; f";
       ch = "checkout";
       cl = "clone";
+      clb = "clone --bare";
       d = "diff";
       ds = "diff --compact-summary";
       dt = "difftool";
