@@ -86,6 +86,7 @@
       commit.verbose = true;
       branch.sort = "-committerdate";
       tag.sort = "-taggerdate";
+      remote.pushDefault = "origin";
     };
   };
 }
