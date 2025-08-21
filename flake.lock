@@ -944,11 +944,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1755629706,
-        "narHash": "sha256-OPOP9SK2yTJljddDM0llnqgq0mOIQvgB1LSJjlIKwwk=",
+        "lastModified": 1755764997,
+        "narHash": "sha256-LhCMqc2ExlGSgYxQR3XZIVaayi5mVCqBBPzWI4un8Ms=",
         "owner": "shemishtamesh",
         "repo": "nixvim-flake",
-        "rev": "92aa9bbda02976f7596b8bdba9c2345ffa98405f",
+        "rev": "c3c49253f1441fb6841decf670ecc71520c4f49b",
         "type": "github"
       },
       "original": {
