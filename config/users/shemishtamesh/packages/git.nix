@@ -11,6 +11,9 @@
     aliases = {
       a = "add";
       b = "branch";
+      w = "worktree";
+      wa = "worktree add";
+      wr = "worktree remove";
       c = "commit";
       ca = "commit --all";
       cp = "!f() { if [ -n \"$1\" ]; then git commit --message \"$1\"; else git commit; fi; git push; }; f";
