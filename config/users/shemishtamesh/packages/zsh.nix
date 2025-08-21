@@ -12,7 +12,9 @@
       grep = "grep --color=auto";
       ls = "ls --color=auto";
       l = "exa --color=auto --icons=always --git";
+      li = "exa --color=auto --icons=always --git --git-ignore";
       t = "exa --tree --color=auto --icons=always --git";
+      ti = "exa --tree --color=auto --icons=always --git --git-ignore";
 
       rm = "rmtrash";
       rmdir = "rmdirtrash";
