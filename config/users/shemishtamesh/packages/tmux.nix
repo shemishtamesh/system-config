@@ -7,7 +7,7 @@
 }:
 let
   sesh = "${pkgs.sesh}/bin/sesh";
-  sesh_list = "${sesh} list --icons --hide-attached";
+  sesh_list = "${sesh} list --icons --hide-attached --hide-duplicates";
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
   recycle_toggle = "\"if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi\"";
   recycle_prefix = "transform-prompt[sh -c '\\''[ -f ${sesh_fzf_recycle_flag} ] && printf \"♻️%s\" \"$FZF_PROMPT\" || printf \"%s\" \"\${FZF_PROMPT:1}\"'\\'']";
