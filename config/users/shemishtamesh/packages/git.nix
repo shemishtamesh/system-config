@@ -66,7 +66,7 @@ in
       cap = "!f() { if [ -n \"$1\" ]; then git commit --all --message \"$1\"; else git commit --all; fi; git push; }; f";
       ch = "checkout";
       cl = "clone";
-      clb = "!${clone_bare}";
+      clb = "!${pkgs.lib.getExe clone_bare}";
       d = "diff";
       ds = "diff --compact-summary";
       dt = "difftool";
