@@ -28,13 +28,11 @@
           dir=\"''${2:-$(basename \"$url\" .git)}\"; \
           mkdir -p \"$dir\"; cd \"$dir\"; \
           git clone --bare \"$url\" .git; \
-          # Try to detect default branch robustly \
           branch=$(git --git-dir=.git symbolic-ref -q --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@' || true); \
           if [ -z \"$branch\" ] && git --git-dir=.git rev-parse --verify -q refs/remotes/origin/main >/dev/null; then branch=main; fi; \
           if [ -z \"$branch\" ] && git --git-dir=.git rev-parse --verify -q refs/remotes/origin/master >/dev/null; then branch=master; fi; \
           if [ -z \"$branch\" ]; then branch=$(git --git-dir=.git for-each-ref --format='%(refname:short)' 'refs/remotes/origin/*' | head -n1); fi; \
           if [ -z \"$branch\" ]; then echo >&2 \"Could not detect a default branch (tried origin/HEAD, main, master).\"; exit 1; fi; \
-          # Create a local branch (or reset it) from the remote and add the worktree \
           git --git-dir=.git worktree add -B \"$branch\" \"$branch\" \"origin/$branch\"; \
         }; f
       '';
