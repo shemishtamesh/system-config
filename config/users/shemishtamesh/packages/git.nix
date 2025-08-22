@@ -14,13 +14,14 @@
       w = "worktree";
       wa = "worktree add";
       wr = "worktree remove";
+      wl = "worktree list";
       c = "commit";
       ca = "commit --all";
       cp = "!f() { if [ -n \"$1\" ]; then git commit --message \"$1\"; else git commit; fi; git push; }; f";
       cap = "!f() { if [ -n \"$1\" ]; then git commit --all --message \"$1\"; else git commit --all; fi; git push; }; f";
       ch = "checkout";
       cl = "clone";
-      clb = "clone --bare";
+      clb = "!f() { url=\"$1\"; dir=\"\${2:-$(basename \"$url\" .git)}\"; mkdir -p \"$dir\" && cd \"$dir\" && git clone --bare \"$url\" .git && branch=$(git --git-dir=.git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@'); git --git-dir=.git worktree add \"$branch\" \"origin/$branch\"; }; f";
       d = "diff";
       ds = "diff --compact-summary";
       dt = "difftool";
