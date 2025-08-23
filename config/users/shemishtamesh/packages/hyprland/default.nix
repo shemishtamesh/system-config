@@ -302,7 +302,6 @@ in
           "[workspace special:chat silent] vesktop"
           "[workspace special:chat silent] altus"
           "[workspace special:chat silent] slack"
-          "[workspace special:scratchpad silent] kitty --execute tmux"
           "wl-paste --watch cliphist store"
           "${scripts.notification-log} $HOME/Documents/logs/notifications.txt"
           "${pkgs.playerctl}/bin/playerctld"
