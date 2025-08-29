@@ -16,7 +16,9 @@
       wr = "worktree remove";
       wl = "worktree list";
       c = "commit";
+      cm = "commit --message";
       ca = "commit --all";
+      cam = "commit --all --message";
       cp = "!f() { if [ -n \"$1\" ]; then git commit --message \"$1\"; else git commit; fi; git push; }; f";
       cap = "!f() { if [ -n \"$1\" ]; then git commit --all --message \"$1\"; else git commit --all; fi; git push; }; f";
       ch = "checkout";
