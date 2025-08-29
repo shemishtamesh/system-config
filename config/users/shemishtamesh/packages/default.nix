@@ -4,6 +4,7 @@
   ...
 }:
 let
+  stable-pkgs = inputs.nixpkgs-stable.legacyPackages."${host.system}";
   shared_modules = [
     ./documentation.nix
     ./kitty.nix
@@ -81,7 +82,7 @@ let
         openscad
         audacity
         musescore
-        lmms
+        stable-pkgs.lmms
         krita
         aseprite
         imv
