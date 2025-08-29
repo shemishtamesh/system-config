@@ -83,7 +83,7 @@ let
         openscad
         audacity
         musescore
-        stable-pkgs.lmms
+        lmms
         krita
         aseprite
         imv
