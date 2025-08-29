@@ -71,7 +71,7 @@ let
         # ./anyrun.nix
         # ./astal
         ./quickshell
-        # ./anki
+        ./anki
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
@@ -83,7 +83,7 @@ let
         openscad
         audacity
         musescore
-        lmms
+        # lmms
         krita
         aseprite
         imv
