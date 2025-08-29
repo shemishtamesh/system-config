@@ -218,7 +218,7 @@ in
         ecosystem = {
           no_update_news = true;
           no_donation_nag = true;
-          enforce_permissions = true;
+          enforce_permissions = false;
         };
         permission = [
           "${pkgs.hyprlock}/bin/hyprlock, screencopy, allow"
