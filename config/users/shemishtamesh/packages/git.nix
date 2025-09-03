@@ -94,6 +94,7 @@
       branch.sort = "-committerdate";
       tag.sort = "-taggerdate";
       remote.pushDefault = "origin";
+      push.autoSetupRemote = "true";
     };
   };
 }
