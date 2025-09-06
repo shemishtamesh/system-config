@@ -75,6 +75,8 @@ in
           "$mod, d, exec, obsidian"
           "$mod SHIFT, d, exec, lorien"
 
+          "$mod SHIFT, w, exec, killall wshowkeys || wshowkeys -a bottom"
+
           "$mod, Escape, exec, wlogout"
           "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
 
