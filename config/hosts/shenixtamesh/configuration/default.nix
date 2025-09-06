@@ -131,6 +131,7 @@
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
     gamemode.enable = true;
+    wshowkeys.enable = true;
   };
 
   virtualisation.docker.enable = true;
