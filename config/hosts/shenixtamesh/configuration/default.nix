@@ -29,8 +29,6 @@
   hardware = {
     keyboard.qmk.enable = true;
 
-    pulseaudio.enable = true;
-
     bluetooth.enable = true; # enables support for Bluetooth
     bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
