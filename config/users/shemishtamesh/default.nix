@@ -23,6 +23,7 @@
 
   # allowing unfree packages
   nixpkgs.config = import ./nixpkgs.nix;
+  nixpkgs-unfree.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
   # Let Home Manager install and manage itself.
