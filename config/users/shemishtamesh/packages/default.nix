@@ -85,7 +85,7 @@ let
         musescore
         stable-pkgs.lmms
         krita
-        aseprite
+        stable-pkgs.aseprite
         imv
         pulsemixer
         inkscape
