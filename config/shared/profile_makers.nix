@@ -27,6 +27,10 @@ let
         modules = [
           ../users/${username}
           stylix.homeModules.stylix
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
         ]
         ++ home_modules;
       };
