@@ -24,8 +24,6 @@ let
           inherit inputs host username;
         };
         pkgs = pkgs host.system;
-        useGlobalPkgs = true;
-        useUserPackages = true;
         modules = [
           ../users/${username}
           stylix.homeModules.stylix
