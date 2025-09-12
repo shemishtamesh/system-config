@@ -26,9 +26,5 @@
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
   # Let Home Manager install and manage itself.
-  programs.home-manager = {
-    enable = true;
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  programs.home-manager.enable = true;
 }
