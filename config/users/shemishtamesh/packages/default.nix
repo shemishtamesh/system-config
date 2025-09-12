@@ -5,7 +5,11 @@
   ...
 }:
 let
-  stable-pkgs = inputs.nixpkgs-stable.legacyPackages."${host.system}";
+  # stable-pkgs = inputs.nixpkgs-stable.legacyPackages."${host.system}";
+  stable-pkgs = import inputs.nixpkgs {
+    system = host.system;
+    config.allowUnfree = true;
+  };
   shared_modules = [
     ./documentation.nix
     ./kitty.nix
