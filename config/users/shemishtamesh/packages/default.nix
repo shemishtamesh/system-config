@@ -5,7 +5,6 @@
   ...
 }:
 let
-  # stable-pkgs = inputs.nixpkgs-stable.legacyPackages."${host.system}";
   stable-pkgs = import inputs.nixpkgs-stable {
     system = host.system;
     config.allowUnfree = true;
