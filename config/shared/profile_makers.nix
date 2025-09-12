@@ -24,13 +24,13 @@ let
           inherit inputs host username;
         };
         pkgs = pkgs host.system;
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+        };
         modules = [
           ../users/${username}
           stylix.homeModules.stylix
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
         ]
         ++ home_modules;
       };
