@@ -30,6 +30,7 @@ in
         "zen.urlbar.behavior" = "float";
         "zen.welcome-screen.seen" = true;
         "zen.workspaces.container-specific-essentials-enabled" = true;
+        "sidebar.position_start" = false;
       };
     };
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
