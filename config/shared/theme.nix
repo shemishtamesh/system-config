@@ -25,10 +25,16 @@ let
       package = pkgs.dejavu_fonts;
       name = "DejaVu Sans";
     };
-    monospace = {
-      package = pkgs.nerd-fonts.fira-code;
-      name = "FiraCode Nerd Font Mono";
-    };
+    monospace = [
+      {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font Mono";
+      }
+      {
+        package = pkgs.freefont_ttf;
+        name = "FreeMono";
+      }
+    ];
     emoji = {
       package = pkgs.noto-fonts-emoji;
       name = "Noto Emoji";
