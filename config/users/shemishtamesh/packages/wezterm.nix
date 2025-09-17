@@ -45,7 +45,7 @@
             top = 0,
             bottom = 0,
           },
-          window_decorations = "RESIZE",
+          window_decorations = "NONE",
           -- window_decorations = "RESIZE | MACOS_FORCE_SQUARE_CORNERS",
         }
       '';
