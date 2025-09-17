@@ -40,4 +40,5 @@ in
       isDefault = true;
     };
   };
+  sessionVariables.BROWSER = "zen";
 }

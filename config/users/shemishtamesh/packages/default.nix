@@ -11,7 +11,7 @@ let
   };
   shared_modules = [
     ./documentation.nix
-    ./kitty.nix
+    # ./kitty.nix
     ./wezterm.nix
     ./git.nix
     ./zsh.nix
