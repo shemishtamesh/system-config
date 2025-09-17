@@ -9,6 +9,11 @@
           bidi_enabled = true,
           bidi_direction = "LeftToRight",
           font_size = 14.0,
+          font = wezterm.font_with_fallback {
+            "${shared.theme.fonts.monospace.name}",
+            "FreeMono",
+            "Noto Emoji",
+          },
           hide_tab_bar_if_only_one_tab = true,
           window_padding = {
             left = 0,
@@ -16,11 +21,7 @@
             top = 0,
             bottom = 0,
           },
-          font = wezterm.font_with_fallback {
-            "${shared.theme.fonts.monospace.name}",
-            "FreeMono",
-            "Noto Emoji",
-          },
+          window_decorations = "NONE",
         }
       '';
   };
