@@ -1,4 +1,4 @@
-{ shared }:
+{ shared, ... }:
 {
   # stylix.targets.wezterm.enable = false;
   programs.wezterm = {
