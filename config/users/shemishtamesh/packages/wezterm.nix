@@ -21,7 +21,7 @@
             top = 0,
             bottom = 0,
           },
-          window_decorations = "NONE",
+          window_decorations = "RESIZE",
         }
       '';
   };
