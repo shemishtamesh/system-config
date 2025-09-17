@@ -19,6 +19,7 @@
           },
           font = wezterm.font_with_fallback {
             "${shared.theme.fonts.monospace.name}",
+            "FreeMono",
             "Noto Emoji",
           },
         }
