@@ -1,9 +1,11 @@
+{ shared }:
 {
   # stylix.targets.wezterm.enable = false;
   programs.wezterm = {
     enable = true;
     extraConfig = # lua
       ''
+        local wezterm = require("wezterm")
         return {
           bidi_enabled = true,
           bidi_direction = "LeftToRight",
@@ -14,7 +16,11 @@
             right = 0,
             top = 0,
             bottom = 0,
-          }
+          },
+          font = wezterm.font_with_fallback {
+            ${shared.theme.fonts.monospace.name},
+            "Noto Emoji",
+          },
         }
       '';
   };
