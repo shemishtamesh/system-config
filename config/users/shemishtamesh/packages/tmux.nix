@@ -168,7 +168,7 @@ in
       with palette; # tmux
       ''
         # fix colors
-        set -g default-terminal "xterm-256color"
+        set -g default-terminal "screen-256color"
 
         # reload config file
         bind r source-file ~/.config/tmux/tmux.conf \; display ".tmux.conf reloaded"
