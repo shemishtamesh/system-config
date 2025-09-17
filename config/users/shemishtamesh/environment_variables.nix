@@ -3,11 +3,6 @@ let
   system_type = lib.last (lib.splitString "-" host.system);
 in
 {
-  home.sessionVariables = {
-    MANROFFOPT = "-c";
-    MANWIDTH = "999";
-    MANPAGER = "nvim +Man!";
-    EDITOR = "nvim";
-  }
-  // (if system_type == "darwin" then { HOMEBREW_NO_ANALYTICS = 1; } else { });
+  home.sessionVariables =
+    { } // (if system_type == "darwin" then { HOMEBREW_NO_ANALYTICS = 1; } else { });
 }

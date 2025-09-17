@@ -25,4 +25,5 @@
         }
       '';
   };
+  home.sessionVariables.TERM = "wezterm";
 }
