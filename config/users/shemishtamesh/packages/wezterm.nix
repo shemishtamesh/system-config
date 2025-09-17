@@ -1,6 +1,5 @@
 { shared, ... }:
 {
-  # stylix.targets.wezterm.enable = false;
   programs.wezterm = {
     enable = true;
     extraConfig = # lua
