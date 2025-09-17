@@ -6,8 +6,8 @@
       ''
         local wezterm = require("wezterm")
         return {
-          bidi_enabled = true,
-          bidi_direction = "LeftToRight",
+          -- bidi_enabled = true,
+          -- bidi_direction = "LeftToRight",
           font_size = 14.0,
           font = wezterm.font_with_fallback {
             "${shared.theme.fonts.monospace.name}",
