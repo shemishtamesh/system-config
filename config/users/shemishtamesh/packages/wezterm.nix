@@ -1,4 +1,4 @@
-{ shared, ... }:
+{ shared, host, ... }:
 {
   programs.wezterm = {
     enable = true;
@@ -45,7 +45,8 @@
             top = 0,
             bottom = 0,
           },
-          window_decorations = "RESIZE | MACOS_FORCE_SQUARE_CORNERS",
+          window_decorations = "RESIZE",
+          -- window_decorations = "RESIZE | MACOS_FORCE_SQUARE_CORNERS",
         }
       '';
   };
