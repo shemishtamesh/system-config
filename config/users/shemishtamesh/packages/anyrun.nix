@@ -85,7 +85,7 @@
     extraConfigFiles = {
       "applications.ron".text = ''
         Config(
-          terminal: Some("kitty"),
+          terminal: Some("wezterm"),
         )
       '';
     };

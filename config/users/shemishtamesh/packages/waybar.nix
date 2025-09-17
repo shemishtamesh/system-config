@@ -35,7 +35,7 @@ in
             "class<(firefox|librewolf|zen-(alpha|twilight))>" = firefox_icon;
             "class<spotify>" = spotify_icon;
             "class<(.*discord.*|.*vesktop.*)>" = "";
-            "class<kitty>" = "";
+            "class<(kitty|wezterm)>" = "";
             "(whatsapp|Altus)" = "󰖣";
             "slack" = "󰒱";
             "code" = "󰨞";

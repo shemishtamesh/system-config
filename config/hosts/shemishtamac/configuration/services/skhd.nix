@@ -46,7 +46,7 @@
       fn - b : yabai -m space --balance
 
       # launch apps
-      fn - t : kitty --execute tmux new-session -c $HOME
+      fn - t : wezterm start tmux new-session -c $HOME
       fn - z : /Applications/Zen.app/Contents/MacOS/zen
       fn + shift - z : /Applications/Zen.app/Contents/MacOS/zen --private-window
     '';
