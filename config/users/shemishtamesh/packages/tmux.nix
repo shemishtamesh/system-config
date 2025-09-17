@@ -193,7 +193,7 @@ in
             ""
         }
 
-        # allow passthrough to let images render correctly with presenterm
+        # allow passthrough to let images render correctly with presenterm and nvim zen mode in wezterm
         set -g allow-passthrough on
 
         # start new panes and windows in the same directory
