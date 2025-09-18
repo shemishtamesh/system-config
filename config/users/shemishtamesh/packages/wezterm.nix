@@ -1,4 +1,8 @@
 { shared, host, ... }:
+let
+  window_decorations =
+    if host.system == "aarch64-darwin" then "RESIZE | MACOS_FORCE_SQUARE_CORNERS" else "NONE";
+in
 {
   programs.wezterm = {
     enable = true;
@@ -45,8 +49,7 @@
             top = 0,
             bottom = 0,
           },
-          window_decorations = "NONE",
-          -- window_decorations = "RESIZE | MACOS_FORCE_SQUARE_CORNERS",
+          window_decorations = "${window_decorations}",
         }
       '';
   };
