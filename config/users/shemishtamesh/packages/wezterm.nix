@@ -40,6 +40,7 @@ in
           font = wezterm.font_with_fallback {
             "${shared.theme.fonts.monospace.name}",
             "FreeMono",
+            "DejaVu Sans Mono",
             "Noto Emoji",
           },
           hide_mouse_cursor_when_typing = true,
