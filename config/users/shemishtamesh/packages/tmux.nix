@@ -113,9 +113,12 @@ let
         memory = pkgs.writeShellScriptBin "memory_segment" "echo 'unsupported system'";
         cpu = pkgs.writeShellScriptBin "cpu_segment" "echo 'unsupported system'";
       };
-  nvim_telescope = lib.getExe pkgs.writeShellScriptBin "nvim_telescope" ''
-    nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD path_display={\'smart\'}') end, 100)"
-  ''; # https://github.com/nvim-telescope/telescope.nvim/issues/3480
+  nvim_telescope = lib.getExe (
+    pkgs.writeShellScriptBin "nvim_telescope" ''
+      # https://github.com/nvim-telescope/telescope.nvim/issues/3480
+      nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD path_display={\'smart\'}') end, 100)"
+    ''
+  );
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
