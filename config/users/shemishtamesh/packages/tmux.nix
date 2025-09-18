@@ -113,6 +113,7 @@ let
         memory = pkgs.writeShellScriptBin "memory_segment" "echo 'unsupported system'";
         cpu = pkgs.writeShellScriptBin "cpu_segment" "echo 'unsupported system'";
       };
+  start_nvim_with_telescope = "nvim -c 'lua vim.defer_fn(function() vim.cmd(\":Telescope frecency workspace=CWD path_display={\"smart\"}\") end, 0)'"; # https://github.com/nvim-telescope/telescope.nvim/issues/3480
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
@@ -240,8 +241,7 @@ in
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
       [default_session]
-      # startup_command = "nvim -c ':Telescope frecency workspace=CWD path_display={\"smart\"}'" # https://github.com/nvim-telescope/telescope.nvim/issues/3480
-      startup_command = "tmux set-option status on && nvim ."
+      startup_command = "tmux set-option status on && ${start_nvim_with_telescope}"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       [[session]]
@@ -252,14 +252,14 @@ in
 
       [[session]]
       name = "configuration"
-      startup_command = "tmux rename-window system && tmux set-option status on && git pull && nvim ."
+      startup_command = "tmux rename-window system && tmux set-option status on && git pull && ${start_nvim_with_telescope}"
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
       windows = [ "nixvim" ]
 
       [[window]]
       name = "nixvim"
-      startup_script = "git pull && nvim ."
+      startup_script = "git pull && ${start_nvim_with_telescope}"
       path = "~/.config/nixvim"
     '';
 }
