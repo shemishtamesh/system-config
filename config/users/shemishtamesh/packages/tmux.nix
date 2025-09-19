@@ -199,10 +199,8 @@ in
             ""
         }
 
-        # allow passthrough to let things render correctly
+        # allow passthrough to let images render correctly with presenterm and nvim zen mode in wezterm
         set -g allow-passthrough on
-        # set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[%p1%d q'
-        # set -as terminal-overrides ',*:Ss=E[%p1%d q:Se=E[%p1%d q'
 
         # start new panes and windows in the same directory
         bind '"' split-window -c "#{pane_current_path}"
