@@ -84,12 +84,23 @@ in
         bindkey -v
         export KEYTIMEOUT=1
         # Change cursor shape for different vi modes.
+        # helper that forwards the given escape to the outer terminal when inside tmux
+        send_cursor() {
+          local seq="$1"
+          if [[ -n "$TMUX" ]]; then
+            # wrap the inner escape so tmux forwards it
+            # ESC is \033 (or \e); use printf to expand \e sequences
+            printf '\033Ptmux;\033%s\033\\' "$seq"
+          else
+            printf '%b' "$seq"
+          fi
+        }
         function zle-keymap-select {
           if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-            echo -ne '\e[1 q'
+            send_cursor '\e[1 q'
           elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
             || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
-            echo -ne '\e[5 q'
+            send_cursor '\e[5 q'
           fi
         }
         zle -N zle-keymap-select
