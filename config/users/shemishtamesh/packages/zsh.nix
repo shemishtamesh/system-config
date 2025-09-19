@@ -1,4 +1,9 @@
-{ pkgs, host, ... }:
+{
+  pkgs,
+  host,
+  lib,
+  ...
+}:
 let
   darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
   nvim_telescope = lib.getExe (
