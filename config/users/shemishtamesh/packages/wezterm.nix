@@ -51,7 +51,7 @@ in
           },
           term = 'wezterm',
 
-          -- default_cursor_style = "BlinkingBar",
+          default_cursor_style = "BlinkingBar",
           hide_mouse_cursor_when_typing = true,
           hide_tab_bar_if_only_one_tab = true,
           window_padding = {
