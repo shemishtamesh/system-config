@@ -1,5 +1,13 @@
 { pkgs, host, ... }:
-
+let
+  darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
+  nvim_telescope = lib.getExe (
+    pkgs.writeShellScriptBin "nvim_telescope" ''
+      # https://github.com/nvim-telescope/telescope.nvim/issues/3480
+      nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)"
+    ''
+  );
+in
 {
   home.shell.enableZshIntegration = true;
   programs.zsh = {
@@ -7,7 +15,7 @@
     shellAliases = {
       g = "git";
       n = "nvim";
-      # nm = ''n -c "set filetype=man | Telescope man_pages sections=['ALL']"'';  # currently doesn't work
+      nm = nvim_telescope;
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
@@ -28,6 +36,8 @@
 
       sudo = "sudo "; # allow aliases in sudo
       sd = "sudo --login --user=$USER";
+
+      o = if darwin then "open" else "xdg-open";
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
@@ -69,20 +79,20 @@
         # bindkey -v
         # export KEYTIMEOUT=1
         # Change cursor shape for different vi modes.
-        function zle-keymap-select {
-          if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-            echo -ne '\e[1 q'
-          elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
-            || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
-            echo -ne '\e[5 q'
-          fi
-        }
-        zle -N zle-keymap-select
-        zle-line-init() {
-          zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-          echo -ne "\e[5 q"
-        }
-        zle -N zle-line-init
+        # function zle-keymap-select {
+        #   if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+        #     echo -ne '\e[1 q'
+        #   elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
+        #     || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
+        #     echo -ne '\e[5 q'
+        #   fi
+        # }
+        # zle -N zle-keymap-select
+        # zle-line-init() {
+        #   zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+        #   echo -ne "\e[5 q"
+        # }
+        # zle -N zle-line-init
         # echo -ne '\e[5 q' # Use beam shape cursor on startup.
         # preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
@@ -91,7 +101,7 @@
         bindkey '^e' edit-command-line
 
         ${
-          if pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin" then
+          if darwin then
             ''
               eval "$(/opt/homebrew/bin/brew shellenv)"
             ''
