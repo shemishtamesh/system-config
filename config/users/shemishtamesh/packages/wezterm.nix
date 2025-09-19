@@ -36,6 +36,7 @@ in
 
         return {
           bidi_enabled = true,
+
           font_size = 14.0,
           font = wezterm.font_with_fallback {
             "${shared.theme.fonts.monospace.name}",
@@ -43,7 +44,14 @@ in
             "DejaVu Sans Mono",
             "Noto Emoji",
           },
-          default_cursor_style = "BlinkingBar",
+
+          set_environment_variables = {
+            TERMINFO_DIRS = '/home/user/.nix-profile/share/terminfo',
+            WSLENV = 'TERMINFO_DIRS',
+          },
+          term = 'wezterm',
+
+          -- default_cursor_style = "BlinkingBar",
           hide_mouse_cursor_when_typing = true,
           hide_tab_bar_if_only_one_tab = true,
           window_padding = {
