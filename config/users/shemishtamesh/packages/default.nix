@@ -64,6 +64,7 @@ let
         ./hypridle.nix
         ./hyprlock.nix
         ./hyprpaper.nix
+        ./hyprcursor.nix
         ./hyprland
         ./waybar.nix
         ./wlogout.nix
