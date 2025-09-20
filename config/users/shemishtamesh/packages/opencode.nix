@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ inputs, host, ... }:
+let
+  stable-pkgs = import inputs.nixpkgs-stable {
+    system = host.system;
+    config.allowUnfree = true;
+  };
+in
 {
-  home.packages = with pkgs; [ opencode ];
+  home.packages = with stable-pkgs; [ opencode ];
   xdg.configFile."opencode/config.json".text = # json
     ''
       {
