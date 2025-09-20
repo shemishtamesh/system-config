@@ -25,7 +25,8 @@ in
     ];
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    # package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     extraConfig = {
       show-icons = true;
       modi = "combi,drun,window,recursivebrowser,calc,char:rofimoji --use-icons -a=copy -f emoji*.csv math.csv nerd_font.csv";
@@ -126,11 +127,11 @@ in
       };
     };
   };
-  nixpkgs.overlays = [
-    (_final: prev: {
-      rofi-calc = prev.rofi-calc.override {
-        rofi-unwrapped = prev.rofi-wayland-unwrapped;
-      };
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (_final: prev: {
+  #     rofi-calc = prev.rofi-calc.override {
+  #       rofi-unwrapped = prev.rofi-wayland-unwrapped;
+  #     };
+  #   })
+  # ];
 }
