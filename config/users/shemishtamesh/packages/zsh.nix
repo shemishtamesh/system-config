@@ -84,6 +84,7 @@ in
         bindkey -v
         export KEYTIMEOUT=1
         # Change cursor shape for different vi modes.
+        export ZVM_CURSOR_STYLE_ENABLED=false # disable plugin's cursor style
         function zle-keymap-select {
           if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
             echo -ne '\e[1 q'
