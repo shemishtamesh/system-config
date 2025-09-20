@@ -48,11 +48,11 @@ in
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     plugins = [
-      {
-        name = "vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      }
+      # {
+      #   name = "vi-mode";
+      #   src = pkgs.zsh-vi-mode;
+      #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      # }
     ];
     initContent = # sh
       ''
@@ -107,14 +107,7 @@ in
         autoload edit-command-line; zle -N edit-command-line
         bindkey '^e' edit-command-line
 
-        ${
-          if darwin then
-            ''
-              eval "$(/opt/homebrew/bin/brew shellenv)"
-            ''
-          else
-            ""
-        }
+        ${if darwin then ''eval "$(/opt/homebrew/bin/brew shellenv)"'' else ""}
       '';
   };
 }
