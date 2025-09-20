@@ -6,6 +6,7 @@ in
 {
   programs.wezterm = {
     enable = true;
+    enableZshIntegration = false;
     extraConfig = # lua
       ''
         local wezterm = require("wezterm")
@@ -46,10 +47,19 @@ in
           },
 
           set_environment_variables = {
-            TERMINFO_DIRS = '/home/user/.nix-profile/share/terminfo',
-            WSLENV = 'TERMINFO_DIRS',
+            TERMINFO_DIRS = table.concat(
+              {
+                (os.getenv("HOME") or "~") .. "/.nix-profile/share/terminfo",
+                "/nix/var/nix/profiles/default/share/terminfo",
+                "/usr/local/share/terminfo",
+                "/opt/homebrew/share/terminfo",
+                "/usr/share/terminfo",
+              },
+              ":"
+            ),
+            WSLENV = "TERMINFO_DIRS",
           },
-          term = 'wezterm',
+          term = "wezterm",
 
           default_cursor_style = "BlinkingBar",
           hide_mouse_cursor_when_typing = true,

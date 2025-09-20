@@ -48,11 +48,11 @@ in
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     plugins = [
-      # {
-      #   name = "vi-mode";
-      #   src = pkgs.zsh-vi-mode;
-      #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      # }
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
     ];
     initContent = # sh
       ''
@@ -85,23 +85,23 @@ in
         bindkey -v
         export KEYTIMEOUT=1
         # Change cursor shape for different vi modes.
-        # export ZVM_CURSOR_STYLE_ENABLED=false # disable plugin's cursor style
-        # function zle-keymap-select {
-        #   if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-        #     echo -ne '\e[1 q'
-        #   elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
-        #     || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
-        #     echo -ne '\e[5 q'
-        #   fi
-        # }
-        # zle -N zle-keymap-select
-        # zle-line-init() {
-        #   zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-        #   echo -ne "\e[5 q"
-        # }
-        # zle -N zle-line-init
-        # echo -ne '\e[5 q' # Use beam shape cursor on startup.
-        # preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+        export ZVM_CURSOR_STYLE_ENABLED=false # disable plugin's cursor style
+        function zle-keymap-select {
+          if [[ ''${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+            echo -ne '\e[1 q'
+          elif [[ ''${KEYMAP} == main ]] || [[ ''${KEYMAP} == viins ]] \
+            || [[ ''${KEYMAP} = "" ]] || [[ $1 = 'beam' ]]; then
+            echo -ne '\e[5 q'
+          fi
+        }
+        zle -N zle-keymap-select
+        zle-line-init() {
+          zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+          echo -ne "\e[5 q"
+        }
+        zle -N zle-line-init
+        echo -ne '\e[5 q' # Use beam shape cursor on startup.
+        preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
         # Edit line in vim with ctrl-e:
         autoload edit-command-line; zle -N edit-command-line
