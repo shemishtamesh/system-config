@@ -59,7 +59,7 @@ in
 
           "$mod, r, togglesplit"
 
-          "$mod SHIFT, Tab, overview:toggle"
+          # "$mod SHIFT, Tab, overview:toggle" # Hyprspace
           "$mod, Tab, exec, rofi -show window -modi 'window'"
           "$mod, SPACE, exec, rofi -show combi"
           "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
@@ -322,7 +322,7 @@ in
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
         inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
-        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       ];
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
