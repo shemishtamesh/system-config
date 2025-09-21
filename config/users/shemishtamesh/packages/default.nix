@@ -24,6 +24,7 @@ let
     ./btop.nix
     ./direnv.nix
     ./tmux.nix
+    ./tattoy.nix
     ./nixvim.nix
     ./nix-index.nix
     ./mpv.nix
