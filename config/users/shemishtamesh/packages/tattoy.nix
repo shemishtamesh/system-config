@@ -16,7 +16,7 @@
         max_width = 10
 
         [shader]
-        enabled = false
+        enabled = true
         opacity = 0.75
         layer = -10
         # Whether to render the computed shader directly to the terminal. The shader pixels can still be
@@ -32,7 +32,7 @@
         path = "shaders/soft_shadows.glsl"
 
         [animated_cursor]
-        enabled = false
+        enabled = true
         opacity = 1.0
         # Path to the cursor shader on your local filesystem. Relative to the root of Tattoy's
         # config directory.
