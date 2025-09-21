@@ -4,7 +4,7 @@
   xdg.configFile = {
     "tattoy/tattoy.toml".text = # toml
       ''
-        log_level = "debug"
+        log_level = "trace"
         show_startup_logo = false
         show_tattoy_indicator = false
 
