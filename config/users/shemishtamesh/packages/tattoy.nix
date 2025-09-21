@@ -4,7 +4,8 @@
   xdg.configFile = {
     "tattoy/tattoy.toml".text = # toml
       ''
-        show_tattoy_indicator = true
+      show_startup_logo = false
+      show_tattoy_indicator = false
 
         scrollback_size = 10000
 
