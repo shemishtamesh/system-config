@@ -46,7 +46,7 @@ in
     enable = true;
     base16Scheme = scheme;
     polarity = scheme.variant;
-    inherit fonts;# cursor;
+    inherit fonts; # cursor;
   };
   wallpaper =
     {
