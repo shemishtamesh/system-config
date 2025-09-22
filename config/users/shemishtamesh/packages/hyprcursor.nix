@@ -1,3 +1,3 @@
 {
-  home.pointerCursor.hyprcursor.enable = true;
+  # home.pointerCursor.hyprcursor.enable = true;
 }
