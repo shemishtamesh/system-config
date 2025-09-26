@@ -260,9 +260,6 @@ in
           new_window_takes_over_fullscreen = 2;
         };
         windowrulev2 = [
-          # "workspace special:music silent, class:(spotify)"
-          # "workspace special:chat silent, class:(discord|vesktop|Altus|Slack)"
-
           # no borders when there's only a single visible window
           "bordersize 0, floating:0, onworkspace:w[v1]"
           "rounding 0, floating:0, onworkspace:w[v1]"
