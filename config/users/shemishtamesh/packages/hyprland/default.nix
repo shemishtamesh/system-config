@@ -260,8 +260,8 @@ in
           new_window_takes_over_fullscreen = 2;
         };
         windowrulev2 = [
-          "workspace special:music silent, class:(spotify)"
-          "workspace special:chat silent, class:(discord|vesktop|Altus|Slack)"
+          # "workspace special:music silent, class:(spotify)"
+          # "workspace special:chat silent, class:(discord|vesktop|Altus|Slack)"
 
           # no borders when there's only a single visible window
           "bordersize 0, floating:0, onworkspace:w[v1]"
@@ -273,6 +273,9 @@ in
           "tile, class:(Aseprite)"
         ];
         workspace = [
+          "special:music silent, class:(spotify)"
+          "special:chat silent, class:(discord|vesktop|Altus|Slack)"
+
           # no borders when there's only a single visible window
           "w[v1], gapsout:0, gapsin:0"
           "f[1], gapsout:0, gapsin:0"
