@@ -259,7 +259,7 @@ in
           disable_hyprland_logo = false;
           new_window_takes_over_fullscreen = 2;
         };
-        windowrulev2 = [
+        windowrule = [
           "workspace special:music silent, class:(spotify)"
           "workspace special:chat silent, class:(discord|vesktop|Altus|Slack)"
 
