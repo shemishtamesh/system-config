@@ -113,8 +113,7 @@ let
         qpwgraph
         transmission_4-gtk
         airshipper
-        wrapGAppsHook4
-        gsettings-desktop-schemas
+        solarus-quest-editor
       ];
     };
     shemishtamac = {
