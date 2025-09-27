@@ -113,7 +113,6 @@ let
         qpwgraph
         transmission_4-gtk
         airshipper
-        solarus-quest-editor
       ];
     };
     shemishtamac = {
