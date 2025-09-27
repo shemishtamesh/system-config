@@ -112,6 +112,7 @@ let
         lorien
         qpwgraph
         transmission_4-gtk
+        wrapGAppsHook4
         airshipper
       ];
     };
