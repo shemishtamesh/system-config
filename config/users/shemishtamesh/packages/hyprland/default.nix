@@ -316,7 +316,7 @@ in
         ];
         plugin.dynamic-cursors = {
           enabled = true;
-          mode = "tilt";
+          mode = "stretch";
         };
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
