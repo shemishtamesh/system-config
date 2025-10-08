@@ -8,7 +8,7 @@
   homebrew = {
     enable = true;
     casks = [
-      "zen-browser"
+      "zen"
       "tableau"
     ];
     onActivation = {
