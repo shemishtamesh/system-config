@@ -18,6 +18,9 @@ in
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
+              "gpt-oss": {
+                "tools": true
+              },
               "devstral-65k": {
                 "tools": true
               },
