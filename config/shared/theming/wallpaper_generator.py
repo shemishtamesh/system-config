@@ -1,7 +1,8 @@
 #!/usr/bin/env python
+import argparse
 import math
 import random
-import argparse
+
 from PIL import Image, ImageDraw  # type: ignore
 
 
