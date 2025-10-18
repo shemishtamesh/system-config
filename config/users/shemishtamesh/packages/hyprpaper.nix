@@ -13,7 +13,12 @@ let
         ...
       }:
       {
-        path = toString (shared.theme.wallpaper { inherit portname width height; });
+        path = toString (
+          shared.theme.wallpaper {
+            inherit portname width height;
+            wallpaper = false;
+          }
+        );
         inherit portname;
       }
     ) host.monitors
