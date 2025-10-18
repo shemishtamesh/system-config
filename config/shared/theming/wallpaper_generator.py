@@ -232,7 +232,7 @@ class Background:
                     1,
                 )
                 if not color_outside_nix:
-                    color_index = min(color_index, 4)  # 8 would be brightest
+                    color_index = min(color_index, 5)  # 8 would be brightest
                 self.triangles.append(
                     triangle_factory.triangle(
                         Point(x, y),
