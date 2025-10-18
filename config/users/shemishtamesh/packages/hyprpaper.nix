@@ -16,7 +16,7 @@ let
         path = toString (
           shared.theme.wallpaper {
             inherit portname width height;
-            # background = false;
+            background = false;
           }
         );
         inherit portname;
