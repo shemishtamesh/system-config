@@ -12,7 +12,7 @@
           name = "shemishtamesh";
           email = "shemishtamail@gmail.com";
         };
-        aliases = {
+        alias = {
           a = "add";
           b = "branch";
           w = "worktree";
@@ -46,39 +46,37 @@
           sh = "stash";
           sw = "switch";
         };
-        extraConfig = {
-          merge = {
-            tool = "nvimdiff";
-            conflictstyle = "diff3";
-          };
-          mergetool.keepBackup = false;
-          diff = {
-            tool = "nvimdiff";
-            colorMoved = "default";
-          };
-          difftool.prompt = false;
-          init.defaultBranch = "main";
-          core = {
-            editor = "nvim";
-            compression = 9;
-            whitespace = "error";
-            preloadindex = true;
-          };
-          pull.ff = "only";
-          "url \"git@github.com:/\"".insteadOf = "gh:";
-          "url \"git@github.com:shemishtamesh/\"".insteadOf = "me:";
-          status = {
-            short = true;
-            branch = true;
-            showStash = true;
-            showUntrackedFiles = "all";
-          };
-          commit.verbose = true;
-          branch.sort = "-committerdate";
-          tag.sort = "-taggerdate";
-          remote.pushDefault = "origin";
-          push.autoSetupRemote = "true";
+        merge = {
+          tool = "nvimdiff";
+          conflictstyle = "diff3";
         };
+        mergetool.keepBackup = false;
+        diff = {
+          tool = "nvimdiff";
+          colorMoved = "default";
+        };
+        difftool.prompt = false;
+        init.defaultBranch = "main";
+        core = {
+          editor = "nvim";
+          compression = 9;
+          whitespace = "error";
+          preloadindex = true;
+        };
+        pull.ff = "only";
+        "url \"git@github.com:/\"".insteadOf = "gh:";
+        "url \"git@github.com:shemishtamesh/\"".insteadOf = "me:";
+        status = {
+          short = true;
+          branch = true;
+          showStash = true;
+          showUntrackedFiles = "all";
+        };
+        commit.verbose = true;
+        branch.sort = "-committerdate";
+        tag.sort = "-taggerdate";
+        remote.pushDefault = "origin";
+        push.autoSetupRemote = "true";
       };
       ignores = [
         ".venv"
