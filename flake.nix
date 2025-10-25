@@ -17,10 +17,10 @@
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs.hyprland.follows = "hyprland";
     };
-    # Hyprspace = {
-    #   url = "github:KZDKM/Hyprspace";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     mac-app-util = {
       url = "github:hraban/mac-app-util";
