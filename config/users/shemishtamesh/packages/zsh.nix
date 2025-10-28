@@ -102,7 +102,7 @@ in
         zle -N zle-line-init
         # Ensure cursor shape is restored after every command (after exiting nvim, etc.)
         precmd() {
-          echo -ne '\e[2 q'  # default to block cursor on prompt
+          echo -ne '\e[5 q'  # default to block cursor on prompt
         }
         echo -ne '\e[5 q' # Use beam shape cursor on startup.
         preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
