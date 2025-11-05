@@ -75,7 +75,10 @@
         commit.verbose = true;
         branch.sort = "-committerdate";
         tag.sort = "-taggerdate";
-        remote.pushDefault = "origin";
+        remote = {
+          pushDefault = "origin";
+          origin.fetch = "+refs/heads/*:refs/remotes/origin/*";
+        };
         push.autoSetupRemote = "true";
       };
       ignores = [
