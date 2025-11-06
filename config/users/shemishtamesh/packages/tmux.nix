@@ -237,8 +237,15 @@ in
         set -ag status-right " #[bg=${base0D},fg=${base00}]#(${lib.getExe segments.cpu})"
         set -g status-bg \${base00}
         set -g status-fg \${base07}
-        set -g status-position top
+        set -g status-position bottom
         set -g status-keys vi
+
+        # vim-tpipeline
+        set -g focus-events on
+        set -g status-style bg=default
+        set -g status-left-length 99
+        set -g status-right-length 99
+        set -g status-justify centre
 
         set -ga update-environment 'KITTY_LISTEN_ON'
       '';
