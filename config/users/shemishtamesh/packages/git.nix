@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     gitleaks
     koji
+    git-filter-repo
   ];
   programs = {
     git = {
