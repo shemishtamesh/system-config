@@ -246,6 +246,7 @@ in
         set -g status-left-length 99
         set -g status-right-length 99
         set -g status-justify absolute-centre
+        # set -ag status-centre "#[bg=${base0D},fg=${base00}]#{session_name}#[bg=${base02},fg=${base0D}]"
         set -g status-bg \${base01}
 
         set -ga update-environment 'KITTY_LISTEN_ON'
