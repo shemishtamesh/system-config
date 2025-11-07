@@ -253,6 +253,7 @@ in
         # # Window appearance
         # set -g window-status-format '#[dim]#I:#W#[default]'
         # set -g window-status-current-format '#[bold,fg=green]#I:#W#[default]'
+        # set -g status-left '#[align=centre]#S '
 
         set -g status-bg \${base01}
 
