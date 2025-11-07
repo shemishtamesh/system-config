@@ -256,7 +256,7 @@ in
         # set -g status-left '#[align=centre]#S '
 
         set -g window-status-format '#{?window_index,#[none],#S |} #I:#W#F'
-        set -g window-status-current-format '#{?window_index,#[none],#S |} #[reverse]#I:#W#F#[default]'
+        set -g window-status-current-format '#{?window_index,#[none],#[bg=${base00},fg=${base0D}]#S |} #[reverse]#I:#W#F#[default]'
 
         set -g status-bg \${base01}
 
