@@ -249,7 +249,6 @@ in
         # set -ag status-centre "#[bg=${base0D},fg=${base00}]#{session_name}#[bg=${base02},fg=${base0D}]"
 
         # Center the window list and session name
-        set -g status-justify centre
         set -g window-status-current-format '#[bold,fg=green]#I:#W#[default]'
         set -g window-status-format '#I:#W'
         set -g status-style bg=black,fg=white
