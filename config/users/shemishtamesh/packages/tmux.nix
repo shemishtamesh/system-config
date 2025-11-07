@@ -246,7 +246,7 @@ in
         set -g status-left-length 99
         set -g status-right-length 99
         set -g status-justify absolute-centre
-        # set -g status-bg \${base01}
+        set -g status-bg \${base01}
 
         set -ga update-environment 'KITTY_LISTEN_ON'
       '';
