@@ -247,12 +247,12 @@ in
         set -g status-right-length 99
         set -g status-justify absolute-centre
 
-        # Center content in the status line
-        set -g status-format[0] '#[align=centre]#S #[fg=cyan]|#[default] #{window_list}'
-
-        # Window appearance
-        set -g window-status-format '#[dim]#I:#W#[default]'
-        set -g window-status-current-format '#[bold,fg=green]#I:#W#[default]'
+        # # Center content in the status line
+        # set -g status-format[0] '#[align=centre]#S #[fg=cyan]|#[default] #{window_list}'
+        #
+        # # Window appearance
+        # set -g window-status-format '#[dim]#I:#W#[default]'
+        # set -g window-status-current-format '#[bold,fg=green]#I:#W#[default]'
 
         set -g status-bg \${base01}
 
