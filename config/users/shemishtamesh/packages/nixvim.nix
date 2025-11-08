@@ -1,15 +1,16 @@
 {
   inputs,
   pkgs,
+  host,
   config,
   ...
 }:
 {
   home = {
-    packages = with pkgs; [
-      teamtype
+    packages = [
+      pkgs.teamtype
 
-      (inputs.nixvim.packages.${system}.default.extend {
+      (inputs.nixvim.packages.${host.system}.default.extend {
         colorschemes.base16 = {
           enable = true;
           colorscheme =
@@ -17,7 +18,7 @@
             let
               palette = config.lib.stylix.colors.withHashtag;
             in
-            lib.mkForce {
+            pkgs.lib.mkForce {
               base00 = palette.base11 or palette.base00;
               inherit (palette)
                 base01
@@ -47,6 +48,7 @@
               ctermbg = "none";
             };
           in
+          with pkgs;
           {
             Normal = lib.mkIf cfg.transparentBackground.main transparent;
             NonText = lib.mkIf cfg.transparentBackground.main transparent;
