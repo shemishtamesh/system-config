@@ -228,10 +228,6 @@ in
         set -g status off
         bind -r F set-option status
         set -g status-interval 1
-        set -g status-left "#[bg=${base0D},fg=${base00}]#{session_name}#[bg=${base02},fg=${base0D}]"
-        set -ag status-left " #{=|-24|…;s|$HOME|~|:pane_current_path}#[bg=${base00},fg=${base02}]"
-        set -g status-right "#[bg=${base00},fg=${base02}]#[bg=${base02},fg=${base0D}]#(${lib.getExe segments.memory})"
-        set -ag status-right " #[bg=${base0D},fg=${base00}]#(${lib.getExe segments.cpu})"
         set -g status-keys vi
 
         # vim-tpipeline
