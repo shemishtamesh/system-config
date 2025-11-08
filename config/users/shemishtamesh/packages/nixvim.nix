@@ -7,7 +7,7 @@
 {
   home = {
     packages = with pkgs; [
-      ethersync
+      teamtype
 
       (inputs.nixvim.packages.${system}.default.extend {
         colorschemes.base16 = {
