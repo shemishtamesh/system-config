@@ -228,6 +228,8 @@ in
         set -g status off
         bind -r F set-option status
         set -g status-interval 1
+        set -g status-left ""
+        set -g status-right ""
         set -g status-keys vi
 
         # vim-tpipeline
