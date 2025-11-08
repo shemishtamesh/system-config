@@ -30,7 +30,7 @@ let
       name = "FiraCode Nerd Font Mono";
     };
     emoji = {
-      package = pkgs.noto-fonts-emoji;
+      package = pkgs.noto-fonts-color-emoji;
       name = "Noto Emoji";
     };
   };
