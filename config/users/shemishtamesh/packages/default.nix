@@ -54,7 +54,7 @@ let
     nix-output-monitor
     nvd
     devenv
-    bitwarden
+    bitwarden-desktop
     obsidian
     slack
   ];
