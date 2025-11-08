@@ -1,13 +1,13 @@
 {
-  pkgs,
   inputs,
+  host,
   ...
 }:
 {
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
+      plugins = with inputs.anyrun.packages.${host.system}; [
         applications
         dictionary
         kidex
