@@ -9,7 +9,7 @@ let
 in
 {
   imports = [
-    # ./packages
+    ./packages
     ./services.nix
     ./environment_variables.nix
     ./scripts.nix
