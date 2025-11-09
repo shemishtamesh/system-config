@@ -15,8 +15,6 @@ let
     blueprint-compiler
     dart-sass
     esbuild
-
-    bun # TODO: DELETE THIS
   ];
 
   astalPackages = with astal.packages.${system}; [

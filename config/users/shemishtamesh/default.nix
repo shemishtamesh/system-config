@@ -4,9 +4,12 @@
   pkgs,
   ...
 }:
+let
+  nixpkgs_config = (import ./nixpkgs.nix) pkgs;
+in
 {
   imports = [
-    ./packages
+    # ./packages
     ./services.nix
     ./environment_variables.nix
     ./scripts.nix
@@ -22,8 +25,8 @@
   stylix = shared.theme.stylix_settings;
 
   # allowing unfree packages
-  nixpkgs.config = import ./nixpkgs.nix;
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
+  nixpkgs.config = nixpkgs_config.object;
+  xdg.configFile."nixpkgs/config.nix".source = nixpkgs_config.file;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
