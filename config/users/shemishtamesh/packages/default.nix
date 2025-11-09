@@ -53,7 +53,7 @@ let
     nix-diff
     nix-output-monitor
     nvd
-    # devenv
+    devenv
     bitwarden-desktop
     obsidian
     slack
