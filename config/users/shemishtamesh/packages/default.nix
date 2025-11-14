@@ -114,6 +114,7 @@ let
         transmission_4-gtk
         airshipper
         solarus-quest-editor
+        scrcpy
       ];
     };
     shemishtamac = {
