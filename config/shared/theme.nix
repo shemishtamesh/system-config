@@ -47,6 +47,7 @@ in
     base16Scheme = scheme;
     polarity = scheme.variant;
     inherit fonts cursor;
+    targets.gnome.enable = false;
   };
   wallpaper =
     {
