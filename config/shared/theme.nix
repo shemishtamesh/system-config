@@ -47,7 +47,7 @@ in
     base16Scheme = scheme;
     polarity = scheme.variant;
     inherit fonts cursor;
-    targets.gnome.enable = false;  # TODO: remove this when https://github.com/nix-community/stylix/issues/1967 & https://github.com/nix-community/stylix/pull/1966
+    targets.gnome.enable = false; # TODO: remove this when https://github.com/nix-community/stylix/issues/1967 & https://github.com/nix-community/stylix/pull/1966
   };
   wallpaper =
     {
