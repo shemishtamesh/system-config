@@ -42,7 +42,6 @@ let
     unzip
     wget
     curl
-    visidata
     glow
     rmtrash
     trash-cli
@@ -115,6 +114,7 @@ let
         airshipper
         solarus-quest-editor
         scrcpy
+        visidata
       ];
     };
     shemishtamac = {
@@ -125,6 +125,7 @@ let
       packages = with pkgs; [
         maccy
         google-cloud-sdk
+        stable-pkgs.visidata
       ];
     };
   };
