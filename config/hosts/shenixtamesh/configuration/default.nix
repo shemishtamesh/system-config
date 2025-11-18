@@ -88,6 +88,7 @@
   environment = {
     shells = with pkgs; [ zsh ];
     gnome.excludePackages = with pkgs; [
+      orca
       totem
       gnome-music
       gnome-usage
