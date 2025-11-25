@@ -261,9 +261,9 @@ in
         };
         windowrule = [
           # no borders when there's only a single visible window
-          "bordersize 0, floating:0, onworkspace:w[v1]"
+          "border_size 0, floating:0, onworkspace:w[v1]"
           "rounding 0, floating:0, onworkspace:w[v1]"
-          "bordersize 0, floating:0, onworkspace:f[1]"
+          "border_size 0, floating:0, onworkspace:f[1]"
           "rounding 0, floating:0, onworkspace:f[1]"
 
           # open aseprite in tiled mode by default
