@@ -259,7 +259,7 @@ in
           disable_hyprland_logo = false;
           new_window_takes_over_fullscreen = 2;
         };
-        windowrulev2 = [
+        windowrule = [
           # no borders when there's only a single visible window
           "bordersize 0, floating:0, onworkspace:w[v1]"
           "rounding 0, floating:0, onworkspace:w[v1]"
