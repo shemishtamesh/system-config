@@ -265,7 +265,7 @@ in
         ];
         workspace = [
           # no borders when there's only a single visible window
-          "w[v1], bordersize:0, rounding:0"
+          "w[v1], rounding:false, bordersize:0"
 
           # move specific apps to their special workspaces
           "special:music silent, class:(spotify)"
