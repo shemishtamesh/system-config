@@ -265,10 +265,7 @@ in
         ];
         workspace = [
           # no borders when there's only a single visible window
-          "bordersize 0, floating:0, onworkspace:w[v1]"
-          "rounding 0, floating:0, onworkspace:w[v1]"
-          "bordersize 0, floating:0, onworkspace:f[1]"
-          "rounding 0, floating:0, onworkspace:f[1]"
+          "w[v1], bordersize:0, rounding:0"
 
           # move specific apps to their special workspaces
           "special:music silent, class:(spotify)"
