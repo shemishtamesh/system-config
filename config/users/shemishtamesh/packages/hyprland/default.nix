@@ -261,7 +261,7 @@ in
         };
         windowrule = [
           # open aseprite in tiled mode by default
-          "tile, match:class Aseprite"
+          "tile:true, match:class Aseprite"
         ];
         workspace = [
           # no borders when there's only a single visible window
