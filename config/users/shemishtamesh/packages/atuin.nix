@@ -10,9 +10,6 @@
       };
       enter_accept = true;
     };
-    daemon = {
-      enable = true;
-      socket_path = "~/.local/share/atuin/atuin.sock";
-    };
+    daemon.enable = true;
   };
 }
