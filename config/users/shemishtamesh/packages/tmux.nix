@@ -167,9 +167,11 @@ in
 
         # prefix the session name to the first window
         # set -g window-status-format '#{?window_index,#[none],#[fg=${base0D},bold]#S#[fg=${base03},nobold] |} #I:#W#F'
-        set -g window-status-format '#{?window_index,#[none],#[fg=${base0D}]#S#[fg=${base03}] |} #I:#W#F'
         # set -g window-status-current-format '#{?window_index,#[none],#[fg=${base0D},bold]#S#[fg=${base03},nobold] |} #[fg=${base0D}]#I:#W#F#[default]'
-        set -g window-status-current-format '#{?window_index,#[none],#[fg=${base0D}]#S#[fg=${base03}] |} #[fg=${base0D}]#I:#W#F#[default]'
+        # set -g window-status-format '#{?window_index,#[none],#[fg=${base0D}]#S#[fg=${base03}] |} #I:#W#F'
+        # set -g window-status-current-format '#{?window_index,#[none],#[fg=${base0D}]#S#[fg=${base03}] |} #[fg=${base0D}]#I:#W#F#[default]'
+        set -g window-status-format '#{?window_index,#[none],#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] |} #I:#W#F'
+        set -g window-status-current-format '#{?window_index,#[none],#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] |} #[fg=${base0D}]#I:#W#F#[default]'
 
         set -g status-bg \${base01}
 
