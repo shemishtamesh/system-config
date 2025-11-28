@@ -257,7 +257,6 @@ in
         misc = {
           force_default_wallpaper = 1;
           disable_hyprland_logo = false;
-          # new_window_takes_over_fullscreen = 2;
         };
         windowrule = [
           # open aseprite in tiled mode by default
