@@ -24,12 +24,14 @@ in
       OfferToSaveLogins = false;
       Preferences = {
         "zen.theme.content-element-separation" = 0;
+        "zen.theme.hide-tab-throbber" = false;
         "zen.view.use-single-toolbar" = false;
         "zen.view.compact.hide-toolbar" = true;
         "zen.view.compact.toolbar-flash-popup" = true;
         "zen.urlbar.behavior" = "float";
         "zen.welcome-screen.seen" = true;
         "zen.workspaces.container-specific-essentials-enabled" = true;
+        "zen.workspaces.scroll-modifier-key" = "shift";
         "sidebar.position_start" = false;
       };
     };
