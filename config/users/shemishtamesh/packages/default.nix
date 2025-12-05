@@ -60,13 +60,14 @@ let
   per_host = {
     shenixtamesh = {
       modules = [
-        ./protonup.nix
+        ./hyprland
         ./hypridle.nix
         ./hyprlock.nix
         ./hyprpaper.nix
         ./hyprcursor.nix
-        ./hyprland
+        ./hyprlauncher.nix
         ./waybar.nix
+        ./protonup.nix
         ./wlogout.nix
         ./dunst.nix
         ./rofi.nix
