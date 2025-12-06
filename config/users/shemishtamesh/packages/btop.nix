@@ -18,7 +18,7 @@
       disks_filter = "";
       use_fstab = true;
       zfs_hide_datasets = false;
-      io_mode = true;
+      io_mode = false;
       net_sync = true;
       net_iface = "";
       show_battery_watts = true;
