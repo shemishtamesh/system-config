@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   host,
   ...
@@ -72,12 +73,12 @@
     };
     ollama = {
       enable = true;
+      package = pkgs.ollama-cuda;
       openFirewall = true;
       environmentVariables = {
         OLLAMA_HOST = "0.0.0.0";
       };
       loadModels = [ "qwen2.5-coder:7b" ];
-      acceleration = "cuda";
     };
     open-webui = {
       enable = true;
