@@ -6,7 +6,7 @@
 }:
 let
   stable-pkgs = import inputs.nixpkgs-stable {
-    system = host.system;
+    inherit (host) system;
     config.allowUnfree = true;
   };
   shared_modules = [

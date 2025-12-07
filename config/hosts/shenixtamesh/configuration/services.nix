@@ -4,6 +4,12 @@
   host,
   ...
 }:
+let
+  stable-pkgs = import inputs.nixpkgs-stable {
+    inherit (host) system;
+    config.allowUnfree = true;
+  };
+in
 {
   services = {
     blueman.enable = true;
@@ -82,7 +88,7 @@
     };
     open-webui = {
       enable = true;
-      package = inputs.nixpkgs-stable.legacyPackages.${host.system}.open-webui;
+      package = stable-pkgs.open-webui;
       environment.OLLAMA_API_BASE_URL = "http://localhost:11434";
       host = "0.0.0.0";
     };
