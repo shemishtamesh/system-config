@@ -49,6 +49,7 @@ let
     yazi
     killall
     nh
+    nps
     nix-diff
     nix-output-monitor
     nvd
