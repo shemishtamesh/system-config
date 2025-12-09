@@ -115,6 +115,7 @@ in
                 fi
 
                 git push > /dev/null
+                git rebase > /dev/null
 
                 ${os_specific.notify_switch_success}
                 echo 'switch successful'
