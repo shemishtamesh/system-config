@@ -8,7 +8,7 @@ let
   darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
   nvim_telescope = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
-      nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD initial_mode=\'normal\' path_display={\'smart\'}') end, 100)"
+      nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD initial_mode=normal path_display={\'smart\'}') end, 100)"
     ''
   );
   nvim_man = lib.getExe (
@@ -19,7 +19,7 @@ let
   );
   nvim_oil = lib.getExe (
     pkgs.writeShellScriptBin "nvim_oil" ''
-      nvim -c "require('oil').open_float(nil, { preview = {} })"
+      nvim -c "lua require('oil').open_float(nil, { preview = {} })"
     ''
   );
 in
