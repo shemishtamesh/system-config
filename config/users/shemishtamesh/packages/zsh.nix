@@ -8,8 +8,18 @@ let
   darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
   nvim_telescope = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
+      nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD path_display={\'smart\'}') end, 100)"
+    ''
+  );
+  nvim_man = lib.getExe (
+    pkgs.writeShellScriptBin "nvim_telescope" ''
       # https://github.com/nvim-telescope/telescope.nvim/issues/3480
       nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)"
+    ''
+  );
+  nvim_oil = lib.getExe (
+    pkgs.writeShellScriptBin "nvim_oil" ''
+      nvim -c "require('oil').open_float(nil, { preview = {} })"
     ''
   );
 in
@@ -19,8 +29,9 @@ in
     enable = true;
     shellAliases = {
       g = "git";
-      n = "nvim";
-      nm = nvim_telescope;
+      n = nvim_telescope;
+      ma = nvim_man;
+      e = nvim_oil;
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
