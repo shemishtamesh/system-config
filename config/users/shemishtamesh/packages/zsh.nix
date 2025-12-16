@@ -8,26 +8,26 @@ let
   darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
   nvim_telescope = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
-      if [ $# -eq 0 ]; then;
-        nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD initial_mode=normal path_display={\'smart\'}') end, 100)";
-        exit 0;
-      fi;
-      nvim $@;
+      if [ $# -eq 0 ]; then
+        nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD initial_mode=normal path_display={\'smart\'}') end, 100)"
+        exit 0
+      fi
+      nvim $@
     ''
   );
   nvim_man = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
       # https://github.com/nvim-telescope/telescope.nvim/issues/3480
-      if [ $# -eq 0 ]; then;
-        nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)";
-        exit 0;
-      if;
-      man $@;
+      if [ $# -eq 0 ]; then
+        nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)"
+        exit 0
+      if
+      man $@
     ''
   );
   nvim_oil = lib.getExe (
     pkgs.writeShellScriptBin "nvim_oil" ''
-      nvim -c "lua require('oil').open_float(nil, { preview = {} })";
+      nvim -c "lua require('oil').open_float(nil, { preview = {} })"
     ''
   );
 in
