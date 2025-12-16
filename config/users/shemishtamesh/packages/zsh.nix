@@ -21,7 +21,7 @@ let
       if [ $# -eq 0 ]; then
         nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)"
         exit 0
-      if
+      fi
       man $@
     ''
   );
