@@ -27,7 +27,7 @@ let
   );
   nvim_oil = lib.getExe (
     pkgs.writeShellScriptBin "nvim_oil" ''
-      nvim -c "lua require('oil').open_float(nil, { preview = {} })"
+      nvim -c "lua require('oil').open(nil, { preview = {} })"
     ''
   );
 in
