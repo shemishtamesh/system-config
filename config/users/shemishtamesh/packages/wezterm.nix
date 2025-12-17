@@ -36,7 +36,7 @@ in
         end)
 
         return {
-          bidi_enabled = true,
+          -- bidi_enabled = true,
 
           font_size = 14.0,
           font = wezterm.font_with_fallback {
