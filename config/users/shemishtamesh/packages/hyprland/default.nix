@@ -96,8 +96,9 @@ in
 
           "$mod, mouse_down, workspace, m+1"
           "$mod, mouse_up, workspace, m-1"
-          "$mod CTRL, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')"
-          "$mod CTRL, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {new = $2 * 0.9; if (new < 1) new = 1; print new}')"
+          "$mod CTRL, 0, exec, hyprctl --quiet keyword cursor:zoom_disable_aa $(hyprctl getoption cursor:zoom_disable_aa | awk '/^set.*/ {print $2}' | sed 's/true/TEMP/;s/false/true/;s/TEMP/false/')"
+          "$mod CTRL, mouse_down, exec, hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')"
+          "$mod CTRL, mouse_up, exec, hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {new = $2 * 0.9; if (new < 1) new = 1; print new}')"
 
           "$mod, bracketleft, workspace, m-1"
           "$mod SHIFT, bracketright, movetoworkspace, m+1"
@@ -218,6 +219,7 @@ in
         };
         cursor = {
           hide_on_key_press = true;
+          zoom_disable_aa = true;
         };
         ecosystem = {
           no_update_news = true;
