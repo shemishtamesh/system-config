@@ -83,7 +83,7 @@ let
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
         cht-sh
-        tetrio-desktop
+        # tetrio-desktop
         furnace
         (pkgs.bottles.override { removeWarningPopup = true; })
         blender
