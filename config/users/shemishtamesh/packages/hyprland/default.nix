@@ -314,16 +314,16 @@ in
           "transmission-daemon"
           "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
         ];
-        plugin.dynamic-cursors = {
-          enabled = true;
-          mode = "stretch";
-        };
+        # plugin.dynamic-cursors = {
+        #   enabled = true;
+        #   mode = "stretch";
+        # };
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
-      plugins = [
-        inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
-        # inputs.Hyprspace.packages.${host.system}.Hyprspace
-      ];
+      # plugins = [
+      #   inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
+      #   inputs.Hyprspace.packages.${host.system}.Hyprspace
+      # ];
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
 }
