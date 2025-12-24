@@ -12,17 +12,17 @@ let
         nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD initial_mode=normal path_display={\'smart\'}') end, 100)"
         exit 0
       fi
-      nvim $@
+      nvim "$@"
     ''
   );
   nvim_man = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
       # https://github.com/nvim-telescope/telescope.nvim/issues/3480
-      if [ $# -eq 0 ]; then
+      if [ "$#" -eq 0 ]; then
         nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)"
         exit 0
       fi
-      man $@
+      man "$@"
     ''
   );
   nvim_oil = lib.getExe (
@@ -37,8 +37,9 @@ in
     enable = true;
     shellAliases = {
       g = "git";
-      n = nvim_telescope;
-      ma = nvim_man;
+      n = "nvim";
+      f = nvim_telescope;
+      a = nvim_man;
       e = nvim_oil;
 
       grep = "grep --color=auto";
