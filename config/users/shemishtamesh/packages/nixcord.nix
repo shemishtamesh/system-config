@@ -23,7 +23,6 @@
         # mutualGroupDMs.enable = true;
         noUnblockToJump.enable = true;
         permissionsViewer.enable = true;
-        pinDMs.enable = true;
         previewMessage.enable = true;
         relationshipNotifier.enable = true;
         revealAllSpoilers.enable = true;
