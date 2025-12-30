@@ -170,18 +170,18 @@ in
           "CTRL SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-"
           "ALT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"
           "ALT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%"
-        ];
-        bindlr = [
-          ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ];
-        bindl = [
-          "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
           ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
 
           ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
           ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
           ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ];
+        bindl = [
+          ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl pause"
+          ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1"
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ 1"
         ];
         bindle = [
           '', XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 1"''

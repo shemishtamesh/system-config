@@ -177,25 +177,25 @@ in
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
       [default_session]
-      startup_command = "tmux set-option status on"
+      startup_command = "tmux set-option status on && clear"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       [[session]]
       name = "home"
-      startup_command = "tmux set-option status on"
+      startup_command = "tmux set-option status on && clear"
       path = "~"
       preview_command = "${pkgs.fastfetch}/bin/fastfetch --logo none"
 
       [[session]]
       name = "configuration"
-      startup_command = "tmux rename-window system && tmux set-option status on && git pull && ${nvim_telescope}"
+      startup_command = "tmux rename-window system && tmux set-option status on && git pull && clear && ${nvim_telescope}"
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
       windows = [ "nixvim" ]
 
       [[window]]
       name = "nixvim"
-      startup_script = "git pull && ${nvim_telescope}"
+      startup_script = "git pull && clear && ${nvim_telescope}"
       path = "~/.config/nixvim"
     '';
 }
