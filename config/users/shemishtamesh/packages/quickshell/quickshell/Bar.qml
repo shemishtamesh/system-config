@@ -1,13 +1,10 @@
-// Bar.qml
 import Quickshell
 
 Scope {
-  // no more time object
-
   Variants {
     model: Quickshell.screens
 
-    PanelWindow {
+    delegate: PanelWindow {
       property var modelData
       screen: modelData
 
