@@ -1,27 +1,25 @@
 import Quickshell
+import QtQuick
 
 Scope {
-  Variants {
-    model: Quickshell.screens
+    Variants {
+        model: Quickshell.screens
 
-    delegate: PanelWindow {
-      property var modelData
-      screen: modelData
+        delegate: PanelWindow {
+            property var modelData
+            screen: modelData
 
-      anchors {
-        top: true
-        left: true
-        right: true
-      }
+            anchors {
+                top: true
+                left: true
+                right: true
+            }
 
-      implicitHeight: 30
+            implicitHeight: 30
 
-      ClockWidget {
-        anchors.centerIn: parent
-      }
-      ClockWidget {
-        anchors.centerIn: parent
-      }
+            ClockWidget {
+                anchors.centerIn: parent
+            }
+        }
     }
-  }
 }
