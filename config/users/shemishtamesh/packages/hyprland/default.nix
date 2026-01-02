@@ -260,7 +260,7 @@ in
           force_default_wallpaper = 1;
           disable_hyprland_logo = false;
         };
-        layerrule = [ "animation none, quickshell" ];
+        layerrule = [ "quickshel, animation none" ];
         windowrule = [
           # open aseprite in tiled mode by default
           "match:class Aseprite, tile true"
