@@ -8,6 +8,10 @@
     enable = true;
     settings = {
       settingsVersion = 0;
+      general = {
+        showHibernateOnLockScreen = true;
+        enableShadows = false;
+      };
       bar = {
         marginVertical = 0;
         marginHorizontal = 0;
