@@ -71,7 +71,7 @@ let
         # ./waybar.nix
         ./protonup.nix
         ./wlogout.nix
-        ./dunst.nix
+        # ./dunst.nix
         ./spotify.nix
         ./zen-browser.nix
         ./nixcord.nix
