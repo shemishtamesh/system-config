@@ -40,6 +40,8 @@
           ];
         };
       };
+      osd.location = "bottom_center";
+      notifications.location = "top_center";
       location.name = "Hod Hasharon, Israel";
       screenRecorder.copyToClipboard = true;
       wallpaper.enabled = false;
