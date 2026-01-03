@@ -32,6 +32,12 @@
               id = "MediaMini";
             }
           ];
+          center = [
+            {
+              id = "Workspace";
+              showApplications = true;
+            }
+          ];
         };
       };
       location.name = "Hod Hasharon, Israel";
