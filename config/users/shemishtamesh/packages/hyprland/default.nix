@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   shared,
   host,
   inputs,
@@ -214,9 +213,6 @@ in
           resize_on_border = true;
 
           "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
-          # "col.active_border" =
-          #   with config.lib.stylix.colors;
-          #   lib.mkForce "rgb(${base08}) rgb(${base0A}) rgb(${base0B}) rgb(${base0C}) rgb(${base0D}) rgb(${base0E})";
         };
         cursor = {
           hide_on_key_press = true;
