@@ -6,7 +6,7 @@
 {
   toggle-bar = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "toggle-bar" ''
-      ${pkgs.lib.getExe pkgs.killall} .waybar-wrapped
+      # ${pkgs.lib.getExe pkgs.killall} .waybar-wrapped
       if [[ $? -eq 0 ]]; then
           hyprctl keyword general:border_size 0;
           hyprctl keyword general:gaps_in 0

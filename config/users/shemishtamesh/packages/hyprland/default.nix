@@ -60,13 +60,14 @@ in
           "$mod, r, togglesplit"
 
           # "$mod SHIFT, Tab, overview:toggle" # Hyprspace
-          "$mod, Tab, exec, rofi -show window -modi 'window'"
-          "$mod, SPACE, exec, rofi -show combi"
-          "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
-          ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
-          '', XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command "echo -n '{result}' | wl-copy"''
-          "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          "$mod, g, exec, rofi-rbw"
+          # "$mod, Tab, exec, rofi -show window -modi 'window'"
+          # "$mod, SPACE, exec, rofi -show combi"
+          # "$mod SHIFT, minus, exec, rofi -show drun -modi 'drun'"
+          # ", Cancel, exec, rofi -show char -modi 'char:rofimoji --use-icons -a=copy -f all'"
+          # '', XF86Favorites, exec, rofi -show calc -modi 'calc' -calc-command "echo -n '{result}' | wl-copy"''
+          # "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+          # "$mod, g, exec, rofi-rbw"
+          "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
           "$mod CTRL, c, exec, hyprpicker --autocopy"
           "$mod, s, exec, hyprshot --freeze --mode region"
           "$mod SHIFT, s, exec, hyprshot --freeze --mode window"
@@ -82,7 +83,7 @@ in
           "$mod, Escape, exec, wlogout"
           "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
 
-          "$mod, b, exec, ${scripts.toggle-bar}"
+          # "$mod, b, exec, ${scripts.toggle-bar}"
 
           "$mod, XF86Reload, togglespecialworkspace, chat"
           "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
@@ -299,7 +300,8 @@ in
         };
         exec-once = [
           "${pkgs.hyprpaper}"
-          "waybar"
+          # "waybar"
+          "noctalia-shell"
           "zen"
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] vesktop"
