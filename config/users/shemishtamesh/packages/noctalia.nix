@@ -41,15 +41,15 @@
             { id = "Tray"; }
             {
               id = "Microphone";
-              displayMode = "always_show";
+              displayMode = "alwaysShow";
             }
             {
               id = "Volume";
-              displayMode = "always_show";
+              displayMode = "alwaysShow";
             }
             {
               id = "Brightness";
-              displayMode = "always_show";
+              displayMode = "alwaysShow";
             }
             {
               id = "NotificationHistory";
