@@ -28,6 +28,14 @@
               usePrimaryColor = false;
             }
             { id = "SystemMonitor"; }
+            {
+              id = "WiFi";
+              displayMode = "alwaysShow";
+            }
+            {
+              id = "Bluetooth";
+              displayMode = "alwaysShow";
+            }
             { id = "ActiveWindow"; }
             { id = "MediaMini"; }
           ];
@@ -55,6 +63,7 @@
               id = "NotificationHistory";
               hideWhenZero = false;
             }
+            { id = "KeepAwake"; }
             {
               id = "ControlCenter";
               useDistroLogo = true;
@@ -62,6 +71,48 @@
           ];
         };
       };
+
+      controlCenter = {
+        cards = [
+          {
+            id = "profile-card";
+            enabled = true;
+          }
+          {
+            id = "shortcuts-card";
+            enabled = true;
+          }
+          {
+            id = "audio-card";
+            enabled = true;
+          }
+          {
+            id = "brightness-card";
+            enabled = true;
+          }
+          {
+            id = "weather-card";
+            enabled = true;
+          }
+          {
+            id = "media-sysmon-card";
+            enabled = true;
+          }
+        ];
+        shortcuts = {
+          left = [
+            { id = "WiFi"; }
+            { id = "Bluetooth"; }
+            { id = "ScreenRecorder"; }
+            {
+              id = "CustomButton";
+              icon = "rocket";
+              leftClickExec = "noctalia-shell ipc call launcher toggle";
+            }
+          ];
+        };
+      };
+      sessionMenu.largeButtonsStyle = true;
       osd.location = "bottom_center";
       notifications.location = "top_center";
       location.name = "Hod Hasharon, Israel";

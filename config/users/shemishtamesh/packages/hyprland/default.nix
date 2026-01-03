@@ -79,10 +79,10 @@ in
 
           "$mod, w, exec, killall wshowkeys || wshowkeys -a bottom"
 
-          # "$mod, Escape, exec, wlogout"
           "$mod, Escape, exec, noctalia-shell ipc call sessionMenu toggle"
-          # "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
           "$mod, grave, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+
+          "$mod, a, exec, noctalia-shell ipc call idleInhibitor toggle"
 
           "$mod, b, exec, ${scripts.toggle-bar}"
 
@@ -135,10 +135,10 @@ in
           ) 9
         ));
         binde = [
-          "$mod, semicolon, exec, dunstctl close"
-          "$mod SHIFT, semicolon, exec, dunstctl close-all"
-          "$mod CTRL, semicolon, exec, dunstctl history-pop"
-          "$mod ALT, semicolon, exec, dunstctl set-paused toggle"
+          "$mod, semicolon, exec, noctalia-shell ipc call notifications dismissOldest"
+          "$mod SHIFT, semicolon, exec, noctalia-shell ipc call notifications dismissAll"
+          "$mod CTRL, semicolon, exec, noctalia-shell ipc call notifications toggleHistory"
+          "$mod ALT, semicolon, exec, noctalia-shell ipc call notifications toggleDND"
 
           "$mod, h, movefocus, l"
           "$mod, j, movefocus, d"
