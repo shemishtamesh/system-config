@@ -83,7 +83,7 @@ in
           # "$mod, Escape, exec, wlogout"
           "$mod, Escape, exec, noctalia-shell ipc call sessionMenu toggle"
           # "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
-          "$mod, grave, exec, noctalia-shell ipc call lockAndSuspend"
+          "$mod, grave, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
 
           "$mod, b, exec, ${scripts.toggle-bar}"
 
