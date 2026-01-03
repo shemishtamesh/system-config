@@ -70,7 +70,7 @@ let
         # ./rofi.nix
         # ./waybar.nix
         ./protonup.nix
-        ./wlogout.nix
+        # ./wlogout.nix
         # ./dunst.nix
         ./spotify.nix
         ./zen-browser.nix

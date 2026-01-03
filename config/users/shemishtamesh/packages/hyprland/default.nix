@@ -80,10 +80,12 @@ in
 
           "$mod, w, exec, killall wshowkeys || wshowkeys -a bottom"
 
-          "$mod, Escape, exec, wlogout"
-          "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
+          # "$mod, Escape, exec, wlogout"
+          "$mod, Escape, exec, noctalia-shell ipc call sessionMenu toggle"
+          # "$mod, grave, exec, hyprlock & sleep 0.5 && systemctl suspend"
+          "$mod, grave, exec, noctalia-shell ipc call sessionMenu toggle"
 
-          # "$mod, b, exec, ${scripts.toggle-bar}"
+          "$mod, b, exec, ${scripts.toggle-bar}"
 
           "$mod, XF86Reload, togglespecialworkspace, chat"
           "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"

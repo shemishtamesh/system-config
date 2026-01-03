@@ -7,7 +7,8 @@
   toggle-bar = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "toggle-bar" ''
       # ${pkgs.lib.getExe pkgs.killall} .waybar-wrapped
-      if [[ $? -eq 0 ]]; then
+      noctalia-shell ipc call bar toggle
+      if [[ $(hyprctl getoption general:border_size | head -n 1 | awk '{ print $2 }') -eq 1 ]]; then
           hyprctl keyword general:border_size 0;
           hyprctl keyword general:gaps_in 0
           hyprctl keyword general:gaps_out 0
