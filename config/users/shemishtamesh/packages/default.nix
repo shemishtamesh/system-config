@@ -67,17 +67,18 @@ let
         ./hyprpaper.nix
         ./hyprcursor.nix
         # ./hyprlauncher.nix
-        ./rofi.nix
-        ./waybar.nix
+        # ./rofi.nix
+        # ./waybar.nix
         ./protonup.nix
         ./wlogout.nix
         ./dunst.nix
         ./spotify.nix
         ./zen-browser.nix
         ./nixcord.nix
+        ./noctalia.nix
         # ./anyrun.nix
         # ./astal
-        ./quickshell
+        # ./quickshell
         # ./anki
       ];
       packages = with pkgs; [
