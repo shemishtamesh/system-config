@@ -6,8 +6,6 @@ PanelWindow /* qmllint disable uncreatable-type */ {
     required property int panelWidth
     required property int panelHeight
     required property int hoverBuffer
-    required property int verticalPosition
-    required property int hrizontalPosition
     property var modelData
 
     anchors {
