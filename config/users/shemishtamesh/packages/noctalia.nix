@@ -19,23 +19,45 @@
         widgets = {
           left = [
             {
+              id = "CustomButton";
+              icon = "rocket";
+              leftClickExec = "noctalia-shell ipc call launcher toggle";
+            }
+            {
               id = "Clock";
               usePrimaryColor = false;
             }
-            {
-              id = "SystemMonitor";
-            }
-            {
-              id = "ActiveWindow";
-            }
-            {
-              id = "MediaMini";
-            }
+            { id = "SystemMonitor"; }
+            { id = "ActiveWindow"; }
+            { id = "MediaMini"; }
           ];
           center = [
             {
               id = "Workspace";
               showApplications = true;
+            }
+          ];
+          right = [
+            { id = "Tray"; }
+            {
+              id = "Microphone";
+              displayMode = "always";
+            }
+            {
+              id = "Volume";
+              displayMode = "always";
+            }
+            {
+              id = "Brightness";
+              displayMode = "always";
+            }
+            {
+              id = "NotificationHistory";
+              hideWhenZero = false;
+            }
+            {
+              id = "ControlCenter";
+              useDistroLogo = true;
             }
           ];
         };
