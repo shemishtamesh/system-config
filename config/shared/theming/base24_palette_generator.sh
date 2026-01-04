@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 
-NAME=colorpalette
-VARIANT=dark
-MIX_COLOR=lightblue
-MIX_FACTOR=0.6
-SATURATION=0.3
-DESATURATION=0.0
-GRADIENT_DESATURATION=0.0
-LIGHTENING=0.05
-DARKENING=0.0
-BRIGHTNESS_DIFFERENCE=0.05
+: "${name:=default_color_palette}"
+: "${variant:=dark}"
+: "${mix_color:=lightblue}"
+: "${mix_factor:=0.6}"
+: "${saturation:=0.3}"
+: "${desaturation:=0.0}"
+: "${gradient_desaturation:=0.0}"
+: "${lightening:=0.05}"
+: "${darkening:=0.0}"
+: "${brightness_difference:=0.05}"
+: "${colorspace:=OkLab}"
 
-colorspace=OkLab
-
-if [[ "$VARIANT" == "bright" ]]; then
+if [[ "$variant" == "bright" ]]; then
     gradient_start="white"
     gradient_end="black"
 else
@@ -22,8 +21,8 @@ else
 fi
 
 mapfile -t gradient_colors < <(
-    pastel gradient "$gradient_start" "$MIX_COLOR" "$gradient_end" -n 8  --colorspace "$colorspace" \
-    | pastel desaturate "$(echo "$MIX_FACTOR * $GRADIENT_DESATURATION" | bc -l)" \
+    pastel gradient "$gradient_start" "$mix_color" "$gradient_end" -n 8  --colorspace "$colorspace" \
+    | pastel desaturate "$(echo "$mix_factor * $gradient_desaturation" | bc -l)" \
     | pastel format hex
 )
 
@@ -31,15 +30,15 @@ non_gradient_colors=()
 non_gradient_color() {
     base_color=$(
         pastel color "$1" \
-        | pastel mix "$MIX_COLOR" --fraction $MIX_FACTOR --colorspace "$colorspace" \
-        | pastel saturate $SATURATION \
-        | pastel desaturate $DESATURATION \
-        | pastel lighten $LIGHTENING \
-        | pastel darken $DARKENING \
+        | pastel mix "$mix_color" --fraction "$mix_factor" --colorspace "$colorspace" \
+        | pastel saturate "$saturation" \
+        | pastel desaturate "$desaturation" \
+        | pastel lighten "$lightening" \
+        | pastel darken "$darkening" \
         | pastel format hex
     )
-    darker=$(pastel darken $BRIGHTNESS_DIFFERENCE "$base_color" | pastel format hex)
-    lighter=$(pastel lighten $BRIGHTNESS_DIFFERENCE "$base_color" | pastel format hex)
+    darker=$(pastel darken "$brightness_difference" "$base_color" | pastel format hex)
+    lighter=$(pastel lighten "$brightness_difference" "$base_color" | pastel format hex)
     non_gradient_colors+=("$darker" "$lighter")
 }
 
@@ -56,8 +55,8 @@ non_gradient_color "$(pastel color brown)"
 
 cat <<EOF
 system: "base24"
-name: "${NAME}"
-variant: "${VARIANT}"
+name: "${name}"
+variant: "${variant}"
 palette:
   base11: "${gradient_colors[0]}"
   base10: "${gradient_colors[0]}"

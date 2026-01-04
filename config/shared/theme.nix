@@ -1,21 +1,6 @@
 pkgs:
 let
-  scheme = (import ./functions.nix pkgs).importYaml (
-    let
-      name = "base24_color_palette";
-    in
-    pkgs.stdenv.mkDerivation {
-      inherit name;
-      buildInputs = with pkgs; [
-        pastel
-        bc
-      ];
-      src = ./theming/base24_palette_generator.sh;
-      unpackPhase = "true";
-      buildPhase = "bash $src > ${name}.yaml";
-      installPhase = "install -Dm0644 ${name}.yaml $out";
-    }
-  );
+  scheme = (import ./theming/palette_generation.nix) { inherit pkgs; };
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
