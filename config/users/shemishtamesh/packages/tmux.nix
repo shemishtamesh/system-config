@@ -166,8 +166,8 @@ in
         set -g status-justify absolute-centre
 
         # prefix the session name to the first window
-        set -g window-status-format '#{?#{==:#I,#{base-index}},#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] |,#[default]} #I:#W#F'
-        set -g window-status-current-format '#{?#{==:#I,#{base-index}},#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] |,#[default]} #[fg=${base0D}]#I:#W#F'
+        set -g window-status-format '#{?#{==:#I,#{base-index}},#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] |#[default],#[default]} #I:#W#F'
+        set -g window-status-current-format '#{?#{==:#I,#{base-index}},#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] |#[default],#[default]} #[fg=${base0D}]#I:#W#F'
 
         set -g status-bg \${base01}
 
