@@ -14,7 +14,7 @@
 }:
 (import ../functions.nix pkgs).importYaml (
   pkgs.stdenv.mkDerivation {
-    inherit palette_name;
+    name = palette_name;
     buildInputs = with pkgs; [
       pastel
       bc
