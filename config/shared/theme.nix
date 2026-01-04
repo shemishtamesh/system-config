@@ -1,6 +1,9 @@
 pkgs:
 let
-  scheme = (import ./theming/palette_generation.nix) { inherit pkgs; };
+  scheme = (import ./theming/palette_generation.nix) {
+    inherit pkgs;
+    mix_color = "lightred";
+  };
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
