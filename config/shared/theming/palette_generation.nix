@@ -1,6 +1,6 @@
 {
   pkgs,
-  name ? "default_color_palette",
+  palette_name ? "default_color_palette",
   variant ? "dark",
   mix_color ? "lightblue",
   mix_factor ? 0.6,
@@ -14,7 +14,7 @@
 }:
 (import ../functions.nix pkgs).importYaml (
   pkgs.stdenv.mkDerivation {
-    inherit name;
+    inherit palette_name;
     buildInputs = with pkgs; [
       pastel
       bc
@@ -22,7 +22,7 @@
     src = ./base24_palette_generator.sh;
     env = {
       inherit
-        name
+        palette_name
         variant
         mix_color
         mix_factor
@@ -36,7 +36,7 @@
         ;
     };
     unpackPhase = "true";
-    buildPhase = ''bash "$src" > ${name}.yaml'';
-    installPhase = ''install -Dm0644 ${name}.yaml "$out"'';
+    buildPhase = ''bash "$src" > ${palette_name}.yaml'';
+    installPhase = ''install -Dm0644 ${palette_name}.yaml "$out"'';
   }
 )

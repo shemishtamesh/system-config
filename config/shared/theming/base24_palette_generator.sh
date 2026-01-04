@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-: "${name:=default_color_palette}"
+: "${palette_name:=default_color_palette}"
 : "${variant:=dark}"
 : "${mix_color:=lightblue}"
 : "${mix_factor:=0.6}"
@@ -55,7 +55,7 @@ non_gradient_color "$(pastel color brown)"
 
 cat <<EOF
 system: "base24"
-name: "${name}"
+name: "${palette_name}"
 variant: "${variant}"
 palette:
   base11: "${gradient_colors[0]}"
