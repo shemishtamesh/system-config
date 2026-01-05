@@ -37,6 +37,10 @@
       exec $command --impure
     '')
     (pkgs.writeShellScriptBin "reload_configs" "${shared.scripts.reload_configs}")
+    (pkgs.writeShellScriptBin "list_themes" ''
+      nix eval --json $FLAKE#homeConfigurations.$USER@$(hostname) \
+        --apply 'cfg: builtins.attrNames cfg.config.specialisation'
+    '')
     (pkgs.writeShellScriptBin "switch_theme" ''
       if [ $# -eq 0 ]; then
         home-manager switch --flake ${shared.constants.FLAKE_ROOT}
