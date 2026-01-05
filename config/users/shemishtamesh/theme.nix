@@ -42,7 +42,9 @@ in
           base16Scheme = scheme;
           polarity = scheme.variant;
         };
-        home.file = lib.mkForce (wallpaper_paths scheme);
+        home.file = builtins.mapAttrs (file_path: wallpaper: lib.mkForce wallpaper) (
+          wallpaper_paths scheme
+        );
       };
     }) shared.theme.alternative_schemes
   );

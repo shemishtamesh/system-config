@@ -35,7 +35,6 @@ in
     inherit fonts cursor;
   };
   alternative_schemes = [
-    scheme
     (scheme_generator {
       palette_name = "palegreen";
       mix_color = "palegreen";

@@ -3,6 +3,18 @@ let
   ddcutil = "${pkgs.ddcutil}/bin/ddcutil";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   bc = "${pkgs.bc}/bin/bc";
+
+  reload_configs = pkgs.lib.getExe (
+    pkgs.writeShellScriptBin "reload_configurations" ''
+      if command -v tmux &>/dev/null && tmux info &>/dev/null; then
+        tmux source-file ~/.config/tmux/tmux.conf
+      fi
+
+      if command -v noctalia-shell &>/dev/null; then
+        noctalia-shell kill && noctalia-shell -d > /dev/null
+      fi
+    ''
+  );
 in
 {
   sync_external_monitors_brightness = pkgs.lib.getExe (
@@ -74,15 +86,16 @@ in
     ''
   );
 
-  reload_configs = pkgs.lib.getExe (
-    pkgs.writeShellScriptBin "reload_configurations" ''
-      if command -v tmux &>/dev/null && tmux info &>/dev/null; then
-        tmux source-file ~/.config/tmux/tmux.conf
-      fi
+  inherit reload_configs;
 
-      if command -v noctalia-shell &>/dev/null; then
-        noctalia-shell kill && noctalia-shell -d
+  switch_theming = pkgs.lib.getExe (
+    pkgs.writeShellScriptBin "switch_theme" ''
+      if [ $# -eq 0 ]; then
+        home-manager switch --flake ${(import ./constants.nix).FLAKE_ROOT}
+      else
+        home-manager switch --flake ${(import ./constants.nix).FLAKE_ROOT} --specialisation $1
       fi
+      ${reload_configs}
     ''
   );
 }

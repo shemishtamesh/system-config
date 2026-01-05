@@ -128,6 +128,7 @@
           name = portname;
           value = "~/Pictures/Wallpapers/${portname}.png";
         }) host.monitors;
+        transitionType = "fade";
       };
       appLauncher = {
         enableClipboardHistory = true;
