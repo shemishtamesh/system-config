@@ -11,7 +11,8 @@ let
       fi
 
       if command -v noctalia-shell &>/dev/null; then
-        noctalia-shell kill && noctalia-shell -d > /dev/null
+        noctalia-shell ipc call wallpaper toggleAutomation
+        noctalia-shell ipc call wallpaper toggleAutomation
       fi
     ''
   );
