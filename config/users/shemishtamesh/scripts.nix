@@ -31,6 +31,15 @@
       export NIXPKGS_ALLOW_UNFREE=1
       exec $command --impure
     '')
+    (pkgs.writeShellScriptBin "reload_configs" ''
+      if command -v tmux &>/dev/null && tmux info &>/dev/null; then
+        tmux source-file ~/.config/tmux/tmux.conf
+      fi
+
+      if command -v noctalia-shell &>/dev/null; then
+        noctalia-shell kill && noctalia-shell &
+      fi
+    '')
   ]
   ++ (
     if pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin" then

@@ -246,8 +246,6 @@ in
             "windowsIn, 1, 6, winIn, slide"
             "windowsOut, 1, 6, winOut, slide"
             "windowsMove, 1, 6, wind, slide"
-            "border, 1, 1, linear"
-            "borderangle, 1, 100, linear"
             "fade, 1, 5, linear"
             "fadeIn, 1, 1, linear"
             "fadeOut, 1, 10, linear"

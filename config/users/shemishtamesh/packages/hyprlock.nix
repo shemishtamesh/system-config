@@ -60,8 +60,8 @@
           {
             monitor = portname;
             path = toString (
-              shared.theme.wallpaper {
-                inherit portname width height;
+              shared.theme.wallpaper_generator {
+                inherit width height;
                 background = false;
                 palette = false;
                 gaps = false;

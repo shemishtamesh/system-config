@@ -63,8 +63,8 @@ let
       modules = [
         ./hyprland
         ./hypridle.nix
-        ./hyprlock.nix
-        ./hyprpaper.nix
+        # ./hyprlock.nix
+        # ./hyprpaper.nix
         ./hyprcursor.nix
         # ./hyprlauncher.nix
         # ./rofi.nix

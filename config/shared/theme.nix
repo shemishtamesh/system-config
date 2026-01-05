@@ -1,9 +1,7 @@
 pkgs:
 let
-  scheme = (import ./theming/palette_generation.nix) {
-    inherit pkgs;
-    mix_color = "pink";
-  };
+  scheme_generator = (import ./theming/palette_generation.nix) pkgs;
+  scheme = scheme_generator { palette_name = "default"; };
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
@@ -36,11 +34,19 @@ in
     polarity = scheme.variant;
     inherit fonts cursor;
   };
-  wallpaper =
+  alternative_schemes = [
+    scheme
+    (scheme_generator {
+      palette_name = "palegreen";
+      mix_color = "palegreen";
+    })
+  ];
+  wallpaper_generator =
     {
-      portname,
       width,
       height,
+      name ? "wallpaper",
+      color_scheme ? scheme,
       background ? true,
       palette ? true,
       nix ? true,
@@ -48,10 +54,10 @@ in
       random ? true,
     }:
     let
-      name = "${portname}_wallpaper.png";
+      file_name = "${name}.png";
     in
     pkgs.stdenv.mkDerivation {
-      inherit name;
+      name = file_name;
       buildInputs = [
         (pkgs.python3.withPackages (
           ps: with ps; [
@@ -63,8 +69,8 @@ in
       unpackPhase = "true";
       buildPhase = ''
         python3 $src \
-          ${name} \
-          $(echo '${toString (builtins.attrValues scheme.palette)}') \
+          ${file_name} \
+          $(echo '${toString (builtins.attrValues color_scheme.palette)}') \
           --resolution ${toString width}x${toString height} \
           ${if !background then "--no_background" else ""} \
           ${if !palette then "--no_palette" else ""} \
@@ -74,6 +80,6 @@ in
           # --no_color_outside_nix \
           # --distance_fade_scale "0.45" \
       '';
-      installPhase = "install -Dm0644 ${name} $out";
+      installPhase = "install -Dm0644 ${file_name} $out";
     };
 }

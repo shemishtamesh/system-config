@@ -1,8 +1,8 @@
+pkgs:
 {
-  pkgs,
   palette_name ? "default_color_palette",
   variant ? "dark",
-  mix_color ? "lightred",
+  mix_color ? "lightblue",
   mix_factor ? "0.6",
   saturation ? "0.3",
   desaturation ? "0.0",

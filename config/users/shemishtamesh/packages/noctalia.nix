@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  host,
+  ...
+}:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -117,7 +122,13 @@
       notifications.location = "top_center";
       location.name = "Hod Hasharon, Israel";
       screenRecorder.copyToClipboard = true;
-      wallpaper.enabled = false;
+      wallpaper = {
+        enabled = true;
+        wallpapers = builtins.mapAttrs (portname: _: {
+          name = portname;
+          value = "~/Pictures/Wallpapers/${portname}.png";
+        }) host.monitors;
+      };
       appLauncher = {
         enableClipboardHistory = true;
         enableClipPreview = true;

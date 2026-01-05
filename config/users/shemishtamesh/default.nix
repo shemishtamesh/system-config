@@ -1,5 +1,4 @@
 {
-  shared,
   username,
   pkgs,
   ...
@@ -13,6 +12,7 @@ in
     ./services.nix
     ./environment_variables.nix
     ./scripts.nix
+    ./theme.nix
   ];
 
   home = {
@@ -21,8 +21,6 @@ in
 
     stateVersion = "24.05"; # WARNING: do not change this without reading docs
   };
-
-  stylix = shared.theme.stylix_settings;
 
   # allowing unfree packages
   nixpkgs.config = nixpkgs_config.object;
