@@ -295,8 +295,6 @@ in
           left_handed = true;
         };
         exec-once = [
-          "${pkgs.hyprpaper}"
-          # "waybar"
           "noctalia-shell"
           "zen"
           "[workspace special:music silent] spotify"
