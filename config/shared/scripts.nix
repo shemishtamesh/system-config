@@ -87,15 +87,4 @@ in
   );
 
   inherit reload_configs;
-
-  switch_theming = pkgs.lib.getExe (
-    pkgs.writeShellScriptBin "switch_theme" ''
-      if [ $# -eq 0 ]; then
-        home-manager switch --flake ${(import ./constants.nix).FLAKE_ROOT}
-      else
-        home-manager switch --flake ${(import ./constants.nix).FLAKE_ROOT} --specialisation $1
-      fi
-      ${reload_configs}
-    ''
-  );
 }
