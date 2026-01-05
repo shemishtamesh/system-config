@@ -81,7 +81,7 @@ in
       fi
 
       if command -v noctalia-shell &>/dev/null; then
-        noctalia-shell kill && noctalia-shell &
+        noctalia-shell kill && noctalia-shell -d
       fi
     ''
   );
