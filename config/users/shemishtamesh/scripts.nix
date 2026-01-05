@@ -41,7 +41,7 @@
       if [ $# -eq 0 ]; then
         home-manager switch --flake ${(import ./constants.nix).FLAKE_ROOT}
       else
-        home-manager switch --flake ${(import ./constants.nix).FLAKE_ROOT} --specialisation $1
+        home-manager switch --flake ${shared.constants.FLAKE_ROOT} --specialisation $1
       fi
       ${shared.scripts.reload_configs}
     '')
