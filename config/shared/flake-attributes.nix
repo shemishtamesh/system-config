@@ -108,6 +108,7 @@ in
                     exit 1
                   fi
                   echo 'updated home'
+                  ${(import ./scripts.nix pkgs).reload_configs}
                 fi
 
                 if [[ -z "''${1-}" && "$starting_commit" != "$(git -C "$NH_FLAKE" rev-parse HEAD)" ]]; then

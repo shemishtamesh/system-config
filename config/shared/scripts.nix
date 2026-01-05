@@ -73,4 +73,16 @@ in
       echo "✓ Created bare repo in $(pwd)/.git and worktree in $(pwd)/$branch (branch: $branch)"
     ''
   );
+
+  reload_configs = pkgs.lib.getExe (
+    pkgs.writeShellScriptBin "reload_configurations" ''
+      if command -v tmux &>/dev/null && tmux info &>/dev/null; then
+        tmux source-file ~/.config/tmux/tmux.conf
+      fi
+
+      if command -v noctalia-shell &>/dev/null; then
+        noctalia-shell kill && noctalia-shell &
+      fi
+    ''
+  );
 }
