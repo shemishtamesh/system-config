@@ -17,8 +17,8 @@
         enableShadows = false;
       };
       bar = {
-        marginVertical = 0;
-        marginHorizontal = 0;
+        density = "mini";
+        floating = true;
         outerCorners = false;
         widgets = {
           left = [
@@ -116,10 +116,18 @@
           ];
         };
       };
+      dock = {
+        floatingRatio = 0;
+        size = 2;
+        animationSpeed = 2;
+      };
       sessionMenu.largeButtonsStyle = true;
       osd.location = "bottom_center";
       notifications.location = "top_center";
-      location.name = "Hod Hasharon, Israel";
+      location = {
+        name = "Hod Hasharon, Israel";
+        showWeekNumberInCalendar = true;
+      };
       screenRecorder.copyToClipboard = true;
       wallpaper = {
         enabled = true;
