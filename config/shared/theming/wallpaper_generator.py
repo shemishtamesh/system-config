@@ -229,7 +229,7 @@ class Background:
                 color_index = max(
                     len(colors)
                     - int(distance * distance_fade_scale * len(colors) / 24),
-                    1,
+                    5,
                 )
                 if not color_outside_nix:
                     color_index = min(color_index, 8)
@@ -464,21 +464,21 @@ def main():
         "-e",
         "--edge_buffer",
         help="number of triangle rows/columns to disallow around the edges",
-        default=1,
+        default=-1,
         type=int,
     )
     parser.add_argument(
         "-r",
         "--radius_ratio",
         help="the ratio between the two radiai of the background fade",
-        default=3,
+        default=2,
         type=int,
     )
     parser.add_argument(
         "-d",
         "--distance_fade_scale",
         help="how fast is the fadeout",
-        default=0.35,
+        default=0.55,
         type=float,
     )
     parser.add_argument(
@@ -515,7 +515,7 @@ def main():
         "-i",
         "--random_seed",
         help="change this to get a new image with the same config",
-        default=0,
+        default=1,
         type=int,
     )
     args = parser.parse_args()
