@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   host,
   ...
 }:
@@ -125,8 +126,9 @@
         enabled = true;
         wallpapers = builtins.mapAttrs (portname: _: {
           name = portname;
-          value = "~/Pictures/Wallpapers/${portname}/wallpaper.png";
+          value = "~/Pictures/Wallpapers/${portname}.png";
         }) host.monitors;
+        transitionType= "fade";
       };
       appLauncher = {
         enableClipboardHistory = true;
