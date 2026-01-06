@@ -18,7 +18,7 @@
       };
       bar = {
         density = "mini";
-        floating = true;
+        # floating = true;
         outerCorners = false;
         widgets = {
           left = [
