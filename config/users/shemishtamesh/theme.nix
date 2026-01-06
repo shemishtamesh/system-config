@@ -17,7 +17,7 @@ let
             ...
           }:
           {
-            name = "Pictures/Wallpapers/${portname}.png";
+            name = "Pictures/Wallpapers/${portname}/wallpaper.png";
             value = {
               source = shared.theme.wallpaper_generator {
                 name = portname;

@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   host,
   ...
 }:
@@ -126,7 +125,7 @@
         enabled = true;
         wallpapers = builtins.mapAttrs (portname: _: {
           name = portname;
-          value = "~/Pictures/Wallpapers/${portname}.png";
+          value = "~/Pictures/Wallpapers/${portname}/wallpaper.png";
         }) host.monitors;
       };
       appLauncher = {
