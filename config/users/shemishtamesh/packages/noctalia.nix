@@ -17,8 +17,7 @@
         enableShadows = false;
       };
       bar = {
-        density = "mini";
-        # floating = true;
+        density = "compact";
         outerCorners = false;
         widgets = {
           left = [
