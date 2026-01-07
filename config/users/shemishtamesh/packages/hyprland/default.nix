@@ -14,7 +14,6 @@ let
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
   ) (builtins.attrNames host.monitors);
-  rgba = shared.functions.rgba config.lib.stylix.colors;
 in
 {
   wayland.windowManager.hyprland =
@@ -214,7 +213,7 @@ in
 
           resize_on_border = true;
 
-          "col.active_border" = lib.mkForce (rgba "base05" (255 / 2));
+          "col.active_border" = lib.mkForce "rgba${config.lib.stylix.colors.base05}0F)";
           "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
         };
         cursor = {
