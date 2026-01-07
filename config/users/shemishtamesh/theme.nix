@@ -24,6 +24,7 @@ let
                 inherit width height;
                 background = true;
                 color_scheme = scheme;
+                gaps = false;
               };
             };
           }

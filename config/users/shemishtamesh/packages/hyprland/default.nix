@@ -67,7 +67,7 @@ in
           # "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           # "$mod, g, exec, rofi-rbw"
           "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
-          "$mod CTRL, c, exec, hyprpicker --autocopy"
+          "$mod CTRL, c, exec, hyprpicker --render-inactive --autocopy"
           "$mod, s, exec, hyprshot --freeze --mode region"
           "$mod SHIFT, s, exec, hyprshot --freeze --mode window"
           "$mod CTRL, s, exec, hyprshot --freeze --mode output"
