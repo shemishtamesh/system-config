@@ -15,7 +15,7 @@ pkgs: {
       g = palette."${color}-rgb-g";
       b = palette."${color}-rgb-b";
     in
-    "rgba(${r}, ${g}, ${b}, ${builtins.toString opacity})";
+    "rgba(${r}, ${g}, ${b}, ${toString opacity})";
   svgToPng =
     {
       width,

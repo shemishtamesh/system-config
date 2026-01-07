@@ -214,7 +214,7 @@ in
 
           resize_on_border = true;
 
-          "col.active_border" = lib.mkForce rgba "base05" (255 / 2);
+          "col.active_border" = lib.mkForce (rgba "base05" (255 / 2));
           "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
         };
         cursor = {
