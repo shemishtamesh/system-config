@@ -213,7 +213,8 @@ in
 
           resize_on_border = true;
 
-          "col.active_border" = lib.mkForce "0x${config.lib.stylix.colors.base05}00";
+          # "col.active_border" = lib.mkForce "0x${config.lib.stylix.colors.base05}00";
+          "col.active_border" = lib.mkForce "0x00000000";
           "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
         };
         cursor = {
