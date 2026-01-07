@@ -118,6 +118,7 @@ let
         solarus-quest-editor
         scrcpy
         visidata
+        android-tools
       ];
     };
     shemishtamac = {

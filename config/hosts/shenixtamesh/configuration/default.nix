@@ -103,7 +103,6 @@
   };
   programs = {
     zsh.enable = true;
-    adb.enable = true;
     hyprland =
       let
         flake_hyprland = inputs.hyprland.packages.${host.system};
