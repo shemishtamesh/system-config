@@ -3,6 +3,7 @@
   pkgs,
   shared,
   host,
+  config,
   inputs,
   ...
 }:
@@ -212,6 +213,7 @@ in
 
           resize_on_border = true;
 
+          "col.active_border" = lib.mkForce config.lib.stylix.colors.withHashtag.base05;
           "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
         };
         cursor = {
