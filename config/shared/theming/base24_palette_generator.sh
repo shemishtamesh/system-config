@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-: "${palette_name:=default_color_palette}"
+if [ -z "$palette_name" ]; then
+  echo "Invalid palette name. Expected a non-empty string" >&2
+fi;
+
 : "${variant:=dark}"
 : "${mix_color:=lightblue}"
 : "${mix_factor:=0.6}"

@@ -22,7 +22,9 @@ pkgs:
       bc
     ];
     src = ./base24_palette_generator.sh;
-    env = builtins.mapAttrs (name: value: toString value) arguments;
+    env = builtins.mapAttrs (name: value: toString value) arguments // {
+      inherit palette_name;
+    };
     unpackPhase = "true";
     buildPhase = ''bash "$src" > ${palette_name}.yaml'';
     installPhase = ''install -Dm0644 ${palette_name}.yaml "$out"'';
