@@ -10,7 +10,10 @@ let
         tmux source-file ~/.config/tmux/tmux.conf
       fi
 
-      pgrep btop | xargs kill -SIGUSR2
+      btop_pids=$(pgrep btop)
+      if [ ! -z "$btop_pids" ]; then
+        echo btop_pids | xargs kill -SIGUSR2
+      fi
     ''
   );
 in
