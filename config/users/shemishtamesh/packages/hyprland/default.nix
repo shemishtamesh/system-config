@@ -256,8 +256,9 @@ in
           ];
         };
         misc = {
-          force_default_wallpaper = 2;
-          disable_hyprland_logo = false;
+          force_default_wallpaper = 1;
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
         };
         layerrule = [ "match:namespace quickshell, no_anim on" ];
         windowrule = [
