@@ -1,8 +1,6 @@
 {
   inputs,
-  lib,
   host,
-  config,
   ...
 }:
 {
@@ -12,25 +10,6 @@
 
   programs.noctalia-shell = {
     enable = true;
-    colors =
-      with (builtins.mapAttrs (key: value: lib.mkForce value) config.lib.stylix.colors.withHashtag); {
-        mError = base08;
-        mOnError = base01;
-        mOnPrimary = base04;
-        mOnSecondary = base03;
-        mOnTertiary = base02;
-        mOnSurface = base03;
-        mOnSurfaceVariant = base02;
-        mOnHover = base07;
-        mOutline = base02;
-        mPrimary = base04;
-        mSecondary = base03;
-        mTertiary = base05;
-        mShadow = base00;
-        mSurface = base01;
-        mSurfaceVariant = base02;
-        mHover = base03;
-      };
     settings = {
       settingsVersion = 0;
       general = {
