@@ -36,8 +36,14 @@ in
   };
   alternative_schemes = [
     (scheme_generator {
+      palette_name = "light";
+      variant = "light";
+    })
+    (scheme_generator {
       palette_name = "palegreen";
       mix_color = "palegreen";
+      mix_factor = 0.3;
+      gradient_desaturation = 0.6;
     })
   ];
   wallpaper_generator =

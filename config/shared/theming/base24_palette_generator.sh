@@ -12,12 +12,15 @@
 : "${brightness_difference:=0.05}"
 : "${colorspace:=OkLab}"
 
-if [[ "$variant" == "bright" ]]; then
+if [[ "$variant" == "light" ]]; then
     gradient_start="white"
     gradient_end="black"
-else
+elif [[ "$variant" == "dark" ]]; then
     gradient_start="black"
     gradient_end="white"
+else
+  echo "Invalid variant '$variant'. Expected 'light' or 'dark'" >&2
+  exit 1
 fi
 
 mapfile -t gradient_colors < <(
