@@ -1,6 +1,6 @@
 pkgs:
 {
-  palette_name ? "default_color_palette",
+  palette_name,
   arguments ? {
     variant = "dark";
     mix_color = "lightblue";
