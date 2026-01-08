@@ -13,6 +13,8 @@ let
       if command -v noctalia-shell &>/dev/null; then
         noctalia-shell kill && noctalia-shell -d > /dev/null
       fi
+
+      pgrep btop | xargs kill -SIGUSR2
     ''
   );
 in
