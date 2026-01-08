@@ -10,6 +10,10 @@ let
         tmux source-file ~/.config/tmux/tmux.conf
       fi
 
+      if command -v noctalia-shell &>/dev/null; then
+        noctalia-shell kill && noctalia-shell -d > /dev/null
+      fi
+
       btop_pids=$(pgrep btop)
       if [ ! -z "$btop_pids" ]; then
         echo btop_pids | xargs kill -SIGUSR2
