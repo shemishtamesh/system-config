@@ -41,7 +41,7 @@ in
       value.configuration = {
         stylix = {
           base16Scheme = scheme;
-          polarity = scheme.variant;
+          polarity = lib.mkForce scheme.variant;
         };
         home.file = builtins.mapAttrs (file_path: wallpaper: lib.mkForce wallpaper) (
           wallpaper_paths scheme
