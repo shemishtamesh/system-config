@@ -63,6 +63,10 @@
               displayMode = "alwaysShow";
             }
             {
+              id = "KeyboardLayout";
+              displayMode = "forceOpen";
+            }
+            {
               id = "NotificationHistory";
               hideWhenZero = false;
             }
