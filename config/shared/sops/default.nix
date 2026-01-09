@@ -1,4 +1,4 @@
-{inputs, username, ...}:
+{ inputs, username, ... }:
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
