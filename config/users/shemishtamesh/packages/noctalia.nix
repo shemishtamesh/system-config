@@ -1,7 +1,6 @@
 {
   inputs,
   host,
-  shared,
   ...
 }:
 {
@@ -11,7 +10,7 @@
 
   programs.noctalia-shell = {
     enable = true;
-    package = inputs.noctalia.packages.${shared.constants.OS}.default.override {
+    package = inputs.noctalia.packages.${host.system}.default.override {
       calendarSupport = true;
     };
     settings = {
