@@ -1,7 +1,7 @@
 { host, shared, ... }:
 {
   services = (
-    if (shared.os host) == "linux" then
+    if (shared.functions.os host) == "linux" then
       {
         kdeconnect = {
           enable = true;
