@@ -270,8 +270,8 @@ in
           "w[v1], rounding:false, border:false"
 
           # move specific apps to their special workspaces
-          "special:music silent, class:(spotify)"
-          "special:chat silent, class:(discord|vesktop|Altus|Slack)"
+          "special:music silent, class:([sS]potify)"
+          "special:chat silent, class:([dD]iscord|[vV]esktop|Altus|Slack)"
 
           # no borders when there's only a single visible window
           "w[v1], gapsout:0, gapsin:0"
@@ -298,7 +298,13 @@ in
           left_handed = true;
         };
         exec-once = [
-          "noctalia-shell"
+          (pkgs.lib.getExe (
+            pkgs.writeShellScriptBin "noctalia_with_location" ''
+              noctalia-shell -d
+              sleep 3 # set location doesn't seem to work immediately
+              noctalia-shell ipc call location set "$(cat ${config.sops.secrets.location.path})"
+            ''
+          ))
           "zen"
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] vesktop"
@@ -325,4 +331,5 @@ in
       # ];
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
+  sops.secrets.location = { };
 }

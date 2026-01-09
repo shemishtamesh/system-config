@@ -26,6 +26,7 @@ let
         pkgs = pkgs host.system;
         modules = [
           ../users/${username}
+          ./sops
           stylix.homeModules.stylix
         ]
         ++ home_modules;

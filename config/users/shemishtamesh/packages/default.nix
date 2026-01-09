@@ -77,7 +77,6 @@ let
         ./nixcord.nix
         ./noctalia.nix
         # ./anyrun.nix
-        # ./astal
         # ./quickshell
         # ./anki
       ];

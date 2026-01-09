@@ -131,10 +131,7 @@
       sessionMenu.largeButtonsStyle = true;
       osd.location = "bottom_center";
       notifications.location = "top_center";
-      location = {
-        name = "Hod Hasharon, Israel";
-        showWeekNumberInCalendar = true;
-      };
+      location.showWeekNumberInCalendar = true;
       screenRecorder.copyToClipboard = true;
       wallpaper = {
         enabled = true;
