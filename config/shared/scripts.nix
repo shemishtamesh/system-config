@@ -38,9 +38,9 @@ in
       for bus in $(${ddcutil} detect --terse | grep -F "I2C bus:" | awk -F '-' '{print $2}'); do
         ${ddcutil} setvcp 10 $1 \
           --bus "$bus" \
-          --mccs 2.2 \
-          --sleep-multiplier 3 \
-          --disable-dynamic-sleep
+          --sleep-multiplier 0.05
+          # --mccs 2.2 \
+          # --disable-dynamic-sleep
       done
     ''
   );
