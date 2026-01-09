@@ -98,5 +98,4 @@ pkgs: {
       '';
       installPhase = "install -Dm0644 ${name}.png $out";
     };
-  os = host: builtins.elemAt (builtins.split "-" host.system) 2;
 }

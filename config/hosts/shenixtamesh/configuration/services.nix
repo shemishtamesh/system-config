@@ -51,33 +51,6 @@ in
     pulseaudio.enable = false;
     playerctld.enable = true;
 
-    syncthing = {
-      enable = true;
-      user = "shemishtamesh";
-      dataDir = "/home/shemishtamesh/Documents";
-      configDir = "/home/shemishtamesh/.config/syncthing";
-      overrideDevices = true;
-      overrideFolders = true;
-      settings = {
-        devices = {
-          "Pixel 7 Pro" = {
-            id = "Q35X57O-SPYHCOF-6N3HLH4-OQUN6M7-7D7X7T4-DXI7ZCK-JTWUOSX-2YE3IAH";
-          };
-          "work_pc" = {
-            id = "QK20V3H-G5ZZKKA-STI2UJN-SWTWVOG-2SBLZ2A-T6MUGD4-Z2E0M5U-QJNOJQD";
-          };
-        };
-        folders = {
-          "general_vault" = {
-            path = "/home/shemishtamesh/Documents/general_vault";
-            devices = [
-              "Pixel 7 Pro"
-              "work_pc"
-            ];
-          };
-        };
-      };
-    };
     ollama = {
       enable = true;
       package = pkgs.ollama-cuda;
