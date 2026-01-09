@@ -5,7 +5,8 @@
 }:
 {
   imports = [
-    inputs.noctalia.homeModules.default.override { calendarSupport = true; }
+    inputs.noctalia.homeModules.default.override
+    { calendarSupport = true; }
   ];
 
   programs.noctalia-shell = {
