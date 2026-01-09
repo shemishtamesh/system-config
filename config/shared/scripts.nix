@@ -37,7 +37,7 @@ in
         > /tmp/previous_brightness
       for bus in $(${ddcutil} detect --terse | grep -F "I2C bus:" | awk -F '-' '{print $2}'); do
         for i in {1..5}; do
-          ${ddcutil} setvcp 10 $1 --bus "$bus"
+          ${ddcutil} setvcp 10 $1 --bus "$bus" && break
           sleep 0.2
         done
       done
