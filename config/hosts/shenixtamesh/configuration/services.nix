@@ -21,6 +21,7 @@ in
 
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    gnome.evolution-data-server.enable = true; # for noctalia shell calendar events
 
     xserver = {
       # Enable the X11 windowing system.

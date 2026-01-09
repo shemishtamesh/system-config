@@ -7,7 +7,6 @@
           enable = true;
           indicator = true;
         };
-        gnome.evolution-data-server.enable = true;
       }
     else
       { }
