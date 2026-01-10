@@ -72,6 +72,14 @@ in
               # sh
               ''
                 export NH_FLAKE="${FLAKE_ROOT}"
+
+                if [ -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.config/sops/age/keys.txt" ]; then
+                  cp "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_ed25519.bak"
+                  ssh-keygen -p -N "" -f "$HOME/.ssh/id_ed25519" -C "temp-for-sops"
+                  "${pkgs.ssh-to-age}/bin/ssh-to-age" -private-key -i "$HOME/.ssh/id_ed25519" > "$HOME/.config/sops/age/keys.txt"
+                  mv "$HOME/.ssh/id_ed25519.bak" "$HOME/.ssh/id_ed25519"
+                fi
+
                 starting_commit=$(git -C "$NH_FLAKE" rev-parse HEAD)
 
                 git -C "$NH_FLAKE" pull

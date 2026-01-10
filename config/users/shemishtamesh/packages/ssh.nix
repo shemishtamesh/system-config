@@ -4,7 +4,7 @@
     enableDefaultConfig = false;
     matchBlocks."*" = {
       forwardAgent = false;
-      addKeysToAgent = "no";
+      addKeysToAgent = "yes";
       compression = false;
       serverAliveInterval = 0;
       serverAliveCountMax = 3;
@@ -16,7 +16,6 @@
     };
     extraConfig = ''
       Host *
-        AddKeysToAgent yes
         IdentityFile ~/.ssh/id_ed25519
     '';
   };
