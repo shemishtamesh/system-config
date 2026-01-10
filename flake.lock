@@ -1216,6 +1216,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
@@ -1237,6 +1238,24 @@
         "owner": "andreymatin",
         "repo": "scss-reset",
         "type": "github"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768069131,
+        "narHash": "sha256-EEWW6mGOPDKmzANrsqAJmmFpbjKLxjISp6WV8tYmyrY=",
+        "ref": "main",
+        "rev": "57a631777653c627f92e9a1304f902b9e3f5cb5a",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/shemishtamesh/system-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/shemishtamesh/system-secrets.git"
       }
     },
     "sops-nix": {

@@ -10,7 +10,7 @@
   ];
   home.packages = with pkgs; [ sops ];
   sops = {
-    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFile = ./${toString inputs.secrets}/secrets.yaml;
     defaultSopsFormat = "yaml";
     age = {
       sshKeyPaths = [ "/home/${username}/.ssh/id_ed25519" ];
