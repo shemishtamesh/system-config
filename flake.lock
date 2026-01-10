@@ -1243,10 +1243,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1768069131,
-        "narHash": "sha256-EEWW6mGOPDKmzANrsqAJmmFpbjKLxjISp6WV8tYmyrY=",
+        "lastModified": 1768081168,
+        "narHash": "sha256-zCx3Cz6ANtbhJb8gB4zU/a0A9bx1uCixF6Xj1eh4yoc=",
         "ref": "main",
-        "rev": "57a631777653c627f92e9a1304f902b9e3f5cb5a",
+        "rev": "1061e66dc9aa834122cf2d054ee9a91737976315",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/shemishtamesh/system-secrets.git"
