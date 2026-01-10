@@ -1,8 +1,14 @@
-{ inputs, username, ... }:
+{
+  inputs,
+  username,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
+  home.packages = with pkgs; [ sops ];
   sops = {
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";

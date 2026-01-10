@@ -1,7 +1,7 @@
 keys:
-  - &shemishtamesh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3vgTYeAKBwpOt6o3E7IBOvusIYcR8GcaE/y2KffaQJ shemishtamesh@shenixtamesh
+  - &shemishtamesh-shenixtamesh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3vgTYeAKBwpOt6o3E7IBOvusIYcR8GcaE/y2KffaQJ shemishtamesh@shenixtamesh
 creation_rules:
-  - path_regex: ^config/shared/sops/secrets.yaml$
+  - path_regex: ^config/shared/sops/secrets\.yaml$
     key_groups:
     - age:
-        - *shemishtamesh
+        - *shemishtamesh-shenixtamesh

@@ -1,6 +1,11 @@
 { shared, ... }:
 {
-  services = (
+  services = {
+    ssh-agent = {
+      enable = true;
+    };
+  }
+  // (
     if shared.constants.OS == "linux" then
       {
         kdeconnect = {
