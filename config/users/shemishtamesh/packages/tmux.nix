@@ -191,11 +191,16 @@ in
       startup_command = "tmux rename-window system && tmux set-option status on && git pull && clear && ${nvim_telescope}"
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
-      windows = [ "nixvim" ]
+      windows = [ "secrets", "nixvim" ]
 
       [[window]]
       name = "nixvim"
       startup_script = "git pull && clear && ${nvim_telescope}"
       path = "~/.config/nixvim"
+
+      [[secrets]]
+      name = "secrets"
+      startup_script = "git pull && clear && sops secrets.yaml"
+      path = "~/.config/system-secrets"
     '';
 }

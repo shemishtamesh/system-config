@@ -91,7 +91,8 @@ in
 
                 if [ -z "''${2-}" ]; then
                     git -C "$NH_FLAKE" add .
-                    nix flake update nixvim --flake "$NH_FLAKE"  # WARN: hitting rate limits
+                    nix flake update nixvim --flake "$NH_FLAKE"
+                    nix flake update secrets --flake "$NH_FLAKE"  # WARN: hitting rate limits
                     git -C "$NH_FLAKE" commit -am 'updating flakes' > /dev/null || true
                     echo 'updated flakes'
                 fi
