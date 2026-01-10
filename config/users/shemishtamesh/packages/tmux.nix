@@ -198,9 +198,9 @@ in
       startup_script = "git pull && clear && ${nvim_telescope}"
       path = "~/.config/nixvim"
 
-      [[secrets]]
+      [[window]]
       name = "secrets"
-      startup_script = "git pull && clear && sops secrets.yaml"
+      startup_script = "git pull && clear && ${pkgs.sops}/bin/sops secrets.yaml"
       path = "~/.config/system-secrets"
     '';
 }
