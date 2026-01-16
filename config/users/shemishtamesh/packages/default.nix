@@ -30,6 +30,7 @@ let
     ./mpv.nix
     ./zathura.nix
     ./opencode.nix
+    ./nh.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -48,7 +49,6 @@ let
     fastfetch
     yazi
     killall
-    nh
     nps
     nix-diff
     nix-output-monitor
