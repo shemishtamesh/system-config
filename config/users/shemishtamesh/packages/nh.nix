@@ -3,7 +3,7 @@
   home = {
     packages = with pkgs; [ nh ];
     sessionVariables = {
-      FLAKE = shared.constants.FLAKE_ROOT;
+      NH_FLAKE = shared.constants.FLAKE_ROOT;
     };
   };
 }
