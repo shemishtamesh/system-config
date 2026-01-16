@@ -174,6 +174,22 @@ in
           }
         );
       };
+      time_from_update = {
+        type = "app";
+        program = inputs.nixpkgs.lib.getExe (
+          pkgs.writeShellApplication {
+            name = "time_from_update";
+            text = # sh
+              ''
+                last_update="$(${pkgs.jq} -r '.nodes.nixpkgs.locked.lastModified' $FLAKE/flake.lock)"
+                current_time="$(date +%s)"
+                range=$(date -u -d @$(($current_time - $last_update)) +"%d days, %H hours, %M minutes, and %S seconds")
+                echo "last update was at $last_update"
+                echo "time since last update is 
+              '';
+          }
+        );
+      };
     }
   );
 }
