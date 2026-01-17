@@ -29,10 +29,8 @@
               icon = "rocket";
               leftClickExec = "noctalia-shell ipc call launcher toggle";
             }
-            {
-              id = "Clock";
-              usePrimaryColor = false;
-            }
+            { id = "Timer"; }
+            { id = "Clock"; }
             { id = "SystemMonitor"; }
             {
               id = "WiFi";
@@ -155,6 +153,20 @@
       desktopWidgets = {
         enabled = true;
         gridSnap = true;
+      };
+      plugins = {
+        sources = [
+          {
+            enabled = true;
+            name = "Official Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+        states = {
+          translator.enabled = true;
+          timer.enabled = true;
+          unicode-picker.enabled = true;
+        };
       };
     };
   };
