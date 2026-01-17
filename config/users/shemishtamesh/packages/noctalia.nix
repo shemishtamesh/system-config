@@ -46,7 +46,7 @@
           ];
           right = [
             { id = "Tray"; }
-            { id = "plugin:privacy_indicator"; }
+            { id = "plugin:privacy-indicator"; }
             {
               id = "Microphone";
               displayMode = "alwaysShow";
@@ -108,7 +108,7 @@
           left = [
             { id = "WiFi"; }
             { id = "Bluetooth"; }
-            { id = "plugin:screen_recorder"; }
+            { id = "plugin:screen-recorder"; }
             {
               id = "CustomButton";
               icon = "rocket";
