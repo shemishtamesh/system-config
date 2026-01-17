@@ -16,7 +16,7 @@ let
 
       btop_pids=$(pgrep btop)
       if [ ! -z "$btop_pids" ]; then
-        echo btop_pids | xargs kill -SIGUSR2
+        echo "$btop_pids" | xargs kill -SIGUSR2
       fi
     ''
   );
