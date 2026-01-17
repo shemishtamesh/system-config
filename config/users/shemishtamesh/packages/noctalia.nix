@@ -156,24 +156,29 @@
         gridSnap = true;
       };
       plugins = {
-        states = {
-          translator = {
-            enabled = true;
-            url = "https://github.com/noctalia-dev/noctalia-plugins";
+        states =
+          let
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          in
+          {
+            translator = {
+              enabled = true;
+              inherit sourceUrl;
+            };
+            timer = {
+              enabled = true;
+              url = "https://github.com/noctalia-dev/noctalia-plugins";
+              inherit sourceUrl;
+            };
+            unicode-picker = {
+              enabled = true;
+              inherit sourceUrl;
+            };
+            privacy-indicator = {
+              enabled = true;
+              inherit sourceUrl;
+            };
           };
-          timer = {
-            enabled = true;
-            url = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          unicode-picker = {
-            enabled = true;
-            url = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-          privacy-indicator = {
-            enabled = true;
-            url = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
-        };
       };
     };
   };
