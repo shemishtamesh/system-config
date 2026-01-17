@@ -22,6 +22,7 @@ in
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       Preferences = {
+        "zen.window-sync.enabled" = false;
         "zen.theme.content-element-separation" = 0;
         "zen.theme.hide-tab-throbber" = false;
         "zen.view.use-single-toolbar" = false;
@@ -30,7 +31,6 @@ in
         "zen.urlbar.behavior" = "float";
         "zen.welcome-screen.seen" = true;
         "zen.workspaces.container-specific-essentials-enabled" = true;
-        "zen.window-sync.enabled" = false;
         "zen.workspaces.scroll-modifier-key" = "shift";
         "browser.tabs.fadeOutUnloadedTabs" = true;
         "sidebar.position_start" = false;
