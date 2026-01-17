@@ -36,7 +36,6 @@ in
         "sidebar.position_start" = false;
       };
     };
-    nativeMessagingHosts = [ pkgs.firefoxpwa ];
     profiles.default = {
       id = 0;
       name = profile_name;
