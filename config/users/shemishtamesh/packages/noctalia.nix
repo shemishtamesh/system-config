@@ -29,7 +29,7 @@
               icon = "rocket";
               leftClickExec = "noctalia-shell ipc call launcher toggle";
             }
-            { id = "timer"; }
+            { id = "Timer"; }
             { id = "Clock"; }
             { id = "SystemMonitor"; }
             {
@@ -51,6 +51,7 @@
           ];
           right = [
             { id = "Tray"; }
+            { id = "PrivacyIndicator"; }
             {
               id = "Microphone";
               displayMode = "alwaysShow";
