@@ -1,13 +1,13 @@
 {
   inputs,
   host,
+  pkgs,
   ...
 }:
 {
   imports = [
     inputs.noctalia.homeModules.default
   ];
-
   programs.noctalia-shell = {
     enable = true;
     package = inputs.noctalia.packages.${host.system}.default.override {
@@ -24,11 +24,6 @@
         outerCorners = false;
         widgets = {
           left = [
-            {
-              id = "CustomButton";
-              icon = "rocket";
-              leftClickExec = "noctalia-shell ipc call launcher toggle";
-            }
             { id = "plugin:timer"; }
             { id = "Clock"; }
             { id = "SystemMonitor"; }
@@ -131,7 +126,6 @@
       osd.location = "bottom_center";
       notifications.location = "top_center";
       location.showWeekNumberInCalendar = true;
-      screenRecorder.copyToClipboard = true;
       wallpaper = {
         enabled = true;
         wallpapers = builtins.mapAttrs (portname: _: {
@@ -184,5 +178,10 @@
           };
         };
     };
+    pluginSettings = {
+      privacy-indicator.hideInactive = true;
+      screen-recorder.copyToClipboard = true;
+    };
   };
+  home.packages = with pkgs; [ gpu-screen-recorder ];
 }
