@@ -7,11 +7,11 @@ let
   profile_name = "default";
 in
 {
-  imports = [ inputs.zen-browser.homeModules.twilight ];
+  imports = [ inputs.zen-browser.homeModules.twilight-official ];
   stylix.targets.zen-browser.profileNames = [ profile_name ];
   programs.zen-browser = {
     enable = true;
-    policies = {
+    nixpkgspolicies = {
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
       DisableAppUpdate = true;
