@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   ...
 }:
@@ -31,6 +30,7 @@ in
         "zen.urlbar.behavior" = "float";
         "zen.welcome-screen.seen" = true;
         "zen.workspaces.container-specific-essentials-enabled" = true;
+        "zen.window-sync.enabled" = false;
         "zen.workspaces.scroll-modifier-key" = "shift";
         "browser.tabs.fadeOutUnloadedTabs" = true;
         "sidebar.position_start" = false;
