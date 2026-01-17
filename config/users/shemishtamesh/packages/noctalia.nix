@@ -29,7 +29,7 @@
               icon = "rocket";
               leftClickExec = "noctalia-shell ipc call launcher toggle";
             }
-            { id = "Timer"; }
+            { id = "timer"; }
             { id = "Clock"; }
             { id = "SystemMonitor"; }
             {
@@ -166,6 +166,7 @@
           translator.enabled = true;
           timer.enabled = true;
           unicode-picker.enabled = true;
+          privacy-indicator.enabled = true;
         };
       };
     };
