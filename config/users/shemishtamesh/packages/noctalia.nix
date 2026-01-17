@@ -29,7 +29,7 @@
               icon = "rocket";
               leftClickExec = "noctalia-shell ipc call launcher toggle";
             }
-            { id = "Timer"; }
+            { id = "plugin:timer"; }
             { id = "Clock"; }
             { id = "SystemMonitor"; }
             {
@@ -51,7 +51,7 @@
           ];
           right = [
             { id = "Tray"; }
-            { id = "PrivacyIndicator"; }
+            { id = "plugin:privacy_indicator"; }
             {
               id = "Microphone";
               displayMode = "alwaysShow";
@@ -113,7 +113,7 @@
           left = [
             { id = "WiFi"; }
             { id = "Bluetooth"; }
-            { id = "ScreenRecorder"; }
+            { id = "plugin:screen_recorder"; }
             {
               id = "CustomButton";
               icon = "rocket";
@@ -155,31 +155,34 @@
         enabled = true;
         gridSnap = true;
       };
-      plugins = {
-        states =
-          let
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          in
-          {
-            translator = {
-              enabled = true;
-              inherit sourceUrl;
-            };
-            timer = {
-              enabled = true;
-              url = "https://github.com/noctalia-dev/noctalia-plugins";
-              inherit sourceUrl;
-            };
-            unicode-picker = {
-              enabled = true;
-              inherit sourceUrl;
-            };
-            privacy-indicator = {
-              enabled = true;
-              inherit sourceUrl;
-            };
+    };
+    plugins = {
+      states =
+        let
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        in
+        {
+          translator = {
+            enabled = true;
+            inherit sourceUrl;
           };
-      };
+          timer = {
+            enabled = true;
+            inherit sourceUrl;
+          };
+          unicode-picker = {
+            enabled = true;
+            inherit sourceUrl;
+          };
+          privacy-indicator = {
+            enabled = true;
+            inherit sourceUrl;
+          };
+          screen-recorder = {
+            enabled = true;
+            inherit sourceUrl;
+          };
+        };
     };
   };
 }
