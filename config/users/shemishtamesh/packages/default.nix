@@ -24,11 +24,12 @@ let
     ./btop.nix
     ./direnv.nix
     ./tmux.nix
-    ./tattoy.nix
+    # ./tattoy.nix
     ./nixvim.nix
     ./nix-index.nix
     ./mpv.nix
     ./zathura.nix
+    ./zen-browser.nix
     ./opencode.nix
     ./nh.nix
   ];
@@ -73,7 +74,6 @@ let
         # ./wlogout.nix
         # ./dunst.nix
         ./spotify.nix
-        ./zen-browser.nix
         ./nixcord.nix
         ./noctalia.nix
         # ./anyrun.nix
