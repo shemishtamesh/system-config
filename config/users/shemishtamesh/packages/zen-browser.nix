@@ -6,7 +6,7 @@ let
   profile_name = "default";
 in
 {
-  imports = [ inputs.zen-browser.homeModules.twilight-official ];
+  imports = [ inputs.zen-browser.homeModules.twilight ];
   stylix.targets.zen-browser.profileNames = [ profile_name ];
   programs.zen-browser = {
     enable = true;
