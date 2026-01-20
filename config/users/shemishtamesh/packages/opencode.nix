@@ -13,7 +13,7 @@ in
         "$schema": "https://opencode.ai/config.json",
         "permission": {
           "*": "ask"
-        }
+        },
         "provider": {
           "ollama": {
             "npm": "@ai-sdk/openai-compatible",
