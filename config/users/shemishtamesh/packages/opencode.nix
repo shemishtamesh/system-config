@@ -21,21 +21,9 @@ in
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
-              "gpt-oss": {
+              "devstral-small-2": {
                 "tools": true
               },
-              "devstral-65k": {
-                "tools": true
-              },
-              "devstral": {
-                "tools": true
-              },
-              "qwen3:8b-16k": {
-                "tools": true
-              },
-              "qwen3:8b": {
-                "tools": true
-              }
             }
           }
         }
