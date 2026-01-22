@@ -22,7 +22,7 @@ in
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
-              "qwen3": {
+              "qwen3-coder": {
                 "tools": true
               },
             }
