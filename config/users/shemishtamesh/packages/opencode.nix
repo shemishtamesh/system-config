@@ -11,7 +11,7 @@ in
     ''
       {
         "$schema": "https://opencode.ai/config.json",
-        "modle": "ollama/devstral-small-2",
+        "model": "ollama/devstral-small-2",
         "permission": {
           "*": "ask"
         },
