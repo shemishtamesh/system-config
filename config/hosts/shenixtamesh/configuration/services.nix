@@ -65,7 +65,7 @@ in
         OLLAMA_FLASH_ATTENTION = "1";
         OLLAMA_KV_CACHE_TYPE = "q8_0";
       };
-      loadModels = [ "qwen2.5-coder:7b" ];
+      loadModels = [ "qwen2.5-coder:7b" "qwen3-coder" ];
     };
     open-webui = {
       enable = true;

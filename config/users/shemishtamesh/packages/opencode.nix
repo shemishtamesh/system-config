@@ -11,7 +11,7 @@ in
     ''
       {
         "$schema": "https://opencode.ai/config.json",
-        "model": "ollama/devstral-small-2",
+        "model": "ollama/qwen3",
         "permission": {
           "*": "ask"
         },
@@ -22,7 +22,7 @@ in
               "baseURL": "http://localhost:11434/v1"
             },
             "models": {
-              "devstral-small-2": {
+              "qwen3": {
                 "tools": true
               },
             }
