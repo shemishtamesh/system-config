@@ -1,7 +1,4 @@
-{ inputs, host, ... }:
-let
-  pkgs = inputs.nixpkgs-stable.legacyPackages."${host.system}";
-in
+{ pkgs, ... }:
 with pkgs;
 {
   environment.systemPackages = [ ollama ];
