@@ -180,11 +180,12 @@ in
             name = "time_from_update";
             text = # sh
               ''
-                last_update="$(${pkgs.jq} -r '.nodes.nixpkgs.locked.lastModified' $FLAKE/flake.lock)"
+                last_update="$(${lib.getExe pkgs.jq} -r '.nodes.nixpkgs.locked.lastModified' "$FLAKE/flake.lock")"
                 current_time="$(date +%s)"
-                range=$(date -u -d @$(($current_time - $last_update)) +"%d days, %H hours, %M minutes, and %S seconds")
-                echo "last update was at $last_update"
-                echo "time since last update is 
+                readable_last_update=$(date -u -d @"$last_update")
+                echo "last update was at $readable_last_update"
+                readable_range=$(date -u -d @$((current_time - last_update)) +"%d days, %H hours, %M minutes, and %S seconds")
+                echo "time since last update is $readable_range"
               '';
           }
         );
