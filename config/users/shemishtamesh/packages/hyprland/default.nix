@@ -298,13 +298,6 @@ in
           left_handed = true;
         };
         exec-once = [
-          (pkgs.lib.getExe (
-            pkgs.writeShellScriptBin "noctalia_with_location" ''
-              noctalia-shell -d
-              sleep 3 # set location doesn't seem to work immediately
-              noctalia-shell ipc call location set "$(cat ${config.sops.secrets.location.path})"
-            ''
-          ))
           "zen"
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] vesktop"
