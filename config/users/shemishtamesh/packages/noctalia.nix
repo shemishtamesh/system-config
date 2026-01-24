@@ -15,7 +15,7 @@
       let
         noctalia-package = pkgs.noctalia-shell.override { calendarSupport = true; };
       in
-      (pkgs.writeShellScriptBin "noctalia_with_location" ''
+      (pkgs.writeShellScriptBin "noctalia-shell" ''
         ${noctalia-package} -d "$@"
         sleep 3 # set location doesn't seem to work immediately
         ${noctalia-package} ipc call location set "$(cat ${config.sops.secrets.location.path})"
