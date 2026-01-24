@@ -11,20 +11,15 @@
   ];
   programs.noctalia-shell = {
     enable = true;
-    # package = inputs.noctalia.packages.${host.system}.default.override {
-    #   calendarSupport = true;
-    # };
     package =
       let
         noctalia-package = pkgs.noctalia-shell.override { calendarSupport = true; };
       in
-      (pkgs.lib.getExe (
-        pkgs.writeShellScriptBin "noctalia_with_location" ''
-          ${noctalia-package} -d "$@"
-          sleep 3 # set location doesn't seem to work immediately
-          ${noctalia-package} ipc call location set "$(cat ${config.sops.secrets.location.path})"
-        ''
-      ));
+      (pkgs.writeShellScriptBin "noctalia_with_location" ''
+        ${noctalia-package} -d "$@"
+        sleep 3 # set location doesn't seem to work immediately
+        ${noctalia-package} ipc call location set "$(cat ${config.sops.secrets.location.path})"
+      '');
     settings = {
       settingsVersion = 0;
       general = {
