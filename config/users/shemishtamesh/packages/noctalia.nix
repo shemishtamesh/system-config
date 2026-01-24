@@ -13,9 +13,11 @@
     enable = true;
     package =
       let
-        noctalia-package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-          calendarSupport = true;
-        };
+        noctalia-package = pkgs.lib.getExe (
+          inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+            calendarSupport = true;
+          }
+        );
       in
       (pkgs.writeShellScriptBin "noctalia-shell" ''
         ${noctalia-package} -d "$@"
