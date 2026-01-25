@@ -47,8 +47,8 @@
 
       # launch apps
       fn - t : wezterm start tmux new-session -c $HOME
-      fn - z : /Applications/Zen.app/Contents/MacOS/zen
-      fn + shift - z : /Applications/Zen.app/Contents/MacOS/zen --private-window
+      fn - z : zen
+      fn + shift - z : zen --private-window
     '';
   };
 }
