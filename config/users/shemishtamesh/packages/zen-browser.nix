@@ -22,7 +22,6 @@ in
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       Preferences = {
-        "zen.window-sync.prefer-unsynced-windows" = true;
         "zen.theme.content-element-separation" = 0;
         "zen.theme.hide-tab-throbber" = false;
         "zen.view.use-single-toolbar" = false;
