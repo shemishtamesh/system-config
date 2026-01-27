@@ -19,7 +19,11 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+      type = "github";
+      owner = "hyprwm";
+      repo = "Hyprland";
+      rev = "92a3b9199939c8b7b61281d1d59dbaa9cc2b2d6c"; # https://github.com/hyprwm/Hyprland/discussions/13043
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # hypr-dynamic-cursors = {
