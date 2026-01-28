@@ -129,8 +129,6 @@ let
       packages = with pkgs; [
         google-cloud-sdk
         stable-pkgs.visidata
-        skhd
-        yabai
       ];
     };
   };
