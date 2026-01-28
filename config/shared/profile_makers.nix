@@ -50,7 +50,7 @@ let
                 users.users = host.users;
               }
             ];
-            home_modules = [ hyprland.homeManagerModules.default ];
+            home_modules = [ ];
           }
         else if system_type == "darwin" then
           {
@@ -63,6 +63,7 @@ let
                 users.users = host.users;
               }
             ];
+            home_modules = [ ];
           }
         else if system_type == "nix-on-droid" then
           {
