@@ -27,7 +27,6 @@ let
     # ./tattoy.nix
     ./nixvim.nix
     ./nix-index.nix
-    ./mpv.nix
     ./zathura.nix
     ./zen-browser.nix
     ./opencode.nix
@@ -80,6 +79,7 @@ let
         # ./quickshell
         # ./anki
         ./ssh.nix
+        ./mpv.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
