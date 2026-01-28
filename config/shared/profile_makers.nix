@@ -5,7 +5,6 @@
   home-manager,
   stylix,
   hyprland,
-  mac-app-util,
   ...
 }@inputs:
 let
@@ -64,7 +63,6 @@ let
                 users.users = host.users;
               }
             ];
-            home_modules = [ mac-app-util.homeManagerModules.default ];
           }
         else if system_type == "nix-on-droid" then
           {
@@ -122,9 +120,6 @@ in
   };
   mkDarwinSystem = mkSystem {
     system_type = "darwin";
-    modules = [
-      mac-app-util.darwinModules.default
-    ];
   };
   mkNixOnDroidConfiguration = mkSystem {
     system_type = "nix-on-droid";
