@@ -6,7 +6,9 @@
   config,
   ...
 }:
-
+let
+  flake_hyprland = inputs.hyprland.packages.${host.system};
+in
 {
   imports = [
     ./generated_hardware_configuration.nix
@@ -22,6 +24,7 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      flake_hyprland.xdg-desktop-portal-hyprland
     ];
   };
 
@@ -102,15 +105,11 @@
   };
   programs = {
     zsh.enable = true;
-    hyprland =
-      let
-        flake_hyprland = inputs.hyprland.packages.${host.system};
-      in
-      {
-        enable = true;
-        package = flake_hyprland.hyprland;
-        portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
-      };
+    hyprland = {
+      enable = true;
+      package = flake_hyprland.hyprland;
+      portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
+    };
     steam = {
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
