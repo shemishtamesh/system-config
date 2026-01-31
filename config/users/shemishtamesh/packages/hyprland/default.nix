@@ -219,7 +219,7 @@ in
         cursor = {
           hide_on_key_press = true;
           zoom_disable_aa = true;
-          no_hardware_cursors = 0;
+          no_hardware_cursors = 0; # fix double cursor
         };
         ecosystem = {
           no_update_news = true;
