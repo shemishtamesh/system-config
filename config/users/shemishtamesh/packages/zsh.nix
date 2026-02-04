@@ -30,6 +30,11 @@ let
       nvim -c "lua require('oil').open(nil, { preview = {} })"
     ''
   );
+  nvim_worktree = lib.getExe (
+    pkgs.writeShellScriptBin "nvim_worktree" ''
+      nvim -c "set filetype=man | lua require('telescope').extensions.git_worktree.git_worktree()"
+    ''
+  );
 in
 {
   home.shell.enableZshIntegration = true;
@@ -41,6 +46,7 @@ in
       f = nvim_telescope;
       a = nvim_man;
       e = nvim_oil;
+      k = nvim_worktree;
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
