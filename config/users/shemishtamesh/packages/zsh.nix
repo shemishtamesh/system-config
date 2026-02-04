@@ -46,7 +46,7 @@ in
       f = nvim_telescope;
       a = nvim_man;
       e = nvim_oil;
-      k = nvim_worktree;
+      b = nvim_worktree;
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
