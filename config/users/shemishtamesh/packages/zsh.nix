@@ -42,6 +42,7 @@ in
     enable = true;
     shellAliases = {
       g = "git";
+
       n = "nvim";
       f = nvim_telescope;
       a = nvim_man;
