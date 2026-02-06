@@ -8,7 +8,7 @@
   ...
 }:
 let
-  gaps = "2";
+  gaps = "3";
   rounding = "10";
   scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
   sorted_monitors = builtins.sort (
