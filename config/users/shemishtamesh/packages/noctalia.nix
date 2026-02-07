@@ -24,7 +24,7 @@
           ${noctalia-package} "$@"
           exit 0
         fi
-        ${noctalia-package} "$@"
+        ${noctalia-package} "$@" &
         pid="$!"
 
         sleep 3 # set location doesn't seem to work immediately
