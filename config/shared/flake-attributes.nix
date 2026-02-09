@@ -87,6 +87,7 @@ in
 
                 git -C "$NH_FLAKE" add .
                 git -C "$NH_FLAKE" commit -m 'before formatting' > /dev/null || true
+                git rebase > /dev/null
                 nix fmt "$NH_FLAKE"
                 echo 'formatted'
 
@@ -125,7 +126,6 @@ in
                 fi
 
                 git push > /dev/null
-                git rebase > /dev/null
 
                 ${os_specific.notify_switch_success}
                 echo 'switch successful'
