@@ -7,12 +7,12 @@ let
   runtimeLibs = with pkgs; [
     SDL2
     SDL2_mixer
-    xorg.libX11
-    xorg.libXext
-    xorg.libXpm
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXinerama
+    libx11
+    libxext
+    libxpm
+    libxrandr
+    libxrender
+    libxinerama
     alsa-lib
     libpulseaudio
   ];

@@ -41,7 +41,6 @@
       bar = {
         density = "compact";
         outerCorners = false;
-        displayMode = "autoHide";
         widgets = {
           left = [
             { id = "plugin:timer"; }
