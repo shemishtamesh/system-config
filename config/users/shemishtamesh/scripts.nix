@@ -23,6 +23,32 @@
       echo "Error: $filename is not a valid file or directory.";
       exit 1;
     '')
+    (pkgs.writeShellScriptBin "timestamp" ''
+      if [[ $# -eq 0 ]]; then
+        echo "Adds the current date to a file's name"
+        echo 'timestamp <arg1>'
+        exit 1
+      fi
+      date_str=$(date +%Y%m%d)
+      original_file="$1"
+      dir=$(dirname "$original_file")
+      basename=$(basename "$original_file")
+
+      name="${basename%.*}"
+      extension="${basename##*.}"
+
+      # Create the new filename with date
+      if [[ "$extension" == "$basename" ]]; then
+        # No extension
+        new_filename="${name}-${date_str}"
+      else
+        # Has extension
+        new_filename="${name}-${date_str}.${extension}"
+      fi
+
+      # Rename the file
+      mv "$original_file" "$dir/$new_filename"
+    '')
     (pkgs.writeShellScriptBin "s" ''
       if [[ $# -eq 0 ]]; then
         echo 'Enters an impure nix shell with the specified packages.'
