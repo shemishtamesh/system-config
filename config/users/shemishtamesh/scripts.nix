@@ -34,16 +34,16 @@
       dir=$(dirname "$original_file")
       basename=$(basename "$original_file")
 
-      name="${basename%.*}"
-      extension="${basename##*.}"
+      name="''${basename%.*}"
+      extension="''${basename##*.}"
 
       # Create the new filename with date
       if [[ "$extension" == "$basename" ]]; then
         # No extension
-        new_filename="${name}-${date_str}"
+        new_filename="''${name}-''${date_str}"
       else
         # Has extension
-        new_filename="${name}-${date_str}.${extension}"
+        new_filename="''${name}-''${date_str}.''${extension}"
       fi
 
       # Rename the file
