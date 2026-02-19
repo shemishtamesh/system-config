@@ -40,10 +40,10 @@
       # Create the new filename with date
       if [[ "$extension" == "$basename" ]]; then
         # No extension
-        new_filename="''${name}-''${date_str}"
+        new_filename="''${name}_''${date_str}"
       else
         # Has extension
-        new_filename="''${name}-''${date_str}.''${extension}"
+        new_filename="''${name}_''${date_str}.''${extension}"
       fi
 
       # Rename the file
