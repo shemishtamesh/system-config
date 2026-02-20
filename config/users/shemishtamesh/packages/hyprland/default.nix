@@ -31,8 +31,7 @@ in
           disable_logs = false;
           gl_debugging = true;
         };
-        env = ["AQ_DRM_DEVICES,/dev/dri/card2"];
-
+        env = [ "AQ_DRM_DEVICES,/dev/dri/card2" ];
 
         "$mod" = "SUPER";
         monitor = builtins.attrValues (
