@@ -26,12 +26,12 @@ in
       portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
       settings = {
 
-        # TODO: REMOVE THIS AFTER IGPU ISSUE IS RESOLVED
-        debug = {
-          disable_logs = false;
-          gl_debugging = true;
-        };
-        env = [ "AQ_DRM_DEVICES,/dev/dri/card2" ];
+        # # TODO: REMOVE THIS AFTER IGPU ISSUE IS RESOLVED
+        # debug = {
+        #   disable_logs = false;
+        #   gl_debugging = true;
+        # };
+        # env = [ "AQ_DRM_DEVICES,/dev/dri/card2" ];
 
         "$mod" = "SUPER";
         monitor = builtins.attrValues (
