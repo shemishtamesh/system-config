@@ -19,7 +19,8 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland?rev=1c767de9da4dc603413ab90254893de762fd0283";
       # url = "github:hyprwm/Hyprland?rev=9ea6d0e15fddccf321c035e83b007a55d6829dd9";
       # url = "github:hyprwm/Hyprland?rev=e5a2b9e5b03d6b1f2dbf88242ad34522e48fb3d9";
       # url = "github:hyprwm/Hyprland?rev=f16ebef00366d2f85499196b9c7fb702b9f1c547";
