@@ -25,11 +25,14 @@ in
       package = flake_hyprland.hyprland;
       portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
       settings = {
+
+        # TODO: REMOVE THIS AFTER IGPU ISSUE IS RESOLVED
         debug = {
-          # TODO: REMOVE THIS AFTER GETTING LOGS
           disable_logs = false;
           gl_debugging = true;
         };
+        env = ["AQ_DRM_DEVICES,/dev/dri/card2"]
+
 
         "$mod" = "SUPER";
         monitor = builtins.attrValues (
@@ -43,13 +46,10 @@ in
               vertical_offset,
               scaling,
             }:
-            if portname == "HDMI-A-1" then
-              "${portname},"
-              + "${toString width}x${toString height}@${toString refresh_rate},"
-              + "${toString horizontal_offset}x${toString vertical_offset},"
-              + "${toString scaling}"
-            else
-              "${portname},disabled"
+            "${portname},"
+            + "${toString width}x${toString height}@${toString refresh_rate},"
+            + "${toString horizontal_offset}x${toString vertical_offset},"
+            + "${toString scaling}"
           ) host.monitors
         );
         bind = [
