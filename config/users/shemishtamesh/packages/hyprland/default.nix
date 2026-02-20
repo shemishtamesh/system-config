@@ -25,6 +25,11 @@ in
       package = flake_hyprland.hyprland;
       portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
       settings = {
+        debug = {  # TODO: REMOVE THIS AFTER GETTING LOGS
+          disable_logs = false;
+          gl_debugging = true;
+        };
+
         "$mod" = "SUPER";
         monitor = builtins.attrValues (
           builtins.mapAttrs (
