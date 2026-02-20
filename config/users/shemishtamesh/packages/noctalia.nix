@@ -141,10 +141,7 @@
         size = 2;
         animationSpeed = 2;
       };
-      sessionMenu = {
-        largeButtonsStyle = true;
-        largeButtonsLayout = "grid";
-      };
+      sessionMenu.largeButtonsStyle = true;
       osd.location = "bottom_center";
       notifications.location = "top_center";
       location.showWeekNumberInCalendar = true;
