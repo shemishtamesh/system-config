@@ -43,12 +43,13 @@ in
               vertical_offset,
               scaling,
             }:
-              if portname == "HDMI-A-1" then
-                "${portname},"
-                + "${toString width}x${toString height}@${toString refresh_rate},"
-                + "${toString horizontal_offset}x${toString vertical_offset},"
-                + "${toString scaling}"
-              else "${portname},disabled"
+            if portname == "HDMI-A-1" then
+              "${portname},"
+              + "${toString width}x${toString height}@${toString refresh_rate},"
+              + "${toString horizontal_offset}x${toString vertical_offset},"
+              + "${toString scaling}"
+            else
+              "${portname},disabled"
           ) host.monitors
         );
         bind = [
