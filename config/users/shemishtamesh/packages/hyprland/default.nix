@@ -81,8 +81,8 @@ in
           "$mod SHIFT, s, exec, hyprshot --freeze --mode window"
           "$mod CTRL, s, exec, hyprshot --freeze --mode output"
           "$mod, RETURN, exec, wezterm start tmux"
-          "$mod, i, exec, zen"
-          "$mod SHIFT, i, exec, zen --private-window"
+          "$mod, i, exec, zen-twilight"
+          "$mod SHIFT, i, exec, zen-twilight --private-window"
           "$mod, d, exec, obsidian"
           "$mod SHIFT, d, exec, lorien"
 
@@ -307,7 +307,7 @@ in
           left_handed = true;
         };
         exec-once = [
-          "zen"
+          "zen-twilight"
           "[workspace special:music silent] spotify"
           "[workspace special:chat silent] vesktop"
           "[workspace special:chat silent] altus"
