@@ -147,6 +147,8 @@
         size = 2;
         animationSpeed = 2;
         dockType = "static";
+        showLauncherIcon = true;
+        pinnedStatic = true;
       };
       sessionMenu.largeButtonsStyle = true;
       osd.location = "bottom";
