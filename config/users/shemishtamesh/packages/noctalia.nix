@@ -97,41 +97,47 @@
         };
       };
       controlCenter = {
-        cards = [
-          {
-            id = "profile-card";
-            enabled = true;
-          }
-          {
-            id = "shortcuts-card";
-            enabled = true;
-          }
-          {
-            id = "audio-card";
-            enabled = true;
-          }
-          {
-            id = "brightness-card";
-            enabled = true;
-          }
-          {
-            id = "weather-card";
-            enabled = true;
-          }
-          {
-            id = "media-sysmon-card";
-            enabled = true;
-          }
-        ];
+        cards =
+          map
+            (name: {
+              id = name;
+              enabled = true;
+            })
+            [
+              "profile-card"
+              "shortcuts-card"
+              "audio-card"
+              "brightness-card"
+              "weather-card"
+              "media-sysmon-card"
+            ];
         shortcuts = {
           left = [
-            { id = "WiFi"; }
             { id = "Bluetooth"; }
+            { id = "WiFi"; }
+            { id = "AirplaneMode"; }
             { id = "plugin:screen-recorder"; }
             {
               id = "CustomButton";
               icon = "rocket";
               leftClickExec = "noctalia-shell ipc call launcher toggle";
+            }
+          ];
+          right = [
+            {
+              id = "Notifications";
+            }
+            {
+              id = "PowerProfile";
+            }
+            {
+              id = "NoctaliaPerformance";
+            }
+            {
+              id = "KeepAwake";
+            }
+            {
+              id = "NightLight";
             }
           ];
         };
