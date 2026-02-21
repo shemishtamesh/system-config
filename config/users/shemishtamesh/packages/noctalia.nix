@@ -38,6 +38,7 @@
         showHibernateOnLockScreen = true;
         enableShadows = false;
         passwordChars = true;
+        lockScreenAnimations = true;
       };
       bar = {
         density = "compact";
