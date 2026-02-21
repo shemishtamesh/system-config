@@ -10,8 +10,8 @@
       monitors=(${toString (map (x: ''"${x}"'') (builtins.attrNames host.monitors))})
 
       if [[ $(hyprctl getoption general:border_size | head -n 1 | awk '{ print $2 }') -eq 1 ]]; then
-        for screen in $monitors; do
-          noctalia-shell ipc call bar setDisplayMode auto_hide $screen
+        for screen in "''${monitors[@]}"; do
+          noctalia-shell ipc call bar setDisplayMode auto_hide $screen &
         done
 
         hyprctl keyword general:border_size 0;
@@ -23,8 +23,8 @@
         exit 0
       fi
 
-      for screen in $monitors; do
-        noctalia-shell ipc call bar setDisplayMode always_visible $screen
+      for screen in "''${monitors[@]}"; do
+        noctalia-shell ipc call bar setDisplayMode always_visible "$screen" &
       done
 
       hyprctl keyword general:border_size 1;
@@ -32,7 +32,6 @@
       hyprctl keyword general:gaps_out ${gaps}
       hyprctl keyword decoration:rounding ${rounding}
       hyprctl keyword decoration:shadow:enabled 0
-      waybar
     ''
   );
   notification-log = pkgs.lib.getExe (
