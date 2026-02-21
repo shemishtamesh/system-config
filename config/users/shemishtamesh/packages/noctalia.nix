@@ -37,6 +37,7 @@
       general = {
         showHibernateOnLockScreen = true;
         enableShadows = false;
+        passwordChars = true;
       };
       bar = {
         density = "compact";
