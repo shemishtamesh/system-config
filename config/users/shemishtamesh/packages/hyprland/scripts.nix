@@ -2,20 +2,28 @@
   pkgs,
   gaps,
   rounding,
+  host,
 }:
 {
   toggle-bar = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "toggle-bar" ''
-      noctalia-shell ipc call bar toggle
+      monitors=(${toString (map (x: ''"${x}"'') (builtins.attrNames host.monitors))})
+
       if [[ $(hyprctl getoption general:border_size | head -n 1 | awk '{ print $2 }') -eq 1 ]]; then
-          hyprctl keyword general:border_size 0;
-          hyprctl keyword general:gaps_in 0
-          hyprctl keyword general:gaps_out 0
-          hyprctl keyword decoration:rounding 0
-          hyprctl keyword decoration:shadow:enabled 1
-          hyprctl keyword decoration:shadow:range 50
-          exit 0
+        for screen in $monitors; do
+          noctalia-shell ipc call bar setDisplayMode auto_hide $screen
+
+        hyprctl keyword general:border_size 0;
+        hyprctl keyword general:gaps_in 0
+        hyprctl keyword general:gaps_out 0
+        hyprctl keyword decoration:rounding 0
+        hyprctl keyword decoration:shadow:enabled 1
+        hyprctl keyword decoration:shadow:range 50
+        exit 0
       fi
+
+      for screen in $monitors; do
+        noctalia-shell ipc call bar setDisplayMode always_visible $screen
 
       hyprctl keyword general:border_size 1;
       hyprctl keyword general:gaps_in ${gaps}

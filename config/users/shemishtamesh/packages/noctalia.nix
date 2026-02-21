@@ -140,9 +140,10 @@
         floatingRatio = 0;
         size = 2;
         animationSpeed = 2;
+        dockType = "static";
       };
       sessionMenu.largeButtonsStyle = true;
-      osd.location = "bottom_center";
+      osd.location = "bottom";
       notifications.location = "top_center";
       location.showWeekNumberInCalendar = true;
       wallpaper = {

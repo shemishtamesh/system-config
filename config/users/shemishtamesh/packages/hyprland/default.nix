@@ -10,7 +10,7 @@
 let
   gaps = "5";
   rounding = "10";
-  scripts = import ./scripts.nix { inherit pkgs gaps rounding; };
+  scripts = import ./scripts.nix { inherit pkgs gaps rounding host; };
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
   ) (builtins.attrNames host.monitors);
