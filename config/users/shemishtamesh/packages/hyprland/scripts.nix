@@ -12,6 +12,7 @@
       if [[ $(hyprctl getoption general:border_size | head -n 1 | awk '{ print $2 }') -eq 1 ]]; then
         for screen in $monitors; do
           noctalia-shell ipc call bar setDisplayMode auto_hide $screen
+        done
 
         hyprctl keyword general:border_size 0;
         hyprctl keyword general:gaps_in 0
@@ -24,6 +25,7 @@
 
       for screen in $monitors; do
         noctalia-shell ipc call bar setDisplayMode always_visible $screen
+      done
 
       hyprctl keyword general:border_size 1;
       hyprctl keyword general:gaps_in ${gaps}
