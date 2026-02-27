@@ -22,18 +22,34 @@ in
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       Preferences = {
-        "zen.theme.content-element-separation" = 0;
-        "zen.theme.hide-tab-throbber" = false;
-        "zen.view.use-single-toolbar" = false;
-        "zen.view.compact.hide-toolbar" = true;
-        "zen.view.compact.toolbar-flash-popup" = true;
-        "zen.urlbar.behavior" = "float";
-        "zen.welcome-screen.seen" = true;
-        "zen.workspaces.container-specific-essentials-enabled" = true;
-        "zen.workspaces.scroll-modifier-key" = "shift";
-        "browser.tabs.fadeOutUnloadedTabs" = true;
-        "browser.tabs.hoverPreview.enabled" = true;
-        "sidebar.position_start" = false;
+        browser = {
+          ctrlTab.sortByRecentlyUsed = true;
+          tabs = {
+            fadeOutUnloadedTabs = true;
+            hoverPreview.enabled = true;
+          };
+        };
+        sidebar.position_start = false;
+        zen = {
+          theme = {
+            content-element-separation = 0;
+            hide-tab-throbber = false;
+          };
+          urlbar.behavior = "float";
+          view = {
+            compact = {
+              hide-toolbar = true;
+              toolbar-flash-popup = true;
+            };
+            use-single-toolbar = false;
+          };
+          welcome-screen.seen = true;
+          window-sync.sync-only-pinned-tabs = true;
+          workspaces = {
+            container-specific-essentials-enabled = true;
+            scroll-modifier-key = "shift";
+          };
+        };
       };
     };
     profiles.default = {
