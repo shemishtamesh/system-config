@@ -88,11 +88,11 @@ let
         furnace
         (pkgs.bottles.override { removeWarningPopup = true; })
         blender
-        openscad
+        stable-pkgs.openscad
         audacity
         musescore
         stable-pkgs.lmms
-        krita
+        stable-pkgs.krita
         stable-pkgs.aseprite
         imv
         pulsemixer
