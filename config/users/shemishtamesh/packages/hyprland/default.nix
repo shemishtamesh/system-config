@@ -64,9 +64,9 @@ in
           "$mod CTRL, f, fullscreenstate, -1 2"
           "$mod, t, togglefloating, 0"
 
-          "$mod, r, layoutmsg togglesplit"
-          "$mod CTRL, r, layoutmsg swapsplit"
-          "$mod SHIFT, r, layoutmsg movetoroot"
+          "$mod, r, layoutmsg, togglesplit"
+          "$mod CTRL, r, layoutmsg, swapsplit"
+          "$mod SHIFT, r, layoutmsg, movetoroot"
 
           # "$mod SHIFT, Tab, overview:toggle" # Hyprspace
           # "$mod, Tab, exec, rofi -show window -modi 'window'"
