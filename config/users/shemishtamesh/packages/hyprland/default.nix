@@ -32,14 +32,6 @@ in
       package = flake_hyprland.hyprland;
       portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
       settings = {
-
-        # # TODO: REMOVE THIS AFTER IGPU ISSUE IS RESOLVED
-        # debug = {
-        #   disable_logs = false;
-        #   gl_debugging = true;
-        # };
-        # env = [ "AQ_DRM_DEVICES,/dev/dri/card2" ];
-
         "$mod" = "SUPER";
         monitor = builtins.attrValues (
           builtins.mapAttrs (
@@ -72,7 +64,9 @@ in
           "$mod CTRL, f, fullscreenstate, -1 2"
           "$mod, t, togglefloating, 0"
 
-          "$mod, r, togglesplit"
+          "$mod, r, layoutmsg togglesplit"
+          "$mod CTRL, r, layoutmsg swapsplit"
+          "$mod SHIFT, r, layoutmsg movetoroot"
 
           # "$mod SHIFT, Tab, overview:toggle" # Hyprspace
           # "$mod, Tab, exec, rofi -show window -modi 'window'"
