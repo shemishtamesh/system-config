@@ -267,14 +267,14 @@ in
         windowrule = [
           # open aseprite in tiled mode by default
           "match:class Aseprite, tile true"
+
+          # move specific apps to their special workspaces
+          "match:initial_class (?i)^(spotify)$, workspace special:music silent"
+          "match:initial_class (?i)^(discord|vesktop|altus|slack) special:chat silent"
         ];
         workspace = [
           # no borders when there's only a single visible window
           "w[v1], rounding:false, border:false"
-
-          # move specific apps to their special workspaces
-          "special:music silent, class:([sS]potify)"
-          "special:chat silent, class:([dD]iscord|[vV]esktop|Altus|Slack)"
 
           # no borders when there's only a single visible window
           "w[v1], gapsout:0, gapsin:0"
