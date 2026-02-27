@@ -32,6 +32,7 @@ in
         "zen.workspaces.container-specific-essentials-enabled" = true;
         "zen.workspaces.scroll-modifier-key" = "shift";
         "browser.tabs.fadeOutUnloadedTabs" = true;
+        "browser.tabs.hoverPreview.enabled" = true;
         "sidebar.position_start" = false;
       };
     };
