@@ -279,6 +279,8 @@ in
           # no borders when there's only a single visible window
           "w[v1], gapsout:0, gapsin:0"
           "f[1], gapsout:0, gapsin:0"
+
+          "special:scratchpad, layout:scrolling"
         ]
         ++ (
           (
