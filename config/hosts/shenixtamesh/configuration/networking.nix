@@ -17,9 +17,6 @@
 
     # Open ports in the firewall.
     firewall = {
-      allowedTCPPorts = [
-        8080 # open-webui
-      ];
       allowedTCPPortRanges = [
         {
           # KDE Connect
