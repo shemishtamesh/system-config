@@ -102,7 +102,7 @@ let
         wl-clipboard
         gimp
         obs-studio
-        libreoffice
+        stable-pkgs.libreoffice
         smassh
         slides
         difftastic
