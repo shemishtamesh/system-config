@@ -79,6 +79,7 @@
             {
               id = "Brightness";
               displayMode = "alwaysShow";
+              applyToAllMonitors = true;
             }
             {
               id = "KeyboardLayout";
