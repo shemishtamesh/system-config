@@ -11,7 +11,7 @@ in
     ''
       {
         "$schema": "https://opencode.ai/config.json",
-        "model": "ollama/qwen3",
+        "model": "ollama/qwen3-coder",
         "permission": {
           "*": "ask"
         },
