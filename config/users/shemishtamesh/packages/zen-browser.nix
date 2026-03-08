@@ -57,7 +57,6 @@ in
       name = profile_name;
       isDefault = true;
     };
-    suppressXdgMigrationWarning = true;
   };
   home.sessionVariables.BROWSER = "zen";
 }
