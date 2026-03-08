@@ -878,11 +878,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1772179209,
-        "narHash": "sha256-ecEFqtdix6NM6tHMHQUrnKTmPVKt4Mm5o4hBUEdoAzg=",
+        "lastModified": 1772960279,
+        "narHash": "sha256-BfDyM/0PsUBw4XqYI30LTdwS392PQxUjyDLUQmecBhw=",
         "owner": "shemishtamesh",
         "repo": "nixvim-flake",
-        "rev": "7e9604e6abce20fa6e1347333da003b1b955ee75",
+        "rev": "cdc055db6adef910a332ceb7b3db20f25ed8fdd1",
         "type": "github"
       },
       "original": {
@@ -898,11 +898,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1771135771,
-        "narHash": "sha256-wyvBIhDuyCRyjB3yPg77qoyxrlgQtBR1rVW3c9knV3E=",
+        "lastModified": 1772402258,
+        "narHash": "sha256-3DmCFOdmbkFML1/G9gj8Wb+rCCZFPOQtNoMCpqOF8SA=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "ed0424f0b08d303a7348f52f7850ad1b2704f9ba",
+        "rev": "21ae25e13b01d3b4cdc750b5f9e7bad68b150c10",
         "type": "github"
       },
       "original": {
