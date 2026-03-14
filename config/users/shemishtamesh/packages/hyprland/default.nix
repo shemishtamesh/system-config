@@ -68,7 +68,8 @@ in
           "$mod CTRL, r, layoutmsg, swapsplit"
           "$mod SHIFT, r, layoutmsg, movetoroot"
 
-          # "$mod SHIFT, Tab, overview:toggle" # Hyprspace
+          # "$mod, Tab, overview:toggle" # Hyprspace
+          "$mod, Tab, qs ipc -c overview call overview toggle"
           "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
           "$mod CTRL, c, exec, hyprpicker --render-inactive --autocopy"
           "$mod, s, exec, hyprshot --freeze --mode region"
@@ -314,6 +315,7 @@ in
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
           "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
+          "qs -c overview"
         ];
         # plugin.dynamic-cursors = {
         #   enabled = true;
