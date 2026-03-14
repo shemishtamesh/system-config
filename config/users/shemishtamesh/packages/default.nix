@@ -76,7 +76,7 @@ let
         ./nixcord.nix
         ./noctalia.nix
         # ./anyrun.nix
-        # ./quickshell
+        ./quickshell
         # ./anki
         ./ssh.nix
         ./mpv.nix
