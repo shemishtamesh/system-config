@@ -43,6 +43,7 @@
       bar = {
         density = "compact";
         outerCorners = false;
+        enableExclusionZoneInset = false;
         widgets = {
           left = [
             { id = "plugin:timer"; }
