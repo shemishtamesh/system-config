@@ -7,7 +7,10 @@
   ];
   qt.enable = true;
   xdg.configFile = {
-    "quickshell/overview".source = inputs.quickshell-overview;
+    "quickshell/overview" = {
+      source = inputs.quickshell-overview;
+      recursive = true;
+    };
     "quickshell/overview/config.json".text = builtins.toJSON {
       overview = {
         rows = 3;
