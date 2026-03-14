@@ -7,7 +7,7 @@
 
 let
   appearanceBlock = pkgs.writeText "defaultColors.qml" (
-    with config.lib.stylix.colors;
+    with config.lib.stylix.colors; # qml
     ''
       property QtObject defaultColors: QtObject {
           property bool darkmode: true
@@ -38,7 +38,7 @@ let
     ''
   );
 
-  oldAppearanceBlock = pkgs.writeText "old-defaultColors.qml" ''
+  oldAppearanceBlock = pkgs.writeText "old-defaultColors.qml" /* qml */ ''
     property QtObject defaultColors: QtObject {
         property bool darkmode: true
         property color m3primary: "#E5B6F2"
@@ -71,13 +71,18 @@ let
     cp -r ${inputs.quickshell-overview} $out
     chmod -R u+w $out
 
-    old="$(cat ${oldAppearanceBlock})"
-    new="$(cat ${appearanceBlock})"
+    file="$out/common/Appearance.qml"
+    old="$(< ${oldAppearanceBlock})"
+    new="$(< ${appearanceBlock})"
+    text="$(< "$file")"
 
-    perl -0pi -e 's/\Q'"$old"'\E/'"$new"'/s' \
-      "$out/common/Appearance.qml"
+    if [[ "$text" != *"$old"* ]]; then
+      echo "defaultColors block not found in $file" >&2
+      exit 1
+    fi
 
-    grep -F 'property color m3primary: "#' "$out/common/Appearance.qml" >/dev/null
+    text="''${text/"$old"/"$new"}"
+    printf '%s' "$text" > "$file"
   '';
 in
 {
