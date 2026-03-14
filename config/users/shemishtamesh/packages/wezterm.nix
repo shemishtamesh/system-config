@@ -6,7 +6,6 @@ in
 {
   programs.wezterm = {
     enable = true;
-    enableZshIntegration = false;
     extraConfig = # lua
       ''
         local wezterm = require("wezterm")

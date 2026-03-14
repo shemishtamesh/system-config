@@ -72,6 +72,7 @@ in
       o = if darwin then "open" else "xdg-open";
       of = if darwin then "open ." else "xdg-open .";
     };
+    dotDir = "${config.xdg.configHome}/zsh";
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     plugins = [
