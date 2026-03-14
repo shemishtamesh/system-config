@@ -30,6 +30,10 @@
     #   url = "github:KZDKM/Hyprspace";
     #   inputs.hyprland.follows = "hyprland";
     # };
+    quickshell-overview = {
+      url = "github:Shanu-Kumawat/quickshell-overview";
+      flake = false;
+    };
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";

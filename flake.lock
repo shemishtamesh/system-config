@@ -1039,6 +1039,22 @@
         "type": "github"
       }
     },
+    "quickshell-overview": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772571547,
+        "narHash": "sha256-gMpSlV5pamCXoq4wZn0N2biybbLXPtkeU3TsKqowvM4=",
+        "owner": "Shanu-Kumawat",
+        "repo": "quickshell-overview",
+        "rev": "3486a4aa3748006a2cd99b0fae1ecac16b42091c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Shanu-Kumawat",
+        "repo": "quickshell-overview",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -1052,6 +1068,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "quickshell-overview": "quickshell-overview",
         "secrets": "secrets",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
