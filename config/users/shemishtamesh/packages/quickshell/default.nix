@@ -12,6 +12,7 @@
       recursive = true;
     };
     "quickshell/overview/config.json".text = builtins.toJSON {
+      appearance.colorSource = "mutagen";
       overview = {
         rows = 3;
         columns = 3;
