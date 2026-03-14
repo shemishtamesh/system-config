@@ -79,9 +79,6 @@ in
         enable = true;
         hideEmptyRows = false;
       };
-      appearance = {
-        colorSource = "default";
-      };
     };
   };
 }
