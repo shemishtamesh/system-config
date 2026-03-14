@@ -10,8 +10,6 @@ in
 {
   home.sessionVariables = {
     FLAKE = (import ../../shared/constants.nix pkgs).FLAKE_ROOT;
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
   }
   // (if system_type == "darwin" then { HOMEBREW_NO_ANALYTICS = 1; } else { });
 }
