@@ -22,6 +22,8 @@ in
     stateVersion = "24.05"; # WARNING: do not change this without reading docs
   };
 
+  xdg.enable = true;
+
   # allowing unfree packages
   nixpkgs.config = nixpkgs_config.object;
   xdg.configFile."nixpkgs/config.nix".source = nixpkgs_config.file;
