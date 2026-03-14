@@ -69,7 +69,7 @@ in
           "$mod SHIFT, r, layoutmsg, movetoroot"
 
           # "$mod, Tab, overview:toggle" # Hyprspace
-          "$mod, Tab, qs ipc -c overview call overview toggle"
+          "$mod, Tab, exec, qs ipc -c overview call overview toggle"
           "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
           "$mod CTRL, c, exec, hyprpicker --render-inactive --autocopy"
           "$mod, s, exec, hyprshot --freeze --mode region"
