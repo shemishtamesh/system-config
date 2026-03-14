@@ -15,7 +15,7 @@
       overview = {
         rows = 3;
         columns = 3;
-        scale = 2;
+        scale = 0.25;
         enable = true;
         hideEmptyRows = false;
       };
