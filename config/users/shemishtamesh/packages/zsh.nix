@@ -50,6 +50,21 @@ in
       e = nvim_oil;
       b = nvim_worktree;
 
+      devenvinit = ''
+        devenv init
+        text=$(cat << EOF
+        #!/usr/bin/env bash
+
+        eval "$(devenv direnvrc)"
+
+        # You can pass flags to the devenv command
+        # For example: use devenv --impure --option services.postgres.enable:bool true
+        use devenv
+        EOF
+        )
+        echo "$text" > .env
+      '';
+
       grep = "grep --color=auto";
       ls = "ls --color=auto";
       l = "exa --color=auto --icons=always --git";
