@@ -50,23 +50,6 @@ in
       e = nvim_oil;
       b = nvim_worktree;
 
-      devenvinit = ''
-        f(){
-          devenv init
-          text=$(cat << EOF
-          #!/usr/bin/env bash
-
-          eval "$(devenv direnvrc)"
-
-          # You can pass flags to the devenv command
-          # For example: use devenv --impure --option services.postgres.enable:bool true
-          use devenv
-          EOF
-          )
-          echo "$text" > .env
-        };f
-      '';
-
       grep = "grep --color=auto";
       ls = "ls --color=auto";
       l = "exa --color=auto --icons=always --git";
@@ -156,6 +139,21 @@ in
         # Edit line in vim with ctrl-e:
         autoload edit-command-line; zle -N edit-command-line
         bindkey '^e' edit-command-line
+
+        devenvinit() {
+          devenv init
+          text=$(cat << EOF
+          #!/usr/bin/env bash
+
+          eval "$(devenv direnvrc)"
+
+          # You can pass flags to the devenv command
+          # For example: use devenv --impure --option services.postgres.enable:bool true
+          use devenv
+          EOF
+          )
+          echo "$text" > .env
+        }
 
         ${if darwin then ''eval "$(/opt/homebrew/bin/brew shellenv)"'' else ""}
       '';
