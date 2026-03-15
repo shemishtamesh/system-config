@@ -142,17 +142,15 @@ in
 
         devenvinit() {
           devenv init
-          text=$(cat << EOF
-          #!/usr/bin/env bash
-
-          eval "$(devenv direnvrc)"
-
-          # You can pass flags to the devenv command
-          # For example: use devenv --impure --option services.postgres.enable:bool true
-          use devenv
-          EOF
-          )
-          echo "$text" > .env
+          printf '%s\n' \
+            "#!/usr/bin/env bash" \
+            "" \
+            'eval "$(devenv direnvrc)"' \
+            "" \
+            "# You can pass flags to the devenv command" \
+            "# For example: use devenv --impure --option services.postgres.enable:bool true" \
+            "use devenv" \
+            > .env
         }
 
         ${if darwin then ''eval "$(/opt/homebrew/bin/brew shellenv)"'' else ""}
