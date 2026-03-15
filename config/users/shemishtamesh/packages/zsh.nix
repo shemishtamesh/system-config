@@ -142,6 +142,7 @@ in
 
         devenvinit() {
           devenv init
+          echo 'Creating .envrc'
           printf '%s\n' \
             "#!/usr/bin/env bash" \
             "" \
@@ -150,7 +151,7 @@ in
             "# You can pass flags to the devenv command" \
             "# For example: use devenv --impure --option services.postgres.enable:bool true" \
             "use devenv" \
-            > .env
+            > .envrc
         }
 
         ${if darwin then ''eval "$(/opt/homebrew/bin/brew shellenv)"'' else ""}
