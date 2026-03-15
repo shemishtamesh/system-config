@@ -44,6 +44,12 @@
         density = "compact";
         outerCorners = false;
         enableExclusionZoneInset = false;
+
+        mouseWheelAction = "workspace";
+        mouseWheelWrap = true;
+        middleClickAction = "settings";
+        middleClickFollowMouse = true;
+
         widgets = {
           left = [
             { id = "plugin:timer"; }
