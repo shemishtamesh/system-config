@@ -40,11 +40,18 @@ in
       arguments.variant = "light";
     })
     (scheme_generator {
-      palette_name = "palegreen";
+      palette_name = "extreme";
       arguments = {
-        mix_color = "palegreen";
-        mix_factor = 0.3;
-        gradient_desaturation = 0.6;
+        variant = "dark";
+        mix_color = "white";
+        mix_factor = "0.0";
+        saturation = "1.0";
+        desaturation = "0.0";
+        gradient_desaturation = "0.0";
+        lightening = "0.00";
+        darkening = "0.0";
+        brightness_difference = "0.00";
+        colorspace = "OkLab";
       };
     })
   ];

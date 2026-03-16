@@ -3,14 +3,14 @@ pkgs:
   palette_name,
   arguments ? {
     variant = "dark";
-    mix_color = "blue";
-    mix_factor = "0.0";
-    saturation = "1.0";
+    mix_color = "lightblue";
+    mix_factor = "0.6";
+    saturation = "0.3";
     desaturation = "0.0";
     gradient_desaturation = "0.0";
-    lightening = "0.00";
+    lightening = "0.05";
     darkening = "0.0";
-    brightness_difference = "0.00";
+    brightness_difference = "0.05";
     colorspace = "OkLab";
   },
 }:
