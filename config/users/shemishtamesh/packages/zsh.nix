@@ -71,7 +71,7 @@ in
       sd = "sudo --login --user=$USER";
 
       o = if darwin then "open" else "xdg-open";
-      of = if darwin then "open ." else "xdg-open .";
+      of = if darwin then "open ." else "xdg-open . & disown";
     };
     dotDir = "${config.xdg.configHome}/zsh";
     syntaxHighlighting.enable = true;
