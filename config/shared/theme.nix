@@ -45,10 +45,10 @@ in
         variant = "dark";
         mix_color = "white";
         mix_factor = "0.0";
-        saturation = "1.0";
+        saturation = "0.4";
         desaturation = "0.0";
         gradient_desaturation = "0.0";
-        lightening = "0.00";
+        lightening = "0.10";
         darkening = "0.0";
         brightness_difference = "0.00";
         colorspace = "OkLab";
