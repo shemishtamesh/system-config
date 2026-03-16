@@ -57,7 +57,7 @@ for rotation in $(seq 0 $((hues - 1))); do
     non_gradient_color "$base_color"
 done
 
-non_gradient_color "$(pastel color brown)"
+non_gradient_color "$(pastel color orange)"
 
 cat <<EOF
 system: "base24"
