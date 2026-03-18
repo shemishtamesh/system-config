@@ -20,7 +20,7 @@ in
 
       hide_window_decorations = "yes";
 
-      open_url_with = "zen";
+      open_url_with = "zen-twilight";
       detect_urls = "yes";
 
       enable_audio_bell = "no";

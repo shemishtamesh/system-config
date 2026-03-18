@@ -58,5 +58,5 @@ in
       isDefault = true;
     };
   };
-  home.sessionVariables.BROWSER = "zen";
+  home.sessionVariables.BROWSER = "zen-twilight";
 }
