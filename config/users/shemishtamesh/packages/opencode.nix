@@ -79,6 +79,6 @@ in
       '';
     in
     lib.mkOrder 550 ''
-      fpath+=(${opencodeZshCompletion})
+      fpath=(${opencodeZshCompletion} $fpath)
     '';
 }
