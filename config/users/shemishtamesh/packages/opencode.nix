@@ -2,7 +2,6 @@
   inputs,
   host,
   pkgs,
-  lib,
   ...
 }:
 let
