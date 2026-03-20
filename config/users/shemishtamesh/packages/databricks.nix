@@ -11,5 +11,5 @@ in
         ${databricks-cli}/bin/databricks completion zsh > "$out/_databricks"
       '';
     in
-    "${databricksZshCompletion}/_databricks";
+    [ "${databricksZshCompletion}/_databricks" ];
 }
