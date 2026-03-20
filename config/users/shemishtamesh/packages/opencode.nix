@@ -1,4 +1,9 @@
-{ inputs, host, pkgs, ... }:
+{
+  inputs,
+  host,
+  pkgs,
+  ...
+}:
 let
   stable-pkgs = import inputs.nixpkgs-stable {
     system = host.system;
