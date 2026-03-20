@@ -17,7 +17,7 @@
 
     # Open ports in the firewall.
     firewall = {
-      allowedTCPPorts = [4096];
+      allowedTCPPorts = [ 4096 ];
       allowedTCPPortRanges = [
         {
           # KDE Connect
