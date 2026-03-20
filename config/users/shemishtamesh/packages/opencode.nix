@@ -18,10 +18,26 @@ in
           },
           "*": "ask",
 
+          "doom_loop": "ask",
+
+          "edit": "ask",
+
+          "bash": {
+              "*": "ask",
+
+              "grep*": "allow",
+              "ls*": "allow",
+
+              "git status*": "allow",
+              "git diff*": "allow",
+              "git log*": "allow"
+          }
+
           "read": "allow",
           "glob": "allow",
           "grep": "allow",
           "list": "allow",
+
           "lsp": "allow",
           "codesearch": "allow",
 
@@ -31,18 +47,6 @@ in
           "todoread": "allow",
           "task": "allow",
           "skill": "allow",
-
-          "doom_loop": "ask",
-
-          "edit": "ask",
-
-          "bash": {
-              "grep*": "allow",
-              "ls*": "allow",
-              "git status*": "allow",
-              "git diff*": "allow",
-              "git log*": "allow"
-          }
         },
         "provider": {
           "ollama": {
