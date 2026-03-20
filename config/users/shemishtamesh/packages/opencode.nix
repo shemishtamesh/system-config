@@ -74,6 +74,7 @@ in
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
         export HOME=$TMPDIR
+        export SHELL=${pkgs.zsh}/bin/zsh
         ${opencode}/bin/opencode completion > "$out"
       '';
     in
