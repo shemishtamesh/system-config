@@ -2,6 +2,7 @@
   inputs,
   host,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -77,7 +78,7 @@ in
         ${opencode}/bin/opencode completion > "$out/_opencode"
       '';
     in
-    ''
+    lib.mkOrder 550 ''
       fpath+=(${opencodeZshCompletion})
     '';
 }
