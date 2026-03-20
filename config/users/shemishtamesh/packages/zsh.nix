@@ -83,6 +83,7 @@ in
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
+    enableCompletion = false; # enabled in initContent
     initContent = # sh
       ''
         setopt HIST_IGNORE_SPACE
