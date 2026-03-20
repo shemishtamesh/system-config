@@ -69,7 +69,7 @@ in
         }
       }
     '';
-  programs.zsh.initExtra =
+  programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
         mkdir -p "$out"
