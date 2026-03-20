@@ -12,17 +12,15 @@ let
   opencode = stable-pkgs.opencode;
 in
 {
-  home = {
-    packages = [ opencode ];
-    file.".zsh/completions/_opencode".source =
-      let
-        opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
-          mkdir -p "$out"
-          ${opencode}/bin/opencode completion > "$out/_opencode"
-        '';
-      in
-      "${opencodeZshCompletion}/_opencode";
-  };
+  home.packages = [ opencode ];
+  programs.zsh.plugins.openncode.completions =
+    let
+      opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
+        mkdir -p "$out"
+        ${opencode}/bin/opencode completion > "$out/_opencode"
+      '';
+    in
+    "${opencodeZshCompletion}/_opencode";
   xdg.configFile."opencode/config.json".text = # json
     ''
       {
