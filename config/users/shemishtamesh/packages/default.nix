@@ -87,7 +87,7 @@ let
         tetrio-desktop
         furnace
         (pkgs.bottles.override { removeWarningPopup = true; })
-        blender
+        stable-pkgs.blender
         stable-pkgs.openscad
         audacity
         musescore
