@@ -75,11 +75,8 @@ in
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
         export HOME=$TMPDIR
         mkdir -p "$out"
-        echo '#compdef opencode' > "$out/_opencode"
-        ${opencode}/bin/opencode completion >> "$out/_opencode"
+        ${opencode}/bin/opencode completion >> "$out"
       '';
     in
-    lib.mkOrder 550 ''
-      fpath=(${opencodeZshCompletion} $fpath)
-    '';
+    "source ${opencodeZshCompletion}";
 }
