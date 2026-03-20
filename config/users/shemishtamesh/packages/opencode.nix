@@ -73,8 +73,8 @@ in
   programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
-        export HOME=$TMPDIR
-        export SHELL=${pkgs.zsh}/bin/zsh
+        export HOME=$TMPDIR  # requires HOME for some reason
+        export SHELL=${pkgs.zsh}/bin/zsh  # otherwise it gives a bash version
         ${opencode}/bin/opencode completion > "$out"
       '';
     in
