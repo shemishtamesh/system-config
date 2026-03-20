@@ -100,7 +100,6 @@ in
         export SAVEHIST=100000
 
         # completions
-        fpath=(~/.zsh/completions $fpath)
         autoload -U compinit && compinit   # load + start completion
         zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
         autoload -U compinit

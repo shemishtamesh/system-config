@@ -69,17 +69,14 @@ in
         }
       }
     '';
-  programs.zsh.plugins = [
-    {
-      name = "opencode";
-      completions =
-        let
-          opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
-            mkdir -p "$out"
-            ${opencode}/bin/opencode completion > "$out/_opencode"
-          '';
-        in
-        [ "${opencodeZshCompletion}/_opencode" ];
-    }
-  ];
+  programs.zsh.initExtra =
+    let
+      opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
+        mkdir -p "$out"
+        ${opencode}/bin/opencode completion > "$out/_opencode"
+      '';
+    in
+    ''
+      fpath+=(${opencodeZshCompletion})
+    '';
 }

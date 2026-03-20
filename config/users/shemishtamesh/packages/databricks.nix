@@ -4,12 +4,14 @@ let
 in
 {
   home.packages = [ databricks-cli ];
-  programs.zsh.plugins.databricks-cli.completions =
+  programs.zsh.initExtra =
     let
       databricksZshCompletion = pkgs.runCommand "databricks-zsh-completion" { } ''
         mkdir -p "$out"
-        ${databricks-cli}/bin/databricks completion zsh > "$out/_databricks"
+        ${databricks-cli}/bin/databricks-cli completion > "$out/_databricks"
       '';
     in
-    [ "${databricksZshCompletion}/_databricks" ];
+    ''
+      fpath+=(${databricksZshCompletion})
+    '';
 }
