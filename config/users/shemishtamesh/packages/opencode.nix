@@ -72,6 +72,7 @@ in
   programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
+        export HOME=$TMPDIR
         mkdir -p "$out"
         ${opencode}/bin/opencode completion > "$out/_opencode"
       '';
