@@ -100,14 +100,13 @@ in
         export SAVEHIST=100000
 
         # completions
-        autoload -U compinit && compinit   # load + start completion
-        zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
         autoload -U compinit
+        zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
         zstyle ':completion:*' menu select
         zmodload zsh/complist
-        compinit -u
         _comp_options+=(globdots)
+        compinit -u
 
         # vi mode
         bindkey -v
