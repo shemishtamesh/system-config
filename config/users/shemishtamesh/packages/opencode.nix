@@ -13,7 +13,36 @@ in
         "$schema": "https://opencode.ai/config.json",
         "model": "ollama/qwen3-coder",
         "permission": {
-          "*": "ask"
+          "external_directory": {
+              "*": "ask"
+          },
+          "*": "ask",
+
+          "read": "allow",
+          "glob": "allow",
+          "grep": "allow",
+          "list": "allow",
+          "lsp": "allow",
+          "codesearch": "allow",
+
+          "webfetch": "allow",
+          "websearch": "allow",
+
+          "todoread": "allow",
+          "task": "allow",
+          "skill": "allow",
+
+          "doom_loop": "ask",
+
+          "edit": "ask",
+
+          "bash": {
+              "grep*": "allow",
+              "ls*": "allow",
+              "git status*": "allow",
+              "git diff*": "allow",
+              "git log*": "allow"
+          }
         },
         "provider": {
           "ollama": {
