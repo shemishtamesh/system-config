@@ -38,7 +38,7 @@ in
               "git status*": "allow",
               "git diff*": "allow",
               "git log*": "allow"
-          }
+          },
 
           "read": "allow",
           "glob": "allow",
