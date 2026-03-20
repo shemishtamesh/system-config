@@ -1,12 +1,23 @@
-{ inputs, host, ... }:
+{ inputs, host, pkgs, ... }:
 let
   stable-pkgs = import inputs.nixpkgs-stable {
     system = host.system;
     config.allowUnfree = true;
   };
+  opencode = stable-pkgs.opencode;
 in
 {
-  home.packages = with stable-pkgs; [ opencode ];
+  home = {
+    packages = [ opencode ];
+    file.".zsh/completions/_opencode".source =
+      let
+        opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
+          mkdir -p "$out"
+          ${opencode}/bin/opencode completion > "$out/_opencode"
+        '';
+      in
+      "${opencodeZshCompletion}/_opencode";
+  };
   xdg.configFile."opencode/config.json".text = # json
     ''
       {

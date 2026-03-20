@@ -57,6 +57,8 @@ in
           nh
           nvd
           nix-output-monitor
+          ssh-to-age
+          fastfetch
         ]
         ++ (if kernel == "darwin" then [ pkgs.terminal-notifier ] else [ libnotify ]);
     in
@@ -71,13 +73,11 @@ in
             text =
               # sh
               ''
-                export NH_FLAKE="${FLAKE_ROOT}"
-
                 if [ -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.config/sops/age/keys.txt" ]; then
                   cp "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_ed25519.bak"
                   ssh-keygen -p -N "" -f "$HOME/.ssh/id_ed25519" -C "temp-for-sops"
                   mkdir -p "$HOME/.config/sops/age/"
-                  "${pkgs.ssh-to-age}/bin/ssh-to-age" -private-key -i "$HOME/.ssh/id_ed25519" > "$HOME/.config/sops/age/keys.txt"
+                  ssh-to-age -private-key -i "$HOME/.ssh/id_ed25519" > "$HOME/.config/sops/age/keys.txt"
                   mv "$HOME/.ssh/id_ed25519.bak" "$HOME/.ssh/id_ed25519"
                 fi
 
@@ -94,7 +94,7 @@ in
                 if [ -z "''${2-}" ]; then
                     git -C "$NH_FLAKE" add .
                     nix flake update nixvim --flake "$NH_FLAKE"
-                    nix flake update secrets --flake "$NH_FLAKE"  # WARN: hitting rate limits
+                    nix flake update secrets --flake "$NH_FLAKE"
                     git -C "$NH_FLAKE" commit -am 'updating flakes' > /dev/null || true
                     echo 'updated flakes'
                 fi
@@ -129,7 +129,7 @@ in
 
                 ${os_specific.notify_switch_success}
                 echo 'switch successful'
-                ${pkgs.fastfetch}/bin/fastfetch --logo none
+                fastfetch --logo none
               '';
           }
         );
