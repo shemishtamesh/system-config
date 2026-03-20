@@ -106,7 +106,7 @@ in
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
         zstyle ':completion:*' menu select
         zmodload zsh/complist
-        compinit
+        compinit -u
         _comp_options+=(globdots)
 
         # vi mode
