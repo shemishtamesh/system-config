@@ -81,7 +81,7 @@
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
         export HOME=$TMPDIR  # requires HOME for some reason
         export SHELL=${pkgs.zsh}/bin/zsh  # otherwise it gives a bash version
-        ${opencode}/bin/opencode completion > "$out"
+        ${pkgs.opencode}/bin/opencode completion > "$out"
       '';
     in
     "source ${opencodeZshCompletion}";
