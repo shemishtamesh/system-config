@@ -23,7 +23,6 @@
       ];
     };
     settings = {
-
       model = "ollama/qwen3-coder";
       permission = {
         external_directory = {
@@ -38,12 +37,48 @@
         bash = {
           "*" = "ask";
 
-          "grep*" = "allow";
-          "ls*" = "allow";
+          # allow with no arguments or with arguments without allowing other
+          # programs that could match (with "command*", e.g. "ls*" matches "lsblk")
+          grep = "allow";
+          "grep *" = "allow";
+
+          ls = "allow";
+          "ls *" = "allow";
+
+          cat = "allow";
+          "cat *" = "allow";
+
+          head = "allow";
+          "head *" = "allow";
+
+          tail = "allow";
+          "tail *" = "allow";
+
+          wc = "allow";
+          "wc *" = "allow";
+
+          file = "allow";
+          "file *" = "allow";
+
+          tree = "allow";
+          "tree *" = "allow";
+
+          pwd = "allow";
+          "pwd *" = "allow";
+
+          which = "allow";
+          "which *" = "allow";
+
+          env = "allow";
+          "env *" = "allow";
 
           "git status*" = "allow";
           "git diff*" = "allow";
           "git log*" = "allow";
+          "git show*" = "allow";
+          "git blame*" = "allow";
+          "git branch*" = "allow";
+          "git rev-parse*" = "allow";
         };
 
         read = "allow";
@@ -58,6 +93,7 @@
         websearch = "allow";
 
         todoread = "allow";
+        todowrite = "allow";
         task = "allow";
         skill = "allow";
       };
