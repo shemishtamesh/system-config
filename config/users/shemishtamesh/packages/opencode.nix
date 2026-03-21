@@ -10,6 +10,7 @@
     package = (
       pkgs.writeShellScriptBin "opencode" ''
         export BROWSER=true
+        export OPENCODE_SERVER_USERNAME="$(cat ${config.sops.secrets.opencode_server_username.path})"
         export OPENCODE_SERVER_PASSWORD="$(cat ${config.sops.secrets.opencode_server_password.path})"
         exec ${lib.getExe pkgs.opencode} "$@"
       ''
@@ -85,5 +86,8 @@
       '';
     in
     "source ${opencodeZshCompletion}";
-  sops.secrets.opencode_server_password = { };
+  sops.secretss = {
+    opencode_server_password = { };
+    opencode_server_username = { };
+  };
 }
