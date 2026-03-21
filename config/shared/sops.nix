@@ -19,7 +19,7 @@ in
       sshKeyPaths = [
         "${home}/.ssh/id_ed25519"
       ];
-      keyFile = "${home}/.config/sops/age/key.txt";
+      # keyFile = "${home}/.config/sops/age/key.txt";
       generateKey = true;
     };
   };
