@@ -1,23 +1,15 @@
 {
   lib,
   config,
-  # inputs,
-  # host,
   pkgs,
   ...
 }:
-let
-  # stable-pkgs = import inputs.nixpkgs-stable {
-  #   system = host.system;
-  #   config.allowUnfree = true;
-  # };
-  # opencode = stable-pkgs.opencode;
-in
 {
   programs.opencode = {
     enable = true;
     package = (
       pkgs.writeShellScriptBin "opencode" ''
+        export BROWSER=true
         export OPENCODE_SERVER_PASSWORD="$(cat ${config.sops.secrets.opencode_server_password.path})"
         exec ${lib.getExe pkgs.opencode} "$@"
       ''
@@ -84,14 +76,14 @@ in
       };
     };
   };
-  # programs.zsh.initContent =
-  #   let
-  #     opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
-  #       export HOME=$TMPDIR  # requires HOME for some reason
-  #       export SHELL=${pkgs.zsh}/bin/zsh  # otherwise it gives a bash version
-  #       ${opencode}/bin/opencode completion > "$out"
-  #     '';
-  #   in
-  #   "source ${opencodeZshCompletion}";
+  programs.zsh.initContent =
+    let
+      opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
+        export HOME=$TMPDIR  # requires HOME for some reason
+        export SHELL=${pkgs.zsh}/bin/zsh  # otherwise it gives a bash version
+        ${opencode}/bin/opencode completion > "$out"
+      '';
+    in
+    "source ${opencodeZshCompletion}";
   sops.secrets.opencode_server_password = { };
 }
