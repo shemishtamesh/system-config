@@ -87,7 +87,7 @@
     in
     "source ${opencodeZshCompletion}";
   sops.secrets = {
-    opencode_server_password = { };
     opencode_server_username = { };
+    opencode_server_password = { };
   };
 }
