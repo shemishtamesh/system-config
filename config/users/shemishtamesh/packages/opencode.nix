@@ -18,7 +18,7 @@ in
     enable = true;
     package = (
       pkgs.writeShellScriptBin "opencode" ''
-        export OPENCODE_SERVER_PASSWORD="$(cat ${config.sops.secrets.opencode_server_password.path})"
+        # export OPENCODE_SERVER_PASSWORD="$(cat ${config.sops.secrets.opencode_server_password.path})"
         exec ${lib.getExe pkgs.opencode} "$@"
       ''
     );
