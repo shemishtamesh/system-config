@@ -223,4 +223,5 @@
     };
   };
   home.packages = with pkgs; [ gpu-screen-recorder ];
+  sops.secrets.location = { };
 }

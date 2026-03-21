@@ -93,4 +93,5 @@ in
   #     '';
   #   in
   #   "source ${opencodeZshCompletion}";
+  sops.secrets.opencode_server_password = { };
 }

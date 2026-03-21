@@ -329,5 +329,4 @@ in
       # ];
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
-  sops.secrets.location = { };
 }
