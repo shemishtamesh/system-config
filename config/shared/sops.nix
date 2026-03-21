@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  home = "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/${username}";
+in
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
@@ -13,8 +16,10 @@
     defaultSopsFile = "${toString inputs.secrets}/secrets.yaml";
     defaultSopsFormat = "yaml";
     age = {
-      sshKeyPaths = [ "/home/${username}/.ssh/id_ed25519" ];
-      keyFile = "/home/${username}/.config/sops/age/key.txt";
+      sshKeyPaths = [
+        "${home}/.ssh/id_ed25519"
+      ];
+      keyFile = "${home}/.config/sops/age/key.txt";
       generateKey = true;
     };
   };
