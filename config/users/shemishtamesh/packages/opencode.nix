@@ -16,7 +16,7 @@
       ''
     );
     enableMcpIntegration = true;
-    serve = {
+    web = {
       enable = true;
       extraArgs = [
         "--hostname"
