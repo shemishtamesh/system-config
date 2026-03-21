@@ -72,6 +72,9 @@
           env = "allow";
           "env *" = "allow";
 
+          echo = "allow";
+          "echo *" = "allow";
+
           "git status*" = "allow";
           "git diff*" = "allow";
           "git log*" = "allow";
