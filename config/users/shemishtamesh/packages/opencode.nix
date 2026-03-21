@@ -1,81 +1,94 @@
 {
-  inputs,
-  host,
+  config,
+  # inputs,
+  # host,
   pkgs,
   ...
 }:
 let
-  stable-pkgs = import inputs.nixpkgs-stable {
-    system = host.system;
-    config.allowUnfree = true;
-  };
-  opencode = stable-pkgs.opencode;
+  # stable-pkgs = import inputs.nixpkgs-stable {
+  #   system = host.system;
+  #   config.allowUnfree = true;
+  # };
+  # opencode = stable-pkgs.opencode;
 in
 {
-  home.packages = [ opencode ];
-  xdg.configFile."opencode/config.json".text = # json
-    ''
-      {
-        "$schema": "https://opencode.ai/config.json",
-        "model": "ollama/qwen3-coder",
-        "permission": {
-          "external_directory": {
-              "*": "ask"
-          },
-          "*": "ask",
+  programs.opencode = {
+    enable = true;
+    package = (
+      pkgs.writeShellScriptBin "opencode" ''
+        OPENCODE_SERVER_PASSWORD=$(cat ${config.sops.secrets.opencode_server_password.path}) ${pkgs.opencode} "$@"
+      ''
+    );
+    enableMcpIntegration = true;
+    web = {
+      enable = true;
+      extraArgs = [
+        "--hostname"
+        "0.0.0.0"
+      ];
+    };
+    settings = {
 
-          "doom_loop": "ask",
+      model = "ollama/qwen3-coder";
+      permission = {
+        external_directory = {
+          "*" = "ask";
+        };
+        "*" = "ask";
 
-          "edit": "ask",
+        doom_loop = "ask";
 
-          "bash": {
-              "*": "ask",
+        edit = "ask";
 
-              "grep*": "allow",
-              "ls*": "allow",
+        bash = {
+          "*" = "ask";
 
-              "git status*": "allow",
-              "git diff*": "allow",
-              "git log*": "allow"
-          },
+          "grep*" = "allow";
+          "ls*" = "allow";
 
-          "read": "allow",
-          "glob": "allow",
-          "grep": "allow",
-          "list": "allow",
+          "git status*" = "allow";
+          "git diff*" = "allow";
+          "git log*" = "allow";
+        };
 
-          "lsp": "allow",
-          "codesearch": "allow",
+        read = "allow";
+        glob = "allow";
+        grep = "allow";
+        list = "allow";
 
-          "webfetch": "allow",
-          "websearch": "allow",
+        lsp = "allow";
+        codesearch = "allow";
 
-          "todoread": "allow",
-          "task": "allow",
-          "skill": "allow",
-        },
-        "provider": {
-          "ollama": {
-            "npm": "@ai-sdk/openai-compatible",
-            "options": {
-              "baseURL": "http://localhost:11434/v1"
-            },
-            "models": {
-              "qwen3-coder": {
-                "tools": true
-              },
-            }
-          }
-        }
-      }
-    '';
-  programs.zsh.initContent =
-    let
-      opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
-        export HOME=$TMPDIR  # requires HOME for some reason
-        export SHELL=${pkgs.zsh}/bin/zsh  # otherwise it gives a bash version
-        ${opencode}/bin/opencode completion > "$out"
-      '';
-    in
-    "source ${opencodeZshCompletion}";
+        webfetch = "allow";
+        websearch = "allow";
+
+        todoread = "allow";
+        task = "allow";
+        skill = "allow";
+      };
+      provider = {
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          options = {
+            baseURL = "http://localhost:11434/v1";
+          };
+          models = {
+            qwen3-coder = {
+              tools = true;
+            };
+          };
+        };
+      };
+    };
+  };
+  # programs.zsh.initContent =
+  #   let
+  #     opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
+  #       export HOME=$TMPDIR  # requires HOME for some reason
+  #       export SHELL=${pkgs.zsh}/bin/zsh  # otherwise it gives a bash version
+  #       ${opencode}/bin/opencode completion > "$out"
+  #     '';
+  #   in
+  #   "source ${opencodeZshCompletion}";
 }
