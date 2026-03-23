@@ -4,6 +4,7 @@
     gitleaks
     koji
     git-filter-repo
+    gh
   ];
   programs = {
     git = {
