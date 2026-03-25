@@ -70,7 +70,7 @@
             {
               id = "CustomButton";
               textCommand = /* sh */ ''
-                hyprctl monitors -j | jq -r '
+                hyprctl monitors -j | ${pkgs.jq}/bin/jq -r '
                   .[]
                   | select(.focused)
                   | if .specialWorkspace.name != "" then
@@ -80,7 +80,8 @@
                     end
                 '
               '';
-              hideMode = "alwaysShow";
+              showIcon = true;
+              hideMode = "hidden";
               textIntervalMs = 1000;
             }
             {
