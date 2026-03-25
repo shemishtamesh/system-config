@@ -172,7 +172,6 @@ in
         set -g status-bg \${base01}
 
         set -g prompt-cursor-style bar
-        set -g prompt-command-cursor-style block
 
         set -ga update-environment 'KITTY_LISTEN_ON'
       '';

@@ -68,6 +68,22 @@
           ];
           center = [
             {
+              id = "CustomButton";
+              textCommand = /* sh */ ''
+                hyprctl monitors -j | jq -r '
+                  .[]
+                  | select(.focused)
+                  | if .specialWorkspace.name != "" then
+                      (.specialWorkspace.name | sub("^special:";""))
+                    else
+                      .activeWorkspace.name
+                    end
+                '
+              '';
+              hideMode = "hidden";
+              textIntervalMs = 1000;
+            }
+            {
               id = "Workspace";
               showApplications = true;
             }
