@@ -74,14 +74,15 @@
                   .[]
                   | select(.focused)
                   | if .specialWorkspace.name != "" then
-                      (.specialWorkspace.name | sub("^special:";""))
+                        (.specialWorkspace.name | sub("^special:";""))
                     else
                       ""
                     end
                 '
               '';
               showIcon = false;
-              hideMode = "hidden";
+              textStream = true;
+              hideMode = "expandWithOutput";
               textIntervalMs = 1000;
             }
             {
