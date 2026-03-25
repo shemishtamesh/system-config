@@ -80,7 +80,7 @@
                     end
                 '
               '';
-              hideMode = "hidden";
+              hideMode = "alwaysShow";
               textIntervalMs = 1000;
             }
             {
