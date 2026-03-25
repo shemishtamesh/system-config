@@ -182,7 +182,6 @@
         enforceMinimum = false;
         enableDdcSupport = true;
       };
-      colorSchemes.useWallpaperColors = true;
       desktopWidgets = {
         enabled = true;
         gridSnap = true;
