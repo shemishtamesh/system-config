@@ -78,7 +78,7 @@
                     end
                 '
               '';
-              showIcon = true;
+              showIcon = false;
               hideMode = "hidden";
               textIntervalMs = 1000;
             }
