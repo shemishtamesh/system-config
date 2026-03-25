@@ -83,6 +83,7 @@
               showIcon = false;
               textStream = true;
               hideMode = "expandWithOutput";
+              textCollapse = "''";
               textIntervalMs = 1000;
             }
             {
