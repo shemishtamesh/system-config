@@ -75,6 +75,8 @@
                   | select(.focused)
                   | if .specialWorkspace.name != "" then
                       (.specialWorkspace.name | sub("^special:";""))
+                    else
+                      ""
                     end
                 '
               '';
