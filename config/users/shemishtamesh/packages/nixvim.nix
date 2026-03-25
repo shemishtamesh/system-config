@@ -14,7 +14,6 @@
         colorschemes.base16 = {
           enable = true;
           colorscheme =
-            # with config.lib.stylix.colors.withHashtag;
             let
               palette = config.lib.stylix.colors.withHashtag;
             in
