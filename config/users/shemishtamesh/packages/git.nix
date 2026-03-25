@@ -94,6 +94,7 @@
                 --redact \
                 --log-level warn
           '';
+      signing.format = null;
     };
     delta = {
       enable = true;
