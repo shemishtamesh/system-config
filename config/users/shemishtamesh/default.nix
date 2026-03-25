@@ -24,7 +24,7 @@ in
 
   xdg.enable = true;
 
-  gtk.gtk4.theme = null;  # temporary because of changed default warning
+  gtk.gtk4.theme = null; # temporary because of changed default warning
 
   # allowing unfree packages
   nixpkgs.config = nixpkgs_config.object;
