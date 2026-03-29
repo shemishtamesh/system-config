@@ -235,7 +235,8 @@ in
         ];
         decoration = {
           inherit rounding;
-          shadow.enabled = false;
+          # shadow.enabled = false;
+          shadow.enabled = true;
         };
         dwindle = {
           preserve_split = true;
