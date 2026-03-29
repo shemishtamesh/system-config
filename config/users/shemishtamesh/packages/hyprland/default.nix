@@ -235,8 +235,10 @@ in
         ];
         decoration = {
           inherit rounding;
-          # shadow.enabled = false;
-          shadow.enabled = true;
+          shadow = {
+            enabled = false;
+            range = 10;
+          };
         };
         dwindle = {
           preserve_split = true;
