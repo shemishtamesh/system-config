@@ -275,7 +275,6 @@ in
 
           # special workspace appearance
           "match:workspace s[true], opacity 0.9 0.5"
-          "match:workspace s[true], shadow:true"
         ];
         workspace = [
           # no borders when there's only a single visible window
@@ -289,6 +288,7 @@ in
           "s[true], gapsin:20, gapsout:40"
           "s[true], bordersize:0"
           "s[true], rounding:true, border:false"
+          "s[true], shadow:true"
         ]
         ++ (
           (
