@@ -272,6 +272,9 @@ in
           # move specific apps to their special workspaces
           "match:initial_class (?i)^(spotify)$, workspace special:music silent"
           "match:initial_class (?i)^(discord|vesktop|altus|slack)$, workspace special:chat silent"
+
+          # special workspace appearance
+          "opacity 0.85 85, workspace:special"
         ];
         workspace = [
           # no borders when there's only a single visible window
