@@ -275,6 +275,8 @@ in
 
           # special workspace appearance
           "match:workspace s[true], opacity 0.8 0.5"
+          "match:workspace s[true], gapsin:20, gapsout:40"
+          "match:workspace s[true], bordersize:0"
         ];
         workspace = [
           # no borders when there's only a single visible window
