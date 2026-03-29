@@ -237,7 +237,7 @@ in
           inherit rounding;
           shadow = {
             enabled = true;
-            range = 30;
+            range = 20;
           };
         };
         dwindle = {
