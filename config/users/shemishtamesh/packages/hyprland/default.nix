@@ -274,7 +274,7 @@ in
           "match:initial_class (?i)^(discord|vesktop|altus|slack)$, workspace special:chat silent"
 
           # special workspace appearance
-          "opacity 0.9 0.75, onworkspace:special"
+          "match:workspace s[true], opacity 0.9 0.85"
         ];
         workspace = [
           # no borders when there's only a single visible window
