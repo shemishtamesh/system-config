@@ -283,7 +283,7 @@ in
           "match:float true, no_shadow off"
 
           # special workspace appearance
-          "match:workspace s[true], opacity 0.8 0.7"
+          "match:workspace s[true], opacity 0.85 0.75"
           "match:workspace s[true], rounding 20"
         ];
         workspace = [
