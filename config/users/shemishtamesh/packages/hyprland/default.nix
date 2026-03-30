@@ -280,7 +280,7 @@ in
           "match:initial_class (?i)^(discord|vesktop|altus|slack)$, workspace special:chat silent"
 
           # floating window appearance
-          "match:float, shadow:true"
+          "match:float true, shadow:true"
 
           # special workspace appearance
           "match:workspace s[true], opacity 0.8 0.7"
