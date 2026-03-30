@@ -216,6 +216,8 @@ in
 
           resize_on_border = true;
 
+          snap = true;
+
           "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base05}7f)";
           "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
         };
