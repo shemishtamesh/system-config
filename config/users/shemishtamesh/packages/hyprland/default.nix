@@ -291,6 +291,7 @@ in
           "s[true], gapsin:20, gapsout:40"
           "s[true], bordersize:0"
           "s[true], rounding:true, border:false"
+          "s[true], shadow:true"
           "s[false], shadow:false"
         ]
         ++ (
