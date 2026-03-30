@@ -279,6 +279,9 @@ in
           "match:initial_class (?i)^(spotify)$, workspace special:music silent"
           "match:initial_class (?i)^(discord|vesktop|altus|slack)$, workspace special:chat silent"
 
+          # floating window appearance
+          "match:float, shadow:true"
+
           # special workspace appearance
           "match:workspace s[true], opacity 0.8 0.7"
           "match:workspace s[true], rounding 20"
