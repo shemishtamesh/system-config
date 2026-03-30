@@ -260,6 +260,7 @@ in
             "fadeOut, 1, 10, linear"
             "workspaces, 1, 5, wind"
             "specialWorkspace, 1, 5, wind, slidevert"
+            "fadeSwitch, 1, 10, linear"
           ];
         };
         misc = {
