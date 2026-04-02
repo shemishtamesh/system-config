@@ -2,7 +2,6 @@
   inputs,
   host,
   pkgs,
-  config,
   ...
 }:
 {
@@ -11,27 +10,9 @@
   ];
   programs.noctalia-shell = {
     enable = true;
-    package =
-      let
-        noctalia-package = pkgs.lib.getExe (
-          inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-            calendarSupport = true;
-          }
-        );
-      in
-      (pkgs.writeShellScriptBin "noctalia-shell" ''
-        if [ "$1" = "kill" ]; then
-          ${noctalia-package} "$@"
-          exit 0
-        fi
-        ${noctalia-package} "$@" &
-        pid="$!"
-
-        sleep 3 # set location doesn't seem to work immediately
-        ${noctalia-package} ipc call location set "$(cat ${config.sops.secrets.location.path})"
-
-        wait $pid
-      '');
+    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      calendarSupport = true;
+    };
     settings = {
       settingsVersion = 0;
       general = {
@@ -241,5 +222,4 @@
     };
   };
   home.packages = with pkgs; [ gpu-screen-recorder ];
-  sops.secrets.location = { };
 }
