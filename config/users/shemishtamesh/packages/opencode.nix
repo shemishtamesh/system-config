@@ -1,27 +1,8 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   programs.opencode = {
     enable = true;
-    package = (
-      pkgs.writeShellScriptBin "opencode" ''
-        export BROWSER=true
-        export OPENCODE_SERVER_PASSWORD="$(cat ${config.sops.secrets.opencode_server_password.path})"
-        exec ${lib.getExe pkgs.opencode} "$@"
-      ''
-    );
     enableMcpIntegration = true;
-    web = {
-      enable = true;
-      extraArgs = [
-        "--hostname"
-        "0.0.0.0"
-      ];
-    };
     settings = {
       model = "ollama/qwen3-coder";
       permission = {
@@ -124,7 +105,4 @@
       '';
     in
     "source ${opencodeZshCompletion}";
-  sops.secrets = {
-    opencode_server_password = { };
-  };
 }
