@@ -71,9 +71,9 @@ in
           },
           window_decorations = "${window_decorations}",
 
-          enable_cursor_animation = true
-          cursor_animation_duration_ms = 150
-          cursor_trail_opacity = 0.4
+          enable_cursor_animation = true,
+          cursor_animation_duration_ms = 150,
+          cursor_trail_opacity = 0.4,
         }
       '';
   };
