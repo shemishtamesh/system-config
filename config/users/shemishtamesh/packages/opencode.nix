@@ -93,7 +93,7 @@ in
       };
       enabled_providers = [
         "ollama"
-        "zen"
+        "opencode"
         "openrouter"
       ];
       provider = {
