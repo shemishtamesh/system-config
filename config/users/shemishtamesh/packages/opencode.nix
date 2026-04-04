@@ -1,7 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  openrouter_key_env_var = "OPENROUTER_API_KEY";
+in
 {
   programs.opencode = {
     enable = true;
+    package = (
+      pkgs.writeShellScriptBin "opencode-with-openrouter" ''
+        export ${openrouter_key_env_var}
+        ${openrouter_key_env_var}="$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
+        exec ${pkgs.opencode}/bin/opencode "$@"
+      ''
+    );
     enableMcpIntegration = true;
     settings = {
       model = "ollama/qwen3-coder";
@@ -93,6 +103,11 @@
             };
           };
         };
+        openrouter = {
+          options = {
+            apiKey = "{env:${openrouter_key_env_var}}";
+          };
+        };
       };
     };
   };
@@ -105,4 +120,5 @@
       '';
     in
     "source ${opencodeZshCompletion}";
+  sops.secrets.openrouter_general_api_key = { };
 }
