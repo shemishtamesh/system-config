@@ -6,7 +6,7 @@ in
   programs.opencode = {
     enable = true;
     package = (
-      pkgs.writeShellScriptBin "opencode-with-openrouter" ''
+      pkgs.writeShellScriptBin "opencode" ''
         export ${openrouter_key_env_var}
         ${openrouter_key_env_var}="$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
         exec ${pkgs.opencode}/bin/opencode "$@"
