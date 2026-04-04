@@ -53,6 +53,7 @@ let
     nix-diff
     nix-output-monitor
     nvd
+    nixpkgs-track
     devenv
     bitwarden-desktop
     obsidian
