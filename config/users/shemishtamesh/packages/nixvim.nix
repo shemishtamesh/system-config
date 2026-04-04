@@ -46,11 +46,19 @@ let
         SignColumn = mkIf cfg.transparentBackground.signColumn transparent;
       };
   };
-  nvim_with_env_vars = pkgs.writeShellScriptBin "nvim" ''
-    export OPENROUTER_API_KEY
-    OPENROUTER_API_KEY="$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
-    exec ${pkgs.lib.getExe nixvim_package} "$@"
-  '';
+  nvim_with_env_vars = pkgs.symlinkJoin {
+    name = "nvim-with-env-vars";
+    paths = [ nixvim_package ];
+    postBuild = ''
+      rm -f $out/bin/nvim
+      cat > $out/bin/nvim <<EOF
+      #!${pkgs.runtimeShell}
+      export OPENROUTER_API_KEY="\$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
+      exec ${pkgs.lib.getExe nixvim_package} "\$@"
+      EOF
+      chmod +x $out/bin/nvim
+    '';
+  };
 in
 {
   home = {
