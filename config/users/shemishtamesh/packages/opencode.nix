@@ -91,6 +91,7 @@ in
         task = "allow";
         skill = "allow";
       };
+      enabled_providers = ["ollama" "zen" "openrouter"];
       provider = {
         ollama = {
           npm = "@ai-sdk/openai-compatible";
