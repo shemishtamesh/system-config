@@ -39,12 +39,6 @@ let
 
     rm ${sesh_fzf_recycle_flag} || true
   '';
-  nvim_telescope = lib.getExe (
-    pkgs.writeShellScriptBin "nvim_telescope" ''
-      # https://github.com/nvim-telescope/telescope.nvim/issues/3480
-      nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD path_display={\'smart\'}') end, 100)"
-    ''
-  );
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
@@ -190,14 +184,14 @@ in
 
       [[session]]
       name = "configuration"
-      startup_command = "tmux rename-window system && tmux set-option status on && git pull && clear && ${nvim_telescope}"
+      startup_command = "tmux rename-window system && tmux set-option status on && clear && git pull"
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
       windows = [ "nixvim", "secrets" ]
 
       [[window]]
       name = "nixvim"
-      startup_script = "git pull && clear && ${nvim_telescope}"
+      startup_script = "git pull"
       path = "~/.config/nixvim"
 
       [[window]]
