@@ -295,7 +295,7 @@ in
           "f[1], gapsout:0, gapsin:0"
 
           # special workspace appearance
-          "s[true], gapsin:20, gapsout:20"
+          "s[true], gapsin:10, gapsout:20"
           "s[true], bordersize:0"
           "s[true], rounding:true, border:false"
           "s[true], shadow:true"
