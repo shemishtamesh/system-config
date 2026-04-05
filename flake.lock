@@ -949,11 +949,11 @@
         "tix": "tix"
       },
       "locked": {
-        "lastModified": 1775413177,
-        "narHash": "sha256-Bk9iU3ir/VtLbAvAR6692DjPnJqW+Dus4anCXbUGsuQ=",
+        "lastModified": 1775413728,
+        "narHash": "sha256-aCm1SYaH1h7lSPdpUCyyZ2ieImCzZIXvdfJn28IArCM=",
         "owner": "shemishtamesh",
         "repo": "nixvim-flake",
-        "rev": "25f5b6963f3a4cfc0ce2a0c28d7599287e7bf320",
+        "rev": "4855eb723f6cca832deeab5c0addf5fa9ae36e9a",
         "type": "github"
       },
       "original": {
