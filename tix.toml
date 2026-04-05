@@ -1,0 +1,19 @@
+[context.nixos]
+includes = ["config/hosts/**/*.nix"]
+stubs = ["@nixos"]
+
+[context.home-manager]
+includes = ["config/users/**/*.nix"]
+stubs = ["@home-manager"]
+
+[context.callpackage]
+includes = ["config/users/shemishtamesh/packages/ohrrpgce/default.nix"]
+stubs = ["@callpackage"]
+
+[stubs.generate]
+nixpkgs = { expr = "(builtins.getFlake (toString ./.)).inputs.nixpkgs" }
+home-manager = { expr = "(builtins.getFlake (toString ./.)).inputs.home-manager" }
+
+[project]
+includes = ["**/*.nix"]
+excludes = ["result", ".direnv"]
