@@ -53,6 +53,7 @@ let
       rm -f $out/bin/nvim
       cat > $out/bin/nvim <<EOF
       #!${pkgs.runtimeShell}
+      export HOSTNAME="\$(hostname)"
       export OPENROUTER_API_KEY="\$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
       exec ${pkgs.lib.getExe nixvim_package} "\$@"
       EOF
