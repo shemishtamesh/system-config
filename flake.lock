@@ -877,11 +877,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1775479441,
-        "narHash": "sha256-Z1k4TrjAlQCMtpoK82s2w65zNoNhS1pTl9ho5Z2k1pQ=",
+        "lastModified": 1775484256,
+        "narHash": "sha256-ZRDRdGxOy0XEPi3Oia3d3iXvauFhzrXtPizTTyvTrqQ=",
         "owner": "shemishtamesh",
         "repo": "nixvim-flake",
-        "rev": "f99d71b1981750c3ee9a2b3b976a135f36c1de2a",
+        "rev": "689adf656828b0c7812e5a4509d67b0fceeaba73",
         "type": "github"
       },
       "original": {
