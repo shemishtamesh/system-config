@@ -57,8 +57,11 @@ in
         plugin = vim-tmux-navigator;
         extraConfig = # tmux
           ''
-            # clear with vim-tmux-navigator
-            bind C-l send-keys 'C-l'
+            bind -n M-h if-shell "$is_vim" "send-keys M-h" "select-pane -L"
+            bind -n M-j if-shell "$is_vim" "send-keys M-j" "select-pane -D"
+            bind -n M-k if-shell "$is_vim" "send-keys M-k" "select-pane -U"
+            bind -n M-l if-shell "$is_vim" "send-keys M-l" "select-pane -R"
+            bind -n M-BSpace if-shell "$is_vim" "send-keys M-BSpace" "select-pane -l"
           '';
       }
       {
