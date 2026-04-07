@@ -186,8 +186,8 @@
         enabled = true;
         gridSnap = true;
       };
+      ui.scrollbarAlwaysVisible = false;
     };
-    ui.scrollbarAlwaysVisible = false;
     systemd.enable = true;
     plugins = {
       states =
