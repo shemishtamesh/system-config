@@ -187,6 +187,7 @@
         gridSnap = true;
       };
     };
+    ui.scrollbarAlwaysVisible = false;
     systemd.enable = true;
     plugins = {
       states =
