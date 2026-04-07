@@ -156,7 +156,7 @@
         floatingRatio = 0;
         size = 2;
         animationSpeed = 2;
-        dockType = "static";
+        dockType = "attached";
         showLauncherIcon = true;
         pinnedStatic = true;
       };
