@@ -108,7 +108,7 @@ in
             };
             "gemma4:26b" = {
               tools = true;
-              thinking.type = "enabled";
+              options.thinking.type = "enabled";
               variants = {
                 high = {
                   reasoningEffort = "high";
