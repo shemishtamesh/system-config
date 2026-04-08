@@ -199,7 +199,7 @@ in
 
       [[window]]
       name = "secrets"
-      startup_script = "git pull && clear && ${pkgs.sops}/bin/sops secrets.yaml"
+      startup_script = "git pull"
       path = "~/.config/system-secrets"
     '';
 }
