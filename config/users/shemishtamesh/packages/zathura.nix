@@ -6,7 +6,7 @@
       guioptions = "none";
     };
   };
-  home.packages = with pkgs; [
-    zathura-pdf-mupdf
+  home.packages = with pkgs.zathuraPkgs; [
+    zathura_pdf_mupdf
   ];
 }
