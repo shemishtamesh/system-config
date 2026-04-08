@@ -47,8 +47,8 @@
 
       # launch apps
       fn - t : wezterm start tmux new-session -c $HOME
-      fn - z : zen-twilight
-      fn + shift - z : zen-twilight --private-window
+      fn - z : open -na "Zen Browser (Twilight)"
+      fn + shift - z : open -a 'Zen Browser (Twilight)' --private-window
     '';
   };
 }
