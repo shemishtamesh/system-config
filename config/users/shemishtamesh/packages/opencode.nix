@@ -14,7 +14,7 @@ in
     );
     enableMcpIntegration = true;
     settings = {
-      model = "ollama/gemma4:26";
+      model = "ollama/gemma4:26b";
       permission = {
         external_directory = {
           "*" = "ask";
@@ -104,7 +104,7 @@ in
           };
           models = {
             qwen3-coder.tools = true;
-            "gemma4:26".tools = true;
+            "gemma4:26b".tools = true;
           };
         };
         openrouter = {
