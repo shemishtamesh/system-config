@@ -14,7 +14,7 @@ in
     );
     enableMcpIntegration = true;
     settings = {
-      model = "ollama/gemma4:26b";
+      model = "ollama/qwen3-coder";
       permission = {
         external_directory = {
           "*" = "ask";
@@ -99,6 +99,7 @@ in
       provider = {
         ollama = {
           npm = "@ai-sdk/openai-compatible";
+          name = "Ollama";
           options = {
             baseURL = "http://localhost:11434/v1";
           };
