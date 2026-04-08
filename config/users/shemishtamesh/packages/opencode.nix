@@ -103,8 +103,23 @@ in
             baseURL = "http://localhost:11434/v1";
           };
           models = {
-            qwen3-coder.tools = true;
-            "gemma4:26b".tools = true;
+            qwen3-coder = {
+              tools = true;
+            };
+            "gemma4:26b" = {
+              tools = true;
+              thinking.type = "enabled";
+              variants = {
+                high = {
+                  reasoningEffort = "high";
+                  textVerbosity = "low";
+                };
+                low = {
+                  "reasoningEffort" = "low";
+                  "textVerbosity" = "low";
+                };
+              };
+            };
           };
         };
         openrouter = {
