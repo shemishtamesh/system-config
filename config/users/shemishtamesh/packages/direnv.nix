@@ -14,7 +14,7 @@ in
   programs = {
     direnv = {
       enable = true;
-      package = if host.system != "aarch64-darwin" then pkgs.direnv else stable-pkgs.direnv;
+      # package = if host.system != "aarch64-darwin" then pkgs.direnv else stable-pkgs.direnv;
     };
     zsh.initContent = # sh
       ''
