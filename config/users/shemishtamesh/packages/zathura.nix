@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.zathura = {
     enable = true;
@@ -6,7 +5,4 @@
       guioptions = "none";
     };
   };
-  home.packages = with pkgs.zathuraPkgs; [
-    zathura_pdf_mupdf
-  ];
 }
