@@ -5,6 +5,8 @@
     options = {
       guioptions = "none";
     };
-    plugins = with pkgs; [ zathura-pk-epub ];
   };
+  home.packages = with pkgs; [
+    zathura-pdf-mupdf
+  ];
 }
