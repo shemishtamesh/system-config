@@ -20,6 +20,7 @@
         enableShadows = false;
         passwordChars = true;
         lockScreenAnimations = true;
+        lockScreenBlur = 0.5;
       };
       bar = {
         density = "compact";
