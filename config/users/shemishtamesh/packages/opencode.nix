@@ -14,7 +14,7 @@ in
     );
     enableMcpIntegration = true;
     settings = {
-      model = "ollama/qwen3-coder";
+      model = "ollama/gemma4:26";
       permission = {
         external_directory = {
           "*" = "ask";
