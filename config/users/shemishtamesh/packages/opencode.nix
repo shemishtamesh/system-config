@@ -103,20 +103,20 @@ in
             baseURL = "http://localhost:11434/v1";
           };
           models = {
-            qwen3-coder = {
-              tools = true;
-            };
+            qwen3-coder = { };
             "gemma4:26b" = {
-              tools = true;
-              options.thinking.type = "enabled";
-              variants = {
-                high = {
-                  reasoningEffort = "high";
+              options = {
+                thinking = {
+                  type = "enabled";
                   textVerbosity = "low";
                 };
+              };
+              variants = {
+                high = {
+                  thinking.reasoningEffort = "high";
+                };
                 low = {
-                  "reasoningEffort" = "low";
-                  "textVerbosity" = "low";
+                  thinking."reasoningEffort" = "low";
                 };
               };
             };
