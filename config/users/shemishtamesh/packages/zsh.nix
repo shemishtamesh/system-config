@@ -14,9 +14,14 @@ let
           nix flake init --template github:pyproject-nix/pyproject.nix#impure
           ;;
         *)
-          echo "unknown template: $1"
+          echo "unknown template: `$1`"
+          exit 1
           ;;
       esac
+
+      if [ -n -f ".envrc" ]; then
+        echo "use flake" > .envrc
+      fi
     ''
   );
   nvim_telescope = lib.getExe (
