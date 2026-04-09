@@ -7,6 +7,18 @@
 }:
 let
   darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
+  initialize_flake_template = lib.getExe (
+    pkgs.writeShellScriptBin "initialize_flake_template" ''
+      case "$1" in
+        "uv")
+          nix flake init --template github:pyproject-nix/pyproject.nix#impure
+          ;;
+        *)
+          echo "unknown template: $1"
+          ;;
+      esac
+    ''
+  );
   nvim_telescope = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
       if [ $# -eq 0 ]; then
@@ -49,6 +61,8 @@ in
       a = nvim_man;
       e = nvim_oil;
       b = nvim_worktree;
+
+      i = initialize_flake_template;
 
       grep = "grep --color=auto";
       ls = "ls --color=auto";
