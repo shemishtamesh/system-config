@@ -27,7 +27,7 @@ let
   nvim_telescope = lib.getExe (
     pkgs.writeShellScriptBin "nvim_telescope" ''
       if [ $# -eq 0 ]; then
-        nvim -c "lua vim.defer_fn(function() vim.cmd(':Telescope frecency workspace=CWD initial_mode=normal path_display={\'smart\'}') end, 100)"
+        nvim -c "Telescope frecency workspace=CWD initial_mode=normal path_display={'smart'}"
         exit 0
       fi
       nvim "$@"
@@ -37,7 +37,7 @@ let
     pkgs.writeShellScriptBin "nvim_telescope" ''
       # https://github.com/nvim-telescope/telescope.nvim/issues/3480
       if [ "$#" -eq 0 ]; then
-        nvim -c "set filetype=man | lua vim.defer_fn(function() vim.cmd(':Telescope man_pages sections=[\'ALL\']') end, 100)"
+        nvim -c "set filetype=man | Telescope man_pages sections=['ALL']"
         exit 0
       fi
       man "$@"
