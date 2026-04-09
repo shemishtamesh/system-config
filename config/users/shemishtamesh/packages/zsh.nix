@@ -19,7 +19,7 @@ let
           ;;
       esac
 
-      if [ -n -f ".envrc" ]; then
+      if [[ ! -e ".envrc" ]]; then
         echo "use flake" > .envrc
       fi
     ''
@@ -84,7 +84,7 @@ in
       li = "ln -i";
 
       md = "mkdir -p";
-      mdz = "(){mkdir -p $1 && z $1}";
+      mdz = "(){mkdir -p $1 && z $1 && if [[ -n $2 ]]; then; ${initialize_flake_template} $2; fi}";
 
       sudo = "sudo "; # allow aliases in sudo
       sd = "sudo --login --user=$USER";
