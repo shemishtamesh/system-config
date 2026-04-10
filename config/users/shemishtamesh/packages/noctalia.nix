@@ -22,6 +22,7 @@
         lockScreenAnimations = true;
         lockScreenBlur = 0.5;
       };
+      audio.volumeOverdrive = true;
       bar = {
         density = "compact";
         outerCorners = false;
