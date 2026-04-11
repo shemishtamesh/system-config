@@ -66,6 +66,12 @@ in
           echo = "allow";
           "echo *" = "allow";
 
+          printf = "allow";
+          "printf *" = "allow";
+
+          timeout = "allow";
+          "timeout *" = "allow";
+
           "git status*" = "allow";
           "git diff*" = "allow";
           "git log*" = "allow";
@@ -73,6 +79,9 @@ in
           "git blame*" = "allow";
           "git branch*" = "allow";
           "git rev-parse*" = "allow";
+
+          true = "allow";
+          false = "allow";
         };
 
         read = "allow";
