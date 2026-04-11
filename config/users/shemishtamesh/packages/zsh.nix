@@ -13,6 +13,9 @@ let
         "uv")
           nix flake init --template github:pyproject-nix/pyproject.nix#impure
           ;;
+        "vm")
+          nix flake init --template github:astro/microvm.nix
+          ;;
         *)
           echo "unknown template: `$1`"
           exit 1
