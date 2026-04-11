@@ -15,6 +15,7 @@ let
           ;;
         "vm")
           nix flake init --template github:astro/microvm.nix
+          exit 0
           ;;
         *)
           echo "unknown template: `$1`"
