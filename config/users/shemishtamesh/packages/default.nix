@@ -101,7 +101,7 @@ let
         hyprpicker
         hyprshot
         wl-clipboard
-        gimp
+        stable-pkgs.gimp
         obs-studio
         stable-pkgs.libreoffice
         smassh
