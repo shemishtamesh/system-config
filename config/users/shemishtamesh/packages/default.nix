@@ -87,7 +87,7 @@ let
         cht-sh
         tetrio-desktop
         furnace
-        (pkgs.bottles.override { removeWarningPopup = true; })
+        (stable-pkgs.bottles.override { removeWarningPopup = true; })
         stable-pkgs.blender
         stable-pkgs.openscad
         audacity
