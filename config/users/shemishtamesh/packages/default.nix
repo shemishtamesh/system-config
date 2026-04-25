@@ -97,7 +97,7 @@ let
         stable-pkgs.aseprite
         imv
         pulsemixer
-        inkscape
+        stable-pkgs.inkscape
         hyprpicker
         hyprshot
         wl-clipboard
