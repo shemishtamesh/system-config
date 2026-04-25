@@ -335,6 +335,7 @@ in
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
           "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
+          "noctalia-shell"
           "qs -c overview"
         ];
         plugin.dynamic-cursors = {

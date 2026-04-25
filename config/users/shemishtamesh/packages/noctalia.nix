@@ -190,7 +190,6 @@
       };
       ui.scrollbarAlwaysVisible = false;
     };
-    systemd.enable = true;
     plugins = {
       states =
         let
