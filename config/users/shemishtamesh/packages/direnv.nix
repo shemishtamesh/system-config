@@ -1,6 +1,10 @@
+{ stable-pkgs, ... }:
 {
   programs = {
-    direnv.enable = true;
+    direnv = {
+      enable = true;
+      package = stable-pkgs.direnv;
+    };
     zsh.initContent = # sh
       ''
         # ensure compatibility tmux <-> direnv

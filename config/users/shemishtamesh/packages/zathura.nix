@@ -1,14 +1,4 @@
-{
-  inputs,
-  host,
-  ...
-}:
-let
-  stable-pkgs = import inputs.nixpkgs-stable {
-    inherit (host) system;
-    config.allowUnfree = true;
-  };
-in
+{ stable-pkgs, ... }:
 {
   programs.zathura = {
     enable = true;

@@ -1,14 +1,10 @@
 {
-  inputs,
   pkgs,
+  stable-pkgs,
   host,
   ...
 }:
 let
-  stable-pkgs = import inputs.nixpkgs-stable {
-    inherit (host) system;
-    config.allowUnfree = true;
-  };
   shared_modules = [
     ./documentation.nix
     # ./kitty.nix

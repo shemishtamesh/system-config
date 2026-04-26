@@ -1,15 +1,8 @@
 {
   pkgs,
-  inputs,
-  host,
+  stable-pkgs,
   ...
 }:
-let
-  stable-pkgs = import inputs.nixpkgs-stable {
-    inherit (host) system;
-    config.allowUnfree = true;
-  };
-in
 {
   services = {
     blueman.enable = true;

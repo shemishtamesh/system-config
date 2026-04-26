@@ -9,6 +9,12 @@
 }@inputs:
 let
   pkgs = system: nixpkgs.legacyPackages.${system};
+  stable-pkgs =
+    host:
+    import inputs.nixpkgs-stable {
+      inherit (host) system;
+      config.allowUnfree = true;
+    };
   shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
     {
@@ -20,7 +26,12 @@ let
       "${username}@${host.hostname}" = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
           shared = shared host.system;
-          inherit inputs host username;
+          stable-pkgs = stable-pkgs host;
+          inherit
+            inputs
+            host
+            username
+            ;
         };
         pkgs = pkgs host.system;
         modules = [
@@ -92,6 +103,7 @@ let
             {
               specialArgs = {
                 shared = shared host.system;
+                stable-pkgs = stable-pkgs host;
                 inherit
                   inputs
                   host
