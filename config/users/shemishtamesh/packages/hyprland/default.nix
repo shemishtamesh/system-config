@@ -81,6 +81,8 @@ in
           "$mod, d, exec, obsidian"
           "$mod SHIFT, d, exec, lorien"
 
+          "$mod, v, noctalia-shell ipc call launcher clipboard"
+
           "$mod, w, exec, killall wshowkeys || wshowkeys -a bottom"
 
           "$mod, Escape, exec, noctalia-shell ipc call sessionMenu toggle"
