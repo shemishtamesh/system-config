@@ -179,27 +179,27 @@ in
       startup_command = "tmux set-option status on && clear"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
-      [[session]]
-      name = "home"
-      startup_command = "tmux set-option status on && clear"
-      path = "~"
-      preview_command = "${pkgs.fastfetch}/bin/fastfetch --logo none"
-
-      [[session]]
-      name = "configuration"
-      startup_command = "tmux rename-window system && tmux set-option status on && clear && git pull"
-      preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
-      path = "${shared.constants.FLAKE_ROOT_TILDE}"
-      windows = [ "nixvim", "secrets" ]
-
-      [[window]]
-      name = "nixvim"
-      startup_script = "git pull"
-      path = "~/.config/nixvim"
-
-      [[window]]
-      name = "secrets"
-      startup_script = "git pull"
-      path = "~/.config/system-secrets"
+      # [[session]]
+      # name = "home"
+      # startup_command = "tmux set-option status on && clear"
+      # path = "~"
+      # preview_command = "${pkgs.fastfetch}/bin/fastfetch --logo none"
+      #
+      # [[session]]
+      # name = "configuration"
+      # startup_command = "tmux rename-window system && tmux set-option status on && clear && git pull"
+      # preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
+      # path = "${shared.constants.FLAKE_ROOT_TILDE}"
+      # windows = [ "nixvim", "secrets" ]
+      #
+      # [[window]]
+      # name = "nixvim"
+      # startup_script = "git pull"
+      # path = "~/.config/nixvim"
+      #
+      # [[window]]
+      # name = "secrets"
+      # startup_script = "git pull"
+      # path = "~/.config/system-secrets"
     '';
 }
