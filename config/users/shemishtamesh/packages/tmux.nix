@@ -176,7 +176,7 @@ in
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
       [default_session]
-      startup_command = "tmux set-option status on && clear"
+      # startup_command = "tmux set-option status on && clear"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       # [[session]]
