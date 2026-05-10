@@ -194,12 +194,12 @@ in
 
       [[window]]
       name = "nixvim"
-      startup_script = "git pull"
+      startup_script = "git pull; $SHELL"
       path = "~/.config/nixvim"
 
       [[window]]
       name = "secrets"
-      startup_script = "git pull"
+      startup_script = "git pull; $SHELL"
       path = "~/.config/system-secrets"
     '';
 }
