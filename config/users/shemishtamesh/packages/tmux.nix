@@ -1,12 +1,13 @@
 {
   pkgs,
+  stable-pkgs,
   lib,
   config,
   shared,
   ...
 }:
 let
-  sesh = "${pkgs.sesh}/bin/sesh";
+  sesh = "${stable-pkgs.sesh}/bin/sesh";
   sesh_list = "${sesh} list --icons --hide-attached --hide-duplicates";
   sesh_fzf_recycle_flag = "/tmp/sesh_switch_fzf_kill_last_session_after_switching_temporary";
   recycle_toggle = "\"if [ -f ${sesh_fzf_recycle_flag} ]; then rm ${sesh_fzf_recycle_flag}; else : > ${sesh_fzf_recycle_flag}; fi\"";
@@ -176,18 +177,18 @@ in
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
       [default_session]
-      startup_command = "tmux set-option status on; $SHELL"
+      startup_command = "tmux set-option status on && clear"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
 
       [[session]]
       name = "home"
-      startup_command = "tmux set-option status on; $SHELL"
+      startup_command = "tmux set-option status on && clear"
       path = "~"
       preview_command = "${pkgs.fastfetch}/bin/fastfetch --logo none"
 
       [[session]]
       name = "configuration"
-      startup_command = "tmux rename-window system && tmux set-option status on && git pull; $SHELL"
+      startup_command = "tmux rename-window system && tmux set-option status on && clear && git pull"
       preview_command = "git -C ${shared.constants.FLAKE_ROOT_TILDE} log"
       path = "${shared.constants.FLAKE_ROOT_TILDE}"
       windows = [ "nixvim", "secrets" ]
