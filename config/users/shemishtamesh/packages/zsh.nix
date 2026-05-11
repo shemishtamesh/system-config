@@ -1,12 +1,11 @@
 {
   pkgs,
-  host,
   lib,
   config,
   ...
 }:
 let
-  darwin = pkgs.lib.last (pkgs.lib.splitString "-" host.system) == "darwin";
+  darwin = pkgs.stdenv.isDarwin;
   initialize_flake_template = lib.getExe (
     pkgs.writeShellScriptBin "initialize_flake_template" ''
       case "$1" in
