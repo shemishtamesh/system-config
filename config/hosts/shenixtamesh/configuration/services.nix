@@ -65,7 +65,7 @@
     };
     open-webui = {
       enable = true;
-      # package = stable-pkgs.open-webui;
+      package = stable-pkgs.open-webui;
       environment = {
         ANONYMIZED_TELEMETRY = "False";
         DO_NOT_TRACK = "True";
