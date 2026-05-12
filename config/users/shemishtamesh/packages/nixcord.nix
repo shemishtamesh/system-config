@@ -14,7 +14,7 @@
         callTimer.enable = true;
         copyFileContents.enable = true;
         fullUserInChatbox.enable = true;
-        iLoveSpam.enable = true;
+        ILoveSpam.enable = true;
         imageZoom.enable = true;
         implicitRelationships.enable = true;
         mentionAvatars.enable = true;
