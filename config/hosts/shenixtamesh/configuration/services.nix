@@ -64,7 +64,7 @@
       ];
     };
     open-webui = {
-      enable = true;
+      enable = false;
       package = stable-pkgs.open-webui;
       environment = {
         ANONYMIZED_TELEMETRY = "False";
