@@ -9,6 +9,10 @@ let
   initialize_flake_template = lib.getExe (
     pkgs.writeShellScriptBin "initialize_flake_template" ''
       case "$1" in
+        "--help")
+          echo 'available templates: `uv`, `vm`'
+          exit 0
+          ;;
         "uv")
           nix flake init --template github:pyproject-nix/pyproject.nix#impure
           ;;
@@ -17,7 +21,7 @@ let
           exit 0
           ;;
         *)
-          echo "unknown template: `$1`"
+          echo "unknown template: \`$1\`"
           exit 1
           ;;
       esac
