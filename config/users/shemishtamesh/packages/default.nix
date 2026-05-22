@@ -79,6 +79,7 @@ let
         ./mpv.nix
       ];
       packages = with pkgs; [
+        brave
         (callPackage ./ohrrpgce { })
         cht-sh
         tetrio-desktop

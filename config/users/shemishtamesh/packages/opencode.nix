@@ -33,8 +33,17 @@ in
           grep = "allow";
           "grep *" = "allow";
 
+          rg = "allow";
+          "rg *" = "allow";
+
           ls = "allow";
           "ls *" = "allow";
+
+          exa = "allow";
+          "exa *" = "allow";
+
+          eza = "allow";
+          "eza *" = "allow";
 
           cat = "allow";
           "cat *" = "allow";
@@ -45,11 +54,17 @@ in
           tail = "allow";
           "tail *" = "allow";
 
+          sort = "allow";
+          "sort *" = "allow";
+
           wc = "allow";
           "wc *" = "allow";
 
           file = "allow";
           "file *" = "allow";
+
+          strings = "allow";
+          "strings *" = "allow";
 
           tree = "allow";
           "tree *" = "allow";
