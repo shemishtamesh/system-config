@@ -350,7 +350,7 @@ in
       #   inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
       #   inputs.Hyprspace.packages.${host.system}.Hyprspace
       # ];
-      configType = "lua";
+      configType = "hyprlang";
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
 }
