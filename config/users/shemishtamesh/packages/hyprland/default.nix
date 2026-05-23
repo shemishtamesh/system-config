@@ -346,10 +346,10 @@ in
         };
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
-      # plugins = [
-      #   inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
+      plugins = [
+        inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
       #   inputs.Hyprspace.packages.${host.system}.Hyprspace
-      # ];
+      ];
       configType = "hyprlang";
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
