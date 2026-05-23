@@ -2,7 +2,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    settings = {
+    matchBlocks."*" = {
       forwardAgent = false;
       addKeysToAgent = "yes";
       compression = false;
