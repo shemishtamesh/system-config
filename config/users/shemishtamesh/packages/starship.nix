@@ -7,7 +7,10 @@
         disabled = false;
         threshold = 2;
       };
-      time.disabled = false;
+      time = {
+        disabled = false;
+        format = "[$time]($style)";
+      };
     };
   };
 }
