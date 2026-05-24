@@ -7,6 +7,7 @@
         disabled = false;
         threshold = 2;
       };
+      time.disabled = false;
     };
   };
 }
