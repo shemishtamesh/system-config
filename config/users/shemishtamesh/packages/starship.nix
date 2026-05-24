@@ -9,7 +9,7 @@
       };
       time = {
         disabled = false;
-        format = "[$time]($style)";
+        format = "[$time]($style) ";
       };
     };
   };
