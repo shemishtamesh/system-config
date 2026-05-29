@@ -51,7 +51,7 @@
     };
 
     openrazer = {
-      enable = false;  # TODO: enable this
+      enable = false; # TODO: enable this
       users = builtins.attrNames host.users;
     };
   };
