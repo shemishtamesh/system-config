@@ -79,7 +79,7 @@ in
           "$mod, i, exec, zen-twilight"
           "$mod SHIFT, i, exec, zen-twilight --private-window"
           "$mod, d, exec, obsidian"
-          "$mod SHIFT, d, exec, lorien"
+          "$mod SHIFT, d, exec, drawy"
 
           "$mod, v, exec, noctalia-shell ipc call launcher clipboard"
 

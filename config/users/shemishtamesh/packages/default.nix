@@ -108,7 +108,6 @@ let
         pavucontrol
         cliphist
         vlc
-        lorien
         qpwgraph
         transmission_4-gtk
         airshipper
@@ -116,6 +115,7 @@ let
         scrcpy
         visidata
         android-tools
+        drawy
       ];
     };
     shemishtamac = {
