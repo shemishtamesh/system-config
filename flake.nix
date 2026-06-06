@@ -24,7 +24,10 @@
     };
     hypr-dynamic-cursors = {
       url = "github:VirtCode/hypr-dynamic-cursors";
-      inputs.hyprland.follows = "hyprland";
+      inputs = {
+        hyprland.follows = "hyprland";
+        nixpkgs.follows = "hyprland";
+      };
     };
     quickshell-overview = {
       url = "github:Shanu-Kumawat/quickshell-overview";
