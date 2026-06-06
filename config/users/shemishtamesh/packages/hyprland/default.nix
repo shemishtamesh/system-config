@@ -347,7 +347,7 @@ in
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
-        inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
+        # inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
       ];
       configType = "hyprlang";
     };
