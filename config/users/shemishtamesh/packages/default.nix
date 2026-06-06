@@ -51,7 +51,7 @@ let
     nvd
     nixpkgs-track
     devenv
-    stable-pkgs.bitwarden-desktop
+    bitwarden-desktop
     obsidian
     slack
   ];
