@@ -27,6 +27,7 @@ let
     ./zen-browser.nix
     ./opencode.nix
     ./nh.nix
+    ./bitwarden.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -51,7 +52,6 @@ let
     nvd
     nixpkgs-track
     devenv
-    stable-pkgs.bitwarden-desktop
     obsidian
     slack
   ];
