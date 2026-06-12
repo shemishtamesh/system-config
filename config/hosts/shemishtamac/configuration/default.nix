@@ -75,4 +75,5 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = host.system;
+  nixpkgs.config = shared.nixpkgs_config;
 }

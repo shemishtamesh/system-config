@@ -9,13 +9,13 @@
 }@inputs:
 let
   pkgs = system: nixpkgs.legacyPackages.${system};
+  shared = system: import ./. (pkgs system);
   stable-pkgs =
     host:
     import inputs.nixpkgs-stable {
       inherit (host) system;
-      config.allowUnfree = true;
+      config = (shared host.system).nixpkgs_config;
     };
-  shared = system: import ./. (pkgs system);
   mkHomeConfiguration =
     {
       username,

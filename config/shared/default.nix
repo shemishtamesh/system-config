@@ -11,6 +11,7 @@ let
 in
 import_modules [
   "theme"
+  "nixpkgs_config"
   "functions"
   "constants"
   "scripts"

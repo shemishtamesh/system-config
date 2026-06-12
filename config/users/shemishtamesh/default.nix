@@ -1,11 +1,9 @@
 {
   username,
   pkgs,
+  shared,
   ...
 }:
-let
-  nixpkgs_config = (import ./nixpkgs.nix) pkgs;
-in
 {
   imports = [
     ./packages
@@ -25,8 +23,8 @@ in
   xdg.enable = true;
 
   # allowing unfree packages
-  nixpkgs.config = nixpkgs_config.object;
-  xdg.configFile."nixpkgs/config.nix".source = nixpkgs_config.file;
+  nixpkgs.config = shared.nixpkgs_config;
+  xdg.configFile."nixpkgs/config.nix".text = pkgs.lib.generators.toPretty { } shared.nixpkgs_config;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
