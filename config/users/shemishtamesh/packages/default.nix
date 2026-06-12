@@ -27,7 +27,7 @@ let
     ./zen-browser.nix
     ./opencode.nix
     ./nh.nix
-    # ./bitwarden.nix
+    ./bitwarden.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
