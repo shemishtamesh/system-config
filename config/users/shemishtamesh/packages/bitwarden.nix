@@ -1,7 +1,7 @@
 {
-  stable-pkgs,
+  pkgs,
   ...
 }:
 {
-  home.packages = [ stable-pkgs.bitwarden-desktop ];
+  home.packages = [ pkgs.bitwarden-desktop ];
 }
