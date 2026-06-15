@@ -4,8 +4,7 @@ let
 in
 {
   allowUnfree = true;
-  # inherit cudaSupport;
-  cudaSupport = false;
+  inherit cudaSupport;
   permittedInsecurePackages = [
     "electron-39.8.10" # TODO: remove this when https://github.com/NixOS/nixpkgs/issues/526914 is resolved
   ];
