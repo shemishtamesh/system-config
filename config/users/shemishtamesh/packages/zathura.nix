@@ -1,8 +1,8 @@
-{ stable-pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.zathura = {
     enable = true;
-    package = stable-pkgs.zathura;
+    package = pkgs.zathura;
     options = {
       guioptions = "none";
     };
