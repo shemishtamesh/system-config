@@ -14,6 +14,7 @@ in
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
+      allowInterfaces = [ "wlp7s0" ];
       publish = {
         enable = true;
         addresses = true;
