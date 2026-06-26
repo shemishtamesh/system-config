@@ -3,7 +3,7 @@ let
   version = "2.9.0";
 in
 {
-  environment.systemPackages = [
+  home.packages = [
     pkgs.appimageTools.wrapType2
     {
       pname = "silverbullet-plus";
