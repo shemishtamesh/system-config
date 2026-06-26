@@ -56,6 +56,10 @@
 
   networking = {
     firewall = {
+      allowedTCPPorts = [
+        8444 # caddy
+        8443 # caddy
+      ];
       allowedTCPPortRanges = [
         {
           # kdeconnect
