@@ -15,7 +15,7 @@
     ./storage_cleaning.nix
     ./localization.nix
     ./security.nix
-    ./services.nix
+    ./services
     ./documentation.nix
   ];
   xdg.portal = {
