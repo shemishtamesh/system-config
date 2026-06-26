@@ -1,23 +1,35 @@
 {
   pkgs,
   stable-pkgs,
+  host,
   ...
 }:
+let
+  external_silverbullet_port = 8443;
+  external_openwebui_port = 8444;
+in
 {
   services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     caddy = {
       enable = true;
       openFirewall = true;
 
-      virtualHosts."https://192.168.1.2:8443".extraConfig = ''
-        tls internal
-        reverse_proxy 127.0.0.1:3030
-      '';
+      virtualHosts = {
+        "https://${host.hostname}.local:${external_silverbullet_port}".extraConfig = ''
+          tls internal
+          reverse_proxy 127.0.0.1:3030
+        '';
 
-      virtualHosts."https://192.168.1.2:8444".extraConfig = ''
-        tls internal
-        reverse_proxy 127.0.0.1:8080
-      '';
+        "https://${host.hostname}.local:${external_openwebui_port}".extraConfig = ''
+          tls internal
+          reverse_proxy 127.0.0.1:8080
+        '';
+      };
     };
 
     ollama = {
@@ -59,20 +71,6 @@
       allowedTCPPorts = [
         8444 # caddy
         8443 # caddy
-      ];
-      allowedTCPPortRanges = [
-        {
-          # kdeconnect
-          from = 1714;
-          to = 1764;
-        }
-      ];
-      allowedUDPPortRanges = [
-        {
-          # kdeconnect
-          from = 1714;
-          to = 1764;
-        }
       ];
     };
   };
