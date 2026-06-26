@@ -14,6 +14,7 @@ in
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
+      publish.enable = true;
     };
     caddy = {
       enable = true;
