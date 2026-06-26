@@ -9,12 +9,12 @@
       enable = true;
       openFirewall = true;
 
-      virtualHosts."https://192.168.1.50.8443".extraConfig = ''
+      virtualHosts."https://192.168.1.50:8443".extraConfig = ''
         tls internal
         reverse_proxy 127.0.0.1:3030
       '';
 
-      virtualHosts."https://192.168.1.50.8444".extraConfig = ''
+      virtualHosts."https://192.168.1.50:8444".extraConfig = ''
         tls internal
         reverse_proxy 127.0.0.1:8080
       '';
