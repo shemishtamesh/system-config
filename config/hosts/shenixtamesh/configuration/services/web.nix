@@ -20,12 +20,12 @@ in
       openFirewall = true;
 
       virtualHosts = {
-        "https://${host.hostname}.local:${external_silverbullet_port}".extraConfig = ''
+        "https://${host.hostname}.local:${toString external_silverbullet_port}".extraConfig = ''
           tls internal
           reverse_proxy 127.0.0.1:3030
         '';
 
-        "https://${host.hostname}.local:${external_openwebui_port}".extraConfig = ''
+        "https://${host.hostname}.local:${toString external_openwebui_port}".extraConfig = ''
           tls internal
           reverse_proxy 127.0.0.1:8080
         '';
