@@ -79,4 +79,8 @@ in
       ];
     };
   };
+
+  security.pki.certificateFiles = [
+    "/var/lib/caddy/.local/share/caddy/pki/authorities/local/root.crt"
+  ];
 }
