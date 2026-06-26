@@ -51,7 +51,6 @@ let
     nvd
     nixpkgs-track
     devenv
-    obsidian
     slack
   ];
   per_host = {
@@ -77,6 +76,7 @@ let
         ./ssh.nix
         ./mpv.nix
         ./zathura.nix
+        ./silverbullet-plus.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })

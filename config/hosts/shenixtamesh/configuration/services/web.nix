@@ -74,8 +74,8 @@ in
   networking = {
     firewall = {
       allowedTCPPorts = [
-        8444 # caddy
-        8443 # caddy
+        external_silverbullet_port # caddy
+        external_openwebui_port # caddy
       ];
     };
   };
