@@ -80,4 +80,11 @@ in
       ];
     };
   };
+
+  sops.secrets."caddy/root_key" = {
+    path = "/var/lib/caddy/.local/share/caddy/pki/authorities/local/root.key";
+    owner = "caddy";
+    group = "caddy";
+    mode = "0400";
+  };
 }

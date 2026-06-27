@@ -54,7 +54,7 @@ let
       cat > $out/bin/nvim <<EOF
       #!${pkgs.runtimeShell}
       export HOSTNAME="\$(hostname)"
-      export OPENROUTER_API_KEY="\$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
+      export OPENROUTER_API_KEY="\$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
       exec ${pkgs.lib.getExe nixvim_package} "\$@"
       EOF
       chmod +x $out/bin/nvim
@@ -74,5 +74,5 @@ in
       EDITOR = "nvim";
     };
   };
-  sops.secrets.openrouter_general_api_key = { };
+  sops.secrets."openrouter/general_api_key" = { };
 }

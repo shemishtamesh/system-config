@@ -8,7 +8,7 @@ in
     package = (
       pkgs.writeShellScriptBin "opencode" ''
         export ${openrouter_key_env_var}
-        ${openrouter_key_env_var}="$(cat ${config.sops.secrets.openrouter_general_api_key.path})"
+        ${openrouter_key_env_var}="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
         exec ${pkgs.opencode}/bin/opencode "$@"
       ''
     );
@@ -164,5 +164,5 @@ in
       '';
     in
     "source ${opencodeZshCompletion}";
-  sops.secrets.openrouter_general_api_key = { };
+  sops.secrets."openrouter/general_api_key" = { };
 }
