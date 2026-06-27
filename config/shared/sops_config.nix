@@ -25,12 +25,7 @@ in
       generateKey = true;
     };
   }
-  // lib.optionalAttrs isHome {
-    home.packages = [ pkgs.sops ];
-  }
   // lib.optionalAttrs (!isHome) {
-    environment.systemPackages = [ pkgs.sops ];
-
     # TODO: sops-install-secrets v0.0.1 cannot decrypt ssh-ed25519 recipients
     # using age keys derived from SSH keys. This env var tells the sops library
     # to use the SSH key directly. Only one key is supported, so the first
@@ -39,4 +34,10 @@ in
     #      https://github.com/Mic92/sops-nix/pull/779
     environment.SOPS_AGE_SSH_PRIVATE_KEY_FILE = "${homeDir (builtins.head (builtins.attrNames host.users))}/.ssh/id_ed25519";
   };
+}
+// lib.optionalAttrs isHome {
+  home.packages = [ pkgs.sops ];
+}
+// lib.optionalAttrs (!isHome) {
+  environment.systemPackages = [ pkgs.sops ];
 }
