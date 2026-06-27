@@ -12,10 +12,9 @@ let
   users = if isHome then [ config.home.username ] else builtins.attrNames host.users;
   homeDir = u: "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/${u}";
 in
-{
-  home.packages = lib.mkIf isHome (with pkgs; [ sops ]);
-  environment.systemPackages = lib.mkIf (!isHome) (with pkgs; [ sops ]);
-
+lib.optionalAttrs isHome { home.packages = with pkgs; [ sops ]; }
+// lib.optionalAttrs (!isHome) { environment.systemPackages = with pkgs; [ sops ]; }
+// {
   sops = {
     defaultSopsFile = "${toString inputs.secrets}/secrets.yaml";
     defaultSopsFormat = "yaml";
