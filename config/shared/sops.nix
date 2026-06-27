@@ -5,11 +5,13 @@
   ...
 }:
 let
+  inherit (inputs) sops-nix;
   home = "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/${username}";
 in
 {
   imports = [
-    inputs.sops-nix.homeManagerModules.sops
+    sops-nix.homeManagerModules.sops
+    (if pkgs.stdenv.isDarwin then sops-nix else sops-nix.nixosModules.sops)
   ];
   home.packages = with pkgs; [ sops ];
   sops = {
