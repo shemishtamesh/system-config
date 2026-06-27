@@ -1138,10 +1138,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1775323330,
-        "narHash": "sha256-4pXziusZp/DTQm0A4mveDglmXw/DyEyTXstP1N00eOg=",
+        "lastModified": 1782560856,
+        "narHash": "sha256-7LrmwsQLM8je1qQYkdAEldr+kuIAGs/XcZjCK2zTnjo=",
         "ref": "main",
-        "rev": "a9eacdca5b5bc8257c88ff5b84fea49db99874b0",
+        "rev": "3e3ce8d5d808e021237cbcba1a1e7585a45070d8",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/shemishtamesh/system-secrets.git"
