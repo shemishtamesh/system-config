@@ -73,11 +73,11 @@ in
             text =
               # sh
               ''
-                if [ -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.config/sops/age/keys.txt" ]; then
+                if [ -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.config/sops/age/key.txt" ]; then
                   cp "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_ed25519.bak"
                   ssh-keygen -p -N "" -f "$HOME/.ssh/id_ed25519" -C "temp-for-sops"
                   mkdir -p "$HOME/.config/sops/age/"
-                  ssh-to-age -private-key -i "$HOME/.ssh/id_ed25519" > "$HOME/.config/sops/age/keys.txt"
+                  ssh-to-age -private-key -i "$HOME/.ssh/id_ed25519" > "$HOME/.config/sops/age/key.txt"
                   mv "$HOME/.ssh/id_ed25519.bak" "$HOME/.ssh/id_ed25519"
                 fi
 
