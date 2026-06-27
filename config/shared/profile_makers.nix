@@ -16,6 +16,7 @@ let
       inherit (host) system;
       config = (shared host.system).nixpkgs_config;
     };
+
   mkHomeConfiguration =
     {
       username,
@@ -42,6 +43,7 @@ let
         ++ home_modules;
       };
     };
+
   mkSystem =
     {
       system_type,
@@ -55,6 +57,7 @@ let
             attribute_name = "nixosConfigurations";
             config_maker = nixpkgs.lib.nixosSystem;
             modules = modules ++ [
+              ./sops.nix
               stylix.nixosModules.stylix
               {
                 networking.hostName = host.hostname;
@@ -63,11 +66,13 @@ let
             ];
             home_modules = [ ];
           }
+
         else if system_type == "darwin" then
           {
             attribute_name = "darwinConfigurations";
             config_maker = nix-darwin.lib.darwinSystem;
             modules = modules ++ [
+              ./sops.nix
               stylix.darwinModules.stylix
               {
                 networking.hostName = host.hostname;
@@ -76,6 +81,7 @@ let
             ];
             home_modules = [ ];
           }
+
         else if system_type == "nix-on-droid" then
           {
             attribute_name = "nixOnDroidConfigurations";
@@ -83,6 +89,7 @@ let
             modules = modules ++ [ stylix.nixOnDroidModules.stylix ];
             home_modules = [ ];
           }
+
         else
           throw "unknown system type";
     in

@@ -2,6 +2,7 @@
   inputs,
   username,
   pkgs,
+  options,
   ...
 }:
 let
@@ -10,8 +11,14 @@ let
 in
 {
   imports = [
-    sops-nix.homeManagerModules.sops
-    (if pkgs.stdenv.isDarwin then sops-nix else sops-nix.nixosModules.sops)
+    (
+      if options ? home then
+        sops-nix.homeManagerModules.sops
+      else if pkgs.stdenv.isDarwin then
+        sops-nix
+      else
+        sops-nix.nixosModules.sops
+    )
   ];
   home.packages = with pkgs; [ sops ];
   sops = {
