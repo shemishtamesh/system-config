@@ -4,7 +4,7 @@
   ...
 }:
 {
-  imports = [ ./web ];
+  imports = [ ./caddy ];
 
   services = {
     ollama = {

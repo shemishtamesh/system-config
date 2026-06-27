@@ -1,5 +1,5 @@
 {
-  imports = [ ./web.nix ];
+  imports = [ ./web ];
 
   services = {
     blueman.enable = true;
