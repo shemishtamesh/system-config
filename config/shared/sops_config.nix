@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   host,
   ...
@@ -22,13 +23,15 @@ in
         else
           "/etc/sops/age/key.txt";
       generateKey = true;
-    };
-    environment.SOPS_AGE_SSH_PRIVATE_KEY_FILE = "${homeDir (builtins.head users)}/.ssh/id_ed25519";
+    }
     # TODO: sops-install-secrets v0.0.1 cannot decrypt ssh-ed25519 recipients
     # using age keys derived from SSH keys. This env var tells the sops library
     # to use the SSH key directly. Only one key is supported, so the first
     # user's key is used (any matching key suffices for NixOS activation).
     # See: https://github.com/Mic92/sops-nix/issues/824
     #      https://github.com/Mic92/sops-nix/pull/779
+    // lib.optionalAttrs (!isHome) {
+      environment.SOPS_AGE_SSH_PRIVATE_KEY_FILE = "${homeDir (builtins.head (builtins.attrNames host.users))}/.ssh/id_ed25519";
+    };
   };
 }
