@@ -11,6 +11,7 @@ in
   programs.zen-browser = {
     enable = true;
     policies = {
+      security.enterprise_roots.enabled = true;
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
       DisableAppUpdate = true;
