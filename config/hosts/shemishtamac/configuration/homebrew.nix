@@ -3,7 +3,7 @@
   imports = [ inputs.nix-homebrew.darwinModules.nix-homebrew ];
   nix-homebrew = {
     enable = true;
-    user = builtins.elemAt (builtins.attrNames host.users) 0;
+    user = builtins.head (builtins.attrNames host.users);
   };
   homebrew = {
     enable = true;

@@ -3,6 +3,7 @@
   nix-darwin,
   nix-on-droid,
   home-manager,
+  sops-nix,
   stylix,
   hyprland,
   ...
@@ -31,13 +32,15 @@ let
           inherit
             inputs
             host
-            username
             ;
         };
         pkgs = pkgs host.system;
         modules = [
           ../users/${username}
-          ./sops.nix
+
+          sops-nix.homeManagerModules.sops
+          ./sops_config.nix
+
           stylix.homeModules.stylix
         ]
         ++ home_modules;
@@ -57,8 +60,11 @@ let
             attribute_name = "nixosConfigurations";
             config_maker = nixpkgs.lib.nixosSystem;
             modules = modules ++ [
-              ./sops.nix
+              sops-nix.nixosModules.sops
+              ./sops_config.nix
+
               stylix.nixosModules.stylix
+
               {
                 networking.hostName = host.hostname;
                 users.users = host.users;
@@ -72,8 +78,11 @@ let
             attribute_name = "darwinConfigurations";
             config_maker = nix-darwin.lib.darwinSystem;
             modules = modules ++ [
-              ./sops.nix
+              sops-nix.darwinModules.sops
+              ./sops_config.nix
+
               stylix.darwinModules.stylix
+
               {
                 networking.hostName = host.hostname;
                 users.users = host.users;
