@@ -32,6 +32,7 @@ let
           inherit
             inputs
             host
+            username
             ;
         };
         pkgs = pkgs host.system;
