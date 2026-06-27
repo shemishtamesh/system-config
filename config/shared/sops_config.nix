@@ -25,7 +25,12 @@ in
       generateKey = true;
     };
   }
+  // lib.optionalAttrs isHome {
+    home.packages = [ pkgs.sops ];
+  }
   // lib.optionalAttrs (!isHome) {
+    environment.systemPackages = [ pkgs.sops ];
+
     # TODO: sops-install-secrets v0.0.1 cannot decrypt ssh-ed25519 recipients
     # using age keys derived from SSH keys. This env var tells the sops library
     # to use the SSH key directly. Only one key is supported, so the first
