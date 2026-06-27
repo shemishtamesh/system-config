@@ -5,9 +5,9 @@
   inputs,
   host,
   ...
-}:
+}@args:
 let
-  isHome = builtins.hasAttr "home" config;
+  isHome = builtins.hasAttr "username" args;
   users = if isHome then [ config.home.username ] else builtins.attrNames host.users;
   homeDir = username: "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/${username}";
 in
