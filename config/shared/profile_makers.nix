@@ -79,7 +79,7 @@ let
             attribute_name = "darwinConfigurations";
             config_maker = nix-darwin.lib.darwinSystem;
             modules = modules ++ [
-              sops-nix
+              sops-nix.darwinModules.sops
               ./sops_config.nix
 
               stylix.darwinModules.stylix
