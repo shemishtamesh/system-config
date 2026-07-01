@@ -57,6 +57,9 @@ in
           sort = "allow";
           "sort *" = "allow";
 
+          "uniq" = "allow";
+          "uniq *" = "allow";
+
           wc = "allow";
           "wc *" = "allow";
 
