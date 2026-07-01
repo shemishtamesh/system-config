@@ -27,7 +27,7 @@ let
       esac
 
       if [[ ! -e ".envrc" ]]; then
-        echo "use flake" > .envrc
+        echo "use flake path:." > .envrc
       fi
     ''
   );
