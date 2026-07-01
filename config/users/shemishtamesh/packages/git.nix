@@ -52,21 +52,19 @@
         merge = {
           tool = "nvimdiff";
           conflictstyle = "diff3";
-          jupyternotebook.command = "git-nbmergedriver merge %O %A %B %L %P";
         };
-        mergetool = {
-          keepBackup = false;
-          nbdime.cmd = "git-nbmergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"";
-        };
+        mergetool.keepBackup = false;
+        mergetool.prompt = false;
         diff = {
           tool = "nvimdiff";
           colorMoved = "default";
-          jupyternotebook.command = "git-nbdiffdriver diff";
         };
-        difftool = {
-          prompt = false;
-          nbdime.cmd = "git-nbdifftool \"$LOCAL\" \"$REMOTE\"";
-        };
+        difftool.prompt = false;
+        "diff \"jupyternotebook\"".command = "git-nbdiffdriver diff";
+        "merge \"jupyternotebook\"".driver = "git-nbmergedriver merge %O %A %B %L %P";
+        "merge \"jupyternotebook\"".name = "jupyter notebook merge driver";
+        "difftool \"nbdime\"".cmd = "git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"";
+        "mergetool \"nbdime\"".cmd = "git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"";
         init.defaultBranch = "main";
         core = {
           editor = "nvim";
