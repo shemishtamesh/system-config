@@ -5,7 +5,6 @@
     koji
     git-filter-repo
     gh
-    python314Packages.nbdime
   ];
   programs = {
     git = {
@@ -60,11 +59,6 @@
           colorMoved = "default";
         };
         difftool.prompt = false;
-        "diff \"jupyternotebook\"".command = "git-nbdiffdriver diff";
-        "merge \"jupyternotebook\"".driver = "git-nbmergedriver merge %O %A %B %L %P";
-        "merge \"jupyternotebook\"".name = "jupyter notebook merge driver";
-        "difftool \"nbdime\"".cmd = "git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"";
-        "mergetool \"nbdime\"".cmd = "git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"";
         init.defaultBranch = "main";
         core = {
           editor = "nvim";
@@ -90,10 +84,6 @@
       ignores = [
         ".venv"
         ".envrc"
-      ];
-      attributes = [
-        "*.ipynb diff=jupyternotebook"
-        "*.ipynb merge=jupyternotebook"
       ];
       hooks.pre-commit =
         pkgs.writeScript "pre-commit-script" # sh
