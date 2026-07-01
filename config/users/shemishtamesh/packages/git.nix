@@ -52,7 +52,7 @@
         merge = {
           tool = "nvimdiff";
           conflictstyle = "diff3";
-          "jupyternotebook".command = "git-nbmergedriver merge %O %A %B %L %P";
+          jupyternotebook.command = "git-nbmergedriver merge %O %A %B %L %P";
         };
         mergetool = {
           keepBackup = false;
