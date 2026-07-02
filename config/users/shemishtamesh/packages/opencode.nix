@@ -118,12 +118,11 @@ in
         task = "allow";
         skill = "allow";
       };
-      enabled_providers = [
-        "ollama"
-        "opencode"
-        "openrouter"
-        "Anthropic"
-      ];
+      # enabled_providers = [
+      #   "ollama"
+      #   "opencode"
+      #   "openrouter"
+      # ];
       provider = {
         ollama = {
           npm = "@ai-sdk/openai-compatible";
