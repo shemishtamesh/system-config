@@ -26,11 +26,6 @@
           "Bash(true *)"
           "Bash(false *)"
 
-          # File reading within CWD (also covers Grep and Glob tools per claude-code docs)
-          # Read(*)  would allow reading anywhere on the filesystem — not using it.
-          # Default already auto-allows reads within the working directory.
-          "Read(./**)"
-
           # Web access
           "WebFetch(*)"
           "WebSearch(*)"
