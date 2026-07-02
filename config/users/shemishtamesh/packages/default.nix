@@ -40,7 +40,7 @@ let
     unzip
     wget
     curl
-    glow
+    # glow
     rmtrash
     trash-cli
     fastfetch
@@ -80,10 +80,10 @@ let
         # ./silverbullet.nix
       ];
       packages = with pkgs; [
-        (callPackage ./ohrrpgce { })
+        # (callPackage ./ohrrpgce { })
         cht-sh
         tetrio-desktop
-        furnace
+        # furnace
         (stable-pkgs.bottles.override { removeWarningPopup = true; })
         stable-pkgs.blender
         stable-pkgs.openscad
@@ -101,8 +101,8 @@ let
         stable-pkgs.gimp
         obs-studio
         stable-pkgs.libreoffice
-        smassh
-        slides
+        # smassh
+        # slides
         difftastic
         altus
         easyeffects
@@ -114,8 +114,8 @@ let
         airshipper
         solarus-quest-editor
         scrcpy
-        visidata
         android-tools
+        visidata
         drawy
       ];
     };
