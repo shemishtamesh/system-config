@@ -25,6 +25,7 @@ let
     ./nix-index.nix
     ./zen-browser.nix
     ./opencode.nix
+    ./claude-code.nix
     ./nh.nix
     ./bitwarden.nix
   ];
@@ -52,7 +53,6 @@ let
     nixpkgs-track
     devenv
     slack
-    claude-code
   ];
   per_host = {
     shenixtamesh = {
