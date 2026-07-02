@@ -52,6 +52,7 @@ let
     nixpkgs-track
     devenv
     slack
+    claude-code
   ];
   per_host = {
     shenixtamesh = {
