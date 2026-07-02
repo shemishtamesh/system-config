@@ -77,7 +77,7 @@ let
         ./ssh.nix
         ./mpv.nix
         ./zathura.nix
-        # ./silverbullet-plus.nix
+        ./silverbullet.nix
       ];
       packages = with pkgs; [
         (callPackage ./ohrrpgce { })
