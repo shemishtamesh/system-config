@@ -122,6 +122,7 @@ in
         "ollama"
         "opencode"
         "openrouter"
+        "Anthropic"
       ];
       provider = {
         ollama = {
