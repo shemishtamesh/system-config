@@ -182,27 +182,30 @@ in
 
           "*.pem" = "deny";
           "*.key" = "deny";
+
+          "~/.ssh/*" = "deny";
+          "~/.secrets/*" = "deny";
         };
       };
     };
   };
   sops.secrets."openrouter/general_api_key" = { };
 
-  home.packages = [
-    (pkgs.buildNpmPackage {
-      name = "pi-acp";
-      src = pkgs.fetchurl {
-        url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.31.tgz";
-        hash = "sha256-H+ovaHoIKiNQEZn5OVnpw4oImx9up8whYgIZ4/ovZJE=";
-      };
-      npmDepsHash = "sha256-jT9o6oF62tGlIO47xXUScPEeIbsCVs8efFp/C63OdDw=";
-      dontNpmBuild = true;
-      postPatch = ''
-        cp ${./pi-acp-lock.json} package-lock.json
-      '';
-      meta = {
-        mainProgram = "pi-acp";
-      };
-    })
-  ];
+  # home.packages = [
+  #   (pkgs.buildNpmPackage {
+  #     name = "pi-acp";
+  #     src = pkgs.fetchurl {
+  #       url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.31.tgz";
+  #       hash = "sha256-H+ovaHoIKiNQEZn5OVnpw4oImx9up8whYgIZ4/ovZJE=";
+  #     };
+  #     npmDepsHash = "sha256-jT9o6oF62tGlIO47xXUScPEeIbsCVs8efFp/C63OdDw=";
+  #     dontNpmBuild = true;
+  #     postPatch = ''
+  #       cp ${./pi-acp-lock.json} package-lock.json
+  #     '';
+  #     meta = {
+  #       mainProgram = "pi-acp";
+  #     };
+  #   })
+  # ];
 }
