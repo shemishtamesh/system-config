@@ -179,6 +179,8 @@ in
 
           "~/.ssh/**" = "deny";
           "~/.secrets/**" = "deny";
+          "~/.config/sops-nix/secrets/**" = "deny";
+          "~/.config/sops/age/**" = "deny";
         };
       };
     };
