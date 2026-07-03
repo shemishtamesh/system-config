@@ -197,6 +197,9 @@ in
       };
       npmDepsHash = "sha256-r84/0CgvDsbwFxvEzZiFOD45yFW/zMQkGiIf8Isbc/k=";
       dontNpmBuild = true;
+      postPatch = ''
+        cp ${./pi-acp-lock.json} package-lock.json
+      '';
       meta = {
         mainProgram = "pi-acp";
       };
