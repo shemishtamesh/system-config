@@ -60,6 +60,14 @@ in
             }
           ];
         };
+        openrouter = {
+          baseUrl = "https://openrouter.ai/api/v1";
+          api = "openai-completions";
+          apiKey = "OPENROUTER_API_KEY";
+          models = [
+            { id = "google/gemma-4-26b-it"; }
+          ];
+        };
       };
     };
   };
