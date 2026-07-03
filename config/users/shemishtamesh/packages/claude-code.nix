@@ -26,6 +26,20 @@
           "Bash(true *)"
           "Bash(false *)"
 
+          # Read-only nix
+          "Bash(nix log *)"
+          "Bash(nix eval *)"
+          "Bash(nix search *)"
+          "Bash(nix why-depends *)"
+          "Bash(nix flake show *)"
+          "Bash(nix flake metadata *)"
+          "Bash(nix flake check *)"
+          "Bash(nix store diff-closures *)"
+          "Bash(nix profile list *)"
+          "Bash(nix profile history *)"
+          "Bash(nix show *)"
+          "Bash(nix describe *)"
+
           # Web access
           "WebFetch(*)"
           "WebSearch(*)"

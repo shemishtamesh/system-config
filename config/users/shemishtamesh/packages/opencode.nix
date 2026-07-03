@@ -36,6 +36,10 @@ in
           rg = "allow";
           "rg *" = "allow";
 
+          "find *" = "allow";
+          "find * -exec*" = "ask";
+          "find * -execdir*" = "ask";
+
           ls = "allow";
           "ls *" = "allow";
 
@@ -100,6 +104,19 @@ in
 
           true = "allow";
           false = "allow";
+
+          "nix log*" = "allow";
+          "nix eval*" = "allow";
+          "nix search*" = "allow";
+          "nix why-depends*" = "allow";
+          "nix flake show*" = "allow";
+          "nix flake metadata*" = "allow";
+          "nix flake check*" = "allow";
+          "nix store diff-closures*" = "allow";
+          "nix profile list*" = "allow";
+          "nix profile history*" = "allow";
+          "nix show*" = "allow";
+          "nix describe*" = "allow";
         };
 
         read = "allow";
