@@ -12,7 +12,17 @@ in
       nativeBuildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/pi \
-          --suffix PATH : ${pkgs.lib.makeBinPath (with pkgs; [ nodejs python3 gnumake gcc ])} \
+          --suffix PATH : ${
+            pkgs.lib.makeBinPath (
+              with pkgs;
+              [
+                nodejs
+                python3
+                gnumake
+                gcc
+              ]
+            )
+          } \
           --set OPENROUTER_API_KEY "$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
       '';
     };
@@ -187,7 +197,9 @@ in
       };
       npmDepsHash = "sha256-r84/0CgvDsbwFxvEzZiFOD45yFW/zMQkGiIf8Isbc/k=";
       dontNpmBuild = true;
-      meta = { mainProgram = "pi-acp"; };
+      meta = {
+        mainProgram = "pi-acp";
+      };
     })
   ];
 }
