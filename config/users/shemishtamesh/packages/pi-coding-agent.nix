@@ -26,6 +26,7 @@ in
       packages = [
         "npm:pi-quick-perms"
         "npm:pi-agent-board"
+        "npm:pi-subagents"
       ];
     };
 
