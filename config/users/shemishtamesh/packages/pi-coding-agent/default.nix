@@ -53,23 +53,12 @@ in
           baseUrl = "http://localhost:11434/v1";
           api = "openai-completions";
           apiKey = "ollama";
-          compat = {
-            supportsDeveloperRole = false;
-          };
           models = [
             { id = "qwen3-coder"; }
             {
               id = "gemma4:26b";
               reasoning = true;
             }
-          ];
-        };
-        openrouter = {
-          baseUrl = "https://openrouter.ai/api/v1";
-          api = "openai-completions";
-          apiKey = "OPENROUTER_API_KEY";
-          models = [
-            { id = "google/gemma-4-26b-it"; }
           ];
         };
       };
