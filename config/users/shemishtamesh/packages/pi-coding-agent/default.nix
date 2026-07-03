@@ -64,6 +64,18 @@ in
             }
           ];
         };
+        opencode = {
+          apiKey = "$OPENCODE_API_KEY";
+          models = [
+            {
+              id = "big-pickle";
+              reasoning = true;
+              contextWindow = 200000;
+              maxTokens = 32000;
+              cost = { input = 0; output = 0; cacheRead = 0; cacheWrite = 0; };
+            }
+          ];
+        };
         openrouter = {
           baseUrl = "https://openrouter.ai/api/v1";
           api = "openai-completions";
