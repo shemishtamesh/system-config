@@ -216,6 +216,7 @@ in
         external_directory = "ask";
         path = {
           "*" = "allow";
+
           "**/*.envrc" = "ask";
 
           "**/*.env" = "deny";
