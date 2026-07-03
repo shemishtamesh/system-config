@@ -46,7 +46,6 @@ in
         "npm:pi-agent-board"
         "npm:pi-subagents"
         "npm:pi-free"
-        "npm:pi-intercom"
         "npm:pi-prompt-template-model"
       ];
     };
