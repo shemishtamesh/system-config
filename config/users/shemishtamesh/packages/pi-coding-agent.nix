@@ -6,6 +6,7 @@ in
 {
   programs.pi-coding-agent = {
     enable = true;
+    extraPackages = [ pkgs.nodejs ];
 
     settings = {
       defaultProvider = "ollama";
