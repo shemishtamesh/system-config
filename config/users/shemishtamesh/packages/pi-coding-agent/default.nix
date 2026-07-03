@@ -101,6 +101,7 @@ in
         read = "allow";
         glob = "allow";
         grep = "allow";
+        ls = "allow";
 
         write = {
           "*" = "ask";
@@ -199,6 +200,8 @@ in
           "nix profile history*" = "allow";
           "nix show*" = "allow";
           "nix describe*" = "allow";
+
+          "curl *" = "allow";
         };
 
         webfetch = {
