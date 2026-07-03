@@ -193,7 +193,7 @@ in
       name = "pi-acp";
       src = pkgs.fetchurl {
         url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.31.tgz";
-        hash = "";
+        hash = "sha256-H+ovaHoIKiNQEZn5OVnpw4oImx9up8whYgIZ4/ovZJE=";
       };
       npmDepsHash = "sha256-r84/0CgvDsbwFxvEzZiFOD45yFW/zMQkGiIf8Isbc/k=";
       dontNpmBuild = true;
