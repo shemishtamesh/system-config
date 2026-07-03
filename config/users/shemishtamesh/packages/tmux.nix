@@ -147,6 +147,10 @@ in
         bind-key "C-w" last-window
         bind-key "C-e" last-pane
 
+        # for pi-coding-agent
+        set -g extended-keys on
+        set -g extended-keys-format csi-u
+
         # status line
         set -g status off
         bind -r F set-option status
