@@ -6,6 +6,7 @@ in
 {
   programs.pi-coding-agent = {
     enable = true;
+    package = pkgs.pi-coding-agent;
     extraPackages = [ pkgs.nodejs ];
 
     settings = {
