@@ -2,10 +2,7 @@
   programs = {
     atuin = {
       enable = true;
-      flags = [
-        "--disable-up-arrow"
-        "--disable-ctrl-r"
-      ];
+      flags = [ "--disable-up-arrow" ];
       settings = {
         keymap_mode = "vim-insert";
         keymap_cursor = {
@@ -16,5 +13,7 @@
       };
       daemon.enable = true;
     };
+
+    fzf.historyWidget.command = "";
   };
 }
