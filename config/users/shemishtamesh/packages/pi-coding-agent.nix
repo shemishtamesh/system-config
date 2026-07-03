@@ -7,7 +7,7 @@ in
   programs.pi-coding-agent = {
     enable = true;
     package = pkgs.pi-coding-agent;
-    extraPackages = [ pkgs.nodejs ];
+    extraPackages = with pkgs; [ nodejs python3 gnumake gcc ];
 
     settings = {
       defaultProvider = "ollama";
