@@ -102,6 +102,7 @@ in
         glob = "allow";
         grep = "allow";
         ls = "allow";
+        find = "allow";
 
         write = {
           "*" = "ask";
