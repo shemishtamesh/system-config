@@ -6,13 +6,17 @@ in
 {
   programs.pi-coding-agent = {
     enable = true;
-    package = pkgs.pi-coding-agent;
-    extraPackages = with pkgs; [
-      nodejs
-      python3
-      gnumake
-      gcc
-    ];
+    package = pkgs.symlinkJoin {
+      name = "pi-wrapped-${pkgs.pi-coding-agent.version}";
+      paths = [ pkgs.pi-coding-agent ];
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/pi \
+          --suffix PATH : ${pkgs.lib.makeBinPath (with pkgs; [ nodejs python3 gnumake gcc ])} \
+          --set OPENROUTER_API_KEY "$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
+      '';
+    };
+    extraPackages = [ ];
 
     settings = {
       defaultProvider = "ollama";
@@ -27,6 +31,9 @@ in
         "npm:pi-quick-perms"
         "npm:pi-agent-board"
         "npm:pi-subagents"
+        "npm:pi-ext-opencode-zen"
+        "npm:pi-intercom"
+        "npm:pi-prompt-template-model"
       ];
     };
 
@@ -169,4 +176,18 @@ in
       };
     };
   };
+  sops.secrets."openrouter/general_api_key" = { };
+
+  home.packages = [
+    (pkgs.buildNpmPackage {
+      name = "pi-acp";
+      src = pkgs.fetchurl {
+        url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.31.tgz";
+        hash = "sha256-1fea2f687a082a23501199f93959e9c38a089b1f6ea7cc21620219e3fa2f6491";
+      };
+      npmDepsHash = "sha256-r84/0CgvDsbwFxvEzZiFOD45yFW/zMQkGiIf8Isbc/k=";
+      dontNpmBuild = true;
+      meta = { mainProgram = "pi-acp"; };
+    })
+  ];
 }
