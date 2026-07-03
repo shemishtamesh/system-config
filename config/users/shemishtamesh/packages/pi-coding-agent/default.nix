@@ -103,6 +103,7 @@ in
         grep = "allow";
         ls = "allow";
         find = "allow";
+        subagent = "allow";
 
         write = {
           "*" = "ask";
