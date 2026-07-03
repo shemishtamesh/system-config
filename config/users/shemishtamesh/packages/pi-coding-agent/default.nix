@@ -202,6 +202,7 @@ in
       dontNpmBuild = true;
       postPatch = ''
         cp ${./pi-acp-lock.json} package-lock.json
+        node -e "const fs=require('fs'),p=JSON.parse(fs.readFileSync('package.json','utf8'));delete p.scripts.build;fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
       '';
       meta = {
         mainProgram = "pi-acp";
