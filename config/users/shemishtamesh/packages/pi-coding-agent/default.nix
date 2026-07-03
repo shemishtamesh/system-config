@@ -23,7 +23,9 @@ in
               ]
             )
           } \
-          --run 'export OPENROUTER_API_KEY="$(cat '"${config.sops.secrets."openrouter/general_api_key".path}"')"'
+          --run 'export OPENROUTER_API_KEY="$(cat '"${
+            config.sops.secrets."openrouter/general_api_key".path
+          }"')"'
       '';
     };
     extraPackages = [ ];
