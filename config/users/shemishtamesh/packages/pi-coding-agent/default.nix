@@ -93,10 +93,7 @@ in
         bash = {
           "*" = "ask";
 
-          grep = "allow";
           "grep *" = "allow";
-
-          rg = "allow";
           "rg *" = "allow";
 
           ls = "allow";
@@ -108,49 +105,28 @@ in
           eza = "allow";
           "eza *" = "allow";
 
-          cat = "allow";
           "cat *" = "allow";
-
-          head = "allow";
           "head *" = "allow";
-
-          tail = "allow";
           "tail *" = "allow";
-
-          sort = "allow";
           "sort *" = "allow";
-
-          uniq = "allow";
           "uniq *" = "allow";
-
-          wc = "allow";
           "wc *" = "allow";
-
-          file = "allow";
           "file *" = "allow";
-
-          strings = "allow";
           "strings *" = "allow";
 
           tree = "allow";
           "tree *" = "allow";
 
           pwd = "allow";
-          "pwd *" = "allow";
 
-          which = "allow";
           "which *" = "allow";
 
           env = "allow";
           "env *" = "allow";
 
-          echo = "allow";
           "echo *" = "allow";
-
-          printf = "allow";
           "printf *" = "allow";
 
-          timeout = "allow";
           "timeout *" = "allow";
 
           true = "allow";
@@ -202,7 +178,7 @@ in
       dontNpmBuild = true;
       postPatch = ''
         cp ${./pi-acp-lock.json} package-lock.json
-        node -e "const fs=require('fs'),p=JSON.parse(fs.readFileSync('package.json','utf8'));delete p.scripts.build;fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
+        node -e "const fs=require('fs'),p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts.build='true';fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
       '';
       meta = {
         mainProgram = "pi-acp";
