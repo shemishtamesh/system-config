@@ -195,7 +195,7 @@ in
         url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.31.tgz";
         hash = "sha256-H+ovaHoIKiNQEZn5OVnpw4oImx9up8whYgIZ4/ovZJE=";
       };
-      npmDepsHash = "sha256-r84/0CgvDsbwFxvEzZiFOD45yFW/zMQkGiIf8Isbc/k=";
+      npmDepsHash = "sha256-jT9o6oF62tGlIO47xXUScPEeIbsCVs8efFp/C63OdDw=";
       dontNpmBuild = true;
       postPatch = ''
         cp ${./pi-acp-lock.json} package-lock.json
