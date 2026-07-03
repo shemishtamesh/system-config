@@ -26,7 +26,8 @@ in
           --run 'export OPENROUTER_API_KEY="$(cat '"${
             config.sops.secrets."openrouter/general_api_key".path
           }"')"' \
-          --run 'export OPENCODE_API_KEY="$(cat '"${config.sops.secrets."opencode/zen".path}"')"'
+          --run 'export OPENCODE_API_KEY="$(cat '"${config.sops.secrets."opencode/zen".path}"'")"' \
+          --run 'export OPENCODE_SHOW_PAID=true'
       '';
     };
     extraPackages = [ ];
