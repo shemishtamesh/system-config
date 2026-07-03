@@ -50,6 +50,8 @@ in
     models = {
       providers = {
         ollama = {
+          baseUrl = "http://localhost:11434/v1";
+          api = "openai-completions";
           models = [
             { id = "qwen3-coder"; }
             {
