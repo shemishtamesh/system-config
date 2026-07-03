@@ -12,6 +12,7 @@ in
     avahi = {
       enable = true;
       nssmdns4 = true;
+      ipv6 = false;
       openFirewall = true;
       allowInterfaces = [ "wlp7s0" ];
       publish = {
