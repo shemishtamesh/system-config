@@ -77,7 +77,7 @@ in
         build.disable = true;
         plan.disable = true;
 
-        analyst = {
+        advisor = {
           mode = "primary";
           order = 1;
           description = "Read-only. No execute.";
@@ -91,7 +91,7 @@ in
           };
         };
 
-        advisor = {
+        analyst = {
           mode = "primary";
           order = 2;
           description = "Read-only. Run read commands.";
@@ -112,7 +112,7 @@ in
           permission = {
             edit = "ask";
             write = "ask";
-            task = "deny";
+            task = "allow";
           };
         };
 
@@ -123,7 +123,7 @@ in
           prompt = "Read and write files. Run commands. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = agentEditAllow;
-            task = "deny";
+            task = "allow";
           };
         };
 
