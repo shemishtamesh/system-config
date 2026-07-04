@@ -142,7 +142,7 @@ let
   # 1. Read everything, ask for any edits, ask for any executions
   review = {
     mode = "primary";
-    description = "Read-only analysis and planning. All edits and write-capable execution require approval.";
+    description = "Read-only analysis and planning.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -163,7 +163,7 @@ let
   # 2. Read everything, allow edits inside project, ask for edits outside, ask for executions
   dev-safe = {
     mode = "primary";
-    description = "Full read access. Edits allowed in project, prompted outside. All execution requires approval.";
+    description = "Edits allowed in project, prompted outside.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -184,7 +184,7 @@ let
   # 3. Read everything, allow edits in project, ask for executions
   dev = {
     mode = "primary";
-    description = "Full read and edit access. Shell execution requires approval.";
+    description = "Full read and edit access.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -204,7 +204,7 @@ let
   # 4. Full access inside project. Reads outside allowed, writes outside asked.
   yolo = {
     mode = "primary";
-    description = "Full access within project. Reads allowed outside, writes prompted outside.";
+    description = "Full access within project.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -273,6 +273,8 @@ in
       };
 
       agent = {
+        build = { disable = true; };
+        plan = { disable = true; };
         inherit
           review
           dev-safe
