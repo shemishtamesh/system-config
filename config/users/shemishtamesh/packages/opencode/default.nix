@@ -93,13 +93,8 @@ let
     "curl *" = "allow";
   };
 
-  # Base bash permission reused across agents: ask for writes/exec, allow read-only
-  askBash = {
-    "*" = "ask";
-  }
-  // readOnlyBash;
+  askBash = { "*" = "ask"; } // readOnlyBash;
 
-  # Sensitive file patterns (apply to all agents - even yolo shouldn't read .env)
   sensitiveReadRules = {
     "*" = "allow";
     "**/*.envrc" = "ask";
@@ -119,7 +114,6 @@ let
     "**/*.key" = "deny";
   };
 
-  # External directory: ask by default, deny known sensitive paths
   externalDirectoryDeny = {
     "*" = "ask";
     "~/.ssh/**" = "deny";
@@ -128,91 +122,18 @@ let
     "~/.config/sops/age/**" = "deny";
   };
 
-  # Agents use overrides merged with sensitive file rules (sensitiveEditRules must come last to win)
-  agentEditAllow = {
-    "*" = "allow";
-  }
-  // sensitiveEditRules;
-
-  # 1. Read-only: can read everything, cannot execute or write
-  audit = {
-    mode = "primary";
-    description = "Read-only analysis. Cannot write or execute.";
-    permission = {
-      read = sensitiveReadRules;
-      glob = "allow";
-      grep = "allow";
-      list = "allow";
-      lsp = "allow";
-      webfetch = "allow";
-      websearch = "allow";
-      skill = "allow";
-      question = "allow";
-      edit = "deny";
-      todowrite = "deny";
-      bash = "deny";
-      task = "deny";
-      external_directory = "allow";
-    };
-  };
-
-  # 2. Write in cwd: can read and write in project, cannot execute
-  craft = {
-    mode = "primary";
-    description = "Edit files in project. Cannot execute.";
-    permission = {
-      read = sensitiveReadRules;
-      glob = "allow";
-      grep = "allow";
-      list = "allow";
-      lsp = "allow";
-      webfetch = "allow";
-      websearch = "allow";
-      skill = "allow";
-      question = "allow";
-      edit = agentEditAllow;
-      external_directory = externalDirectoryDeny;
-      todowrite = "allow";
-      bash = "deny";
-      task = "deny";
-    };
-  };
-
-  # 3. Full access: read, write, and execute
-  yolo = {
-    mode = "primary";
-    description = "Full read, write, and execute access.";
-    permission = {
-      read = sensitiveReadRules;
-      glob = "allow";
-      grep = "allow";
-      list = "allow";
-      lsp = "allow";
-      webfetch = "allow";
-      websearch = "allow";
-      skill = "allow";
-      question = "allow";
-      edit = agentEditAllow;
-      external_directory = externalDirectoryDeny;
-      todowrite = "allow";
-      bash = "allow";
-      task = "allow";
-    };
-  };
-in
-{
+  agentEditAllow = { "*" = "allow"; } // sensitiveEditRules;
+in {
   programs.opencode = {
     enable = true;
-    package = (
-      pkgs.writeShellScriptBin "opencode" ''
-        export ${openrouter_key_env_var}
-        ${openrouter_key_env_var}="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
-        exec ${pkgs.opencode}/bin/opencode "$@"
-      ''
-    );
+    package = pkgs.writeShellScriptBin "opencode" ''
+      export ${openrouter_key_env_var}
+      ${openrouter_key_env_var}="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
+      exec ${pkgs.opencode}/bin/opencode "$@"
+    '';
     enableMcpIntegration = true;
     settings = {
-      default_agent = "edit";
+      default_agent = "craft";
 
       model = "ollama/qwen3-coder";
 
@@ -235,11 +156,9 @@ in
         todowrite = "allow";
         task = "allow";
         skill = "allow";
+        question = "allow";
 
-        write = {
-          "*" = "ask";
-          ".ai/*" = "allow";
-        };
+        write = { "*" = "ask"; ".agents/memory/**/*" = "allow"; };
         edit = "ask";
 
         bash = askBash;
@@ -251,17 +170,40 @@ in
       };
 
       agent = {
-        build = {
-          disable = true;
+        build.disable = true;
+        plan.disable = true;
+
+        audit = {
+          mode = "primary";
+          description = "Read-only analysis. Cannot write or execute.";
+          permission = {
+            edit = "deny";
+            todowrite = "deny";
+            bash = "deny";
+            task = "deny";
+            external_directory = "allow";
+          };
         };
-        plan = {
-          disable = true;
+
+        craft = {
+          mode = "primary";
+          description = "Edit files in project. Cannot execute.";
+          permission = {
+            edit = agentEditAllow;
+            bash = "deny";
+            task = "deny";
+          };
         };
-        inherit
-          audit
-          craft
-          yolo
-          ;
+
+        yolo = {
+          mode = "primary";
+          description = "Full read, write, and execute access.";
+          permission = {
+            edit = agentEditAllow;
+            bash = "allow";
+            task = "allow";
+          };
+        };
       };
 
       enabled_providers = [
