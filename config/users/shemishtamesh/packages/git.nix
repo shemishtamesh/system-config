@@ -5,6 +5,7 @@
     koji
     git-filter-repo
     gh
+    gh-dash
   ];
   programs = {
     git = {
