@@ -77,11 +77,11 @@ in
         build.disable = true;
         plan.disable = true;
 
-        advisor = {
+        analyst = {
           mode = "primary";
           order = 1;
           description = "Read-only. No execute.";
-          prompt = "Never try to write or change anything in the system.";
+          prompt = "Read files. Prefer non-bash tools.";
           permission = {
             edit = "deny";
             write = "deny";
@@ -91,7 +91,7 @@ in
           };
         };
 
-        analyst = {
+        advisor = {
           mode = "primary";
           order = 2;
           description = "Read-only. Run read commands.";
@@ -100,7 +100,6 @@ in
             edit = "deny";
             write = "deny";
             todowrite = "deny";
-            bash = "ask";
             task = "deny";
           };
         };
@@ -113,7 +112,6 @@ in
           permission = {
             edit = "ask";
             write = "ask";
-            bash = "ask";
             task = "deny";
           };
         };
@@ -125,7 +123,6 @@ in
           prompt = "Read and write files. Run commands. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = agentEditAllow;
-            bash = "ask";
             task = "deny";
           };
         };
