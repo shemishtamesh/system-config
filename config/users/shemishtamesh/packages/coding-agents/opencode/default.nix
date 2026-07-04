@@ -4,8 +4,12 @@ let
 
   shared = import ../shared { inherit openrouter_key_env_var; };
 
-  agentEditAllow = { "*" = "allow"; } // shared.sensitiveEditRules;
-in {
+  agentEditAllow = {
+    "*" = "allow";
+  }
+  // shared.sensitiveEditRules;
+in
+{
   programs.opencode = {
     enable = true;
     package = pkgs.writeShellScriptBin "opencode" ''
@@ -47,7 +51,10 @@ in {
         skill = "allow";
         question = "allow";
 
-        write = { "*" = "ask"; ".agents/memory/**/*" = "allow"; };
+        write = {
+          "*" = "ask";
+          ".agents/memory/**/*" = "allow";
+        };
         edit = "ask";
 
         bash = shared.askBash;
@@ -102,19 +109,27 @@ in {
           options = {
             baseURL = shared.providers.ollama.baseUrl;
           };
-          models = builtins.mapAttrs (name: cfg:
-            if cfg ? supportsThinking && cfg.supportsThinking then {
-              options = {
-                thinking = {
-                  type = "enabled";
-                  textVerbosity = "low";
+          models = builtins.mapAttrs (
+            name: cfg:
+            if cfg ? supportsThinking && cfg.supportsThinking then
+              {
+                options = {
+                  thinking = {
+                    type = "enabled";
+                    textVerbosity = "low";
+                  };
                 };
-              };
-              variants = {
-                high = { thinking.reasoningEffort = "high"; };
-                low = { thinking."reasoningEffort" = "low"; };
-              };
-            } else { }
+                variants = {
+                  high = {
+                    thinking.reasoningEffort = "high";
+                  };
+                  low = {
+                    thinking."reasoningEffort" = "low";
+                  };
+                };
+              }
+            else
+              { }
           ) shared.providers.ollama.models;
         };
         openrouter = {

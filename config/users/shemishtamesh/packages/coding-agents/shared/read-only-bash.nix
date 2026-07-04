@@ -93,15 +93,29 @@ let
     "find * -execdir*"
   ];
 
-  allowMap = builtins.listToAttrs (map (c: { name = c; value = "allow"; }) allowCmds);
-  askMap = builtins.listToAttrs (map (c: { name = c; value = "ask"; }) askCmds);
+  allowMap = builtins.listToAttrs (
+    map (c: {
+      name = c;
+      value = "allow";
+    }) allowCmds
+  );
+  askMap = builtins.listToAttrs (
+    map (c: {
+      name = c;
+      value = "ask";
+    }) askCmds
+  );
 
-  askBash = { "*" = "ask"; } // allowMap;
+  askBash = {
+    "*" = "ask";
+  }
+  // allowMap;
 
   toClaudeBash = cmd: "Bash(${cmd})";
   claudeAllow = map toClaudeBash allowCmds;
   claudeAsk = map toClaudeBash askCmds;
-in {
+in
+{
   inherit
     allowCmds
     askCmds

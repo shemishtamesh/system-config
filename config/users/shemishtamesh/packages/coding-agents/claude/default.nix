@@ -1,6 +1,7 @@
 let
   shared = import ../shared { };
-in {
+in
+{
   programs.claude-code = {
     enable = true;
     settings = {

@@ -103,11 +103,13 @@ let
   sensitiveReadRules = {
     "*" = "allow";
     "**/*.envrc" = "ask";
-  } // sensitiveDeny;
+  }
+  // sensitiveDeny;
 
   sensitiveEditRules = {
     "**/.envrc" = "ask";
-  } // sensitiveDeny;
+  }
+  // sensitiveDeny;
 
   # External directory: ask by default, deny known sensitive paths
   externalDirectoryDeny = {
@@ -147,11 +149,16 @@ let
   };
 
   # For tools that use a path-based permission system (like pi)
-  pathRules = { "*" = "allow"; } // {
+  pathRules = {
+    "*" = "allow";
+  }
+  // {
     "**/*.envrc" = "ask";
-  } // sensitiveDeny;
+  }
+  // sensitiveDeny;
 
-in {
+in
+{
   inherit
     sensitiveDeny
     sensitiveReadRules

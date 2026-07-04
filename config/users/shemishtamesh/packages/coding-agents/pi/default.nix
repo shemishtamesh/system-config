@@ -3,7 +3,8 @@ let
   cfg = config.programs.pi-coding-agent;
   jsonFormat = pkgs.formats.json { };
   shared = import ../shared { };
-in {
+in
+{
   programs.pi-coding-agent = {
     enable = true;
     package = pkgs.symlinkJoin {
@@ -56,14 +57,19 @@ in {
           baseUrl = shared.providers.ollama.baseUrl;
           api = "openai-completions";
           apiKey = "ollama";
-          models = pkgs.lib.mapAttrsToList (name: cfg:
+          models = pkgs.lib.mapAttrsToList (
+            name: cfg:
             { id = name; } // pkgs.lib.optionalAttrs (cfg.supportsThinking or false) { reasoning = true; }
           ) shared.providers.ollama.models;
         };
         opencode = {
           apiKey = "$" + shared.providers.opencode.apiKeyEnvVar;
-          models = pkgs.lib.mapAttrsToList (name: cfg:
-            { id = name; } // pkgs.lib.optionalAttrs (cfg.supportsThinking or false) { reasoning = true; }
+          models = pkgs.lib.mapAttrsToList (
+            name: cfg:
+            {
+              id = name;
+            }
+            // pkgs.lib.optionalAttrs (cfg.supportsThinking or false) { reasoning = true; }
             // (if cfg ? contextWindow then { contextWindow = cfg.contextWindow; } else { })
             // (if cfg ? maxTokens then { maxTokens = cfg.maxTokens; } else { })
             // (if cfg ? cost then { cost = cfg.cost; } else { })
