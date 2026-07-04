@@ -273,8 +273,12 @@ in
       };
 
       agent = {
-        build = { disable = true; };
-        plan = { disable = true; };
+        build = {
+          disable = true;
+        };
+        plan = {
+          disable = true;
+        };
         inherit
           review
           dev-safe
