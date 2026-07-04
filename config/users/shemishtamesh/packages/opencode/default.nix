@@ -93,7 +93,10 @@ let
     "curl *" = "allow";
   };
 
-  askBash = { "*" = "ask"; } // readOnlyBash;
+  askBash = {
+    "*" = "ask";
+  }
+  // readOnlyBash;
 
   # Shared deny rules for both read and edit access
   sensitiveDeny = {
@@ -200,11 +203,13 @@ let
   sensitiveReadRules = {
     "*" = "allow";
     "**/*.envrc" = "ask";
-  } // sensitiveDeny;
+  }
+  // sensitiveDeny;
 
   sensitiveEditRules = {
     "**/.envrc" = "ask";
-  } // sensitiveDeny;
+  }
+  // sensitiveDeny;
 
   externalDirectoryDeny = {
     "*" = "ask";
@@ -243,8 +248,12 @@ let
     "C:\\ProgramData\\Microsoft\\Crypto\\**" = "deny";
   };
 
-  agentEditAllow = { "*" = "allow"; } // sensitiveEditRules;
-in {
+  agentEditAllow = {
+    "*" = "allow";
+  }
+  // sensitiveEditRules;
+in
+{
   programs.opencode = {
     enable = true;
     package = pkgs.writeShellScriptBin "opencode" ''
