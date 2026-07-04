@@ -133,16 +133,11 @@ let
     "*" = "allow";
   }
   // sensitiveEditRules;
-  agentEditAsk = {
-    "*" = "ask";
-    ".ai/*" = "allow";
-  }
-  // sensitiveEditRules;
 
-  # 1. Read everything, ask for any edits, ask for any executions
-  review = {
+  # 1. Read-only: can read everything, cannot execute or write
+  audit = {
     mode = "primary";
-    description = "Read-only analysis and planning.";
+    description = "Read-only analysis. Cannot write or execute.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -153,17 +148,18 @@ let
       websearch = "allow";
       skill = "allow";
       question = "allow";
-      edit = agentEditAsk;
-      todowrite = "ask";
-      bash = askBash;
-      task = "ask";
+      edit = "deny";
+      todowrite = "deny";
+      bash = "deny";
+      task = "deny";
+      external_directory = "allow";
     };
   };
 
-  # 2. Read everything, allow edits inside project, ask for edits outside, ask for executions
-  dev-safe = {
+  # 2. Write in cwd: can read and write in project, cannot execute
+  edit = {
     mode = "primary";
-    description = "Edits allowed in project, prompted outside.";
+    description = "Edit files in project. Cannot execute.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -176,35 +172,16 @@ let
       question = "allow";
       edit = agentEditAllow;
       external_directory = externalDirectoryDeny;
-      bash = askBash;
-      task = "ask";
+      todowrite = "allow";
+      bash = "deny";
+      task = "deny";
     };
   };
 
-  # 3. Read everything, allow edits in project, ask for executions
-  dev = {
-    mode = "primary";
-    description = "Full read and edit access.";
-    permission = {
-      read = sensitiveReadRules;
-      glob = "allow";
-      grep = "allow";
-      list = "allow";
-      lsp = "allow";
-      webfetch = "allow";
-      websearch = "allow";
-      skill = "allow";
-      question = "allow";
-      edit = agentEditAllow;
-      bash = askBash;
-      task = "ask";
-    };
-  };
-
-  # 4. Full access inside project. Reads outside allowed, writes outside asked.
+  # 3. Full access: read, write, and execute
   yolo = {
     mode = "primary";
-    description = "Full access within project.";
+    description = "Full read, write, and execute access.";
     permission = {
       read = sensitiveReadRules;
       glob = "allow";
@@ -216,9 +193,10 @@ let
       skill = "allow";
       question = "allow";
       edit = agentEditAllow;
+      external_directory = externalDirectoryDeny;
+      todowrite = "allow";
       bash = "allow";
       task = "allow";
-      external_directory = externalDirectoryDeny;
     };
   };
 in
@@ -234,7 +212,7 @@ in
     );
     enableMcpIntegration = true;
     settings = {
-      default_agent = "dev";
+      default_agent = "edit";
 
       model = "ollama/qwen3-coder";
 
@@ -262,7 +240,7 @@ in
           "*" = "ask";
           ".ai/*" = "allow";
         };
-        edit = agentEditAsk;
+        edit = "ask";
 
         bash = askBash;
 
@@ -280,9 +258,8 @@ in
           disable = true;
         };
         inherit
-          review
-          dev-safe
-          dev
+          audit
+          edit
           yolo
           ;
       };
