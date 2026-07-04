@@ -35,7 +35,9 @@ in
 
         doom_loop = "ask";
 
-        read = shared.sensitiveReadRules;
+        read = shared.sensitiveReadRules // {
+          "/tmp/opencode-sandbox/**" = "allow";
+        };
         glob = "allow";
         grep = "allow";
         ls = "allow";
@@ -54,15 +56,21 @@ in
         write = {
           "*" = "ask";
           ".agents/memory/**/*" = "allow";
+          "/tmp/opencode-sandbox/**" = "allow";
         };
-        edit = "ask";
+        edit = {
+          "*" = "ask";
+          "/tmp/opencode-sandbox/**" = "allow";
+        };
 
         bash = shared.askBash;
 
         webfetch = "allow";
         websearch = "allow";
 
-        external_directory = shared.externalDirectoryDeny;
+        external_directory = shared.externalDirectoryDeny // {
+          "/tmp/opencode-sandbox/**" = "allow";
+        };
       };
 
       agent = {
@@ -73,7 +81,7 @@ in
           mode = "primary";
           order = 1;
           description = "Read-only. No execute.";
-          prompt = "Read files. Prefer non-bash tools.";
+          prompt = "Never try to write or change anything in the system.";
           permission = {
             edit = "deny";
             write = "deny";
