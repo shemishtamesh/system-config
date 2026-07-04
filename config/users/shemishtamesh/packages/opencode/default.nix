@@ -94,7 +94,10 @@ let
   };
 
   # Base bash permission reused across agents: ask for writes/exec, allow read-only
-  askBash = { "*" = "ask"; } // readOnlyBash;
+  askBash = {
+    "*" = "ask";
+  }
+  // readOnlyBash;
 
   # Sensitive file patterns (apply to all agents - even yolo shouldn't read .env)
   sensitiveReadRules = {
@@ -126,8 +129,15 @@ let
   };
 
   # Agents use overrides merged with sensitive file rules (sensitiveEditRules must come last to win)
-  agentEditAllow = { "*" = "allow"; } // sensitiveEditRules;
-  agentEditAsk = { "*" = "ask"; ".ai/*" = "allow"; } // sensitiveEditRules;
+  agentEditAllow = {
+    "*" = "allow";
+  }
+  // sensitiveEditRules;
+  agentEditAsk = {
+    "*" = "ask";
+    ".ai/*" = "allow";
+  }
+  // sensitiveEditRules;
 
   # 1. Read everything, ask for any edits, ask for any executions
   review = {
@@ -263,7 +273,12 @@ in
       };
 
       agent = {
-        inherit review dev-safe dev yolo;
+        inherit
+          review
+          dev-safe
+          dev
+          yolo
+          ;
       };
 
       enabled_providers = [
