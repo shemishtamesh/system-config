@@ -20,7 +20,7 @@ in
     enableMcpIntegration = true;
     tui = {
       attention = {
-        enable = true;
+        enabled = true;
         notifications = true;
         sound = true;
       };
