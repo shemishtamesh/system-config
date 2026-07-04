@@ -93,7 +93,10 @@ let
     "curl *" = "allow";
   };
 
-  askBash = { "*" = "ask"; } // readOnlyBash;
+  askBash = {
+    "*" = "ask";
+  }
+  // readOnlyBash;
 
   sensitiveReadRules = {
     "*" = "allow";
@@ -122,8 +125,12 @@ let
     "~/.config/sops/age/**" = "deny";
   };
 
-  agentEditAllow = { "*" = "allow"; } // sensitiveEditRules;
-in {
+  agentEditAllow = {
+    "*" = "allow";
+  }
+  // sensitiveEditRules;
+in
+{
   programs.opencode = {
     enable = true;
     package = pkgs.writeShellScriptBin "opencode" ''
@@ -158,7 +165,10 @@ in {
         skill = "allow";
         question = "allow";
 
-        write = { "*" = "ask"; ".agents/memory/**/*" = "allow"; };
+        write = {
+          "*" = "ask";
+          ".agents/memory/**/*" = "allow";
+        };
         edit = "ask";
 
         bash = askBash;
