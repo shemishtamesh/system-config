@@ -2,7 +2,7 @@
 let
   openrouter_key_env_var = "OPENROUTER_API_KEY";
 
-  shared = import ../shared { inherit openrouter_key_env_var; };
+  shared = import ../shared { openrouterKeyEnvVar = openrouter_key_env_var; };
 
   agentEditAllow = {
     "*" = "allow";
