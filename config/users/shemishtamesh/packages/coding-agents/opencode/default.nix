@@ -72,20 +72,36 @@ in
         reader = {
           mode = "primary";
           order = 1;
-          description = "Read-only permissions. Cannot write or execute commands.";
+          description = "Read-only. Cannot write or execute.";
+          prompt = "Only read files. Never write, edit, or execute commands.";
           permission = {
             edit = "deny";
+            write = "deny";
             todowrite = "deny";
-            bash = "deny";
+            bash = "ask";
             task = "deny";
             external_directory = "allow";
           };
         };
 
-        writer = {
+        editor = {
           mode = "primary";
           order = 2;
-          description = "Read and edit files. Cannot execute commands.";
+          description = "Read and edit (ask). Cannot execute.";
+          prompt = "Read and write files with permission. Never execute commands.";
+          permission = {
+            edit = "ask";
+            write = "ask";
+            bash = "deny";
+            task = "deny";
+          };
+        };
+
+        writer = {
+          mode = "primary";
+          order = 3;
+          description = "Read and edit freely. Cannot execute.";
+          prompt = "Read and write files freely. Never execute commands.";
           permission = {
             edit = agentEditAllow;
             bash = "deny";
@@ -95,8 +111,9 @@ in
 
         executor = {
           mode = "primary";
-          order = 3;
-          description = "Full read, write, and execute permissions.";
+          order = 4;
+          description = "Full read, write, and execute access.";
+          prompt = "You have full read, write, and execute permissions.";
           permission = {
             edit = agentEditAllow;
             bash = "allow";
