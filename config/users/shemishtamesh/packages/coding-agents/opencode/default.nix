@@ -26,7 +26,7 @@ in
       };
     };
     settings = {
-      default_agent = "reader";
+      default_agent = "advisor";
 
       model = "ollama/qwen3-coder";
 
@@ -69,51 +69,64 @@ in
         build.disable = true;
         plan.disable = true;
 
-        reader = {
+        analyst = {
           mode = "primary";
           order = 1;
-          description = "Read-only. Cannot write or execute.";
-          prompt = "Only read files. Never write, edit, or execute commands.";
+          description = "Read-only. No execute.";
+          prompt = "Read files. Prefer non-bash tools.";
+          permission = {
+            edit = "deny";
+            write = "deny";
+            todowrite = "deny";
+            bash = "deny";
+            task = "deny";
+          };
+        };
+
+        advisor = {
+          mode = "primary";
+          order = 2;
+          description = "Read-only. Run read commands.";
+          prompt = "Read files. Run read-only commands. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = "deny";
             write = "deny";
             todowrite = "deny";
             bash = "ask";
             task = "deny";
-            external_directory = "allow";
           };
         };
 
         editor = {
           mode = "primary";
-          order = 2;
-          description = "Read and edit (ask). Cannot execute.";
-          prompt = "Read and write files with permission. Never execute commands.";
+          order = 3;
+          description = "Ask-write. Run read/write commands.";
+          prompt = "Read and write with permission. Run read and write commands (cat, sed), not arbitrary code. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = "ask";
             write = "ask";
-            bash = "deny";
+            bash = "ask";
             task = "deny";
           };
         };
 
-        writer = {
-          mode = "primary";
-          order = 3;
-          description = "Read and edit freely. Cannot execute.";
-          prompt = "Read and write files freely. Never execute commands.";
-          permission = {
-            edit = agentEditAllow;
-            bash = "deny";
-            task = "deny";
-          };
-        };
-
-        executor = {
+        writter = {
           mode = "primary";
           order = 4;
-          description = "Full read, write, and execute access.";
-          prompt = "You have full read, write, and execute permissions.";
+          description = "Auto-write. Run commands.";
+          prompt = "Read and write files. Run commands. Prefer non-bash tools; use bash when more efficient.";
+          permission = {
+            edit = agentEditAllow;
+            bash = "ask";
+            task = "deny";
+          };
+        };
+
+        yolo = {
+          mode = "primary";
+          order = 5;
+          description = "Full access within project.";
+          prompt = "Full access within the project. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = agentEditAllow;
             bash = "allow";
