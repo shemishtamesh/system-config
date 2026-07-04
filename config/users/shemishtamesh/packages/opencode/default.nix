@@ -157,7 +157,7 @@ let
   };
 
   # 2. Write in cwd: can read and write in project, cannot execute
-  edit = {
+  craft = {
     mode = "primary";
     description = "Edit files in project. Cannot execute.";
     permission = {
@@ -259,7 +259,7 @@ in
         };
         inherit
           audit
-          edit
+          craft
           yolo
           ;
       };
