@@ -16,24 +16,38 @@ in
     settings = {
       model = "ollama/qwen3-coder";
       permission = {
-        external_directory = {
-          "*" = "ask";
-        };
         "*" = "ask";
 
         doom_loop = "ask";
 
-        edit = "ask";
+        read = "allow";
+        glob = "allow";
+        grep = "allow";
+        ls = "allow";
+        find = "allow";
+        subagent = "allow";
+
+        list = "allow";
+        lsp = "allow";
+        codesearch = "allow";
+        todoread = "allow";
+        todowrite = "allow";
+        task = "allow";
+        skill = "allow";
+
+        write = {
+          "*" = "ask";
+          ".ai/*" = "allow";
+        };
+        edit = {
+          "*" = "ask";
+          ".ai/*" = "allow";
+        };
 
         bash = {
           "*" = "ask";
 
-          # allow with no arguments or with arguments without allowing other
-          # programs that could match (with "command*", e.g. "ls*" matches "lsblk")
-          grep = "allow";
           "grep *" = "allow";
-
-          rg = "allow";
           "rg *" = "allow";
 
           "find *" = "allow";
@@ -49,29 +63,36 @@ in
           eza = "allow";
           "eza *" = "allow";
 
-          cat = "allow";
           "cat *" = "allow";
-
-          head = "allow";
           "head *" = "allow";
-
-          tail = "allow";
           "tail *" = "allow";
-
-          sort = "allow";
           "sort *" = "allow";
-
-          "uniq" = "allow";
           "uniq *" = "allow";
-
-          wc = "allow";
           "wc *" = "allow";
-
-          file = "allow";
           "file *" = "allow";
-
-          strings = "allow";
+          "stat *" = "allow";
+          "realpath *" = "allow";
+          "readlink *" = "allow";
           "strings *" = "allow";
+          "od *" = "allow";
+          "xxd *" = "allow";
+          "hexdump *" = "allow";
+          "cut *" = "allow";
+          "tr *" = "allow";
+          "column *" = "allow";
+          "fmt *" = "allow";
+          "diff *" = "allow";
+          "comm *" = "allow";
+          "jq *" = "allow";
+          "yq *" = "allow";
+          "dirname *" = "allow";
+          "basename *" = "allow";
+          "expand *" = "allow";
+          "unexpand *" = "allow";
+          "nl *" = "allow";
+          "fold *" = "allow";
+          "pr *" = "allow";
+          "ptx *" = "allow";
 
           tree = "allow";
           "tree *" = "allow";
@@ -79,20 +100,18 @@ in
           pwd = "allow";
           "pwd *" = "allow";
 
-          which = "allow";
           "which *" = "allow";
 
           env = "allow";
           "env *" = "allow";
 
-          echo = "allow";
           "echo *" = "allow";
-
-          printf = "allow";
           "printf *" = "allow";
 
-          timeout = "allow";
           "timeout *" = "allow";
+
+          true = "allow";
+          false = "allow";
 
           "git status*" = "allow";
           "git diff*" = "allow";
@@ -101,9 +120,6 @@ in
           "git blame*" = "allow";
           "git branch*" = "allow";
           "git rev-parse*" = "allow";
-
-          true = "allow";
-          false = "allow";
 
           "nix log*" = "allow";
           "nix eval*" = "allow";
@@ -117,23 +133,32 @@ in
           "nix profile history*" = "allow";
           "nix show*" = "allow";
           "nix describe*" = "allow";
+
+          "curl *" = "allow";
         };
 
-        read = "allow";
-        glob = "allow";
-        grep = "allow";
-        list = "allow";
+        webfetch."*" = "allow";
+        websearch."*" = "allow";
 
-        lsp = "allow";
-        codesearch = "allow";
+        external_directory = "ask";
 
-        webfetch = "allow";
-        websearch = "allow";
+        path = {
+          "*" = "allow";
 
-        todoread = "allow";
-        todowrite = "allow";
-        task = "allow";
-        skill = "allow";
+          "**/*.envrc" = "ask";
+
+          "**/*.env" = "deny";
+          "**/*.env.local" = "deny";
+          "**/*.env.prod" = "deny";
+
+          "**/*.pem" = "deny";
+          "**/*.key" = "deny";
+
+          "~/.ssh/**" = "deny";
+          "~/.secrets/**" = "deny";
+          "~/.config/sops-nix/secrets/**" = "deny";
+          "~/.config/sops/age/**" = "deny";
+        };
       };
       enabled_providers = [
         "ollama"

@@ -98,6 +98,8 @@ in
       permission = {
         "*" = "ask";
 
+        doom_loop = "ask";
+
         read = "allow";
         glob = "allow";
         grep = "allow";
@@ -206,12 +208,8 @@ in
           "curl *" = "allow";
         };
 
-        webfetch = {
-          "*" = "allow";
-        };
-        websearch = {
-          "*" = "allow";
-        };
+        webfetch."*" = "allow";
+        websearch."*" = "allow";
 
         external_directory = "ask";
         path = {
