@@ -26,7 +26,7 @@ in
       };
     };
     settings = {
-      default_agent = "craft";
+      default_agent = "reader";
 
       model = "ollama/qwen3-coder";
 
@@ -69,10 +69,10 @@ in
         build.disable = true;
         plan.disable = true;
 
-        audit = {
+        reader = {
           mode = "primary";
           order = 1;
-          description = "Read-only analysis. Cannot write or execute.";
+          description = "Read-only permissions. Cannot write or execute commands.";
           permission = {
             edit = "deny";
             todowrite = "deny";
@@ -82,10 +82,10 @@ in
           };
         };
 
-        craft = {
+        writer = {
           mode = "primary";
           order = 2;
-          description = "Edit files in project. Cannot execute.";
+          description = "Read and edit files. Cannot execute commands.";
           permission = {
             edit = agentEditAllow;
             bash = "deny";
@@ -93,10 +93,10 @@ in
           };
         };
 
-        yolo = {
+        executor = {
           mode = "primary";
           order = 3;
-          description = "Full read, write, and execute access.";
+          description = "Full read, write, and execute permissions.";
           permission = {
             edit = agentEditAllow;
             bash = "allow";
