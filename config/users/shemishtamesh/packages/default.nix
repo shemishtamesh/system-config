@@ -24,7 +24,7 @@ let
     ./nixvim.nix
     ./nix-index.nix
     ./zen-browser.nix
-    ./opencode.nix
+    ./opencode
     # ./pi-coding-agent
     ./claude-code.nix
     ./nh.nix
