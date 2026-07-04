@@ -137,8 +137,8 @@ in
           "curl *" = "allow";
         };
 
-        webfetch."*" = "allow";
-        websearch."*" = "allow";
+        webfetch = "allow";
+        websearch = "allow";
 
         external_directory = "ask";
 
