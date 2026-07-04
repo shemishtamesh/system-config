@@ -71,6 +71,7 @@ in
 
         audit = {
           mode = "primary";
+          order = 1;
           description = "Read-only analysis. Cannot write or execute.";
           permission = {
             edit = "deny";
@@ -83,6 +84,7 @@ in
 
         craft = {
           mode = "primary";
+          order = 2;
           description = "Edit files in project. Cannot execute.";
           permission = {
             edit = agentEditAllow;
@@ -93,6 +95,7 @@ in
 
         yolo = {
           mode = "primary";
+          order = 3;
           description = "Full read, write, and execute access.";
           permission = {
             edit = agentEditAllow;
