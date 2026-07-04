@@ -26,7 +26,7 @@ in
       };
     };
     settings = {
-      default_agent = "advisor";
+      default_agent = "analyst";
 
       model = "ollama/qwen3-coder";
 
@@ -77,7 +77,7 @@ in
         build.disable = true;
         plan.disable = true;
 
-        analyst = {
+        advisor = {
           mode = "primary";
           order = 1;
           description = "Read-only. No execute.";
@@ -91,7 +91,7 @@ in
           };
         };
 
-        advisor = {
+        analyst = {
           mode = "primary";
           order = 2;
           description = "Read-only. Run read commands.";
@@ -109,7 +109,7 @@ in
           mode = "primary";
           order = 3;
           description = "Ask-write. Run read/write commands.";
-          prompt = "Read and write with permission. Run read and write commands (cat, sed), not arbitrary code. Prefer non-bash tools; use bash when more efficient.";
+          prompt = "Read and write with permission. Run read and write commands (e.g. cat, sed), not arbitrary code. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = "ask";
             write = "ask";
