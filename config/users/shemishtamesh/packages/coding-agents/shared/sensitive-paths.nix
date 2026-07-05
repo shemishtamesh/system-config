@@ -81,6 +81,15 @@ let
     "~/.netlify/**" = "deny";
     "~/.oci/**" = "deny";
 
+    # Additional cloud providers
+    "~/.config/pulumi/**" = "deny";
+    "~/.config/heroku/**" = "deny";
+    "~/.config/hcloud/**" = "deny";
+    "~/.config/travis/**" = "deny";
+
+    # Container tools (broader coverage)
+    "~/.config/containers/**" = "deny";
+
     # Keyrings
     "~/.local/share/keyrings/**" = "deny";
 
@@ -104,8 +113,18 @@ let
     "**/credentials/**" = "deny";
     "**/credentials" = "deny";
     "**/private/**" = "deny";
+    "**/auth.json" = "deny";
+    "**/.auth*" = "deny";
+    "**/*.token" = "deny";
+    "**/*.age" = "deny";
+    "**/*.sops" = "deny";
+    "**/.age/**" = "deny";
+    "**/*.encrypted" = "deny";
+    "**/.ansible/**" = "deny";
+    "**/.chezmoi/**" = "deny";
 
     # Certificates and key stores
+    "**/certs/**" = "deny";
     "**/*.p12" = "deny";
     "**/*.pfx" = "deny";
     "**/*.jks" = "deny";
@@ -139,6 +158,18 @@ let
     "~/.secrets/**" = "deny";
     "~/.config/sops-nix/secrets/**" = "deny";
     "~/.config/sops/age/**" = "deny";
+
+    # SSH host keys (system-level)
+    "/etc/ssh/**" = "deny";
+
+    # Application tokens (messaging apps may contain auth tokens)
+    "~/.config/Slack/**" = "deny";
+    "~/.config/discord/**" = "deny";
+    "~/.config/signal/**" = "deny";
+    "~/.config/zoom/**" = "deny";
+
+    # GitHub Copilot tokens
+    "~/.config/github-copilot/**" = "deny";
 
     # Backup / editor swap files (may contain credentials)
     "**/*.bak" = "deny";

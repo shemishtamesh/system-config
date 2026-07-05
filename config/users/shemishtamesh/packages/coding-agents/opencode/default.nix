@@ -10,6 +10,34 @@ let
     "*" = "allow";
   }
   // shared.sensitiveEditRules;
+
+  # on linux (bubblewrap): no glob support, strip **/ and * from patterns
+  # on macos (sandbox-exec): full globs supported
+  sandboxDenyRead =
+    let
+      baseBlock = [
+        "~/projects"
+        "/home" # block ALL users' data (Linux)
+        "/root" # block root's home (Linux)
+        "/Users" # block ALL users' data (macOS)
+      ];
+
+      sensitiveBlock =
+        if pkgs.stdenv.isLinux then
+          let
+            removeGlobs = p: builtins.replaceStrings [ "**/" "*" ] [ "" "" ] p;
+            paths = builtins.attrNames shared.sensitiveDeny;
+            # **/*~ becomes ~ after removing *, which is too broad
+            isNotHome = p: p != "" && p != "~" && p != "~/" && p != "/";
+          in
+          builtins.unique (builtins.filter isNotHome (map removeGlobs paths))
+        else
+          builtins.attrNames shared.sensitiveDeny;
+    in
+    baseBlock ++ sensitiveBlock;
+
+  # Same paths are also denied for writes (defense-in-depth)
+  sandboxDenyWrite = sandboxDenyRead;
 in
 {
   programs.opencode = {
@@ -209,12 +237,16 @@ in
     ];
   xdg.configFile."opencode-sandbox/config.json".text = builtins.toJSON {
     filesystem = {
-      denyRead = builtins.attrNames shared.sensitiveDeny;
+      denyRead = sandboxDenyRead;
+      allowRead = [
+        "~"
+        "."
+      ];
       allowWrite = [
         "."
         sandboxDir
       ];
-      denyWrite = builtins.attrNames shared.sensitiveDeny;
+      denyWrite = sandboxDenyWrite;
     };
   };
   programs.zsh.initContent =
