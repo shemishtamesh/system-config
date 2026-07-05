@@ -76,7 +76,9 @@ in
           "${sandboxDir}/**" = "allow";
         };
         glob = "allow";
-        grep = "allow";
+        grep = shared.sensitiveReadRules // {
+          "${sandboxDir}/**" = "allow";
+        };
         ls = "allow";
         find = "allow";
 
