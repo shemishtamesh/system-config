@@ -81,12 +81,11 @@ in
           mode = "primary";
           order = 1;
           description = "Read-only. No execute.";
-          prompt = "Read files. Prefer non-bash tools.";
+          prompt = "You are in read-only mode. You can read files and run commands to help you with that but you can not and must not try to change the state of anything/write/edit.";
           permission = {
             edit = "deny";
             write = "deny";
-            todowrite = "deny";
-            bash = "deny";
+            bash = shared.denyBash;
             task = "deny";
           };
         };
@@ -95,11 +94,10 @@ in
           mode = "primary";
           order = 2;
           description = "Read-only. Run read commands.";
-          prompt = "Read files. Run read-only commands. Prefer non-bash tools; use bash when more efficient.";
+          prompt = "You are in read-only mode. Run read-only commands. Prefer non-bash tools; use bash when more efficient.";
           permission = {
             edit = "deny";
             write = "deny";
-            todowrite = "deny";
             task = "deny";
           };
         };
@@ -108,7 +106,7 @@ in
           mode = "primary";
           order = 3;
           description = "Ask-write. Run read/write commands.";
-          prompt = "Read and write with permission. Run read and write commands (e.g. cat, sed), not arbitrary code. Prefer non-bash tools; use bash when more efficient.";
+          prompt = "You can read and write files freely. You can run read and write commands (e.g. cat, hostname, sed, tee), but not arbitrary code. Prefer non-bash tools; use bash when more efficient for reading or writting.";
           permission = {
             edit = "ask";
             write = "ask";
@@ -120,7 +118,7 @@ in
           mode = "primary";
           order = 4;
           description = "Auto-write. Run commands.";
-          prompt = "Read and write files. Run commands. Prefer non-bash tools; use bash when more efficient.";
+          prompt = "You can read and write files, and run commands. Prefer non-bash tools; but use bash when needed.";
           permission = {
             edit = agentEditAllow;
             task = "allow";
@@ -131,7 +129,7 @@ in
           mode = "primary";
           order = 5;
           description = "Full access within project.";
-          prompt = "Full access within the project. Prefer non-bash tools; use bash when more efficient.";
+          prompt = "You have full read/write/execute access within the project. Prefer non-bash tools; but use bash when needed.";
           permission = {
             edit = agentEditAllow;
             bash = "allow";

@@ -1,4 +1,4 @@
-{ stable-pkgs, ... }:
+{ stable-pkgs, pkgs, lib, ... }:
 {
   programs.zathura = {
     enable = true;
@@ -6,5 +6,9 @@
     options = {
       guioptions = "none";
     };
+  };
+
+  xdg.mime.defaultApplications = lib.mkIf pkgs.stdenv.isLinux {
+    "application/pdf" = "org.pwmt.zathura.desktop";
   };
 }

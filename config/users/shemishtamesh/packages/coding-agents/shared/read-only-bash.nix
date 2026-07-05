@@ -64,6 +64,22 @@ let
     "true"
     "false"
 
+    "uname *"
+    "hostname"
+    "hostname -I*"
+    "uptime"
+    "whoami"
+    "id *"
+    "date"
+    "date +*"
+    "nproc"
+    "lscpu *"
+    "lsblk *"
+    "df *"
+    "du *"
+    "free *"
+    "ps *"
+
     "git status*"
     "git diff*"
     "git log*"
@@ -84,6 +100,19 @@ let
     "nix profile history*"
     "nix show*"
     "nix describe*"
+    "nix store ls *"
+    "nix store cat *"
+    "nix store path-from-hash-part *"
+    "nix store info"
+    "nix hash *"
+    "nix path-info *"
+    "nix registry list"
+    "nix registry resolve *"
+    "nix derivation show *"
+    "nix nar ls *"
+    "nix nar cat *"
+    "nix realisation info *"
+    "nix-locate *"
 
     "curl *"
   ];
@@ -111,6 +140,11 @@ let
   }
   // allowMap;
 
+  denyBash = {
+    "*" = "deny";
+  }
+  // allowMap;
+
   toClaudeBash = cmd: "Bash(${cmd})";
   claudeAllow = map toClaudeBash allowCmds;
   claudeAsk = map toClaudeBash askCmds;
@@ -122,6 +156,7 @@ in
     allowMap
     askMap
     askBash
+    denyBash
     toClaudeBash
     claudeAllow
     claudeAsk
