@@ -3,7 +3,6 @@ let
   forkSrc = pkgs.fetchFromGitHub {
     owner = "shemishtamesh";
     repo = "opencode-ignore";
-    rev = "73ad34ad766bf5b5990a019e9d7f38032b5e23de";
     hash = "sha256-kuYuncFHvp/UGuuKzxvN/Z3/6hKlPlkQwp49IHq2GHM=";
   };
 
@@ -26,18 +25,20 @@ let
       tar xzf ${ignorePkg} -C node_modules/ignore --strip-components=1
 
       bun build ./index.ts --outdir ./dist --target node
+      # OpenCode requires default export — the fork only has named export
+      echo 'export default OpenCodeIgnore;' >> dist/index.js
     '';
     installPhase = ''
       mkdir -p $out
       cp dist/index.js $out/index.js
       cat > $out/package.json << 'EOF'
-      {
-        "name": "opencode-ignore",
-        "version": "1.1.0-fork",
-        "type": "module",
-        "main": "./index.js"
-      }
-      EOF
+{
+  "name": "opencode-ignore",
+  "version": "1.1.0-fork",
+  "type": "module",
+  "main": "./index.js"
+}
+EOF
     '';
   };
 in
