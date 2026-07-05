@@ -6,6 +6,10 @@ let
     "~/.config/gcloud/**" = "deny";
     "~/.databrickscfg" = "deny";
 
+    # Container / orchestration credentials
+    "~/.kube/**" = "deny";
+    "~/.docker/config.json" = "deny";
+
     # GPG
     "~/.gnupg/**" = "deny";
 
@@ -58,10 +62,47 @@ let
     "~/.my.cnf" = "deny";
     "~/.dbvis/**" = "deny";
 
+    # Package manager / language credentials
+    "**/.npmrc" = "deny";
+    "~/.netrc" = "deny";
+    "**/.pypirc" = "deny";
+    "~/.m2/settings.xml" = "deny";
+    "**/gradle.properties" = "deny";
+
+    # Git credentials
+    "**/.git-credentials" = "deny";
+    "~/.config/git/credentials" = "deny";
+
+    # Deployment platform credentials
+    "~/.config/gh/hosts.yml" = "deny";
+    "~/.config/vercel/**" = "deny";
+    "~/.config/doctl/**" = "deny";
+    "~/.config/circleci/**" = "deny";
+    "~/.netlify/**" = "deny";
+    "~/.oci/**" = "deny";
+
+    # Keyrings
+    "~/.local/share/keyrings/**" = "deny";
+
+    # Cloud storage / file sync
+    "~/.config/rclone/**" = "deny";
+
+    # Artifactory / binary repository
+    "~/.config/jfrog/**" = "deny";
+
+    # HashiCorp Vault
+    "**/.vault-token" = "deny";
+    "~/.config/vault/**" = "deny";
+
+    # Terraform / OpenTofu
+    "**/.terraformrc" = "deny";
+    "**/.terraform.d/**" = "deny";
+
     # Broad sensitive patterns
     "**/.secret*" = "deny";
     "**/secrets/**" = "deny";
     "**/credentials/**" = "deny";
+    "**/credentials" = "deny";
     "**/private/**" = "deny";
 
     # Certificates and key stores
@@ -98,6 +139,11 @@ let
     "~/.secrets/**" = "deny";
     "~/.config/sops-nix/secrets/**" = "deny";
     "~/.config/sops/age/**" = "deny";
+
+    # Backup / editor swap files (may contain credentials)
+    "**/*.bak" = "deny";
+    "**/*.backup" = "deny";
+    "**/*~" = "deny";
   };
 
   sensitiveReadRules = {
@@ -110,43 +156,6 @@ let
     "**/.envrc" = "ask";
   }
   // sensitiveDeny;
-
-  # External directory: ask by default, deny known sensitive paths
-  externalDirectoryDeny = {
-    "*" = "ask";
-    "~/.aws/**" = "deny";
-    "~/.azure/**" = "deny";
-    "~/.config/gcloud/**" = "deny";
-    "~/.gnupg/**" = "deny";
-    "~/.password-store/**" = "deny";
-    "~/.1password/**" = "deny";
-    "~/.config/1Password/**" = "deny";
-    "~/.bitwarden/**" = "deny";
-    "~/.config/Bitwarden/**" = "deny";
-    "~/.keepass/**" = "deny";
-    "~/.config/google-chrome/**" = "deny";
-    "~/.config/chromium/**" = "deny";
-    "~/.mozilla/**" = "deny";
-    "~/.dbvis/**" = "deny";
-    "~/.ssh/**" = "deny";
-    "~/.secrets/**" = "deny";
-    "~/.config/sops-nix/secrets/**" = "deny";
-    "~/.config/sops/age/**" = "deny";
-    "~/Library/Application Support/Google/Chrome/**" = "deny";
-    "~/Library/Application Support/Firefox/**" = "deny";
-    "~/Library/Application Support/Chromium/**" = "deny";
-    "~/Library/Keychains/**" = "deny";
-    "/Library/Keychains/**" = "deny";
-    "/System/**" = "deny";
-    "/private/var/db/**" = "deny";
-    "/etc/sudoers.d/**" = "deny";
-    "/proc/**" = "deny";
-    "/sys/**" = "deny";
-    "/dev/**" = "deny";
-    "/run/**" = "deny";
-    "C:\\Windows\\**" = "deny";
-    "C:\\ProgramData\\Microsoft\\Crypto\\**" = "deny";
-  };
 
   # For tools that use a path-based permission system (like pi)
   pathRules = {
@@ -163,7 +172,6 @@ in
     sensitiveDeny
     sensitiveReadRules
     sensitiveEditRules
-    externalDirectoryDeny
     pathRules
     ;
 }

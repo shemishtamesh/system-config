@@ -2,6 +2,8 @@
 let
   openrouter_key_env_var = "OPENROUTER_API_KEY";
 
+  sandboxDir = "/tmp/opencode-sandbox";
+
   shared = import ../shared { openrouterKeyEnvVar = openrouter_key_env_var; };
 
   agentEditAllow = {
@@ -30,13 +32,15 @@ in
 
       model = "ollama/qwen3-coder";
 
+      plugin = [ "opencode-sandbox" ];
+
       permission = {
         "*" = "ask";
 
         doom_loop = "ask";
 
         read = shared.sensitiveReadRules // {
-          "/tmp/opencode-sandbox/**" = "allow";
+          "${sandboxDir}/**" = "allow";
         };
         glob = "allow";
         grep = "allow";
@@ -55,11 +59,11 @@ in
         write = {
           "*" = "ask";
           ".agents/memory/**/*" = "allow";
-          "/tmp/opencode-sandbox/**" = "allow";
+          "${sandboxDir}/**" = "allow";
         };
         edit = {
           "*" = "ask";
-          "/tmp/opencode-sandbox/**" = "allow";
+          "${sandboxDir}/**" = "allow";
         };
 
         bash = shared.askBash;
@@ -67,8 +71,8 @@ in
         webfetch = "allow";
         websearch = "allow";
 
-        external_directory = shared.externalDirectoryDeny // {
-          "/tmp/opencode-sandbox/**" = "allow";
+        external_directory = { "*" = "ask"; } // shared.sensitiveDeny // {
+          "${sandboxDir}/**" = "allow";
         };
       };
 
@@ -82,10 +86,12 @@ in
           description = "Read-only.";
           prompt = "You are in read-only mode. You can read files and look for online information but not edit or run anything. Never attempt to read files that might contain secrets.";
           permission = {
+            read = shared.sensitiveReadRules;
             edit = "deny";
             write = "deny";
             bash = "deny";
             task = "deny";
+            external_directory = { "*" = "allow"; } // shared.sensitiveDeny;
           };
         };
 
@@ -185,7 +191,14 @@ in
       ];
     };
   };
-  home.packages = [ pkgs.libnotify ];
+  home.packages = [ pkgs.libnotify ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.bubblewrap ];
+  xdg.configFile."opencode-sandbox/config.json".text = builtins.toJSON {
+    filesystem = {
+      denyRead = builtins.attrNames shared.sensitiveDeny;
+      allowWrite = [ "." sandboxDir ];
+      denyWrite = builtins.attrNames shared.sensitiveDeny;
+    };
+  };
   programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
