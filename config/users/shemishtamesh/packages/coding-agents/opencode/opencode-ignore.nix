@@ -10,7 +10,7 @@ let
   ignorePkg = pkgs.fetchurl {
     name = "ignore-7.0.5.tgz";
     url = "https://registry.npmjs.org/ignore/-/ignore-7.0.5.tgz";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    hash = "sha256-6C1sOd5f/aeDkc/gZqFkGzI2fq1j0G1HAOm9NaqEwoA=";
   };
 
   opencodeIgnorePlugin = pkgs.stdenv.mkDerivation {
