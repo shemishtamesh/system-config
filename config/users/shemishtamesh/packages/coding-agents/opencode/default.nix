@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
   openrouter_key_env_var = "OPENROUTER_API_KEY";
 
@@ -30,7 +30,7 @@ let
             # **/*~ becomes ~ after removing *, which is too broad
             isNotHome = p: p != "" && p != "~" && p != "~/" && p != "/";
           in
-          builtins.unique (builtins.filter isNotHome (map removeGlobs paths))
+          lib.unique (builtins.filter isNotHome (map removeGlobs paths))
         else
           builtins.attrNames shared.sensitiveDeny;
     in
