@@ -59,8 +59,6 @@ let
     "echo *"
     "printf *"
 
-    "timeout *"
-
     "true"
     "false"
 
@@ -113,14 +111,26 @@ let
     "nix nar cat *"
     "nix realisation info *"
     "nix-locate *"
-
-    "curl *"
   ];
 
   askCmds = [
     "find * -exec*"
     "find * -execdir*"
+    "curl *"
+    "timeout *"
   ];
+
+  # Catch any command containing > (all redirect-based writes)
+  # and any command using -o flag (curl -o, sort -o, tree -o, etc.)
+  writeBlockAsk = {
+    "*>*" = "ask";
+    "* -o *" = "ask";
+  };
+  writeBlockDeny = {
+    "*>*" = "deny";
+    # -o flagged as "ask" even for denyBash — grep -o/find -o/ls -o are read-only
+    "* -o *" = "ask";
+  };
 
   allowMap = builtins.listToAttrs (
     map (c: {
@@ -135,15 +145,20 @@ let
     }) askCmds
   );
 
+  # Order matters: later patterns win over earlier ones via findLast.
+  # askMap / writeBlock entries come after allowMap so they take precedence.
   askBash = {
     "*" = "ask";
   }
-  // allowMap;
+  // allowMap
+  // askMap
+  // writeBlockAsk;
 
   denyBash = {
     "*" = "deny";
   }
-  // allowMap;
+  // allowMap
+  // writeBlockDeny;
 
   toClaudeBash = cmd: "Bash(${cmd})";
   claudeAllow = map toClaudeBash allowCmds;

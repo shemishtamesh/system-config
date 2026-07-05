@@ -26,7 +26,7 @@ in
       };
     };
     settings = {
-      default_agent = "advisor";
+      default_agent = "analyst";
 
       model = "ollama/qwen3-coder";
 
@@ -77,44 +77,46 @@ in
         build.disable = true;
         plan.disable = true;
 
-        advisor = {
-          mode = "primary";
-          order = 1;
-          description = "Read-only. No execute.";
-          prompt = "You are in read-only mode. You can read files and run commands to help you with that but you can not and must not try to change the state of anything/write/edit.";
-          permission = {
-            edit = "deny";
-            write = "deny";
-            bash = shared.denyBash;
-            task = "deny";
-          };
-        };
-
         analyst = {
           mode = "primary";
-          order = 2;
-          description = "Read-only. Run read commands.";
-          prompt = "You are in read-only mode. Run read-only commands. Prefer non-bash tools; use bash when more efficient.";
+          order = 1;
+          description = "Read-only. No executions.";
+          prompt = "You are in read-only mode. Use the read, glob, grep, ls, find, and other dedicated tools. Bash is not available.";
           permission = {
             edit = "deny";
             write = "deny";
+            bash = "deny";
             task = "deny";
           };
         };
 
-        editor = {
+        contributor = {
           mode = "primary";
-          order = 3;
-          description = "Ask-write. Run read/write commands.";
-          prompt = "You can read and write files freely. You can run read and write commands (e.g. cat, hostname, sed, tee), but not arbitrary code. Prefer non-bash tools; use bash when more efficient for reading or writting.";
+          order = 2;
+          description = "Ask-write. Write files.";
+          prompt = "You can read and write files using the dedicated tools (read, write, edit, glob, grep, etc.). Bash is not available.";
           permission = {
             edit = "ask";
             write = "ask";
+            bash = "deny";
             task = "allow";
           };
         };
 
-        writter = {
+        developer = {
+          mode = "primary";
+          order = 3;
+          description = "Read/write via tools. No bash.";
+          prompt = "You can read and write files using the dedicated tools (read, write, edit, glob, grep, etc.). Bash is not available.";
+          permission = {
+            edit = agentEditAllow;
+            write = agentEditAllow;
+            bash = "deny";
+            task = "allow";
+          };
+        };
+
+        engineer = {
           mode = "primary";
           order = 4;
           description = "Auto-write. Run commands.";
@@ -125,7 +127,7 @@ in
           };
         };
 
-        yolo = {
+        fullstack = {
           mode = "primary";
           order = 5;
           description = "Full access within project.";
