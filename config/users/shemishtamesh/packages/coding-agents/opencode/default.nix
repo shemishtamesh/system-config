@@ -42,7 +42,6 @@ in
         grep = "allow";
         ls = "allow";
         find = "allow";
-        subagent = "allow";
 
         list = "allow";
         lsp = "allow";
@@ -80,8 +79,8 @@ in
         analyst = {
           mode = "primary";
           order = 1;
-          description = "Read-only. No executions.";
-          prompt = "You are in read-only mode. Use the read, glob, grep, ls, find, and other dedicated tools. Bash is not available.";
+          description = "Read-only.";
+          prompt = "You are in read-only mode. You can read files and look for online information but not edit or run anything. Never attempt to read files that might contain secrets.";
           permission = {
             edit = "deny";
             write = "deny";
@@ -93,8 +92,8 @@ in
         contributor = {
           mode = "primary";
           order = 2;
-          description = "Ask-write. Write files.";
-          prompt = "You can read and write files using the dedicated tools (read, write, edit, glob, grep, etc.). Bash is not available.";
+          description = "Ask write, no bash.";
+          prompt = "You can read and write files, and look for information online. Never attempt to read files that might contain secrets.";
           permission = {
             edit = "ask";
             write = "ask";
@@ -106,23 +105,24 @@ in
         developer = {
           mode = "primary";
           order = 3;
-          description = "Read/write via tools. No bash.";
-          prompt = "You can read and write files using the dedicated tools (read, write, edit, glob, grep, etc.). Bash is not available.";
+          description = "Read/write via tools, No bash.";
+          prompt = "You can read and write files, and look for information online. Never attempt to read files that might contain secrets.";
           permission = {
             edit = agentEditAllow;
             write = agentEditAllow;
             bash = "deny";
-            task = "allow";
+            task = "deny";
           };
         };
 
         engineer = {
           mode = "primary";
           order = 4;
-          description = "Auto-write. Run commands.";
-          prompt = "You can read and write files, and run commands. Prefer non-bash tools; but use bash when needed.";
+          description = "Auto-write, ask for bash.";
+          prompt = "You can read and write files, and run commands. Prefer non-bash tools; but use bash when needed. Never attempt to read files that might contain secrets.";
           permission = {
             edit = agentEditAllow;
+            write = agentEditAllow;
             task = "allow";
           };
         };
@@ -130,10 +130,11 @@ in
         fullstack = {
           mode = "primary";
           order = 5;
-          description = "Full access within project.";
-          prompt = "You have full read/write/execute access within the project. Prefer non-bash tools; but use bash when needed.";
+          description = "Full arbitrary bash.";
+          prompt = "You have full read/write/execute access within the project. Prefer non-bash tools; but use bash when needed. Never attempt to read files that might contain secrets.";
           permission = {
             edit = agentEditAllow;
+            write = agentEditAllow;
             bash = "allow";
             task = "allow";
           };
