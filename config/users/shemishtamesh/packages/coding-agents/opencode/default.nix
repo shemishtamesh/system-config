@@ -53,7 +53,42 @@ let
 
   wardenConfig = builtins.toJSON {
     blockedFilePaths = wardenBlockedPaths;
+    audit = {
+      filePath = "${sandboxDir}/warden-audit.log";
+    };
   };
+
+  opencodeIgnoreFork = pkgs.stdenv.mkDerivation {
+    pname = "opencode-ignore";
+    version = "1.1.0-fork";
+    src = pkgs.fetchFromGitHub {
+      owner = "shemishtamesh";
+      repo = "opencode-ignore";
+      rev = "73ad34ad766bf5b5990a019e9d7f38032b5e23de";
+      hash = "sha256-kuYuncFHvp/UGuuKzxvN/Z3/6hKlPlkQwp49IHq2GHM=";
+    };
+    nativeBuildInputs = [ pkgs.bun ];
+    # If nix sandbox blocks network, uncomment: __noChroot = true;
+    buildPhase = ''
+      bun install
+      bun run build
+    '';
+    installPhase = ''
+      mkdir -p $out
+      cp dist/index.js $out/index.js
+      cat > $out/package.json << 'EOF'
+      {
+        "name": "opencode-ignore",
+        "version": "1.1.0-fork",
+        "type": "module",
+        "main": "./index.js"
+      }
+      EOF
+    '';
+  };
+
+  # Generate gitignore-style patterns from shared.sensitiveDeny
+  globalIgnoreText = builtins.concatStringsSep "\n" (builtins.attrNames shared.sensitiveDeny);
 in
 {
   programs.opencode = {
@@ -81,6 +116,7 @@ in
         "opencode-damage-control"
         "@enowdev/mnemosyne"
         "opencode-warden"
+        "${config.xdg.configHome}/opencode/plugins/opencode-ignore"
       ];
 
       permission = {
@@ -273,6 +309,13 @@ in
     };
   };
   xdg.configFile."opencode/opencode-warden.json".text = wardenConfig;
+  xdg.configFile."opencode/plugins/opencode-ignore".source = opencodeIgnoreFork;
+  xdg.configFile."opencode/ignore.json".text = builtins.toJSON {
+    globalIgnores = [ "${config.xdg.configHome}/opencode/global.ignore" ];
+  };
+  xdg.configFile."opencode/global.ignore".text = ''
+    ${globalIgnoreText}
+  '';
   programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
