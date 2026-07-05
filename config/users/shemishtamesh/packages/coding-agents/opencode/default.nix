@@ -198,13 +198,15 @@ in
       ];
     };
   };
-  home.packages = with pkgs; [
-    libnotify
-  ]
-  ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-    bubblewrap
-    socat
-  ];
+  home.packages =
+    with pkgs;
+    [
+      libnotify
+    ]
+    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+      bubblewrap
+      socat
+    ];
   xdg.configFile."opencode-sandbox/config.json".text = builtins.toJSON {
     filesystem = {
       denyRead = builtins.attrNames shared.sensitiveDeny;
