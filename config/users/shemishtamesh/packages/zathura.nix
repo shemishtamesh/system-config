@@ -1,4 +1,9 @@
-{ stable-pkgs, pkgs, lib, ... }:
+{
+  stable-pkgs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs.zathura = {
     enable = true;
