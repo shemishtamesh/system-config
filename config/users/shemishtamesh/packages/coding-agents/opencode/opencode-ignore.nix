@@ -3,6 +3,7 @@ let
   forkSrc = pkgs.fetchFromGitHub {
     owner = "shemishtamesh";
     repo = "opencode-ignore";
+    rev = "e04fdcf8a70b56ae53bcb6757cc1d0791af5e226";
     hash = "sha256-kuYuncFHvp/UGuuKzxvN/Z3/6hKlPlkQwp49IHq2GHM=";
   };
 
@@ -29,16 +30,16 @@ let
       echo 'export default OpenCodeIgnore;' >> dist/index.js
     '';
     installPhase = ''
-            mkdir -p $out
-            cp dist/index.js $out/index.js
-            cat > $out/package.json << 'EOF'
-      {
-        "name": "opencode-ignore",
-        "version": "1.1.0-fork",
-        "type": "module",
-        "main": "./index.js"
-      }
-      EOF
+      mkdir -p $out
+      cp dist/index.js $out/index.js
+      cat > $out/package.json << 'EOF'
+{
+  "name": "opencode-ignore",
+  "version": "1.1.0-fork",
+  "type": "module",
+  "main": "./index.js"
+}
+EOF
     '';
   };
 in
