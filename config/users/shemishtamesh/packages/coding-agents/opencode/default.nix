@@ -26,7 +26,7 @@ in
       };
     };
     settings = {
-      default_agent = "analyst";
+      default_agent = "advisor";
 
       model = "ollama/qwen3-coder";
 
