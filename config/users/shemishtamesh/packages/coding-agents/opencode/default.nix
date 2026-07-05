@@ -22,9 +22,9 @@ let
     let
       baseBlock = [
         "~/projects"
-        "/home" # block ALL users' data (Linux)
-        "/root" # block root's home (Linux)
-        "/Users" # block ALL users' data (macOS)
+        "/home" # block users' data (linux)
+        "/root" # block root's home (linux)
+        "/Users" # block users' data (macos)
       ];
 
       sensitiveBlock =
@@ -41,8 +41,19 @@ let
     in
     baseBlock ++ sensitiveBlock;
 
-  # Same paths are also denied for writes (defense-in-depth)
   sandboxDenyWrite = sandboxDenyRead;
+
+  # warden doesn't expand ~
+  wardenBlockedPaths =
+    let
+      pats = builtins.attrNames shared.sensitiveDeny;
+      fix = p: if lib.hasPrefix "~/" p then "**/" + lib.removePrefix "~/" p else p;
+    in
+    map fix pats;
+
+  wardenConfig = builtins.toJSON {
+    blockedFilePaths = wardenBlockedPaths;
+  };
 in
 {
   programs.opencode = {
@@ -65,7 +76,11 @@ in
 
       model = "ollama/qwen3-coder";
 
-      plugin = [ "opencode-sandbox" ];
+      plugin = [
+        "opencode-sandbox"
+        "opencode-damage-control"
+        "opencode-warden"
+      ];
 
       permission = {
         "*" = "ask";
@@ -256,6 +271,7 @@ in
       denyWrite = sandboxDenyWrite;
     };
   };
+  xdg.configFile."opencode/opencode-warden.json".text = wardenConfig;
   programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
