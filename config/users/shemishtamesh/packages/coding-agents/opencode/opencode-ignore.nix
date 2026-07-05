@@ -3,7 +3,7 @@ let
   forkSrc = pkgs.fetchFromGitHub {
     owner = "shemishtamesh";
     repo = "opencode-ignore";
-    rev = "e04fdcf8a70b56ae53bcb6757cc1d0791af5e226";
+    rev = "73ad34ad766bf5b5990a019e9d7f38032b5e23de";
     hash = "sha256-kuYuncFHvp/UGuuKzxvN/Z3/6hKlPlkQwp49IHq2GHM=";
   };
 
