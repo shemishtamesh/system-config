@@ -58,34 +58,9 @@ let
     };
   };
 
-  opencodeIgnoreFork = pkgs.stdenv.mkDerivation {
-    pname = "opencode-ignore";
-    version = "1.1.0-fork";
-    src = pkgs.fetchFromGitHub {
-      owner = "shemishtamesh";
-      repo = "opencode-ignore";
-      rev = "73ad34ad766bf5b5990a019e9d7f38032b5e23de";
-      hash = "sha256-kuYuncFHvp/UGuuKzxvN/Z3/6hKlPlkQwp49IHq2GHM=";
-    };
-    nativeBuildInputs = [ pkgs.bun ];
-    # If nix sandbox blocks network, uncomment: __noChroot = true;
-    buildPhase = ''
-      bun install
-      bun run build
-    '';
-    installPhase = ''
-      mkdir -p $out
-      cp dist/index.js $out/index.js
-      cat > $out/package.json << 'EOF'
-      {
-        "name": "opencode-ignore",
-        "version": "1.1.0-fork",
-        "type": "module",
-        "main": "./index.js"
-      }
-      EOF
-    '';
-  };
+  # Forked opencode-ignore with global config support
+  # Built from opencode-ignore.nix with offline deps
+  opencodeIgnoreFork = import ./opencode-ignore.nix { inherit pkgs lib; };
 
   # Generate gitignore-style patterns from shared.sensitiveDeny
   globalIgnoreText = builtins.concatStringsSep "\n" (builtins.attrNames shared.sensitiveDeny);
