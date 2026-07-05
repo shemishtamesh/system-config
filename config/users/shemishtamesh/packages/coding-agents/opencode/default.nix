@@ -71,7 +71,11 @@ in
         webfetch = "allow";
         websearch = "allow";
 
-        external_directory = { "*" = "ask"; } // shared.sensitiveDeny // {
+        external_directory = {
+          "*" = "ask";
+        }
+        // shared.sensitiveDeny
+        // {
           "${sandboxDir}/**" = "allow";
         };
       };
@@ -91,7 +95,10 @@ in
             write = "deny";
             bash = "deny";
             task = "deny";
-            external_directory = { "*" = "allow"; } // shared.sensitiveDeny;
+            external_directory = {
+              "*" = "allow";
+            }
+            // shared.sensitiveDeny;
           };
         };
 
@@ -195,7 +202,10 @@ in
   xdg.configFile."opencode-sandbox/config.json".text = builtins.toJSON {
     filesystem = {
       denyRead = builtins.attrNames shared.sensitiveDeny;
-      allowWrite = [ "." sandboxDir ];
+      allowWrite = [
+        "."
+        sandboxDir
+      ];
       denyWrite = builtins.attrNames shared.sensitiveDeny;
     };
   };
