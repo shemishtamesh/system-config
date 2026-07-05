@@ -79,6 +79,7 @@ in
       plugin = [
         "opencode-sandbox"
         "opencode-damage-control"
+        "@enowdev/mnemosyne"
         "opencode-warden"
       ];
 
