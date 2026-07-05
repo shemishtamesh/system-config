@@ -22,7 +22,7 @@ let
       pkgs.gnutar
     ];
     buildPhase = ''
-      mkdir -p node_modules
+      mkdir -p node_modules/ignore
       tar xzf ${ignorePkg} -C node_modules/ignore --strip-components=1
 
       bun build ./index.ts --outdir ./dist --target node
