@@ -21,7 +21,7 @@ let
           exit 0
           ;;
         *)
-          echo "unknown template: \`$1\`"
+          echo "unknown template: \`$1\`, run with \`--help\`"
           exit 1
           ;;
       esac
