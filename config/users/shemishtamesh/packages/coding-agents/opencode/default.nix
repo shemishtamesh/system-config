@@ -21,7 +21,7 @@ let
     "/run"
     "/etc/passwd"
     "/etc/group"
-    "/etc/nsswitch.conf" 
+    "/etc/nsswitch.conf"
     "/etc/hosts"
     "/etc/resolv.conf"
     "/etc/hostname"
