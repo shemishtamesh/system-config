@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }:
 let
@@ -16,54 +15,10 @@ let
   }
   // shared.sensitiveEditRules;
 
-  # on linux (bubblewrap): no glob support, strip **/ and * from patterns
-  # on macos (sandbox-exec): full globs supported
-  sandboxDenyRead =
-    let
-      baseBlock = [
-        "~/projects"
-        "/home" # block users' data (linux)
-        "/root" # block root's home (linux)
-        "/Users" # block users' data (macos)
-      ];
-
-      sensitiveBlock =
-        if pkgs.stdenv.isLinux then
-          let
-            removeGlobs = p: builtins.replaceStrings [ "**/" "*" ] [ "" "" ] p;
-            paths = builtins.attrNames shared.sensitiveDeny;
-            # **/*~ becomes ~ after removing *, which is too broad
-            isNotHome = p: p != "" && p != "~" && p != "~/" && p != "/";
-          in
-          lib.unique (builtins.filter isNotHome (map removeGlobs paths))
-        else
-          builtins.attrNames shared.sensitiveDeny;
-    in
-    baseBlock ++ sensitiveBlock;
-
-  sandboxDenyWrite = sandboxDenyRead;
-
-  # warden doesn't expand ~
-  wardenBlockedPaths =
-    let
-      pats = builtins.attrNames shared.sensitiveDeny;
-      fix = p: if lib.hasPrefix "~/" p then "**/" + lib.removePrefix "~/" p else p;
-    in
-    map fix pats;
-
-  wardenConfig = builtins.toJSON {
-    blockedFilePaths = wardenBlockedPaths;
-    audit = {
-      filePath = "${sandboxDir}/warden-audit.log";
-    };
-  };
-
-  # Forked opencode-ignore with global config support
-  # Built from opencode-ignore.nix with offline deps
-  opencodeIgnoreFork = import ./opencode-ignore.nix { inherit pkgs lib; };
-
-  # Generate gitignore-style patterns from shared.sensitiveDeny
-  globalIgnoreText = builtins.concatStringsSep "\n" (builtins.attrNames shared.sensitiveDeny);
+  sandboxAllowRead = [
+    "."
+    "${config.xdg.configHome}/opencode"
+  ];
 in
 {
   programs.opencode = {
@@ -88,10 +43,7 @@ in
 
       plugin = [
         "opencode-sandbox"
-        "opencode-damage-control"
         "@enowdev/mnemosyne"
-        "opencode-warden"
-        "${config.xdg.configHome}/opencode/plugins/opencode-ignore"
       ];
 
       permission = {
@@ -99,13 +51,12 @@ in
 
         doom_loop = "ask";
 
-        read = shared.sensitiveReadRules // {
+        read = {
+          "*" = "allow";
           "${sandboxDir}/**" = "allow";
         };
         glob = "allow";
-        grep = shared.sensitiveReadRules // {
-          "${sandboxDir}/**" = "allow";
-        };
+        grep = "allow";
         ls = "allow";
         find = "allow";
 
@@ -135,9 +86,6 @@ in
 
         external_directory = {
           "*" = "ask";
-        }
-        // shared.sensitiveDeny
-        // {
           "${sandboxDir}/**" = "allow";
         };
       };
@@ -149,18 +97,17 @@ in
         analyst = {
           mode = "primary";
           order = 1;
-          description = "Read-only.";
+          description = "Read-only. OS sandbox restricts filesystem access to the current project directory.";
           prompt = "You are in read-only mode. You can read files and look for online information but not edit or run anything. Never attempt to read files that might contain secrets.";
           permission = {
-            read = shared.sensitiveReadRules;
+            read = "allow";
             edit = "deny";
             write = "deny";
             bash = "deny";
             task = "deny";
             external_directory = {
               "*" = "allow";
-            }
-            // shared.sensitiveDeny;
+            };
           };
         };
 
@@ -271,26 +218,13 @@ in
     ];
   xdg.configFile."opencode-sandbox/config.json".text = builtins.toJSON {
     filesystem = {
-      denyRead = sandboxDenyRead;
-      allowRead = [
-        "~"
-        "."
-      ];
+      allowRead = sandboxAllowRead;
       allowWrite = [
         "."
         sandboxDir
       ];
-      denyWrite = sandboxDenyWrite;
     };
   };
-  xdg.configFile."opencode/opencode-warden.json".text = wardenConfig;
-  xdg.configFile."opencode/plugins/opencode-ignore".source = opencodeIgnoreFork;
-  xdg.configFile."opencode/ignore.json".text = builtins.toJSON {
-    globalIgnores = [ "${config.xdg.configHome}/opencode/global.ignore" ];
-  };
-  xdg.configFile."opencode/global.ignore".text = ''
-    ${globalIgnoreText}
-  '';
   programs.zsh.initContent =
     let
       opencodeZshCompletion = pkgs.runCommand "opencode-zsh-completion" { } ''
