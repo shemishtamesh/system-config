@@ -15,6 +15,7 @@ let
   }
   // shared.sensitiveEditRules;
 
+  sandboxDenyRead = [ "/" ];
   sandboxAllowRead = [
     "."
     sandboxDir
@@ -97,7 +98,7 @@ in
         analyst = {
           mode = "primary";
           order = 1;
-          description = "Read-only. OS sandbox restricts filesystem access to the current project directory.";
+          description = "Read-only.";
           prompt = "You are in read-only mode. You can read files and look for online information but not edit or run anything. Never attempt to read files that might contain secrets.";
           permission = {
             read = "allow";
@@ -105,10 +106,6 @@ in
             write = "deny";
             bash = "deny";
             task = "deny";
-            external_directory = {
-              "*" = "deny";
-              "${sandboxDir}/**" = "allow";
-            };
           };
         };
 
@@ -219,6 +216,7 @@ in
     ];
   xdg.configFile."opencode-sandbox/config.json".text = builtins.toJSON {
     filesystem = {
+      denyRead = sandboxDenyRead;
       allowRead = sandboxAllowRead;
       allowWrite = [
         "."
