@@ -17,7 +17,7 @@ let
 
   sandboxAllowRead = [
     "."
-    "${config.xdg.configHome}/opencode"
+    sandboxDir
   ];
 in
 {
@@ -85,7 +85,7 @@ in
         websearch = "allow";
 
         external_directory = {
-          "*" = "ask";
+          "*" = "deny";
           "${sandboxDir}/**" = "allow";
         };
       };
@@ -106,7 +106,8 @@ in
             bash = "deny";
             task = "deny";
             external_directory = {
-              "*" = "allow";
+              "*" = "deny";
+              "${sandboxDir}/**" = "allow";
             };
           };
         };
