@@ -84,7 +84,7 @@ in
     settings = {
       default_agent = "analyst";
 
-      model = "ollama/qwen3-coder";
+      model = "ollama/ornith";
 
       plugin = [
         "opencode-sandbox"

@@ -35,7 +35,7 @@ in
 
     settings = {
       defaultProvider = "ollama";
-      defaultModel = "qwen3-coder";
+      defaultModel = "ornith";
       defaultThinkingLevel = "medium";
       theme = "dark";
       defaultProjectTrust = "ask";

@@ -19,7 +19,7 @@
       };
       loadModels = [
         "qwen2.5-coder:7b"
-        "qwen3-coder"
+        "ornith"
       ];
     };
     open-webui = {
