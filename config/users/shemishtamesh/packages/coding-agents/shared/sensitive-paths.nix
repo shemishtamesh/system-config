@@ -197,6 +197,122 @@ let
   }
   // sensitiveDeny;
 
+  sandboxDenyRead = [
+    # user directories
+    "/home"
+    "/root"
+    "/Users"
+
+    # ssh
+    "/etc/ssh"
+
+    # sudo
+    "/etc/sudoers"
+    "/etc/sudoers.d"
+    "/etc/sudo.conf"
+
+    # tls/ssl private keys
+    "/etc/ssl/private"
+
+    # password hashes
+    "/etc/shadow"
+    "/etc/gshadow"
+    "/etc/security"
+
+    # sops secrets
+    "/etc/sops"
+    "/etc/sops.d"
+    "/run/secrets"
+
+    # systemd credential stores
+    "/etc/credstore"
+    "/etc/credstore.encrypted"
+    "/run/credstore"
+    "/run/credstore.encrypted"
+    "/run/credentials"
+    "/var/lib/systemd/credential.secret"
+
+    # network/vpn credentials
+    "/etc/NetworkManager/system-connections"
+    "/etc/openvpn"
+    "/etc/wireguard"
+    "/etc/ipsec.d"
+    "/etc/strongswan"
+    "/etc/ppp"
+    "/etc/racoon"
+    "/etc/stunnel"
+
+    # docker / containers
+    "/etc/docker"
+    "/etc/containerd"
+    "/var/lib/docker"
+
+    # kubernetes
+    "/etc/kubernetes"
+
+    # nixos config (may contain secrets)
+    "/etc/nixos"
+
+    # samba passwords
+    "/etc/samba"
+
+    # database client configs
+    "/etc/mysql"
+    "/etc/postgresql"
+    "/etc/mongod.conf"
+    "/etc/redis"
+    "/etc/ldap"
+
+    # cups printer credentials
+    "/etc/cups"
+
+    # mail server configs
+    "/etc/mail"
+    "/etc/exim4"
+    "/etc/postfix"
+    "/etc/dovecot"
+
+    # service data dirs (credentials, tokens, secrets)
+    "/var/lib/sops-nix"
+    "/var/lib/mysql"
+    "/var/lib/postgresql"
+    "/var/lib/mongodb"
+    "/var/lib/redis"
+    "/var/lib/neo4j"
+    "/var/lib/elasticsearch"
+    "/var/lib/prometheus"
+    "/var/lib/grafana"
+    "/var/lib/vault"
+    "/var/lib/bitwarden"
+    "/var/lib/keycloak"
+    "/var/lib/nextcloud"
+    "/var/lib/gitlab"
+    "/var/lib/jenkins"
+
+    # logs (may contain tokens printed by accident)
+    "/var/log"
+    "/var/log/journal"
+
+    # backups / spools
+    "/var/backups"
+    "/var/spool/mail"
+    "/var/spool/cron"
+    "/var/spool/atjobs"
+
+    # caches (may cache api keys / tokens)
+    "/var/cache"
+
+    # macos
+    "/System"
+    "/private/var/db"
+    "/Library/Keychains"
+  ];
+
+  sandboxAllowRead = [
+    "."
+    "~/.nix-profile"
+    "/tmp/opencode-sandbox"
+  ];
 in
 {
   inherit
@@ -204,5 +320,7 @@ in
     sensitiveReadRules
     sensitiveEditRules
     pathRules
+    sandboxDenyRead
+    sandboxAllowRead
     ;
 }

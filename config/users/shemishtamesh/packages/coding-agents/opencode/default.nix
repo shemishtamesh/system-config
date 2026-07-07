@@ -15,24 +15,8 @@ let
   }
   // shared.sensitiveEditRules;
 
-  sandboxDenyRead = [ "/" ];
-  sandboxAllowRead = [
-    "/nix"
-    "/run"
-    "/etc/passwd"
-    "/etc/group"
-    "/etc/nsswitch.conf"
-    "/etc/hosts"
-    "/etc/resolv.conf"
-    "/etc/hostname"
-    "/etc/localtime"
-    "/etc/ssl/certs"
-    "/etc/machine-id"
-    "/etc/services"
-    "~/.nix-profile"
-    "."
-    sandboxDir
-  ];
+  sandboxDenyRead = shared.sandboxDenyRead;
+  sandboxAllowRead = shared.sandboxAllowRead ++ [ sandboxDir ];
 in
 {
   programs.opencode = {
