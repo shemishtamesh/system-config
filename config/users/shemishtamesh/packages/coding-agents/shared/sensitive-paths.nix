@@ -222,15 +222,14 @@ let
     # sops secrets
     "/etc/sops"
     "/etc/sops.d"
-    "/run/secrets"
 
     # systemd credential stores
     "/etc/credstore"
     "/etc/credstore.encrypted"
-    "/run/credstore"
-    "/run/credstore.encrypted"
-    "/run/credentials"
     "/var/lib/systemd/credential.secret"
+
+    # runtime directories (secrets, credentials, sockets, etc.)
+    "/run"
 
     # network/vpn credentials
     "/etc/NetworkManager/system-connections"
@@ -312,6 +311,7 @@ let
     "."
     "~/.nix-profile"
     "/tmp/opencode-sandbox"
+    "/run/current-system"
   ];
 in
 {
