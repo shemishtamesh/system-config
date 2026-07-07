@@ -15,27 +15,23 @@ let
   }
   // shared.sensitiveEditRules;
 
-  # Allow-list for bash sandbox: block everything, then re-allow only what's
-  # needed. denyRead: ["/"] expands to tmpfs on every top-level child except
-  # proc/dev/sys. Missed paths cause loud failures (command not found) —
-  # easy to iterate.
   sandboxDenyRead = [ "/" ];
   sandboxAllowRead = [
-    "/nix" # all binaries, libraries, profiles
-    "/run" # PATH entries, setuid wrappers, sockets
-    "/etc/passwd" # whoami, home dir resolution
-    "/etc/group" # group membership
-    "/etc/nsswitch.conf" # name resolution order
-    "/etc/hosts" # host → IP
-    "/etc/resolv.conf" # DNS servers
-    "/etc/hostname" # hostname
-    "/etc/localtime" # timezone
-    "/etc/ssl/certs" # TLS certs (curl, git, …)
-    "/etc/machine-id" # some tools need this
-    "/etc/services" # port → service name
-    "~/.nix-profile" # user-installed binaries (nvim, …)
-    "." # CWD
-    sandboxDir # /tmp/opencode-sandbox
+    "/nix"
+    "/run"
+    "/etc/passwd"
+    "/etc/group"
+    "/etc/nsswitch.conf" 
+    "/etc/hosts"
+    "/etc/resolv.conf"
+    "/etc/hostname"
+    "/etc/localtime"
+    "/etc/ssl/certs"
+    "/etc/machine-id"
+    "/etc/services"
+    "~/.nix-profile"
+    "."
+    sandboxDir
   ];
 in
 {
