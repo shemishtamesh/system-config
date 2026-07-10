@@ -34,7 +34,10 @@ let
 in
 {
   stylix = shared.theme.stylix_settings;
-  home.file = wallpaper_paths shared.theme.scheme;
+  home = {
+    file = wallpaper_paths shared.theme.scheme;
+    pointerCursor.enable = true;
+  };
   specialisation = builtins.listToAttrs (
     map (scheme: {
       inherit (scheme) name;
