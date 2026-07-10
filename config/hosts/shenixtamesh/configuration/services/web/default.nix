@@ -23,7 +23,7 @@
       ];
     };
     open-webui = {
-      enable = false; # TODO: currently builds a dep from source, takes all ram, and fails
+      enable = true;
       package = stable-pkgs.open-webui;
       environment = {
         ANONYMIZED_TELEMETRY = "False";
