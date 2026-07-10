@@ -44,6 +44,8 @@ in
         "@enowdev/mnemosyne"
       ];
 
+      lsp = true;
+
       permission = {
         "*" = "ask";
 
