@@ -1,4 +1,5 @@
 {
+  pkgs,
   shared,
   host,
   lib,
@@ -36,7 +37,7 @@ in
   stylix = shared.theme.stylix_settings;
   home = {
     file = wallpaper_paths shared.theme.scheme;
-    pointerCursor.enable = true;
+    pointerCursor.enable = pkgs.stdenv.isLinux;
   };
   specialisation = builtins.listToAttrs (
     map (scheme: {
