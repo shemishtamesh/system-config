@@ -118,6 +118,7 @@ let
         android-tools
         visidata
         drawy
+        voxtype
       ];
     };
     shemishtamac = {
