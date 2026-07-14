@@ -79,6 +79,7 @@ let
         ./mpv.nix
         ./zathura.nix
         # ./silverbullet.nix
+        ./voxtype.nix
       ];
       packages = with pkgs; [
         # (callPackage ./ohrrpgce { })
@@ -118,7 +119,6 @@ let
         android-tools
         visidata
         drawy
-        voxtype
       ];
     };
     shemishtamac = {
