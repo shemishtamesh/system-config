@@ -1,39 +1,7 @@
 {
   pkgs,
-  gaps,
-  rounding,
-  host,
 }:
 {
-  toggle-bar = pkgs.lib.getExe (
-    pkgs.writeShellScriptBin "toggle-bar" ''
-      monitors=(${toString (map (x: ''"${x}"'') (builtins.attrNames host.monitors))})
-
-      if [[ $(hyprctl getoption general:border_size | head -n 1 | awk '{ print $2 }') -eq 1 ]]; then
-        for screen in "''${monitors[@]}"; do
-          noctalia-shell ipc call bar setDisplayMode auto_hide $screen &
-        done
-
-        hyprctl keyword general:border_size 0;
-        hyprctl keyword general:gaps_in 0
-        hyprctl keyword general:gaps_out 0
-        hyprctl keyword decoration:rounding 0
-        hyprctl keyword decoration:shadow:enabled 1
-        hyprctl keyword decoration:shadow:range 50
-        exit 0
-      fi
-
-      for screen in "''${monitors[@]}"; do
-        noctalia-shell ipc call bar setDisplayMode always_visible "$screen" &
-      done
-
-      hyprctl keyword general:border_size 1;
-      hyprctl keyword general:gaps_in ${gaps}
-      hyprctl keyword general:gaps_out ${gaps}
-      hyprctl keyword decoration:rounding ${toString rounding}
-      hyprctl keyword decoration:shadow:enabled 0
-    ''
-  );
   notification-log = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "notification-log" ''
       logfile=$1

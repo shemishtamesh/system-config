@@ -10,14 +10,7 @@
 let
   gaps = "5";
   rounding = 10;
-  scripts = import ./scripts.nix {
-    inherit
-      pkgs
-      gaps
-      rounding
-      host
-      ;
-  };
+  scripts = import ./scripts.nix { inherit pkgs; };
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
   ) (builtins.attrNames host.monitors);
@@ -40,6 +33,18 @@ let
   mkExecBind =
     key: cmd: flags:
     mkBind key "exec_cmd" cmd flags;
+
+  # `body` is raw Lua statements, run at keypress time (unlike `mkBind`,
+  # whose dispatcher args are just data plugged into a single hl.dsp call).
+  # Needed whenever a bind has to read live state (hl.get_config) and branch
+  # on it, rather than just invoking one dispatcher.
+  mkFnBind = key: body: flags: {
+    _args = [
+      key
+      (lib.generators.mkLuaInline "function()\n${body}\nend")
+    ]
+    ++ lib.optional (flags != null) flags;
+  };
 in
 {
   wayland.windowManager.hyprland =
@@ -115,7 +120,26 @@ in
 
           (mkExecBind "${mod} + a" "noctalia-shell ipc call idleInhibitor toggle" null)
 
-          (mkExecBind "${mod} + b" scripts.toggle-bar null)
+          (mkFnBind "${mod} + b" /* lua */ ''
+            local monitors = ${toLua (builtins.attrNames host.monitors)}
+            if hl.get_config("general.border_size") == 1 then
+              for _, screen in ipairs(monitors) do
+                hl.exec_cmd("noctalia-shell ipc call bar setDisplayMode auto_hide " .. screen)
+              end
+              hl.config({
+                general = { border_size = 0, gaps_in = 0, gaps_out = 0 },
+                decoration = { rounding = 0, shadow = { enabled = true, range = 50 } },
+              })
+            else
+              for _, screen in ipairs(monitors) do
+                hl.exec_cmd("noctalia-shell ipc call bar setDisplayMode always_visible " .. screen)
+              end
+              hl.config({
+                general = { border_size = 1, gaps_in = ${gaps}, gaps_out = ${gaps} },
+                decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
+              })
+            end
+          '' null)
 
           (mkBind "${mod} + XF86Reload" "workspace.toggle_special" "chat" null)
           (mkBind "${mod} + SHIFT + XF86Reload" "window.move" { workspace = "special:chat"; } null)
@@ -129,18 +153,20 @@ in
 
           (mkBind "${mod} + mouse_down" "focus" { workspace = "m+1"; } null)
           (mkBind "${mod} + mouse_up" "focus" { workspace = "m-1"; } null)
-          (mkExecBind "${mod} + CTRL + 0"
-            ''hyprctl --quiet keyword cursor:zoom_disable_aa $(echo "1 - $(hyprctl getoption cursor:zoom_disable_aa | awk '/^int.*/ {print $2}')" | ${pkgs.bc}/bin/bc)''
-            null
-          )
-          (mkExecBind "${mod} + CTRL + mouse_down"
-            "hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')"
-            null
-          )
-          (mkExecBind "${mod} + CTRL + mouse_up"
-            "hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {new = $2 * 0.9; if (new < 1) new = 1; print new}')"
-            null
-          )
+          (mkFnBind "${mod} + CTRL + 0" /* lua */ ''
+            local disabled = hl.get_config("cursor.zoom_disable_aa")
+            hl.config({ cursor = { zoom_disable_aa = not disabled } })
+          '' null)
+          (mkFnBind "${mod} + CTRL + mouse_down" /* lua */ ''
+            local factor = hl.get_config("cursor.zoom_factor")
+            hl.config({ cursor = { zoom_factor = factor * 1.1 } })
+          '' null)
+          (mkFnBind "${mod} + CTRL + mouse_up" /* lua */ ''
+            local factor = hl.get_config("cursor.zoom_factor")
+            local new_factor = factor * 0.9
+            if new_factor < 1 then new_factor = 1 end
+            hl.config({ cursor = { zoom_factor = new_factor } })
+          '' null)
 
           (mkBind "${mod} + bracketleft" "focus" { workspace = "m-1"; } null)
           (mkBind "${mod} + SHIFT + bracketright" "window.move" { workspace = "m+1"; } null)
@@ -170,7 +196,9 @@ in
           let
             num = toString (i + 1);
           in
-          mkExecBind "${mod} + CTRL + ${num}" "hyprctl keyword cursor:zoom_factor ${num}" null
+          mkFnBind "${mod} + CTRL + ${num}" /* lua */ ''
+            hl.config({ cursor = { zoom_factor = ${num} } })
+          '' null
         ) 9)
         ++ [
           (mkExecBind "${mod} + semicolon" "noctalia-shell ipc call notifications dismissOldest" {
