@@ -649,7 +649,7 @@ in
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
           "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
-          "noctalia-shell"
+          "noctalia-shell -d"
           "qs -c overview"
         ];
       };
