@@ -30,7 +30,7 @@
       hyprctl keyword general:border_size 1;
       hyprctl keyword general:gaps_in ${gaps}
       hyprctl keyword general:gaps_out ${gaps}
-      hyprctl keyword decoration:rounding ${rounding}
+      hyprctl keyword decoration:rounding ${toString rounding}
       hyprctl keyword decoration:shadow:enabled 0
     ''
   );
