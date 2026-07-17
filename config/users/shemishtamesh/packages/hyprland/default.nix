@@ -36,16 +36,21 @@ let
     key: cmd: flags:
     mkBind key "exec_cmd" cmd flags;
 
-  # `body` is raw Lua statements, run at keypress time (unlike `mkBind`,
-  # whose dispatcher args are just data plugged into a single hl.dsp call).
-  # Needed whenever a bind has to read live state (hl.get_config) and branch
-  # on it, rather than just invoking one dispatcher.
   mkFnBind = key: body: flags: {
     _args = [
       key
       (lib.generators.mkLuaInline "function()\n${body}\nend")
     ]
     ++ lib.optional (flags != null) flags;
+  };
+
+  mkStartupHook = commands: {
+    _args = [
+      "hyprland.start"
+      (lib.generators.mkLuaInline "function()\n${
+        lib.concatMapStrings (cmd: "  hl.exec_cmd(${toLua cmd})\n") commands
+      }end")
+    ];
   };
 in
 {
@@ -635,7 +640,7 @@ in
           left_handed = true;
         };
 
-        exec_cmd = [
+        on = mkStartupHook [
           "zen-twilight"
           "spotify"
           "discord"
@@ -649,7 +654,7 @@ in
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
           "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
-          "noctalia-shell -d"
+          "noctalia-shell"
           "qs -c overview"
         ];
       };
