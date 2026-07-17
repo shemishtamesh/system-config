@@ -9,7 +9,7 @@
 }:
 let
   gaps = "5";
-  rounding = "10";
+  rounding = 10;
   scripts = import ./scripts.nix {
     inherit
       pkgs
@@ -359,10 +359,10 @@ in
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
           };
-          plugin."dynamic-cursors" = {
-            enabled = true;
-            mode = "stretch";
-          };
+          # plugin."dynamic-cursors" = {
+          #   enabled = true;
+          #   mode = "stretch";
+          # };
         };
 
         permission = [
