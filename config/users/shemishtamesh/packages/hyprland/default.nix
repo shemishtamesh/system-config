@@ -16,6 +16,8 @@ let
   ) (builtins.attrNames host.monitors);
 
   mod = "SUPER";
+  # $mod+CTRL+1..9 sets a fixed zoom level, linear from 1x (at 1) to maxZoom (at 9)
+  maxZoom = 4.0;
 
   toLua = lib.generators.toLua { };
 
@@ -195,9 +197,11 @@ in
           i:
           let
             num = toString (i + 1);
+            # linear interpolation: i=0..8 (9 keys) over 8 gaps, from 1x to maxZoom
+            zoomFactor = toString (1.0 + i * (maxZoom - 1.0) / 8.0);
           in
           mkFnBind "${mod} + CTRL + ${num}" /* lua */ ''
-            hl.config({ cursor = { zoom_factor = ${num} } })
+            hl.config({ cursor = { zoom_factor = ${zoomFactor} } })
           '' null
         ) 9)
         ++ [
