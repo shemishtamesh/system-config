@@ -21,6 +21,25 @@ let
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
   ) (builtins.attrNames host.monitors);
+
+  mod = "SUPER";
+
+  toLua = lib.generators.toLua { };
+
+  dspCall =
+    path: args:
+    lib.generators.mkLuaInline "hl.dsp.${path}(${lib.optionalString (args != null) (toLua args)})";
+
+  mkBind = key: path: args: flags: {
+    _args = [
+      key
+      (dspCall path args)
+    ]
+    ++ lib.optional (flags != null) flags;
+  };
+  mkExecBind =
+    key: cmd: flags:
+    mkBind key "exec_cmd" cmd flags;
 in
 {
   wayland.windowManager.hyprland =
@@ -31,8 +50,8 @@ in
       enable = true;
       package = flake_hyprland.hyprland;
       portalPackage = flake_hyprland.xdg-desktop-portal-hyprland;
+      configType = "lua";
       settings = {
-        "$mod" = "SUPER";
         monitor = builtins.attrValues (
           builtins.mapAttrs (
             portname:
@@ -44,291 +63,552 @@ in
               vertical_offset,
               scaling,
             }:
-            "${portname},"
-            + "${toString width}x${toString height}@${toString refresh_rate},"
-            + "${toString horizontal_offset}x${toString vertical_offset},"
-            + "${toString scaling}"
+            {
+              output = portname;
+              mode = "${toString width}x${toString height}@${toString refresh_rate}";
+              position = "${toString horizontal_offset}x${toString vertical_offset}";
+              scale = scaling;
+            }
           ) host.monitors
         );
+
         bind = [
-          "$mod CTRL SHIFT, q, exit"
+          (mkBind "${mod} + CTRL + SHIFT + q" "exit" null null)
 
-          "$mod SHIFT, w, killactive"
-          "$mod SHIFT, q, forcekillactive"
+          (mkBind "${mod} + SHIFT + w" "window.close" null null)
+          (mkBind "${mod} + SHIFT + q" "window.kill" null null)
 
-          "$mod, c, cyclenext"
-          "$mod SHIFT, c, cyclenext, prev"
+          (mkBind "${mod} + c" "window.cycle_next" null null)
+          (mkBind "${mod} + SHIFT + c" "window.cycle_next" { next = false; } null)
 
-          "$mod, f, fullscreen, 1"
-          "$mod SHIFT, f, fullscreen, 0"
-          "$mod CTRL, f, fullscreenstate, -1 2"
-          "$mod, t, togglefloating, 0"
+          (mkBind "${mod} + f" "window.fullscreen" { mode = "maximized"; } null)
+          (mkBind "${mod} + SHIFT + f" "window.fullscreen" { mode = "fullscreen"; } null)
+          (mkBind "${mod} + CTRL + f" "window.fullscreen_state" {
+            internal = -1;
+            client = 2;
+          } null)
+          (mkBind "${mod} + t" "window.float" { action = "toggle"; } null)
 
-          "$mod, r, layoutmsg, togglesplit"
-          "$mod CTRL, r, layoutmsg, swapsplit"
-          "$mod SHIFT, r, layoutmsg, movetoroot"
+          (mkBind "${mod} + r" "layout" "togglesplit" null)
+          (mkBind "${mod} + CTRL + r" "layout" "swapsplit" null)
+          (mkBind "${mod} + SHIFT + r" "layout" "movetoroot" null)
 
-          # "$mod, Tab, overview:toggle" # Hyprspace
-          "$mod, Tab, exec, qs ipc -c overview call overview toggle"
-          "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
-          "$mod CTRL, c, exec, hyprpicker --render-inactive --autocopy"
-          "$mod, s, exec, hyprshot --freeze --mode region"
-          "$mod SHIFT, s, exec, hyprshot --freeze --mode window"
-          "$mod CTRL, s, exec, hyprshot --freeze --mode output"
-          "$mod, RETURN, exec, wezterm start tmux"
-          "$mod, i, exec, zen-twilight"
-          "$mod SHIFT, i, exec, zen-twilight --private-window"
-          "$mod, d, exec, obsidian"
-          "$mod SHIFT, d, exec, drawy"
+          # (mkBind "${mod} + Tab" "overview:toggle" null null) # Hyprspace
+          (mkExecBind "${mod} + Tab" "qs ipc -c overview call overview toggle" null)
+          (mkExecBind "${mod} + SPACE" "noctalia-shell ipc call launcher toggle" null)
+          (mkExecBind "${mod} + CTRL + c" "hyprpicker --render-inactive --autocopy" null)
+          (mkExecBind "${mod} + s" "hyprshot --freeze --mode region" null)
+          (mkExecBind "${mod} + SHIFT + s" "hyprshot --freeze --mode window" null)
+          (mkExecBind "${mod} + CTRL + s" "hyprshot --freeze --mode output" null)
+          (mkExecBind "${mod} + RETURN" "wezterm start tmux" null)
+          (mkExecBind "${mod} + i" "zen-twilight" null)
+          (mkExecBind "${mod} + SHIFT + i" "zen-twilight --private-window" null)
+          (mkExecBind "${mod} + d" "obsidian" null)
+          (mkExecBind "${mod} + SHIFT + d" "drawy" null)
 
-          "$mod, v, exec, noctalia-shell ipc call launcher clipboard"
+          (mkExecBind "${mod} + v" "noctalia-shell ipc call launcher clipboard" null)
 
-          "$mod, w, exec, killall wshowkeys || wshowkeys -a bottom"
+          (mkExecBind "${mod} + w" "killall wshowkeys || wshowkeys -a bottom" null)
 
-          "$mod, Escape, exec, noctalia-shell ipc call sessionMenu toggle"
-          "$mod, grave, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+          (mkExecBind "${mod} + Escape" "noctalia-shell ipc call sessionMenu toggle" null)
+          (mkExecBind "${mod} + grave" "noctalia-shell ipc call sessionMenu lockAndSuspend" null)
 
-          "$mod, a, exec, noctalia-shell ipc call idleInhibitor toggle"
+          (mkExecBind "${mod} + a" "noctalia-shell ipc call idleInhibitor toggle" null)
 
-          "$mod, b, exec, ${scripts.toggle-bar}"
+          (mkExecBind "${mod} + b" scripts.toggle-bar null)
 
-          "$mod, XF86Reload, togglespecialworkspace, chat"
-          "$mod SHIFT, XF86Reload, movetoworkspace, special:chat"
-          "$mod, XF86AudioPlay, togglespecialworkspace, music"
-          "$mod SHIFT, XF86AudioPlay, movetoworkspace, special:music"
-          "$mod, 0, togglespecialworkspace, scratchpad"
-          "$mod SHIFT, 0, movetoworkspace, special:scratchpad"
-          "$mod, e, workspace, emptym"
-          "$mod SHIFT, e, movetoworkspace, emptym"
-          "$mod, o, workspace, previous"
+          (mkBind "${mod} + XF86Reload" "workspace.toggle_special" "chat" null)
+          (mkBind "${mod} + SHIFT + XF86Reload" "window.move" { workspace = "special:chat"; } null)
+          (mkBind "${mod} + XF86AudioPlay" "workspace.toggle_special" "music" null)
+          (mkBind "${mod} + SHIFT + XF86AudioPlay" "window.move" { workspace = "special:music"; } null)
+          (mkBind "${mod} + 0" "workspace.toggle_special" "scratchpad" null)
+          (mkBind "${mod} + SHIFT + 0" "window.move" { workspace = "special:scratchpad"; } null)
+          (mkBind "${mod} + e" "focus" { workspace = "emptym"; } null)
+          (mkBind "${mod} + SHIFT + e" "window.move" { workspace = "emptym"; } null)
+          (mkBind "${mod} + o" "focus" { workspace = "previous"; } null)
 
-          "$mod, mouse_down, workspace, m+1"
-          "$mod, mouse_up, workspace, m-1"
-          ''$mod CTRL, 0, exec, hyprctl --quiet keyword cursor:zoom_disable_aa $(echo "1 - $(hyprctl getoption cursor:zoom_disable_aa | awk '/^int.*/ {print $2}')" | ${pkgs.bc}/bin/bc)''
-          "$mod CTRL, mouse_down, exec, hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')"
-          "$mod CTRL, mouse_up, exec, hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {new = $2 * 0.9; if (new < 1) new = 1; print new}')"
+          (mkBind "${mod} + mouse_down" "focus" { workspace = "m+1"; } null)
+          (mkBind "${mod} + mouse_up" "focus" { workspace = "m-1"; } null)
+          (mkExecBind "${mod} + CTRL + 0"
+            ''hyprctl --quiet keyword cursor:zoom_disable_aa $(echo "1 - $(hyprctl getoption cursor:zoom_disable_aa | awk '/^int.*/ {print $2}')" | ${pkgs.bc}/bin/bc)''
+            null
+          )
+          (mkExecBind "${mod} + CTRL + mouse_down"
+            "hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')"
+            null
+          )
+          (mkExecBind "${mod} + CTRL + mouse_up"
+            "hyprctl --quiet keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {new = $2 * 0.9; if (new < 1) new = 1; print new}')"
+            null
+          )
 
-          "$mod, bracketleft, workspace, m-1"
-          "$mod SHIFT, bracketright, movetoworkspace, m+1"
-          "$mod SHIFT, bracketleft, movetoworkspace, m-1"
-          "$mod, bracketright, workspace, m+1"
-          "$mod, n, focusmonitor, -1"
-          "$mod, p, focusmonitor, +1"
-          "$mod SHIFT, n, movewindow, mon:-1"
-          "$mod SHIFT, p, movewindow, mon:+1"
-          "$mod ALT, n, movecurrentworkspacetomonitor, -1"
-          "$mod ALT, p, movecurrentworkspacetomonitor, +1"
+          (mkBind "${mod} + bracketleft" "focus" { workspace = "m-1"; } null)
+          (mkBind "${mod} + SHIFT + bracketright" "window.move" { workspace = "m+1"; } null)
+          (mkBind "${mod} + SHIFT + bracketleft" "window.move" { workspace = "m-1"; } null)
+          (mkBind "${mod} + bracketright" "focus" { workspace = "m+1"; } null)
+          (mkBind "${mod} + n" "focus" { monitor = "-1"; } null)
+          (mkBind "${mod} + p" "focus" { monitor = "+1"; } null)
+          (mkBind "${mod} + SHIFT + n" "window.move" { monitor = "-1"; } null)
+          (mkBind "${mod} + SHIFT + p" "window.move" { monitor = "+1"; } null)
+          (mkBind "${mod} + ALT + n" "workspace.move" { monitor = "-1"; } null)
+          (mkBind "${mod} + ALT + p" "workspace.move" { monitor = "+1"; } null)
         ]
         ++ (builtins.concatLists (
           builtins.genList (
             i:
             let
-              num = i + 1;
+              num = toString (i + 1);
             in
             [
-              "$mod, ${toString num}, workspace, ${toString num}"
-              "$mod SHIFT, ${toString num}, movetoworkspace, ${toString num}"
+              (mkBind "${mod} + ${num}" "focus" { workspace = num; } null)
+              (mkBind "${mod} + SHIFT + ${num}" "window.move" { workspace = num; } null)
             ]
           ) 9
         ))
-        ++ (builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              num = i + 1;
-            in
-            [ "$mod CTRL, ${toString num}, exec, hyprctl keyword cursor:zoom_factor ${toString num}" ]
-          ) 9
-        ));
-        binde = [
-          "$mod, semicolon, exec, noctalia-shell ipc call notifications dismissOldest"
-          "$mod SHIFT, semicolon, exec, noctalia-shell ipc call notifications dismissAll"
-          "$mod CTRL, semicolon, exec, noctalia-shell ipc call notifications toggleHistory"
-          "$mod ALT, semicolon, exec, noctalia-shell ipc call notifications toggleDND"
+        ++ (builtins.genList (
+          i:
+          let
+            num = toString (i + 1);
+          in
+          mkExecBind "${mod} + CTRL + ${num}" "hyprctl keyword cursor:zoom_factor ${num}" null
+        ) 9)
+        ++ [
+          (mkExecBind "${mod} + semicolon" "noctalia-shell ipc call notifications dismissOldest" {
+            repeating = true;
+          })
+          (mkExecBind "${mod} + SHIFT + semicolon" "noctalia-shell ipc call notifications dismissAll" {
+            repeating = true;
+          })
+          (mkExecBind "${mod} + CTRL + semicolon" "noctalia-shell ipc call notifications toggleHistory" {
+            repeating = true;
+          })
+          (mkExecBind "${mod} + ALT + semicolon" "noctalia-shell ipc call notifications toggleDND" {
+            repeating = true;
+          })
 
-          "$mod, h, movefocus, l"
-          "$mod, j, movefocus, d"
-          "$mod, k, movefocus, u"
-          "$mod, l, movefocus, r"
-          "$mod SHIFT, h, swapwindow, l"
-          "$mod SHIFT, j, swapwindow, d"
-          "$mod SHIFT, k, swapwindow, u"
-          "$mod SHIFT, l, swapwindow, r"
-          "$mod CTRL, h, movewindow, l"
-          "$mod CTRL, j, movewindow, d"
-          "$mod CTRL, k, movewindow, u"
-          "$mod CTRL, l, movewindow, r"
-          "$mod ALT, h, resizeactive, -10 0"
-          "$mod ALT, j, resizeactive, 0 10"
-          "$mod ALT, k, resizeactive, 0 -10"
-          "$mod ALT, l, resizeactive, 10 0"
-          "$mod ALT SHIFT, h, resizeactive, -1 0"
-          "$mod ALT SHIFT, j, resizeactive, 0 1"
-          "$mod ALT SHIFT, k, resizeactive, 0 -1"
-          "$mod ALT SHIFT, l, resizeactive, 1 0"
+          (mkBind "${mod} + h" "focus" { direction = "l"; } { repeating = true; })
+          (mkBind "${mod} + j" "focus" { direction = "d"; } { repeating = true; })
+          (mkBind "${mod} + k" "focus" { direction = "u"; } { repeating = true; })
+          (mkBind "${mod} + l" "focus" { direction = "r"; } { repeating = true; })
+          (mkBind "${mod} + SHIFT + h" "window.swap" { direction = "l"; } { repeating = true; })
+          (mkBind "${mod} + SHIFT + j" "window.swap" { direction = "d"; } { repeating = true; })
+          (mkBind "${mod} + SHIFT + k" "window.swap" { direction = "u"; } { repeating = true; })
+          (mkBind "${mod} + SHIFT + l" "window.swap" { direction = "r"; } { repeating = true; })
+          (mkBind "${mod} + CTRL + h" "window.move" { direction = "l"; } { repeating = true; })
+          (mkBind "${mod} + CTRL + j" "window.move" { direction = "d"; } { repeating = true; })
+          (mkBind "${mod} + CTRL + k" "window.move" { direction = "u"; } { repeating = true; })
+          (mkBind "${mod} + CTRL + l" "window.move" { direction = "r"; } { repeating = true; })
+          (mkBind "${mod} + ALT + h" "window.resize" {
+            x = -10;
+            y = 0;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + j" "window.resize" {
+            x = 0;
+            y = 10;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + k" "window.resize" {
+            x = 0;
+            y = -10;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + l" "window.resize" {
+            x = 10;
+            y = 0;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + SHIFT + h" "window.resize" {
+            x = -1;
+            y = 0;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + SHIFT + j" "window.resize" {
+            x = 0;
+            y = 1;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + SHIFT + k" "window.resize" {
+            x = 0;
+            y = -1;
+            relative = true;
+          } { repeating = true; })
+          (mkBind "${mod} + ALT + SHIFT + l" "window.resize" {
+            x = 1;
+            y = 0;
+            relative = true;
+          } { repeating = true; })
 
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-          "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
-          "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
+          (mkExecBind "XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+" {
+            repeating = true;
+          })
+          (mkExecBind "XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-" {
+            repeating = true;
+          })
+          (mkExecBind "SHIFT + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+" {
+            repeating = true;
+          })
+          (mkExecBind "SHIFT + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-" {
+            repeating = true;
+          })
 
-          "CTRL, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
-          "CTRL, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
-          "CTRL SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+"
-          "CTRL SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-"
-          "ALT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"
-          "ALT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%"
+          (mkExecBind "CTRL + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+" {
+            repeating = true;
+          })
+          (mkExecBind "CTRL + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-" {
+            repeating = true;
+          })
+          (mkExecBind "CTRL + SHIFT + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+" {
+            repeating = true;
+          })
+          (mkExecBind "CTRL + SHIFT + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-" {
+            repeating = true;
+          })
+          (mkExecBind "ALT + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%" {
+            repeating = true;
+          })
+          (mkExecBind "ALT + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%" {
+            repeating = true;
+          })
+
+          (mkExecBind "XF86Reload" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" {
+            locked = true;
+            release = true;
+          })
+
+          (mkExecBind "CTRL + XF86Reload" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" { locked = true; })
+          (mkExecBind "XF86Reload" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" { locked = true; })
+          (mkExecBind "XF86AudioMute" "wpctl set-mute @DEFAULT_SINK@ toggle" { locked = true; })
+
+          (mkExecBind "XF86AudioPlay" "${pkgs.playerctl}/bin/playerctl play-pause" { locked = true; })
+          (mkExecBind "XF86AudioPrev" "${pkgs.playerctl}/bin/playerctl previous" { locked = true; })
+          (mkExecBind "XF86AudioNext" "${pkgs.playerctl}/bin/playerctl next" { locked = true; })
+
+          (mkExecBind "XF86MonBrightnessUp" ''${shared.scripts.set_brightness} "+ 1"'' {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "XF86MonBrightnessDown" ''${shared.scripts.set_brightness} "- 1"'' {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "SHIFT + XF86MonBrightnessUp" ''${shared.scripts.set_brightness} "+ 10"'' {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "SHIFT + XF86MonBrightnessDown" ''${shared.scripts.set_brightness} "- 10"'' {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "CTRL + XF86MonBrightnessUp" ''${shared.scripts.set_brightness} "100"'' {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "CTRL + XF86MonBrightnessDown" ''${shared.scripts.set_brightness} "0"'' {
+            locked = true;
+            repeating = true;
+          })
+
+          (mkBind "${mod} + mouse:272" "window.drag" null { mouse = true; })
+          (mkBind "${mod} + mouse:273" "window.resize" null { mouse = true; })
         ];
-        bindlr = [ ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" ];
-        bindl = [
-          "CTRL, XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-          ", XF86Reload, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
 
-          ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-          ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
-          ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
-        ];
-        bindle = [
-          '', XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 1"''
-          '', XF86MonBrightnessDown, exec, ${shared.scripts.set_brightness} "- 1"''
-          ''SHIFT, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "+ 10"''
-          ''SHIFT, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "- 10"''
-          ''CTRL, XF86MonBrightnessUp, exec, ${shared.scripts.set_brightness} "100"''
-          ''CTRL, XF86MonBrightnessDown, exec,  ${shared.scripts.set_brightness} "0"''
-        ];
-        bindm = [
-          "$mod, mouse:272, movewindow"
-          "$mod, mouse:273, resizewindow"
-        ];
-        binds = {
-          scroll_event_delay = 0;
-          hide_special_on_workspace_change = true;
-        };
-        input = {
-          kb_layout = "us,il";
-          kb_options = "grp:alt_space_toggle";
-        };
-        general = {
-          gaps_in = gaps;
-          gaps_out = gaps;
-          border_size = 1;
+        config = {
+          binds = {
+            scroll_event_delay = 0;
+            hide_special_on_workspace_change = true;
+          };
+          input = {
+            kb_layout = "us,il";
+            kb_options = "grp:alt_space_toggle";
+          };
+          general = {
+            gaps_in = gaps;
+            gaps_out = gaps;
+            border_size = 1;
 
-          allow_tearing = false;
+            allow_tearing = false;
 
-          resize_on_border = true;
+            resize_on_border = true;
 
-          snap.enabled = true;
+            snap.enabled = true;
 
-          "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base05}7f)";
-          "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
-        };
-        cursor = {
-          hide_on_key_press = true;
-          zoom_disable_aa = true;
-          no_hardware_cursors = 0; # fix double cursor
-        };
-        ecosystem = {
-          no_update_news = true;
-          no_donation_nag = true;
-          enforce_permissions = false;
-        };
-        permission = [
-          "${pkgs.hyprlock}/bin/hyprlock, screencopy, allow"
-          "${pkgs.grim}/bin/grim, screencopy, allow"
-        ];
-        decoration = {
-          inherit rounding;
-          shadow = {
+            "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base05}7f)";
+            "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
+          };
+          cursor = {
+            hide_on_key_press = true;
+            zoom_disable_aa = true;
+            no_hardware_cursors = 0; # fix double cursor
+          };
+          ecosystem = {
+            no_update_news = true;
+            no_donation_nag = true;
+            enforce_permissions = false;
+          };
+          decoration = {
+            inherit rounding;
+            shadow = {
+              enabled = true;
+              range = 20;
+            };
+          };
+          dwindle.preserve_split = true;
+          misc = {
+            force_default_wallpaper = 1;
+            disable_hyprland_logo = true;
+            disable_splash_rendering = true;
+          };
+          plugin."dynamic-cursors" = {
             enabled = true;
-            range = 20;
+            mode = "stretch";
           };
         };
-        dwindle = {
-          preserve_split = true;
+
+        permission = [
+          {
+            binary = "${pkgs.hyprlock}/bin/hyprlock";
+            type = "screencopy";
+            mode = "allow";
+          }
+          {
+            binary = "${pkgs.grim}/bin/grim";
+            type = "screencopy";
+            mode = "allow";
+          }
+        ];
+
+        curve = [
+          {
+            _args = [
+              "wind"
+              {
+                type = "bezier";
+                points = [
+                  [
+                    0.05
+                    0.9
+                  ]
+                  [
+                    0.1
+                    1.05
+                  ]
+                ];
+              }
+            ];
+          }
+          {
+            _args = [
+              "winIn"
+              {
+                type = "bezier";
+                points = [
+                  [
+                    0.1
+                    1.1
+                  ]
+                  [
+                    0.1
+                    1.1
+                  ]
+                ];
+              }
+            ];
+          }
+          {
+            _args = [
+              "winOut"
+              {
+                type = "bezier";
+                points = [
+                  [
+                    0.3
+                    (-0.3)
+                  ]
+                  [
+                    0
+                    1
+                  ]
+                ];
+              }
+            ];
+          }
+          {
+            _args = [
+              "linear"
+              {
+                type = "bezier";
+                points = [
+                  [
+                    1
+                    1
+                  ]
+                  [
+                    1
+                    1
+                  ]
+                ];
+              }
+            ];
+          }
+        ];
+        animation = [
+          {
+            leaf = "windows";
+            enabled = true;
+            speed = 6;
+            bezier = "wind";
+            style = "slide";
+          }
+          {
+            leaf = "windowsIn";
+            enabled = true;
+            speed = 6;
+            bezier = "winIn";
+            style = "slide";
+          }
+          {
+            leaf = "windowsOut";
+            enabled = true;
+            speed = 6;
+            bezier = "winOut";
+            style = "slide";
+          }
+          {
+            leaf = "windowsMove";
+            enabled = true;
+            speed = 6;
+            bezier = "wind";
+            style = "slide";
+          }
+          {
+            leaf = "fade";
+            enabled = true;
+            speed = 5;
+            bezier = "linear";
+          }
+          {
+            leaf = "fadeIn";
+            enabled = true;
+            speed = 1;
+            bezier = "linear";
+          }
+          {
+            leaf = "fadeOut";
+            enabled = true;
+            speed = 10;
+            bezier = "linear";
+          }
+          {
+            leaf = "workspaces";
+            enabled = true;
+            speed = 5;
+            bezier = "wind";
+          }
+          {
+            leaf = "specialWorkspace";
+            enabled = true;
+            speed = 5;
+            bezier = "wind";
+            style = "slidevert";
+          }
+          {
+            leaf = "fadeSwitch";
+            enabled = true;
+            speed = 2;
+            bezier = "linear";
+          }
+        ];
+
+        layer_rule = {
+          match.namespace = "quickshell";
+          no_anim = true;
         };
-        animations = {
-          bezier = [
-            "wind, 0.05, 0.9, 0.1, 1.05"
-            "winIn, 0.1, 1.1, 0.1, 1.1"
-            "winOut, 0.3, -0.3, 0, 1"
-            "linear, 1, 1, 1, 1"
-          ];
-          animation = [
-            "windows, 1, 6, wind, slide"
-            "windowsIn, 1, 6, winIn, slide"
-            "windowsOut, 1, 6, winOut, slide"
-            "windowsMove, 1, 6, wind, slide"
-            "fade, 1, 5, linear"
-            "fadeIn, 1, 1, linear"
-            "fadeOut, 1, 10, linear"
-            "workspaces, 1, 5, wind"
-            "specialWorkspace, 1, 5, wind, slidevert"
-            "fadeSwitch, 1, 2, linear"
-          ];
-        };
-        misc = {
-          force_default_wallpaper = 1;
-          disable_hyprland_logo = true;
-          disable_splash_rendering = true;
-        };
-        layerrule = [ "match:namespace quickshell, no_anim on" ];
-        windowrule = [
+        window_rule = [
           # open aseprite in tiled mode by default
-          "match:class Aseprite, tile true"
+          {
+            match.class = "Aseprite";
+            tile = true;
+          }
 
           # move specific apps to their special workspaces
-          "match:initial_class (?i)^(spotify)$, workspace special:music silent"
-          "match:initial_class (?i)^(discord|vesktop|altus|slack)$, workspace special:chat silent"
+          {
+            match.initial_class = "(?i)^(spotify)$";
+            workspace = "special:music silent";
+          }
+          {
+            match.initial_class = "(?i)^(discord|vesktop|altus|slack)$";
+            workspace = "special:chat silent";
+          }
 
           # floating window appearance
-          "match:float true, no_shadow off"
+          {
+            match.float = true;
+            no_shadow = false;
+          }
 
           # special workspace appearance
-          "match:workspace s[true], opacity 0.95 0.8"
-          "match:workspace s[true], rounding 20"
+          {
+            match.workspace = "s[true]";
+            opacity = "0.95 0.8";
+            rounding = 20;
+          }
         ];
-        workspace = [
-          # no borders when there's only a single visible window
-          "w[v1], rounding:false, border:false"
-
-          # no borders when there's only a single visible window
-          "w[v1], gapsout:0, gapsin:0"
-          "f[1], gapsout:0, gapsin:0"
+        workspace_rule = [
+          # no borders/gaps when there's only a single visible window
+          {
+            workspace = "w[v1]";
+            no_rounding = true;
+            no_border = true;
+            gaps_out = 0;
+            gaps_in = 0;
+          }
+          {
+            workspace = "f[1]";
+            gaps_out = 0;
+            gaps_in = 0;
+          }
 
           # special workspace appearance
-          "s[true], gapsin:15, gapsout:20"
-          "s[true], bordersize:0"
-          "s[true], rounding:true, border:false"
-          "s[true], shadow:true"
-          "s[false], shadow:false"
+          {
+            workspace = "s[true]";
+            gaps_in = 15;
+            gaps_out = 20;
+            border_size = 0;
+            no_border = true;
+            no_shadow = false;
+          }
+          {
+            workspace = "s[false]";
+            no_shadow = true;
+          }
         ]
         ++ (
           (
             monitor_portnames: workspace_numbers:
-            lib.lists.imap0 (
-              i: key:
-              "${toString key}, monitor:${
-                lib.lists.elemAt monitor_portnames (
-                  i * lib.lists.length monitor_portnames / lib.lists.length workspace_numbers
-                )
-              }"
-            ) workspace_numbers
+            lib.lists.imap0 (i: key: {
+              workspace = toString key;
+              monitor = lib.lists.elemAt monitor_portnames (
+                i * lib.lists.length monitor_portnames / lib.lists.length workspace_numbers
+              );
+            }) workspace_numbers
           )
           sorted_monitors
           (lib.range 1 9)
         );
+
         device = {
           name = "wacom-one-by-wacom-s-pen";
           output = builtins.elemAt sorted_monitors (builtins.length sorted_monitors / 2);
           left_handed = true;
         };
-        exec-once = [
+
+        exec_cmd = [
           "zen-twilight"
-          "[workspace special:music silent] spotify"
-          "[workspace special:chat silent] discord"
-          "[workspace special:chat silent] altus"
-          "[workspace special:chat silent] slack"
+          "spotify"
+          "discord"
+          "altus"
+          "slack"
           "wl-paste --watch cliphist store"
           "${scripts.notification-log} $HOME/Documents/logs/notifications.txt"
           "${pkgs.playerctl}/bin/playerctld"
@@ -340,16 +620,11 @@ in
           "noctalia-shell"
           "qs -c overview"
         ];
-        plugin.dynamic-cursors = {
-          enabled = true;
-          mode = "stretch";
-        };
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
         # inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
       ];
-      configType = "hyprlang";
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
 }
