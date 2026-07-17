@@ -8,7 +8,7 @@
   ...
 }:
 let
-  gaps = "5";
+  gaps = 5;
   rounding = 10;
   scripts = import ./scripts.nix { inherit pkgs; };
   sorted_monitors = builtins.sort (
@@ -137,7 +137,7 @@ in
                 hl.exec_cmd("noctalia-shell ipc call bar setDisplayMode always_visible " .. screen)
               end
               hl.config({
-                general = { border_size = 1, gaps_in = ${gaps}, gaps_out = ${gaps} },
+                general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
                 decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
               })
             end
