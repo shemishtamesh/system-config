@@ -96,9 +96,6 @@ in
       }
       {
         plugin = tmux-agent-sidebar;
-        extraConfig = /* tmux */ ''
-          set -g @agent-sidebar-toggle-key "a"
-        '';
       }
     ];
     extraConfig =
