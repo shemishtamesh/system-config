@@ -39,6 +39,19 @@ let
 
     rm ${sesh_fzf_recycle_flag} || true
   '';
+  tmux-agent-sidebar = (
+    pkgs.tmuxPlugins.mkTmuxPlugin {
+      pluginName = "tmux-agent-sidebar";
+      version = "v0.13.0";
+      src = pkgs.fetchFromGitHub {
+        owner = "hiroppy";
+        repo = "tmux-agent-sidebar";
+        rev = "v0.13.0";
+        hash = "sha256-NiqLgMvWbSW3M80ZUWdmmm2VkVqy8eTGcPkrOCsaasI=";
+      };
+      rtpFilePath = "tmux-agent-sidebar.tmux";
+    }
+  );
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
@@ -94,19 +107,7 @@ in
         '';
       }
       {
-        plugin = (
-          mkTmuxPlugin {
-            pluginName = "tmux-agent-sidebar";
-            version = "v0.13.0";
-            src = pkgs.fetchFromGitHub {
-              owner = "hiroppy";
-              repo = "tmux-agent-sidebar";
-              rev = "v0.13.0";
-              hash = "sha256-NiqLgMvWbSW3M80ZUWdmmm2VkVqy8eTGcPkrOCsaasI=";
-            };
-            rtpFilePath = "tmux-agent-sidebar.tmux";
-          }
-        );
+        plugin = tmux-agent-sidebar;
         extraConfig = /* tmux */ ''
           set -g @agent-sidebar-toggle-key "a"
         '';
@@ -225,4 +226,6 @@ in
       startup_script = "git pull"
       path = "~/.config/system-secrets"
     '';
+  xdg.configFile."opencode/plugins/tmux-agent-sidebar.js".source =
+    lib.mkIf config.programs.opencode.enable "${tmux-agent-sidebar}/.opencode/plugins/tmux-agent-sidebar.js";
 }
