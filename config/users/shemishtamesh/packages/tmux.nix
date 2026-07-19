@@ -89,8 +89,27 @@ in
       }
       {
         plugin = continuum;
-        extraConfig = # tmux
-          "set -g @continuum-restore 'on'";
+        extraConfig = /* tmux */ ''
+          set -g @continuum-restore 'on'
+        '';
+      }
+      {
+        plugin = (
+          mkTmuxPlugin {
+            pluginName = "tmux-agent-sidebar";
+            version = "v0.13.0";
+            src = pkgs.fetchFromGitHub {
+              owner = "hiroppy";
+              repo = "tmux-agent-sidebar";
+              rev = "v0.13.0";
+              hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+            };
+            rtpFilePath = "tmux-agent-sidebar.tmux";
+          }
+        );
+        extraConfig = /* tmux */ ''
+          set -g @agent-sidebar-toggle-key "a"
+        '';
       }
     ];
     extraConfig =
@@ -137,7 +156,7 @@ in
         bind -r L resize-pane -R
 
         # add/switch/kill sessions
-        bind-key "a" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
+        bind-key "F" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
         bind-key "C-c" display-popup -E 'echo "project to clone:" && ${sesh} clone --cmdDir "$HOME/projects" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "C-S-x" kill-session
@@ -153,7 +172,7 @@ in
 
         # status line
         set -g status off
-        bind -r F set-option status
+        bind -r b set-option status
         set -g status-interval 1
         set -g status-left ""
         set -g status-right ""
