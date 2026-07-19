@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-NiqLgMvWbSW3M80ZUWdmmm2VkVqy8eTGcPkrOCsaasI=";
   };
 
-  cargoHash = "";
+  cargoHash = "sha256-mOEs2J1o9VeVOXY55r8O52TqoM2GuYU3tVoh5h+yH0s=";
 
   postInstall = ''
     pluginDir="$out/share/tmux-plugins/tmux-agent-sidebar"
