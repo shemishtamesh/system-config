@@ -19,7 +19,7 @@ let
     ./bat.nix
     ./btop.nix
     ./direnv.nix
-    ./tmux.nix
+    ./tmux
     # ./tattoy.nix
     ./nixvim.nix
     ./nix-index.nix
