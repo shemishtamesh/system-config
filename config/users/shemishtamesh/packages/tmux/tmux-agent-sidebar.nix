@@ -36,8 +36,7 @@ rustPlatform.buildRustPackage rec {
       "$pluginDir/bin/tmux-agent-sidebar"
   '';
 
-  passthru.rtp =
-    "${placeholder "out"}/share/tmux-plugins/tmux-agent-sidebar/tmux-agent-sidebar.tmux";
+  passthru.rtp = "${placeholder "out"}/share/tmux-plugins/tmux-agent-sidebar/tmux-agent-sidebar.tmux";
 
   meta = {
     description = "Tmux sidebar for monitoring coding agents";
