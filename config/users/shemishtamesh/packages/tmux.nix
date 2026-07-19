@@ -102,7 +102,7 @@ in
               owner = "hiroppy";
               repo = "tmux-agent-sidebar";
               rev = "v0.13.0";
-              hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+              hash = "sha256-NiqLgMvWbSW3M80ZUWdmmm2VkVqy8eTGcPkrOCsaasI=";
             };
             rtpFilePath = "tmux-agent-sidebar.tmux";
           }
