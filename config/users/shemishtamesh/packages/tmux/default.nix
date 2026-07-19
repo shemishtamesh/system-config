@@ -212,5 +212,5 @@ in
       path = "~/.config/system-secrets"
     '';
   xdg.configFile."opencode/plugins/tmux-agent-sidebar.js".source =
-    lib.mkIf config.programs.opencode.enable "${tmux-agent-sidebar}/.opencode/plugins/tmux-agent-sidebar.js";
+    lib.mkIf config.programs.opencode.enable "${tmux-agent-sidebar}/share/tmux-plugins/tmux-agent-sidebar/.opencode/plugins/tmux-agent-sidebar.js";
 }
