@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     owner = "hiroppy";
     repo = "tmux-agent-sidebar";
     rev = "v${version}";
-    hash = "";
+    hash = "sha256-NiqLgMvWbSW3M80ZUWdmmm2VkVqy8eTGcPkrOCsaasI=";
   };
 
   cargoHash = "";
