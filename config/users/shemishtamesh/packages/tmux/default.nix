@@ -211,6 +211,11 @@ in
       startup_script = "git pull"
       path = "~/.config/system-secrets"
     '';
+
+  # tmux-agent-sidebar integrations
   xdg.configFile."opencode/plugins/tmux-agent-sidebar.js".source =
     lib.mkIf config.programs.opencode.enable "${tmux-agent-sidebar}/share/tmux-plugins/tmux-agent-sidebar/.opencode/plugins/tmux-agent-sidebar.js";
+  programs.claude-code.plugins = lib.mkIf config.programs.claude-code.enable [
+    "${tmux-agent-sidebar}/share/tmux-plugins/tmux-agent-sidebar"
+  ];
 }
