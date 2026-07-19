@@ -2,46 +2,48 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  pkg-config,
 }:
 
 rustPlatform.buildRustPackage rec {
-  pname = "tmux-agent-sidebar";
-  version = "0.13.0";
+  pname = "tmuxplugin-agent-sidebar";
+  version = "...";
 
   src = fetchFromGitHub {
     owner = "hiroppy";
     repo = "tmux-agent-sidebar";
     rev = "v${version}";
-    hash = lib.fakeHash;
+    hash = "...";
   };
 
-  cargoHash = lib.fakeHash;
-
-  nativeBuildInputs = [
-    pkg-config
-  ];
+  cargoHash = "...";
 
   postInstall = ''
     pluginDir="$out/share/tmux-plugins/tmux-agent-sidebar"
 
     mkdir -p "$pluginDir/bin"
 
-    cp -r . "$pluginDir"
+    cp -r \
+      agent-sidebar.conf \
+      tmux-agent-sidebar.tmux \
+      hook.sh \
+      Cargo.toml \
+      .claude-plugin \
+      .opencode \
+      "$pluginDir/"
 
-    ln -s "$out/bin/tmux-agent-sidebar" \
+    ln -s \
+      "$out/bin/tmux-agent-sidebar" \
       "$pluginDir/bin/tmux-agent-sidebar"
-
-    chmod +x \
-      "$pluginDir/tmux-agent-sidebar.tmux" \
-      "$pluginDir/hook.sh"
   '';
 
+  passthru.rtp =
+    "${placeholder "out"}/share/tmux-plugins/tmux-agent-sidebar/tmux-agent-sidebar.tmux";
+
   meta = {
-    description = "Tmux sidebar for monitoring AI coding agents";
+    description = "Tmux sidebar for monitoring coding agents";
     homepage = "https://github.com/hiroppy/tmux-agent-sidebar";
     license = lib.licenses.mit;
-    mainProgram = "tmux-agent-sidebar";
     platforms = lib.platforms.unix;
+    mainProgram = "tmux-agent-sidebar";
   };
 }
