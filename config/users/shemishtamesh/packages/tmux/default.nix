@@ -39,7 +39,7 @@ let
 
     rm ${sesh_fzf_recycle_flag} || true
   '';
-  tmux-agent-sidebar =  pkgs.callPackage ./tmux-agent-sidebar.nix { };
+  tmux-agent-sidebar = pkgs.callPackage ./tmux-agent-sidebar.nix { };
   palette = config.lib.stylix.colors.withHashtag;
 in
 {
