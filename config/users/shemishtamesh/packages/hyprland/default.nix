@@ -587,7 +587,7 @@ in
           # special workspace appearance
           {
             match.workspace = "s[true]";
-            opacity = "0.95 0.8";
+            opacity = "1.0 0.9";
             rounding = 20;
           }
         ];
