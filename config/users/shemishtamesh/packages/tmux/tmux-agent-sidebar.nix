@@ -35,6 +35,7 @@ let
         agent-sidebar.conf \
         tmux-agent-sidebar.tmux \
         hook.sh \
+        hooks \
         Cargo.toml \
         .claude-plugin \
         .opencode \
