@@ -17,6 +17,14 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-mOEs2J1o9VeVOXY55r8O52TqoM2GuYU3tVoh5h+yH0s=";
 
+  cargoTestFlags = [
+    "--"
+    "--skip"
+    "group::tests::resolve_git_info_for_real_repo"
+    "--skip"
+    "group::tests::worktree_and_main_share_same_repo_root"
+  ];
+
   postInstall = ''
     pluginDir="$out/share/tmux-plugins/tmux-agent-sidebar"
 
