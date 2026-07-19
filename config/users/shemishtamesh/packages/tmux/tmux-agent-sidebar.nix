@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tmuxplugin-agent-sidebar";
-  version = "...";
+  version = "0.13.0";
 
   src = fetchFromGitHub {
     owner = "hiroppy";
     repo = "tmux-agent-sidebar";
     rev = "v${version}";
-    hash = "...";
+    hash = "";
   };
 
-  cargoHash = "...";
+  cargoHash = "";
 
   postInstall = ''
     pluginDir="$out/share/tmux-plugins/tmux-agent-sidebar"
