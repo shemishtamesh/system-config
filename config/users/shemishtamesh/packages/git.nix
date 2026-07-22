@@ -85,6 +85,7 @@
       ignores = [
         ".venv"
         ".envrc"
+        ".claude"
       ];
       hooks.pre-commit =
         pkgs.writeScript "pre-commit-script" # sh
