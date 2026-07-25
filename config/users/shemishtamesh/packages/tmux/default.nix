@@ -96,6 +96,10 @@ in
       }
       {
         plugin = tmux-agent-sidebar;
+        extraConfig = # tmux
+          ''
+            set -g @sidebar_auto_create off
+          '';
       }
     ];
     extraConfig =
