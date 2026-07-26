@@ -99,6 +99,8 @@ in
         extraConfig = # tmux
           ''
             set -g @sidebar_auto_create off
+            set -g @sidebar_key a
+            set -g @sidebar_key_all A
           '';
       }
     ];
@@ -144,6 +146,9 @@ in
         bind -r J resize-pane -D
         bind -r K resize-pane -U
         bind -r L resize-pane -R
+
+        # equalize panes
+        bind e select-layout -E
 
         # add/switch/kill sessions
         bind-key "F" run-shell "${sesh_switch}/bin/sesh_switch_fzf_tmux"
