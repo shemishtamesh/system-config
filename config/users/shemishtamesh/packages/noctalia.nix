@@ -39,7 +39,7 @@
             { id = "Clock"; }
             { id = "SystemMonitor"; }
             {
-              id = "WiFi";
+              id = "Network";
               displayMode = "alwaysShow";
             }
             {
