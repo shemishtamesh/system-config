@@ -96,8 +96,9 @@ in
           (mkBind "${mod} + f" "window.fullscreen" { mode = "maximized"; } null)
           (mkBind "${mod} + SHIFT + f" "window.fullscreen" { mode = "fullscreen"; } null)
           (mkBind "${mod} + CTRL + f" "window.fullscreen_state" {
-            internal = -1;
+            internal = 0;
             client = 2;
+            action = "toggle";
           } null)
           (mkBind "${mod} + t" "window.float" { action = "toggle"; } null)
 
