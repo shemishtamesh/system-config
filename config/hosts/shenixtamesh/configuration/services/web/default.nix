@@ -9,7 +9,13 @@
   services = {
     ollama = {
       enable = true;
-      package = pkgs.ollama-cuda;
+      package = pkgs.ollama-cuda.overrideAttrs (old: {
+        # TODO: remove override when https://github.com/NixOS/nixpkgs/issues/545286
+        preBuild = ''
+          unset CUDAToolkit_ROOT
+        ''
+        + old.preBuild;
+      });
       openFirewall = true;
       environmentVariables = {
         OLLAMA_HOST = "0.0.0.0";
