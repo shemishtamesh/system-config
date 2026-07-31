@@ -49,7 +49,11 @@ in
             "network"
             "group:g1"
           ];
-          dead_zone.actions.middle = "settings-toggle";
+          dead_zone.actions = {
+            middle = "settings-toggle";
+            scroll_down = "workspace-switch next";
+            scroll_up = "workspace-switch prev";
+          };
           capsule_group = [
             {
               id = "g1";
@@ -266,7 +270,7 @@ in
             display = "name";
             empty_color = "on_surface";
             hide_when_empty = true;
-            style = "focus_hint";
+            style = "regular";
           };
         };
     };
