@@ -105,8 +105,8 @@ in
           (mkBind "${mod} + CTRL + r" "layout" "swapsplit" null)
           (mkBind "${mod} + SHIFT + r" "layout" "movetoroot" null)
 
-          # (mkBind "${mod} + Tab" "overview:toggle" null null) # Hyprspace
-          (mkExecBind "${mod} + Tab" "qs ipc -c overview call overview toggle" null)
+          (mkExecBind "${mod} + Tab" "noctalia msg window-switcher" null)
+          (mkExecBind "${mod} + CTRL + Tab" "qs ipc -c overview call overview toggle" null)
           (mkExecBind "${mod} + SPACE" "noctalia msg panel-toggle launcher" null)
           (mkExecBind "${mod} + CTRL + c" "hyprpicker --render-inactive --autocopy" null)
           (mkExecBind "${mod} + s" "noctalia msg screenshot-region" null)

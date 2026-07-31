@@ -29,7 +29,7 @@ in
         main = {
           background_opacity = config.stylix.opacity.desktop;
           capsule = true;
-          center = [ "workspaces" ];
+          center = [ "taskbar" ];
           end = [
             "privacy"
             "tray"
@@ -271,6 +271,11 @@ in
           privacy.hide_inactive = true;
           session.enabled = false;
           settings.enabled = false;
+          taskbar = {
+            empty_color = "tertiary";
+            group_by_workspace = true;
+            group_single_icon_per_app = true;
+          };
           weather.enabled = false;
           workspaces = {
             display = "name";
