@@ -272,72 +272,72 @@ in
             relative = true;
           } { repeating = true; })
 
-          (mkExecBind "XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+" {
+          (mkExecBind "XF86AudioRaiseVolume" "noctalia msg volume-up 1%" {
             repeating = true;
           })
-          (mkExecBind "XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-" {
+          (mkExecBind "XF86AudioLowerVolume" "noctalia msg volume-down 1%" {
             repeating = true;
           })
-          (mkExecBind "SHIFT + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+" {
+          (mkExecBind "SHIFT + XF86AudioRaiseVolume" "noctalia msg volume-up 10%" {
             repeating = true;
           })
-          (mkExecBind "SHIFT + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-" {
-            repeating = true;
-          })
-
-          (mkExecBind "CTRL + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+" {
-            repeating = true;
-          })
-          (mkExecBind "CTRL + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-" {
-            repeating = true;
-          })
-          (mkExecBind "CTRL + SHIFT + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%+" {
-            repeating = true;
-          })
-          (mkExecBind "CTRL + SHIFT + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-" {
-            repeating = true;
-          })
-          (mkExecBind "ALT + XF86AudioRaiseVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%" {
-            repeating = true;
-          })
-          (mkExecBind "ALT + XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%" {
+          (mkExecBind "SHIFT + XF86AudioLowerVolume" "noctalia msg volume-down 10%" {
             repeating = true;
           })
 
-          (mkExecBind "XF86Reload" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" {
+          (mkExecBind "CTRL + XF86AudioRaiseVolume" "noctalia msg mic-volume-up 1%" {
+            repeating = true;
+          })
+          (mkExecBind "CTRL + XF86AudioLowerVolume" "noctalia msg mic-volume-down 1%" {
+            repeating = true;
+          })
+          (mkExecBind "CTRL + SHIFT + XF86AudioRaiseVolume" "noctalia msg mic-volume-up 10%" {
+            repeating = true;
+          })
+          (mkExecBind "CTRL + SHIFT + XF86AudioLowerVolume" "noctalia msg mic-volume-down 10%" {
+            repeating = true;
+          })
+          (mkExecBind "ALT + XF86AudioRaiseVolume" "noctalia msg mic-volume-set 100%" {
+            repeating = true;
+          })
+          (mkExecBind "ALT + XF86AudioLowerVolume" "noctalia msg mic-volume-set 30%" {
+            repeating = true;
+          })
+
+          (mkExecBind "XF86Reload" "noctalia msg mic-mute" {
             locked = true;
             release = true;
           })
 
-          (mkExecBind "CTRL + XF86Reload" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" { locked = true; })
-          (mkExecBind "XF86Reload" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" { locked = true; })
-          (mkExecBind "XF86AudioMute" "wpctl set-mute @DEFAULT_SINK@ toggle" { locked = true; })
+          (mkExecBind "CTRL + XF86Reload" "noctalia msg mic-mute" { locked = true; })
+          (mkExecBind "XF86Reload" "noctalia msg mic-mute" { locked = true; })
+          (mkExecBind "XF86AudioMute" "noctalia msg volume-mute" { locked = true; })
 
-          (mkExecBind "XF86AudioPlay" "${pkgs.playerctl}/bin/playerctl play-pause" { locked = true; })
-          (mkExecBind "XF86AudioPrev" "${pkgs.playerctl}/bin/playerctl previous" { locked = true; })
-          (mkExecBind "XF86AudioNext" "${pkgs.playerctl}/bin/playerctl next" { locked = true; })
+          (mkExecBind "XF86AudioPlay" "noctalia msg media toggle" { locked = true; })
+          (mkExecBind "XF86AudioPrev" "noctalia msg media previous" { locked = true; })
+          (mkExecBind "XF86AudioNext" "noctalia msg media next" { locked = true; })
 
-          (mkExecBind "XF86MonBrightnessUp" ''${shared.scripts.set_brightness} "+ 1"'' {
+          (mkExecBind "XF86MonBrightnessUp" "noctalia msg brightness-up current 1%" {
             locked = true;
             repeating = true;
           })
-          (mkExecBind "XF86MonBrightnessDown" ''${shared.scripts.set_brightness} "- 1"'' {
+          (mkExecBind "XF86MonBrightnessDown" "noctalia msg brightness-down current 1%" {
             locked = true;
             repeating = true;
           })
-          (mkExecBind "SHIFT + XF86MonBrightnessUp" ''${shared.scripts.set_brightness} "+ 10"'' {
+          (mkExecBind "SHIFT + XF86MonBrightnessUp" "noctalia msg brightness-up current 10%" {
             locked = true;
             repeating = true;
           })
-          (mkExecBind "SHIFT + XF86MonBrightnessDown" ''${shared.scripts.set_brightness} "- 10"'' {
+          (mkExecBind "SHIFT + XF86MonBrightnessDown" "noctalia msg brightness-down current 10%" {
             locked = true;
             repeating = true;
           })
-          (mkExecBind "CTRL + XF86MonBrightnessUp" ''${shared.scripts.set_brightness} "100"'' {
+          (mkExecBind "CTRL + XF86MonBrightnessUp" "noctalia msg brightness-set current 100%" {
             locked = true;
             repeating = true;
           })
-          (mkExecBind "CTRL + XF86MonBrightnessDown" ''${shared.scripts.set_brightness} "0"'' {
+          (mkExecBind "CTRL + XF86MonBrightnessDown" "noctalia msg brightness-set current 0%" {
             locked = true;
             repeating = true;
           })
