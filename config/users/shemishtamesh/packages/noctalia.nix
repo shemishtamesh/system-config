@@ -9,6 +9,10 @@ let
   wallpaper_monitor = builtins.mapAttrs (port: _: {
     directory = "~/Pictures/Wallpapers/${port}";
   }) host.monitors;
+
+  wallpaper_set_hooks = map (
+    port: "noctalia msg wallpaper-set ${port} ~/Pictures/Wallpapers/${port}/wallpaper.png"
+  ) (builtins.attrNames host.monitors);
 in
 {
   imports = [
@@ -114,6 +118,8 @@ in
         show_dots = true;
         smart_auto_hide = true;
       };
+
+      hooks.started = wallpaper_set_hooks;
 
       hot_corners = {
         bottom_left.action = "launcher";
