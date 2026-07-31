@@ -1,6 +1,5 @@
 {
   inputs,
-  host,
   pkgs,
   ...
 }:
@@ -8,219 +7,84 @@
   imports = [
     inputs.noctalia.homeModules.default
   ];
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-      calendarSupport = true;
-    };
+    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
-      settingsVersion = 0;
-      general = {
-        showHibernateOnLockScreen = true;
-        enableShadows = false;
-        passwordChars = true;
-        lockScreenAnimations = true;
-        lockScreenBlur = 0.5;
-      };
-      audio.volumeOverdrive = true;
-      bar = {
-        density = "compact";
-        outerCorners = false;
-        enableExclusionZoneInset = false;
-
-        mouseWheelAction = "workspace";
-        mouseWheelWrap = true;
-        middleClickAction = "settings";
-        middleClickFollowMouse = true;
-
-        widgets = {
-          left = [
-            { id = "plugin:timer"; }
-            { id = "Clock"; }
-            { id = "SystemMonitor"; }
-            {
-              id = "Network";
-              displayMode = "alwaysShow";
-            }
-            {
-              id = "Bluetooth";
-              displayMode = "alwaysShow";
-            }
-            { id = "ActiveWindow"; }
-            { id = "MediaMini"; }
-          ];
-          center = [
-            {
-              id = "CustomButton";
-              textCommand = /* sh */ ''
-                hyprctl monitors -j | ${pkgs.jq}/bin/jq -r '
-                  .[]
-                  | select(.focused)
-                  | if .specialWorkspace.name != "" then
-                        (.specialWorkspace.name | sub("^special:";""))
-                    else
-                      ""
-                    end
-                '
-              '';
-              showIcon = false;
-              textStream = true;
-              hideMode = "expandWithOutput";
-              textCollapse = "";
-              textIntervalMs = 1000;
-            }
-            {
-              id = "Workspace";
-              showApplications = true;
-            }
-          ];
-          right = [
-            { id = "Tray"; }
-            { id = "plugin:privacy-indicator"; }
-            {
-              id = "Microphone";
-              displayMode = "alwaysShow";
-            }
-            {
-              id = "Volume";
-              displayMode = "alwaysShow";
-            }
-            {
-              id = "Brightness";
-              displayMode = "alwaysShow";
-              applyToAllMonitors = true;
-            }
-            {
-              id = "KeyboardLayout";
-              displayMode = "forceOpen";
-            }
-            {
-              id = "NotificationHistory";
-              hideWhenZero = false;
-            }
-            { id = "KeepAwake"; }
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-              enableColorization = true;
-              colorizeSystemIcon = "primary";
-            }
-          ];
+      shell = {
+        panel = {
+          shadow = false;
+          launcher_placement = "floating";
+          launcher_position = "bottom_center";
         };
       };
-      controlCenter = {
-        cards =
-          map
-            (name: {
-              id = name;
-              enabled = true;
-            })
-            [
-              "profile-card"
-              "shortcuts-card"
-              "audio-card"
-              "brightness-card"
-              "weather-card"
-              "media-sysmon-card"
-            ];
-        shortcuts = {
-          left = [
-            { id = "Bluetooth"; }
-            { id = "WiFi"; }
-            { id = "AirplaneMode"; }
-            { id = "plugin:screen-recorder"; }
-            {
-              id = "CustomButton";
-              icon = "rocket";
-              leftClickExec = "noctalia-shell ipc call launcher toggle";
-            }
-          ];
-          right = [
-            {
-              id = "Notifications";
-            }
-            {
-              id = "PowerProfile";
-            }
-            {
-              id = "NoctaliaPerformance";
-            }
-            {
-              id = "KeepAwake";
-            }
-            {
-              id = "NightLight";
-            }
-          ];
-        };
+      audio.enable_overdrive = true;
+      bar.main = {
+        smart_auto_hide = true;
+        start = [
+          { type = "noctalia/timer:bar"; }
+          { type = "clock"; }
+          { type = "sysmon"; }
+          { type = "network"; }
+          { type = "bluetooth"; }
+          { type = "active_window"; }
+          { type = "media"; }
+        ];
+        center = [
+          { type = "workspaces"; }
+        ];
+        end = [
+          { type = "tray"; }
+          { type = "privacy"; }
+          { type = "volume"; }
+          { type = "brightness"; }
+          { type = "keyboard_layout"; }
+          { type = "notifications"; }
+          { type = "caffeine"; }
+          { type = "control-center"; }
+        ];
       };
-      dock = {
-        floatingRatio = 0;
-        size = 2;
-        animationSpeed = 2;
-        dockType = "attached";
-        showLauncherIcon = true;
-        pinnedStatic = true;
+      control_center = {
+        shortcuts = [
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "screen_recorder"; }
+          { type = "notification"; }
+          { type = "power_profile"; }
+          { type = "caffeine"; }
+          { type = "nightlight"; }
+        ];
+        calendar.show_week_numbers = true;
       };
-      sessionMenu.largeButtonsStyle = true;
-      osd.location = "bottom";
-      notifications.location = "top_center";
-      location.showWeekNumberInCalendar = true;
+      dock.enabled = true;
+      osd.position = "bottom_center";
+      notification.position = "top_right";
+      calendar.enabled = true;
       wallpaper = {
         enabled = true;
-        wallpapers = builtins.mapAttrs (portname: _: {
-          name = portname;
-          value = "~/Pictures/Wallpapers/${portname}.png";
-        }) host.monitors;
-        transitionType = "fade";
-      };
-      appLauncher = {
-        enableClipboardHistory = true;
-        enableClipPreview = true;
-        position = "bottom_center";
-        terminalCommand = "wezterm -e";
+        directory = "~/Pictures/Wallpapers";
+        transition = [ "fade" ];
       };
       brightness = {
-        enforceMinimum = false;
-        enableDdcSupport = true;
+        enable_ddcutil = true;
+        minimum_brightness = 0.0;
       };
-      desktopWidgets = {
-        enabled = true;
-        gridSnap = true;
+      desktop_widgets.enabled = true;
+      plugins = {
+        enabled = [
+          "noctalia/timer"
+          "noctalia/translator"
+          "noctalia/screen_recorder"
+        ];
+        source = [
+          {
+            name = "official";
+            kind = "git";
+            location = "https://github.com/noctalia-dev/official-plugins";
+            enabled = true;
+          }
+        ];
       };
-      ui.scrollbarAlwaysVisible = false;
-    };
-    plugins = {
-      states =
-        let
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        in
-        {
-          translator = {
-            enabled = true;
-            inherit sourceUrl;
-          };
-          timer = {
-            enabled = true;
-            inherit sourceUrl;
-          };
-          unicode-picker = {
-            enabled = true;
-            inherit sourceUrl;
-          };
-          privacy-indicator = {
-            enabled = true;
-            inherit sourceUrl;
-          };
-          screen-recorder = {
-            enabled = true;
-            inherit sourceUrl;
-          };
-        };
-    };
-    pluginSettings = {
-      privacy-indicator.hideInactive = true;
-      screen-recorder.copyToClipboard = true;
     };
   };
   home.packages = with pkgs; [ gpu-screen-recorder ];

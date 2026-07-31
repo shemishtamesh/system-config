@@ -10,8 +10,8 @@ let
         tmux source-file ~/.config/tmux/tmux.conf
       fi
 
-      if command -v noctalia-shell &>/dev/null; then
-        noctalia-shell kill && noctalia-shell -d > /dev/null
+      if command -v noctalia &>/dev/null; then
+        noctalia msg config-reload
       fi
 
       btop_pids=$(pgrep btop)

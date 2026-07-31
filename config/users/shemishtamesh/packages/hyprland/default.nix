@@ -108,7 +108,7 @@ in
 
           # (mkBind "${mod} + Tab" "overview:toggle" null null) # Hyprspace
           (mkExecBind "${mod} + Tab" "qs ipc -c overview call overview toggle" null)
-          (mkExecBind "${mod} + SPACE" "noctalia-shell ipc call launcher toggle" null)
+          (mkExecBind "${mod} + SPACE" "noctalia msg panel-toggle launcher" null)
           (mkExecBind "${mod} + CTRL + c" "hyprpicker --render-inactive --autocopy" null)
           (mkExecBind "${mod} + s" "hyprshot --freeze --mode region" null)
           (mkExecBind "${mod} + SHIFT + s" "hyprshot --freeze --mode window" null)
@@ -119,29 +119,22 @@ in
           (mkExecBind "${mod} + d" "obsidian" null)
           (mkExecBind "${mod} + SHIFT + d" "drawy" null)
 
-          (mkExecBind "${mod} + v" "noctalia-shell ipc call launcher clipboard" null)
+          (mkExecBind "${mod} + v" "noctalia msg panel-toggle clipboard" null)
 
           (mkExecBind "${mod} + w" "killall wshowkeys || wshowkeys -a bottom" null)
 
-          (mkExecBind "${mod} + Escape" "noctalia-shell ipc call sessionMenu toggle" null)
-          (mkExecBind "${mod} + grave" "noctalia-shell ipc call sessionMenu lockAndSuspend" null)
+          (mkExecBind "${mod} + Escape" "noctalia msg panel-toggle session" null)
+          (mkExecBind "${mod} + grave" "noctalia msg session lock-and-suspend" null)
 
-          (mkExecBind "${mod} + a" "noctalia-shell ipc call idleInhibitor toggle" null)
+          (mkExecBind "${mod} + a" "noctalia msg caffeine-toggle" null)
 
           (mkFnBind "${mod} + b" /* lua */ ''
-            local monitors = ${toLua (builtins.attrNames host.monitors)}
             if hl.get_config("general.border_size") == 1 then
-              for _, screen in ipairs(monitors) do
-                hl.exec_cmd("noctalia-shell ipc call bar setDisplayMode auto_hide " .. screen)
-              end
               hl.config({
                 general = { border_size = 0, gaps_in = 0, gaps_out = 0 },
                 decoration = { rounding = 0, shadow = { enabled = true, range = 50 } },
               })
             else
-              for _, screen in ipairs(monitors) do
-                hl.exec_cmd("noctalia-shell ipc call bar setDisplayMode always_visible " .. screen)
-              end
               hl.config({
                 general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
                 decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
@@ -211,16 +204,16 @@ in
           '' null
         ) 9)
         ++ [
-          (mkExecBind "${mod} + semicolon" "noctalia-shell ipc call notifications dismissOldest" {
+          (mkExecBind "${mod} + semicolon" "noctalia msg notification-clear-active" {
             repeating = true;
           })
-          (mkExecBind "${mod} + SHIFT + semicolon" "noctalia-shell ipc call notifications dismissAll" {
+          (mkExecBind "${mod} + SHIFT + semicolon" "noctalia msg notification-clear-history" {
             repeating = true;
           })
-          (mkExecBind "${mod} + CTRL + semicolon" "noctalia-shell ipc call notifications toggleHistory" {
+          (mkExecBind "${mod} + CTRL + semicolon" "noctalia msg panel-toggle control-center notifications" {
             repeating = true;
           })
-          (mkExecBind "${mod} + ALT + semicolon" "noctalia-shell ipc call notifications toggleDND" {
+          (mkExecBind "${mod} + ALT + semicolon" "noctalia msg notification-dnd-toggle" {
             repeating = true;
           })
 
@@ -655,7 +648,7 @@ in
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"
           "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
-          "noctalia-shell"
+          "noctalia"
           "qs -c overview"
         ];
       };
