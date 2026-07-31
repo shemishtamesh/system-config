@@ -2,26 +2,14 @@
   inputs,
   config,
   pkgs,
-  lib,
   host,
   ...
 }:
 let
-  sorted_monitors = builtins.sort (
-    a: b: host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset
-  ) (builtins.attrNames host.monitors);
-  # the "center" monitor in the layout - used for anything the UI pinned to one
-  # specific output, so it keeps pointing at the middle screen regardless of
-  # which port that ends up being on a given host
-  middle_monitor = builtins.elemAt sorted_monitors (builtins.length sorted_monitors / 2);
-
   wallpaper_monitor = builtins.mapAttrs (
     port: _:
     {
       directory = "~/Pictures/Wallpapers/${port}";
-    }
-    // lib.optionalAttrs (port == middle_monitor) {
-      directory_light = "~/Pictures/Wallpapers";
     }
   ) host.monitors;
 in
