@@ -138,7 +138,7 @@ in
             else
               hl.config({
                 general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
-                decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
+                decoration = { rounding = ${toString rounding}, shadow = { enabled = true, range = 10 } },
               })
             end
           '' null)
