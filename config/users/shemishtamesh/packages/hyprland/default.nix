@@ -133,12 +133,12 @@ in
             if hl.get_config("general.border_size") == 1 then
               hl.config({
                 general = { border_size = 0, gaps_in = 0, gaps_out = 0 },
-                decoration = { rounding = 0 },
+                decoration = { rounding = 0, shadow = { enabled = true, range = 50 } },
               })
             else
               hl.config({
                 general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
-                decoration = { rounding = ${toString rounding} },
+                decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
               })
             end
           '' null)
@@ -614,7 +614,7 @@ in
           }
           {
             workspace = "s[false]";
-            no_shadow = true;
+            no_shadow = false;
           }
         ]
         ++ (
