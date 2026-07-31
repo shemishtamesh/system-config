@@ -6,12 +6,9 @@
   ...
 }:
 let
-  wallpaper_monitor = builtins.mapAttrs (
-    port: _:
-    {
-      directory = "~/Pictures/Wallpapers/${port}";
-    }
-  ) host.monitors;
+  wallpaper_monitor = builtins.mapAttrs (port: _: {
+    directory = "~/Pictures/Wallpapers/${port}";
+  }) host.monitors;
 in
 {
   imports = [
