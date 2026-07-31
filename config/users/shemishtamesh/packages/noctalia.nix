@@ -142,7 +142,6 @@ in
       };
 
       osd = {
-        offset_y = 40;
         position = "center_bottom";
         position_vertical = "center_right";
       };
