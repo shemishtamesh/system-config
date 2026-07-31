@@ -226,11 +226,7 @@ in
         };
       };
 
-      # source/custom_palette are already set to this by Stylix's noctalia target
-      # (config/shared/theme.nix); mode = "auto" overrides Stylix's static
-      # dark/light polarity, which is the one deliberate deviation from it.
       theme = {
-        mode = lib.mkForce "auto";
         pure_black_dark = true;
       };
 
