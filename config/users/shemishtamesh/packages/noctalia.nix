@@ -138,11 +138,11 @@ in
 
       notification = {
         offset_y = 40;
-        position = "top_right";
+        position = "top_center";
       };
 
       osd = {
-        position = "center_bottom";
+        position = "bottom_center";
         position_vertical = "center_right";
       };
 
