@@ -296,10 +296,12 @@ in
           (mkExecBind "CTRL + SHIFT + XF86AudioLowerVolume" "noctalia msg mic-volume-down 10%" {
             repeating = true;
           })
-          (mkExecBind "ALT + XF86AudioRaiseVolume" "noctalia msg mic-volume-set 100%" {
+          (mkExecBind "ALT + XF86AudioRaiseVolume" "playerctl position 5+" { repeating = true; })
+          (mkExecBind "ALT + XF86AudioLowerVolume" "playerctl position 5-" { repeating = true; })
+          (mkExecBind "CTRL + ALT + XF86AudioRaiseVolume" "noctalia msg media next-player" {
             repeating = true;
           })
-          (mkExecBind "ALT + XF86AudioLowerVolume" "noctalia msg mic-volume-set 30%" {
+          (mkExecBind "CTRL + ALT + XF86AudioLowerVolume" "noctalia msg media previous-player" {
             repeating = true;
           })
 
