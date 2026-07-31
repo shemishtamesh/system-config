@@ -138,7 +138,7 @@ in
             else
               hl.config({
                 general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
-                decoration = { rounding = ${toString rounding}, shadow = { enabled = true, range = 10 } },
+                decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
               })
             end
           '' null)
@@ -384,7 +384,7 @@ in
             inherit rounding;
             shadow = {
               enabled = true;
-              range = 10;
+              range = 20;
             };
           };
           dwindle.preserve_split = true;
@@ -614,7 +614,7 @@ in
           }
           {
             workspace = "s[false]";
-            no_shadow = false;
+            no_shadow = true;
           }
         ]
         ++ (
