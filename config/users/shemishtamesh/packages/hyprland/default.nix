@@ -384,7 +384,7 @@ in
             inherit rounding;
             shadow = {
               enabled = true;
-              range = 20;
+              range = 10;
             };
           };
           dwindle.preserve_split = true;
