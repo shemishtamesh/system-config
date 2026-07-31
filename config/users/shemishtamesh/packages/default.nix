@@ -84,7 +84,7 @@ let
       packages = with pkgs; [
         # (callPackage ./ohrrpgce { })
         cht-sh
-        tetrio-desktop
+        # tetrio-desktop  # doesn't launch
         # furnace
         (stable-pkgs.bottles.override { removeWarningPopup = true; })
         stable-pkgs.blender
