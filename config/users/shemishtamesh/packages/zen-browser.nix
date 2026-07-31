@@ -41,6 +41,7 @@ in
             compact = {
               hide-toolbar = true;
               toolbar-flash-popup = true;
+              "toolbar-hide-after-hover.duration" = 250;
             };
             use-single-toolbar = false;
           };
