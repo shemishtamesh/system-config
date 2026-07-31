@@ -282,5 +282,7 @@ in
   home.packages = with pkgs; [
     gpu-screen-recorder
     bitwarden-cli
+    # brightness.enable_ddcutil shells out to this by name on PATH
+    ddcutil
   ];
 }
