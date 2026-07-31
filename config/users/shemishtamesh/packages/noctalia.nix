@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   lib,
   host,
@@ -37,6 +38,7 @@ in
       bar = {
         order = [ "main" ];
         main = {
+          background_opacity = config.stylix.opacity.desktop;
           capsule = true;
           center = [ "workspaces" ];
           end = [
@@ -101,7 +103,7 @@ in
       };
 
       desktop_widgets = {
-        enabled = true;
+        enabled = false;
         schema_version = 2;
         widget_order = [ ];
       };
@@ -226,9 +228,7 @@ in
         };
       };
 
-      theme = {
-        pure_black_dark = true;
-      };
+      theme.pure_black_dark = true;
 
       wallpaper = {
         directory = "~/Pictures/Wallpapers";
@@ -273,5 +273,8 @@ in
       };
     };
   };
-  home.packages = with pkgs; [ gpu-screen-recorder ];
+  home.packages = with pkgs; [
+    gpu-screen-recorder
+    bitwarden-cli
+  ];
 }
