@@ -110,9 +110,11 @@ in
           (mkExecBind "${mod} + Tab" "qs ipc -c overview call overview toggle" null)
           (mkExecBind "${mod} + SPACE" "noctalia msg panel-toggle launcher" null)
           (mkExecBind "${mod} + CTRL + c" "hyprpicker --render-inactive --autocopy" null)
-          (mkExecBind "${mod} + s" "hyprshot --freeze --mode region" null)
-          (mkExecBind "${mod} + SHIFT + s" "hyprshot --freeze --mode window" null)
-          (mkExecBind "${mod} + CTRL + s" "hyprshot --freeze --mode output" null)
+          (mkExecBind "${mod} + s" "noctalia msg screenshot-region" null)
+          (mkExecBind "${mod} + SHIFT + s" "noctalia msg screenshot-fullscreen" null)
+          (mkExecBind "${mod} + CTRL + s" "noctalia msg plugin noctalia/screen_recorder:service all toggle"
+            null
+          )
           (mkExecBind "${mod} + RETURN" "wezterm start tmux" null)
           (mkExecBind "${mod} + i" "zen-twilight" null)
           (mkExecBind "${mod} + SHIFT + i" "zen-twilight --private-window" null)
