@@ -130,7 +130,7 @@ in
       keybinds = {
         delete = [
           "Delete"
-          "BackSpace"
+          "Ctrl+BackSpace"
         ];
         down = [
           "Down"
