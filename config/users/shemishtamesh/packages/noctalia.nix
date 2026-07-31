@@ -81,7 +81,7 @@ in
       brightness = {
         enable_ddcutil = true;
         minimum_brightness = 0.0;
-        sync_all_monitors = true;
+        sync_all_monitors = false;
       };
 
       calendar.enabled = true;
@@ -278,7 +278,6 @@ in
   home.packages = with pkgs; [
     gpu-screen-recorder
     bitwarden-cli
-    # brightness.enable_ddcutil shells out to this by name on PATH
     ddcutil
   ];
 }
