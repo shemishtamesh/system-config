@@ -56,8 +56,20 @@ in
               enabled = true;
               fill = "surface_variant";
               members = [
-                "cpu"
-                "RAM"
+                "cpu_usage"
+                "cpu_temp"
+                "gpu_usage"
+                "gpu_temp"
+                "gpu_vram"
+                "ram_used"
+                "ram_pct"
+                "swap_pct"
+                "disk_used_pct"
+                "disk_used"
+                "disk_free_pct"
+                "disk_free"
+                "net_rx"
+                "net_tx"
               ];
               opacity = 1.0;
               padding = 6.0;
@@ -223,38 +235,48 @@ in
         monitor = wallpaper_monitor;
       };
 
-      widget = {
-        RAM = {
-          show_glyph = false;
-          show_value = false;
-          stat = "ram_used";
-          type = "sysmon";
+      widget =
+        let
+          sysmonStat = stat: {
+            show_glyph = false;
+            show_value = false;
+            inherit stat;
+            type = "sysmon";
+          };
+        in
+        {
+          cpu_usage = sysmonStat "cpu_usage";
+          cpu_temp = sysmonStat "cpu_temp";
+          gpu_usage = sysmonStat "gpu_usage";
+          gpu_temp = sysmonStat "gpu_temp";
+          gpu_vram = sysmonStat "gpu_vram";
+          ram_used = sysmonStat "ram_used";
+          ram_pct = sysmonStat "ram_pct";
+          swap_pct = sysmonStat "swap_pct";
+          disk_used_pct = sysmonStat "disk_used_pct";
+          disk_used = sysmonStat "disk_used";
+          disk_free_pct = sysmonStat "disk_free_pct";
+          disk_free = sysmonStat "disk_free";
+          net_rx = sysmonStat "net_rx";
+          net_tx = sysmonStat "net_tx";
+
+          bar = {
+            show_idle_on_horizontal = false;
+            type = "noctalia/timer:bar";
+          };
+          battery.enabled = false;
+          nightlight.enabled = false;
+          privacy.hide_inactive = true;
+          session.enabled = false;
+          settings.enabled = false;
+          weather.enabled = false;
+          workspaces = {
+            display = "name";
+            empty_color = "on_surface";
+            hide_when_empty = true;
+            style = "focus_hint";
+          };
         };
-        bar = {
-          show_idle_on_horizontal = false;
-          type = "noctalia/timer:bar";
-        };
-        battery.enabled = false;
-        cpu = {
-          show_glyph = false;
-          show_value = false;
-        };
-        nightlight.enabled = false;
-        privacy.hide_inactive = true;
-        session.enabled = false;
-        settings.enabled = false;
-        sysmon = {
-          show_glyph = false;
-          show_value = false;
-        };
-        weather.enabled = false;
-        workspaces = {
-          display = "name";
-          empty_color = "on_surface";
-          hide_when_empty = true;
-          style = "focus_hint";
-        };
-      };
     };
   };
   home.packages = with pkgs; [
