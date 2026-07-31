@@ -62,11 +62,7 @@ in
                 "gpu_temp"
                 "gpu_vram"
                 "ram_used"
-                "ram_pct"
-                "swap_pct"
-                "disk_used_pct"
                 "disk_used"
-                "disk_free_pct"
                 "disk_free"
                 "net_rx"
                 "net_tx"
@@ -251,11 +247,7 @@ in
           gpu_temp = sysmonStat "gpu_temp";
           gpu_vram = sysmonStat "gpu_vram";
           ram_used = sysmonStat "ram_used";
-          ram_pct = sysmonStat "ram_pct";
-          swap_pct = sysmonStat "swap_pct";
-          disk_used_pct = sysmonStat "disk_used_pct";
           disk_used = sysmonStat "disk_used";
-          disk_free_pct = sysmonStat "disk_free_pct";
           disk_free = sysmonStat "disk_free";
           net_rx = sysmonStat "net_rx";
           net_tx = sysmonStat "net_tx";
