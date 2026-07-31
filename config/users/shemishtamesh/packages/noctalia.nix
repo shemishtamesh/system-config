@@ -156,7 +156,7 @@ in
 
       notification = {
         offset_y = 40;
-        position = "right_center";
+        position = "center_right";
       };
 
       osd = {
