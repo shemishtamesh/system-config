@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  shared,
   host,
   config,
   inputs,
