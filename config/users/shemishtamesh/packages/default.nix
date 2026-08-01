@@ -118,6 +118,7 @@ let
         scrcpy
         android-tools
         visidata
+        silverbullet-cli
         drawy
       ];
     };
