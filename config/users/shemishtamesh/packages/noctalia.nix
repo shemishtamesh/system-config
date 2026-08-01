@@ -41,9 +41,10 @@ in
             "notifications"
           ];
           margin_ends = 100;
-          padding = 0;
+          padding = 6;
+          panel_overlap = 0;
           reserve_space = false;
-          shadow = false;
+          shadow = true;
           smart_auto_hide = true;
           start = [
             "bar"
@@ -54,8 +55,13 @@ in
             "group:g1"
           ];
           dead_zone.actions = {
+            back = "workspace-switch prev";
+            forward = "workspace-switch next";
+            left = "bar-hide";
             middle = "settings-toggle";
             scroll_down = "workspace-switch next";
+            scroll_left = "workspace-switch next";
+            scroll_right = "workspace-switch prev";
             scroll_up = "workspace-switch prev";
           };
           capsule_group = [
@@ -92,6 +98,7 @@ in
 
       control_center = {
         sidebar = "full";
+        width = 1200;
         calendar.show_week_numbers = true;
         shortcuts = [
           { type = "wifi"; }
@@ -117,7 +124,7 @@ in
         reserve_space = false;
         show_dots = true;
         smart_auto_hide = true;
-        shadow = false;
+        shadow = true;
       };
 
       hooks.started = wallpaper_set_hooks;
@@ -157,11 +164,12 @@ in
 
       notification = {
         offset_y = 40;
-        position = "center_right";
+        position = "top_right";
         border = false;
       };
 
       osd = {
+        border = false;
         position = "bottom_center";
         position_vertical = "center_right";
       };
@@ -192,56 +200,105 @@ in
       };
 
       shell = {
+        button_borders = false;
+        card_borders = false;
+        input_borders = false;
+        popup_borders = false;
+        popup_shadows = true;
         clipboard_history_max_entries = 1000;
         date_format = "%A, %B, %x";
         external_ip_enabled = true;
         launch_apps_as_systemd_services = true;
         password_style = "random";
         polkit_agent = true;
-        popup_shadows = false;
         screen_time_enabled = true;
         telemetry_enabled = true;
         time_format = "{:%T}";
 
+        shadow = {
+          alpha = 1.0;
+          direction = "center";
+        };
+
         session.actions = [
           {
-            action = "lock";
-            shortcut = "1";
+            action = "command";
+            command = "sleep 2 && hyprctl dispatch 'hl.dsp.dpms(\"off\")'";
+            label = "Turn Off Displays";
+            glyph = "device-desktop-off";
+            variant = "default";
+            shortcut = "7";
           }
           {
-            action = "logout";
-            shortcut = "2";
+            action = "lock";
+            variant = "default";
+            shortcut = "8";
           }
           {
             action = "lock_and_suspend";
-            shortcut = "3";
+            variant = "default";
+            shortcut = "9";
+          }
+          {
+            action = "logout";
+            variant = "secondary";
+            shortcut = "4";
           }
           {
             action = "command";
             command = "systemctl hibernate";
             label = "Hibernate";
             glyph = "hibernate";
-            shortcut = "4";
+            variant = "secondary";
+            shortcut = "5";
           }
           {
-            action = "reboot";
-            shortcut = "5";
+            action = "suspend";
+            variant = "secondary";
+            shortcut = "6";
+          }
+          {
+            action = "command";
+            command = "systemctl reboot --firmware-setup";
+            label = "Firmware Setup";
+            glyph = "settings-cog";
+            variant = "destructive";
+            shortcut = "1";
           }
           {
             action = "shutdown";
             variant = "destructive";
-            shortcut = "6";
+            shortcut = "2";
+          }
+          {
+            action = "reboot";
+            variant = "destructive";
+            shortcut = "3";
           }
         ];
 
         launcher.providers = {
-          emoji.global = true;
-          session.global = true;
-          wallpaper.global = true;
-          windows.global = true;
+          calculator.prefix = "c";
+          emoji = {
+            global = true;
+            prefix = "e";
+          };
+          session = {
+            global = true;
+            prefix = "s";
+          };
+          wallpaper = {
+            global = true;
+            prefix = "p";
+          };
+          windows = {
+            global = true;
+            prefix = "w";
+          };
         };
 
         panel = {
+          borders = false;
           clipboard_placement = "attached";
           launcher_placement = "attached";
           launcher_position = "bottom_center";
@@ -252,15 +309,20 @@ in
           open_near_click_session = true;
           open_near_click_wallpaper = true;
           polkit_placement = "attached";
-          shadow = false;
+          shadow = true;
           transparency_mode = "glass";
         };
 
         screenshot = {
           confirm_region = true;
-          remember_last_region = true;
+          directory = "~/Picture/screenshots";
+          pipe_command = "swappy -f -";
+          pipe_to_command = true;
+          remember_last_region = false;
           show_cursor = true;
         };
+
+        session.grid = true;
       };
 
       theme.pure_black_dark = true;
@@ -311,7 +373,8 @@ in
           };
           weather.enabled = false;
           workspaces = {
-            display = "name";
+            label_source = "name";
+            show_labels = true;
             empty_color = "on_surface";
             hide_when_empty = true;
             style = "regular";

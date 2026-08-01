@@ -2,7 +2,6 @@
   lib,
   pkgs,
   host,
-  config,
   inputs,
   ...
 }:
@@ -408,8 +407,8 @@ in
             shadow = {
               enabled = true;
               range = shadowRange;
-              color = lib.mkForce "rgba(1a1a1abb)";
-              color_inactive = lib.mkForce "rgba(1a1a1a40)";
+              color = lib.mkForce "rgba(000000ee)";
+              color_inactive = lib.mkForce "rgba(000000a0)";
             };
           };
           dwindle.preserve_split = true;
@@ -417,6 +416,8 @@ in
             force_default_wallpaper = 1;
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
+            key_press_enables_dpms = true;
+            mouse_move_enables_dpms = true;
           };
           # plugin."dynamic-cursors" = {
           #   enabled = true;
