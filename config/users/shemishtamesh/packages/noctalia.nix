@@ -158,7 +158,6 @@ in
         offset_y = 40;
         position = "center_right";
         border = false;
-        background_opacity = 0.9;
       };
 
       osd = {

@@ -32,7 +32,10 @@ in
     enable = true;
     base16Scheme = scheme;
     polarity = scheme.variant;
-    opacity.desktop = 0.5;
+    opacity = {
+      desktop = 0.5;
+      popups = 0.95;
+    };
     inherit fonts cursor;
   };
   alternative_schemes = [
