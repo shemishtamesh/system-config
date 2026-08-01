@@ -22,7 +22,7 @@ pkgs.stdenv.mkDerivation {
       ]
     ))
   ];
-  src = ./theming/wallpaper_generator.py;
+  src = ./wallpaper_generator.py;
   unpackPhase = "true";
   buildPhase = ''
     python3 $src \
