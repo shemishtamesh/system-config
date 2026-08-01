@@ -40,7 +40,7 @@ in
             "caffeine"
             "notifications"
           ];
-          margin_ends = 50;
+          margin_ends = 100;
           padding = 0;
           reserve_space = false;
           shadow = false;
@@ -75,7 +75,7 @@ in
                 "net_rx"
                 "net_tx"
               ];
-              opacity = 1.0;
+              opacity = 0.9;
               padding = 6.0;
             }
           ];
