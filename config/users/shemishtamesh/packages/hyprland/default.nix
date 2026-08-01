@@ -131,15 +131,15 @@ in
           (mkExecBind "${mod} + a" "noctalia msg caffeine-toggle" null)
 
           (mkFnBind "${mod} + b" /* lua */ ''
-            if hl.get_config("general.border_size") == 1 then
+            if hl.get_config("decoration.rounding") == 0 then
               hl.config({
-                general = { border_size = 0, gaps_in = 0, gaps_out = 0 },
-                decoration = { rounding = 0, shadow = { enabled = true, range = 50 } },
+                general = { gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
+                decoration = { rounding = ${toString rounding}, shadow = { enabled = true, range = ${toString shadowRange} } },
               })
             else
               hl.config({
-                general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
-                decoration = { rounding = ${toString rounding}, shadow = { enabled = true, range = ${toString shadowRange} } },
+                general = { gaps_in = 0, gaps_out = 0 },
+                decoration = { rounding = 0, shadow = { enabled = true, range = 50 } },
               })
             end
           '' null)
@@ -385,16 +385,13 @@ in
           general = {
             gaps_in = gaps;
             gaps_out = gaps;
-            border_size = 1;
+            border_size = 0;
 
             allow_tearing = false;
 
             resize_on_border = true;
 
             snap.enabled = true;
-
-            "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base05}7f)";
-            "col.inactive_border" = lib.mkForce "0x00000000"; # transparent
           };
           cursor = {
             hide_on_key_press = true;
@@ -411,6 +408,8 @@ in
             shadow = {
               enabled = true;
               range = shadowRange;
+              color = "rgba(1a1a1abb)";
+              color_inactive = "rgba(1a1a1a40)";
             };
           };
           dwindle.preserve_split = true;
@@ -609,11 +608,10 @@ in
           }
         ];
         workspace_rule = [
-          # no borders/gaps when there's only a single visible window
+          # no rounding/gaps when there's only a single visible window
           {
             workspace = "w[v1]";
             no_rounding = true;
-            no_border = true;
             gaps_out = 0;
             gaps_in = 0;
           }
@@ -628,8 +626,6 @@ in
             workspace = "s[true]";
             gaps_in = 15;
             gaps_out = 20;
-            border_size = 0;
-            no_border = true;
           }
         ]
         ++ (
