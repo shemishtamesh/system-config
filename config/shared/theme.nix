@@ -1,7 +1,32 @@
 pkgs:
 let
-  scheme_generator = (import ./theming/palette_generation.nix) pkgs;
   scheme = scheme_generator { palette_name = "default"; };
+  alternative_schemes = [
+    (scheme_generator {
+      palette_name = "light";
+      arguments.variant = "light";
+    })
+    (scheme_generator {
+      palette_name = "extreme";
+      arguments = {
+        variant = "dark";
+        mix_color = "white";
+        mix_factor = "0.0";
+        saturation = "0.4";
+        desaturation = "0.0";
+        gradient_desaturation = "0.0";
+        lightening = "0.10";
+        darkening = "0.0";
+        brightness_difference = "0.00";
+        colorspace = "OkLab";
+      };
+    })
+  ];
+
+  scheme_generator = (import ./theming/palette_generation.nix) pkgs;
+
+  wallpaper_generator = (import ./theming/wallpaper_generator.nix) pkgs scheme;
+
   fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
@@ -27,7 +52,6 @@ let
   };
 in
 {
-  inherit scheme fonts cursor;
   stylix_settings = {
     enable = true;
     base16Scheme = scheme;
@@ -38,66 +62,11 @@ in
     };
     inherit fonts cursor;
   };
-  alternative_schemes = [
-    (scheme_generator {
-      palette_name = "light";
-      arguments.variant = "light";
-    })
-    (scheme_generator {
-      palette_name = "extreme";
-      arguments = {
-        variant = "dark";
-        mix_color = "white";
-        mix_factor = "0.0";
-        saturation = "0.4";
-        desaturation = "0.0";
-        gradient_desaturation = "0.0";
-        lightening = "0.10";
-        darkening = "0.0";
-        brightness_difference = "0.00";
-        colorspace = "OkLab";
-      };
-    })
-  ];
-  wallpaper_generator =
-    {
-      width,
-      height,
-      name ? "wallpaper",
-      color_scheme ? scheme,
-      background ? true,
-      palette ? true,
-      nix ? true,
-      gaps ? true,
-      random ? true,
-    }:
-    let
-      file_name = "${name}.png";
-    in
-    pkgs.stdenv.mkDerivation {
-      name = file_name;
-      buildInputs = [
-        (pkgs.python3.withPackages (
-          ps: with ps; [
-            pillow
-          ]
-        ))
-      ];
-      src = ./theming/wallpaper_generator.py;
-      unpackPhase = "true";
-      buildPhase = ''
-        python3 $src \
-          ${file_name} \
-          $(echo '${toString (builtins.attrValues color_scheme.palette)}') \
-          --resolution ${toString width}x${toString height} \
-          ${if !background then "--no_background" else ""} \
-          ${if !palette then "--no_palette" else ""} \
-          ${if !nix then "--no_nix" else ""} \
-          ${if !gaps then "--gaps 0" else ""} \
-          ${if !random then "--no_random" else ""} \
-          # --no_color_outside_nix \
-          # --distance_fade_scale "0.45" \
-      '';
-      installPhase = "install -Dm0644 ${file_name} $out";
-    };
+  inherit
+    scheme
+    fonts
+    cursor
+    alternative_schemes
+    wallpaper_generator
+    ;
 }

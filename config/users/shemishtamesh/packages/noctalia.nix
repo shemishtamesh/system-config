@@ -75,7 +75,7 @@ in
                 "net_rx"
                 "net_tx"
               ];
-              opacity = 0.9;
+              opacity = config.stylix.opacity.popup;
               padding = 6.0;
             }
           ];
