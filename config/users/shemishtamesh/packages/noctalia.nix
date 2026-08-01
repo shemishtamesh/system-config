@@ -117,6 +117,7 @@ in
         reserve_space = false;
         show_dots = true;
         smart_auto_hide = true;
+        shadow = false;
       };
 
       hooks.started = wallpaper_set_hooks;
@@ -201,6 +202,37 @@ in
         screen_time_enabled = true;
         telemetry_enabled = true;
         time_format = "{:%T}";
+
+        session.actions = [
+          {
+            action = "lock";
+            shortcut = "1";
+          }
+          {
+            action = "logout";
+            shortcut = "2";
+          }
+          {
+            action = "lock_and_suspend";
+            shortcut = "3";
+          }
+          {
+            action = "command";
+            command = "systemctl hibernate";
+            label = "Hibernate";
+            glyph = "hibernate";
+            shortcut = "4";
+          }
+          {
+            action = "reboot";
+            shortcut = "5";
+          }
+          {
+            action = "shutdown";
+            variant = "destructive";
+            shortcut = "6";
+          }
+        ];
 
         launcher.providers = {
           emoji.global = true;
@@ -291,5 +323,6 @@ in
     gpu-screen-recorder
     bitwarden-cli
     ddcutil
+    swappy
   ];
 }

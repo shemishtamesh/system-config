@@ -31,7 +31,7 @@ in
     # to use the SSH key directly. Only one key is supported, so the first
     # user's key is used (any matching key suffices for NixOS activation).
     # See: https://github.com/Mic92/sops-nix/issues/824
-    #      https://github.com/Mic92/sops-nix/pull/779
+    #      https://github.com/Mic92/sops-nix/pull/970
     environment.SOPS_AGE_SSH_PRIVATE_KEY_FILE = "${homeDir (builtins.head (builtins.attrNames host.users))}/.ssh/id_ed25519";
   };
 }

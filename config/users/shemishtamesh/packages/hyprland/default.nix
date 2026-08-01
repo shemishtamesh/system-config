@@ -343,6 +343,31 @@ in
             repeating = true;
           })
 
+          (mkExecBind "ALT + XF86MonBrightnessUp" "noctalia msg brightness-up all 1%" {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "ALT + XF86MonBrightnessDown" "noctalia msg brightness-down all 1%" {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "ALT + SHIFT + XF86MonBrightnessUp" "noctalia msg brightness-up all 10%" {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "ALT + SHIFT + XF86MonBrightnessDown" "noctalia msg brightness-down all 10%" {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "ALT + CTRL + XF86MonBrightnessUp" "noctalia msg brightness-set all 100%" {
+            locked = true;
+            repeating = true;
+          })
+          (mkExecBind "ALT + CTRL + XF86MonBrightnessDown" "noctalia msg brightness-set all 0%" {
+            locked = true;
+            repeating = true;
+          })
+
           (mkBind "${mod} + mouse:272" "window.drag" null { mouse = true; })
           (mkBind "${mod} + mouse:273" "window.resize" null { mouse = true; })
         ];
