@@ -9,6 +9,7 @@
 let
   gaps = 5;
   rounding = 10;
+  shadowRange = 20;
   scripts = import ./scripts.nix { inherit pkgs; };
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
@@ -138,7 +139,7 @@ in
             else
               hl.config({
                 general = { border_size = 1, gaps_in = ${toString gaps}, gaps_out = ${toString gaps} },
-                decoration = { rounding = ${toString rounding}, shadow = { enabled = false } },
+                decoration = { rounding = ${toString rounding}, shadow = { enabled = true, range = ${toString shadowRange} } },
               })
             end
           '' null)
@@ -409,7 +410,7 @@ in
             inherit rounding;
             shadow = {
               enabled = true;
-              range = 20;
+              range = shadowRange;
             };
           };
           dwindle.preserve_split = true;
@@ -600,12 +601,6 @@ in
             workspace = "special:chat silent";
           }
 
-          # floating window appearance
-          {
-            match.float = true;
-            no_shadow = false;
-          }
-
           # special workspace appearance
           {
             match.workspace = "s[true]";
@@ -635,11 +630,6 @@ in
             gaps_out = 20;
             border_size = 0;
             no_border = true;
-            no_shadow = false;
-          }
-          {
-            workspace = "s[false]";
-            no_shadow = true;
           }
         ]
         ++ (
