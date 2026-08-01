@@ -34,7 +34,7 @@ in
     polarity = scheme.variant;
     opacity = {
       desktop = 0.5;
-      popups = 0.95;
+      popups = 0.85;
     };
     inherit fonts cursor;
   };
