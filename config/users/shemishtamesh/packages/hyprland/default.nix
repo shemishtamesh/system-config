@@ -408,8 +408,8 @@ in
             shadow = {
               enabled = true;
               range = shadowRange;
-              color = "rgba(1a1a1abb)";
-              color_inactive = "rgba(1a1a1a40)";
+              color = lib.mkForce "rgba(1a1a1abb)";
+              color_inactive = lib.mkForce "rgba(1a1a1a40)";
             };
           };
           dwindle.preserve_split = true;
