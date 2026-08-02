@@ -11,6 +11,7 @@ in
   home.packages = [ iris ];
 
   xdg.configFile."iris/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
+    core.expand-alias = false;
     keybindings = {
       select = "ctrl+y";
       navigate-up = "ctrl+p";
