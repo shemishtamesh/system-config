@@ -15,6 +15,7 @@ let
     ./zoxide.nix
     ./fzf.nix
     ./atuin.nix
+    ./iris.nix
     ./carapace.nix
     ./bat.nix
     ./btop.nix

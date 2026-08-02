@@ -14,6 +14,8 @@
 
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
+  # handled by home manager
+  programs.zsh.enableGlobalCompInit = false;
 
   system = {
     defaults = {

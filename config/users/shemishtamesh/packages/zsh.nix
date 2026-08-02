@@ -101,7 +101,6 @@ in
     };
     dotDir = "${config.xdg.configHome}/zsh";
     syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
     plugins = [
       {
         name = "vi-mode";
