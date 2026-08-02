@@ -28,9 +28,6 @@ in
     lib.mkOrder 550 /* sh */ ''
       fpath+=(${irisZshCompletion})
 
-      # IRIS_FD is set inside the process launched by iris to prevent recursion.
-      if [[ -o interactive && -z "$IRIS_FD" ]]; then
-        exec iris
-      fi
+      eval "$(${lib.getExe iris} init zsh)"
     '';
 }
