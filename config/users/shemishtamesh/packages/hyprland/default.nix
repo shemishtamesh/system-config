@@ -105,9 +105,6 @@ in
           (mkBind "${mod} + CTRL + r" "layout" "swapsplit" null)
           (mkBind "${mod} + SHIFT + r" "layout" "movetoroot" null)
 
-          (mkExecBind "${mod} + SUPER_L" "noctalia msg bar-auto-hide-set off" null)
-          (mkExecBind "${mod} + SUPER_L" "noctalia msg bar-auto-hide-set smart" { release = true; })
-
           (mkExecBind "${mod} + Tab" "noctalia msg window-switcher" null)
           (mkExecBind "${mod} + CTRL + Tab" "qs ipc -c overview call overview toggle" null)
           (mkExecBind "${mod} + SPACE" "noctalia msg panel-toggle launcher" null)
