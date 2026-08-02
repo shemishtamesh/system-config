@@ -161,7 +161,9 @@ in
           '' null)
           (mkFnBind "${mod} + CTRL + mouse_down" /* lua */ ''
             local factor = hl.get_config("cursor.zoom_factor")
-            hl.config({ cursor = { zoom_factor = factor * 1.1 } })
+            local new_factor = factor * 1.1
+            if new_factor > 10 then new_factor = 10 end
+            hl.config({ cursor = { zoom_factor = new_factor } })
           '' null)
           (mkFnBind "${mod} + CTRL + mouse_up" /* lua */ ''
             local factor = hl.get_config("cursor.zoom_factor")
