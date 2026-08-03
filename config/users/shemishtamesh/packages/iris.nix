@@ -12,7 +12,7 @@ in
 
   xdg.configFile."iris/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
     core.expand-alias = false;
-    ui.hidden-files = false;
+    ui.hidden-files = true;
     keybindings = {
       select = "ctrl+y";
       navigate-up = "ctrl+p";
