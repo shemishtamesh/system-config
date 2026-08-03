@@ -660,7 +660,6 @@ in
           "wl-paste --watch cliphist store"
           "${scripts.notification-log} $HOME/Documents/logs/notifications.txt"
           "${pkgs.playerctl}/bin/playerctld"
-          "kdeconnect-indicator"
           "hypridle"
           "${pkgs.hypridle}/bin/hypridle"
           "transmission-daemon"

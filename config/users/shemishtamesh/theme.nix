@@ -47,9 +47,22 @@ in
     style.name = "breeze";
   };
   # stylix delivers kdeglobals via XDG_CONFIG_DIRS which systemd-launched apps never see
-  # place it directly instead.
+  # place it directly instead, adding General.ColorScheme since stylix only sets that one
+  # through a Plasma look-and-feel activation step that requires a running Plasma session.
   xdg.configFile = lib.mkIf pkgs.stdenv.isLinux {
-    "kdeglobals".source = "${lib.head config.xdg.systemDirs.config}/kdeglobals";
+    "kdeglobals".text =
+      let
+        colorschemeSlug = lib.concatStrings (
+          lib.filter lib.isString (builtins.split "[^a-zA-Z]" config.lib.stylix.colors.scheme)
+        );
+      in
+      ''
+        [General]
+        ColorScheme=${colorschemeSlug}
+
+        [UiSettings]
+        ColorScheme=${colorschemeSlug}
+      '';
   };
 
   specialisation = builtins.listToAttrs (
