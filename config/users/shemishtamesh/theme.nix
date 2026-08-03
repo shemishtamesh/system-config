@@ -39,6 +39,11 @@ in
     file = wallpaper_paths shared.theme.scheme;
     pointerCursor.enable = pkgs.stdenv.isLinux;
   };
+  qt = lib.mkIf pkgs.stdenv.isLinux {
+    enable = true;
+    platformTheme.name = "kde";
+    style.name = "breeze";
+  };
   specialisation = builtins.listToAttrs (
     map (scheme: {
       inherit (scheme) name;

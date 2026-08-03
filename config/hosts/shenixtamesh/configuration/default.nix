@@ -4,6 +4,7 @@
   inputs,
   host,
   config,
+  lib,
   ...
 }:
 
@@ -62,7 +63,9 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  stylix = shared.theme.stylix_settings;
+  stylix = shared.theme.stylix_settings // {
+    targets.qt.platform = lib.mkForce "kde";
+  };
 
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
 
