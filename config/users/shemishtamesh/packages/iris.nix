@@ -12,10 +12,20 @@ in
 
   xdg.configFile."iris/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
     core.expand-alias = false;
+    ui.hidden-files = false;
     keybindings = {
       select = "ctrl+y";
       navigate-up = "ctrl+p";
       navigate-down = "ctrl+n";
+    };
+    updater.check-on-startup = true;
+    ai = {
+      enabled = true;
+      provider = "ollama";
+      providers.ollama = {
+        endpoint = "http://localhost:11434/v1/chat/completions";
+        model = "qwen2.5-coder";
+      };
     };
   };
 
