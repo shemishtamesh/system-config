@@ -3,6 +3,7 @@
   shared,
   host,
   lib,
+  config,
   ...
 }:
 let
@@ -39,11 +40,18 @@ in
     file = wallpaper_paths shared.theme.scheme;
     pointerCursor.enable = pkgs.stdenv.isLinux;
   };
+
   qt = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     platformTheme.name = "kde";
     style.name = "breeze";
   };
+  # stylix delivers kdeglobals via XDG_CONFIG_DIRS which systemd-launched apps never see
+  # place it directly instead.
+  xdg.configFile = lib.mkIf pkgs.stdenv.isLinux {
+    "kdeglobals".source = "${lib.head config.xdg.systemDirs.config}/kdeglobals";
+  };
+
   specialisation = builtins.listToAttrs (
     map (scheme: {
       inherit (scheme) name;
