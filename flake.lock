@@ -658,15 +658,15 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1785688256,
+        "lastModified": 1785751547,
         "narHash": "sha256-olTceq9owS4iv7vj+ganzZKaX9g8QnYTb4jRIEnJ4Lg=",
-        "owner": "shemishtamesh",
+        "owner": "versenilvis",
         "repo": "iris",
-        "rev": "e96d2a0cb3f20c4c33594cdd19d67f4a477fe637",
+        "rev": "0b77c9334b218eb1d7249983ceae424904ebe071",
         "type": "github"
       },
       "original": {
-        "owner": "shemishtamesh",
+        "owner": "versenilvis",
         "ref": "main",
         "repo": "iris",
         "type": "github"

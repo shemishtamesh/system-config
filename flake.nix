@@ -79,7 +79,7 @@
     };
 
     iris = {
-      url = "github:shemishtamesh/iris/main";
+      url = "github:versenilvis/iris/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
