@@ -30,7 +30,6 @@ let
     ./coding-agents/claude
     ./nh.nix
     ./bitwarden.nix
-    ./zathura.nix
     ./mpv.nix
   ];
   shared_packages = with pkgs; [
@@ -69,16 +68,18 @@ let
         # ./hyprlauncher.nix
         # ./rofi.nix
         # ./waybar.nix
-        ./protonup.nix
-        # ./wlogout.nix
-        # ./dunst.nix
-        ./spotify.nix
-        ./nixcord.nix
         ./noctalia.nix
         # ./anyrun.nix
         ./quickshell
+        # ./wlogout.nix
+        # ./dunst.nix
+
+        ./spotify.nix
+        ./protonup.nix
+        ./nixcord.nix
         # ./anki
         ./ssh.nix
+        ./zathura.nix
         # ./silverbullet.nix
         # ./voxtype.nix
       ];
