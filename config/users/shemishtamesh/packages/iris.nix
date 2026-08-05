@@ -11,7 +11,10 @@ in
   home.packages = [ iris ];
 
   xdg.configFile."iris/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
-    core.expand-alias = false;
+    core = {
+      expand-alias = false;
+      enable-cobra-probe = false;
+    };
     ui.hidden-files = true;
     keybindings = {
       select = "ctrl+y";
