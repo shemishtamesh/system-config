@@ -30,6 +30,8 @@ let
     ./coding-agents/claude
     ./nh.nix
     ./bitwarden.nix
+    ./mpv.nix
+    ./zathura.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -77,8 +79,6 @@ let
         ./quickshell
         # ./anki
         ./ssh.nix
-        ./mpv.nix
-        ./zathura.nix
         # ./silverbullet.nix
         # ./voxtype.nix
       ];
