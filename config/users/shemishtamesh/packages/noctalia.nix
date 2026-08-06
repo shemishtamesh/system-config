@@ -124,6 +124,7 @@ in
         reserve_space = false;
         show_dots = true;
         smart_auto_hide = true;
+        show_instance_count = false;
         shadow = true;
       };
 
