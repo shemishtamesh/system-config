@@ -11,10 +11,6 @@ in
   home.packages = [ iris ];
 
   xdg.configFile."iris/config.toml".source = (pkgs.formats.toml { }).generate "config.toml" {
-    core = {
-      expand-alias = false;
-      enable-cobra-probe = false;
-    };
     ui.hidden-files = true;
     keybindings = {
       select = "ctrl+y";
@@ -29,6 +25,63 @@ in
         endpoint = "http://localhost:11434/v1/chat/completions";
         model = "qwen2.5-coder";
       };
+    };
+    core = {
+      expand-alias = false;
+      cobra-probe-allowlist = [
+        "kubectl"
+        "kubeadm"
+        "oc"
+        "helm"
+        "helmfile"
+        "kind"
+        "k3d"
+        "minikube"
+        "kops"
+        "eksctl"
+        "clusterctl"
+        "istioctl"
+        "linkerd"
+        "cilium"
+        "argocd"
+        "flux"
+        "kustomize"
+        "velero"
+        "skaffold"
+        "k9s"
+        "stern"
+        "crossplane"
+        "kpt"
+        "conftest"
+        "operator-sdk"
+        "kubebuilder"
+        "docker"
+        "docker-compose"
+        "nerdctl"
+        "podman"
+        "buildah"
+        "gh"
+        "glab"
+        "act"
+        "goreleaser"
+        "doctl"
+        "civo"
+        "cosign"
+        "syft"
+        "grype"
+        "trivy"
+        "cockroach"
+        "hugo"
+        "rclone"
+        "restic"
+        "buf"
+        "golangci-lint"
+        "task"
+        "dlv"
+        "ko"
+        "yq"
+        "cobra-cli"
+      ];
     };
   };
 
