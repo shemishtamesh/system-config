@@ -79,7 +79,8 @@
     };
 
     iris = {
-      url = "github:shemishtamesh/iris/feat/cobra-probe-allowlist";
+      # url = "github:shemishtamesh/iris/feat/cobra-probe-allowlist";
+      url = "github:versenilvis/iris/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
