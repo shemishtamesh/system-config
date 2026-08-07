@@ -658,16 +658,16 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1786097996,
-        "narHash": "sha256-qHDS2B35+dYqYrXtI3lwCYgOl7qLBJaprq5maBOk0q0=",
-        "owner": "versenilvis",
+        "lastModified": 1786117649,
+        "narHash": "sha256-zpfovEcXeYO4FPlWRAsdejn6jBBQn9sUd2Wt+OYnHzY=",
+        "owner": "shemishtamesh",
         "repo": "iris",
-        "rev": "55d55957c0b9e6ee17e2a6598e33a2c128647567",
+        "rev": "ee110cd48124b6b635d28f11d0ea8d9edba3d7ac",
         "type": "github"
       },
       "original": {
-        "owner": "versenilvis",
-        "ref": "main",
+        "owner": "shemishtamesh",
+        "ref": "fix/nix-vendor-hash",
         "repo": "iris",
         "type": "github"
       }
