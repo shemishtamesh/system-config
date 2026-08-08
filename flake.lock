@@ -658,11 +658,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1786098723,
-        "narHash": "sha256-YnOUOtYjUbwa/uzJL9fEgG+1O1qqbpqjiJY2IjLbE1Q=",
+        "lastModified": 1786182207,
+        "narHash": "sha256-QmxWdoo5krxjrFE5H+T1eeuYt8/Q7QTd6y72Ni0TWkg=",
         "owner": "shemishtamesh",
         "repo": "iris",
-        "rev": "9eaba39d3bc6de0e79cc73bce71672a8e058ca0a",
+        "rev": "260a2a319fb28fa1758aae2b78d361a24aef0d3b",
         "type": "github"
       },
       "original": {
