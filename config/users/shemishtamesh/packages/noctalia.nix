@@ -370,7 +370,7 @@ in
           taskbar = {
             empty_color = "tertiary";
             group_by_workspace = true;
-            group_single_icon_per_app = true;
+            group_single_icon_per_app = false;
           };
           weather.enabled = false;
           workspaces = {
