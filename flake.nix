@@ -79,7 +79,7 @@
     };
 
     iris = {
-      url = "github:shemishtamesh/iris/fix/nix-vendor-hash";
+      url = "github:shemishtamesh/iris/feat/cobra-probe-allowlist";
       # url = "github:versenilvis/iris/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
