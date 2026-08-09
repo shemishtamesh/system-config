@@ -658,16 +658,16 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1786174241,
-        "narHash": "sha256-jJRuo3bjC1bpexfGaJcTYctMFNmBZQM8o16HlMqeqxw=",
-        "owner": "versenilvis",
+        "lastModified": 1786182207,
+        "narHash": "sha256-QmxWdoo5krxjrFE5H+T1eeuYt8/Q7QTd6y72Ni0TWkg=",
+        "owner": "shemishtamesh",
         "repo": "iris",
-        "rev": "bf4f424e794ebb0d9a8d73a17967757ead92205d",
+        "rev": "260a2a319fb28fa1758aae2b78d361a24aef0d3b",
         "type": "github"
       },
       "original": {
-        "owner": "versenilvis",
-        "ref": "main",
+        "owner": "shemishtamesh",
+        "ref": "feat/cobra-probe-allowlist",
         "repo": "iris",
         "type": "github"
       }
