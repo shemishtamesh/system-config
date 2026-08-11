@@ -658,16 +658,16 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1786429758,
-        "narHash": "sha256-wz0ZWTSmtM9CNC+mELPmKxLYBJ0Azw9NrFKRuI9C8Fk=",
+        "lastModified": 1786469262,
+        "narHash": "sha256-zm8RtA//W29egUPOCeM7maG0ouBVL8MlnhyG/JSX3OI=",
         "owner": "shemishtamesh",
         "repo": "iris",
-        "rev": "9da56d6812f7aed4c827fb1ebfe245e0c071f8dc",
+        "rev": "07426f0e39730accf14c423d8554d3d70b6e50fb",
         "type": "github"
       },
       "original": {
         "owner": "shemishtamesh",
-        "ref": "feat/cobra-probe-allowlist",
+        "ref": "fix/watchdog-cwd-sync",
         "repo": "iris",
         "type": "github"
       }
