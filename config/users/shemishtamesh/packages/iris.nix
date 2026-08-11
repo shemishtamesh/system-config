@@ -53,6 +53,7 @@ in
     core = {
       expand-alias = false;
       cobra-probe-enabled = false;
+      atuin-history = 2;
     };
   };
 
