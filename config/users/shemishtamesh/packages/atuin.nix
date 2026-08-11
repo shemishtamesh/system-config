@@ -11,6 +11,7 @@
         };
         enter_accept = true;
         style = "full";
+        inline_height = 0;
       };
       daemon.enable = true;
     };
