@@ -82,6 +82,7 @@ let
         ./zathura.nix
         # ./silverbullet.nix
         # ./voxtype.nix
+        ./flatpak.nix
       ];
       packages = with pkgs; [
         # (callPackage ./ohrrpgce { })

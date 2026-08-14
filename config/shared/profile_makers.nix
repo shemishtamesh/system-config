@@ -71,7 +71,7 @@ let
                 users.users = host.users;
               }
             ];
-            home_modules = [ ];
+            home_modules = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
           }
 
         else if system_type == "darwin" then
