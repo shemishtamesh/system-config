@@ -3,10 +3,7 @@
   services.flatpak = {
     enable = true;
     uninstallUnmanaged = true;
-    packages = [
-      "org.vinegarhq.Sober"
-    ];
-    overrides.settings."org.vinegarhq.Sober".Context.devices = [ "all" ];
+    packages = [ ];
   };
 
   xdg.systemDirs.data = [
