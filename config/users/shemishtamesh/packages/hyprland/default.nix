@@ -421,7 +421,7 @@ in
             key_press_enables_dpms = true;
             mouse_move_enables_dpms = true;
           };
-          plugin."dynamic-cursors" = {
+          plugin.dynamic_cursors = {
             enabled = true;
             mode = "stretch";
           };
