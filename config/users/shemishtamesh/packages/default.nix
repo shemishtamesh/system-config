@@ -2,6 +2,7 @@
   pkgs,
   stable-pkgs,
   host,
+  inputs,
   ...
 }:
 let
@@ -56,6 +57,7 @@ let
     nixpkgs-track
     devenv
     slack
+    inputs.nixpkgs-multiverse.packages.${host.system}.mvs
   ];
   per_host = {
     shenixtamesh = {

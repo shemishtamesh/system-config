@@ -11,13 +11,13 @@
 let
   pkgs = system: nixpkgs.legacyPackages.${system};
   shared = system: import ./. (pkgs system);
-  stable-pkgs =
+  multiverse =
     host:
-    (inputs.nixpkgs-multiverse.lib.mkMultiverse {
+    inputs.nixpkgs-multiverse.lib.mkMultiverse {
       inherit (host) system;
       config = (shared host.system).nixpkgs_config;
-    }).at
-      "26.05";
+    };
+  stable-pkgs = host: (multiverse host).at "26.05";
 
   mkHomeConfiguration =
     {
@@ -30,6 +30,7 @@ let
         extraSpecialArgs = {
           shared = shared host.system;
           stable-pkgs = stable-pkgs host;
+          multiverse = multiverse host;
           inherit
             inputs
             host
@@ -122,6 +123,7 @@ let
               specialArgs = {
                 shared = shared host.system;
                 stable-pkgs = stable-pkgs host;
+                multiverse = multiverse host;
                 inherit
                   inputs
                   host
