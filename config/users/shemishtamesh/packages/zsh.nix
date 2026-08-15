@@ -5,7 +5,7 @@
   ...
 }:
 let
-  darwin = pkgs.stdenv.isDarwin;
+  darwin = pkgs.stdenv.hostPlatform.isDarwin;
   initialize_flake_template = lib.getExe (
     pkgs.writeShellScriptBin "initialize_flake_template" ''
       case "$1" in

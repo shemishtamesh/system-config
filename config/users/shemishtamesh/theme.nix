@@ -38,10 +38,10 @@ in
   stylix = shared.theme.stylix_settings;
   home = {
     file = wallpaper_paths shared.theme.scheme;
-    pointerCursor.enable = pkgs.stdenv.isLinux;
+    pointerCursor.enable = pkgs.stdenv.hostPlatform.isLinux;
   };
 
-  qt = lib.mkIf pkgs.stdenv.isLinux {
+  qt = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     platformTheme.name = "kde";
     style.name = "breeze";
@@ -49,7 +49,7 @@ in
   # stylix delivers kdeglobals via XDG_CONFIG_DIRS which systemd-launched apps never see
   # place it directly instead, adding General.ColorScheme since stylix only sets that one
   # through a Plasma look-and-feel activation step that requires a running Plasma session.
-  xdg.configFile = lib.mkIf pkgs.stdenv.isLinux {
+  xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     "kdeglobals".text =
       let
         colorschemeSlug = lib.concatStrings (
