@@ -13,10 +13,10 @@ let
   shared = system: import ./. (pkgs system);
   stable-pkgs =
     host:
-    import inputs.nixpkgs-stable {
+    (inputs.nixpkgs-multiverse.lib.mkMultiverse {
       inherit (host) system;
       config = (shared host.system).nixpkgs_config;
-    };
+    }).at "26.05";
 
   mkHomeConfiguration =
     {
