@@ -16,7 +16,8 @@ let
     (inputs.nixpkgs-multiverse.lib.mkMultiverse {
       inherit (host) system;
       config = (shared host.system).nixpkgs_config;
-    }).at "26.05";
+    }).at
+      "26.05";
 
   mkHomeConfiguration =
     {
