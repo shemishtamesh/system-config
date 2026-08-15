@@ -421,10 +421,10 @@ in
             key_press_enables_dpms = true;
             mouse_move_enables_dpms = true;
           };
-          # plugin."dynamic-cursors" = {
-          #   enabled = true;
-          #   mode = "stretch";
-          # };
+          plugin."dynamic-cursors" = {
+            enabled = true;
+            mode = "stretch";
+          };
         };
 
         permission = [
@@ -670,7 +670,7 @@ in
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
       plugins = [
-        # inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
+        inputs.hypr-dynamic-cursors.packages.${host.system}.hypr-dynamic-cursors
       ];
     };
   home.packages = with pkgs; [ hyprland-qtutils ];
