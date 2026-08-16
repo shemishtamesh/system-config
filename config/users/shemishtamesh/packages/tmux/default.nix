@@ -41,6 +41,34 @@ let
   '';
   tmux-agent-sidebar = pkgs.callPackage ./tmux-agent-sidebar.nix { };
   palette = config.lib.stylix.colors.withHashtag;
+
+  # for compatibility of vim-tmux-navigator and iris
+  isVimPane = pkgs.writeShellScript "is-vim-pane" ''
+    shopt -s nocasematch
+
+    pattern='(\S+/)?g?\.?(view|l?n?vim?x?|fzf)(diff)?(-wrapped)?'
+    root="$1"
+    queue=("$root")
+    seen=""
+
+    while [ "''${#queue[@]}" -gt 0 ]; do
+      pid="''${queue[0]}"
+      queue=("''${queue[@]:1}")
+      case " $seen " in *" $pid "*) continue ;; esac
+      seen="$seen $pid"
+
+      read -r state comm < <(ps -o state=,comm= -p "$pid" 2>/dev/null)
+      if [ -n "$state" ] && [[ "$state" != *[TXZ]* ]] && [[ "$comm" =~ ^''${pattern}$ ]]; then
+        exit 0
+      fi
+
+      for child in $(pgrep -P "$pid" 2>/dev/null); do
+        queue+=("$child")
+      done
+    done
+
+    exit 1
+  '';
 in
 {
   stylix.targets.tmux.enable = true;
@@ -63,6 +91,7 @@ in
             set -g @vim_navigator_mapping_up "M-k"
             set -g @vim_navigator_mapping_down "M-j"
             set -g @vim_navigator_mapping_prev "M-BSpace"
+            set -g @vim_navigator_check "${isVimPane} '#{pane_pid}'"
           '';
       }
       {

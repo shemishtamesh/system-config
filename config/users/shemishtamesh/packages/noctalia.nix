@@ -320,7 +320,7 @@ in
           pipe_command = "swappy -f -";
           pipe_to_command = true;
           remember_last_region = false;
-          show_cursor = true;
+          show_cursor = false;
         };
 
         session.grid = true;

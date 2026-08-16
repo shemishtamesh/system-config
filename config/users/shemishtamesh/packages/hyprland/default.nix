@@ -313,6 +313,7 @@ in
           })
 
           (mkExecBind "CTRL + XF86Reload" "noctalia msg mic-mute" { locked = true; })
+          (mkExecBind "ALT + XF86Reload" "noctalia msg mic-mute" { locked = true; })
           (mkExecBind "XF86Reload" "noctalia msg mic-mute" { locked = true; })
           (mkExecBind "XF86AudioMute" "noctalia msg volume-mute" { locked = true; })
 
