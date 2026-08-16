@@ -50,6 +50,7 @@ let
     fastfetch
     yazi
     killall
+    cliamp
     nps
     nix-diff
     nix-output-monitor
