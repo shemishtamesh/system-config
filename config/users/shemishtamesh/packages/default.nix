@@ -32,6 +32,7 @@ let
     ./nh.nix
     ./bitwarden.nix
     ./mpv.nix
+    ./cliamp.nix
   ];
   shared_packages = with pkgs; [
     libqalculate
@@ -50,7 +51,6 @@ let
     fastfetch
     yazi
     killall
-    cliamp
     nps
     nix-diff
     nix-output-monitor
