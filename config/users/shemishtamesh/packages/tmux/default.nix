@@ -135,6 +135,16 @@ in
     ];
     extraConfig =
       with palette; # tmux
+      let
+        # prefix the session name to the first window
+        windowNamePrefix =
+          "#{?#{==:#I,#{base-index}},"
+          + "#[bg=${base01}]#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] :"
+          + "#[fg=default],"
+          + "#[bg=${base01}]} ";
+        # blank unless the window has been manually renamed
+        windowLabel = "#{?automatic-rename,#I,#I:#W}#F";
+      in
       ''
         # fix colors
         set -g default-terminal "$TERM"
@@ -209,9 +219,8 @@ in
         set -g status-right-length 99
         set -g status-justify absolute-centre
 
-        # prefix the session name to the first window
-        set -g window-status-format '#{?#{==:#I,#{base-index}},#[bg=${base01}]#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] :#[fg=default],#[bg=${base01}]} #I:#W#F'
-        set -g window-status-current-format '#{?#{==:#I,#{base-index}},#[bg=${base01}]#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] :#[fg=default],#[bg=${base01}]} #[fg=${base0D}]#I:#W#F'
+        set -g window-status-format '${windowNamePrefix}${windowLabel}'
+        set -g window-status-current-format '${windowNamePrefix}#[fg=${base0D}]${windowLabel}'
 
         set -g status-bg \${base01}
 
