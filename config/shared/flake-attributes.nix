@@ -73,6 +73,38 @@ in
             text =
               # sh
               ''
+                generate_commit_message() {
+                  fallback="$1"
+                  message=""
+                  if command -v ollama > /dev/null 2>&1 && ollama list 2>/dev/null | grep -q 'qwen2.5-coder:7b'; then
+                    diff="$(git -C "$NH_FLAKE" diff HEAD)"
+                    if [ -n "$diff" ]; then
+                      commit_instructions="$(
+                        printf '%s' \
+                          'Write a Conventional Commits git commit message for the diff below: ' \
+                          'a short imperative title line in the form "type(scope): summary" ' \
+                          '(max 72 characters), then a blank line, then one or more concise ' \
+                          'body lines describing what changed and why if evident. ' \
+                          'Your entire response must be ONLY the commit message text itself - ' \
+                          'no preamble, no explanation, no markdown code fences, no surrounding quotes.'
+                      )"
+                      prompt="$(printf '%s\n\nDiff:\n%s' "$commit_instructions" "$diff")"
+                      message="$(
+                        printf '%s' "$prompt" \
+                          | ollama run --nowordwrap qwen2.5-coder:7b 2>/dev/null \
+                          | sed '/^```/d' \
+                          | sed -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}' \
+                          || true
+                      )"
+                    fi
+                  fi
+                  if [ -n "$message" ]; then
+                    echo "$message"
+                  else
+                    echo "$fallback"
+                  fi
+                }
+
                 if [ -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.config/sops/age/key.txt" ]; then
                   cp "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_ed25519.bak"
                   ssh-keygen -p -N "" -f "$HOME/.ssh/id_ed25519" -C "temp-for-sops"
@@ -81,29 +113,20 @@ in
                   mv "$HOME/.ssh/id_ed25519.bak" "$HOME/.ssh/id_ed25519"
                 fi
 
-                starting_commit=$(git -C "$NH_FLAKE" rev-parse HEAD)
-
                 git -C "$NH_FLAKE" pull
 
-                git -C "$NH_FLAKE" add .
-                git -C "$NH_FLAKE" commit -m 'before formatting' > /dev/null || true
-                git rebase > /dev/null
+                git rebase --autostash > /dev/null
                 nix fmt "$NH_FLAKE"
                 echo 'formatted'
 
                 if [ -z "''${2-}" ]; then
-                    git -C "$NH_FLAKE" add .
                     nix flake update nixvim --flake "$NH_FLAKE"
                     nix flake update secrets --flake "$NH_FLAKE"
-                    git -C "$NH_FLAKE" commit -am 'updating flakes' > /dev/null || true
                     echo 'updated flakes'
                 fi
 
                 if [[ -z "''${1-}" || "$1" == "os" ]]; then
-                  git -C "$NH_FLAKE" commit -am 'switching os confg' > /dev/null || true
                   if ! ${os_specific.os_switch_command}; then
-                    git -C "$NH_FLAKE" commit --amend -am 'os config switch failed' > /dev/null
-                    git push > /dev/null
                     ${os_specific.notify_os_switch_failure}
                     exit 1
                   fi
@@ -111,18 +134,16 @@ in
                 fi
 
                 if [[ -z "''${1-}" || "$1" == "home" ]]; then
-                  git -C "$NH_FLAKE" commit -am 'switch home config' > /dev/null || true
                   if ! nh home switch "$NH_FLAKE" --backup-extension bak; then
-                    git -C "$NH_FLAKE" commit --amend -m 'home config switch failed' > /dev/null
-                    git push > /dev/null
                     ${os_specific.notify_home_switch_failure}
                     exit 1
                   fi
                   echo 'updated home'
                 fi
 
-                if [[ -z "''${1-}" && "$starting_commit" != "$(git -C "$NH_FLAKE" rev-parse HEAD)" ]]; then
-                  git -C "$NH_FLAKE" commit --amend -m 'system switch succeeded' > /dev/null
+                git -C "$NH_FLAKE" add .
+                if ! git -C "$NH_FLAKE" diff --cached --quiet; then
+                  git -C "$NH_FLAKE" commit -m "$(generate_commit_message 'system switch succeeded')" > /dev/null
                 fi
 
                 git push > /dev/null
