@@ -16,6 +16,7 @@ in
         client_id = config.sops.placeholder."cliamp/youtube_client_id";
         client_secret = config.sops.placeholder."cliamp/youtube_client_secret";
       };
+      spotify.bitrate = 320;
     }
   );
 
