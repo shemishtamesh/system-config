@@ -86,6 +86,7 @@
         ".venv"
         ".envrc"
         ".claude"
+        "__worktrees"
       ];
       hooks.pre-commit =
         pkgs.writeScript "pre-commit-script" # sh
