@@ -8,9 +8,6 @@ in
     yt-dlp
   ];
 
-  sops.secrets."cliamp/youtube_client_id" = { };
-  sops.secrets."cliamp/youtube_client_secret" = { };
-
   sops.templates."cliamp-config".content = builtins.readFile (
     (pkgs.formats.toml { }).generate "config.toml" {
       theme = "stylix";
@@ -19,6 +16,7 @@ in
         client_id = config.sops.placeholder."cliamp/youtube_client_id";
         client_secret = config.sops.placeholder."cliamp/youtube_client_secret";
       };
+      spotify.client_id = config.sops.placeholder."cliamp/spotify_client_id";
     }
   );
 
@@ -34,4 +32,8 @@ in
     yellow = palette.base0A;
     red = palette.base08;
   };
+
+  sops.secrets."cliamp/youtube_client_id" = { };
+  sops.secrets."cliamp/youtube_client_secret" = { };
+  sops.secrets."cliamp/spotify_client_id" = { };
 }
