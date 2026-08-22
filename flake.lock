@@ -305,29 +305,6 @@
         "type": "github"
       }
     },
-    "hypr-dynamic-cursors": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786008413,
-        "narHash": "sha256-+tq+E+wHz+Wy6X6C15/arGcNTh6kzJuUzEudl4IOLvc=",
-        "owner": "VirtCode",
-        "repo": "hypr-dynamic-cursors",
-        "rev": "e9056fd4f2b229d9924aa853c4763d6bc314bb34",
-        "type": "github"
-      },
-      "original": {
-        "owner": "VirtCode",
-        "repo": "hypr-dynamic-cursors",
-        "type": "github"
-      }
-    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -1109,7 +1086,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "hypr-dynamic-cursors": "hypr-dynamic-cursors",
         "hyprland": "hyprland",
         "iris": "iris",
         "nix-darwin": "nix-darwin",
