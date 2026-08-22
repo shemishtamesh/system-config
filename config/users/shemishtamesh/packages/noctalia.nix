@@ -224,7 +224,7 @@ in
         session.actions = [
           {
             action = "command";
-            command = "sleep 2 && hyprctl dispatch 'hl.dsp.dpms(\"off\")'";
+            command = "sleep 2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"off\" })'";
             label = "Turn Off Displays";
             glyph = "device-desktop-off";
             variant = "default";

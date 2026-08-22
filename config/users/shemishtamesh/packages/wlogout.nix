@@ -72,7 +72,7 @@ in
       }
       {
         label = "logout";
-        action = "hyprctl dispatch exit";
+        action = "hyprctl dispatch 'hl.dsp.exit()'";
         text = "l[o]gout";
         keybind = "o";
       }
