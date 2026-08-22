@@ -46,7 +46,7 @@ let
   isVimPane = pkgs.writeShellScript "is-vim-pane" ''
     shopt -s nocasematch
 
-    pattern='(\S+/)?g?\.?(view|l?n?vim?x?|fzf)(diff)?(-wrapped)?'
+    pattern='([^[:space:]]+/)?g?\.?(view|l?n?vim?x?|fzf)(diff)?(-wrapped)?'
     root="$1"
     queue=("$root")
     seen=""
