@@ -1,6 +1,7 @@
 {
   pkgs,
   stable-pkgs,
+  multiverse,
   ...
 }:
 {
@@ -24,7 +25,7 @@
     };
     open-webui = {
       enable = true;
-      package = stable-pkgs.open-webui;
+      # TODO: return to stable-pkgs.open-webui once fixed there
       environment = {
         ANONYMIZED_TELEMETRY = "False";
         DO_NOT_TRACK = "True";
