@@ -23,6 +23,7 @@ in
       FLAKE_ROOT = (import ./constants.nix pkgs).FLAKE_ROOT;
       FLAKE_REPO = (import ./constants.nix pkgs).FLAKE_REPO;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
+      shared = import ./default.nix pkgs;
       inherit (inputs.nixpkgs) lib;
       kernel = lib.last (lib.splitString "-" system);
       os_specific =
@@ -139,6 +140,7 @@ in
                     exit 1
                   fi
                   echo 'updated home'
+                  ${shared.scripts.reload_configs}
                 fi
 
                 git -C "$NH_FLAKE" add .
