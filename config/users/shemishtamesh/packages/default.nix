@@ -71,17 +71,21 @@ let
         # ./hyprlauncher.nix
         # ./rofi.nix
         # ./waybar.nix
+        ./cliphist.nix
         ./noctalia.nix
         # ./anyrun.nix
         ./quickshell
         # ./wlogout.nix
         # ./dunst.nix
-
+        ./notification-log.nix
+        ./easyeffects.nix
+        ./transmission.nix
         ./spotify.nix
         ./protonup.nix
         ./nixcord.nix
         # ./anki
         ./ssh.nix
+        ./kdeconnect.nix
         ./zathura.nix
         # ./silverbullet.nix
         # ./voxtype.nix
@@ -113,7 +117,6 @@ let
         # slides
         difftastic
         altus
-        easyeffects
         pavucontrol
         cliphist
         vlc

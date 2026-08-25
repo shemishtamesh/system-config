@@ -87,7 +87,8 @@ in
                           '(max 72 characters), then a blank line, then one or more concise ' \
                           'body lines describing what changed and why if evident. ' \
                           'Your entire response must be ONLY the commit message text itself - ' \
-                          'no preamble, no explanation, no markdown code fences, no surrounding quotes.'
+                          'no preamble, no explanation, no markdown code fences, no surrounding quotes.' \
+                          'the scope should not be full paths'
                       )"
                       prompt="$(printf '%s\n\nDiff:\n%s' "$commit_instructions" "$diff")"
                       message="$(
@@ -117,6 +118,9 @@ in
                 git -C "$NH_FLAKE" pull
 
                 git rebase --autostash > /dev/null
+
+                git -C "$NH_FLAKE" add .
+
                 nix fmt "$NH_FLAKE"
                 echo 'formatted'
 

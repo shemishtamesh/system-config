@@ -81,4 +81,18 @@ in
       };
     };
   };
+
+  systemd.user.services.quickshell-overview = {
+    Unit = {
+      Description = "quickshell workspace overview widget";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.quickshell}/bin/qs -c overview";
+      Restart = "always";
+      RestartSec = 1;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }

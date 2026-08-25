@@ -1,7 +1,5 @@
-{
-  pkgs,
-}:
-{
+{ pkgs, ... }:
+let
   notification-log = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "notification-log" ''
       logfile=$1
@@ -45,4 +43,19 @@
           done
     ''
   );
+in
+{
+  systemd.user.services.notification-log = {
+    Unit = {
+      Description = "dbus notification logger";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${notification-log} $HOME/Documents/logs/notifications.txt";
+      Restart = "always";
+      RestartSec = 1;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }

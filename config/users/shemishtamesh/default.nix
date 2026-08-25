@@ -7,7 +7,6 @@
 {
   imports = [
     ./packages
-    ./services.nix
     ./environment_variables.nix
     ./scripts.nix
     ./theme.nix

@@ -9,7 +9,6 @@ let
   gaps = 5;
   rounding = 10;
   shadowRange = 20;
-  scripts = import ./scripts.nix { inherit pkgs; };
   sorted_monitors = builtins.sort (
     a: b: (host.monitors.${a}.horizontal_offset < host.monitors.${b}.horizontal_offset)
   ) (builtins.attrNames host.monitors);
@@ -653,15 +652,6 @@ in
           "discord"
           "altus"
           "slack"
-          "wl-paste --watch cliphist store"
-          "${scripts.notification-log} $HOME/Documents/logs/notifications.txt"
-          "${pkgs.playerctl}/bin/playerctld"
-          "hypridle"
-          "${pkgs.hypridle}/bin/hypridle"
-          "transmission-daemon"
-          "${pkgs.easyeffects}/bin/easyeffects --gapplication-service"
-          "noctalia"
-          "qs -c overview"
         ];
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync

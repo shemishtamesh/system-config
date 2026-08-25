@@ -6,6 +6,8 @@
   ...
 }:
 let
+  noctalia_package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
   wallpaper_monitor = builtins.mapAttrs (port: _: {
     directory = "~/Pictures/Wallpapers/${port}";
   }) host.monitors;
@@ -20,7 +22,7 @@ in
   ];
   programs.noctalia = {
     enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = noctalia_package;
     settings = {
       audio.enable_overdrive = true;
 
@@ -389,4 +391,18 @@ in
     ddcutil
     swappy
   ];
+
+  systemd.user.services.noctalia = {
+    Unit = {
+      Description = "noctalia shell daemon";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${noctalia_package}/bin/noctalia";
+      Restart = "always";
+      RestartSec = 1;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }
