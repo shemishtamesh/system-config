@@ -47,7 +47,7 @@
       fi
 
       # Rename the file
-      mv "$original_file" "$dir/$new_filename"
+      mv -i "$original_file" "$dir/$new_filename"
     '')
     (pkgs.writeShellScriptBin "s" ''
       if [[ $# -eq 0 ]]; then
