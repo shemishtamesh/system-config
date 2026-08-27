@@ -1,7 +1,6 @@
 {
   pkgs,
   stable-pkgs,
-  multiverse,
   ...
 }:
 {
@@ -25,7 +24,6 @@
     };
     open-webui = {
       enable = true;
-      # TODO: return to stable-pkgs.open-webui once fixed there
       environment = {
         ANONYMIZED_TELEMETRY = "False";
         DO_NOT_TRACK = "True";
@@ -41,4 +39,5 @@
       listenPort = 3030;
     };
   };
+  systemd.services.silverbullet.environment.SB_CHROME_PATH = "${pkgs.chromium}/bin/chromium";
 }
