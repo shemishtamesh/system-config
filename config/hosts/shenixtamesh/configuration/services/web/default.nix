@@ -39,5 +39,8 @@
       listenPort = 3030;
     };
   };
-  systemd.services.silverbullet.environment.SB_CHROME_PATH = "${pkgs.chromium}/bin/chromium";
+  systemd.services.silverbullet.environment = {
+    SB_CHROME_PATH = "${pkgs.chromium}/bin/chromium";
+    HOME = "/var/lib/silverbullet";
+  };
 }
