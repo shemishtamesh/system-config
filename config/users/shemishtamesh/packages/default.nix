@@ -90,6 +90,7 @@ let
         # ./silverbullet.nix
         # ./voxtype.nix
         ./flatpak.nix
+        ./dictation.nix
       ];
       packages = with pkgs; [
         # (callPackage ./ohrrpgce { })

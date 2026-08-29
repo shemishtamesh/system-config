@@ -116,7 +116,7 @@ in
           (mkExecBind "${mod} + RETURN" "wezterm start tmux" null)
           (mkExecBind "${mod} + i" "zen-twilight" null)
           (mkExecBind "${mod} + SHIFT + i" "zen-twilight --private-window" null)
-          (mkExecBind "${mod} + d" "obsidian" null)
+          (mkExecBind "${mod} + d" "dictate" null)
           (mkExecBind "${mod} + SHIFT + d" "drawy" null)
 
           (mkExecBind "${mod} + v" "noctalia msg panel-toggle clipboard" null)
