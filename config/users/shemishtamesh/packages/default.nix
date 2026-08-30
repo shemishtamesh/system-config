@@ -32,7 +32,7 @@ let
     ./nh.nix
     ./bitwarden.nix
     ./mpv.nix
-    ./cliamp.nix
+    ./cliamp
   ];
   shared_packages = with pkgs; [
     libqalculate
