@@ -72,8 +72,8 @@
     };
 
     iris = {
-      # url = "github:shemishtamesh/iris/fix/watchdog-cwd-sync";
-      url = "github:versenilvis/iris/main";
+      url = "github:shemishtamesh/iris/ci/verify-flake-build";
+      # url = "github:versenilvis/iris/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
