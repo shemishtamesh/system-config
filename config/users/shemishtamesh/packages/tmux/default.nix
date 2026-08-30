@@ -196,7 +196,11 @@ in
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "C-S-x" kill-session
 
-        bind-key "P" display-popup -E -w 80% -h 80% -T " cliamp " "tmux new-session -A -s cliamp ${cliamp}"
+        # toggle floating cliamp: opens/attaches if closed, detaches (hides) if already open;
+        # it keeps playing in the background whenever the popup is hidden
+        bind-key "P" if-shell -F "#{==:#{session_name},cliamp}" \
+          "detach-client" \
+          "display-popup -E -w 80% -h 80% -T ' cliamp ' 'tmux new-session -A -s cliamp ${cliamp}'"
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
