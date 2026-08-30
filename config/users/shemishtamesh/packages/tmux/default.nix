@@ -40,6 +40,7 @@ let
     rm ${sesh_fzf_recycle_flag} || true
   '';
   tmux-agent-sidebar = pkgs.callPackage ./tmux-agent-sidebar.nix { };
+  cliamp = "${pkgs.cliamp}/bin/cliamp";
   palette = config.lib.stylix.colors.withHashtag;
 
   # for compatibility of vim-tmux-navigator and iris
@@ -194,6 +195,8 @@ in
         bind-key "C-c" display-popup -E 'echo "project to clone:" && ${sesh} clone --cmdDir "$HOME/projects" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "C-S-x" kill-session
+
+        bind-key "P" display-popup -E -w 80% -h 80% -T " cliamp " "tmux new-session -A -s cliamp ${cliamp}"
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
