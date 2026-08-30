@@ -11,6 +11,7 @@ in
   sops.templates."cliamp-config".content = builtins.readFile (
     (pkgs.formats.toml { }).generate "config.toml" {
       theme = "stylix";
+      vis = "Columns";
       ytmusic = {
         cookies_from = "firefox:~/.config/zen";
         client_id = config.sops.placeholder."cliamp/youtube_client_id";
