@@ -196,11 +196,10 @@ in
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "C-S-x" kill-session
 
-        # toggle floating cliamp: opens/attaches if closed, detaches (hides) if already open;
-        # it keeps playing in the background whenever the popup is hidden
-        bind-key "P" if-shell -F "#{==:#{session_name},cliamp}" \
+        # toggle floating music player
+        bind-key "P" if-shell -F "#{==:#{session_name},background music player}" \
           "detach-client" \
-          "display-popup -E -w 80% -h 80% -T ' cliamp ' 'tmux new-session -A -s cliamp ${cliamp}'"
+          "display-popup -E -w 80% -h 80% -T ' music ' 'tmux new-session -A -s background\ music\ player ${cliamp}'"
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
@@ -238,6 +237,8 @@ in
   };
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
+      blacklist = ["background music player"]
+
       [default_session]
       startup_command = "tmux set-option status on"
       preview_command = "exa --tree --color=auto --icons=always --git --level 3 {}"
