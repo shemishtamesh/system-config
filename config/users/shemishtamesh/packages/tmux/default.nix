@@ -145,6 +145,11 @@ in
           + "#[bg=${base01}]} ";
         # blank unless the window has been manually renamed
         windowLabel = "#{?automatic-rename,#I,#I:#W}#F";
+        # start (or reattach to) the popup, then lock its leader/table down to itself
+        backgroundAudioPopupCmd =
+          "tmux new-session -A -s background-audio ${cliamp}"
+          + " \\; set-option prefix None"
+          + " \\; set-option key-table background-audio-root";
       in
       ''
         # fix colors
@@ -196,10 +201,14 @@ in
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "C-S-x" kill-session
 
-        # toggle floating music player
+        # toggle floating music player, locking down all its other keybinds
         bind-key "P" if-shell -F "#{==:#{session_name},background-audio}" \
           "detach-client" \
-          "display-popup -E -w 80% -h 80% -T ' background-audio ' 'tmux new-session -A -s background-audio ${cliamp}'"
+          "display-popup -E -w 80% -h 80% -T ' background-audio ' '${backgroundAudioPopupCmd}'"
+        bind-key -T background-audio-root "C-Space" switch-client -T background-audio-leader
+        bind-key -T background-audio-leader "P" detach-client
+        bind-key -T background-audio-leader "d" detach-client
+        bind-key -T background-audio-leader "x" kill-pane
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
