@@ -197,9 +197,9 @@ in
         bind-key "C-S-x" kill-session
 
         # toggle floating music player
-        bind-key "P" if-shell -F "#{==:#{session_name},background audio player}" \
+        bind-key "P" if-shell -F "#{==:#{session_name},background-audio}" \
           "detach-client" \
-          "display-popup -E -w 80% -h 80% -T ' background-audio ' 'tmux new-session -A -s background\\ audio\\ player ${cliamp}'"
+          "display-popup -E -w 80% -h 80% -T ' background-audio ' 'tmux new-session -A -s background-audio ${cliamp}'"
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
@@ -237,7 +237,7 @@ in
   };
   xdg.configFile."sesh/sesh.toml".text = # toml
     ''
-      blacklist = ["background music player"]
+      blacklist = ["background-audio"]
 
       [default_session]
       startup_command = "tmux set-option status on"
