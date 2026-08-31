@@ -197,9 +197,9 @@ in
         bind-key "C-S-x" kill-session
 
         # toggle floating music player
-        bind-key "P" if-shell -F "#{==:#{session_name},background music player}" \
+        bind-key "P" if-shell -F "#{==:#{session_name},background audio player}" \
           "detach-client" \
-          "display-popup -E -w 80% -h 80% -T ' music ' 'tmux new-session -A -s background\ music\ player ${cliamp}'"
+          "display-popup -E -w 80% -h 80% -T ' background-audio ' 'tmux new-session -A -s background\\ audio\\ player ${cliamp}'"
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"
