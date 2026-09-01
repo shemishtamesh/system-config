@@ -202,6 +202,9 @@ in
         bind-key "M-c" display-popup -E 'echo "test to clone:" && ${sesh} clone --cmdDir "$HOME/tests" $(head -n 1) || tmux display-message "Already exists"'
         bind-key "C-S-x" kill-session
 
+        # set the clipboard via OSC52
+        set -g set-clipboard on
+
         # toggle floating music player, locking down all its other keybinds
         bind-key "P" if-shell "tmux list-clients -t background-audio 2>/dev/null | grep -q ." \
           "detach-client -s background-audio" \
