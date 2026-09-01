@@ -203,11 +203,10 @@ in
         bind-key "C-S-x" kill-session
 
         # toggle floating music player, locking down all its other keybinds
-        bind-key "P" if-shell -F "#{==:#{session_name},background-audio}" \
-          "detach-client" \
+        bind-key "P" if-shell "tmux list-clients -t background-audio 2>/dev/null | grep -q ." \
+          "detach-client -s background-audio" \
           "display-popup -E -w 80% -h 80% -T ' background-audio ' '${backgroundAudioPopupCmd}'"
         bind-key -T background-audio-root "C-Space" switch-client -T background-audio-leader
-        bind-key -T background-audio-leader "P" detach-client
         bind-key -T background-audio-leader "d" detach-client
         bind-key -T background-audio-leader "x" kill-pane
 
