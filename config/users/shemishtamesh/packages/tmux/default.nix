@@ -210,6 +210,7 @@ in
         bind-key -T background-audio-leader "P" detach-client
         bind-key -T background-audio-leader "d" detach-client
         bind-key -T background-audio-leader "x" kill-pane
+        bind-key -T background-audio-leader "[" copy-mode
 
         # go to last session/window/pane
         bind-key "C-p" run-shell "${sesh} last || tmux display-message 'No last session'"

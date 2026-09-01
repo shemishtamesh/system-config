@@ -13,7 +13,7 @@ in
     content = builtins.readFile (
       (pkgs.formats.toml { }).generate "config.toml" {
         theme = "stylix";
-        visualizer = "Bars";
+        visualizer = "Columns";
         ytmusic = {
           cookies_from = "firefox:~/.config/zen";
           client_id = config.sops.placeholder."cliamp/youtube_client_id";
