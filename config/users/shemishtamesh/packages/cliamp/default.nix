@@ -8,22 +8,21 @@ in
     yt-dlp
   ];
 
-  sops.templates."cliamp-config".content = builtins.readFile (
-    (pkgs.formats.toml { }).generate "config.toml" {
-      theme = "stylix";
-      vis = "Columns";
-      ytmusic = {
-        cookies_from = "firefox:~/.config/zen";
-        client_id = config.sops.placeholder."cliamp/youtube_client_id";
-        client_secret = config.sops.placeholder."cliamp/youtube_client_secret";
-      };
-      spotify.client_id = config.sops.placeholder."cliamp/spotify_client_id";
-    }
-  );
-
-  xdg.configFile."cliamp/config.toml".source =
-    config.lib.file.mkOutOfStoreSymlink
-      config.sops.templates."cliamp-config".path;
+  sops.templates."cliamp-config" = {
+    path = "${config.xdg.configHome}/cliamp/config.toml";
+    content = builtins.readFile (
+      (pkgs.formats.toml { }).generate "config.toml" {
+        theme = "stylix";
+        visualizer = "Bars";
+        ytmusic = {
+          cookies_from = "firefox:~/.config/zen";
+          client_id = config.sops.placeholder."cliamp/youtube_client_id";
+          client_secret = config.sops.placeholder."cliamp/youtube_client_secret";
+        };
+        spotify.client_id = config.sops.placeholder."cliamp/spotify_client_id";
+      }
+    );
+  };
 
   xdg.configFile."cliamp/themes/stylix.toml".source = (pkgs.formats.toml { }).generate "stylix.toml" {
     accent = palette.base0D;
