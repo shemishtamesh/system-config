@@ -207,8 +207,9 @@ in
           "detach-client -s background-audio" \
           "display-popup -E -w 80% -h 80% -T ' background-audio ' '${backgroundAudioPopupCmd}'"
         bind-key -T background-audio-root "C-Space" switch-client -T background-audio-leader
-        bind-key -T background-audio-leader "P" detach-client
-        bind-key -T background-audio-leader "d" detach-client
+        # detach-client run directly here is unreliable
+        bind-key -T background-audio-leader "P" run-shell "tmux detach-client -s background-audio"
+        bind-key -T background-audio-leader "d" run-shell "tmux detach-client -s background-audio"
         bind-key -T background-audio-leader "x" kill-pane
 
         # go to last session/window/pane
