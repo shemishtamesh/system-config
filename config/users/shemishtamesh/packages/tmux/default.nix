@@ -145,11 +145,12 @@ in
           + "#[bg=${base01}]} ";
         # blank unless the window has been manually renamed
         windowLabel = "#{?automatic-rename,#I,#I:#W}#F";
-        # start (or reattach to) the popup, then lock its leader/table down to itself
+        # start the popup, then lock its keybinds
         backgroundAudioPopupCmd =
-          "tmux new-session -A -s background-audio ${cliamp}"
-          + " \\; set-option prefix None"
-          + " \\; set-option key-table background-audio-root";
+          "tmux new-session -A -d -s background-audio ${cliamp}"
+          + " && tmux set-option -t background-audio prefix None"
+          + " && tmux set-option -t background-audio key-table background-audio-root"
+          + " && tmux attach-session -t background-audio";
       in
       ''
         # fix colors
