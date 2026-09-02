@@ -39,7 +39,7 @@ let
 
     rm ${sesh_fzf_recycle_flag} || true
   '';
-  tmux-agent-sidebar = pkgs.callPackage ./tmux-agent-sidebar.nix { };
+  agenmux = pkgs.callPackage ./agenmux.nix { };
   cliamp = "${pkgs.cliamp}/bin/cliamp";
   palette = config.lib.stylix.colors.withHashtag;
 
@@ -125,12 +125,11 @@ in
         '';
       }
       {
-        plugin = tmux-agent-sidebar;
+        plugin = agenmux;
         extraConfig = # tmux
           ''
-            set -g @sidebar_auto_create off
-            set -g @sidebar_key a
-            set -g @sidebar_key_all A
+            set -g @agenmux-bin '${lib.getExe agenmux}'
+            set -g @agenmux-key 'a'
           '';
       }
     ];
@@ -280,11 +279,4 @@ in
       startup_script = "git pull"
       path = "~/.config/system-secrets"
     '';
-
-  # tmux-agent-sidebar integrations
-  xdg.configFile."opencode/plugins/tmux-agent-sidebar.js".source =
-    lib.mkIf config.programs.opencode.enable "${tmux-agent-sidebar}/share/tmux-plugins/tmux-agent-sidebar/.opencode/plugins/tmux-agent-sidebar.js";
-  programs.claude-code.plugins = lib.mkIf config.programs.claude-code.enable {
-    tmux-agent-sidebar = "${tmux-agent-sidebar}/share/tmux-plugins/tmux-agent-sidebar";
-  };
 }

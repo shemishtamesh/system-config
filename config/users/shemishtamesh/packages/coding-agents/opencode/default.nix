@@ -201,6 +201,7 @@ in
         "ollama"
         "opencode"
         "openrouter"
+        "openai"
       ];
     };
   };
