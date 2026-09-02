@@ -43,11 +43,9 @@ in
       collapseChangelog = true;
 
       packages = [
-        "npm:pi-quick-perms"
-        "npm:pi-agent-board"
-        "npm:pi-subagents"
+        "npm:pi-sandbox"
+        "npm:pi-maestro-flow"
         "npm:pi-free"
-        "npm:pi-prompt-template-model"
       ];
     };
 
@@ -125,14 +123,19 @@ in
     (pkgs.buildNpmPackage {
       name = "pi-acp";
       src = pkgs.fetchurl {
-        url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.31.tgz";
-        hash = "sha256-H+ovaHoIKiNQEZn5OVnpw4oImx9up8whYgIZ4/ovZJE=";
+        url = "https://registry.npmjs.org/pi-acp/-/pi-acp-0.0.33.tgz";
+        hash = "sha256-n964pngMBWsywHJC81kIRHIAcwjhq1d1fzM53ZYw3ks=";
       };
-      npmDepsHash = "sha256-jT9o6oF62tGlIO47xXUScPEeIbsCVs8efFp/C63OdDw=";
+      npmDepsHash = "sha256-/fX79XucKojL/6gZbK5eizEfrXso8rlTgiHfJffmDuY=";
       dontNpmBuild = true;
       postPatch = ''
-        cp ${./pi-acp-lock.json} package-lock.json
-        node -e "const fs=require('fs'),p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts.build='true';fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n')"
+        cp ${
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/svkozak/pi-acp/v0.0.33/package-lock.json";
+            hash = "sha256-czaX2jogRf92Kdp2oYy+QvF9KfNSJDbQx9X6snLEU5E=";
+          }
+        } package-lock.json
+        sed -i 's/"build": "tsup"/"build": "true"/' package.json
       '';
       meta = {
         mainProgram = "pi-acp";
