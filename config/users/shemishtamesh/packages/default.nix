@@ -27,7 +27,7 @@ let
     ./nix-index.nix
     ./zen-browser.nix
     ./coding-agents/opencode
-    ./coding-agents/pi
+    # ./coding-agents/pi
     ./coding-agents/claude
     ./nh.nix
     ./bitwarden.nix
