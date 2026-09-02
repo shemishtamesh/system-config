@@ -44,9 +44,9 @@ in
       collapseChangelog = true;
 
       packages = [
-        "npm:pi-sandbox"
-        "npm:pi-maestro-flow"
-        "npm:pi-free"
+        # "npm:pi-sandbox"
+        # "npm:pi-maestro-flow"
+        # "npm:pi-free"
       ];
     };
 
