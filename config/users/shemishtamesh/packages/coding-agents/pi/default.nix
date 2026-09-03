@@ -6,6 +6,17 @@ let
   shared = import ../shared { };
   palette = config.lib.stylix.colors.withHashtag;
 
+  # Pi supports provider overrides from extensions, but not environment
+  # interpolation in provider baseUrl values.
+  ollamaRuntimeExtension = pkgs.writeText "pi-ollama-runtime.js" ''
+    export default function (pi) {
+      const host = process.env.PI_OLLAMA_HOST;
+      if (host) pi.registerProvider("ollama", {
+        baseUrl: "http://" + host + ":11434/v1",
+      });
+    }
+  '';
+
   secretFiles = [
     ".env"
     ".env.*"
@@ -149,7 +160,7 @@ let
     "127.0.0.1"
     "localhost"
 
-    "192.168.1.2"
+    "OLLAMA_HOST_PLACEHOLDER"
 
     # pi-core / model providers (pi itself)
     "api.openai.com"
@@ -334,6 +345,7 @@ in
             # srt needs these on Linux for bubblewrap + network-namespace proxying
             bubblewrap
             socat
+            iproute2
           ]
         )
       }:$PATH"
@@ -354,7 +366,28 @@ in
       export TMPDIR="$CLAUDE_CODE_TMPDIR"
       mkdir -p "$TMPDIR"
 
-      exec ${pkgs.sandbox-runtime}/bin/srt -s ${srtSettingsFile} -- ${pkgs.pi-coding-agent}/bin/pi "$@"
+      # Resolve the current host address outside bwrap.  The generated srt
+      # settings add it to the existing allowlist without hardcoding it.
+      if [ "$(uname)" = "Darwin" ]; then
+        ollamaHost="127.0.0.1"
+      else
+        ollamaHost=$(ip -4 route get 1.1.1.1 2>/dev/null | awk '{for (i = 1; i <= NF; i++) if ($i == "src") { print $(i + 1); exit }}')
+        if [ -z "$ollamaHost" ]; then
+          ollamaHost=$(ip -o -4 addr show scope global 2>/dev/null | awk 'NR == 1 { sub("/.*", "", $4); print $4 }')
+        fi
+        if [ -z "$ollamaHost" ]; then
+          echo "pi: unable to determine a host IPv4 address" >&2
+          exit 1
+        fi
+      fi
+
+      runtimeSettingsFile="$TMPDIR/pi-srt-settings.json"
+      sed "s/OLLAMA_HOST_PLACEHOLDER/$ollamaHost/g" \
+        ${srtSettingsFile} > "$runtimeSettingsFile"
+      export PI_OLLAMA_HOST="$ollamaHost"
+
+      exec ${pkgs.sandbox-runtime}/bin/srt -s "$runtimeSettingsFile" -- \
+        ${pkgs.pi-coding-agent}/bin/pi --extension ${ollamaRuntimeExtension} "$@"
     '';
     extraPackages = [ ];
 
@@ -381,7 +414,8 @@ in
     models = {
       providers = {
         ollama = {
-          baseUrl = shared.providers.ollama.baseUrl;
+          # Overridden at runtime by ollamaRuntimeExtension above.
+          baseUrl = "http://localhost:11434/v1";
           api = "openai-completions";
           apiKey = "ollama";
           models = pkgs.lib.mapAttrsToList (
