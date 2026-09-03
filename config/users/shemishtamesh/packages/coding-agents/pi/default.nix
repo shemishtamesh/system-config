@@ -48,11 +48,6 @@ let
     "/etc/credstore.encrypted"
     "/var/lib/systemd/credential.secret"
 
-    # runtime directories (secrets, wrappers) - not the whole of "/run",
-    # see comment above
-    "/run/secrets"
-    "/run/wrappers"
-
     # network/vpn credentials
     "/etc/NetworkManager/system-connections"
     "/etc/openvpn"
