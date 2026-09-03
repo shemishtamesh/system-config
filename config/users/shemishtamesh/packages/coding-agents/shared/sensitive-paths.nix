@@ -198,7 +198,11 @@ let
   }
   // sensitiveDeny;
 
-  sandboxDenyRead = [
+  # Filter to only paths that exist on this system.  bwrap (used by srt on
+  # Linux) fails when denyRead contains a path that doesn't exist in the
+  # sandbox root.  On NixOS most /etc service dirs are absent (no FHS), on
+  # macOS paths like /home, /root, /etc/nixos don't exist.
+  sandboxDenyRead = builtins.filter builtins.pathExists [
     # user directories
     "/home"
     "/root"

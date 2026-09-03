@@ -17,7 +17,7 @@ let
     ".git-credentials"
   ];
 
-  sandboxDenyRead = [
+  sandboxDenyRead = pkgs.lib.filter builtins.pathExists [
     # user directories
     "/home"
     "/root"
@@ -47,6 +47,10 @@ let
     "/etc/credstore"
     "/etc/credstore.encrypted"
     "/var/lib/systemd/credential.secret"
+
+    # runtime directories (secrets, wrappers)
+    "/run/secrets"
+    "/run/wrappers"
 
     # network/vpn credentials
     "/etc/NetworkManager/system-connections"
