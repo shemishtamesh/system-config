@@ -300,6 +300,9 @@ let
     "*.x.com"
     "nitter.net" # Nitter (Twitter mirror/reader)
 
+    # remote-pi relay (WebSocket relay for mobile app + cross-PC agents)
+    "relay-rp1.jacobmoura.work"
+
     # pi
     "pi.dev"
   ];

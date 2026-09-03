@@ -12,7 +12,7 @@
       package = stable-pkgs.ollama-cuda;
       openFirewall = true;
       environmentVariables = {
-        OLLAMA_HOST = "0.0.0.0";
+        OLLAMA_HOST = "0.0.0.0:11434";
         OLLAMA_CONTEXT_LENGTH = "65536";
         OLLAMA_FLASH_ATTENTION = "1";
         OLLAMA_KV_CACHE_TYPE = "q8_0";
