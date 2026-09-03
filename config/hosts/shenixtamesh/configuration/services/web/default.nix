@@ -4,7 +4,10 @@
   ...
 }:
 {
-  imports = [ ./caddy ];
+  imports = [
+    ./caddy
+    ./remote-pi-relay.nix
+  ];
 
   services = {
     ollama = {
