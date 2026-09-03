@@ -86,6 +86,7 @@
         ".venv"
         ".envrc"
         ".claude"
+        ".pi"
         "__worktrees"
       ];
       hooks.pre-commit =

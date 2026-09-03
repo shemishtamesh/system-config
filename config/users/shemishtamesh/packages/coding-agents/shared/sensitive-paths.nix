@@ -46,7 +46,8 @@ let
     "/proc/**" = "deny";
     "/sys/**" = "deny";
     "/dev/**" = "deny";
-    "/run/**" = "deny";
+    "/run/secrets/**" = "deny";
+    "/run/wrappers/**" = "deny";
 
     # Windows (harmless on Linux, included for cross-platform config)
     "C:\\Windows\\**" = "deny";
@@ -309,6 +310,7 @@ let
 
   sandboxAllowRead = [
     "."
+    "/nix/store"
     "~/.nix-profile"
     "/tmp/opencode-sandbox"
     "/run/current-system"

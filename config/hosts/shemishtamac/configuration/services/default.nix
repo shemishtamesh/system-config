@@ -3,7 +3,7 @@
     ./yabai.nix
     ./skhd.nix
     ./sketchybar.nix
-    ./docker.nix
+    # ./podman.nix
     ./ollama.nix
   ];
 }

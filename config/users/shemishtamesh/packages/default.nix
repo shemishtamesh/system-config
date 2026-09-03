@@ -28,7 +28,6 @@ let
     ./zen-browser.nix
     ./coding-agents/opencode
     ./coding-agents/pi
-    ./coding-agents/claude
     ./nh.nix
     ./bitwarden.nix
     ./mpv.nix
