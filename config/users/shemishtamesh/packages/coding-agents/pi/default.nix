@@ -338,9 +338,10 @@ in
       }:$PATH"
 
       export OPENROUTER_API_KEY="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
-
-      # deny-by-unset any other credential-shaped env var pi doesn't need
       unset $(env | cut -d= -f1 | grep -Ei 'key|token|api|secret|credential' | grep -vxE 'OPENROUTER_API_KEY')
+
+      export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
+      mkdir -p "$PI_PERMISSION_SYSTEM_LOGS_DIR"
 
       exec ${pkgs.pi-coding-agent}/bin/pi "$@"
     '';
