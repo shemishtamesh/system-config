@@ -349,6 +349,7 @@ in
           };
         in
         {
+          clock.format = "{:%Y-%m-%d %H:%M:%S}";
           cpu_usage = sysmonStat "cpu_usage";
           cpu_temp = sysmonStat "cpu_temp";
           gpu_usage = sysmonStat "gpu_usage";

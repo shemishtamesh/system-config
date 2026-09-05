@@ -1,0 +1,11 @@
+{
+  "name": "pi-opencode-zen-fix",
+  "version": "0.1.0",
+  "private": true,
+  "description": "opencode-zen provider that fixses the problems with the stock pi one",
+  "license": "MIT",
+  "type": "module",
+  "pi": {
+    "extensions": ["./index.ts"]
+  }
+}
