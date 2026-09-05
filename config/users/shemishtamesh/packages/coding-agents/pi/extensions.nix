@@ -109,32 +109,35 @@ let
           }
           text = text.replace(re, replacement);
         }
-        // 1. deny things not in `allowRead` that are not overriden
+        // deny things not in `allowRead` that are not overriden
         replaceOne(
           /^function readAllowed\(path, allowRead, denyRead, cwd\) \{\n  const deny = longestPrefixMatch\(path, denyRead, cwd\);\n  if \(deny < 0\)\n    return true;\n  return longestPrefixMatch\(path, allowRead, cwd\) >= deny;\n\}$/gm,
           "function readAllowed(path, allowRead, denyRead, cwd) {\n  const deny = longestPrefixMatch(path, denyRead, cwd);\n  const allow = longestPrefixMatch(path, allowRead, cwd);\n  if (allow < 0)\n    return false;\n  return deny < 0 || allow >= deny;\n}",
           "read allowlist"
         );
-        // 2. Native Pi file tools: preserve current() results (explicit
-        // allows/denies), but deny its otherwise UI-prompting fallback.
+        // deny tools that would otherwise prompt
         replaceOne(
           /(\n {4}const existing = current\(\);\n {4}if \(existing\)\n {6}return existing;\n)(?: {4}if \(!ctx\.hasUI\) \{\n {6}return \{ allowed: false, prompted: false, reason: "Filesystem access requires approval" \};\n {4}\}\n)? {4}return permissionPrompts\.resolve\(current,[\s\S]*?\n {4}\}, options2\.signal\);\n {2}\}\n(?= {2}async function ensureDomainAllowed\()/g,
           "$1    return {\n      allowed: false,\n      prompted: false,\n      reason: \"Filesystem access is not allowed by sandbox policy\"\n    };\n  }\n",
           "native filesystem fallback"
         );
-        // 3. Bash and Landstrip worker syscall traps: this function has
-        // already separated non-filesystem (network) traps before this point.
+        // no prompt for non-filesystem non-network denial
         replaceOne(
           /(\n {4}const existing = current\(\);\n {4}if \(existing\)\n {6}return existing;\n)(?: {4}if \(!ctx\.hasUI \|\| !promptOnBlock\)\n {6}return \{ action: "deny", reason: "unprompted" \};\n)? {4}return permissionPrompts\.resolve\(current,[\s\S]*?\n {4}\}, signal\);\n {2}\}\n(?= {2}function attachWorkerTrap\()/g,
           "$1    return { action: \"deny\", reason: \"unprompted\" };\n  }\n",
           "filesystem trap fallback"
         );
-        // 4. Do not turn a kernel-level filesystem denial into a second UI
-        // prompt plus retry after Bash exits.
+        // 4. no prompt for filesystem denial
         replaceOne(
           / {4}const retryWithAccess = async \(operation, blockedPath\) => \{[\s\S]*?\n {4}\};\n(?= {4}let result;)/g,
           "    const retryWithAccess = async (_operation, _blockedPath) => null;\n",
           "bash retry fallback"
+        );
+        // 5. no prompt for not-allowed network connections
+        replaceOne(
+          /( {6}if \(domainMatchesAny\(domain, allowedDomains\)\)\n {8}return true;\n {6})return;/,
+          "$1return false;",
+          "domain allowlist default-deny"
         );
         fs.writeFileSync(p, text);
       ' "$out/lib/node_modules/pi-extensions/node_modules/pi-landstrip/dist/index.ts"

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
   whisperModel = pkgs.fetchurl {
-    url = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin";
-    sha256 = "0ywqxbziyp2bv72riyjpw4brk9v46d4cfbjfwqvvjrrq0srakqqv";
+    url = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin";
+    sha256 = "c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d";
   };
   dictate = pkgs.writeShellScriptBin "dictate" ''
     set -euo pipefail
@@ -17,7 +17,7 @@ let
       wait "$pid" 2>/dev/null || true
       rm -f "$pidfile"
       notify 2000 "Transcribing..."
-      text="$(${pkgs.whisper-cpp}/bin/whisper-cli -m ${whisperModel} -f "$audiofile" -l auto -nt -np 2>/dev/null \
+      text="$(${pkgs.whisper-cpp}/bin/whisper-cli -m ${whisperModel} -f "$audiofile" -l en -nt -np 2>/dev/null \
         | tr '\n' ' ' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')"
       rm -f "$audiofile"
       if [[ -n "$text" ]]; then

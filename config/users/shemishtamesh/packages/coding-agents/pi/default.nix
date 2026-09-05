@@ -251,6 +251,11 @@ let
         "channels.nixos.org"
         "releases.nixos.org"
         "nixos.org"
+        "mcp.exa.ai"
+        "huggingface.co"
+        "us.aws.cdn.hf.co"
+        "data.gov"
+        "data.gov.il"
       ];
       deniedDomains = [ ];
     };
@@ -338,7 +343,8 @@ in
       }:$PATH"
 
       export OPENROUTER_API_KEY="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
-      unset $(env | cut -d= -f1 | grep -Ei 'key|token|api|secret|credential' | grep -vxE 'OPENROUTER_API_KEY')
+      export OPENCODE_API_KEY="$(cat ${config.sops.secrets."opencode/zen".path})"
+      unset $(env | cut -d= -f1 | grep -Ei 'key|token|api|secret|credential' | grep -vxE 'OPENROUTER_API_KEY|OPENCODE_API_KEY')
 
       export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
       mkdir -p "$PI_PERMISSION_SYSTEM_LOGS_DIR"
@@ -486,6 +492,7 @@ in
   };
 
   sops.secrets."openrouter/general_api_key" = { };
+  sops.secrets."opencode/zen" = { };
 
   home.packages = [
     (pkgs.buildNpmPackage {

@@ -20,11 +20,9 @@ import { createHash, randomUUID } from 'node:crypto';
 
 const BASE_URL = 'https://opencode.ai/zen/v1';
 
-const hasZenToken = Boolean(process.env.OPENCODE_API_KEY?.trim());
-
 const zenModels: ProviderModelConfig[] = getBuiltinModels('opencode')
     .filter((m) => (m as { status?: string }).status !== 'deprecated')
-    .filter((m) => hasZenToken || m.cost?.input === 0)
+    .filter((m) => m.cost?.input === 0)
     .map((m) => {
         const input = (m.input ?? []).filter(
             (value): value is 'text' | 'image' => value === 'text' || value === 'image',
