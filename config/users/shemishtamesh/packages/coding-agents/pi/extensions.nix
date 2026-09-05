@@ -135,7 +135,7 @@ let
         );
         // 5. no prompt for not-allowed network connections
         replaceOne(
-          /( {6}if \(domainMatchesAny\(domain, allowedDomains\)\)\n {8}return true;\n {6})return;/,
+          /( {6}if \(domainMatchesAny\(domain, allowedDomains\)\)\n {8}return true;\n {6})return;/g,
           "$1return false;",
           "domain allowlist default-deny"
         );

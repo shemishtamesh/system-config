@@ -130,15 +130,20 @@ in
                     echo 'updated flakes'
                 fi
 
-                ${if kernel == "linux" then /* sh */ ''
-                if ! nix build --no-link "$NH_FLAKE#nixosConfigurations.$(hostname).config.system.build.toplevel"; then
-                  exit 1
-                fi
-                '' else /* sh */ ''
-                if ! nix build --no-link "$NH_FLAKE#darwinConfigurations.$(hostname).system"; then
-                  exit 1
-                fi
-                ''}
+                ${
+                  if kernel == "linux" then
+                    /* sh */ ''
+                      if ! nix build --no-link "$NH_FLAKE#nixosConfigurations.$(hostname).config.system.build.toplevel"; then
+                        exit 1
+                      fi
+                    ''
+                  else
+                    /* sh */ ''
+                      if ! nix build --no-link "$NH_FLAKE#darwinConfigurations.$(hostname).system"; then
+                        exit 1
+                      fi
+                    ''
+                }
                 if ! nix build --no-link "$NH_FLAKE#homeConfigurations.$USER@$(hostname).activationPackage"; then
                   exit 1
                 fi

@@ -356,7 +356,7 @@ in
     settings = {
       defaultProvider = "ollama";
       defaultModel = "ornith";
-      defaultThinkingLevel = "medium";
+      defaultThinkingLevel = "low";
       # `grep` and `find` cannot be path-safely permission-filtered
       defaultTools = [
         "read"
