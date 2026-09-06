@@ -346,6 +346,10 @@ in
       export OPENCODE_API_KEY="$(cat ${config.sops.secrets."opencode/zen".path})"
       unset $(env | cut -d= -f1 | grep -Ei 'key|token|api|secret|credential' | grep -vxE 'OPENROUTER_API_KEY|OPENCODE_API_KEY')
 
+      # give pi-permission-system somewhere writable to write logs to
+      export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
+      mkdir -p "$PI_PERMISSION_SYSTEM_LOGS_DIR"
+
       # initialize and patch landstrip
       landstrip_marker="$HOME/.pi/agent/.landstrip-patched-0.18.43"
       if [ ! -e "$landstrip_marker" ]; then
