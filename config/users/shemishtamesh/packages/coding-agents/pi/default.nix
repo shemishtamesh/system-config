@@ -263,11 +263,12 @@ let
       denyRead = secretFiles ++ absoluteReadDenyDirectories;
       allowRead = [
         "."
-        "/tmp/pi"
+        "/tmp/pi-agent"
         "/nix/store"
         "/run/current-system"
         "~/.nix-profile"
         "~/.local/state/nix"
+        "~/.cache/nix"
         "/dev/null"
         "/etc/passwd"
       ];
@@ -276,7 +277,7 @@ let
       ];
       allowWrite = [
         "."
-        "/tmp/pi"
+        "/tmp/pi-agent"
       ];
     };
   };
@@ -322,8 +323,6 @@ let
     };
   };
 
-  piExtensions = import ./extensions.nix pkgs;
-
 in
 {
   programs.pi-coding-agent = {
@@ -346,8 +345,14 @@ in
       export OPENCODE_API_KEY="$(cat ${config.sops.secrets."opencode/zen".path})"
       unset $(env | cut -d= -f1 | grep -Ei 'key|token|api|secret|credential' | grep -vxE 'OPENROUTER_API_KEY|OPENCODE_API_KEY')
 
-      export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
-      mkdir -p "$PI_PERMISSION_SYSTEM_LOGS_DIR"
+      # initialize and patch landstrip
+      landstrip_marker="$HOME/.pi/agent/.landstrip-patched-0.18.43"
+      if [ ! -e "$landstrip_marker" ]; then
+        ${pkgs.pi-coding-agent}/bin/pi --help >/dev/null 2>&1 || true
+        ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
+        mkdir -p "$(dirname "$landstrip_marker")"
+        touch "$landstrip_marker"
+      fi
 
       exec ${pkgs.pi-coding-agent}/bin/pi "$@"
     '';
@@ -371,14 +376,15 @@ in
       collapseChangelog = true;
 
       packages = [
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/pi-landstrip"
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/pi-web-access"
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/remote-pi"
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/pi-observational-memory"
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/pi-context-pruning"
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/pi-permission-system"
-        "${piExtensions}/lib/node_modules/pi-extensions/node_modules/@juicesharp/rpiv-ask-user-question"
-        "${./opencode-zen-fix}"
+        "npm:@juicesharp/rpiv-ask-user-question@2.9.0"
+        "npm:pi-observational-memory@3.0.4"
+        "npm:pi-context-pruning@1.1.0"
+        "npm:pi-landstrip@0.18.43"
+        "npm:pi-permission-system@0.8.0"
+        "npm:pi-web-access@0.27.0"
+        "npm:remote-pi@0.7.0"
+        ./opencode-zen-fix
+        ./session-tmp
       ];
     };
 
