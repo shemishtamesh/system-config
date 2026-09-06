@@ -87,8 +87,12 @@ export default function (pi: ExtensionAPI): void {
     pi.registerProvider('opencode-zen', {
         name: 'OpenCode Zen',
         baseUrl: BASE_URL,
-        // placeholder the real authorization is decided per request
-        apiKey: 'none',
+        // The custom streamSimple below injects the real token per request.
+        // pi resolves this env reference (via getAuth/modelRegistry) for the
+        // standalone streamSimple path used by extensions such as
+        // pi-observational-memory's observer, which otherwise would send the
+        // raw 'none' placeholder and get a 401 Invalid API key.
+        apiKey: '$OPENCODE_API_KEY',
         api: 'openai-completions',
         headers: { ...zenClientHeaders },
         streamSimple: streamOpencodeZen,
