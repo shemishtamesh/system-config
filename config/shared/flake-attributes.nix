@@ -29,6 +29,8 @@ in
       os_specific =
         if kernel == "linux" then
           {
+            os_build_command = # sh
+              "nh os build";
             os_switch_command = # sh
               ''nh os switch "$NH_FLAKE"'';
             notify_os_switch_failure = # sh
@@ -40,6 +42,8 @@ in
           }
         else if kernel == "darwin" then
           {
+            os_build_command = # sh
+              "nh darwin build";
             os_switch_command = # sh
               ''sudo darwin-rebuild switch --flake "$NH_FLAKE"'';
             notify_os_switch_failure = # sh
@@ -130,21 +134,21 @@ in
                     echo 'updated flakes'
                 fi
 
-                ${
-                  if kernel == "linux" then
-                    /* sh */ ''
-                      if ! nix build --no-link "$NH_FLAKE#nixosConfigurations.$(hostname).config.system.build.toplevel"; then
-                        exit 1
-                      fi
-                    ''
-                  else
-                    /* sh */ ''
-                      if ! nix build --no-link "$NH_FLAKE#darwinConfigurations.$(hostname).system"; then
-                        exit 1
-                      fi
-                    ''
+                nh_build_with_temp_link() {
+                  build_tmpdir="$(mktemp -d)"
+                  "$@" -o "$build_tmpdir/result"
+                  status="$?"
+                  rm -rf "$build_tmpdir"
+                  return "$status"
                 }
-                if ! nix build --no-link "$NH_FLAKE#homeConfigurations.$USER@$(hostname).activationPackage"; then
+
+                if ! nh_build_with_temp_link ${os_specific.os_build_command} "$NH_FLAKE"; then
+                  ${os_specific.notify_os_switch_failure}
+                  exit 1
+                fi
+
+                if ! nh_build_with_temp_link nh home build -c "$USER@$(hostname)" "$NH_FLAKE"; then
+                  ${os_specific.notify_home_switch_failure}
                   exit 1
                 fi
 

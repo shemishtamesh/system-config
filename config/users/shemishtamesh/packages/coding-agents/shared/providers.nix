@@ -3,7 +3,7 @@
   ollama = {
     baseUrl = "http://localhost:11434/v1";
     models = {
-      qwen3-coder = { };
+      "ornith:latest" = { };
       ornith = {
         supportsThinking = true;
       };

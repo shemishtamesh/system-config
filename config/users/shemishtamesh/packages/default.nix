@@ -87,7 +87,7 @@ let
         ./zathura.nix
         # ./silverbullet.nix
         # ./voxtype.nix
-        ./flatpak.nix
+        # ./flatpak.nix
         ./dictation.nix
       ];
       packages = with pkgs; [
