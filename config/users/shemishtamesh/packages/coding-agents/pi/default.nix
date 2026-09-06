@@ -203,6 +203,7 @@ let
     "/System"
     "/Library/Keychains"
     "/private/var/db"
+    "/tmp"
   ];
 
   # keep every exact deny and add a recursive counterpart so native `read`
@@ -406,6 +407,35 @@ in
           models = pkgs.lib.mapAttrsToList (name: _: { id = name; }) shared.providers.openrouter.models;
         };
       };
+    };
+  };
+
+  home.file."${cfg.configDir}/keybindings.json" = {
+    source = jsonFormat.generate "pi-keybindings.json" {
+      "tui.select.up" = [
+        "up"
+        "ctrl+k"
+      ];
+      "tui.select.down" = [
+        "down"
+        "ctrl+j"
+      ];
+      "tui.editor.cursorUp" = [
+        "up"
+        "ctrl+k"
+      ];
+      "tui.editor.cursorDown" = [
+        "down"
+        "ctrl+j"
+      ];
+      "tui.editor.cursorLeft" = [
+        "left"
+        "ctrl+h"
+      ];
+      "tui.editor.cursorRight" = [
+        "right"
+        "ctrl+l"
+      ];
     };
   };
 
