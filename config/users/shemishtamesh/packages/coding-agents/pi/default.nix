@@ -270,6 +270,8 @@ let
         "~/.nix-profile"
         "~/.local/state/nix"
         "~/.cache/nix"
+        "~/.config/git/ignore"
+        "~/.pi"
         "/dev/null"
         "/etc/passwd"
       ];
@@ -350,14 +352,8 @@ in
       export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
       mkdir -p "$PI_PERMISSION_SYSTEM_LOGS_DIR"
 
-      # initialize and patch landstrip
-      landstrip_marker="$HOME/.pi/agent/.landstrip-patched-0.18.43"
-      if [ ! -e "$landstrip_marker" ]; then
-        ${pkgs.pi-coding-agent}/bin/pi --help >/dev/null 2>&1 || true
-        ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
-        mkdir -p "$(dirname "$landstrip_marker")"
-        touch "$landstrip_marker"
-      fi
+      # patch landstrip, skips if already patched
+      ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
 
       exec ${pkgs.pi-coding-agent}/bin/pi "$@"
     '';
@@ -468,9 +464,9 @@ in
         error = palette.base08;
         warning = palette.base0A;
         muted = palette.base04;
-        dim = palette.base03;
-        text = palette.base05;
-        thinkingText = palette.base04;
+        dim = palette.base02;
+        text = palette.base06;
+        thinkingText = palette.base03;
 
         # Backgrounds & content
         selectedBg = palette.base02;
