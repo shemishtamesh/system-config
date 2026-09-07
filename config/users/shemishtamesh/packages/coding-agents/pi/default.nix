@@ -5,12 +5,6 @@ let
   shared = import ../shared { };
   palette = config.lib.stylix.colors.withHashtag;
 
-  # Pi supports provider overrides from extensions, but not environment
-  # interpolation in provider baseUrl values.
-  #
-  # Concrete root files reliably protect reads.  Landstrip additionally
-  # enforces the recursive denyWrite globs dynamically on Linux and macOS;
-  # denyRead globs are startup-snapshot coverage for already-present files.
   secretFiles = [
     ".env"
     ".env.local"
@@ -299,12 +293,9 @@ let
         "/etc/passwd"
       ]
       ++ devAllowPaths;
-      denyWrite =
-        secretFiles
-        ++ absoluteReadDenyDirectories
-        ++ [
-          ".pi/"
-        ];
+      denyWrite = secretFiles ++ [
+        ".pi/"
+      ];
       allowWrite = [
         "."
         "/tmp/pi-agent"
