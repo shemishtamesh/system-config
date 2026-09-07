@@ -185,7 +185,7 @@ let
     "git fast-export*" = "deny";
   };
 
-  absoluteReadDenyDirectories = [
+  linuxDenyDirectories = [
     "/home"
     "/root"
     "/etc"
@@ -199,8 +199,9 @@ let
     "/mnt"
     "/media"
     "/boot"
+  ];
 
-    # macos symlink targets
+  macosDenyDirectories = [
     "/private/etc"
     "/private/var"
     "/private/tmp"
@@ -211,6 +212,9 @@ let
     "/cores"
     "/Volumes"
   ];
+
+  absoluteReadDenyDirectories =
+    if pkgs.stdenv.isDarwin then macosDenyDirectories else linuxDenyDirectories;
 
   # utility device files
   devAllowPaths = [
