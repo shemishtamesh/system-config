@@ -1,0 +1,39 @@
+{
+  "filesystem": {
+    "allowRead": [],
+    "allowWrite": [
+      ".",
+      "/tmp/pi-agent",
+      "/dev/null",
+      "/dev/urandom",
+      "/dev/random",
+      "/dev/zero",
+      "/dev/stdin",
+      "/dev/stdout",
+      "/dev/stderr",
+      "/dev/tty"
+    ],
+    "denyRead": [
+      "/home",
+      "/etc",
+      "/run",
+      "/var",
+      "/tmp",
+      "/proc",
+      "/sys",
+      "/dev",
+      "/mnt",
+      "/media",
+      "/boot"
+    ],
+    "denyWrite": [
+      ".pi/"
+    ]
+  },
+  "network": {
+    "allowAllUnixSockets": false,
+    "allowLocalBinding": false,
+    "allowNetwork": false,
+    "allowUnixSockets": []
+  }
+}

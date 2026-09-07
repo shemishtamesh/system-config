@@ -1,0 +1,12 @@
+{
+  "filesystem": {
+    "allowWrite": ["."],
+    "allowRead": ["."]
+  },
+  "network": {
+    "allowAllUnixSockets": false,
+    "allowLocalBinding": false,
+    "allowNetwork": false,
+    "allowUnixSockets": []
+  }
+}

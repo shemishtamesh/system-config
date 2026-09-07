@@ -222,10 +222,6 @@ let
     "/dev/urandom"
     "/dev/random"
     "/dev/zero"
-    "/dev/stdin"
-    "/dev/stdout"
-    "/dev/stderr"
-    "/dev/tty"
   ];
 
   # keep every exact deny and add a recursive counterpart so native `read`

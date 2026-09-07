@@ -1,0 +1,51 @@
+{
+  "network": {
+    "allowNetwork": false,
+    "allowLocalBinding": false,
+    "allowAllUnixSockets": false,
+    "allowUnixSockets": [],
+    "httpProxyPort": 6666
+  },
+  "filesystem": {
+    "allowWrite": [
+      ".",
+      "/dev/null",
+      "/tmp/pi-agent",
+      "/dev/urandom",
+      "/dev/random",
+      "/dev/zero",
+      "/dev/stdin",
+      "/dev/stdout",
+      "/dev/stderr",
+      "/dev/tty"
+    ],
+    "denyWrite": [
+      "**/.env",
+      "**/.env.*",
+      "**/*.pem",
+      "**/*.key",
+      ".pi/sandbox.json",
+      "~/.pi/agent/sandbox.json",
+      ".env",
+      ".env.local",
+      ".env.development",
+      ".env.production",
+      ".env.test",
+      ".env.staging",
+      ".envrc",
+      ".netrc",
+      ".npmrc",
+      ".pypirc",
+      ".git-credentials",
+      "**/.netrc",
+      "**/.npmrc",
+      "**/.pypirc",
+      "**/.git-credentials",
+      ".pi/"
+    ]
+  },
+  "windows": {
+    "appContainerMode": "standard",
+    "allowLoopback": false
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "filesystem": {
+    "allowRead": [
+      ".",
+      "/tmp/pi-agent",
+      "/nix/store",
+      "/run/current-system",
+      "~/.nix-profile",
+      "~/.local/state/nix",
+      "~/.cache/nix",
+      "~/.config/git/ignore",
+      "~/.pi",
+      "/etc/passwd",
+      "/dev/null",
+      "/dev/urandom",
+      "/dev/random",
+      "/dev/zero",
+      "/dev/stdin",
+      "/dev/stdout",
+      "/dev/stderr",
+      "/dev/tty"
+    ],
+    "allowWrite": [
+      ".",
+      "/tmp/pi-agent",
+      "/dev/null",
+      "/dev/urandom",
+      "/dev/random",
+      "/dev/zero",
+      "/dev/stdin",
+      "/dev/stdout",
+      "/dev/stderr",
+      "/dev/tty"
+    ],
+    "denyRead": [],
+    "denyWrite": [
+      ".pi/"
+    ]
+  },
+  "network": {
+    "allowAllUnixSockets": false,
+    "allowLocalBinding": false,
+    "allowNetwork": false,
+    "allowUnixSockets": []
+  }
+}

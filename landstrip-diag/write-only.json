@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "filesystem": {
+    "allowWrite": ["."],
+    "allowRead": ["."]
+  },
+  "network": {
+    "allowNetwork": false
+  }
+}

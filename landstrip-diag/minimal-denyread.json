@@ -1,0 +1,14 @@
+{
+  "filesystem": {
+    "allowRead": ["."],
+    "allowWrite": ["."],
+    "denyRead": ["/home"],
+    "denyWrite": []
+  },
+  "network": {
+    "allowAllUnixSockets": false,
+    "allowLocalBinding": false,
+    "allowNetwork": false,
+    "allowUnixSockets": []
+  }
+}
