@@ -214,7 +214,7 @@ let
   ];
 
   absoluteReadDenyDirectories =
-    if pkgs.stdenv.isDarwin then macosDenyDirectories else linuxDenyDirectories;
+    if pkgs.stdenv.hostPlatform.isDarwin then macosDenyDirectories else linuxDenyDirectories;
 
   # utility device files
   devAllowPaths = [
