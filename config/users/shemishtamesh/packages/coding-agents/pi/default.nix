@@ -194,16 +194,40 @@ let
   absoluteReadDenyDirectories = [
     "/home"
     "/root"
-    "/Users"
     "/etc"
     "/run"
     "/var"
+    "/var/tmp"
+    "/tmp"
     "/proc"
     "/sys"
+    "/dev"
+    "/mnt"
+    "/media"
+    "/boot"
+
+    # macos symlink targets
+    "/private/etc"
+    "/private/var"
+    "/private/tmp"
+    "/Users"
     "/System"
-    "/Library/Keychains"
-    "/private/var/db"
-    "/tmp"
+    "/Library"
+    "/var/root"
+    "/cores"
+    "/Volumes"
+  ];
+
+  # utility device files
+  devAllowPaths = [
+    "/dev/null"
+    "/dev/urandom"
+    "/dev/random"
+    "/dev/zero"
+    "/dev/stdin"
+    "/dev/stdout"
+    "/dev/stderr"
+    "/dev/tty"
   ];
 
   # keep every exact deny and add a recursive counterpart so native `read`
@@ -272,16 +296,20 @@ let
         "~/.cache/nix"
         "~/.config/git/ignore"
         "~/.pi"
-        "/dev/null"
         "/etc/passwd"
-      ];
-      denyWrite = secretFiles ++ [
-        ".pi/"
-      ];
+      ]
+      ++ devAllowPaths;
+      denyWrite =
+        secretFiles
+        ++ absoluteReadDenyDirectories
+        ++ [
+          ".pi/"
+        ];
       allowWrite = [
         "."
         "/tmp/pi-agent"
-      ];
+      ]
+      ++ devAllowPaths;
     };
   };
 
@@ -355,7 +383,8 @@ in
       # patch landstrip, skips if already patched
       ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
 
-      exec ${pkgs.pi-coding-agent}/bin/pi "$@"
+      # strip grep/find from the tool registry
+      exec ${pkgs.pi-coding-agent}/bin/pi --exclude-tools grep,find "$@"
     '';
     extraPackages = [ ];
 
