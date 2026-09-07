@@ -42,9 +42,30 @@ function applyOnce(text, needle, replacement, label) {
   return text.split(needle).join(replacement);
 }
 
-const READ_ALLOWED_OLD =
+function applyOneOf(text, variants, label) {
+  const matches = variants.filter(([needle]) => text.includes(needle));
+  if (matches.length !== 1) {
+    throw new Error(`pi-landstrip patch ${label}: expected one variant, found ${matches.length}`);
+  }
+  return applyOnce(text, matches[0][0], matches[0][1], label);
+}
+
+const READ_ALLOWED_OLD = `function readAllowed(path, allowRead, denyRead, cwd) {
+  const deny = longestPrefixMatch(path, denyRead, cwd);
+  if (deny < 0)
+    return true;
+  return longestPrefixMatch(path, allowRead, cwd) >= deny;
+}`;
+const READ_ALLOWED_NEW = `function readAllowed(path, allowRead, denyRead, cwd) {
+  const deny = longestPrefixMatch(path, denyRead, cwd);
+  const allow = longestPrefixMatch(path, allowRead, cwd);
+  if (allow < 0)
+    return false;
+  return deny < 0 || allow >= deny;
+}`;
+const READ_ALLOWED_OLD_MINIFIED =
   "function readAllowed(path, allowRead, denyRead, cwd) { const deny = longestPrefixMatch(path, denyRead, cwd); if (deny < 0) return true; return longestPrefixMatch(path, allowRead, cwd) >= deny; }";
-const READ_ALLOWED_NEW =
+const READ_ALLOWED_NEW_MINIFIED =
   "function readAllowed(path, allowRead, denyRead, cwd) { const deny = longestPrefixMatch(path, denyRead, cwd); const allow = longestPrefixMatch(path, allowRead, cwd); if (allow < 0) return false; return deny < 0 || allow >= deny; }";
 
 const SELECT_OLD = "const selected = await ctx.ui.select(title, labels, { signal });";
@@ -61,7 +82,14 @@ try {
     }
 
     text = text.replaceAll("promptOnBlock: true", "promptOnBlock: false");
-    text = applyOnce(text, READ_ALLOWED_OLD, READ_ALLOWED_NEW, "readAllowed");
+    text = applyOneOf(
+      text,
+      [
+        [READ_ALLOWED_OLD, READ_ALLOWED_NEW],
+        [READ_ALLOWED_OLD_MINIFIED, READ_ALLOWED_NEW_MINIFIED],
+      ],
+      "readAllowed",
+    );
     text = applyOnce(text, SELECT_OLD, SELECT_NEW, "showPermissionPrompt");
     fs.writeFileSync(file, text);
     patched += 1;
