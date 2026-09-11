@@ -1,37 +1,50 @@
 { pkgs, ... }:
 let
-  whisperModel = pkgs.fetchurl {
-    url = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin";
-    sha256 = "c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d";
-  };
-  dictate = pkgs.writeShellScriptBin "dictate" ''
-    set -euo pipefail
-    runtime_dir="''${XDG_RUNTIME_DIR:-/tmp}"
-    pidfile="$runtime_dir/dictate.pid"
-    audiofile="$runtime_dir/dictate-audio.wav"
-    notify() { ${pkgs.libnotify}/bin/notify-send -t "$1" "Dictation" "$2"; }
+  settings = {
+    settings_schema_version = 2;
 
-    if [[ -f "$pidfile" ]] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
-      pid="$(cat "$pidfile")"
-      kill -TERM "$pid"
-      wait "$pid" 2>/dev/null || true
-      rm -f "$pidfile"
-      notify 2000 "Transcribing..."
-      text="$(${pkgs.whisper-cpp}/bin/whisper-cli -m ${whisperModel} -f "$audiofile" -l en -nt -np 2>/dev/null \
-        | tr '\n' ' ' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')"
-      rm -f "$audiofile"
-      if [[ -n "$text" ]]; then
-        ${pkgs.wtype}/bin/wtype -- "$text"
-      else
-        notify 2000 "No speech detected"
-      fi
-    else
-      notify 1500 "Recording... press mod+d again to stop"
-      ${pkgs.pipewire}/bin/pw-record --rate 16000 --channels 1 --format s16 "$audiofile" &
-      echo $! > "$pidfile"
-    fi
-  '';
+    bindings.transcribe = {
+      id = "transcribe";
+      name = "Transcribe";
+      description = "Converts your speech into text.";
+      default_binding = "ctrl+space";
+      current_binding = "ctrl+space";
+    };
+    shortcut_activation = "hold_or_toggle";
+
+    overlay_style = "live";
+    overlay_position = "bottom";
+
+    selected_language = "auto";
+    translate_to_english = false;
+
+    start_hidden = true;
+    autostart_enabled = false;
+
+    paste_method = "direct";
+    typing_tool = "auto";
+
+    append_trailing_space = true;
+    auto_submit = false;
+
+    model_unload_timeout = "min10";
+  };
 in
 {
-  home.packages = [ dictate ];
+  home.packages = [ pkgs.handy ];
+  home.file.".local/share/com.pais.handy/settings_store.json".text = builtins.toJSON settings;
+
+  systemd.user.services.handy = {
+    Unit = {
+      Description = "Handy speech-to-text";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.handy}/bin/handy --start-hidden";
+      Restart = "on-failure";
+      RestartSec = 3;
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }
