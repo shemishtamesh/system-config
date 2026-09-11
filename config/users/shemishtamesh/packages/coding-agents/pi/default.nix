@@ -547,6 +547,12 @@ in
     };
   };
 
+  home.file."${config.xdg.configHome}/pi/web-search.json" = {
+    source = jsonFormat.generate "pi-web-search.json" {
+      workflow = "none";
+    };
+  };
+
   sops.secrets."openrouter/general_api_key" = { };
   sops.secrets."opencode/zen" = { };
 
