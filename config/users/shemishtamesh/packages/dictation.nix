@@ -3,12 +3,16 @@ let
   settings = {
     settings_schema_version = 2;
 
+    # Shortcut: mod+d (super+d). On Wayland/Hyprland Handy's own global
+    # shortcut can't grab keys, so this is driven by a Hyprland binding that
+    # sends `handy --toggle-transcription` to the running instance. The
+    # stored binding below is for Xorg/consistency (handy-keys `cmd` = win).
     bindings.transcribe = {
       id = "transcribe";
       name = "Transcribe";
       description = "Converts your speech into text.";
-      default_binding = "ctrl+space";
-      current_binding = "ctrl+space";
+      default_binding = "cmd+d";
+      current_binding = "cmd+d";
     };
     shortcut_activation = "hold_or_toggle";
 
