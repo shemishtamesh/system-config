@@ -1,12 +1,15 @@
 { pkgs, ... }:
 let
+  whisperTurbo = pkgs.fetchurl {
+    url = "https://blob.handy.computer/ggml-large-v3-turbo.bin";
+    hash = "sha256-H8cPd0046xaZk6w5Huo1fvR8iHV+9y7llDh5t+jivGk=";
+  };
+
   settings = {
     settings_schema_version = 2;
 
-    # Shortcut: mod+d (super+d). On Wayland/Hyprland Handy's own global
-    # shortcut can't grab keys, so this is driven by a Hyprland binding that
-    # sends `handy --toggle-transcription` to the running instance. The
-    # stored binding below is for Xorg/consistency (handy-keys `cmd` = win).
+    onboarding_completed = true;
+
     bindings.transcribe = {
       id = "transcribe";
       name = "Transcribe";
@@ -37,6 +40,8 @@ in
 {
   home.packages = [ pkgs.handy ];
   home.file.".local/share/com.pais.handy/settings_store.json".text = builtins.toJSON settings;
+
+  home.file.".local/share/com.pais.handy/models/ggml-large-v3-turbo.bin".source = whisperTurbo;
 
   systemd.user.services.handy = {
     Unit = {
