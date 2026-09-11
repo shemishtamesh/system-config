@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
-  whisperTurbo = pkgs.fetchurl {
-    url = "https://blob.handy.computer/ggml-large-v3-turbo.bin";
-    hash = "sha256-H8cPd0046xaZk6w5Huo1fvR8iHV+9y7llDh5t+jivGk=";
+  whisperLargeV3 = pkgs.fetchurl {
+    url = "https://blob.handy.computer/ggml-large-v3-q5_0.bin";
+    hash = "sha256-11eV7P8/g7X6qJ0ZAGBK2MeAq9Vzn65AbeGfI+zZitE=";
   };
 
   settings = {
@@ -21,6 +21,9 @@ let
 
     overlay_style = "live";
     overlay_position = "bottom";
+
+    # Force the dark palette (System/Light/Dark)
+    theme = "dark";
 
     selected_language = "auto";
     translate_to_english = false;
@@ -41,7 +44,7 @@ in
   home.packages = [ pkgs.handy ];
   home.file.".local/share/com.pais.handy/settings_store.json".text = builtins.toJSON settings;
 
-  home.file.".local/share/com.pais.handy/models/ggml-large-v3-turbo.bin".source = whisperTurbo;
+  home.file.".local/share/com.pais.handy/models/ggml-large-v3-q5_0.bin".source = whisperLargeV3;
 
   systemd.user.services.handy = {
     Unit = {
