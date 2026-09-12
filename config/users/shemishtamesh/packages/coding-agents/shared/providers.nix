@@ -16,9 +16,6 @@
   openrouter = {
     baseUrl = "https://openrouter.ai/api/v1";
     apiKeyEnvVar = openrouterKeyEnvVar;
-    models = {
-      "google/gemma-4-26b-it" = { };
-    };
   };
 
   opencode = {

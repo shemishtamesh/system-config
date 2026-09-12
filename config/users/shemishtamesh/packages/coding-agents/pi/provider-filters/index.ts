@@ -20,23 +20,40 @@ import { createHash, randomUUID } from 'node:crypto';
 
 const BASE_URL = 'https://opencode.ai/zen/v1';
 
+type CatalogModel = {
+    id: string;
+    name?: string;
+    status?: string;
+    reasoning?: boolean;
+    input?: unknown[];
+    cost?: { input?: number; output?: number; cacheRead?: number; cacheWrite?: number };
+    contextWindow?: number;
+    maxTokens?: number;
+};
+
+function toProviderModelConfig(m: CatalogModel): ProviderModelConfig {
+    const input = (m.input ?? []).filter(
+        (value): value is 'text' | 'image' => value === 'text' || value === 'image',
+    );
+    return {
+        id: m.id,
+        name: m.name ?? m.id,
+        reasoning: m.reasoning ?? false,
+        input,
+        cost: m.cost ? { ...m.cost } : undefined,
+        contextWindow: m.contextWindow,
+        maxTokens: m.maxTokens,
+    };
+}
+
 const zenModels: ProviderModelConfig[] = getBuiltinModels('opencode')
-    .filter((m) => (m as { status?: string }).status !== 'deprecated')
+    .filter((m) => (m as CatalogModel).status !== 'deprecated')
     .filter((m) => m.cost?.input === 0)
-    .map((m) => {
-        const input = (m.input ?? []).filter(
-            (value): value is 'text' | 'image' => value === 'text' || value === 'image',
-        );
-        return {
-            id: m.id,
-            name: m.name ?? m.id,
-            reasoning: m.reasoning ?? false,
-            input,
-            cost: m.cost ? { ...m.cost } : undefined,
-            contextWindow: m.contextWindow,
-            maxTokens: m.maxTokens,
-        };
-    });
+    .map(toProviderModelConfig);
+
+const openrouterModels: ProviderModelConfig[] = getBuiltinModels('openrouter')
+    .filter((m) => m.cost?.input === 0 && m.cost?.output === 0)
+    .map(toProviderModelConfig);
 
 const zenSessionId = randomUUID().replace(/-/g, '').slice(0, 26);
 const zenProjectId = createHash('sha256').update(process.cwd()).digest('hex').slice(0, 26);
@@ -84,14 +101,14 @@ function streamOpencodeZen(
 }
 
 export default function (pi: ExtensionAPI): void {
+    pi.registerProvider('opencode', { models: [] });
+    pi.registerProvider('opencode-go', { models: [] });
+
+    pi.registerProvider('openrouter', { models: openrouterModels });
+
     pi.registerProvider('opencode-zen', {
         name: 'OpenCode Zen',
         baseUrl: BASE_URL,
-        // The custom streamSimple below injects the real token per request.
-        // pi resolves this env reference (via getAuth/modelRegistry) for the
-        // standalone streamSimple path used by extensions such as
-        // pi-observational-memory's observer, which otherwise would send the
-        // raw 'none' placeholder and get a 401 Invalid API key.
         apiKey: '$OPENCODE_API_KEY',
         api: 'openai-completions',
         headers: { ...zenClientHeaders },

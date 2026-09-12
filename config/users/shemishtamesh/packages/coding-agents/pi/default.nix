@@ -269,6 +269,9 @@ let
     ]) readAllowPaths
   );
 
+  # no need for the full recursive list since it only uses prefixes anyways
+  readAllowBinaryPrefixes = pkgs.lib.unique readAllowPaths;
+
   readAllowPerms = pkgs.lib.genAttrs readAllowRecursive (_: "allow");
 
   writeAllowPaths = [
@@ -329,7 +332,7 @@ let
     };
     filesystem = {
       denyRead = secretFiles ++ absoluteReadDenyDirectories;
-      allowRead = readAllowRecursive ++ devAllowPaths;
+      allowRead = readAllowBinaryPrefixes ++ devAllowPaths;
       denyWrite = secretFiles ++ writeDenyExceptions;
       allowWrite = writeAllowRecursive ++ devAllowPaths;
     };
@@ -435,7 +438,7 @@ in
         "npm:pi-permission-system@0.8.0"
         "npm:pi-web-access@0.27.0"
         "npm:remote-pi@0.7.0"
-        ./opencode-zen-fix
+        ./provider-filters
         ./session-tmp
       ];
     };
@@ -455,7 +458,6 @@ in
           baseUrl = shared.providers.openrouter.baseUrl;
           api = "openai-completions";
           apiKey = "$OPENROUTER_API_KEY";
-          models = pkgs.lib.mapAttrsToList (name: _: { id = name; }) shared.providers.openrouter.models;
         };
       };
     };

@@ -1,0 +1,11 @@
+{
+  "name": "pi-provider-filters",
+  "version": "0.2.0",
+  "private": true,
+  "description": "provider model filters for pi",
+  "license": "MIT",
+  "type": "module",
+  "pi": {
+    "extensions": ["./index.ts"]
+  }
+}
