@@ -238,6 +238,55 @@ let
 
   nativeReadDenyPerms = pkgs.lib.genAttrs nativeReadDenyPatterns (_: "deny");
 
+  tmpPaths =
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      [
+        "/private/var/folders/**/pi-agent"
+        "/var/folders/**/pi-agent"
+      ]
+    else
+      [
+        "/tmp/pi-agent"
+      ];
+
+  readAllowPaths = [
+    "."
+    "/nix/store"
+    "/run/current-system"
+    "~/.nix-profile"
+    "~/.local/state/nix"
+    "~/.cache/nix"
+    "~/.config/git/ignore"
+    "~/.pi"
+    "/etc/passwd"
+  ]
+  ++ tmpPaths;
+
+  readAllowRecursive = pkgs.lib.unique (
+    pkgs.lib.concatMap (p: [
+      p
+      "${p}/**"
+    ]) readAllowPaths
+  );
+
+  readAllowPerms = pkgs.lib.genAttrs readAllowRecursive (_: "allow");
+
+  writeAllowPaths = [
+    "."
+  ]
+  ++ tmpPaths;
+
+  writeAllowRecursive = pkgs.lib.unique (
+    pkgs.lib.concatMap (p: [
+      p
+      "${p}/**"
+    ]) writeAllowPaths
+  );
+
+  writeDenyExceptions = [
+    ".pi/"
+  ];
+
   landstripSandboxPolicy = {
     enabled = true;
     shell.readAccess = "policy";
@@ -280,27 +329,9 @@ let
     };
     filesystem = {
       denyRead = secretFiles ++ absoluteReadDenyDirectories;
-      allowRead = [
-        "."
-        "/tmp/pi-agent"
-        "/nix/store"
-        "/run/current-system"
-        "~/.nix-profile"
-        "~/.local/state/nix"
-        "~/.cache/nix"
-        "~/.config/git/ignore"
-        "~/.pi"
-        "/etc/passwd"
-      ]
-      ++ devAllowPaths;
-      denyWrite = secretFiles ++ [
-        ".pi/"
-      ];
-      allowWrite = [
-        "."
-        "/tmp/pi-agent"
-      ]
-      ++ devAllowPaths;
+      allowRead = readAllowRecursive ++ devAllowPaths;
+      denyWrite = secretFiles ++ writeDenyExceptions;
+      allowWrite = writeAllowRecursive ++ devAllowPaths;
     };
   };
 
@@ -309,7 +340,7 @@ let
     toolFilesystemPolicy = "sandbox";
 
     permission = {
-      read = nativeReadDenyPerms;
+      read = nativeReadDenyPerms // readAllowPerms;
 
       # already sandboxed
       bash = "allow";
@@ -432,6 +463,10 @@ in
 
   home.file."${cfg.configDir}/keybindings.json" = {
     source = jsonFormat.generate "pi-keybindings.json" {
+      "tui.select.confirm" = [
+        "enter"
+        "ctrl+y"
+      ];
       "tui.select.up" = [
         "up"
         "ctrl+k"
