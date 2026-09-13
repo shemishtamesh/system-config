@@ -274,6 +274,7 @@ let
     "~/.nix-profile"
     "~/.local/state/nix"
     "~/.cache/nix"
+    "~/.cache/typst"
     "~/.config/git/ignore"
     "~/.pi"
     "/etc/passwd"
@@ -295,6 +296,7 @@ let
   writeAllowPaths = [
     "."
     "~/.cache/nix"
+    "~/.cache/typst"
   ]
   ++ tmpPaths;
 
