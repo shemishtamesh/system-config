@@ -297,7 +297,9 @@ let
       allowNetwork = false;
       allowLocalBinding = false;
       allowAllUnixSockets = false;
-      allowUnixSockets = [ ];
+      allowUnixSockets = [
+        "/nix/var/nix/daemon-socket/socket"
+      ];
       allowedDomains = [
         "localhost"
         "127.0.0.1"
