@@ -1,9 +1,28 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 let
   cfg = config.programs.pi-coding-agent;
   jsonFormat = pkgs.formats.json { };
   shared = import ../shared { };
   palette = config.lib.stylix.colors.withHashtag;
+
+  speakConfig = jsonFormat.generate "pi-speak.json" {
+    enabled = false;
+    provider = "openai-compatible";
+    stream = true;
+    announce = false;
+    maxChars = 0;
+    providers."openai-compatible" = {
+      baseUrl = "http://127.0.0.1:8920/v1";
+      model = "tts-1";
+      voice = "alloy";
+      rate = 1.0;
+      apiKey = "local"; # server needs no real key
+    };
+  };
 
   secretFiles = [
     ".env"
@@ -29,8 +48,7 @@ let
     "**/.git-credentials"
   ];
 
-  # pi-permission-system bash deny patterns.  These are wildcard-matched
-  # against the raw command string (anchored, no shell parsing).
+  # pi-permission-system bash deny patterns
   bashDenyPatterns = {
     # privilege escalation
     "sudo*" = "deny";
@@ -389,14 +407,17 @@ in
     package = pkgs.writeShellScriptBin "pi" ''
       export PATH="${
         pkgs.lib.makeBinPath (
-          with pkgs;
-          [
+          (with pkgs; [
             nodejs
             python3
             gnumake
             gcc
             ripgrep
-          ]
+          ])
+          ++ (pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+            pkgs.espeak-ng
+            pkgs.ffmpeg
+          ])
         )
       }:$PATH"
 
@@ -410,6 +431,14 @@ in
 
       # patch landstrip, skips if already patched
       ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
+
+      # privateer-speak's /speak on/off toggle is config file based
+      ${pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
+        mkdir -p "$HOME/.pi"
+        rm -f "$HOME/.pi/speak.json"
+        cp ${speakConfig} "$HOME/.pi/speak.json"
+        chmod 600 "$HOME/.pi/speak.json"
+      ''}
 
       # strip grep/find from the tool registry
       exec ${pkgs.pi-coding-agent}/bin/pi --exclude-tools grep,find "$@"
@@ -441,6 +470,7 @@ in
         "npm:pi-permission-system@0.8.0"
         "npm:pi-web-access@0.27.0"
         "npm:remote-pi@0.7.0"
+        "npm:privateer-speak@0.2.2"
         ./provider-filters
         ./session-tmp
       ];
@@ -587,11 +617,11 @@ in
     };
   };
 
-  home.file."${config.xdg.configHome}/pi/web-search.json" = {
-    source = jsonFormat.generate "pi-web-search.json" {
-      workflow = "none";
-    };
-  };
+  home.file."${config.xdg.configHome}/pi/web-search.json".source =
+    jsonFormat.generate "pi-web-search.json"
+      {
+        workflow = "none";
+      };
 
   sops.secrets."openrouter/general_api_key" = { };
   sops.secrets."opencode/zen" = { };

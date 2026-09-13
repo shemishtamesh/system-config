@@ -7,6 +7,7 @@
   imports = [
     ./caddy
     ./remote-pi-relay.nix
+    ./pi-tts.nix
   ];
 
   services = {

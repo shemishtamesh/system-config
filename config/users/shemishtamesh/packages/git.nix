@@ -86,7 +86,7 @@
         ".envrc"
         ".claude"
         ".pi"
-        "__worktrees"
+        ".worktrees"
       ];
       hooks.pre-commit =
         pkgs.writeScript "pre-commit-script" # sh
