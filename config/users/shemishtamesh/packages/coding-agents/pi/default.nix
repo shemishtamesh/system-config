@@ -253,8 +253,6 @@ let
     "."
     "/nix/store"
     "/run/current-system"
-    "/proc/*/maps"
-    "/proc/*/cgroup"
     "~/.nix-profile"
     "~/.local/state/nix"
     "~/.cache/nix"
