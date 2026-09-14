@@ -259,8 +259,7 @@ let
   tmpPaths =
     if pkgs.stdenv.hostPlatform.isDarwin then
       [
-        "/private/var/folders/**/pi-agent"
-        "/var/folders/**/pi-agent"
+        "~/.cache/pi-tmp"
       ]
     else
       [
@@ -299,13 +298,6 @@ let
     "~/.cache/typst"
   ]
   ++ tmpPaths;
-
-  writeAllowRecursive = pkgs.lib.unique (
-    pkgs.lib.concatMap (p: [
-      p
-      "${p}/**"
-    ]) writeAllowPaths
-  );
 
   writeDenyExceptions = [
     ".pi/"
@@ -358,7 +350,7 @@ let
       denyRead = secretFiles ++ absoluteReadDenyDirectories;
       allowRead = readAllowBinaryPrefixes ++ devAllowPaths;
       denyWrite = secretFiles ++ writeDenyExceptions;
-      allowWrite = writeAllowRecursive ++ devAllowPaths;
+      allowWrite = writeAllowPaths ++ devAllowPaths;
     };
   };
 
@@ -431,6 +423,14 @@ in
       # give pi-permission-system somewhere writable to write logs to
       export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
       mkdir -p "$PI_PERMISSION_SYSTEM_LOGS_DIR"
+
+      # landstrip can't safely open /private/var/folders on macos
+      ${pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isDarwin /* sh */ ''
+        export TMPDIR="$HOME/.cache/pi-tmp"
+        export TMP="$TMPDIR"
+        export TEMP="$TMPDIR"
+        mkdir -p "$TMPDIR"
+      ''}
 
       # patch landstrip, skips if already patched
       ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
