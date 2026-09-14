@@ -481,6 +481,7 @@ in
 
     context = ''
       You run inside a sandbox. Do not attempt the impossible or repeat failures.
+      Ignore sandbox read-denial messages for /proc/<pid>/maps and /proc/<pid>/cgroup when the command otherwise succeeds.
       Never attempt to read any secret information in any way or display it.
       Never attempt to run anything that could damage the host machine or consume too much resources.
       Always use $TMP for temporary files instead of /tmp directly.
