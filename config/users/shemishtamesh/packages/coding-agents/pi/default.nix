@@ -340,6 +340,7 @@ let
         "proxy.golang.org"
         "sum.golang.org"
         "pkg.go.dev"
+        "packages.typst.org"
         "cache.nixos.org"
         "*.cachix.org"
         "channels.nixos.org"
@@ -477,6 +478,14 @@ in
         ./session-tmp
       ];
     };
+
+    context = ''
+      You run inside a sandbox. Do not attempt the impossible or repeat failures.
+      Never attempt to read any secret information in any way or display it.
+      Never attempt to run anything that could damage the host machine or consume too much resources.
+      Always use $TMP for temporary files instead of /tmp directly.
+      You are allowed to change files in the current working directory, but never attempt to change anything over network (never attempt to push a git repo for example).
+    '';
 
     models = {
       providers = {
