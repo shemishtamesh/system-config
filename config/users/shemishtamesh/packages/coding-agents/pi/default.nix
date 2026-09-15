@@ -327,6 +327,7 @@ let
     "~/.pi"
     "/etc/passwd"
   ]
+  ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isLinux "/proc/sys/vm/overcommit_memory"
   ++ tmpPaths;
 
   readAllowRecursive = pkgs.lib.unique (
