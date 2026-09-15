@@ -17,6 +17,8 @@ let
   # $mod+CTRL+1..9 sets a fixed zoom level, linear from 1x (at 1) to maxZoom (at 9)
   maxZoom = 4.0;
 
+  scripts = import ./scripts.nix { inherit pkgs; };
+
   toLua = lib.generators.toLua { };
 
   dspCall =
@@ -116,7 +118,9 @@ in
           (mkExecBind "${mod} + RETURN" "wezterm start tmux" null)
           (mkExecBind "${mod} + i" "zen-twilight" null)
           (mkExecBind "${mod} + SHIFT + i" "zen-twilight --private-window" null)
-          (mkExecBind "${mod} + d" "dictate" null)
+          (mkExecBind "${mod} + d" scripts.dictate null)
+          (mkExecBind "${mod} + CTRL + d" scripts.dictate-lock null)
+          (mkExecBind "${mod} + ALT + d" scripts.dictate-return null)
           (mkExecBind "${mod} + SHIFT + d" "drawy" null)
 
           (mkExecBind "${mod} + v" "noctalia msg panel-toggle clipboard" null)
