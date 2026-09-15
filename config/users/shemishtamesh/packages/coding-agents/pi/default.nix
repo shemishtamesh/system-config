@@ -201,6 +201,55 @@ let
     "gem push*" = "deny";
     "git archive*" = "deny";
     "git fast-export*" = "deny";
+
+    # home-manager / NixOS generation activation
+    "home-manager switch*" = "deny";
+    "home-manager activate*" = "deny";
+    "home-manager rollback*" = "deny";
+    "home-manager expire-generations*" = "deny";
+    # nixos-rebuild / darwin-rebuild generation activation
+    "nixos-rebuild switch*" = "deny";
+    "nixos-rebuild boot*" = "deny";
+    "nixos-rebuild test*" = "deny";
+    "nixos-rebuild rollback*" = "deny";
+    "darwin-rebuild switch*" = "deny";
+    "darwin-rebuild boot*" = "deny";
+    "darwin-rebuild test*" = "deny";
+    "darwin-rebuild rollback*" = "deny";
+    # nix profile (store-profile) mutations
+    "nix profile install*" = "deny";
+    "nix profile remove*" = "deny";
+    "nix profile upgrade*" = "deny";
+    "nix profile rollback*" = "deny";
+    "nix profile wipe-history*" = "deny";
+    "nix profile history*" = "deny";
+    # nix-env mutations
+    "nix-env -i*" = "deny";
+    "nix-env --install*" = "deny";
+    "nix-env -e*" = "deny";
+    "nix-env --erase*" = "deny";
+    "nix-env -u*" = "deny";
+    "nix-env --upgrade*" = "deny";
+    "nix-env -r*" = "deny";
+    "nix-env --rollback*" = "deny";
+    # channels
+    "nix-channel --add*" = "deny";
+    "nix-channel --remove*" = "deny";
+    "nix-channel --update*" = "deny";
+    "nix-channel --rollback*" = "deny";
+    # flake registry mutations
+    "nix registry add*" = "deny";
+    "nix registry remove*" = "deny";
+    "nix registry pin*" = "deny";
+    "nix registry update*" = "deny";
+    # store mutations / garbage collection
+    "nix copy --to*" = "deny";
+    "nix gc*" = "deny";
+    "nix optimise-store*" = "deny";
+    "nix-store --delete*" = "deny";
+    "nix-store --add*" = "deny";
+    "nix-store --add-root*" = "deny";
+    "nix-store --load-db*" = "deny";
   };
 
   linuxDenyDirectories = [
