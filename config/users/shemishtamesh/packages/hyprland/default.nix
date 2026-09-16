@@ -121,6 +121,7 @@ in
           (mkExecBind "${mod} + d" scripts.dictate null)
           (mkExecBind "${mod} + CTRL + d" scripts.dictate-lock null)
           (mkExecBind "${mod} + ALT + d" scripts.dictate-return null)
+          (mkExecBind "${mod} + CTRL + Escape" scripts.dictate-escape null)
           (mkExecBind "${mod} + SHIFT + d" "drawy" null)
 
           (mkExecBind "${mod} + v" "noctalia msg panel-toggle clipboard" null)

@@ -136,6 +136,20 @@ in
     fi
   '';
 
+  dictate-escape = pkgs.writeShellScript "dictate-escape" ''
+    set -euo pipefail
+    runtime_dir="''${XDG_RUNTIME_DIR:-/tmp}/dictation-script"
+    mkdir -p "$runtime_dir"
+    lockfile="$runtime_dir/window-lock"
+
+    if [[ -f "$lockfile" ]]; then
+      target="address:$(cat "$lockfile")"
+      ${hyprctl} --quiet dispatch "hl.dsp.send_shortcut({ mods = \"\", key = \"Escape\", window = \"$target\" })"
+    else
+      ${wtype} -k Escape
+    fi
+  '';
+
   dictate-lock = pkgs.writeShellScript "dictate-lock" ''
     set -euo pipefail
     runtime_dir="''${XDG_RUNTIME_DIR:-/tmp}/dictation-script"
