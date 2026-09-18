@@ -7,7 +7,9 @@ let
   cfg = config.programs.pi-coding-agent;
   jsonFormat = pkgs.formats.json { };
   shared = import ../shared { };
+
   palette = config.lib.stylix.colors.withHashtag;
+  ui = import ./ui.nix { inherit palette; };
 
   speakConfig = jsonFormat.generate "pi-speak.json" {
     enabled = false;
@@ -24,426 +26,10 @@ let
     };
   };
 
-  secretFiles = [
-    ".env"
-    ".env.local"
-    ".env.development"
-    ".env.production"
-    ".env.test"
-    ".env.staging"
-    ".envrc"
-    ".netrc"
-    ".npmrc"
-    ".pypirc"
-    ".git-credentials"
-
-    # Recursive workspace coverage for nested projects and credentials.
-    "**/.env"
-    "**/.env.*"
-    "**/*.pem"
-    "**/*.key"
-    "**/.netrc"
-    "**/.npmrc"
-    "**/.pypirc"
-    "**/.git-credentials"
-  ];
-
-  # pi-permission-system bash deny patterns
-  bashDenyPatterns = {
-    # privilege escalation
-    "sudo*" = "deny";
-    "su *" = "deny";
-    "doas*" = "deny";
-
-    # remote code execution (pipe-to-shell)
-    "curl*| sh" = "deny";
-    "curl*| bash" = "deny";
-    "curl*| zsh" = "deny";
-    "curl*| fish" = "deny";
-    "curl*| xsh" = "deny";
-    "wget*| sh" = "deny";
-    "wget*| bash" = "deny";
-    "wget*| zsh" = "deny";
-
-    # git: deny all writes to a remote
-    "git push*" = "deny";
-    "git-push*" = "deny";
-    "git subtree push*" = "deny";
-    "git send-email*" = "deny";
-    "git lfs push*" = "deny";
-    "git remote add*" = "deny";
-    "git remote set-url*" = "deny";
-    "git remote remove*" = "deny";
-    "git remote rm*" = "deny";
-    "git remote prune*" = "deny";
-    "git remote update*" = "deny";
-    "git push --mirror*" = "deny";
-    "git push --tags*" = "deny";
-
-    # git credential/hook persistence
-    "git config*" = "deny";
-    ".git/hooks*" = "deny";
-    ".gitmodules*" = "deny";
-
-    # GitHub CLI: deny create/edit/mutate/comment (read ops stay allowed)
-    # repos
-    "gh repo create*" = "deny";
-    "gh repo delete*" = "deny";
-    "gh repo edit*" = "deny";
-    "gh repo transfer*" = "deny";
-    "gh repo rename*" = "deny";
-    "gh repo fork*" = "deny";
-    "gh repo set-default*" = "deny";
-    # issues
-    "gh issue create*" = "deny";
-    "gh issue edit*" = "deny";
-    "gh issue close*" = "deny";
-    "gh issue reopen*" = "deny";
-    "gh issue comment*" = "deny";
-    "gh issue lock*" = "deny";
-    "gh issue unlock*" = "deny";
-    # PRs
-    "gh pr create*" = "deny";
-    "gh pr edit*" = "deny";
-    "gh pr close*" = "deny";
-    "gh pr reopen*" = "deny";
-    "gh pr merge*" = "deny";
-    "gh pr comment*" = "deny";
-    "gh pr review*" = "deny";
-    "gh pr label*" = "deny";
-    "gh pr lock*" = "deny";
-    "gh pr unlock*" = "deny";
-    # releases / gists / secrets / labels
-    "gh release create*" = "deny";
-    "gh release edit*" = "deny";
-    "gh release delete*" = "deny";
-    "gh release upload*" = "deny";
-    "gh gist create*" = "deny";
-    "gh gist delete*" = "deny";
-    "gh gist edit*" = "deny";
-    "gh secret set*" = "deny";
-    "gh variable set*" = "deny";
-    "gh label create*" = "deny";
-    "gh label edit*" = "deny";
-    "gh label delete*" = "deny";
-    "gh milestone create*" = "deny";
-    "gh milestone edit*" = "deny";
-    "gh milestone close*" = "deny";
-    "gh delete*" = "deny";
-    "gh cache*" = "deny";
-    # workflows / runs
-    "gh workflow run*" = "deny";
-    "gh workflow enable*" = "deny";
-    "gh workflow disable*" = "deny";
-    "gh run rerun*" = "deny";
-    "gh run cancel*" = "deny";
-    # ssh keys / auth writes
-    "gh ssh-key add*" = "deny";
-    "gh auth refresh*" = "deny";
-    "gh auth login*" = "deny";
-    "gh auth token*" = "deny";
-    "gh alias set*" = "deny";
-    # raw API writes to github.com
-    "gh api --method POST*" = "deny";
-    "gh api --method PUT*" = "deny";
-    "gh api --method PATCH*" = "deny";
-    "gh api --method DELETE*" = "deny";
-    "gh api -X POST*" = "deny";
-    "gh api -X PUT*" = "deny";
-    "gh api -X PATCH*" = "deny";
-    "gh api -X DELETE*" = "deny";
-    "gh api repos*" = "deny";
-    "gh api user*" = "deny";
-    "gh api orgs*" = "deny";
-
-    # generic network-write / data-exfiltration tools
-    "curl -T*" = "deny";
-    "curl --upload-file*" = "deny";
-    "curl -X POST*" = "deny";
-    "curl -X PUT*" = "deny";
-    "curl -X PATCH*" = "deny";
-    "curl -X DELETE*" = "deny";
-    "curl --request POST*" = "deny";
-    "curl --request PUT*" = "deny";
-    "curl --request PATCH*" = "deny";
-    "curl --request DELETE*" = "deny";
-    "curl -d *" = "deny";
-    "curl --data*" = "deny";
-    "curl -F *" = "deny";
-    "curl --form*" = "deny";
-    "wget --post-data*" = "deny";
-    "wget --post-file*" = "deny";
-    "scp *" = "deny";
-    "rsync*" = "deny";
-    "sftp *" = "deny";
-    "nc *" = "deny";
-    "ncat*" = "deny";
-    "nmap*" = "deny";
-    "telnet*" = "deny";
-    "s3cmd*" = "deny";
-    "aws s3*" = "deny";
-    "aws s3api*" = "deny";
-    "aws dynamodb*" = "deny";
-    "aws secretsmanager*" = "deny";
-    "aws ssm*" = "deny";
-    "gcloud *" = "deny";
-    "az *" = "deny";
-    "kubectl*" = "deny";
-    "docker push*" = "deny";
-    "docker cp*" = "deny";
-    "npm publish*" = "deny";
-    "pnpm publish*" = "deny";
-    "yarn publish*" = "deny";
-    "cargo publish*" = "deny";
-    "pip install .*" = "deny";
-    "python -m pip install .*" = "deny";
-    "twine upload*" = "deny";
-    "gem push*" = "deny";
-    "git archive*" = "deny";
-    "git fast-export*" = "deny";
-
-    # home-manager / NixOS generation activation
-    "home-manager switch*" = "deny";
-    "home-manager activate*" = "deny";
-    "home-manager rollback*" = "deny";
-    "home-manager expire-generations*" = "deny";
-    # nixos-rebuild / darwin-rebuild generation activation
-    "nixos-rebuild switch*" = "deny";
-    "nixos-rebuild boot*" = "deny";
-    "nixos-rebuild test*" = "deny";
-    "nixos-rebuild rollback*" = "deny";
-    "darwin-rebuild switch*" = "deny";
-    "darwin-rebuild boot*" = "deny";
-    "darwin-rebuild test*" = "deny";
-    "darwin-rebuild rollback*" = "deny";
-    # nix profile (store-profile) mutations
-    "nix profile install*" = "deny";
-    "nix profile remove*" = "deny";
-    "nix profile upgrade*" = "deny";
-    "nix profile rollback*" = "deny";
-    "nix profile wipe-history*" = "deny";
-    "nix profile history*" = "deny";
-    # nix-env mutations
-    "nix-env -i*" = "deny";
-    "nix-env --install*" = "deny";
-    "nix-env -e*" = "deny";
-    "nix-env --erase*" = "deny";
-    "nix-env -u*" = "deny";
-    "nix-env --upgrade*" = "deny";
-    "nix-env -r*" = "deny";
-    "nix-env --rollback*" = "deny";
-    # channels
-    "nix-channel --add*" = "deny";
-    "nix-channel --remove*" = "deny";
-    "nix-channel --update*" = "deny";
-    "nix-channel --rollback*" = "deny";
-    # flake registry mutations
-    "nix registry add*" = "deny";
-    "nix registry remove*" = "deny";
-    "nix registry pin*" = "deny";
-    "nix registry update*" = "deny";
-    # store mutations / garbage collection
-    "nix copy --to*" = "deny";
-    "nix gc*" = "deny";
-    "nix optimise-store*" = "deny";
-    "nix-store --delete*" = "deny";
-    "nix-store --add*" = "deny";
-    "nix-store --add-root*" = "deny";
-    "nix-store --load-db*" = "deny";
+  permissions = import ./permissions.nix {
+    inherit pkgs config jsonFormat;
   };
-
-  linuxDenyDirectories = [
-    "/home"
-    "/root"
-    "/etc"
-    "/run"
-    "/var"
-    "/var/tmp"
-    "/tmp"
-    "/proc"
-    "/sys"
-    "/dev"
-    "/mnt"
-    "/media"
-    "/boot"
-  ];
-
-  macosDenyDirectories = [
-    "/private/etc"
-    "/private/var"
-    "/private/tmp"
-    "/Users"
-    "/System"
-    "/Library"
-    "/var/root"
-    "/cores"
-    "/Volumes"
-  ];
-
-  absoluteReadDenyDirectories =
-    if pkgs.stdenv.hostPlatform.isDarwin then macosDenyDirectories else linuxDenyDirectories;
-
-  # utility device files
-  devAllowPaths = [
-    "/dev/null"
-    "/dev/urandom"
-    "/dev/random"
-    "/dev/zero"
-  ];
-
-  # keep every exact deny and add a recursive counterpart so native `read`
-  nativeReadDenyPatterns = pkgs.lib.unique (
-    (pkgs.lib.concatMap (pattern: [
-      pattern
-      "${pattern}/**"
-    ]) secretFiles)
-    ++ (pkgs.lib.concatMap (path: [
-      path
-      "${path}/**"
-    ]) absoluteReadDenyDirectories)
-  );
-
-  nativeReadDenyPerms = pkgs.lib.genAttrs nativeReadDenyPatterns (_: "deny");
-
-  tmpPaths =
-    if pkgs.stdenv.hostPlatform.isDarwin then
-      [
-        "~/.cache/pi-tmp"
-      ]
-    else
-      [
-        "/tmp/pi-agent"
-      ];
-
-  readAllowPaths = [
-    "."
-    "/nix/store"
-    "/run/current-system"
-    "~/.nix-profile"
-    "~/.local/state/nix"
-    "~/.cache/nix"
-    "~/.cache/typst"
-    "~/.config/git/ignore"
-    "~/.pi"
-    "/etc/passwd"
-  ]
-  ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isLinux "/proc/sys/vm/overcommit_memory"
-  ++ tmpPaths;
-
-  readAllowRecursive = pkgs.lib.unique (
-    pkgs.lib.concatMap (p: [
-      p
-      "${p}/**"
-    ]) readAllowPaths
-  );
-
-  # no need for the full recursive list since it only uses prefixes anyways
-  readAllowBinaryPrefixes = pkgs.lib.unique readAllowPaths;
-
-  readAllowPerms = pkgs.lib.genAttrs readAllowRecursive (_: "allow");
-
-  writeAllowPaths = [
-    "."
-    "~/.cache/nix"
-    "~/.cache/typst"
-  ]
-  ++ tmpPaths;
-
-  writeDenyExceptions = [
-    ".pi/"
-  ];
-
-  landstripSandboxPolicy = {
-    enabled = true;
-    shell.readAccess = "policy";
-    network = {
-      allowNetwork = false;
-      allowLocalBinding = false;
-      allowAllUnixSockets = false;
-      allowUnixSockets = [
-        "/nix/var/nix/daemon-socket/socket"
-      ];
-      allowedDomains = [
-        "localhost"
-        "127.0.0.1"
-        "github.com"
-        "*.github.com"
-        "*.githubusercontent.com"
-        "gitlab.com"
-        "*.gitlab.com"
-        "bitbucket.org"
-        "registry.npmjs.org"
-        "pypi.org"
-        "*.pypi.org"
-        "files.pythonhosted.org"
-        "crates.io"
-        "static.crates.io"
-        "*.rust-lang.org"
-        "proxy.golang.org"
-        "sum.golang.org"
-        "pkg.go.dev"
-        "packages.typst.org"
-        "cache.nixos.org"
-        "*.cachix.org"
-        "channels.nixos.org"
-        "releases.nixos.org"
-        "nixos.org"
-        "mcp.exa.ai"
-        "huggingface.co"
-        "us.aws.cdn.hf.co"
-        "data.gov"
-        "data.gov.il"
-      ];
-      deniedDomains = [ ];
-    };
-    filesystem = {
-      denyRead = secretFiles ++ absoluteReadDenyDirectories;
-      allowRead = readAllowBinaryPrefixes ++ devAllowPaths;
-      denyWrite = secretFiles ++ writeDenyExceptions;
-      allowWrite = writeAllowPaths ++ devAllowPaths;
-    };
-  };
-
-  landstripConfig = {
-    maxSubagents = 4;
-    toolFilesystemPolicy = "sandbox";
-
-    permission = {
-      read = nativeReadDenyPerms // readAllowPerms;
-
-      # already sandboxed
-      bash = "allow";
-
-      # deny because it's hard to sandbox or limit reliably
-      grep = "deny";
-      glob = "deny";
-    };
-  };
-
-  # only for blocking bash commands that can't be granularly blocked at the os/proxy level
-  piPermissionConfig = {
-    enabled = true;
-    debug = false;
-    yoloMode = false;
-
-    defaultPolicy = {
-      tools = "allow";
-      bash = "allow";
-      mcp = "allow";
-      skills = "allow";
-      special = "allow";
-    };
-
-    tools = {
-      "*" = "allow";
-    };
-
-    bash = bashDenyPatterns;
-
-    skills = {
-      "*" = "allow";
-    };
-  };
+  inherit (permissions) bashScrubber piPermissionConfig;
 
 in
 {
@@ -453,6 +39,7 @@ in
       export PATH="${
         pkgs.lib.makeBinPath (
           (with pkgs; [
+            bash
             nodejs
             python3
             gnumake
@@ -467,8 +54,8 @@ in
       }:$PATH"
 
       export OPENROUTER_API_KEY="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
+      export GROQ_API_KEY="$(cat ${config.sops.secrets."groq/general_api_key".path})"
       export OPENCODE_API_KEY="$(cat ${config.sops.secrets."opencode/zen".path})"
-      unset $(env | cut -d= -f1 | grep -Ei 'key|token|api|secret|credential' | grep -vxE 'OPENROUTER_API_KEY|OPENCODE_API_KEY')
 
       # give pi-permission-system somewhere writable to write logs to
       export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
@@ -482,8 +69,9 @@ in
         mkdir -p "$TMPDIR"
       ''}
 
-      # patch landstrip, skips if already patched
-      ${pkgs.nodejs_22}/bin/node ${./landstrip/patch.js}
+      # make gh not try to use user's config
+      export GH_CONFIG_DIR=".cache/pi-tmp/pi-gh-config"
+      mkdir -p "$GH_CONFIG_DIR"
 
       # privateer-speak's /speak on/off toggle is config file based
       ${pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
@@ -493,8 +81,8 @@ in
         chmod 600 "$HOME/.pi/speak.json"
       ''}
 
-      # strip grep/find from the tool registry
-      exec ${pkgs.pi-coding-agent}/bin/pi --exclude-tools grep,find "$@"
+      exec ${pkgs.pi-coding-agent}/bin/pi \
+        --exclude-tools ${pkgs.lib.concatStringsSep "," permissions.excludedNativeTools} "$@"
     '';
     extraPackages = [ ];
 
@@ -502,25 +90,18 @@ in
       defaultProvider = "ollama";
       defaultModel = "ornith";
       defaultThinkingLevel = "low";
-      # `grep` and `find` cannot be path-safely permission-filtered
-      defaultTools = [
-        "read"
-        "bash"
-        "edit"
-        "write"
-        "ls"
-      ];
+      shellPath = "${bashScrubber}/bin/bash";
+      defaultTools = permissions.enabledNativeTools;
       theme = "stylix";
       defaultProjectTrust = "ask";
       enableInstallTelemetry = false;
       collapseChangelog = true;
 
       packages = [
-        "npm:@juicesharp/rpiv-ask-user-question@2.9.0"
         "npm:pi-observational-memory@3.0.4"
         "npm:pi-context-pruning@1.1.0"
-        "npm:pi-landstrip@0.18.43"
         "npm:pi-permission-system@0.8.0"
+        "npm:pi-subagents@0.69.0"
         "npm:pi-web-access@0.27.0"
         "npm:remote-pi@0.7.0"
         "npm:privateer-speak@0.2.2"
@@ -531,7 +112,6 @@ in
 
     context = ''
       You run inside a sandbox. Do not attempt the impossible or repeat failures.
-      Ignore sandbox read-denial messages for /proc/<pid>/maps and /proc/<pid>/cgroup when the command otherwise succeeds.
       Never attempt to read any secret information in any way or display it.
       Never attempt to run anything that could damage the host machine or consume too much resources.
       Always use $TMP for temporary files instead of /tmp directly.
@@ -554,130 +134,51 @@ in
           api = "openai-completions";
           apiKey = "$OPENROUTER_API_KEY";
         };
+        groq = {
+          baseUrl = "https://api.groq.com/openai/v1";
+          api = "openai-completions";
+          apiKey = "$GROQ_API_KEY";
+          models = [
+            {
+              id = "openai/gpt-oss-120b";
+              reasoning = true;
+            }
+            {
+              id = "openai/gpt-oss-20b";
+              reasoning = true;
+            }
+            {
+              id = "groq/compound";
+              reasoning = true;
+            }
+            {
+              id = "groq/compound-mini";
+              reasoning = true;
+            }
+          ];
+        };
       };
     };
   };
 
-  home.file."${cfg.configDir}/keybindings.json" = {
-    source = jsonFormat.generate "pi-keybindings.json" {
-      "tui.select.confirm" = [
-        "enter"
-        "ctrl+y"
-      ];
-      "tui.select.up" = [
-        "up"
-        "ctrl+k"
-      ];
-      "tui.select.down" = [
-        "down"
-        "ctrl+j"
-      ];
-      "tui.editor.cursorUp" = [
-        "up"
-        "ctrl+k"
-      ];
-      "tui.editor.cursorDown" = [
-        "down"
-        "ctrl+j"
-      ];
-      "tui.editor.cursorLeft" = [
-        "left"
-        "ctrl+h"
-      ];
-      "tui.editor.cursorRight" = [
-        "right"
-        "ctrl+l"
-      ];
-    };
-  };
-
-  home.file."${cfg.configDir}/sandbox.json" = {
-    source = jsonFormat.generate "landstrip-sandbox.json" landstripSandboxPolicy;
-  };
-
-  home.file."${cfg.configDir}/landstrip.json" = {
-    source = jsonFormat.generate "pi-landstrip.json" landstripConfig;
-  };
+  home.file."${cfg.configDir}/keybindings.json".source =
+    jsonFormat.generate "pi-keybindings.json" ui.keybindings;
 
   home.file."${cfg.configDir}/pi-permissions.jsonc" = {
     source = jsonFormat.generate "pi-permissions.jsonc" piPermissionConfig;
   };
 
-  home.file."${cfg.configDir}/themes/stylix.json" = {
-    source = jsonFormat.generate "pi-theme-stylix.json" {
-      name = "stylix";
-      colors = {
-        # Core UI
-        accent = palette.base0D;
-        border = palette.base03;
-        borderAccent = palette.base0D;
-        borderMuted = palette.base01;
-        success = palette.base0B;
-        error = palette.base08;
-        warning = palette.base0A;
-        muted = palette.base04;
-        dim = palette.base02;
-        text = palette.base06;
-        thinkingText = palette.base03;
-
-        # Backgrounds & content
-        selectedBg = palette.base02;
-        scrollbarThumb = palette.base03;
-        searchMatchBg = palette.base0A;
-        searchMatchText = palette.base00;
-        userMessageBg = palette.base01;
-        userMessageText = palette.base05;
-        customMessageBg = palette.base01;
-        customMessageText = palette.base05;
-        customMessageLabel = palette.base0E;
-        toolPendingBg = palette.base01;
-        toolSuccessBg = palette.base01;
-        toolErrorBg = palette.base02;
-        toolTitle = palette.base0D;
-        toolOutput = palette.base04;
-
-        # Markdown
-        mdHeading = palette.base0D;
-        mdLink = palette.base0D;
-        mdLinkUrl = palette.base0C;
-        mdCode = palette.base0B;
-        mdCodeBlock = palette.base05;
-        mdCodeBlockBorder = palette.base03;
-        mdQuote = palette.base04;
-        mdQuoteBorder = palette.base03;
-        mdHr = palette.base03;
-        mdListBullet = palette.base0A;
-
-        # Tool diffs
-        toolDiffAdded = palette.base0B;
-        toolDiffRemoved = palette.base08;
-        toolDiffContext = palette.base04;
-
-        # Syntax highlighting
-        syntaxComment = palette.base03;
-        syntaxKeyword = palette.base0E;
-        syntaxFunction = palette.base0D;
-        syntaxVariable = palette.base08;
-        syntaxString = palette.base0B;
-        syntaxNumber = palette.base09;
-        syntaxType = palette.base0A;
-        syntaxOperator = palette.base05;
-        syntaxPunctuation = palette.base05;
-
-        # Thinking-level borders
-        thinkingOff = palette.base03;
-        thinkingMinimal = palette.base0C;
-        thinkingLow = palette.base0B;
-        thinkingMedium = palette.base0A;
-        thinkingHigh = palette.base09;
-        thinkingXhigh = palette.base08;
-        thinkingMax = palette.base0E;
-
-        # Bash mode
-        bashMode = palette.base0E;
+  home.file."${cfg.configDir}/extensions/subagent/config.json".source =
+    jsonFormat.generate "pi-subagents.json"
+      {
+        forceTopLevelAsync = true;
+        globalConcurrencyLimit = 4;
+        maxActiveAsyncRunsPerSession = 4;
+        maxSubagentDepth = 1;
       };
-    };
-  };
+
+  home.file."${cfg.configDir}/themes/stylix.json".source =
+    jsonFormat.generate "pi-theme-stylix.json" ui.theme;
 
   home.file."${config.xdg.configHome}/pi/web-search.json".source =
     jsonFormat.generate "pi-web-search.json"
@@ -686,6 +187,7 @@ in
       };
 
   sops.secrets."openrouter/general_api_key" = { };
+  sops.secrets."groq/general_api_key" = { };
   sops.secrets."opencode/zen" = { };
 
   home.packages = [
