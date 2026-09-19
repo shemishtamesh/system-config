@@ -182,7 +182,7 @@ in
                     thinking.reasoningEffort = "high";
                   };
                   low = {
-                    thinking."reasoningEffort" = "low";
+                    thinking.reasoningEffort = "low";
                   };
                 };
               }

@@ -55,7 +55,10 @@ in
 
       export OPENROUTER_API_KEY="$(cat ${config.sops.secrets."openrouter/general_api_key".path})"
       export GROQ_API_KEY="$(cat ${config.sops.secrets."groq/general_api_key".path})"
+      export NVIDIA_API_KEY="$(cat ${config.sops.secrets."nvidia/nim/general_api_key".path})"
+      export GEMINI_API_KEY="$(cat ${config.sops.secrets."google/gemini/general_api_key".path})"
       export OPENCODE_API_KEY="$(cat ${config.sops.secrets."opencode/zen".path})"
+      export KILO_API_KEY="$(cat ${config.sops.secrets."kilo/general_api_key".path})"
 
       # give pi-permission-system somewhere writable to write logs to
       export PI_PERMISSION_SYSTEM_LOGS_DIR="${config.xdg.stateHome}/pi/permission-system/logs"
@@ -157,6 +160,20 @@ in
             }
           ];
         };
+        kilo = {
+          baseUrl = "https://api.kilo.ai/api/gateway";
+          api = "openai-completions";
+          apiKey = "$KILO_API_KEY";
+          compat = {
+            thinkingFormat = "openrouter";
+          };
+          models = [
+            {
+              id = "kilo-auto/free";
+              reasoning = true;
+            }
+          ];
+        };
       };
     };
   };
@@ -188,7 +205,10 @@ in
 
   sops.secrets."openrouter/general_api_key" = { };
   sops.secrets."groq/general_api_key" = { };
+  sops.secrets."nvidia/nim/general_api_key" = { };
+  sops.secrets."google/gemini/general_api_key" = { };
   sops.secrets."opencode/zen" = { };
+  sops.secrets."kilo/general_api_key" = { };
 
   home.packages = [
     (pkgs.buildNpmPackage {

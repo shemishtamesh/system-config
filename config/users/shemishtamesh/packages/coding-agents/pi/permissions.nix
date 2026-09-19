@@ -215,6 +215,7 @@ let
     "**/.npmrc"
     "**/.pypirc"
     "**/.git-credentials"
+    "**/auth.*"
   ];
 
   absoluteReadDenyDirectories =
@@ -382,7 +383,6 @@ in
     };
     tools = {
       "*" = "allow";
-      # Keep these denied if a child session registers them again.
       grep = "deny";
       find = "deny";
     }
