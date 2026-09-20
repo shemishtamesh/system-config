@@ -270,7 +270,6 @@ let
     "~/.nix-profile"
     "~/.local/state/nix"
     "~/.config/git/ignore"
-    "~/.pi"
     "/etc/passwd"
   ]
   ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isLinux "/proc/sys/vm/overcommit_memory";
