@@ -1,14 +1,11 @@
 { ... }:
 {
-  virtualisation.oci-containers.containers.openedai-speech = {
-    image = "ghcr.io/matatonic/openedai-speech-min";
+  virtualisation.oci-containers.containers.pi-tts = {
+    image = "ghcr.io/remsky/kokoro-fastapi-cpu:v0.9.0";
     autoStart = true;
-    ports = [ "127.0.0.1:8920:8000" ];
-    volumes = [
-      "openedai-speech-voices:/app/voices"
-    ];
+    ports = [ "127.0.0.1:8920:8880" ];
     environment = {
-      EXTRA_ARGS = "--xtts_device none -H 0.0.0.0 -P 8000";
+      API_LOG_LEVEL = "WARNING";
     };
   };
 }
