@@ -9,7 +9,6 @@ profile_makers.mkNixosSystem {
       "wheel"
       "input"
       "adbusers"
-      "docker"
     ];
   };
   monitors = {

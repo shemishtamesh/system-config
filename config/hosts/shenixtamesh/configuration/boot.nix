@@ -2,7 +2,7 @@
 
 {
   boot = {
-    plymouth.enable = true;
+    plymouth.enable = false;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;

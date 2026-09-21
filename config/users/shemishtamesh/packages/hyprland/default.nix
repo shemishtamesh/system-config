@@ -642,8 +642,8 @@ in
               );
             }) workspace_numbers
           )
-          sorted_monitors
-          (lib.range 1 9)
+            sorted_monitors
+            (lib.range 1 9)
         );
 
         device = {
