@@ -72,6 +72,19 @@ in
         mkdir -p "$TMPDIR"
       ''}
 
+      if [ -z "''${PI_SESSION_TMP_BASE:-}" ]; then
+        pi_tmp_base="''${TMPDIR:-/tmp}/pi-agent"
+        mkdir -p "$pi_tmp_base"
+        export PI_SESSION_TMP_BASE="$(
+          ${pkgs.coreutils}/bin/mktemp -d "$pi_tmp_base/session.XXXXXX"
+        )"
+      fi
+      export PI_SUBAGENTS_TEMP_ROOT="''${PI_SUBAGENTS_TEMP_ROOT:-$PI_SESSION_TMP_BASE/pi-subagents}"
+      mkdir -p "$PI_SUBAGENTS_TEMP_ROOT"
+      export TMPDIR="$PI_SESSION_TMP_BASE"
+      export TMP="$PI_SESSION_TMP_BASE"
+      export TEMP="$PI_SESSION_TMP_BASE"
+
       # make gh not try to use user's config
       export GH_CONFIG_DIR=".cache/pi-tmp/pi-gh-config"
       mkdir -p "$GH_CONFIG_DIR"
@@ -95,6 +108,41 @@ in
       defaultThinkingLevel = "low";
       shellPath = "${bashScrubber}/bin/bash";
       defaultTools = permissions.enabledNativeTools;
+      subagents.agentOverrides = {
+        delegate.tools = [
+          "read"
+          "ls"
+          "bash"
+          "edit"
+          "write"
+          "contact_supervisor"
+        ];
+        worker.tools = [
+          "read"
+          "ls"
+          "bash"
+          "edit"
+          "write"
+          "contact_supervisor"
+        ];
+        scout.tools = [
+          "read"
+          "ls"
+          "bash"
+          "write"
+          "contact_supervisor"
+        ];
+        reviewer.tools = [
+          "read"
+          "ls"
+          "contact_supervisor"
+        ];
+        oracle.tools = [
+          "read"
+          "ls"
+          "bash"
+        ];
+      };
       theme = "stylix";
       defaultProjectTrust = "ask";
       enableInstallTelemetry = false;

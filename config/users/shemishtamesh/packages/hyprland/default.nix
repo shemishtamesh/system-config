@@ -384,7 +384,6 @@ in
             hide_special_on_workspace_change = true;
           };
           input = {
-            follow_mouse = 2;
             kb_layout = "us,il";
             kb_options = "grp:alt_space_toggle";
           };

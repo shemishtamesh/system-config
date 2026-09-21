@@ -319,7 +319,7 @@ let
 
   filesystemPolicy = {
     denyRead = filesystemDenyReadPaths;
-    denyWrite = filesystemDenyReadPaths ++ writeDenyPaths;
+    denyWrite = secretFiles ++ writeDenyPaths;
     allowRead = readAllowPaths ++ devicePaths;
     allowWrite = writeAllowPaths ++ devicePaths;
   };
