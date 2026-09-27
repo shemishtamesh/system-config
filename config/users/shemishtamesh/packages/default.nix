@@ -26,7 +26,7 @@ let
     ./nixvim.nix
     ./nix-index.nix
     ./zen-browser.nix
-    ./coding-agents/pi
+    ./pi-coding-agent
     ./nh.nix
     ./bitwarden.nix
     ./mpv.nix

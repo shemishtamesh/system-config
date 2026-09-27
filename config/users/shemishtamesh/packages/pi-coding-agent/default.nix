@@ -6,7 +6,7 @@
 let
   cfg = config.programs.pi-coding-agent;
   jsonFormat = pkgs.formats.json { };
-  shared = import ../shared { };
+  providers = import ./providers.nix { openrouterKeyEnvVar = "OPENROUTER_API_KEY"; };
 
   palette = config.lib.stylix.colors.withHashtag;
   ui = import ./ui.nix { inherit palette; };
@@ -178,50 +178,15 @@ in
           models = pkgs.lib.mapAttrsToList (
             name: cfg:
             { id = name; } // pkgs.lib.optionalAttrs (cfg.supportsThinking or false) { reasoning = true; }
-          ) shared.providers.ollama.models;
+          ) providers.ollama.models;
         };
         openrouter = {
-          baseUrl = shared.providers.openrouter.baseUrl;
+          baseUrl = providers.openrouter.baseUrl;
           api = "openai-completions";
           apiKey = "$OPENROUTER_API_KEY";
         };
-        groq = {
-          baseUrl = "https://api.groq.com/openai/v1";
-          api = "openai-completions";
-          apiKey = "$GROQ_API_KEY";
-          models = [
-            {
-              id = "openai/gpt-oss-120b";
-              reasoning = true;
-            }
-            {
-              id = "openai/gpt-oss-20b";
-              reasoning = true;
-            }
-            {
-              id = "groq/compound";
-              reasoning = true;
-            }
-            {
-              id = "groq/compound-mini";
-              reasoning = true;
-            }
-          ];
-        };
-        kilo = {
-          baseUrl = "https://api.kilo.ai/api/gateway";
-          api = "openai-completions";
-          apiKey = "$KILO_API_KEY";
-          compat = {
-            thinkingFormat = "openrouter";
-          };
-          models = [
-            {
-              id = "kilo-auto/free";
-              reasoning = true;
-            }
-          ];
-        };
+        groq = providers.groq;
+        kilo = providers.kilo;
       };
     };
   };

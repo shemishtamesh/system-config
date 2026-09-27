@@ -276,6 +276,7 @@ let
     "~/.nix-profile"
     "~/.local/state/nix"
     "~/.config/git/ignore"
+    "~/.cache/fontconfig/"
     "/etc/passwd"
     "/proc/stat"
     "/proc/cpuinfo"
