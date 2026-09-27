@@ -271,6 +271,7 @@ let
     "~/.local/state/nix"
     "~/.config/git/ignore"
     "/etc/passwd"
+    "/proc/cpuinfo"
   ]
   ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isLinux "/proc/sys/vm/overcommit_memory";
 
