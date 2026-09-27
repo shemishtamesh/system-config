@@ -2,6 +2,8 @@
 {
   ollama = {
     baseUrl = "http://localhost:11434/v1";
+    api = "openai-completions";
+    apiKey = "ollama";
     models = {
       "ornith:latest" = { };
       ornith = {
@@ -15,6 +17,8 @@
 
   openrouter = {
     baseUrl = "https://openrouter.ai/api/v1";
+    api = "openai-completions";
+    apiKey = "$OPENROUTER_API_KEY";
     apiKeyEnvVar = openrouterKeyEnvVar;
   };
 

@@ -171,20 +171,13 @@ in
 
     models = {
       providers = {
-        ollama = {
-          baseUrl = "http://localhost:11434/v1";
-          api = "openai-completions";
-          apiKey = "ollama";
+        ollama = providers.ollama // {
           models = pkgs.lib.mapAttrsToList (
             name: cfg:
             { id = name; } // pkgs.lib.optionalAttrs (cfg.supportsThinking or false) { reasoning = true; }
           ) providers.ollama.models;
         };
-        openrouter = {
-          baseUrl = providers.openrouter.baseUrl;
-          api = "openai-completions";
-          apiKey = "$OPENROUTER_API_KEY";
-        };
+        openrouter = providers.openrouter;
         groq = providers.groq;
         kilo = providers.kilo;
       };
