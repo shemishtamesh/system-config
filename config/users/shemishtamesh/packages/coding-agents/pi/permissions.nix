@@ -280,6 +280,7 @@ let
     "/proc/stat"
     "/proc/cpuinfo"
     "/sys/devices/system/cpu"
+    "/sys/kernel/mm/transparent_hugepage/enabled"
   ]
   ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isLinux "/proc/sys/vm/overcommit_memory";
 
