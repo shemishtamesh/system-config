@@ -215,7 +215,13 @@ let
     "**/.npmrc"
     "**/.pypirc"
     "**/.git-credentials"
-    "**/auth.*"
+    "**/auth.json"
+    "**/auth.yaml"
+    "**/auth.yml"
+    "**/auth.toml"
+    "**/auth.ini"
+    "**/auth.conf"
+    "**/auth.env"
   ];
 
   absoluteReadDenyDirectories =
