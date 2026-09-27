@@ -3,6 +3,7 @@ let
   wtype = "${pkgs.wtype}/bin/wtype";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   jq = "${pkgs.jq}/bin/jq";
+  curl = "${pkgs.curl}/bin/curl";
   whisperModel = pkgs.fetchurl {
     url = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin";
     sha256 = "c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d";
@@ -29,6 +30,17 @@ in
         | tr '\n' ' ' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')"
       rm -f "$audiofile"
       if [[ -n "$text" ]]; then
+        notify 2000 "Formatting..."
+        # format the text using an llm
+        prompt='You format dictated text for direct insertion into the active application. Return only the final text, with no commentary, quotation marks, or markdown. Correct punctuation, capitalization, and obvious transcription errors. Treat conversational editing instructions as commands: for example, "actually not that, this instead" means replace the preceding text ("that") with the following ("this"), rather than appending both versions. Preserve the speaker meaning and do not invent content.'
+        request="$(${jq} -n --arg system "$prompt" --arg user "$text" \
+          '{model:"ornith:latest",temperature:0.1,messages:[{role:"system",content:$system},{role:"user",content:$user}]}')"
+        formatted="$(${curl} --silent --show-error --max-time 30 \
+          -H 'Content-Type: application/json' \
+          -d "$request" http://localhost:11434/v1/chat/completions 2>/dev/null \
+          | ${jq} -r '.choices[0].message.content // empty' 2>/dev/null \
+          | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)"
+        [[ -n "$formatted" ]] && text="$formatted"
         if [[ -f "$lockfile" ]]; then
           target="address:$(cat "$lockfile")"
           batch=""
