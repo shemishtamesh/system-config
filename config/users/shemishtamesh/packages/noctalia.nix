@@ -1,13 +1,10 @@
 {
-  inputs,
   config,
   pkgs,
   host,
   ...
 }:
 let
-  noctalia_package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
   wallpaper_monitor = builtins.mapAttrs (port: _: {
     directory = "~/Pictures/Wallpapers/${port}";
   }) host.monitors;
@@ -17,12 +14,8 @@ let
   ) (builtins.attrNames host.monitors);
 in
 {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
   programs.noctalia = {
     enable = true;
-    package = noctalia_package;
     settings = {
       audio.enable_overdrive = true;
 
@@ -400,7 +393,7 @@ in
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${noctalia_package}/bin/noctalia";
+      ExecStart = "${pkgs.noctalia}/bin/noctalia";
       Restart = "always";
       RestartSec = 1;
     };
