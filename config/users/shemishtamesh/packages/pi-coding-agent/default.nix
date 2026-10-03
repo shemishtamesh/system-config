@@ -152,9 +152,9 @@ in
         "npm:pi-observational-memory@3.0.4"
         "npm:pi-context-pruning@1.1.0"
         "npm:pi-permission-system@0.8.0"
-        "npm:pi-subagents@0.69.0"
-        "npm:pi-web-access@0.27.0"
-        "npm:remote-pi@0.7.0"
+        "npm:pi-subagents@0.75.0"
+        "npm:pi-web-access@0.35.0"
+        # "npm:remote-pi@0.7.0"
         "npm:privateer-speak@0.2.2"
         ./provider-filters
         ./session-tmp
