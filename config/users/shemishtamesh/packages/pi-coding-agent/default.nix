@@ -86,7 +86,7 @@ in
       export TEMP="$PI_SESSION_TMP_BASE"
 
       # make gh not try to use user's config
-      export GH_CONFIG_DIR=".cache/pi-tmp/pi-gh-config"
+      export GH_CONFIG_DIR="$HOME/.cache/pi-tmp/pi-gh-config"
       mkdir -p "$GH_CONFIG_DIR"
 
       # privateer-speak's /speak on/off toggle is config file based
