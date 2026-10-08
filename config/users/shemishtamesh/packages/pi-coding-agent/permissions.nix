@@ -284,6 +284,7 @@ let
     "/proc/cpuinfo"
     "/sys/devices/system/cpu"
     "/sys/kernel/mm/transparent_hugepage/enabled"
+    "../../.git" # for worktrees at .worktrees/branch
   ]
   ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isLinux "/proc/sys/vm/overcommit_memory";
 
