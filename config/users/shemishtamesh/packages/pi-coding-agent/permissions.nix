@@ -267,6 +267,7 @@ let
     "."
     "~/.cache/nix"
     "~/.cache/typst"
+    "~/.cache/uv"
   ]
   ++ temporaryPaths;
 
@@ -276,6 +277,7 @@ let
     "~/.nix-profile"
     "~/.local/state/nix"
     "~/.config/git/ignore"
+    "~/.config/git/config"
     "~/.cache/fontconfig/"
     "/etc/passwd"
     "/proc/stat"
