@@ -1,0 +1,46 @@
+port: 3000
+
+providers:
+  groq:
+    apiKey: "$GROQ_API_KEY"
+    models:
+      - "llama3-8b-8192"
+      - "llama3-70b-8192"
+      - "mixtral-8x22b-instruct"
+      - "gemma-7b-it"
+
+  google:
+    apiKey: "$GEMINI_API_KEY"
+    models:
+      - "gemini-1.5-flash"
+      - "gemini-1.5-pro"
+      - "gemini-1.5-flash-8b"
+
+  openrouter:
+    apiKey: "$OPENROUTER_API_KEY"
+    models:
+      - "anthropic/claude-3-haiku"
+      - "meta-llama/llama-3-8b-instruct"
+      - "meta-llama/llama-3-70b-instruct"
+      - "google/gemma-2-9b-it"
+      - "microsoft/phi-3-mini-128k-instruct"
+
+  nvidia:
+    apiKey: "$NVIDIA_API_KEY"
+    models:
+      - "nemotron-3-8b-instruct"
+      - "nemotron-3-22b-instruct"
+
+settings:
+  healthCheck:
+    enabled: true
+    path: "/health"
+
+  logLevel: "info"
+
+  requestTimeout: 30
+
+  maxRetries: 3
+  retryDelay: 1000
+
+  loadBalancingStrategy: "roundrobin"

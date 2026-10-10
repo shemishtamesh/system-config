@@ -156,6 +156,7 @@ in
         "npm:pi-web-access@0.35.0"
         # "npm:remote-pi@0.7.0"
         "npm:privateer-speak@0.8.0"
+        "npm:@philogag/pi-provider-omniroute"
         ./provider-filters
         ./session-tmp
       ];
@@ -239,4 +240,5 @@ in
       };
     })
   ];
+  imports = [ ./omniroute ];
 }
