@@ -279,6 +279,7 @@ let
     "~/.config/git/ignore"
     "~/.config/git/config"
     "~/.cache/fontconfig/"
+    "~/.pi/agent/AGENTS.md"
     "/etc/passwd"
     "/proc/stat"
     "/proc/cpuinfo"
