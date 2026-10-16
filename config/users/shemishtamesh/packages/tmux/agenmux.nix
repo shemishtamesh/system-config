@@ -3,27 +3,29 @@
   stdenvNoCC,
   fetchurl,
   gnutar,
+  makeWrapper,
+  libnotify,
 }:
 
 let
-  version = "0.3.0";
+  version = "0.8.3";
   system = stdenvNoCC.hostPlatform.system;
   sources = {
     aarch64-darwin = {
       platform = "macos-aarch64";
-      sha256 = "70f5acccce3cc8870c239c2fad3c7e2183192d76922edeb497d19e772f377f4a";
+      sha256 = "f47a77e5f47cafc3b2450e295e74e84ae3c4b2bb5192cb4aa59c13e57f915ab5";
     };
     x86_64-darwin = {
       platform = "macos-x86_64";
-      sha256 = "6f5ef0c28d323e5d769ce321d296ab42d10dfdb4d5899b841fe95ed5fbd9a877";
+      sha256 = "5b34473a1a1d742b2d1c105e7cdec991c83fa8ca4cb6f0c654ecc569e1b90bd6";
     };
     aarch64-linux = {
       platform = "linux-aarch64";
-      sha256 = "98d6c98ded339ecf04ea2bf7d9cc52749ae79f2b8d07e0e3da425a0b24136f7b";
+      sha256 = "20d08a4497ed8856e17450a82f6b0e51716af23d447a7cde19e31c6b8f10780e";
     };
     x86_64-linux = {
       platform = "linux-x86_64";
-      sha256 = "fb01f60d79b4c5d25af43344a666c061641909e3fe62ba515b951be127829035";
+      sha256 = "c8d0356c009731adb055fa5c53f12ca8ad3a7234520a61775b9df881ff203b13";
     };
   };
   source = sources.${system} or (throw "agenmux: unsupported system ${system}");
@@ -36,7 +38,10 @@ let
       inherit (source) sha256;
     };
 
-    nativeBuildInputs = [ gnutar ];
+    nativeBuildInputs = [
+      gnutar
+      makeWrapper
+    ];
     dontUnpack = true;
 
     installPhase = ''
@@ -45,6 +50,10 @@ let
       pluginDir="$out/share/tmux-plugins/agenmux"
       mkdir -p "$pluginDir" "$out/bin"
       ${gnutar}/bin/tar -xzf "$src" --strip-components=1 -C "$pluginDir"
+      ${lib.optionalString stdenvNoCC.hostPlatform.isLinux ''
+        wrapProgram "$pluginDir/target/release/agenmux" \
+          --prefix PATH : ${lib.makeBinPath [ libnotify ]}
+      ''}
       ln -s "$pluginDir/target/release/agenmux" "$out/bin/agenmux"
 
       runHook postInstall

@@ -130,6 +130,7 @@ in
           ''
             set -g @agenmux-bin '${lib.getExe agenmux}'
             set -g @agenmux-key 'a'
+            set -g @agenmux-notifications on
           '';
       }
     ];
