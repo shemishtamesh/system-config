@@ -39,7 +39,7 @@ let
 
     rm ${sesh_fzf_recycle_flag} || true
   '';
-  agenmux = pkgs.callPackage ./agenmux.nix { };
+  pi-muxr = pkgs.callPackage ./pi-muxr { };
   cliamp = "${pkgs.cliamp}/bin/cliamp";
   palette = config.lib.stylix.colors.withHashtag;
 
@@ -72,6 +72,8 @@ let
   '';
 in
 {
+  home.packages = [ pi-muxr ];
+
   stylix.targets.tmux.enable = true;
   programs.tmux = {
     enable = true;
@@ -124,15 +126,6 @@ in
           set -g @continuum-restore 'on'
         '';
       }
-      {
-        plugin = agenmux;
-        extraConfig = # tmux
-          ''
-            set -g @agenmux-bin '${lib.getExe agenmux}'
-            set -g @agenmux-key 'a'
-            set -g @agenmux-notifications on
-          '';
-      }
     ];
     extraConfig =
       with palette; # tmux
@@ -156,6 +149,9 @@ in
         # fix colors
         set -g default-terminal "$TERM"
         set-option -sa terminal-overrides ",$TERM*:Tc"
+
+        # pi dashboard
+        bind-key a display-popup -E -w 90% -h 90% '${lib.getExe pi-muxr} --quit-on-select'
 
         # reload config file
         bind r source-file ~/.config/tmux/tmux.conf \; display ".tmux.conf reloaded"

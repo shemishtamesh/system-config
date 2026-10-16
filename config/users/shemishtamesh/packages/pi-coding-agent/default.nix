@@ -6,6 +6,7 @@
 let
   cfg = config.programs.pi-coding-agent;
   jsonFormat = pkgs.formats.json { };
+  piMuxr = pkgs.callPackage ../tmux/pi-muxr { };
   providers = import ./providers.nix { openrouterKeyEnvVar = "OPENROUTER_API_KEY"; };
 
   palette = config.lib.stylix.colors.withHashtag;
@@ -49,6 +50,7 @@ in
           ++ (pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
             pkgs.espeak-ng
             pkgs.ffmpeg
+            pkgs.libnotify
           ])
         )
       }:$PATH"
@@ -148,6 +150,9 @@ in
       enableInstallTelemetry = false;
       collapseChangelog = true;
 
+      # Load only the extension: the full package also bundles pi-tui for its CLI.
+      extensions = [ "${piMuxr.piPackage}/dist/extension/index.js" ];
+
       packages = [
         "npm:pi-observational-memory@3.1.4"
         "npm:pi-context-pruning@1.1.0"
@@ -182,6 +187,11 @@ in
         kilo = providers.kilo;
       };
     };
+  };
+
+  home.file.".pi-muxr/config.json".source = jsonFormat.generate "pi-muxr-config.json" {
+    desktopNotifications = true;
+    suppressDesktopNotificationsWhenDashboardOpen = false;
   };
 
   home.file."${cfg.configDir}/keybindings.json".source =
