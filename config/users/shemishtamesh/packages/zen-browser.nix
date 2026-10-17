@@ -21,7 +21,12 @@ in
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
-      Preferences = {
+    };
+    profiles.default = {
+      id = 0;
+      name = profile_name;
+      isDefault = true;
+      settings = {
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "browser.tabs.fadeOutUnloadedTabs" = true;
         "browser.tabs.hoverPreview.enabled" = true;
@@ -39,11 +44,6 @@ in
         "zen.workspaces.container-specific-essentials-enabled" = true;
         "zen.workspaces.scroll-modifier-key" = "shift";
       };
-    };
-    profiles.default = {
-      id = 0;
-      name = profile_name;
-      isDefault = true;
     };
   };
   home.sessionVariables.BROWSER = "zen-twilight";
