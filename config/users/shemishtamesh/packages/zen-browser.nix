@@ -26,7 +26,6 @@ in
       id = 0;
       name = profile_name;
       isDefault = true;
-      # Close Zen before activating changes to containers, spaces, or pins.
       containers = {
         Personal = {
           id = 1;
@@ -83,7 +82,6 @@ in
         };
       };
       settings = {
-        "browser.toolbars.bookmarks.visibility" = "always";
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "browser.tabs.fadeOutUnloadedTabs" = true;
         "browser.tabs.hoverPreview.enabled" = true;
