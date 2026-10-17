@@ -11,7 +11,6 @@ in
   programs.zen-browser = {
     enable = true;
     policies = {
-      security.enterprise_roots.enabled = true;
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
       DisableAppUpdate = true;
@@ -23,35 +22,22 @@ in
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       Preferences = {
-        browser = {
-          ctrlTab.sortByRecentlyUsed = true;
-          tabs = {
-            fadeOutUnloadedTabs = true;
-            hoverPreview.enabled = true;
-          };
-        };
-        sidebar.position_start = false;
-        zen = {
-          theme = {
-            content-element-separation = 0;
-            hide-tab-throbber = false;
-          };
-          urlbar.behavior = "float";
-          view = {
-            compact = {
-              hide-toolbar = true;
-              toolbar-flash-popup = true;
-              "toolbar-hide-after-hover.duration" = 250;
-            };
-            use-single-toolbar = false;
-          };
-          welcome-screen.seen = true;
-          window-sync.sync-only-pinned-tabs = true;
-          workspaces = {
-            container-specific-essentials-enabled = true;
-            scroll-modifier-key = "shift";
-          };
-        };
+        "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.tabs.fadeOutUnloadedTabs" = true;
+        "browser.tabs.hoverPreview.enabled" = true;
+        "security.enterprise_roots.enabled" = true;
+        "sidebar.position_start" = false;
+        "zen.theme.content-element-separation" = 0;
+        "zen.theme.hide-tab-throbber" = false;
+        "zen.urlbar.behavior" = "float";
+        "zen.view.compact.hide-toolbar" = true;
+        "zen.view.compact.toolbar-flash-popup" = true;
+        "zen.view.compact.toolbar-hide-after-hover.duration" = 250;
+        "zen.view.use-single-toolbar" = false;
+        "zen.welcome-screen.seen" = true;
+        "zen.window-sync.sync-only-pinned-tabs" = true;
+        "zen.workspaces.container-specific-essentials-enabled" = true;
+        "zen.workspaces.scroll-modifier-key" = "shift";
       };
     };
     profiles.default = {
