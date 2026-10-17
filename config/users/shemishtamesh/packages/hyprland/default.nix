@@ -116,8 +116,8 @@ in
             null
           )
           (mkExecBind "${mod} + RETURN" "wezterm start tmux" null)
-          (mkExecBind "${mod} + i" "\"$BROWSER\"" null)
-          (mkExecBind "${mod} + SHIFT + i" "\"$BROWSER\" --private-window" null)
+          (mkExecBind "${mod} + i" ''"$BROWSER"'' null)
+          (mkExecBind "${mod} + SHIFT + i" ''"$BROWSER" --private-window'' null)
           (mkExecBind "${mod} + d" scripts.dictate null)
           (mkExecBind "${mod} + CTRL + d" scripts.dictate-lock null)
           (mkExecBind "${mod} + ALT + d" scripts.dictate-return null)
