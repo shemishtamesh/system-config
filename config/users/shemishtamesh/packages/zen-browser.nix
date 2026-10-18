@@ -26,6 +26,23 @@ in
       id = 0;
       name = profile_name;
       isDefault = true;
+      search = {
+        force = true;
+        engines.YouTube = {
+          urls = [
+            {
+              template = "https://www.youtube.com/results";
+              params = [
+                {
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = [ "@y" ];
+        };
+      };
       containers = {
         Personal = {
           id = 1;
