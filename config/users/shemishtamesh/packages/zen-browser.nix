@@ -43,6 +43,7 @@ in
           definedAliases = [ "@y" ];
         };
       };
+      containersForce = true;
       containers = {
         Personal = {
           id = 1;

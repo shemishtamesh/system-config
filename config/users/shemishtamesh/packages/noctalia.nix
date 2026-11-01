@@ -63,7 +63,7 @@ in
             {
               id = "g1";
               enabled = true;
-              fill = "surface_variant";
+              fill = "surface_container";
               members = [
                 "cpu_usage"
                 "cpu_temp"
