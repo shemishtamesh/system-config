@@ -79,10 +79,16 @@ stdenv.mkDerivation {
     rm app.asar
     # disable the updater
     substituteInPlace app/electron/main.cjs \
-      --replace-fail 'function setupAutoUpdater() {' 'function setupAutoUpdater() { return;'
+      --replace-fail 'function setupAutoUpdater() {' 'function setupAutoUpdater() { return;' \
+      --replace-fail 'void win.loadURL(url);' '
+        // TODO: Remove this workaround when Electron reliably emits ready-to-show on Wayland.
+        // https://github.com/electron/electron/issues/48859
+        win.webContents.once("did-finish-load", () => win.show());
+        void win.loadURL(url);
+      '
   '';
   meta = {
-    description = "AI learning application (internal payload; use the sandboxed launcher)";
+    description = "AI learning application";
     homepage = "https://learnharness.ai";
     license = lib.licenses.agpl3Only;
     platforms = [ "x86_64-linux" ];
