@@ -7,11 +7,16 @@
 let
   payload = stable-pkgs.callPackage ./package.nix { };
   fonts = pkgs.makeFontsConf { fontDirectories = [ pkgs.dejavu_fonts ]; };
+  # print urls so oauth can be completed without weakening sandbox
+  browserBridge = pkgs.writeShellScriptBin "xdg-open" ''
+    printf 'Open this URL in your browser:\n%s\n' "$@" >&2
+  '';
   runtime = pkgs.closureInfo {
     rootPaths = [
       payload
       pkgs.bash
       pkgs.coreutils
+      browserBridge
       pkgs.cacert
       pkgs.dejavu_fonts
       fonts
@@ -64,7 +69,7 @@ let
         --setenv XDG_RUNTIME_DIR /run/learnharness \
         --setenv WAYLAND_DISPLAY wayland-0 \
         --setenv XDG_SESSION_TYPE wayland \
-        --setenv PATH ${pkgs.coreutils}/bin:${pkgs.bash}/bin \
+        --setenv PATH ${browserBridge}/bin:${pkgs.coreutils}/bin:${pkgs.bash}/bin \
         --setenv TMPDIR /tmp \
         --setenv LANG C.UTF-8 \
         --setenv SSL_CERT_FILE ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt \
