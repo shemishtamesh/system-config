@@ -113,6 +113,7 @@ in
 
       dock = {
         active_monitor_only = true;
+        background_opacity = config.stylix.opacity.desktop;
         enabled = true;
         launcher_position = "start";
         magnification_scale = 2.0;
@@ -159,12 +160,14 @@ in
       lockscreen.allow_empty_password = true;
 
       notification = {
+        background_opacity = config.stylix.opacity.popups;
         offset_y = 40;
         position = "top_right";
         border = false;
       };
 
       osd = {
+        background_opacity = config.stylix.opacity.popups;
         border = false;
         position = "bottom_center";
         position_vertical = "center_right";
@@ -273,7 +276,10 @@ in
           }
         ];
 
+        launcher.search_position = "top";
+        launcher.show_app_actions = true;
         launcher.providers = {
+          panels.global = true;
           calculator.prefix = "c";
           emoji = {
             global = true;

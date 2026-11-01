@@ -1,6 +1,7 @@
 { palette }:
 {
   keybindings = {
+    "tui.altScreen.search" = "ctrl+/";
     "tui.select.confirm" = [
       "enter"
       "ctrl+y"
