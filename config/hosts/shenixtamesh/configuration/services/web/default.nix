@@ -1,6 +1,7 @@
 {
   pkgs,
   stable-pkgs,
+  multiverse,
   ...
 }:
 {
@@ -29,6 +30,7 @@
     };
     open-webui = {
       enable = true;
+      package = (multiverse.at "55bfb4d7437bd4e09ab7cba58a43bd68eb310044").open-webui;
       environment = {
         ANONYMIZED_TELEMETRY = "False";
         DO_NOT_TRACK = "True";

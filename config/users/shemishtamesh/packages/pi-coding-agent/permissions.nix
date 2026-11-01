@@ -263,13 +263,19 @@ let
   temporaryPaths =
     if pkgs.stdenv.hostPlatform.isDarwin then [ "~/.cache/pi-tmp" ] else [ "/tmp/pi-agent" ];
 
+  memoryPaths = [
+    ".pi/memory"
+    "~/${config.programs.pi-coding-agent.configDir}/memory"
+  ];
+
   sharedReadWritePaths = [
     "."
     "~/.cache/nix"
     "~/.cache/typst"
     "~/.cache/uv"
   ]
-  ++ temporaryPaths;
+  ++ temporaryPaths
+  ++ memoryPaths;
 
   readOnlyPaths = [
     "/nix/store"
@@ -400,7 +406,15 @@ in
       grep = "deny";
       find = "deny";
     }
-    // nativeToolDenies;
+    // nativeToolDenies
+    // pkgs.lib.mergeAttrsList (
+      map (
+        tool:
+        pathRules tool "allow" (
+          map (path: if pkgs.lib.hasPrefix "~/" path then expandHome path else "**/${path}") memoryPaths
+        )
+      ) nativeWriteTools
+    );
     bash = bashDenyPatterns;
     skills."*" = "allow";
     special = {

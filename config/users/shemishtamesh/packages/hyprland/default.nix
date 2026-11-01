@@ -661,5 +661,4 @@ in
       };
       systemd.variables = [ "--all" ]; # fixed kdeconnect clipboard sync
     };
-  home.packages = with pkgs; [ hyprland-qtutils ];
 }

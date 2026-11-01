@@ -62,6 +62,7 @@ let
     shenixtamesh = {
       modules = [
         ./hyprland
+        ./learnharness
         ./hypridle.nix
         # ./hyprlock.nix
         # ./hyprpaper.nix
@@ -121,7 +122,7 @@ let
         qpwgraph
         transmission_4-gtk
         airshipper
-        solarus-quest-editor
+        stable-pkgs.solarus-quest-editor
         scrcpy
         android-tools
         visidata
