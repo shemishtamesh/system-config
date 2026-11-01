@@ -9,7 +9,8 @@ let
   fonts = pkgs.makeFontsConf { fontDirectories = [ pkgs.dejavu_fonts ]; };
   # print urls so oauth can be completed without weakening sandbox
   browserBridge = pkgs.writeShellScriptBin "xdg-open" ''
-    printf 'Open this URL in your browser:\n%s\n' "$@" >&2
+    # electron discards child stderr
+    printf 'Open this URL in your browser:\n%s\n' "$@" > /proc/1/fd/2
   '';
   runtime = pkgs.closureInfo {
     rootPaths = [
