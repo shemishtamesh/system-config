@@ -59,6 +59,9 @@ let
         --ro-bind /etc/hosts /etc/hosts \
         --bind "$state" /home/learner \
         --ro-bind "$imports" /home/learner/Imports \
+        --ro-bind ${
+          pkgs.lib.escapeShellArg config.sops.templates."learnharness-auth".path
+        } /home/learner/.config/LearnHarness/auth.json \
         --dir /run/learnharness --chmod 0700 /run/learnharness \
         --ro-bind "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" /run/learnharness/wayland-0 \
         --symlink ${pkgs.bash}/bin/sh /bin/sh \
@@ -81,6 +84,14 @@ let
   };
 in
 {
+  sops.secrets."nvidia/nim/general_api_key" = { };
+  sops.templates."learnharness-auth" = {
+    mode = "0600";
+    content = builtins.toJSON {
+      NVIDIA_API_KEY = config.sops.placeholder."nvidia/nim/general_api_key";
+    };
+  };
+
   home.packages = [ launcher ];
   xdg.desktopEntries.learnharness = {
     name = "LearnHarness";
