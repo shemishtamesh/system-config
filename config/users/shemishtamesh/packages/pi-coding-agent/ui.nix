@@ -2,6 +2,22 @@
 {
   keybindings = {
     "tui.altScreen.search" = "ctrl+/";
+    "tui.altScreen.pageUp" = [
+      "pageUp"
+      "alt+shift+k"
+    ];
+    "tui.altScreen.pageDown" = [
+      "pageDown"
+      "alt+shift+j"
+    ];
+    "tui.select.pageUp" = [
+      "pageUp"
+      "alt+shift+k"
+    ];
+    "tui.select.pageDown" = [
+      "pageDown"
+      "alt+shift+j"
+    ];
     "tui.select.confirm" = [
       "enter"
       "ctrl+y"

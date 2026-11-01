@@ -150,6 +150,11 @@ in
         set -g default-terminal "$TERM"
         set-option -sa terminal-overrides ",$TERM*:Tc"
 
+        # Match fzf's rounded, muted borders using the Stylix palette.
+        set -g popup-style 'bg=${base00}'
+        set -g popup-border-style 'fg=${base03},bg=${base00}'
+        set -g popup-border-lines rounded
+
         # pi dashboard
         bind-key a display-popup -E -w 90% -h 90% '${lib.getExe pi-muxr} --quit-on-select'
 
@@ -204,7 +209,7 @@ in
         # toggle floating music player, locking down all its other keybinds
         bind-key "P" if-shell "tmux list-clients -t background-audio 2>/dev/null | grep -q ." \
           "detach-client -s background-audio" \
-          "display-popup -E -w 80% -h 80% -T ' background-audio ' '${backgroundAudioPopupCmd}'"
+          "display-popup -E -w 80% -h 80% -T '#[align=centre] background-audio ' '${backgroundAudioPopupCmd}'"
         bind-key -T background-audio-root "C-Space" switch-client -T background-audio-leader
         bind-key -T background-audio-leader "P" detach-client
         bind-key -T background-audio-leader "d" detach-client
