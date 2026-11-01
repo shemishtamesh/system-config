@@ -3,6 +3,7 @@
   pkgs,
   host,
   inputs,
+  config,
   ...
 }:
 let
@@ -14,7 +15,7 @@ let
   ) (builtins.attrNames host.monitors);
 
   mod = "SUPER";
-  # $mod+CTRL+1..9 sets a fixed zoom level, linear from 1x (at 1) to maxZoom (at 9)
+  browser = config.home.sessionVariables.BROWSER;
   maxZoom = 4.0;
 
   scripts = import ./scripts.nix { inherit pkgs; };
@@ -116,8 +117,8 @@ in
             null
           )
           (mkExecBind "${mod} + RETURN" "wezterm start tmux" null)
-          (mkExecBind "${mod} + i" ''"$BROWSER"'' null)
-          (mkExecBind "${mod} + SHIFT + i" ''"$BROWSER" --private-window'' null)
+          (mkExecBind "${mod} + i" browser null)
+          (mkExecBind "${mod} + SHIFT + i" "${browser} --private-window" null)
           (mkExecBind "${mod} + d" scripts.dictate null)
           (mkExecBind "${mod} + CTRL + d" scripts.dictate-lock null)
           (mkExecBind "${mod} + ALT + d" scripts.dictate-return null)
@@ -652,7 +653,7 @@ in
         };
 
         on = mkStartupHook [
-          "zen-twilight"
+          browser
           "spotify"
           "discord"
           "altus"
