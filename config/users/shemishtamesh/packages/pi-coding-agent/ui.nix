@@ -4,19 +4,19 @@
     "tui.altScreen.search" = "ctrl+/";
     "tui.altScreen.pageUp" = [
       "pageUp"
-      "alt+shift+k"
+      "alt+u"
     ];
     "tui.altScreen.pageDown" = [
       "pageDown"
-      "alt+shift+j"
+      "alt+d"
     ];
     "tui.select.pageUp" = [
       "pageUp"
-      "alt+shift+k"
+      "alt+u"
     ];
     "tui.select.pageDown" = [
       "pageDown"
-      "alt+shift+j"
+      "alt+d"
     ];
     "tui.select.confirm" = [
       "enter"
