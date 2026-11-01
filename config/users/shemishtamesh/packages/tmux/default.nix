@@ -240,6 +240,9 @@ in
         set -g status-right-length 99
         set -g status-justify absolute-centre
 
+        set -g window-status-style 'fg=${base05},bg=${base01}'
+        set -g window-status-current-style 'fg=${base0B},bg=${base01}'
+        set -g window-status-activity-style 'fg=${base05},bg=${base01}'
         set -g window-status-format '${windowNamePrefix}${windowLabel}'
         set -g window-status-current-format '${windowNamePrefix}#[fg=${base0D}]${windowLabel}'
 
