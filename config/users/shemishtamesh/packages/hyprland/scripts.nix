@@ -12,7 +12,7 @@ in
 {
   dictate = pkgs.writeShellScript "dictate" ''
     set -euo pipefail
-    export DICTATION_LLM_MODEL="ornith:latest"
+    export DICTATION_LLM_MODEL="qwen2.5:1.5b"
     export DICTATION_LLM_SYSTEM_PROMPT='You format dictated text for direct insertion into the active application. Return only the final text, with no commentary, quotation marks, or markdown. Correct punctuation, capitalization, and obvious transcription errors. Treat conversational editing instructions as commands: for example, "actually not that, this instead" means replace the preceding text ("that") with the following ("this"), rather than appending both versions. Preserve the speaker meaning and do not invent content.'
     runtime_dir="''${XDG_RUNTIME_DIR:-/tmp}/dictation-script"
     mkdir -p "$runtime_dir"
