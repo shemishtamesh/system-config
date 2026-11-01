@@ -12,13 +12,17 @@ in
     avahi = {
       enable = true;
       nssmdns4 = true;
-      ipv6 = false;
       openFirewall = true;
-      allowInterfaces = [ "wlp7s0" ];
-      publish = {
-        enable = true;
-        addresses = true;
-        workstation = true;
+      settings = {
+        server = {
+          use-ipv6 = false;
+          allow-interfaces = [ "wlp7s0" ];
+        };
+        publish = {
+          disable-publishing = false;
+          publish-addresses = true;
+          publish-workstation = true;
+        };
       };
     };
 

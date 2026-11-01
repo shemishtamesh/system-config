@@ -4,6 +4,7 @@
   host,
   lib,
   config,
+  inputs,
   ...
 }:
 let
@@ -35,6 +36,8 @@ let
     );
 in
 {
+  # rofi is unused and its stylix module defines a deprecated home manager option
+  disabledModules = [ "${inputs.stylix}/modules/rofi/hm.nix" ];
   stylix = shared.theme.stylix_settings;
   home = {
     file = wallpaper_paths shared.theme.scheme;

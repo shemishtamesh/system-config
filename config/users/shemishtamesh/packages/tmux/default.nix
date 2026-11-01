@@ -134,8 +134,8 @@ in
         windowNamePrefix =
           "#{?#{==:#I,#{base-index}},"
           + "#[bg=${base01}]#[fg=${base0D}]#[bold]#S#[fg=${base03}]#[nobold] :"
-          + "#[fg=default],"
-          + "#[bg=${base01}]} ";
+          + "#[default],"
+          + "} ";
         # blank unless the window has been manually renamed
         windowLabel = "#{?automatic-rename,#I,#I:#W}#F";
         # start the popup, then lock its keybinds

@@ -22,7 +22,13 @@
   nss,
   pango,
   systemd,
-  xorg,
+  libx11,
+  libxcomposite,
+  libxdamage,
+  libxext,
+  libxfixes,
+  libxrandr,
+  libxcb,
 }:
 stdenv.mkDerivation {
   pname = "learnharness";
@@ -55,16 +61,14 @@ stdenv.mkDerivation {
     pango
     systemd
     stdenv.cc.cc.lib
-  ]
-  ++ (with xorg; [
-    libX11
-    libXcomposite
-    libXdamage
-    libXext
-    libXfixes
-    libXrandr
+    libx11
+    libxcomposite
+    libxdamage
+    libxext
+    libxfixes
+    libxrandr
     libxcb
-  ]);
+  ];
   unpackPhase = "dpkg-deb -x $src .";
   installPhase = ''
     mkdir -p $out/lib $out/share
