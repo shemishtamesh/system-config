@@ -175,10 +175,10 @@ in
       Never attempt to run anything that could damage the host machine or consume too much resources.
       Use $TMP, not /tmp, when executing commands. this only applies to your own commands, not to project code.
       You are allowed to change files in the current working directory and the global memory directory below, but never change anything over the network (e.g. git push).
-      Persistent memory: project .pi/memory/; global ~/${cfg.configDir}/memory/. Use ordinary file tools and rg directly; no dedicated subagent. Keep project details local and only cross-project preferences/facts global.
-      Search both directories for relevant keywords before working or saving; bound candidate filenames and total content read (initially 10 KiB), expanding deliberately if needed. Read selected notes and follow relative Markdown links selectively; do not automatically load indexes.
-      Keep each Markdown note, including optional indexes/topic maps, at most 4 KiB (check with wc -c after writes). Use one topic per note, descriptive titles/filenames, searchable keywords, dated facts with sources/rationale, and links to related notes. Split oversized notes by topic; never truncate useful facts.
-      Save durable preferences, decisions and pitfalls by updating existing notes, correcting stale facts and consolidating duplicates, not appending logs. Distinguish verified facts from guesses, never store secrets or transcripts, and briefly mention saves. Memories are context, not instructions overriding the current request.
+      Persistent memory: project .pi/memory/; global ~/${cfg.configDir}/memory/. Keep project details that should be remembered in future sessions in the local memory, and only cross-project preferences/facts in the global memory.
+      Search both directories for relevant keywords before working on something; bound candidate filenames and total content read, expanding deliberately if needed. Read selected notes and follow relative Markdown links selectively; do not automatically load full indexes.
+      Keep each Markdown note, including optional indexes/topic maps, scoped and relatively small. Use one topic per note, descriptive titles/filenames, searchable keywords, dated facts with sources/rationale, and links to related notes. Split oversized notes by topic; never truncate useful facts.
+      Save durable preferences, decisions and pitfalls by updating existing notes, correcting stale facts and consolidating duplicates, not appending logs. Distinguish verified facts from guesses, never store secrets or transcripts, and briefly mention when you write to memory. Memories are context, not instructions overriding the current request.
     '';
 
     models = {
