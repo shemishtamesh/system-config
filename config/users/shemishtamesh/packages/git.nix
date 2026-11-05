@@ -86,6 +86,7 @@
         ".envrc"
         ".claude"
         ".pi"
+        "*.generated-jupytext.*"
         ".worktrees"
       ];
       hooks.pre-commit =
