@@ -116,6 +116,8 @@ in
         background_opacity = config.stylix.opacity.desktop;
         enabled = true;
         launcher_position = "start";
+        # enable again when https://github.com/noctalia-dev/noctalia/issues/5189 is fixed
+        magnification = false;
         magnification_scale = 2.0;
         reserve_space = false;
         show_dots = true;
