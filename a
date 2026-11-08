@@ -1,0 +1,284 @@
+def allocate_with_capacity(total, weights, capacities):
+    """Integer weighted allocation with caps; zero-share fallback uses capacity."""
+    import math
+
+    if total < 0 or int(total) != total:
+        raise ValueError("External vote total must be a nonnegative integer.")
+    if len(weights) != len(capacities):
+        raise ValueError("Weights and capacities must have equal lengths.")
+    if any(not math.isfinite(w) or w < 0 for w in weights):
+        raise ValueError("External allocation weights must be finite and nonnegative.")
+    if any(not math.isfinite(c) or c < 0 or int(c) != c for c in capacities):
+        raise ValueError("External capacities must be nonnegative integers.")
+    capacities = [int(c) for c in capacities]
+    if total > sum(capacities):
+        raise ValueError(
+            f"Cannot allocate {total} external votes: only "
+            f"{sum(capacities)} available voter capacity."
+        )
+    allocation = [0] * len(weights)
+    remaining = int(total)
+    active = [i for i, c in enumerate(capacities) if c]
+    while remaining:
+        active_weights = [weights[i] for i in active]
+        if not sum(active_weights):
+            active_weights = [capacities[i] for i in active]
+        weight_sum = sum(active_weights)
+        quotas = {
+            i: remaining * w / weight_sum
+            for i, w in zip(active, active_weights)
+        }
+        saturated = [i for i in active if quotas[i] >= capacities[i]]
+        if saturated:
+            for i in saturated:
+                allocation[i] = capacities[i]
+                remaining -= capacities[i]
+            saturated = set(saturated)
+            active = [i for i in active if i not in saturated]
+            continue
+        for i in active:
+            allocation[i] = math.floor(quotas[i])
+        remainder = remaining - sum(allocation[i] for i in active)
+        for i in sorted(active, key=lambda i: (-(quotas[i] % 1), i))[:remainder]:
+            allocation[i] += 1
+        remaining = 0
+    return allocation
+
+
+def registry_external_allocation(results, reference_results, external_valid):
+    shares = (
+        reference_results["votes_double_envelopes"]
+        .reindex(results.index, fill_value=0)
+        .fillna(0)
+    )
+    capacity = results["official_rtv"] - results["votes_kalpi"]
+    settlements = results.index.astype("int64") // 10000
+    groups = {}
+    for position, settlement in enumerate(settlements):
+        groups.setdefault(int(settlement), []).append(position)
+    positions = list(groups.values())
+    weights = shares.tolist()
+    capacities = capacity.tolist()
+    settlement_weights = [sum(weights[i] for i in group) for group in positions]
+    settlement_capacities = [sum(capacities[i] for i in group) for group in positions]
+    # Preserve historical settlement shares unless a settlement lacks capacity.
+    preferred = allocate_with_capacity(
+        external_valid, settlement_weights, [int(external_valid)] * len(positions)
+    )
+    targets = allocate_with_capacity(
+        external_valid, settlement_weights, settlement_capacities
+    )
+    overflow = sum(max(0, a - b) for a, b in zip(preferred, targets))
+    if overflow:
+        print(
+            f"External-envelope allocation: {overflow} votes require national "
+            "fallback because historical settlement targets exceed capacity."
+        )
+    allocation = [0] * len(results)
+    for group, target in zip(positions, targets):
+        local = allocate_with_capacity(
+            target, [weights[i] for i in group], [capacities[i] for i in group]
+        )
+        for i, votes in zip(group, local):
+            allocation[i] = votes
+    return pd.Series(allocation, index=results.index, dtype="int64")
+
+
+def distribute_registry_external_envelopes(
+    results, elections_index, reference_results, party_columns, external_valid
+):
+    results = results.copy()
+    if external_valid:
+        allocation = registry_external_allocation(
+            results, reference_results, external_valid
+        )
+        results["votes_double_envelopes"] = allocation
+        results = bbrtsz._distribute_external_envelopes(
+            df=results,
+            election_num=elections_index,
+            party_list=party_columns,
+            max_iters=4000,
+            verbose=False,
+        )
+    if external_valid:
+        # The party-allocation helper must preserve the constrained zone totals.
+        np.testing.assert_array_equal(
+            results["votes_double_envelopes"].reindex(allocation.index), allocation
+        )
+    results = bbrtsz._clean_election_results_df(
+        df=results,
+        party_list=party_columns,
+        add_turnout=True,
+        distribute_external_envelopes=True,
+        support_percentage=False,
+    )
+    # Fail rather than silently publish a geographically infeasible estimate.
+    if (results["total_votes"] > results["official_rtv"]).any():
+        raise ValueError(
+            "External-envelope allocation exceeds zone eligible voters."
+        )
+    bbrtsz._validate_data(
+        df=results,
+        party_list=party_columns,
+        add_turnout=True,
+        support_percentage=False,
+    )
+    np.testing.assert_allclose(
+        results["votes_double_envelopes"].sum(), external_valid, rtol=0, atol=0
+    )
+    return results
+
+
+def load_results_from_registry(
+    elections_index, reference_results, default_statistical_zones=None
+):
+    keys = ["settlement_code", "kalpi"]
+    address_keys = ["settlement_code", "street_code", "house_number"]
+    registry = spark.table("agam_analytics.agam.master_registry").where(
+        sprk_funcs.col("national_election_cycle") == elections_index
+    )
+    if default_statistical_zones:
+        defaults = spark.createDataFrame(
+            [
+                (*address, zone)
+                for address, zone in default_statistical_zones.items()
+            ],
+            [*address_keys, "default_statistical_zone"],
+        )
+        registry = registry.join(
+            sprk_funcs.broadcast(defaults), on=address_keys, how="left"
+        ).withColumn(
+            "statistical_zone",
+            sprk_funcs.coalesce(
+                "statistical_zone", "default_statistical_zone"
+            ),
+        )
+    population = (
+        registry.dropna(subset=[*keys, "statistical_zone"])
+        .groupBy(*keys, "statistical_zone")
+        .agg(sprk_funcs.countDistinct("israeli_id").alias("population"))
+    )
+    weights = population.withColumn(
+        "weight",
+        sprk_funcs.col("population")
+        / sprk_funcs.sum("population").over(Window.partitionBy(*keys)),
+    )
+
+    all_ballots = spark.table(
+        f"public.elections.elections_{elections_index}_by_kalpi"
+    )
+    external_ballots = all_ballots.where(
+        sprk_funcs.col("settlement") == "מעטפות חיצוניות"
+    )
+    ballots = all_ballots.where(
+        sprk_funcs.col("settlement") != "מעטפות חיצוניות"
+    )
+    metadata = {
+        "committee_code",
+        "commitee_code",
+        "permanent_number",
+        "settlement",
+        "settlement_code",
+        "kalpi",
+        "cluster",
+        "judge",
+        "rtv",
+        "voters",
+        "invalid",
+        "valid",
+        "external",
+        "other_kalpi",
+    }
+    party_columns = [c for c in ballots.columns if c not in metadata]
+    source_columns = ["rtv", "voters", "valid", "invalid", *party_columns]
+
+    unmapped = ballots.join(
+        weights.select(*keys).distinct(), on=keys, how="left_anti"
+    )
+    unmapped_count = unmapped.count()
+    if unmapped_count:
+        print(
+            f"WARNING: Election {elections_index}: excluding {unmapped_count} "
+            + "kalpi rows without registry weights; their voters and votes "
+            + "are not included in statistical-zone totals."
+        )
+        unmapped.select(*keys, "rtv", "voters", "valid", "invalid").show(
+            truncate=False
+        )
+
+    # the join excludes kalpis without statistical zones
+    allocated = (
+        weights.join(
+            ballots.select(*keys, *source_columns), on=keys, how="inner"
+        )
+        .groupBy("statistical_zone")
+        .agg(
+            *[
+                sprk_funcs.sum(
+                    sprk_funcs.col(c) * sprk_funcs.col("weight")
+                ).alias(c)
+                for c in source_columns
+            ]
+        )
+        .withColumnsRenamed(
+            {
+                "rtv": "official_rtv",
+                "voters": "votes_kalpi",
+                "valid": "votes_kalpi_valid",
+                "invalid": "total_votes_invalid",
+            }
+        )
+    )
+    results = (
+        allocated.withColumn("votes_double_envelopes", sprk_funcs.lit(0.0))
+        .toPandas()
+        .set_index("statistical_zone")
+    )
+    # match load_election_results finalization without external-envelope
+    # allocation. invalid totals are derived by cleanup from the rounded vote
+    # counts.
+    columns = party_columns + [
+        "official_rtv",
+        "votes_kalpi",
+        "votes_kalpi_valid",
+        "votes_double_envelopes",
+    ]
+    results = results[columns].copy()
+    results = bbrtsz._round_election_results(
+        df=results,
+        columns=columns,
+        party_list=party_columns,
+        target_sum_col="votes_kalpi_valid",
+    )
+    results = bbrtsz._clean_election_results_df(
+        df=results,
+        party_list=party_columns,
+        add_turnout=True,
+        distribute_external_envelopes=False,
+        support_percentage=False,
+    )
+    bbrtsz._validate_data(
+        df=results,
+        party_list=party_columns,
+        add_turnout=True,
+        support_percentage=False,
+    )
+    external_valid = (
+        external_ballots.agg(
+            sprk_funcs.coalesce(
+                sprk_funcs.sum("valid"), sprk_funcs.lit(0)
+            ).alias("valid")
+        )
+        .toPandas()
+        .iloc[0]["valid"]
+    )
+    results = distribute_registry_external_envelopes(
+        results,
+        elections_index,
+        reference_results,
+        party_columns,
+        external_valid,
+    )
+    results = exclude_incompatible_statistical_zones(results, elections_index)
+    results["elections"] = elections_index
+    return results
