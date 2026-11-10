@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     gitleaks
-    koji
     git-filter-repo
     gh
   ];

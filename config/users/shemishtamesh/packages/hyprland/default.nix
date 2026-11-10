@@ -381,6 +381,9 @@ in
         ];
 
         config = {
+          # Temporarily retain compositor diagnostics in the journal for the DPMS crash.
+          debug.enable_stdout_logs = true;
+
           binds = {
             scroll_event_delay = 0;
             hide_special_on_workspace_change = true;
