@@ -2,21 +2,31 @@
 {
   keybindings = {
     "tui.altScreen.search" = "ctrl+/";
+    "tui.altScreen.lineUp" = "alt+u";
+    "tui.altScreen.lineDown" = "alt+d";
+    "tui.altScreen.top" = [
+      "ctrl+home"
+      "alt+ctrl+b"
+    ];
+    "tui.altScreen.bottom" = [
+      "ctrl+end"
+      "alt+ctrl+e"
+    ];
     "tui.altScreen.pageUp" = [
       "pageUp"
-      "alt+u"
+      "alt+ctrl+u"
     ];
     "tui.altScreen.pageDown" = [
       "pageDown"
-      "alt+d"
+      "alt+ctrl+d"
     ];
     "tui.select.pageUp" = [
       "pageUp"
-      "alt+u"
+      "alt+ctrl+u"
     ];
     "tui.select.pageDown" = [
       "pageDown"
-      "alt+d"
+      "alt+ctrl+d"
     ];
     "tui.select.confirm" = [
       "enter"

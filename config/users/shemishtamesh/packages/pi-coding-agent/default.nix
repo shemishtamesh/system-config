@@ -42,6 +42,7 @@ in
           (with pkgs; [
             bash
             nodejs
+            opencode
             python3
             gnumake
             gcc
@@ -59,7 +60,6 @@ in
       export GROQ_API_KEY="$(cat ${config.sops.secrets."groq/general_api_key".path})"
       export NVIDIA_API_KEY="$(cat ${config.sops.secrets."nvidia/nim/general_api_key".path})"
       export GEMINI_API_KEY="$(cat ${config.sops.secrets."google/gemini/general_api_key".path})"
-      export OPENCODE_API_KEY="$(cat ${config.sops.secrets."opencode/zen".path})"
       export KILO_API_KEY="$(cat ${config.sops.secrets."kilo/general_api_key".path})"
 
       # mutable memory can't be a read only link
@@ -162,6 +162,7 @@ in
         "npm:pi-permission-system@0.8.0"
         "npm:pi-subagents@0.75.0"
         "npm:pi-web-access@0.35.0"
+        "npm:pi-opencode-cli-bridge@0.2.19"
         # "npm:remote-pi@0.7.0"
         "npm:privateer-speak@0.8.0"
         ./provider-filters
@@ -230,7 +231,6 @@ in
   sops.secrets."groq/general_api_key" = { };
   sops.secrets."nvidia/nim/general_api_key" = { };
   sops.secrets."google/gemini/general_api_key" = { };
-  sops.secrets."opencode/zen" = { };
   sops.secrets."kilo/general_api_key" = { };
 
   home.packages = [
