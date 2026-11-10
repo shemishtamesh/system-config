@@ -320,8 +320,9 @@ in
         screenshot = {
           confirm_region = true;
           directory = "~/Picture/screenshots";
-          pipe_command = "swappy -f -";
-          pipe_to_command = true;
+          annotate = true;
+          skip_annotate_on_copy_save = true;
+          pipe_to_command = false;
           remember_last_region = false;
           show_cursor = false;
         };
@@ -391,7 +392,6 @@ in
     gpu-screen-recorder
     bitwarden-cli
     ddcutil
-    swappy
   ];
 
   systemd.user.services.noctalia = {
