@@ -286,6 +286,7 @@ let
     "~/.config/git/config"
     "~/.cache/fontconfig/"
     "~/.pi/agent/AGENTS.md"
+    "~/.pi/agent/sessions"
     "/etc/passwd"
     "/proc/stat"
     "/proc/cpuinfo"
