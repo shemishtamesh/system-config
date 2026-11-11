@@ -59,20 +59,4 @@
     ];
   };
 
-  opencode = {
-    apiKeyEnvVar = "OPENCODE_API_KEY";
-    models = {
-      "big-pickle" = {
-        supportsThinking = true;
-        contextWindow = 200000;
-        maxTokens = 32000;
-        cost = {
-          input = 0;
-          output = 0;
-          cacheRead = 0;
-          cacheWrite = 0;
-        };
-      };
-    };
-  };
 }
