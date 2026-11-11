@@ -1,10 +1,13 @@
 {
   pkgs,
   config,
+  multiverse,
   ...
 }:
 let
   cfg = config.programs.pi-coding-agent;
+  # TODO: remove pin once https://github.com/NixOS/nixpkgs/pull/585935 reaches nixos-unstable.
+  piPackage = multiverse.version "pi-coding-agent" "1.4.0";
   jsonFormat = pkgs.formats.json { };
   piMuxr = pkgs.callPackage ../tmux/pi-muxr { };
   providers = import ./providers.nix { openrouterKeyEnvVar = "OPENROUTER_API_KEY"; };
@@ -102,7 +105,7 @@ in
         chmod 600 "$HOME/.pi/speak.json"
       ''}
 
-      exec ${pkgs.pi-coding-agent}/bin/pi \
+      exec ${piPackage}/bin/pi \
         --exclude-tools ${pkgs.lib.concatStringsSep "," permissions.excludedNativeTools} "$@"
     '';
     extraPackages = [ ];
