@@ -165,13 +165,14 @@ in
       defaultProjectTrust = "ask";
       enableInstallTelemetry = false;
       collapseChangelog = true;
+      "observational-memory".showWorkerNotifications = false;
 
       # Load only the extension: the full package also bundles pi-tui for its CLI.
       extensions = [ "${piMuxr.piPackage}/dist/extension/index.js" ];
 
       packages = [
         "npm:pi-observational-memory@3.1.4"
-        "npm:pi-context-pruning@1.1.0"
+        "npm:pi-context-prune@2.2.0"
         "npm:pi-permission-system@0.8.0"
         "npm:pi-subagents@0.75.0"
         "npm:pi-web-access@0.35.0"
@@ -219,6 +220,15 @@ in
     desktopNotifications = true;
     suppressDesktopNotificationsWhenDashboardOpen = false;
   };
+
+  home.file."${cfg.configDir}/context-prune/settings.json".source =
+    jsonFormat.generate "pi-context-prune-settings.json"
+      {
+        enabled = true;
+        showPruneStatusLine = false;
+        notifySkipped = false;
+        summarizerModel = "default";
+      };
 
   home.file."${cfg.configDir}/keybindings.json".source =
     jsonFormat.generate "pi-keybindings.json" ui.keybindings;
