@@ -32,10 +32,10 @@
 }:
 stdenv.mkDerivation {
   pname = "learnharness";
-  version = "0.5.0";
+  version = "0.6.1";
   src = fetchurl {
-    url = "https://github.com/amosblomqvist/learnharness/releases/download/v0.5.0/LearnHarness-0.5.0-amd64.deb";
-    hash = "sha256-nR7nwQXvnMvMoH+M2nQlureALGufANzvcTol0k4FIIQ=";
+    url = "https://github.com/amosblomqvist/learnharness/releases/download/v0.6.1/LearnHarness-0.6.1-amd64.deb";
+    hash = "sha256-LIZbewtw8c6p/EBVivA5l2i3uZZFf7b4HWKLLdJCzl0=";
   };
   nativeBuildInputs = [
     dpkg

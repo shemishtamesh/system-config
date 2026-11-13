@@ -273,6 +273,7 @@ let
     "~/.cache/nix"
     "~/.cache/typst"
     "~/.cache/uv"
+    "~/go/pkg/mod/cache"
   ]
   ++ temporaryPaths
   ++ memoryPaths;
