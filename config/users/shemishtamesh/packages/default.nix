@@ -126,7 +126,7 @@ let
         scrcpy
         android-tools
         visidata
-        silverbullet-cli
+        silverbullet
         drawy
       ];
     };
