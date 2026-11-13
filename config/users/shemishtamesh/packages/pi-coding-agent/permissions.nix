@@ -285,6 +285,7 @@ let
     "~/.pi/agent/AGENTS.md"
     "~/.pi/agent/sessions"
     "/etc/passwd"
+    "/etc/resolv.conf"
     "/proc/stat"
     "/proc/cpuinfo"
     "/sys/devices/system/cpu"
