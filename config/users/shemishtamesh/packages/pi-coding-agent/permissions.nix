@@ -2,6 +2,8 @@
   pkgs,
   config,
   jsonFormat,
+  globalMemoryDir,
+  agentConfigDir,
 }:
 let
   landstrip = import ./landstrip { inherit pkgs; };
@@ -265,7 +267,7 @@ let
 
   memoryPaths = [
     ".pi/memory"
-    "~/${config.programs.pi-coding-agent.configDir}/memory"
+    globalMemoryDir
   ];
 
   sharedReadWritePaths = [
@@ -282,8 +284,8 @@ let
     "~/.config/git/ignore"
     "~/.config/git/config"
     "~/.cache/fontconfig/"
-    "~/.pi/agent/AGENTS.md"
-    "~/.pi/agent/sessions"
+    "${agentConfigDir}/AGENTS.md"
+    "${agentConfigDir}/sessions"
     "/etc/passwd"
     "/etc/resolv.conf"
     "/proc/stat"
@@ -410,7 +412,13 @@ in
       map (
         tool:
         pathRules tool "allow" (
-          map (path: if pkgs.lib.hasPrefix "~/" path then expandHome path else "**/${path}") memoryPaths
+          map (
+            path:
+            if pkgs.lib.hasPrefix "/" path || pkgs.lib.hasPrefix "~/" path then
+              expandHome path
+            else
+              "**/${path}"
+          ) memoryPaths
         )
       ) nativeWriteTools
     );
