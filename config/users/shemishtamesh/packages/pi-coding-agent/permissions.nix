@@ -272,6 +272,7 @@ let
 
   sharedReadWritePaths = [
     "."
+    "/tmp/nvim.${config.home.username}"
   ]
   ++ temporaryPaths
   ++ memoryPaths;
