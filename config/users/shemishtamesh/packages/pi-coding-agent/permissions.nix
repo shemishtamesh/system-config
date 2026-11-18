@@ -288,6 +288,7 @@ let
     "${agentConfigDir}/sessions"
     "/etc/passwd"
     "/etc/resolv.conf"
+    "/etc/nix/registry.json"
     "/proc/stat"
     "/proc/cpuinfo"
     "/sys/devices/system/cpu"
