@@ -188,7 +188,7 @@ in
         "npm:pi-permission-system@0.8.0"
         "npm:pi-subagents@0.75.0"
         "npm:pi-web-access@0.35.0"
-        "npm:pi-opencode-cli-bridge@0.2.19"
+        "npm:pi-opencode-cli-bridge@0.2.21"
         # "npm:remote-pi@0.7.0"
         "npm:privateer-speak@0.8.0"
         ./provider-filters
