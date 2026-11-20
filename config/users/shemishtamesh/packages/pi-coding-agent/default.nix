@@ -197,7 +197,10 @@ in
     };
 
     context = ''
-      You run inside a sandbox. Do not attempt the impossible or repeat failures.
+      Prefer simple, maintainable solutions and the smallest sound change. Avoid unrelated refactoring, unsolicited rewrites, and new dependencies unless needed.
+      Preserve existing user changes. Don't overwrite or revert unrelated work without explicit permission.
+      Whenever possible, verify your claims instead of guessing or inferring. this could mean running tests, checking sources, etc.
+      You run inside a sandbox. Do not attempt things that caused repeat failures.
       Never attempt to read any secret information in any way or display it.
       Never attempt to run anything that could damage the host machine or consume too much resources.
       Use $TMP, not /tmp, when executing commands. this only applies to your own commands, not to project code.
