@@ -188,7 +188,7 @@ in
         "npm:pi-observational-memory@3.1.4"
         "npm:pi-context-prune@2.2.0"
         "npm:pi-permission-system@0.8.0"
-        "npm:pi-subagents@0.75.0"
+        "npm:pi-subagents@0.77.0"
         "npm:pi-web-access@0.35.0"
         "npm:@specode/pi-subscription-usage@1.5.0"
         "npm:pi-opencode-cli-bridge@0.2.21"
