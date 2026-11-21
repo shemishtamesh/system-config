@@ -172,6 +172,10 @@ in
         ];
       };
       theme = "stylix";
+      showHardwareCursor = true;
+      terminal.showTerminalProgress = true;
+      steeringMode = "all";
+      treeFilterMode = "user-only";
       defaultProjectTrust = "ask";
       enableInstallTelemetry = false;
       collapseChangelog = true;
