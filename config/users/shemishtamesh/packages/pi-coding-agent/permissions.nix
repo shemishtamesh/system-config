@@ -329,7 +329,10 @@ let
     "write"
     "edit"
   ];
-  writeDenyPaths = [ "**/.pi" ];
+  writeDenyPaths = [
+    "~/.pi"
+    "./.pi"
+  ];
 
   nativeToolDenies = pkgs.lib.mergeAttrsList (
     (map (tool: pathRules tool "deny" secretFiles) nativeFileTools)
