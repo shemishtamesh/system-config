@@ -8,10 +8,10 @@
 
 ## Delegation
 
-- Use subagents to keep the main session's context focused and complete tasks faster whenever
-  the expected benefits outweigh the delegation overhead. This instruction authorizes
-  delegation for those purposes; handle small, straightforward tasks directly when delegation
-  would not be worthwhile.
+- Use subagents proactively to keep the main session's context focused and complete tasks faster
+  unless the expected benefits obviously don't outweigh the delegation overhead. This
+  instruction authorizes delegation for those purposes; handle small, straightforward tasks
+  directly when delegation would not be worthwhile.
 
 ## Isolated clone workflow
 
