@@ -933,11 +933,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1795082855,
-        "narHash": "sha256-eOa5nxgdJthLwM8fx3x9R49wdVxOS7qdVckbfWHaN2E=",
+        "lastModified": 1795614174,
+        "narHash": "sha256-ibl4stxW0mwKK+A76eM6S9AwaGi5lCDKwFKr1k26dLc=",
         "owner": "shemishtamesh",
         "repo": "nixvim-flake",
-        "rev": "8de385842a495829950bb261ee8fe679c7b349fa",
+        "rev": "c60c15d07e73936a4942b2286d1b5446e64c6c55",
         "type": "github"
       },
       "original": {
