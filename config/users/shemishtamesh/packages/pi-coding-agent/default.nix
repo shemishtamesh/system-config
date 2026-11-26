@@ -194,6 +194,7 @@ in
         "npm:pi-opencode-cli-bridge@0.2.21"
         # "npm:remote-pi@0.7.0"
         "npm:privateer-speak@0.8.0"
+        "npm:pi-keep-going"
         ./provider-filters
         ./session-tmp
       ];
