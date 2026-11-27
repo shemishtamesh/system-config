@@ -397,20 +397,14 @@ in
   ];
 
   piPermissionConfig = {
-    enabled = true;
-    debug = false;
+    debugLog = false;
     yoloMode = false;
-    defaultPolicy = {
-      tools = "allow";
-      bash = "allow";
-      mcp = "allow";
-      skills = "allow";
-      special = "allow";
-    };
-    tools = {
+    permission = {
       "*" = "allow";
       grep = "deny";
       find = "deny";
+      bash = bashDenyPatterns;
+      external_directory = "deny";
     }
     // nativeToolDenies
     // pkgs.lib.mergeAttrsList (
@@ -426,12 +420,7 @@ in
           ) memoryPaths
         )
       ) nativeWriteTools
-    );
-    bash = bashDenyPatterns;
-    skills."*" = "allow";
-    special = {
-      external_directory = "deny";
-    }
+    )
     // externalAllowRules;
   };
 }
