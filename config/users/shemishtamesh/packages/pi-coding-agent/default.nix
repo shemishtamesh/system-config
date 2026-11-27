@@ -238,8 +238,8 @@ in
   home.file."${cfg.configDir}/keybindings.json".source =
     jsonFormat.generate "pi-keybindings.json" ui.keybindings;
 
-  home.file."${cfg.configDir}/pi-permissions.jsonc" = {
-    source = jsonFormat.generate "pi-permissions.jsonc" piPermissionConfig;
+  home.file."${cfg.configDir}/extensions/pi-permission-system/config.json" = {
+    source = jsonFormat.generate "pi-permission-system-config.json" piPermissionConfig;
   };
 
   home.file."${cfg.configDir}/extensions/subagent/config.json".source =
