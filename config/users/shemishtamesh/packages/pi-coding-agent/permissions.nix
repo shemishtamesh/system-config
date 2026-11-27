@@ -403,7 +403,9 @@ in
       "*" = "allow";
       grep = "deny";
       find = "deny";
-      bash = bashDenyPatterns;
+      bash = bashDenyPatterns // {
+        "*" = "allow";
+      };
       external_directory = "deny";
     }
     // nativeToolDenies
