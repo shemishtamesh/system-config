@@ -186,15 +186,15 @@ in
 
       packages = [
         "npm:pi-observational-memory@3.1.4"
-        "npm:pi-context-prune@2.2.0"
-        "npm:pi-permission-system@0.8.0"
+        "npm:pi-context-prune@3.2.1"
+        "npm:@gotgenes/pi-permission-system@44.0.2"
         "npm:pi-subagents@0.90.0"
-        "npm:pi-web-access@0.35.0"
+        "npm:pi-web-access@0.48.0"
         "npm:@specode/pi-subscription-usage@1.5.0"
-        "npm:pi-opencode-cli-bridge@0.2.21"
+        "npm:pi-opencode-cli-bridge@0.2.23"
         "npm:@hk_net/remote-pi@0.9.0"
         "npm:privateer-speak@0.8.0"
-        "npm:pi-keep-going"
+        "npm:pi-keep-going@1.2.0"
         ./provider-filters
         ./session-tmp
       ];
